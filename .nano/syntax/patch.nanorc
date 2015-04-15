@@ -1,0 +1,9 @@
+syntax "patch" "\.(patch|diff)$"
+
+color brightgreen "^\+.*"
+color green "^\+\+\+.*"
+color brightred "^-.*"
+color red "^---.*"
+color blue "^@@.*"
+color magenta "^diff.*"
+

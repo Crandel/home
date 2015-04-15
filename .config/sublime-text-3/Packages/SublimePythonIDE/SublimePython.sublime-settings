@@ -1,0 +1,44 @@
+{
+    // leave empty string to use default system interpreter
+    // e.g. /usr/local/bin/python
+    // or "C:\\Python27\\python.exe"
+    // if you use virtualenvs, then set the absolute path to the virtualenv's
+    // python in your project settings (Project->Edit Project) as in:
+    //
+    // {
+    //     "folders": ...
+    //     "settings":
+    //     {
+    //         "python_interpreter": "/Users/USER/.virtualenvs/PROJECT/bin/python"
+    //     }
+    // }
+    "python_interpreter": "",
+
+    // make python_open_documentation command output in a view or in the output
+    // panel if false
+    "open_pydoc_in_view": false,
+
+    // when a doc view is created it will be placed in the active view group
+    // if false and only one group exist then a new group will be created
+    "create_view_in_same_group": false,
+
+    // Linter settings
+    "python_linting": true,
+    "python_linter_mark_style": "outline", // "none" or "outline"
+    "python_linter_gutter_marks": true,
+    "python_linter_gutter_marks_theme": "simple", // see folder gutter_mark_themes
+
+    // linting colors
+    "warning_color":"EDBA00",
+    "error_color":"DA2000",
+
+    "pep8": true,
+    // disable certain pep8 errors
+    // overview of possible error codes at http://pep8.readthedocs.org/en/latest/intro.html#error-codes
+    "pep8_ignore": [],
+    "pep8_max_line_length": 80,
+    "pyflakes_ignore": [],
+
+    // If the organize imports refactoring should be called on every file save
+    "python_organize_imports_on_save": false
+}

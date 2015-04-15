@@ -1,0 +1,6 @@
+[
+    {
+        "caption": "GoImports",
+        "command": "go_imports"
+    }
+]

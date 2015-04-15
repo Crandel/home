@@ -1,0 +1,18 @@
+syntax "sh" "\.sh$" "\.bash$" "bashrc$" "bash_profile$"
+header "^#!.*/(env +)?(ba|k|pdk)?sh[-0-9_]*( |$)"
+
+color brightblue "^[A-Za-z0-9_+-]+[[:space:]]*\(\)"
+color brightblack  "\<(case|do|done|elif|else|esac|fi|for|function|if)\>"
+color brightblack  "\<(in|select|then|time|until|while)\>"
+color brightblue "\<(echo|exit|export|let|local|read|return|set|shift|umask|unset)\>"
+color brightblue "\<(source)\>"
+color red "[{}()<>!=&|;`$]|\\|\[|\]|-(eq|ne|gt|lt|ge|le|s|n|z)\>"
+color yellow   ""(\\.|[^"])*""
+color brightyellow "\$\{?[A-Za-z0-9_!@#$*?-]+\}?|`[^`]*`"
+color yellow   "'(\\.|[^'])*'"
+color magenta   "\\.?"
+color cyan "(^|[[:space:]])#([^{].*)?$"
+color brightwhite,cyan "TODO:?"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

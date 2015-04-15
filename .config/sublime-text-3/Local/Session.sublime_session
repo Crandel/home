@@ -1,0 +1,1190 @@
+{
+	"folder_history":
+	[
+		"/media/data/virtual/work/catalog",
+		"/media/data/virtual/work/catalog_of_books",
+		"/media/data/virtual/work/catalogOfBooks",
+		"/media/data/virtual/work/espermasters",
+		"/media/data/work/web/catalogOfBooks",
+		"/home/vitaliy/work/kuwait",
+		"/home/vitaliy/work/virtual/vagrant/work/auth",
+		"/media/data/work/web/djangoProject",
+		"/media/data/virtual/vagrant/sh",
+		"/media/data/work/vagrant",
+		"/media/data/work/AbcName/second"
+	],
+	"last_version": 3083,
+	"last_window_id": 14,
+	"log_indexing": false,
+	"settings":
+	{
+		"new_window_height": 0.0,
+		"new_window_settings":
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"mongo",
+						"mongo"
+					],
+					[
+						"mo",
+						"mongodata"
+					],
+					[
+						"ng-b",
+						"ng-bind-template	AngularJS"
+					],
+					[
+						"fi",
+						"fish_color_cwd_root"
+					],
+					[
+						"fis",
+						"fish_color_cwd"
+					],
+					[
+						"conte",
+						"context	statement"
+					],
+					[
+						"con",
+						"continue	keyword"
+					],
+					[
+						"context_",
+						"context_object_name"
+					],
+					[
+						"pag",
+						"paginate_by"
+					],
+					[
+						"pr",
+						"Project	(class)"
+					],
+					[
+						"tem",
+						"template_name"
+					]
+				]
+			},
+			"build_system": "",
+			"command_palette":
+			{
+				"height": 375.0,
+				"selected_items":
+				[
+					[
+						"pa",
+						"Package Control: Install Package"
+					],
+					[
+						"p",
+						"Package Control: Install Package"
+					],
+					[
+						"Package Control: ",
+						"Package Control: Remove Package"
+					],
+					[
+						"pu",
+						"Git: Push"
+					],
+					[
+						"gi",
+						"GitHub: Edit"
+					],
+					[
+						"gith",
+						"Git: Push"
+					],
+					[
+						"github",
+						"Github: Plugin Settings"
+					],
+					[
+						"githu",
+						"GitHub: Switch Accounts"
+					],
+					[
+						"git",
+						"GitHub: Switch Accounts"
+					],
+					[
+						"g",
+						"Github: Plugin Settings"
+					],
+					[
+						"pac",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 579.0
+			},
+			"console":
+			{
+				"height": 139.0,
+				"history":
+				[
+					"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/media/data/virtual/work/catalog_of_books/Dockerfile",
+				"/media/data/virtual/work/catalog_of_books/fig.yml",
+				"/media/data/virtual/work/espermasters/Dockerfile",
+				"/media/data/virtual/work/espermasters/fig.yml",
+				"/media/data/virtual/work/espermasters/settings_local.py",
+				"/media/data/virtual/work/espermasters/.gitignore",
+				"/media/data/work/web/catalogOfBooks/package.json",
+				"/media/data/virtual/vagrant/work/angular/angular.html",
+				"/media/data/virtual/vagrant/work/bungalow/config/settings.py",
+				"/media/data/virtual/vagrant/work/espermasters/.gitignore",
+				"/usr/share/fish/functions/fish_prompt.fish",
+				"/home/crandel/.config/fish/functions/fish_prompt.fish",
+				"/home/crandel/.bashrc",
+				"/media/data/programs/ubuntu/Sublime Text Build 3059/Key.txt",
+				"/media/data/games/Counter-Strike-Source/cstrike/resource/cstrike_english.txt\n",
+				"/media/data/programs/ubuntu/bash/home.sh",
+				"/etc/vim/vimrc",
+				"/home/crandel/.vim/vimrc",
+				"/media/data/programs/ubuntu/bash/xubuntu.sh",
+				"/media/data/programs/ubuntu/bash/ubuntu.sh",
+				"/media/data/programs/ubuntu/bash/ubuntu_core.sh",
+				"/usr/share/xfce4/panel/plugins/indicator.desktop",
+				"/home/crandel/.nvidia-settings-rc",
+				"/media/data/programs/ubuntu/bash/main.sh",
+				"/media/data/programs/ubuntu/pack.sh",
+				"/media/data/programs/ubuntu/packU.sh",
+				"/media/data/programs/ubuntu/repository.sh",
+				"/media/data/programs/ubuntu/repositoryU.sh",
+				"/media/data/programs/ubuntu/lamp.sh",
+				"/media/data/programs/ubuntu/java.sh",
+				"/media/data/programs/ubuntu/packEl.sh",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+				"/home/vitaliy/work/kuwait/templates/frontend_base.html",
+				"/home/vitaliy/work/kuwait/apps/portfolio/models.py",
+				"/home/vitaliy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+				"/home/vitaliy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+				"/home/vitaliy/work/virtual/Vagrantfile",
+				"/home/vitaliy/work/kuwait/apps/portfolio/views.py",
+				"/home/vitaliy/work/kuwait/apps/portfolio/tests.py",
+				"/home/vitaliy/work/kuwait/apps/news/tests.py",
+				"/home/vitaliy/Documents/1.json",
+				"/home/vitaliy/work/kuwait/templates/project/more_cariers.html",
+				"/home/vitaliy/work/kuwait/templates/project/portfolio_info.html",
+				"/home/vitaliy/Documents/tweeter.html",
+				"/home/vitaliy/work/kuwait/apps/news/models.py",
+				"/home/vitaliy/work/kuwait/apps/news/views.py",
+				"/home/vitaliy/work/kuwait/apps/news/urls.py",
+				"/home/vitaliy/work/kuwait/apps/portfolio/urls.py",
+				"/home/vitaliy/work/kuwait/kud/urls.py",
+				"/home/vitaliy/work/kuwait/apps/contactus/models.py",
+				"/home/vitaliy/work/kuwait/apps/contactus/admin.py",
+				"/home/vitaliy/work/kuwait/apps/news/admin.py",
+				"/home/vitaliy/work/kuwait/apps/careers/urls.py",
+				"/home/vitaliy/work/virtual/sh/core.sh",
+				"/home/vitaliy/work/kuwait/templates/project/project_list.html",
+				"/home/vitaliy/work/kuwait/requirements.txt",
+				"/home/vitaliy/work/kuwait/kud/server_settings.py",
+				"/home/vitaliy/work/virtual/sh/sql.sh",
+				"/home/vitaliy/.bash_history",
+				"/home/vitaliy/work/virtual/provision.sh",
+				"/home/vitaliy/work/virtual/sh/python.sh",
+				"/home/vitaliy/work/kuwait/templates/news/news_list.html",
+				"/home/vitaliy/work/kuwait/kudfinal_template/004-news.html",
+				"/home/crandel/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+				"/media/data/work/vagrant/provision.sh",
+				"/home/crandel/1.py",
+				"/home/crandel/.bash_history",
+				"/home/crandel/touchpad.sh",
+				"/media/data/work/web/catalogOfBooks/views/layout.jade",
+				"/media/data/work/web/catalogOfBooks/views/homepage.jade",
+				"/home/crandel/.config/sublime-text-3/Packages/sublime-github/GitHub.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Github Tools.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/User/GitHub.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/GitGutter/GitGutter.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
+				"/home/crandel/.wine/dosdevices/c:/users/Public/Desktop/Sword of the Stars - Complete Collection.lnk",
+				"/home/crandel/.config/sublime-text-3/Packages/Javatar/README.md"
+			],
+			"find":
+			{
+				"height": 27.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": false,
+				"find_history":
+				[
+					"PYTHONUNBUFFERED",
+					"clo",
+					"pull"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 27.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"menu_visible": true,
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.git":
+			{
+				"height": 112.0
+			},
+			"replace":
+			{
+				"height": 50.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 225.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 0.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"P",
+						"Password	(class)"
+					],
+					[
+						"el",
+						"else	(keyword)"
+					],
+					[
+						"e",
+						"elif	(keyword)"
+					],
+					[
+						"di",
+						"dir	(function)"
+					],
+					[
+						"typ",
+						"type_list	(statement)"
+					],
+					[
+						"ty",
+						"type_list	(statement)"
+					],
+					[
+						"m",
+						"make	type ƒ"
+					],
+					[
+						"s",
+						"slice1	[]int ν"
+					],
+					[
+						"a",
+						"array4	[3][3]float32 ν"
+					],
+					[
+						"f",
+						"fmt	 package ρ"
+					],
+					[
+						"arr",
+						"array3	[10]uint ν"
+					],
+					[
+						"T",
+						"TypeOf	reflect.Type ƒ"
+					],
+					[
+						"i",
+						"input	(function)"
+					],
+					[
+						"in",
+						"int	(class)"
+					],
+					[
+						"re",
+						"res_list	(statement)"
+					],
+					[
+						"des",
+						"description	(statement)"
+					],
+					[
+						"co",
+						"commit	(function)"
+					],
+					[
+						"fo",
+						"format	(function)"
+					],
+					[
+						"E",
+						"EMAIL	(statement)"
+					],
+					[
+						"pa",
+						"params	(function)"
+					],
+					[
+						"c",
+						"con	(statement)"
+					],
+					[
+						"del",
+						"delete"
+					],
+					[
+						"no",
+						"not	(keyword)"
+					],
+					[
+						"n",
+						"name	(statement)"
+					],
+					[
+						"v",
+						"values	(statement)"
+					],
+					[
+						"ar",
+						"arguments	(param)"
+					],
+					[
+						"par",
+						"params_sql	(statement)"
+					],
+					[
+						"li",
+						"lite	(module)"
+					],
+					[
+						"pass",
+						"password	(statement)"
+					],
+					[
+						"sql_a",
+						"sql_add	(statement)"
+					],
+					[
+						"sql",
+						"sql_email	(statement)"
+					],
+					[
+						"sq",
+						"sql_description	(statement)"
+					],
+					[
+						"p",
+						"params	(statement)"
+					],
+					[
+						"lo",
+						"login	(statement)"
+					],
+					[
+						"fe",
+						"fetchall	(function)"
+					],
+					[
+						"pas",
+						"password	(statement)"
+					],
+					[
+						"ta",
+						"table	(statement)"
+					],
+					[
+						"F",
+						"False	class"
+					],
+					[
+						"pars",
+						"parser_add	statement"
+					],
+					[
+						"cl",
+						"close	function"
+					],
+					[
+						"arg",
+						"args	param"
+					],
+					[
+						"__",
+						"__init__	init"
+					],
+					[
+						"add",
+						"add_parser"
+					],
+					[
+						"pr",
+						"print	function"
+					],
+					[
+						"mongo",
+						"mongo"
+					],
+					[
+						"mo",
+						"mongodata"
+					],
+					[
+						"ng-b",
+						"ng-bind-template	AngularJS"
+					],
+					[
+						"fi",
+						"fish_color_cwd_root"
+					],
+					[
+						"fis",
+						"fish_color_cwd"
+					],
+					[
+						"conte",
+						"context	statement"
+					],
+					[
+						"con",
+						"continue	keyword"
+					],
+					[
+						"context_",
+						"context_object_name"
+					],
+					[
+						"pag",
+						"paginate_by"
+					],
+					[
+						"tem",
+						"template_name"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/media/data/virtual/work/pass/password.py",
+					"settings":
+					{
+						"buffer_size": 7365,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/media/data/virtual/work/pass/password2.py",
+					"settings":
+					{
+						"buffer_size": 7570,
+						"line_ending": "Unix",
+						"name": "Pa"
+					}
+				},
+				{
+					"contents": "sudo pacman -S htop yaourt vim mc jdk8-openjdk meld doublecmd-gtk\n gparted git gdebi ubuntu-tweak grub-customizer sublime-text-installer skype ghex vlc chromium-browser synaptic libreoffice square-icons purple-vk-plugin p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller nodejs python-dev preload\nyaourt -S furiusisomount",
+					"settings":
+					{
+						"buffer_size": 369,
+						"line_ending": "Unix",
+						"name": "sudo pacman -S htop yaourt vim mc jdk8-openjdk mel"
+					}
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 375.0,
+				"last_filter": "pa",
+				"selected_items":
+				[
+					[
+						"pa",
+						"Package Control: Install Package"
+					],
+					[
+						"Package Control: ",
+						"Package Control: List Packages"
+					],
+					[
+						"p",
+						"Package Control: List Packages"
+					],
+					[
+						"pu",
+						"Git: Push"
+					],
+					[
+						"gi",
+						"GitHub: Edit"
+					],
+					[
+						"gith",
+						"Git: Push"
+					],
+					[
+						"github",
+						"Github: Plugin Settings"
+					],
+					[
+						"githu",
+						"GitHub: Switch Accounts"
+					],
+					[
+						"git",
+						"GitHub: Switch Accounts"
+					],
+					[
+						"g",
+						"Github: Plugin Settings"
+					],
+					[
+						"pac",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 579.0
+			},
+			"console":
+			{
+				"height": 139.0,
+				"history":
+				[
+					"go run ./test.go",
+					"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"expanded_folders":
+			[
+				"/media/data/virtual/work/catalog",
+				"/media/data/virtual/work/catalog/.tmp"
+			],
+			"file_history":
+			[
+				"/home/crandel/.config/sublime-text-3/Packages/User/Refactor.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/sublime-text-refactor/Refactor.sublime-settings",
+				"/home/crandel/go/src/test/test.go",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/GoSublime.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/User/GoSublime.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/GitGutter/GitGutter.sublime-settings",
+				"/home/crandel/go/src/exmpl/exmpl1_linux.go",
+				"/media/data/work/go/projects/test/src/test.go",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/CHANGELOG.md",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/USAGE.md",
+				"/media/data/virtual/work/pass/hash_func.py",
+				"/media/data/virtual/work/pass/.gitignore",
+				"/home/crandel/My Games/SE5/CD key.txt",
+				"/media/data/virtual/work/espermasters/apps/account/accutils.py",
+				"/media/data/virtual/work/pass/password.py",
+				"/media/data/virtual/work/catalog/Dockerfile",
+				"/media/data/virtual/work/catalog/run.sh",
+				"/media/data/virtual/work/catalog/package.json",
+				"/media/data/virtual/work/catalog/fig.yml",
+				"/media/data/virtual/work/dockerImage/mongo/Dockerfile",
+				"/media/data/virtual/work/auth/auth/settings.py",
+				"/media/data/virtual/work/test/package.json",
+				"/media/data/virtual/work/catalog/.gitignore",
+				"/media/data/virtual/work/catalog_of_books/Dockerfile",
+				"/media/data/virtual/work/catalog_of_books/fig.yml",
+				"/media/data/virtual/work/espermasters/Dockerfile",
+				"/media/data/virtual/work/espermasters/fig.yml",
+				"/media/data/virtual/work/espermasters/settings_local.py",
+				"/media/data/virtual/work/espermasters/.gitignore",
+				"/media/data/work/web/catalogOfBooks/package.json",
+				"/media/data/virtual/vagrant/work/angular/angular.html",
+				"/media/data/virtual/vagrant/work/bungalow/config/settings.py",
+				"/media/data/virtual/vagrant/work/espermasters/.gitignore",
+				"/usr/share/fish/functions/fish_prompt.fish",
+				"/home/crandel/.config/fish/functions/fish_prompt.fish",
+				"/home/crandel/.bashrc",
+				"/media/data/programs/ubuntu/Sublime Text Build 3059/Key.txt",
+				"/media/data/games/Counter-Strike-Source/cstrike/resource/cstrike_english.txt\n",
+				"/media/data/programs/ubuntu/bash/home.sh",
+				"/etc/vim/vimrc",
+				"/home/crandel/.vim/vimrc",
+				"/media/data/programs/ubuntu/bash/xubuntu.sh",
+				"/media/data/programs/ubuntu/bash/ubuntu.sh",
+				"/media/data/programs/ubuntu/bash/ubuntu_core.sh",
+				"/usr/share/xfce4/panel/plugins/indicator.desktop",
+				"/home/crandel/.nvidia-settings-rc",
+				"/media/data/programs/ubuntu/bash/main.sh",
+				"/media/data/programs/ubuntu/pack.sh",
+				"/media/data/programs/ubuntu/packU.sh",
+				"/media/data/programs/ubuntu/repository.sh",
+				"/media/data/programs/ubuntu/repositoryU.sh",
+				"/media/data/programs/ubuntu/lamp.sh",
+				"/media/data/programs/ubuntu/java.sh",
+				"/media/data/programs/ubuntu/packEl.sh",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+				"/home/vitaliy/work/kuwait/templates/frontend_base.html",
+				"/home/vitaliy/work/kuwait/apps/portfolio/models.py",
+				"/home/vitaliy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+				"/home/vitaliy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+				"/home/vitaliy/work/virtual/Vagrantfile",
+				"/home/vitaliy/work/kuwait/apps/portfolio/views.py",
+				"/home/vitaliy/work/kuwait/apps/portfolio/tests.py",
+				"/home/vitaliy/work/kuwait/apps/news/tests.py",
+				"/home/vitaliy/Documents/1.json",
+				"/home/vitaliy/work/kuwait/templates/project/more_cariers.html",
+				"/home/vitaliy/work/kuwait/templates/project/portfolio_info.html",
+				"/home/vitaliy/Documents/tweeter.html",
+				"/home/vitaliy/work/kuwait/apps/news/models.py",
+				"/home/vitaliy/work/kuwait/apps/news/views.py",
+				"/home/vitaliy/work/kuwait/apps/news/urls.py",
+				"/home/vitaliy/work/kuwait/apps/portfolio/urls.py",
+				"/home/vitaliy/work/kuwait/kud/urls.py",
+				"/home/vitaliy/work/kuwait/apps/contactus/models.py",
+				"/home/vitaliy/work/kuwait/apps/contactus/admin.py",
+				"/home/vitaliy/work/kuwait/apps/news/admin.py",
+				"/home/vitaliy/work/kuwait/apps/careers/urls.py",
+				"/home/vitaliy/work/virtual/sh/core.sh",
+				"/home/vitaliy/work/kuwait/templates/project/project_list.html",
+				"/home/vitaliy/work/kuwait/requirements.txt",
+				"/home/vitaliy/work/kuwait/kud/server_settings.py",
+				"/home/vitaliy/work/virtual/sh/sql.sh",
+				"/home/vitaliy/.bash_history",
+				"/home/vitaliy/work/virtual/provision.sh",
+				"/home/vitaliy/work/virtual/sh/python.sh",
+				"/home/vitaliy/work/kuwait/templates/news/news_list.html",
+				"/home/vitaliy/work/kuwait/kudfinal_template/004-news.html",
+				"/home/crandel/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+				"/media/data/work/vagrant/provision.sh",
+				"/home/crandel/1.py",
+				"/home/crandel/.bash_history",
+				"/home/crandel/touchpad.sh",
+				"/media/data/work/web/catalogOfBooks/views/layout.jade",
+				"/media/data/work/web/catalogOfBooks/views/homepage.jade",
+				"/home/crandel/.config/sublime-text-3/Packages/sublime-github/GitHub.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Github Tools.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/User/GitHub.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
+				"/home/crandel/.wine/dosdevices/c:/users/Public/Desktop/Sword of the Stars - Complete Collection.lnk",
+				"/home/crandel/.config/sublime-text-3/Packages/Javatar/README.md"
+			],
+			"find":
+			{
+				"height": 37.0
+			},
+			"find_in_files":
+			{
+				"height": 0.0,
+				"where_history":
+				[
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": true,
+				"find_history":
+				[
+					"Password",
+					"table",
+					"else",
+					"', ",
+					"')\n",
+					"downloads",
+					"sails",
+					"PYTHONUNBUFFERED",
+					"clo",
+					"pull"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"TABLE"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"folders":
+			[
+				{
+					"path": "/media/data/virtual/work/catalog"
+				}
+			],
+			"groups":
+			[
+				{
+					"selected": 2,
+					"sheets":
+					[
+						{
+							"buffer": 0,
+							"file": "/media/data/virtual/work/pass/password.py",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 7365,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										0,
+										0
+									]
+								],
+								"settings":
+								{
+									"BracketHighlighterBusy": false,
+									"bh_regions":
+									[
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content"
+									],
+									"nodePath": "node",
+									"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 1482.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/media/data/virtual/work/pass/password2.py",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 7570,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										514,
+										514
+									]
+								],
+								"settings":
+								{
+									"BracketHighlighterBusy": false,
+									"auto_name": "Pa",
+									"bh_regions":
+									[
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content"
+									],
+									"syntax": "Packages/Python/Python.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 228.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 369,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										66,
+										66
+									]
+								],
+								"settings":
+								{
+									"BracketHighlighterBusy": false,
+									"auto_name": "sudo pacman -S htop yaourt vim mc jdk8-openjdk mel",
+									"bh_regions":
+									[
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content",
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content"
+									],
+									"syntax": "Packages/Text/Plain text.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 0,
+							"type": "text"
+						}
+					]
+				}
+			],
+			"incremental_find":
+			{
+				"height": 27.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						1,
+						1
+					]
+				],
+				"cols":
+				[
+					0.0,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					1.0
+				]
+			},
+			"menu_visible": true,
+			"output.MarGo-output":
+			{
+				"height": 126.0
+			},
+			"output.exec":
+			{
+				"height": 126.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.git":
+			{
+				"height": 112.0
+			},
+			"output.rope_python_documentation":
+			{
+				"height": 126.0
+			},
+			"output.unsaved_changes":
+			{
+				"height": 126.0
+			},
+			"pinned_build_system": "",
+			"position": "0,1,0,0,0,0,0,0,0,1366,768",
+			"project": "",
+			"replace":
+			{
+				"height": 66.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"selected_group": 0,
+			"settings":
+			{
+			},
+			"show_minimap": true,
+			"show_open_files": false,
+			"show_tabs": true,
+			"side_bar_visible": false,
+			"side_bar_width": 225.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			},
+			"window_id": 14,
+			"workspace_name": ""
+		}
+	],
+	"workspaces":
+	{
+		"recent_workspaces":
+		[
+			"/media/data/work/web/djangoProject/djangoProject.sublime-workspace",
+			"/home/crandel/.config/sublime-text-3/Packages/User/Projects/catalogOfBooks.sublime-workspace"
+		]
+	}
+}

@@ -1,0 +1,13 @@
+syntax "peg" "\.l?peg$"
+
+color brightblack  "^[[:space:]]*[A-Za-z][A-Za-z0-9_]*[[:space:]]*<-"
+color blue   "\^[+-]?[0-9]+"
+color red "[-+*?^/!&]|->|<-|=>"
+color brightyellow    "%[A-Za-z][A-Za-z0-9_]*"
+color magenta   "\[[^]]*\]"
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color cyan  "(^|[[:space:]])\-\-.*$"
+color brightwhite,cyan "TODO:?"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

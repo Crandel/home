@@ -1,0 +1,12 @@
+syntax "cmake" "CMakeLists\.txt$|\.cmake$"
+
+color brightblue "[A-Za-z_][A-Za-z0-9_]*[[:space:]]*[(]"
+color black    "[(]"
+color brightcyan  "\<(ON|OFF|TRUE|FALSE|YES|NO)\>"
+color brightyellow "\$\{[A-Za-z0-9_!@#$*?-]+\}"
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color magenta   "\\([()#$^]|\\|\")"
+color cyan "(^|[[:space:]])#([^{].*)?$"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

@@ -1,0 +1,17 @@
+{
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/User/Sunburst (SL) (SublimePythonIDE).tmTheme",
+	"draw_white_space": "all",
+	"font_size": 12,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"show_encoding": true,
+	"spell_check": false,
+	"theme": "Cobalt2.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"word_wrap": "true"
+}

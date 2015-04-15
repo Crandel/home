@@ -1,0 +1,12 @@
+syntax: glob
+*.py.old
+*.pyc
+*.sublime-project
+*.sublime-workspace
+.hgignore
+NOTES.txt
+*.pickle
+*.pickle
+libs/test.py
+sync.sh
+

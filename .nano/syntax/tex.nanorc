@@ -1,0 +1,8 @@
+syntax "tex" "\.(tex|cls|ltx|sty|dtx|ins|bbl)$"
+
+color brightyellow   "\\[A-Za-z]+"
+color brightmagenta "\\section"
+color cyan "%.*"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

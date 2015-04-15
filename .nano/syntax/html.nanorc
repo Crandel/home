@@ -1,0 +1,24 @@
+syntax "html" "\.html?$"
+header "<!doctype html"
+
+color magenta "\<(accept|accept-charset|accesskey|action|alt|async|autocomplete|autofocus|autoplay|border|challenge|charset|checked|cite|class|cols|colspan|content|contenteditable|contextmenu|controls|coords|crossorigin|data-[a-z-]+|datetime|default|defer|dir|dirname|disabled|draggable|dropzone|enctype|for|form|formaction|formenctype|formmethod|formnovalidate|formtarget|headers|height|hidden|high|href|hreflang|http-equiv|icon|id|ismap|keytype|kind|label|lang|list|loop|low|manifest|max|maxlength|media|mediagroup|method|min|multiple|muted|name|novalidate|open|optimum|pattern|placeholder|poster|preload|pubdate|radiogroup|readonly|rel|required|reversed|rows|rowspan|sandbox|spellcheck|scope|scoped|seamless|selected|shape|size|sizes|span|src|srcdoc|srclang|start|step|style|tabindex|target|title|type|typemustmatch|usemap|value|width|wrap)\>"
+color brightwhite,red   "</?[A-Za-z0-9_]+[ >]"
+color brightmagenta       "</?(a|abbr|address|area|article|aside|audio|b|base|bdo|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|command|datalist|dd|del|details|dfn|div|dl|dt|em|embed|eventsource|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|mark|map|menu|meta|meter|nav|noscript|object|ol|optgroup|option|output|p|param|pre|progress|q|ruby|rp|rt|samp|script|section|select|small|source|span|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|ul|var|video|wbr)[ >]"
+color yellow    "=([A-Za-z0-9!$%*\^(){}#|:;_~@+,.?/\\-]|\[|\])+"
+color red  "="
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color black     start=">" end="<"
+color brightmagenta       "[<>]"
+
+# Embedded template languages
+color brightyellow  "\{\{[^}]*\}\}|<%=.*%>"
+color brightblue  start="<\?" end="\?>"
+color brightblue  start="<%[^=]" end="%>"
+color brightblue  start="\{%" end="%\}"
+
+color magenta    "&(#[0-9]+|#x[0-9a-fA-F]+|[A-Za-z][A-Za-z0-9]*);"
+color cyan   start="<!--" end="-->"
+color cyan   "<!(doctype|DOCTYPE)[^>]*>"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

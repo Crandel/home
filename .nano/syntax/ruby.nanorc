@@ -1,0 +1,12 @@
+syntax "ruby" "\.rb$|Rakefile$"
+
+color brightblack "\<(BEGIN|END|alias|and|begin|break|case|class|def|defined\?|do|else|elsif|end|ensure|false|for|if|in|module|next|nil|not|or|redo|rescue|retry|return|self|super|then|true|undef|unless|until|when|while|yield)\>"
+color yellow  "(^|[[:space:]]):[A-Za-z0-9_]+\>"
+color magenta  "/([^/]|(\\/))*/[iomx]*" "%r\{([^}]|(\\}))*\}[iomx]*"
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color cyan "(^|[[:space:]])#([^{].*)?$"
+color cyan start="^=begin$" end="^=end$"
+color brightwhite,cyan "TODO:?"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

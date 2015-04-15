@@ -1,0 +1,11 @@
+syntax "keymap" "\.(k|key)?map$|Xmodmap$"
+
+color brightblack  "\<(add|clear|compose|keycode|keymaps|keysym|remove|string)\>"
+color brightblack  "\<(control|alt|shift)\>"
+color blue   "\<[0-9]+\>"
+color red "="
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color cyan  "^!.*$"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

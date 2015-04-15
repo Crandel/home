@@ -1,0 +1,35 @@
+
+[
+    {
+        "caption": "Python: Go to definition",
+        "command": "python_goto_definition"
+    },
+    {
+        "caption": "Python: Get back",
+        "command": "python_go_back"
+    },
+    {
+        "caption": "Python: Get documentation",
+        "command": "python_get_documentation"
+    },
+    {
+        "caption": "Python: Enable Pep8 Linting On View",
+        "command": "python_enable_pep8"
+    },
+    {
+        "caption": "Python: Disable Pep8 Linting On View",
+        "command": "python_disable_pep8"
+    },
+    {
+        "caption": "Python Refactor: Rename",
+        "command": "python_refactor_rename"
+    },
+    {
+        "caption": "Python Refactor: Extract Method",
+        "command": "python_extract_method"
+    },
+    {
+        "caption": "Python Refactor: Organize Imports",
+        "command": "python_organize_imports"
+    },
+]

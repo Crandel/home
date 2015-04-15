@@ -1,0 +1,29 @@
+syntax "java" "\.java$"
+
+# Class
+color brightmagenta  "class +[A-Za-z0-9]+ *((implements|extends) +[A-Za-z0-9.]+)?"
+
+# Annotation
+color magenta   "@[A-Za-z]+"
+
+color brightblue "[A-Za-z_][A-Za-z0-9_]*[[:space:]]*[(]"
+color black    "[(]"
+color green     "\<(boolean|byte|char|double|float|int|long|short|String|void)\>"
+color brightblack  "\<(case|catch|default|do|else|finally|for|if)\>"
+color brightblack  "\<(new|return|switch|this|throw|transient|try|while)\>"
+color brightblack  "\<(abstract|class|extends|final|implements|import|instanceof)\>"
+color brightblack  "\<(interface|native|package|private|protected|public|static)\>"
+color brightblack  "\<(strictfp|super|synchronized|throws|volatile|null)\>"
+color brightred     "\<(break|continue)\>"
+color brightcyan "\<(true|false)\>"
+color red "[-+/*=<>?:!~%&|]"
+color blue   "\<([0-9._]+|0x[A-Fa-f0-9_]+|0b[0-1_]+)[FL]?\>"
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color magenta   "\\([btnfr]|'|\"|\\)"
+color magenta   "\\u[A-Fa-f0-9]{4}"
+color cyan "(^|[[:space:]])//.*"
+color cyan start="/\*" end="\*/"
+color brightwhite,cyan "TODO:?"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

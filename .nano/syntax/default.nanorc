@@ -1,0 +1,4 @@
+syntax "default"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT

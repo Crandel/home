@@ -1,0 +1,21 @@
+syntax "gitconfig" "git(config|modules)$|\.git/config$"
+
+color brightcyan "\<(true|false)\>"
+color brightblack "^[[:space:]]*[^=]*="
+color brightmagenta "^[[:space:]]*\[.*\]$"
+color yellow ""(\\.|[^"])*"|'(\\.|[^'])*'"
+color cyan "(^|[[:space:]])#([^{].*)?$"
+color ,green "[[:space:]]+$"
+color ,red "	+ +| +	+"
+# +EXTRALINT
+
+syntax "git-editmsg" "(COMMIT|TAG)_EDITMSG$"
+
+color cyan   "^#.*$"
+color ,red "[[:space:]]+$"
+
+syntax "git-rebase" "git-rebase-todo$"
+
+color brightblack "^(edit|fixup|pick|reword|squash|exec|[efprsx])\>"
+color blue  "\<[0-9a-f]{7,40}\>"
+color cyan "^#.*"

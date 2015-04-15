@@ -1,0 +1,8 @@
+[
+	{"caption": "-"},
+	{"caption": "Python PEP8 Autoformat",
+		"children": [
+			{ "caption": "ReFormat file", "command": "pep8_autoformat" }
+		]
+	}
+]
