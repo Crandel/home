@@ -1,0 +1,12 @@
+[user]
+	name = Crandel
+	email = cradlemann@gmail.com
+[core]
+	autocrlf = false
+	safecrlf = true
+[color]
+	ui = true
+[alias]
+	co = checkout
+	st = status
+	br = branch
