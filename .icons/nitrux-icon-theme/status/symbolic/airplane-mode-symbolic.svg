@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg3239"
+   height="16"
+   width="16"
+   version="1.0"
+   inkscape:version="0.48+devel r12686"
+   sodipodi:docname="airplane-mode-symbolic.svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="716"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="23.143632"
+     inkscape:cx="1.7807056"
+     inkscape:cy="12.23764"
+     inkscape:window-x="0"
+     inkscape:window-y="28"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3239" />
+  <metadata
+     id="metadata13">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     id="path94"
+     style="fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 5.032004,14.01137 1.276656,0 2.8638779,-5.1089884 3.2949621,0 c 0,0 1.914786,0 1.914786,-0.8929902 0,-0.8929774 -1.914786,-0.8929774 -1.914786,-0.8929774 l -3.2949621,0 L 6.30866,2.01137 l -1.276656,0 1.58762,5.105044 -2.289365,0 -1.436286,-1.2762674 -1.276259,0 1.021007,2.1692448 -1.021007,2.1692576 1.276259,0 1.436286,-1.2762674 2.289365,0 -1.58762,5.1089884" />
+</svg>

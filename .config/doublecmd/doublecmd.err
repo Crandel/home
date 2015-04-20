@@ -1,0 +1,133 @@
+--------------- 04-02-2015, 16:08:54 ---------------
+| DC v0.5.11 beta Rev. 5647 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FD8CB462AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 04-02-2015, 18:54:59 ---------------
+| DC v0.5.11 beta Rev. 5647 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F6249E19AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 04-02-2015, 19:00:27 ---------------
+| DC v0.5.11 beta Rev. 5647 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FF36C6CFAB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 04-02-2015, 19:22:51 ---------------
+| DC v0.5.11 beta Rev. 5647 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F8A397A5AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 09-02-2015, 21:29:08 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FE3C5555AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 10-02-2015, 22:11:21 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F3A9124FAB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 10-02-2015, 23:21:06 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F46A1576AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 10-02-2015, 23:24:27 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F1E29AE2AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 11-02-2015, 07:09:27 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F6355D66AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 11-02-2015, 21:26:28 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FC6E4E91AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 11-02-2015, 22:48:03 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007FFBB7148AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 12-02-2015, 21:56:36 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F5A173CCAB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 14-02-2015, 09:56:32 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F8DC6D0DAB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 15-02-2015, 20:26:02 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F59C8E76AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 16-02-2015, 22:36:07 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F0EE2FD3AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 18-02-2015, 21:25:12 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F4038769AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 18-02-2015, 23:24:16 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F87A5037AB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 21-02-2015, 12:40:15 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007F14AC2BCAB4 in /usr/lib/libgtk-x11-2.0.so.0
+
+--------------- 21-02-2015, 22:55:03 ---------------
+| DC v0.6.0 beta Rev. 5850 -- x86_64-Linux-gtk2
+| Arch Linux \r (\l) -- GTK 2.24.25
+Unhandled exception: EAccessViolation: Access violation
+  Stack trace:
+  $00007EFFBABA1AB4 in /usr/lib/libgtk-x11-2.0.so.0
+

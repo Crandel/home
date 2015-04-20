@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="pointers" version="1.0">
+  <property name="DisableTouchpadWhileTyping" type="bool" value="false"/>
+  <property name="ETPS2_Elantech_Touchpad" type="empty">
+    <property name="Properties" type="empty">
+      <property name="Synaptics_Tap_Action" type="array">
+        <value type="int" value="0"/>
+        <value type="int" value="3"/>
+        <value type="int" value="0"/>
+        <value type="int" value="1"/>
+        <value type="int" value="1"/>
+        <value type="int" value="3"/>
+        <value type="int" value="2"/>
+      </property>
+    </property>
+    <property name="RightHanded" type="bool" value="true"/>
+    <property name="Threshold" type="int" value="2"/>
+    <property name="Acceleration" type="double" value="2.000000"/>
+  </property>
+</channel>

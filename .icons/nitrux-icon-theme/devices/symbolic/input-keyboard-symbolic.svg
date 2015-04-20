@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="16"
+   viewBox="0 0 16 16"
+   height="16"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91pre2 r"
+   sodipodi:docname="input-keyboard-symbolic.svg">
+  <metadata
+     id="metadata26">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs24" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="672"
+     id="namedview22"
+     showgrid="true"
+     inkscape:zoom="25.681242"
+     inkscape:cx="14.973336"
+     inkscape:cy="10.84513"
+     inkscape:window-x="-4"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2"
+     inkscape:showpageshadow="false"
+     borderlayer="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3003"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+    <sodipodi:guide
+       position="0,16"
+       orientation="16,0"
+       id="guide4140" />
+    <sodipodi:guide
+       position="0,0"
+       orientation="0,16"
+       id="guide4142" />
+    <sodipodi:guide
+       position="16,0"
+       orientation="-16,0"
+       id="guide4144" />
+    <sodipodi:guide
+       position="16,16"
+       orientation="0,-16"
+       id="guide4146" />
+    <sodipodi:guide
+       position="2,14"
+       orientation="12,0"
+       id="guide4148" />
+    <sodipodi:guide
+       position="2,2"
+       orientation="0,12"
+       id="guide4150" />
+    <sodipodi:guide
+       position="14,2"
+       orientation="-12,0"
+       id="guide4152" />
+    <sodipodi:guide
+       position="14,14"
+       orientation="0,-12"
+       id="guide4154" />
+  </sodipodi:namedview>
+  <path
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
+     d="M 2 2 L 2 14 L 14 14 L 14 2 L 2 2 z M 3 3 L 13 3 L 13 13 L 3 13 L 3 3 z M 7.5 4.0195312 L 4.9941406 10.580078 L 5.9296875 10.580078 L 6.5273438 8.8964844 L 9.484375 8.8964844 L 10.082031 10.580078 L 11.005859 10.580078 L 8.5058594 4.0195312 L 7.5 4.0195312 z M 8 4.8945312 L 9.2089844 8.1582031 L 6.796875 8.1582031 L 8 4.8945312 z M 4 11 L 4 12 L 12 12 L 12 11 L 4 11 z "
+     id="rect4156" />
+</svg>

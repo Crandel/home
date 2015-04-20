@@ -1,0 +1,11 @@
+display_type=0
+display_textsize=2
+group_policy=2
+default_group=0
+never_modify_config=false
+model=pc104
+layouts=us,ua
+variants=,
+toggle_option=grp:caps_toggle
+compose_key_position=compose:ralt
+

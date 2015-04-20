@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doublecmd DCVersion="0.6.1 beta" ConfigVersion="7">
+  <Toolbars>
+    <MainToolbar>
+      <Row>
+        <Command>
+          <ID>{26B2EA25-8868-4510-9B54-FE2291092151}</ID>
+          <Icon>cm_refresh</Icon>
+          <Command>cm_Refresh</Command>
+        </Command>
+        <Command>
+          <ID>{A7ED4470-F333-43E4-BF14-A361857E6DC7}</ID>
+          <Icon>cm_runterm</Icon>
+          <Command>cm_RunTerm</Command>
+        </Command>
+        <Command>
+          <ID>{57421744-ACBA-46C3-8E8A-FA91C885A7BC}</ID>
+          <Icon>cm_options</Icon>
+          <Command>cm_Options</Command>
+        </Command>
+        <Separator/>
+        <Command>
+          <ID>{514E9723-C40F-4574-8E38-5A4B1DEA894F}</ID>
+          <Icon>cm_briefview</Icon>
+          <Command>cm_BriefView</Command>
+        </Command>
+        <Command>
+          <ID>{908AD626-C272-492F-AADB-5BE6A4B1EC07}</ID>
+          <Icon>cm_columnsview</Icon>
+          <Command>cm_ColumnsView</Command>
+        </Command>
+        <Command>
+          <ID>{A8721D77-C06F-48D3-BEB9-8A0C63B7AEEE}</ID>
+          <Icon>cm_thumbnailsview</Icon>
+          <Command>cm_ThumbnailsView</Command>
+        </Command>
+        <Separator/>
+        <Command>
+          <ID>{8CAF6A28-7891-4E4B-AC8D-F557725CBE8F}</ID>
+          <Icon>cm_flatview</Icon>
+          <Command>cm_FlatView</Command>
+        </Command>
+        <Separator/>
+        <Command>
+          <ID>{8EED40C7-6F2D-4DF2-A1CB-177885FA84D4}</ID>
+          <Icon>cm_viewhistoryprev</Icon>
+          <Command>cm_ViewHistoryPrev</Command>
+        </Command>
+        <Command>
+          <ID>{D4DA4CB9-C307-458D-AC28-EB6B7E71065E}</ID>
+          <Icon>cm_viewhistorynext</Icon>
+          <Command>cm_ViewHistoryNext</Command>
+        </Command>
+        <Separator/>
+        <Command>
+          <ID>{AA402F84-FFCA-419C-BAA8-7776FE20E020}</ID>
+          <Icon>cm_markplus</Icon>
+          <Command>cm_MarkPlus</Command>
+        </Command>
+        <Command>
+          <ID>{DD3BCBF2-A00C-41FE-A5A9-45E57515FBC3}</ID>
+          <Icon>cm_markminus</Icon>
+          <Command>cm_MarkMinus</Command>
+        </Command>
+        <Command>
+          <ID>{FA786572-3D13-4270-AD03-485F3B3CD0A3}</ID>
+          <Icon>cm_markinvert</Icon>
+          <Command>cm_MarkInvert</Command>
+        </Command>
+        <Separator/>
+        <Command>
+          <ID>{DA69FD4E-1980-4549-A43C-7D7DDD402B95}</ID>
+          <Icon>cm_packfiles</Icon>
+          <Command>cm_PackFiles</Command>
+        </Command>
+        <Command>
+          <ID>{919F8B8C-3B2D-4181-A882-60EC349BA078}</ID>
+          <Icon>cm_extractfiles</Icon>
+          <Command>cm_ExtractFiles</Command>
+        </Command>
+        <Separator/>
+        <Command>
+          <ID>{7BFAF84E-5975-47CA-ABB5-3E1858C3B408}</ID>
+          <Icon>cm_search</Icon>
+          <Command>cm_Search</Command>
+        </Command>
+        <Command>
+          <ID>{E12D89F4-7D56-4B1D-8F7F-FB027C71E6BB}</ID>
+          <Icon>cm_multirename</Icon>
+          <Command>cm_MultiRename</Command>
+        </Command>
+        <Command>
+          <ID>{8CEBB6E9-B0C7-4B44-B17C-8A09FA48614E}</ID>
+          <Icon>cm_syncdirs</Icon>
+          <Command>cm_SyncDirs</Command>
+        </Command>
+        <Command>
+          <ID>{0B9B894E-916F-4946-9741-EF64C41302E5}</ID>
+          <Icon>cm_copyfullnamestoclip</Icon>
+          <Command>cm_CopyFullNamesToClip</Command>
+        </Command>
+      </Row>
+    </MainToolbar>
+  </Toolbars>
+  <Tabs>
+    <OpenedTabs>
+      <Left>
+        <ActiveTab>0</ActiveTab>
+        <Tab>
+          <FileView Type="columns">
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="Space Empires V.iso">/media/data/torrent/</Path>
+                  <Path Filename="internet">/media/data/</Path>
+                  <Path Filename="..">/media/data/internet/</Path>
+                  <Path Filename="work">/media/data/</Path>
+                  <Path Filename="..">/media/data/work/</Path>
+                  <Path Filename="backup">/media/data/</Path>
+                  <Path Filename="wma">/media/data/backup/</Path>
+                  <Path Filename="4.mp3">/media/data/backup/wma/</Path>
+                  <Path Filename="backup">/media/data/</Path>
+                  <Path Filename="..">/media/home/</Path>
+                  <Path Filename=".wine">/home/crandel/</Path>
+                  <Path Filename="drive_c">/home/crandel/.wine/</Path>
+                  <Path Filename="Program Files">/home/crandel/.wine/drive_c/</Path>
+                  <Path Filename="AGEIA Technologies">/home/crandel/.wine/drive_c/Program Files/</Path>
+                  <Path Filename="..">/home/crandel/.wine/drive_c/Program Files/AGEIA Technologies/</Path>
+                  <Path Filename="..">/home/crandel/.wine/drive_c/Program Files/</Path>
+                  <Path Filename="windows">/home/crandel/.wine/drive_c/</Path>
+                  <Path Filename="..">/home/crandel/.wine/drive_c/windows/</Path>
+                  <Path Filename="..">/home/crandel/.wine/drive_c/</Path>
+                  <Path Filename="dosdevices">/home/crandel/.wine/</Path>
+                  <Path Filename="d:">/home/crandel/.wine/dosdevices/</Path>
+                  <Path Filename="..">/home/crandel/.wine/dosdevices/d:/</Path>
+                  <Path Filename="i:">/home/crandel/.wine/dosdevices/</Path>
+                  <Path Filename="..">/home/crandel/.wine/dosdevices/i:/</Path>
+                  <Path Filename="c:">/home/crandel/.wine/dosdevices/</Path>
+                  <Path Filename="..">/home/crandel/.wine/dosdevices/c:/</Path>
+                  <Path Filename="..">/media/data/backup/wma/</Path>
+                  <Path Filename="internet">/media/data/</Path>
+                  <Path Filename="..">/media/data/internet/</Path>
+                  <Path Filename="internet">/media/data/</Path>
+                  <Path Filename="..">/media/data/internet/</Path>
+                  <Path Filename="..">/run/</Path>
+                  <Path Filename="..">/media/data/internet/</Path>
+                  <Path Filename="programs">/media/data/</Path>
+                  <Path Filename="ubuntu">/media/data/programs/</Path>
+                  <Path Filename="home">/media/data/programs/ubuntu/</Path>
+                  <Path Filename=".config">/media/data/programs/ubuntu/home/</Path>
+                  <Path Filename="..">/media/data/programs/ubuntu/home/.config/</Path>
+                  <Path Filename="..">/media/data/programs/ubuntu/home/</Path>
+                  <Path Filename="home">/media/data/programs/ubuntu/</Path>
+                  <Path Filename=".config">/media/data/programs/ubuntu/home/</Path>
+                  <Path Filename="..">/media/data/programs/ubuntu/home/.config/</Path>
+                  <Path Filename=".config">/media/data/programs/ubuntu/home/</Path>
+                  <Path Filename="..">/media/archbang/</Path>
+                  <Path Filename="..">/run/</Path>
+                  <Path Filename="boot">/media/archbang/</Path>
+                  <Path Filename="..">/media/archbang/boot/</Path>
+                  <Path Filename="boot">/media/archbang/</Path>
+                  <Path Filename="PROPHET">/home/crandel/SwordoftheStars_iso/</Path>
+                  <Path Filename="Sword of the Stars.exe">/home/crandel/SwordoftheStars_iso/PROPHET/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+      </Left>
+      <Right>
+        <ActiveTab>0</ActiveTab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>11</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="Xonotic">/media/data/games/</Path>
+                  <Path Filename="xonotic-linux-glx.sh">/media/data/games/Xonotic/</Path>
+                  <Path Filename="virtual">/media/data/</Path>
+                  <Path Filename="work">/media/data/virtual/</Path>
+                  <Path Filename="espermasters">/media/data/virtual/work/</Path>
+                  <Path Filename="import_data_from_old_db.py">/media/data/virtual/work/espermasters/</Path>
+                  <Path Filename="..">/media/home/</Path>
+                  <Path Filename="auth">/media/data/virtual/work/</Path>
+                  <Path Filename="..">/media/data/virtual/work/auth/</Path>
+                  <Path Filename="bungalow">/media/data/virtual/work/</Path>
+                  <Path Filename="..">/media/data/virtual/work/bungalow/</Path>
+                  <Path Filename="qt_python">/media/data/virtual/work/</Path>
+                  <Path Filename="..">/media/data/virtual/work/qt_python/</Path>
+                  <Path Filename="qt_python">/media/data/virtual/work/</Path>
+                  <Path Filename="..">/media/home/</Path>
+                  <Path Filename="..">/media/ubuntu/</Path>
+                  <Path Filename="..">/media/data/virtual/work/catalog/</Path>
+                  <Path Filename="bin">/</Path>
+                  <Path Filename="..">/run/</Path>
+                  <Path Filename="internet">/media/data/</Path>
+                  <Path Filename="Camera_fix.zip">/media/data/internet/</Path>
+                  <Path Filename="games">/media/data/</Path>
+                  <Path Filename="install">/media/data/games/</Path>
+                  <Path Filename="HoMM3">/media/data/games/install/</Path>
+                  <Path Filename="..">/media/data/games/install/HoMM3/</Path>
+                  <Path Filename="HoMM3">/media/data/games/install/</Path>
+                  <Path Filename="torrent">/media/data/</Path>
+                  <Path Filename="homm3-linux">/media/data/torrent/</Path>
+                  <Path Filename="Torrent downloaded from Demonoid.com.txt">/media/data/torrent/homm3-linux/</Path>
+                  <Path Filename="..">/home/crandel/</Path>
+                  <Path Filename="..">/media/data/internet/</Path>
+                  <Path Filename="torrent">/media/data/</Path>
+                  <Path Filename="..">/media/data/torrent/</Path>
+                  <Path Filename="..">/run/</Path>
+                  <Path Filename="~">/home/crandel/</Path>
+                  <Path Filename="..">/home/crandel/~/</Path>
+                  <Path Filename=".cache">/home/crandel/</Path>
+                  <Path Filename="..">/home/crandel/.cache/</Path>
+                  <Path Filename=".config">/home/crandel/</Path>
+                  <Path Filename="fish">/home/crandel/.config/</Path>
+                  <Path Filename=".vimrc">/home/crandel/</Path>
+                  <Path Filename="..">/media/data/programs/ubuntu/home/</Path>
+                  <Path Filename="video">/media/data/</Path>
+                  <Path Filename="..">/media/data/video/</Path>
+                  <Path Filename="boot">/</Path>
+                  <Path Filename="initramfs-linux.img">/boot/</Path>
+                  <Path Filename="..">/media/data/video/</Path>
+                  <Path Filename="games">/media/data/</Path>
+                  <Path Filename="SwordoftheStars">/media/data/games/</Path>
+                  <Path Filename="..">/media/data/games/SwordoftheStars/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+      </Right>
+    </OpenedTabs>
+    <Options>785</Options>
+    <CharacterLimit>32</CharacterLimit>
+    <Position>0</Position>
+  </Tabs>
+  <MainWindow>
+    <Position>
+      <Maximized>True</Maximized>
+      <Splitter>50</Splitter>
+    </Position>
+  </MainWindow>
+  <Configuration Save="True" SortOrder="0">
+    <UseConfigInProgramDir>False</UseConfigInProgramDir>
+  </Configuration>
+  <Language>
+    <POFileName>doublecmd.en.po</POFileName>
+  </Language>
+  <Behaviours>
+    <GoToRoot>False</GoToRoot>
+    <RunInTerminal>xterm -e sh -c</RunInTerminal>
+    <RunTerminal>xterm</RunTerminal>
+    <OnlyOneAppInstance>True</OnlyOneAppInstance>
+    <LynxLike>True</LynxLike>
+    <FileSizeFormat>0</FileSizeFormat>
+    <MinimizeToTray>False</MinimizeToTray>
+    <AlwaysShowTrayIcon>False</AlwaysShowTrayIcon>
+    <Mouse>
+      <Selection Enabled="True">
+        <Button>0</Button>
+      </Selection>
+      <ScrollMode>1</ScrollMode>
+      <WheelScrollLines>3</WheelScrollLines>
+    </Mouse>
+    <AutoFillColumns>True</AutoFillColumns>
+    <AutoSizeColumn>0</AutoSizeColumn>
+    <BriefViewFileExtAligned>False</BriefViewFileExtAligned>
+    <DateTimeFormat>dd/mm/yy</DateTimeFormat>
+    <CutTextToColumnWidth>True</CutTextToColumnWidth>
+    <ShowSystemFiles>True</ShowSystemFiles>
+    <ListFilesInThread>True</ListFilesInThread>
+    <LoadIconsSeparately>True</LoadIconsSeparately>
+    <DelayLoadingTabs>True</DelayLoadingTabs>
+    <HighlightUpdatedFiles>True</HighlightUpdatedFiles>
+    <DriveBlackList/>
+    <DriveBlackListUnmounted>False</DriveBlackListUnmounted>
+  </Behaviours>
+  <Tools>
+    <Viewer Enabled="False">
+      <Path/>
+      <Parameters/>
+      <RunInTerminal>False</RunInTerminal>
+      <KeepTerminalOpen>False</KeepTerminalOpen>
+    </Viewer>
+    <Editor Enabled="False">
+      <Path/>
+      <Parameters/>
+      <RunInTerminal>False</RunInTerminal>
+      <KeepTerminalOpen>False</KeepTerminalOpen>
+    </Editor>
+    <Differ Enabled="False">
+      <Path/>
+      <Parameters/>
+      <RunInTerminal>False</RunInTerminal>
+      <KeepTerminalOpen>False</KeepTerminalOpen>
+      <FramePosAfterComp>0</FramePosAfterComp>
+    </Differ>
+  </Tools>
+  <Fonts>
+    <Main>
+      <Name>default</Name>
+      <Size>10</Size>
+      <Style>1</Style>
+    </Main>
+    <Editor>
+      <Name>Monospace</Name>
+      <Size>14</Size>
+      <Style>0</Style>
+    </Editor>
+    <Viewer>
+      <Name>Monospace</Name>
+      <Size>14</Size>
+      <Style>0</Style>
+    </Viewer>
+    <Log>
+      <Name>Monospace</Name>
+      <Size>12</Size>
+      <Style>0</Style>
+    </Log>
+    <ViewerBook>
+      <Name>default</Name>
+      <Size>16</Size>
+      <Style>1</Style>
+    </ViewerBook>
+  </Fonts>
+  <Colors>
+    <Foreground>-2147483640</Foreground>
+    <Background>-2147483643</Background>
+    <Background2>-2147483643</Background2>
+    <Mark>255</Mark>
+    <Cursor>-2147483635</Cursor>
+    <CursorText>-2147483634</CursorText>
+    <UseInvertedSelection>False</UseInvertedSelection>
+    <InactivePanelBrightness>100</InactivePanelBrightness>
+    <UseFrameCursor>False</UseFrameCursor>
+    <FreeSpaceIndicator>
+      <ForeColor>0</ForeColor>
+      <BackColor>16777215</BackColor>
+      <UseGradient>True</UseGradient>
+    </FreeSpaceIndicator>
+    <FileFilters/>
+  </Colors>
+  <ToolTips>
+    <ShowToolTipMode>1</ShowToolTipMode>
+    <CustomFields/>
+  </ToolTips>
+  <Layout>
+    <MainMenu>True</MainMenu>
+    <ButtonBar Enabled="True">
+      <FlatIcons>False</FlatIcons>
+      <ButtonHeight>24</ButtonHeight>
+      <IconSize>16</IconSize>
+      <ReportErrorWithCommands>False</ReportErrorWithCommands>
+    </ButtonBar>
+    <DriveBar1>True</DriveBar1>
+    <DriveBar2>True</DriveBar2>
+    <DriveBarFlat>False</DriveBarFlat>
+    <DrivesListButton Enabled="False">
+      <ShowLabel>True</ShowLabel>
+      <ShowFileSystem>True</ShowFileSystem>
+      <ShowFreeSpace>True</ShowFreeSpace>
+    </DrivesListButton>
+    <DirectoryTabs>True</DirectoryTabs>
+    <CurrentDirectory>True</CurrentDirectory>
+    <TabHeader>True</TabHeader>
+    <StatusBar>True</StatusBar>
+    <CmdLine>True</CmdLine>
+    <LogWindow>False</LogWindow>
+    <TermWindow>False</TermWindow>
+    <KeyButtons>True</KeyButtons>
+    <InterfaceFlat>True</InterfaceFlat>
+    <DriveFreeSpace>True</DriveFreeSpace>
+    <DriveIndicator>True</DriveIndicator>
+    <ProgressInMenuBar>False</ProgressInMenuBar>
+    <PanelOfOperationsInBackground>True</PanelOfOperationsInBackground>
+    <HorizontalFilePanels>False</HorizontalFilePanels>
+    <ShortFormatDriveInfo>True</ShortFormatDriveInfo>
+  </Layout>
+  <FilesViews>
+    <Sorting>
+      <CaseSensitivity>0</CaseSensitivity>
+      <NaturalSorting>False</NaturalSorting>
+      <SortFolderMode>0</SortFolderMode>
+      <NewFilesPosition>2</NewFilesPosition>
+      <UpdatedFilesPosition>2</UpdatedFilesPosition>
+    </Sorting>
+  </FilesViews>
+  <Keyboard>
+    <Typing>
+      <Actions>
+        <NoModifier>1</NoModifier>
+        <Alt>0</Alt>
+        <CtrlAlt>2</CtrlAlt>
+      </Actions>
+    </Typing>
+  </Keyboard>
+  <FileOperations>
+    <BufferSize>524288</BufferSize>
+    <UseMmapInSearch>False</UseMmapInSearch>
+    <PartialNameSearch>True</PartialNameSearch>
+    <WipePassNumber>1</WipePassNumber>
+    <DropReadOnlyFlag>False</DropReadOnlyFlag>
+    <ProcessComments>False</ProcessComments>
+    <RenameSelOnlyName>True</RenameSelOnlyName>
+    <ShowCopyTabSelectPanel>False</ShowCopyTabSelectPanel>
+    <UseTrash>False</UseTrash>
+    <SkipFileOpError>False</SkipFileOpError>
+    <TypeOfDuplicatedRename>0</TypeOfDuplicatedRename>
+    <ShowDialogOnDragDrop>False</ShowDialogOnDragDrop>
+    <DragAndDropTextRichtextDesireLevel>0</DragAndDropTextRichtextDesireLevel>
+    <DragAndDropTextHtmlDesireLevel>1</DragAndDropTextHtmlDesireLevel>
+    <DragAndDropTextUnicodeDesireLevel>2</DragAndDropTextUnicodeDesireLevel>
+    <DragAndDropTextSimpletextDesireLevel>3</DragAndDropTextSimpletextDesireLevel>
+    <DragAndDropAskFormatEachTime>False</DragAndDropAskFormatEachTime>
+    <DragAndDropTextAutoFilename>False</DragAndDropTextAutoFilename>
+    <DragAndDropSaveUnicodeTextInUFT8>True</DragAndDropSaveUnicodeTextInUFT8>
+    <OverwriteFolder>False</OverwriteFolder>
+    <NtfsHourTimeDelay>False</NtfsHourTimeDelay>
+    <ProgressKind>0</ProgressKind>
+    <Confirmations>15</Confirmations>
+    <Options>
+      <Symlink>0</Symlink>
+      <CorrectLinks>False</CorrectLinks>
+      <FileExists>0</FileExists>
+      <DirectoryExists>0</DirectoryExists>
+      <SetPropertyError>0</SetPropertyError>
+      <ReserveSpace>False</ReserveSpace>
+      <CheckFreeSpace>True</CheckFreeSpace>
+      <CopyAttributes>True</CopyAttributes>
+      <CopyTime>True</CopyTime>
+      <CopyOwnership>True</CopyOwnership>
+    </Options>
+  </FileOperations>
+  <Log Enabled="False" LogFileWithDateInName="False">
+    <FileName>/home/crandel/.config/doublecmd/doublecmd.log</FileName>
+    <Options>511</Options>
+  </Log>
+  <History>
+    <SearchReplaceHistory Save="True"/>
+    <DirHistory Save="True"/>
+    <CmdLineHistory Save="True"/>
+    <FileMaskHistory Save="True"/>
+  </History>
+  <QuickSearch>
+    <MatchBeginning>True</MatchBeginning>
+    <MatchEnding>True</MatchEnding>
+    <Case>1</Case>
+    <Items>2</Items>
+  </QuickSearch>
+  <QuickFilter>
+    <AutoHide>True</AutoHide>
+  </QuickFilter>
+  <Miscellaneous>
+    <GridVertLine>True</GridVertLine>
+    <GridHorzLine>True</GridHorzLine>
+    <ShowWarningMessages>True</ShowWarningMessages>
+    <SpaceMovesDown>False</SpaceMovesDown>
+    <DirBrackets>True</DirBrackets>
+    <InplaceRename>False</InplaceRename>
+    <HotDirAddTargetOrNot>False</HotDirAddTargetOrNot>
+    <HotDirFullExpandOrNot>False</HotDirFullExpandOrNot>
+    <ShowPathInPopup>False</ShowPathInPopup>
+    <ShowOnlyValidEnv>True</ShowOnlyValidEnv>
+    <WhereToAddNewHotDir>2</WhereToAddNewHotDir>
+  </Miscellaneous>
+  <Thumbnails Save="True">
+    <Width>128</Width>
+    <Height>128</Height>
+  </Thumbnails>
+  <AutoRefresh>
+    <Options>3</Options>
+    <ExcludeDirs/>
+    <Mode>0</Mode>
+  </AutoRefresh>
+  <Icons>
+    <ShowMode>3</ShowMode>
+    <ShowOverlays>False</ShowOverlays>
+    <Size>16</Size>
+    <Exclude>False</Exclude>
+    <ExcludeDirs/>
+    <CustomDriveIcons>False</CustomDriveIcons>
+    <ShowInMenus Enabled="False">
+      <Size>16</Size>
+    </ShowInMenus>
+  </Icons>
+  <IgnoreList Enabled="False">
+    <IgnoreListFile>/home/crandel/.config/doublecmd/ignorelist.txt</IgnoreListFile>
+  </IgnoreList>
+  <DirectoryHotList/>
+  <Viewer>
+    <PreviewVisible>False</PreviewVisible>
+    <ImageStretch>False</ImageStretch>
+    <CopyMovePath1/>
+    <CopyMovePath2/>
+    <CopyMovePath3/>
+    <CopyMovePath4/>
+    <CopyMovePath5/>
+    <PaintMode>Pen</PaintMode>
+    <PaintWidth>5</PaintWidth>
+    <NumberOfColumns>1</NumberOfColumns>
+    <ViewerMode>0</ViewerMode>
+    <PaintColor>255</PaintColor>
+    <BackgroundColor>0</BackgroundColor>
+    <FontColor>16777215</FontColor>
+    <TextPosition>0</TextPosition>
+  </Viewer>
+  <SyncDirs>
+    <Subdirs>False</Subdirs>
+    <ByContent>False</ByContent>
+    <IgnoreDate>False</IgnoreDate>
+    <FilterCopyRight>True</FilterCopyRight>
+    <FilterEqual>True</FilterEqual>
+    <FilterNotEqual>True</FilterNotEqual>
+    <FilterCopyLeft>True</FilterCopyLeft>
+    <FilterDuplicates>True</FilterDuplicates>
+    <FilterSingles>True</FilterSingles>
+    <FileMask>*</FileMask>
+  </SyncDirs>
+  <Lua>
+    <PathToLibrary>liblua5.1.so.0</PathToLibrary>
+  </Lua>
+  <NameShortcutFile>shortcuts.scf</NameShortcutFile>
+  <LastUsedPacker>zip</LastUsedPacker>
+  <UseShellForFileOperations>False</UseShellForFileOperations>
+  <SearchTemplates/>
+  <ColumnsSets>
+    <ColumnsSet>
+      <Name>Default</Name>
+      <CustomView>False</CustomView>
+      <CursorBorder Enabled="False">
+        <Color>0</Color>
+      </CursorBorder>
+      <Columns>
+        <Column>
+          <Title>Name</Title>
+          <FuncString>[DC().GETFILENAMENOEXT{}]</FuncString>
+          <Width>250</Width>
+          <Align>0</Align>
+          <Font>
+            <Name>default</Name>
+            <Size>10</Size>
+            <Style>1</Style>
+          </Font>
+          <Overcolor>True</Overcolor>
+          <TextColor>-2147483640</TextColor>
+          <Background>-2147483643</Background>
+          <Background2>-2147483643</Background2>
+          <MarkColor>255</MarkColor>
+          <CursorColor>-2147483635</CursorColor>
+          <CursorText>-2147483634</CursorText>
+        </Column>
+        <Column>
+          <Title>Ext</Title>
+          <FuncString>[DC().GETFILEEXT{}]</FuncString>
+          <Width>50</Width>
+          <Align>0</Align>
+          <Font>
+            <Name>default</Name>
+            <Size>10</Size>
+            <Style>1</Style>
+          </Font>
+          <Overcolor>True</Overcolor>
+          <TextColor>-2147483640</TextColor>
+          <Background>-2147483643</Background>
+          <Background2>-2147483643</Background2>
+          <MarkColor>255</MarkColor>
+          <CursorColor>-2147483635</CursorColor>
+          <CursorText>-2147483634</CursorText>
+        </Column>
+        <Column>
+          <Title>Size</Title>
+          <FuncString>[DC().GETFILESIZE{}]</FuncString>
+          <Width>70</Width>
+          <Align>1</Align>
+          <Font>
+            <Name>default</Name>
+            <Size>10</Size>
+            <Style>1</Style>
+          </Font>
+          <Overcolor>True</Overcolor>
+          <TextColor>-2147483640</TextColor>
+          <Background>-2147483643</Background>
+          <Background2>-2147483643</Background2>
+          <MarkColor>255</MarkColor>
+          <CursorColor>-2147483635</CursorColor>
+          <CursorText>-2147483634</CursorText>
+        </Column>
+        <Column>
+          <Title>Date</Title>
+          <FuncString>[DC().GETFILETIME{}]</FuncString>
+          <Width>70</Width>
+          <Align>1</Align>
+          <Font>
+            <Name>default</Name>
+            <Size>10</Size>
+            <Style>1</Style>
+          </Font>
+          <Overcolor>True</Overcolor>
+          <TextColor>-2147483640</TextColor>
+          <Background>-2147483643</Background>
+          <Background2>-2147483643</Background2>
+          <MarkColor>255</MarkColor>
+          <CursorColor>-2147483635</CursorColor>
+          <CursorText>-2147483634</CursorText>
+        </Column>
+        <Column>
+          <Title>Attr</Title>
+          <FuncString>[DC().GETFILEATTR{}]</FuncString>
+          <Width>175</Width>
+          <Align>0</Align>
+          <Font>
+            <Name>default</Name>
+            <Size>10</Size>
+            <Style>1</Style>
+          </Font>
+          <Overcolor>True</Overcolor>
+          <TextColor>-2147483640</TextColor>
+          <Background>-2147483643</Background>
+          <Background2>-2147483643</Background2>
+          <MarkColor>255</MarkColor>
+          <CursorColor>-2147483635</CursorColor>
+          <CursorText>-2147483634</CursorText>
+        </Column>
+      </Columns>
+    </ColumnsSet>
+  </ColumnsSets>
+  <Plugins>
+    <DsxPlugins/>
+    <WcxPlugins>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>zip</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>607</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>tar</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>95</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>bz2</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>91</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>tbz</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>95</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>gz</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>91</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>tgz</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>95</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>lzma</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>1</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>tlz</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>95</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>xz</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>91</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>txz</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>95</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>zipx</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/zip/zip.wcx</Path>
+        <Flags>84</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>cpio</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/cpio/cpio.wcx</Path>
+        <Flags>4</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>deb</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/deb/deb.wcx</Path>
+        <Flags>4</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>rpm</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/rpm/rpm.wcx</Path>
+        <Flags>4</Flags>
+      </WcxPlugin>
+      <WcxPlugin Enabled="True">
+        <ArchiveExt>rar</ArchiveExt>
+        <Path>%commander_path%/plugins/wcx/unrar/unrar.wcx</Path>
+        <Flags>68</Flags>
+      </WcxPlugin>
+    </WcxPlugins>
+    <WdxPlugins/>
+    <WfxPlugins>
+      <WfxPlugin Enabled="True">
+        <Name>FTP</Name>
+        <Path>%commander_path%/plugins/wfx/ftp/ftp.wfx</Path>
+      </WfxPlugin>
+      <WfxPlugin Enabled="True">
+        <Name>Windows Network</Name>
+        <Path>%commander_path%/plugins/wfx/samba/samba.wfx</Path>
+      </WfxPlugin>
+    </WfxPlugins>
+    <WlxPlugins/>
+  </Plugins>
+</doublecmd>

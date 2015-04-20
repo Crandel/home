@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="22"
+   height="22"
+   id="svg3754"
+   version="1.1"
+   inkscape:version="0.91pre2 r"
+   sodipodi:docname="edit-clear.svg">
+  <defs
+     id="defs3756">
+    <linearGradient
+       id="linearGradient3257">
+      <stop
+         id="stop3259"
+         style="stop-color:#a50000;stop-opacity:1"
+         offset="0" />
+      <stop
+         id="stop3261"
+         style="stop-color:#e73800;stop-opacity:1"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="4"
+     inkscape:cx="-0.65966666"
+     inkscape:cy="-1.737965"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1366"
+     inkscape:window-height="673"
+     inkscape:window-x="-4"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:showpageshadow="false">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4150" />
+    <sodipodi:guide
+       position="-1.8867187e-05,21.999993"
+       orientation="22,0"
+       id="guide4134" />
+    <sodipodi:guide
+       position="-1.8867187e-05,-7.0507813e-06"
+       orientation="0,22"
+       id="guide4136" />
+    <sodipodi:guide
+       position="21.999981,-7.0507813e-06"
+       orientation="-22,0"
+       id="guide4138" />
+    <sodipodi:guide
+       position="21.999981,21.999993"
+       orientation="0,-22"
+       id="guide4140" />
+    <sodipodi:guide
+       position="1.9999811,19.999993"
+       orientation="18,0"
+       id="guide4142" />
+    <sodipodi:guide
+       position="1.9999811,1.9999929"
+       orientation="0,18"
+       id="guide4144" />
+    <sodipodi:guide
+       position="19.999981,1.9999929"
+       orientation="-18,0"
+       id="guide4146" />
+    <sodipodi:guide
+       position="19.999981,19.999993"
+       orientation="0,-18"
+       id="guide4148" />
+    <sodipodi:guide
+       position="2.9999811,18.999993"
+       orientation="16,0"
+       id="guide4150" />
+    <sodipodi:guide
+       position="2.9999811,2.9999929"
+       orientation="0,16"
+       id="guide4152" />
+    <sodipodi:guide
+       position="18.999981,2.9999929"
+       orientation="-16,0"
+       id="guide4154" />
+    <sodipodi:guide
+       position="18.999981,18.999993"
+       orientation="0,-16"
+       id="guide4156" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3759">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-768.57143,-676.07647)">
+    <path
+       style="opacity:1;fill:#424854;fill-opacity:1;stroke:none"
+       d="M 8 3 L 0.70703125 10.292969 L 0 11 L 0.70703125 11.707031 L 8 19 L 22 19 L 22 18 L 22 3 L 8 3 z M 8.4140625 4 L 21 4 L 21 18 L 8.4140625 18 L 1.4140625 11 L 8.4140625 4 z M 11.707031 7 L 11 7.7070312 L 14.292969 11 L 11 14.292969 L 11.707031 15 L 15 11.707031 L 18.292969 15 L 19 14.292969 L 15.707031 11 L 19 7.7070312 L 18.292969 7 L 15 10.292969 L 11.707031 7 z "
+       transform="translate(768.57143,676.07647)"
+       id="rect4160" />
+  </g>
+</svg>

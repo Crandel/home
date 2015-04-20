@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   width="16"
+   height="16"
+   id="svg7384"
+   inkscape:version="0.91pre2 r"
+   sodipodi:docname="twitter-symbolic.svg">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="672"
+     id="namedview7"
+     showgrid="true"
+     inkscape:zoom="22.627418"
+     inkscape:cx="9.2693343"
+     inkscape:cy="9.3989064"
+     inkscape:window-x="-4"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg7384"
+     inkscape:showpageshadow="false"
+     borderlayer="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4135" />
+    <sodipodi:guide
+       position="0,16"
+       orientation="16,0"
+       id="guide4141" />
+    <sodipodi:guide
+       position="0,0"
+       orientation="0,16"
+       id="guide4143" />
+    <sodipodi:guide
+       position="16,0"
+       orientation="-16,0"
+       id="guide4145" />
+    <sodipodi:guide
+       position="16,16"
+       orientation="0,-16"
+       id="guide4147" />
+    <sodipodi:guide
+       position="2,14"
+       orientation="12,0"
+       id="guide4149" />
+    <sodipodi:guide
+       position="2,2"
+       orientation="0,12"
+       id="guide4151" />
+    <sodipodi:guide
+       position="14,2"
+       orientation="-12,0"
+       id="guide4153" />
+    <sodipodi:guide
+       position="14,14"
+       orientation="0,-12"
+       id="guide4155" />
+  </sodipodi:namedview>
+  <title
+     id="title9167">Gnome Symbolic Icon Theme</title>
+  <defs
+     id="defs11" />
+  <metadata
+     id="metadata90">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Gnome Symbolic Icon Theme</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     inkscape:connector-curvature="0"
+     id="path440"
+     style="fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 15.382563,3.42082 c -0.543988,0.2404473 -1.12821,0.4043883 -1.739764,0.4764235 0.624474,-0.3740842 1.105869,-0.96775 1.331906,-1.6756767 -0.585218,0.3467603 -1.234038,0.60062 -1.924073,0.7352504 C 12.4987,2.3676224 11.710781,1.9999965 10.838909,1.9999965 c -1.6721973,0 -3.028434,1.3562416 -3.028434,3.0304289 0,0.2374653 0.025839,0.4684741 0.078994,0.6900429 C 5.3712229,5.5932897 3.1386522,4.3880741 1.6447942,2.5554092 1.3844758,3.0015287 1.2354433,3.5231592 1.2354433,4.0785719 c 0,1.0497215 0.5345505,1.9772299 1.3463021,2.521217 C 2.0859543,6.5838849 1.6189706,6.4472734 1.2096043,6.2212336 c 0,0.010929 0,0.023846 0,0.036763 0,1.4685169 1.044754,2.6931068 2.429815,2.9708138 -0.2533687,0.06906 -0.5216305,0.105816 -0.7978532,0.105816 -0.1957359,0 -0.3850203,-0.01788 -0.5693292,-0.05464 0.3850203,1.2037256 1.5037931,2.0800656 2.8292316,2.1044086 -1.0367939,0.813248 -2.3433582,1.296626 -3.7617055,1.296626 -0.2439153,0 -0.48635465,-0.01441 -0.72232605,-0.04173 1.33983455,0.858457 2.93205855,1.360712 4.64301445,1.360712 5.5725036,0 8.6198266,-4.6156895 8.6198266,-8.6198282 0,-0.130159 -0.003,-0.2618088 -0.0095,-0.3914719 0.59218,-0.4272493 1.105866,-0.9598096 1.511734,-1.567883" />
+</svg>

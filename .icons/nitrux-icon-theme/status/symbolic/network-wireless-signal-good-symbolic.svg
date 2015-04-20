@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 16 16"
+   style="enable-background:new"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91pre2 r"
+   sodipodi:docname="network-wireless-signal-good-symbolic.svg">
+  <metadata
+     id="metadata18">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="672"
+     id="namedview14"
+     showgrid="true"
+     inkscape:showpageshadow="false"
+     borderlayer="true"
+     inkscape:zoom="29.5"
+     inkscape:cx="7.2422628"
+     inkscape:cy="8.0047888"
+     inkscape:window-x="-4"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4147" />
+    <sodipodi:guide
+       position="0,16"
+       orientation="16,0"
+       id="guide4153" />
+    <sodipodi:guide
+       position="0,0"
+       orientation="0,16"
+       id="guide4155" />
+    <sodipodi:guide
+       position="16,0"
+       orientation="-16,0"
+       id="guide4157" />
+    <sodipodi:guide
+       position="16,16"
+       orientation="0,-16"
+       id="guide4159" />
+    <sodipodi:guide
+       position="2,14"
+       orientation="12,0"
+       id="guide4161" />
+    <sodipodi:guide
+       position="2,2"
+       orientation="0,12"
+       id="guide4163" />
+    <sodipodi:guide
+       position="14,2"
+       orientation="-12,0"
+       id="guide4165" />
+    <sodipodi:guide
+       position="14,14"
+       orientation="0,-12"
+       id="guide4167" />
+  </sodipodi:namedview>
+  <path
+     inkscape:connector-curvature="0"
+     id="path4196"
+     d="m 7.9999999,1.9952112 c -3.1528196,0 -5.980449,1.3201732 -7.98242184,3.4316406 l 0.72460937,0.6875 C 2.5621713,4.1947411 5.1337196,2.9952112 7.9999999,2.9952112 c 2.8662801,0 5.4378291,1.1995299 7.2578121,3.1191406 l 0.72461,-0.6875 C 13.980449,3.3153844 11.15282,1.9952112 7.9999999,1.9952112 Z"
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:0.5;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4194"
+     d="m 7.9999999,3.9952112 c -2.5798867,0 -4.8932395,1.0806683 -6.53125,2.8085938 l 0.7265625,0.6875 C 3.6512835,5.9557936 5.7071263,4.9952112 7.9999999,4.9952112 c 2.2928741,0 4.3487151,0.9605823 5.8046881,2.4960938 l 0.726562,-0.6875 C 12.89324,5.0758796 10.579887,3.9952112 7.9999999,3.9952112 Z"
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4192"
+     d="m 7.9999999,5.9952112 c -2.0063346,0 -3.806096,0.8399386 -5.0800781,2.1835938 L 3.6464843,8.8682581 C 4.738493,7.716289 6.2800595,6.9952112 7.9999999,6.9952112 c 1.7199404,0 3.2615071,0.7210778 4.3535161,1.8730469 L 13.080078,8.178805 C 11.806096,6.8351498 10.006335,5.9952112 7.9999999,5.9952112 Z"
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4190"
+     d="m 7.9999999,7.9952112 c -1.4331375,0 -2.7130552,0.6046509 -3.6230469,1.5644531 L 5.1015624,10.247164 C 5.8295683,9.4791843 6.8533723,8.9952112 7.9999999,8.9952112 c 1.1466276,0 2.1704311,0.4839731 2.8984381,1.2519528 L 11.623047,9.5596643 C 10.713055,8.5998621 9.4331374,7.9952112 7.9999999,7.9952112 Z"
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path4188"
+     d="m 7.9999999,9.9952112 c -0.8601241,0 -1.6278074,0.3632878 -2.1738281,0.9394528 l 0.7246093,0.685547 c 0.363971,-0.383638 0.8762045,-0.625 1.4492188,-0.625 0.5730143,0 1.0852477,0.241362 1.4492188,0.625 L 10.173828,10.934664 C 9.6278074,10.358499 8.860124,9.9952112 7.9999999,9.9952112 Z"
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+  <path
+     inkscape:connector-curvature="0"
+     id="rect4163"
+     d="m 7.9999999,11.995211 c -0.554,0 -1,0.446 -1,1 0,0.554 0.446,1 1,1 0.554,0 1,-0.446 1,-1 0,-0.554 -0.446,-1 -1,-1 z"
+     style="color:#000000;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#000000;solid-opacity:1;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate" />
+</svg>

@@ -1,0 +1,3 @@
+chromium
+firefox
+popcorn-time

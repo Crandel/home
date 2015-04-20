@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Numix-Manjaro
+Comment=A modern flat theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Numix-Manjaro
+MetacityTheme=Numix
+ButtonLayout=:minimize,maximize,close
