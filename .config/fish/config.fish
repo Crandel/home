@@ -10,8 +10,8 @@ function l
    ls -CF $argv
 end
  
-function virt
-   cd /media/data/virtual
+function projects 
+   cd /home/crandel/work/projects
 end
 
 function upg
@@ -22,24 +22,39 @@ function upgy
    yaourt -Syua
 end
 
+function son
+   sudo swapon /dev/sda5
+end
+
+function soff
+    sudo swapoff /dev/sda5
+end
+
+function update_plugin
+    cd ~/.vim/bundle
+    pwd
+    for i in (command ls);
+        cd $i;
+        git pull
+        git submodule update --init --recursive
+        cd ..
+    end
+end
+
 function up
    docker-compose up
 end
 
-function internet
-   cd /media/data/internet
-end
-
-function torrent
-   cd /media/data/torrent
+function strl
+   cd /home/crandel/work/projects/stroylandiya
 end
 
 function bung
-   cd /media/data/virtual/work/bungalow
+   cd /home/crandel/work/projects/bungalow
 end
 
 function pass
-   cd /media/data/virtual/work/pass
+   cd /home/crandel/work/projects/password
 end
 
 function go_path
@@ -47,20 +62,19 @@ function go_path
 end
 
 function catalog
-   cd /media/data/virtual/work/catalog
+   cd /home/crandel/work/projects/catalog
 end
 
 function esper
-   cd /media/data/virtual/work/espermasters
+   cd /home/crandel/work/projects/espermasters
 end
 
 function tm
-
    tmux attach
    tmux new
 end
 set -x EDITOR vim 
 set -xg GOPATH $HOME/go 
 set -xg PATH $PATH $GOPATH
-set -xg _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=setting'
+set -xg _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on'
 set fish_greeting ""

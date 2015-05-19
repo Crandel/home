@@ -30,7 +30,9 @@ set hlsearch
 "set autowrite      " Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
 set mouse=a        " Enable mouse usage (all modes)
-
+" отключаем пищалку и мигание
+set visualbell t_vb= 
+set novisualbell
 " Source a global configuration file if available
 set wrap
 set ai
@@ -56,6 +58,7 @@ set shiftround
 set bs=2             " make backspace behave like normal again
 set wildmenu
 set laststatus=2
+set tabpagemax=30    " max opened tabs
 "set statusline=%<%f\ [%Y%R%W]%1*%{(&modified)?'\ [+]\ ':''}%*%=%c%V,%l\ %P\ [%n]
        
 " Подсвечивать линию текста, на которой находится курсор
@@ -80,7 +83,8 @@ set undolevels=700
 set nobackup
 set nowritebackup
 set noswapfile
-
+" set Ignore file
+set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
 set ttyfast
 
 " vim-airline
@@ -88,9 +92,16 @@ let g:airline#extensions#tabline#enabled = 1
 
 " Settings for jedi-vim
 let g:jedi#usages_command = "<leader>z"
-let g:jedi#popup_on_dot = 1
-let g:jedi#popup_select_first = 1
+let g:jedi#popup_on_dot = 0 
+let g:jedi#popup_select_first = 0
 map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+
+"" YouCompleteMe settings
+let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
+let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
+let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
+let g:ycm_complete_in_comments = 1 " Completion in comments
+let g:ycm_complete_in_strings = 1 " Completion in string
 
 " IndentLine plugin
 let g:indentLine_char = '|'
