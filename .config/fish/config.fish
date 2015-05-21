@@ -1,5 +1,7 @@
+set -x MY_PROJECTS_ROOT ~/work/projects
+
 function projects 
-   cd /home/crandel/work/projects
+   cd $MY_PROJECTS_ROOT
 end
 
 function upg
@@ -11,26 +13,27 @@ function upgy
 end
 
 function strl
-   cd /home/crandel/work/projects/stroylandiya
+   cd $MY_PROJECTS_ROOT/stroylandiya
 end
 
 function bung
-   cd /home/crandel/work/projects/bungalow
+   cd $MY_PROJECTS_ROOT/bungalow
 end
 
 function pass
-   cd /home/crandel/work/projects/password
+   cd $MY_PROJECTS_ROOT/password
 end
 
 function catalog
-   cd /home/crandel/work/projects/catalog
+   cd $MY_PROJECTS_ROOT/catalog
 end
 
 function esper
-   cd /home/crandel/work/projects/espermasters
+   cd $MY_PROJECTS_ROOT/espermasters
 end
 
 set -x EDITOR vim
+
 set -xg GOPATH $HOME/go
 set -xg PATH $PATH $GOPATH
 set -x WORKON_HOME ~/.virtualenvs
