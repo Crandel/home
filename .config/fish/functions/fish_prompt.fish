@@ -1,13 +1,14 @@
 function fish_prompt --description 'Write out the prompt'
-	
-    set -xg fish_color_user green 
-    set -xg fish_color_host yellow
-    set -xg fish_color_status red
-    set -xg fish_color_cwd magenta
-    set -xg fish_color_cwd_root red
+	set -l fish_color_user green 
+	set -l fish_color_git yellow
+	set -l fish_color_status red
+	set -l fish_color_cwd magenta
+	set -l fish_color_date cyan
+	set -l fish_color_cwd_root red
+	set -l fish_color_venv blue
 	set -l last_status $status
-
-	if not set -q __fish_prompt_normal
+	
+    if not set -q __fish_prompt_normal
 		set -g __fish_prompt_normal (set_color normal)
 	end
 	
@@ -63,12 +64,22 @@ function fish_prompt --description 'Write out the prompt'
 		if not set -q __fish_prompt_status
 			set -g __fish_prompt_status (set_color $fish_color_status)
 		end
-		set prompt_status "$__fish_prompt_status [$last_status]$__fish_prompt_normal"
+		set prompt_status "$__fish_prompt_status [$last_status]"
 	end
 
 	if not set -q __fish_prompt_user
 		set -g __fish_prompt_user (set_color $fish_color_user)
 	end
-        set -g __date (set_color cyan) (date "+%H:%M") 
-	echo -n -s "$__date" " $__fish_prompt_user" "$USER" "$__fish_prompt_normal" "$__fish_prompt_normal" ' ' "$__fish_prompt_cwd" (prompt_pwd) (__fish_git_prompt) "$__fish_prompt_normal" "$prompt_status" "$delim" ' '
+
+	if not set -q __fish_prompt_git
+		set -g __fish_prompt_git (set_color $fish_color_git)
+	end
+
+	if set -q VIRTUAL_ENV
+		echo -n -s (set_color $fish_color_venv) "("(basename "$VIRTUAL_ENV")")" "$__fish_prompt_normal"
+	end
+
+	set -g __date (set_color $fish_color_date) (date "+%H:%M")
+
+	echo -n -s "$__date " "$__fish_prompt_user" "$USER" ' ' "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_git" (__fish_git_prompt) "$prompt_status" ' ' "$__fish_prompt_normal" "$delim" ' '
 end
