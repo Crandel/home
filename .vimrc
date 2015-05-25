@@ -77,7 +77,7 @@ set cursorline
 colorscheme myterm
 
 set pastetoggle=<F3>
-set clipboard=unnamedplus
+set clipboard=unnamed
 set wildmode=list:full
 set enc=utf-8
 set ls=2
@@ -168,3 +168,6 @@ let g:html5_microdata_attributes_complete = 0
 "Disable WAI-ARIA attribute support:
 
 let g:html5_aria_attributes_complete = 0
+
+" Autopep8
+let g:autopep8_max_line_length=130
