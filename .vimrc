@@ -114,6 +114,9 @@ set noswapfile
 " set Ignore file
 set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
 set ttyfast
+" NerdTree
+let g:NERDTreeShowHidden=1
+map <F7> :NERDTreeToggle<CR>
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
