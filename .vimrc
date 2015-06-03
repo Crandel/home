@@ -174,3 +174,7 @@ let g:html5_aria_attributes_complete = 0
 
 " Autopep8
 let g:autopep8_max_line_length=130
+
+" Emmet
+let g:user_emmet_mode='a'
+let g:user_emmet_leader_key='<leader>'

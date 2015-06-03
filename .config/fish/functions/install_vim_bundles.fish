@@ -23,5 +23,6 @@ function install_vim_bundles
     git clone https://github.com/othree/html5.vim.git
     git clone https://github.com/dag/vim-fish.git
     git clone https://github.com/tell-k/vim-autopep8.git
+    git clone git://github.com/jiangmiao/auto-pairs.git
     cd ~
 end
