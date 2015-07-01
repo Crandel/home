@@ -1,0 +1,5 @@
+*.pyc
+tmp.txt.js
+js/node_modules/.bin
+js/npm-debug.log 
+resultCodePositions.json

@@ -1,6 +1,14 @@
 {
 	"folder_history":
 	[
+		"/home/crandel/work/projects/redmine",
+		"/home/crandel/work/projects/redmine/templates",
+		"/home/crandel/work/projects/password",
+		"/home/crandel/work/projects/test/test",
+		"/home/crandel/work/projects/test/test/blog_backend_env",
+		"/home/crandel/work/projects/stroylandiya",
+		"/home/crandel/work/projects/stroylandiya-django",
+		"/home/crandel/work/projects/tutorial",
 		"/media/data/virtual/work/catalog",
 		"/media/data/virtual/work/catalog_of_books",
 		"/media/data/virtual/work/catalogOfBooks",
@@ -14,11 +22,11 @@
 		"/media/data/work/AbcName/second"
 	],
 	"last_version": 3083,
-	"last_window_id": 14,
+	"last_window_id": 26,
 	"log_indexing": false,
 	"settings":
 	{
-		"new_window_height": 0.0,
+		"new_window_height": 1041.0,
 		"new_window_settings":
 		{
 			"auto_complete":
@@ -26,300 +34,65 @@
 				"selected_items":
 				[
 					[
-						"mongo",
-						"mongo"
+						"__",
+						"__class__	(class)"
 					],
 					[
-						"mo",
-						"mongodata"
+						"de",
+						"delete_query	(function)"
 					],
 					[
-						"ng-b",
-						"ng-bind-template	AngularJS"
+						"ad",
+						"add_query	(function)"
 					],
 					[
-						"fi",
-						"fish_color_cwd_root"
+						"sq",
+						"sql_add"
 					],
 					[
-						"fis",
-						"fish_color_cwd"
+						"sea",
+						"search_query	(function)"
 					],
 					[
-						"conte",
-						"context	statement"
+						"__fish_g",
+						"__fish_git_prompt"
 					],
 					[
-						"con",
-						"continue	keyword"
+						"pro",
+						"Profile	(class)"
 					],
 					[
-						"context_",
-						"context_object_name"
+						"o",
+						"objects"
 					],
 					[
-						"pag",
-						"paginate_by"
+						"re",
+						"return	(keyword)"
 					],
 					[
-						"pr",
-						"Project	(class)"
+						"u",
+						"user	(module)"
 					],
 					[
-						"tem",
-						"template_name"
-					]
-				]
-			},
-			"build_system": "",
-			"command_palette":
-			{
-				"height": 375.0,
-				"selected_items":
-				[
-					[
-						"pa",
-						"Package Control: Install Package"
+						"K",
+						"KeyError	(class)"
 					],
 					[
-						"p",
-						"Package Control: Install Package"
+						"in",
+						"input2	(statement)"
 					],
 					[
-						"Package Control: ",
-						"Package Control: Remove Package"
+						"inp",
+						"input1	(statement)"
 					],
 					[
-						"pu",
-						"Git: Push"
+						"PR",
+						"PRODUCT_IMAGES_URL	(statement)"
 					],
 					[
-						"gi",
-						"GitHub: Edit"
+						"pas",
+						"password	(param)"
 					],
-					[
-						"gith",
-						"Git: Push"
-					],
-					[
-						"github",
-						"Github: Plugin Settings"
-					],
-					[
-						"githu",
-						"GitHub: Switch Accounts"
-					],
-					[
-						"git",
-						"GitHub: Switch Accounts"
-					],
-					[
-						"g",
-						"Github: Plugin Settings"
-					],
-					[
-						"pac",
-						"Package Control: Install Package"
-					]
-				],
-				"width": 579.0
-			},
-			"console":
-			{
-				"height": 139.0,
-				"history":
-				[
-					"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
-				]
-			},
-			"distraction_free":
-			{
-				"menu_visible": true,
-				"show_minimap": false,
-				"show_open_files": false,
-				"show_tabs": false,
-				"side_bar_visible": false,
-				"status_bar_visible": false
-			},
-			"file_history":
-			[
-				"/media/data/virtual/work/catalog_of_books/Dockerfile",
-				"/media/data/virtual/work/catalog_of_books/fig.yml",
-				"/media/data/virtual/work/espermasters/Dockerfile",
-				"/media/data/virtual/work/espermasters/fig.yml",
-				"/media/data/virtual/work/espermasters/settings_local.py",
-				"/media/data/virtual/work/espermasters/.gitignore",
-				"/media/data/work/web/catalogOfBooks/package.json",
-				"/media/data/virtual/vagrant/work/angular/angular.html",
-				"/media/data/virtual/vagrant/work/bungalow/config/settings.py",
-				"/media/data/virtual/vagrant/work/espermasters/.gitignore",
-				"/usr/share/fish/functions/fish_prompt.fish",
-				"/home/crandel/.config/fish/functions/fish_prompt.fish",
-				"/home/crandel/.bashrc",
-				"/media/data/programs/ubuntu/Sublime Text Build 3059/Key.txt",
-				"/media/data/games/Counter-Strike-Source/cstrike/resource/cstrike_english.txt\n",
-				"/media/data/programs/ubuntu/bash/home.sh",
-				"/etc/vim/vimrc",
-				"/home/crandel/.vim/vimrc",
-				"/media/data/programs/ubuntu/bash/xubuntu.sh",
-				"/media/data/programs/ubuntu/bash/ubuntu.sh",
-				"/media/data/programs/ubuntu/bash/ubuntu_core.sh",
-				"/usr/share/xfce4/panel/plugins/indicator.desktop",
-				"/home/crandel/.nvidia-settings-rc",
-				"/media/data/programs/ubuntu/bash/main.sh",
-				"/media/data/programs/ubuntu/pack.sh",
-				"/media/data/programs/ubuntu/packU.sh",
-				"/media/data/programs/ubuntu/repository.sh",
-				"/media/data/programs/ubuntu/repositoryU.sh",
-				"/media/data/programs/ubuntu/lamp.sh",
-				"/media/data/programs/ubuntu/java.sh",
-				"/media/data/programs/ubuntu/packEl.sh",
-				"/home/crandel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-				"/home/vitaliy/work/kuwait/templates/frontend_base.html",
-				"/home/vitaliy/work/kuwait/apps/portfolio/models.py",
-				"/home/vitaliy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-				"/home/vitaliy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-				"/home/vitaliy/work/virtual/Vagrantfile",
-				"/home/vitaliy/work/kuwait/apps/portfolio/views.py",
-				"/home/vitaliy/work/kuwait/apps/portfolio/tests.py",
-				"/home/vitaliy/work/kuwait/apps/news/tests.py",
-				"/home/vitaliy/Documents/1.json",
-				"/home/vitaliy/work/kuwait/templates/project/more_cariers.html",
-				"/home/vitaliy/work/kuwait/templates/project/portfolio_info.html",
-				"/home/vitaliy/Documents/tweeter.html",
-				"/home/vitaliy/work/kuwait/apps/news/models.py",
-				"/home/vitaliy/work/kuwait/apps/news/views.py",
-				"/home/vitaliy/work/kuwait/apps/news/urls.py",
-				"/home/vitaliy/work/kuwait/apps/portfolio/urls.py",
-				"/home/vitaliy/work/kuwait/kud/urls.py",
-				"/home/vitaliy/work/kuwait/apps/contactus/models.py",
-				"/home/vitaliy/work/kuwait/apps/contactus/admin.py",
-				"/home/vitaliy/work/kuwait/apps/news/admin.py",
-				"/home/vitaliy/work/kuwait/apps/careers/urls.py",
-				"/home/vitaliy/work/virtual/sh/core.sh",
-				"/home/vitaliy/work/kuwait/templates/project/project_list.html",
-				"/home/vitaliy/work/kuwait/requirements.txt",
-				"/home/vitaliy/work/kuwait/kud/server_settings.py",
-				"/home/vitaliy/work/virtual/sh/sql.sh",
-				"/home/vitaliy/.bash_history",
-				"/home/vitaliy/work/virtual/provision.sh",
-				"/home/vitaliy/work/virtual/sh/python.sh",
-				"/home/vitaliy/work/kuwait/templates/news/news_list.html",
-				"/home/vitaliy/work/kuwait/kudfinal_template/004-news.html",
-				"/home/crandel/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
-				"/media/data/work/vagrant/provision.sh",
-				"/home/crandel/1.py",
-				"/home/crandel/.bash_history",
-				"/home/crandel/touchpad.sh",
-				"/media/data/work/web/catalogOfBooks/views/layout.jade",
-				"/media/data/work/web/catalogOfBooks/views/homepage.jade",
-				"/home/crandel/.config/sublime-text-3/Packages/sublime-github/GitHub.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/User/Github Tools.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/User/GitHub.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/GitGutter/GitGutter.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
-				"/home/crandel/.wine/dosdevices/c:/users/Public/Desktop/Sword of the Stars - Complete Collection.lnk",
-				"/home/crandel/.config/sublime-text-3/Packages/Javatar/README.md"
-			],
-			"find":
-			{
-				"height": 27.0
-			},
-			"find_in_files":
-			{
-				"height": 0.0,
-				"where_history":
-				[
-				]
-			},
-			"find_state":
-			{
-				"case_sensitive": false,
-				"find_history":
-				[
-					"PYTHONUNBUFFERED",
-					"clo",
-					"pull"
-				],
-				"highlight": true,
-				"in_selection": false,
-				"preserve_case": false,
-				"regex": false,
-				"replace_history":
-				[
-				],
-				"reverse": false,
-				"show_context": true,
-				"use_buffer2": true,
-				"whole_word": false,
-				"wrap": true
-			},
-			"incremental_find":
-			{
-				"height": 27.0
-			},
-			"input":
-			{
-				"height": 33.0
-			},
-			"menu_visible": true,
-			"output.find_results":
-			{
-				"height": 0.0
-			},
-			"output.git":
-			{
-				"height": 112.0
-			},
-			"replace":
-			{
-				"height": 50.0
-			},
-			"save_all_on_build": true,
-			"select_file":
-			{
-				"height": 0.0,
-				"selected_items":
-				[
-				],
-				"width": 0.0
-			},
-			"select_project":
-			{
-				"height": 0.0,
-				"selected_items":
-				[
-				],
-				"width": 0.0
-			},
-			"select_symbol":
-			{
-				"height": 0.0,
-				"selected_items":
-				[
-				],
-				"width": 0.0
-			},
-			"show_minimap": true,
-			"show_open_files": true,
-			"show_tabs": true,
-			"side_bar_visible": true,
-			"side_bar_width": 225.0,
-			"status_bar_visible": true,
-			"template_settings":
-			{
-			}
-		},
-		"new_window_width": 0.0
-	},
-	"windows":
-	[
-		{
-			"auto_complete":
-			{
-				"selected_items":
-				[
 					[
 						"P",
 						"Password	(class)"
@@ -371,14 +144,6 @@
 					[
 						"i",
 						"input	(function)"
-					],
-					[
-						"in",
-						"int	(class)"
-					],
-					[
-						"re",
-						"res_list	(statement)"
 					],
 					[
 						"des",
@@ -445,10 +210,6 @@
 						"sql_email	(statement)"
 					],
 					[
-						"sq",
-						"sql_description	(statement)"
-					],
-					[
 						"p",
 						"params	(statement)"
 					],
@@ -459,10 +220,6 @@
 					[
 						"fe",
 						"fetchall	(function)"
-					],
-					[
-						"pas",
-						"password	(statement)"
 					],
 					[
 						"ta",
@@ -483,10 +240,6 @@
 					[
 						"arg",
 						"args	param"
-					],
-					[
-						"__",
-						"__init__	init"
 					],
 					[
 						"add",
@@ -538,36 +291,6 @@
 					]
 				]
 			},
-			"buffers":
-			[
-				{
-					"file": "/media/data/virtual/work/pass/password.py",
-					"settings":
-					{
-						"buffer_size": 7365,
-						"line_ending": "Unix"
-					}
-				},
-				{
-					"file": "/media/data/virtual/work/pass/password2.py",
-					"settings":
-					{
-						"buffer_size": 7570,
-						"line_ending": "Unix",
-						"name": "Pa"
-					}
-				},
-				{
-					"contents": "sudo pacman -S htop yaourt vim mc jdk8-openjdk meld doublecmd-gtk\n gparted git gdebi ubuntu-tweak grub-customizer sublime-text-installer skype ghex vlc chromium-browser synaptic libreoffice square-icons purple-vk-plugin p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller nodejs python-dev preload\nyaourt -S furiusisomount",
-					"settings":
-					{
-						"buffer_size": 369,
-						"line_ending": "Unix",
-						"name": "sudo pacman -S htop yaourt vim mc jdk8-openjdk mel"
-					}
-				}
-			],
-			"build_system": "",
 			"build_system_choices":
 			[
 			],
@@ -580,7 +303,7 @@
 				[
 					[
 						"pa",
-						"Package Control: Install Package"
+						"Package Control: List Packages"
 					],
 					[
 						"Package Control: ",
@@ -623,7 +346,696 @@
 						"Package Control: Install Package"
 					]
 				],
-				"width": 579.0
+				"width": 514.0
+			},
+			"console":
+			{
+				"height": 139.0,
+				"history":
+				[
+					"go run ./test.go",
+					"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+				]
+			},
+			"distraction_free":
+			{
+				"menu_visible": true,
+				"show_minimap": false,
+				"show_open_files": false,
+				"show_tabs": false,
+				"side_bar_visible": false,
+				"status_bar_visible": false
+			},
+			"file_history":
+			[
+				"/home/crandel/work/projects/password/test_password.py",
+				"/home/crandel/work/projects/password/password.py",
+				"/home/crandel/work/projects/stroylandiya/settings/local.py",
+				"/home/crandel/work/projects/stroylandiya/tmp/change_stat_db",
+				"/home/crandel/work/projects/stroylandiya/apps/delivery/admin.py",
+				"/home/crandel/work/projects/stroylandiya/apps/delivery/models.py",
+				"/home/crandel/work/projects/stroylandiya/apps/delivery/admin.pyc",
+				"/home/crandel/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+				"/usr/share/applications/xfce4-run.desktop",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+				"/home/crandel/.config/fish/functions/install_vim_bundles.fish",
+				"/home/crandel/Desktop/README",
+				"/home/crandel/work/projects/password/tests/test_password.py",
+				"/home/crandel/work/projects/stroylandiya/docker-compose.yml",
+				"/home/crandel/work/la.fish",
+				"/home/crandel/.config/fish/functions/all.fish",
+				"/home/crandel/.config/fish/functions/go_path.fish",
+				"/home/crandel/.config/fish/functions/son",
+				"/home/crandel/.config/fish/functions/soff.fish",
+				"/home/crandel/.config/fish/functions/fish_prompt.fish",
+				"/home/crandel/.config/fish/functions/ll.fish",
+				"/home/crandel/work/l.fish",
+				"/home/crandel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+				"/home/crandel/work/projects/stroylandiya/apps/search/views.py",
+				"/home/crandel/.config/fish/config.fish",
+				"/usr/share/fish/functions/fish_prompt.fish",
+				"/home/crandel/.config/fish/functions/fish_prompt.fi",
+				"/home/crandel/Documents/home/.config/fish/functions/fish_prompt.fish",
+				"/home/crandel/work/projects/espermasters/docker-compose.yml",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/models/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/urls.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/views/profile.py",
+				"/home/crandel/work/projects/test/test/README.md",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/models/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/services/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/exceptions/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/mixins/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/forms/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/serializers/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/mixins/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/blog_backend/urls.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/exceptions/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/forms/post.py",
+				"/home/crandel/work/projects/test/test/blog_backend/profile/models/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/blog_backend/settings.py",
+				"/home/crandel/work/projects/test/test/blog_backend/profile/models/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/profile/services/user.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_post/models/user.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_post/models/__init__.py",
+				"/home/crandel/conv.py",
+				"/home/crandel/conv2.py",
+				"/home/crandel/work/projects/hotels/api/app/Controllers/v1/Search/IndexController.php",
+				"/home/crandel/work/projects/hotels/api/app/Classes/v1/Sphinx/SphinxManager.php",
+				"/home/crandel/conv",
+				"/home/crandel/work/projects/stroylandiya/Dockerfile",
+				"/home/crandel/work/projects/espermasters/Dockerfile",
+				"/home/crandel/work/projects/espermasters/settings_local.py",
+				"/home/crandel/work/projects/espermasters/settings.py",
+				"/home/crandel/work/projects/docker/solr/Dockerfile",
+				"/run/mount/utab",
+				"/home/crandel/.config/fish/completions/d.fish",
+				"/home/crandel/work/projects/stroylandiya/settings/base.py",
+				"/home/crandel/work/projects/espermasters/.gitignore",
+				"/home/crandel/work/projects/stroylandiya/run.sh",
+				"/home/crandel/work/projects/stroylandiya-django/sh/core.sh",
+				"/home/crandel/work/projects/stroylandiya-django/docker-compose.yml",
+				"/home/crandel/work/projects/stroylandiya-django/Dockerfile",
+				"/home/crandel/work/projects/stroylandiya-django/settings/local.py",
+				"/home/crandel/work/projects/stroylandiya-django/requirements/dev.txt",
+				"/home/crandel/go/src/test/test.go",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/USAGE.md",
+				"/home/crandel/Downloads/Sublime Text 3 Build 3083/Key.txt",
+				"/home/crandel/work/projects/espermasters/run.sh",
+				"/home/crandel/work/projects/tutorial/Dockerfile",
+				"/home/crandel/work/projects/tutorial/docker-compose.yml",
+				"/media/data/virtual/work/pass/password.py",
+				"/media/data/virtual/work/pass/password2.py",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Refactor.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/sublime-text-refactor/Refactor.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/GoSublime.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/User/GoSublime.sublime-settings",
+				"/home/crandel/.config/sublime-text-3/Packages/GitGutter/GitGutter.sublime-settings",
+				"/home/crandel/go/src/exmpl/exmpl1_linux.go",
+				"/media/data/work/go/projects/test/src/test.go",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/CHANGELOG.md",
+				"/media/data/virtual/work/pass/hash_func.py",
+				"/media/data/virtual/work/pass/.gitignore",
+				"/home/crandel/My Games/SE5/CD key.txt",
+				"/media/data/virtual/work/espermasters/apps/account/accutils.py",
+				"/media/data/virtual/work/catalog/Dockerfile",
+				"/media/data/virtual/work/catalog/run.sh",
+				"/media/data/virtual/work/catalog/package.json",
+				"/media/data/virtual/work/catalog/fig.yml",
+				"/media/data/virtual/work/dockerImage/mongo/Dockerfile",
+				"/media/data/virtual/work/auth/auth/settings.py",
+				"/media/data/virtual/work/test/package.json",
+				"/media/data/virtual/work/catalog/.gitignore",
+				"/media/data/virtual/work/catalog_of_books/Dockerfile",
+				"/media/data/virtual/work/catalog_of_books/fig.yml",
+				"/media/data/virtual/work/espermasters/Dockerfile",
+				"/media/data/virtual/work/espermasters/fig.yml",
+				"/media/data/virtual/work/espermasters/settings_local.py",
+				"/media/data/virtual/work/espermasters/.gitignore",
+				"/media/data/work/web/catalogOfBooks/package.json",
+				"/media/data/virtual/vagrant/work/angular/angular.html",
+				"/media/data/virtual/vagrant/work/bungalow/config/settings.py",
+				"/media/data/virtual/vagrant/work/espermasters/.gitignore",
+				"/home/crandel/.bashrc",
+				"/media/data/programs/ubuntu/Sublime Text Build 3059/Key.txt",
+				"/media/data/games/Counter-Strike-Source/cstrike/resource/cstrike_english.txt\n",
+				"/media/data/programs/ubuntu/bash/home.sh",
+				"/etc/vim/vimrc",
+				"/home/crandel/.vim/vimrc",
+				"/media/data/programs/ubuntu/bash/xubuntu.sh",
+				"/media/data/programs/ubuntu/bash/ubuntu.sh",
+				"/media/data/programs/ubuntu/bash/ubuntu_core.sh",
+				"/usr/share/xfce4/panel/plugins/indicator.desktop",
+				"/home/crandel/.nvidia-settings-rc",
+				"/media/data/programs/ubuntu/bash/main.sh",
+				"/media/data/programs/ubuntu/pack.sh",
+				"/media/data/programs/ubuntu/packU.sh",
+				"/media/data/programs/ubuntu/repository.sh",
+				"/media/data/programs/ubuntu/repositoryU.sh",
+				"/media/data/programs/ubuntu/lamp.sh",
+				"/media/data/programs/ubuntu/java.sh",
+				"/media/data/programs/ubuntu/packEl.sh",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+				"/home/vitaliy/work/kuwait/templates/frontend_base.html"
+			],
+			"find":
+			{
+				"height": 26.0
+			},
+			"find_in_files":
+			{
+				"height": 95.0,
+				"where_history":
+				[
+					"/home/crandel/work/projects/test/test"
+				]
+			},
+			"find_state":
+			{
+				"case_sensitive": true,
+				"find_history":
+				[
+					"button",
+					"button1",
+					"+d",
+					"+d ",
+					" d ",
+					"ctrl",
+					"hid",
+					"hide",
+					"__fish_git_prompt",
+					"bb_post",
+					"from .post import Post",
+					"Post",
+					"i",
+					"_mistakeCorrection",
+					"redis",
+					"docker",
+					"Password",
+					"table",
+					"else",
+					"', ",
+					"')\n",
+					"downloads",
+					"sails",
+					"PYTHONUNBUFFERED",
+					"clo",
+					"pull"
+				],
+				"highlight": true,
+				"in_selection": false,
+				"preserve_case": false,
+				"regex": false,
+				"replace_history":
+				[
+					"d",
+					"TABLE"
+				],
+				"reverse": false,
+				"show_context": true,
+				"use_buffer2": true,
+				"whole_word": false,
+				"wrap": true
+			},
+			"incremental_find":
+			{
+				"height": 26.0
+			},
+			"input":
+			{
+				"height": 33.0
+			},
+			"menu_visible": true,
+			"output.GoSublime-output":
+			{
+				"height": 126.0
+			},
+			"output.MarGo-output":
+			{
+				"height": 126.0
+			},
+			"output.exec":
+			{
+				"height": 126.0
+			},
+			"output.find_results":
+			{
+				"height": 0.0
+			},
+			"output.git":
+			{
+				"height": 112.0
+			},
+			"output.rope_python_documentation":
+			{
+				"height": 126.0
+			},
+			"output.unsaved_changes":
+			{
+				"height": 126.0
+			},
+			"pinned_build_system": "",
+			"replace":
+			{
+				"height": 48.0
+			},
+			"save_all_on_build": true,
+			"select_file":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_project":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"select_symbol":
+			{
+				"height": 0.0,
+				"last_filter": "",
+				"selected_items":
+				[
+				],
+				"width": 0.0
+			},
+			"show_minimap": true,
+			"show_open_files": true,
+			"show_tabs": true,
+			"side_bar_visible": true,
+			"side_bar_width": 225.0,
+			"status_bar_visible": true,
+			"template_settings":
+			{
+			}
+		},
+		"new_window_width": 1920.0
+	},
+	"windows":
+	[
+		{
+			"auto_complete":
+			{
+				"selected_items":
+				[
+					[
+						"tot",
+						"total_project"
+					],
+					[
+						"pr",
+						"project	(forflow)"
+					],
+					[
+						"h",
+						"hours	(statement)"
+					],
+					[
+						"re",
+						"report_dict2	(statement)"
+					],
+					[
+						"e",
+						"entry	(forflow)"
+					],
+					[
+						"pro",
+						"project_start	(statement)"
+					],
+					[
+						"Ke",
+						"KeyError	(class)"
+					],
+					[
+						"en",
+						"entry_info	(statement)"
+					],
+					[
+						"a",
+						"append"
+					],
+					[
+						"tota",
+						"total_for_user"
+					],
+					[
+						"to",
+						"total_project	(statement)"
+					],
+					[
+						"i",
+						"info	(function)"
+					],
+					[
+						"B",
+						"basicConfig	(function)"
+					],
+					[
+						"lo",
+						"logging	(module)"
+					],
+					[
+						"Ex",
+						"exceptions"
+					],
+					[
+						"al",
+						"all_users	(statement)"
+					],
+					[
+						"is",
+						"issue	(forflow)"
+					],
+					[
+						"s",
+						"server	(statement)"
+					],
+					[
+						"__",
+						"__class__	(class)"
+					],
+					[
+						"de",
+						"delete_query	(function)"
+					],
+					[
+						"ad",
+						"add_query	(function)"
+					],
+					[
+						"sq",
+						"sql_add"
+					],
+					[
+						"sea",
+						"search_query	(function)"
+					],
+					[
+						"__fish_g",
+						"__fish_git_prompt"
+					],
+					[
+						"o",
+						"objects"
+					],
+					[
+						"u",
+						"user	(module)"
+					],
+					[
+						"K",
+						"KeyError	(class)"
+					],
+					[
+						"in",
+						"input2	(statement)"
+					],
+					[
+						"inp",
+						"input1	(statement)"
+					],
+					[
+						"PR",
+						"PRODUCT_IMAGES_URL	(statement)"
+					],
+					[
+						"pas",
+						"password	(param)"
+					],
+					[
+						"P",
+						"Password	(class)"
+					],
+					[
+						"el",
+						"else	(keyword)"
+					],
+					[
+						"di",
+						"dir	(function)"
+					],
+					[
+						"typ",
+						"type_list	(statement)"
+					],
+					[
+						"ty",
+						"type_list	(statement)"
+					],
+					[
+						"m",
+						"make	type ƒ"
+					],
+					[
+						"f",
+						"fmt	 package ρ"
+					],
+					[
+						"arr",
+						"array3	[10]uint ν"
+					],
+					[
+						"T",
+						"TypeOf	reflect.Type ƒ"
+					],
+					[
+						"des",
+						"description	(statement)"
+					],
+					[
+						"co",
+						"commit	(function)"
+					],
+					[
+						"fo",
+						"format	(function)"
+					],
+					[
+						"E",
+						"EMAIL	(statement)"
+					],
+					[
+						"pa",
+						"params	(function)"
+					],
+					[
+						"c",
+						"con	(statement)"
+					],
+					[
+						"del",
+						"delete"
+					],
+					[
+						"no",
+						"not	(keyword)"
+					],
+					[
+						"n",
+						"name	(statement)"
+					],
+					[
+						"v",
+						"values	(statement)"
+					],
+					[
+						"ar",
+						"arguments	(param)"
+					],
+					[
+						"par",
+						"params_sql	(statement)"
+					],
+					[
+						"li",
+						"lite	(module)"
+					],
+					[
+						"pass",
+						"password	(statement)"
+					],
+					[
+						"sql_a",
+						"sql_add	(statement)"
+					],
+					[
+						"sql",
+						"sql_email	(statement)"
+					],
+					[
+						"p",
+						"params	(statement)"
+					],
+					[
+						"fe",
+						"fetchall	(function)"
+					],
+					[
+						"ta",
+						"table	(statement)"
+					],
+					[
+						"F",
+						"False	class"
+					],
+					[
+						"pars",
+						"parser_add	statement"
+					],
+					[
+						"cl",
+						"close	function"
+					],
+					[
+						"arg",
+						"args	param"
+					],
+					[
+						"add",
+						"add_parser"
+					],
+					[
+						"mongo",
+						"mongo"
+					],
+					[
+						"mo",
+						"mongodata"
+					],
+					[
+						"ng-b",
+						"ng-bind-template	AngularJS"
+					],
+					[
+						"fi",
+						"fish_color_cwd_root"
+					],
+					[
+						"fis",
+						"fish_color_cwd"
+					],
+					[
+						"conte",
+						"context	statement"
+					],
+					[
+						"con",
+						"continue	keyword"
+					],
+					[
+						"context_",
+						"context_object_name"
+					],
+					[
+						"pag",
+						"paginate_by"
+					],
+					[
+						"tem",
+						"template_name"
+					]
+				]
+			},
+			"buffers":
+			[
+				{
+					"file": "/home/crandel/work/projects/redmine/settings.py",
+					"settings":
+					{
+						"buffer_size": 669,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/crandel/work/projects/redmine/Redmine_reporter.py",
+					"settings":
+					{
+						"buffer_size": 3376,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/crandel/work/projects/redmine/templates/report_table.html",
+					"settings":
+					{
+						"buffer_size": 2394,
+						"line_ending": "Unix"
+					}
+				},
+				{
+					"file": "/home/crandel/work/projects/redmine/requirements.txt",
+					"settings":
+					{
+						"buffer_size": 58,
+						"line_ending": "Unix",
+						"name": "jinja2==2.7.3"
+					}
+				}
+			],
+			"build_system": "",
+			"build_system_choices":
+			[
+			],
+			"build_varint": "",
+			"command_palette":
+			{
+				"height": 375.0,
+				"last_filter": "pa",
+				"selected_items":
+				[
+					[
+						"pa",
+						"Package Control: List Packages"
+					],
+					[
+						"Package Control: ",
+						"Package Control: List Packages"
+					],
+					[
+						"p",
+						"Package Control: List Packages"
+					],
+					[
+						"pu",
+						"Git: Push"
+					],
+					[
+						"gi",
+						"GitHub: Edit"
+					],
+					[
+						"gith",
+						"Git: Push"
+					],
+					[
+						"github",
+						"Github: Plugin Settings"
+					],
+					[
+						"githu",
+						"GitHub: Switch Accounts"
+					],
+					[
+						"git",
+						"GitHub: Switch Accounts"
+					],
+					[
+						"g",
+						"Github: Plugin Settings"
+					],
+					[
+						"pac",
+						"Package Control: Install Package"
+					]
+				],
+				"width": 514.0
 			},
 			"console":
 			{
@@ -645,26 +1057,101 @@
 			},
 			"expanded_folders":
 			[
-				"/media/data/virtual/work/catalog",
-				"/media/data/virtual/work/catalog/.tmp"
+				"/home/crandel/work/projects/redmine",
+				"/home/crandel/work/projects/redmine/templates"
 			],
 			"file_history":
 			[
+				"/home/crandel/Documents/1.html",
+				"/home/crandel/work/projects/stroylandiya/run.sh",
+				"/home/crandel/work/projects/stroylandiya/docker-compose.yml",
+				"/home/crandel/work/projects/stroylandiya/Dockerfile",
+				"/home/crandel/work/projects/password/test_password.py",
+				"/home/crandel/work/projects/password/password.py",
+				"/home/crandel/work/projects/stroylandiya/settings/local.py",
+				"/home/crandel/work/projects/stroylandiya/tmp/change_stat_db",
+				"/home/crandel/work/projects/stroylandiya/apps/delivery/admin.py",
+				"/home/crandel/work/projects/stroylandiya/apps/delivery/models.py",
+				"/home/crandel/work/projects/stroylandiya/apps/delivery/admin.pyc",
+				"/home/crandel/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
+				"/usr/share/applications/xfce4-run.desktop",
+				"/home/crandel/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+				"/home/crandel/.config/fish/functions/install_vim_bundles.fish",
+				"/home/crandel/Desktop/README",
+				"/home/crandel/work/projects/password/tests/test_password.py",
+				"/home/crandel/work/la.fish",
+				"/home/crandel/.config/fish/functions/all.fish",
+				"/home/crandel/.config/fish/functions/go_path.fish",
+				"/home/crandel/.config/fish/functions/son",
+				"/home/crandel/.config/fish/functions/soff.fish",
+				"/home/crandel/.config/fish/functions/fish_prompt.fish",
+				"/home/crandel/.config/fish/functions/ll.fish",
+				"/home/crandel/work/l.fish",
+				"/home/crandel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+				"/home/crandel/work/projects/stroylandiya/apps/search/views.py",
+				"/home/crandel/.config/fish/config.fish",
+				"/usr/share/fish/functions/fish_prompt.fish",
+				"/home/crandel/.config/fish/functions/fish_prompt.fi",
+				"/home/crandel/Documents/home/.config/fish/functions/fish_prompt.fish",
+				"/home/crandel/work/projects/espermasters/docker-compose.yml",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/models/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/urls.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/views/profile.py",
+				"/home/crandel/work/projects/test/test/README.md",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/models/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/services/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/exceptions/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/mixins/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/forms/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/serializers/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/mixins/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/blog_backend/urls.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/exceptions/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_profile/api/forms/post.py",
+				"/home/crandel/work/projects/test/test/blog_backend/profile/models/profile.py",
+				"/home/crandel/work/projects/test/test/blog_backend/blog_backend/settings.py",
+				"/home/crandel/work/projects/test/test/blog_backend/profile/models/__init__.py",
+				"/home/crandel/work/projects/test/test/blog_backend/profile/services/user.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_post/models/user.py",
+				"/home/crandel/work/projects/test/test/blog_backend/bb_post/models/__init__.py",
+				"/home/crandel/conv.py",
+				"/home/crandel/conv2.py",
+				"/home/crandel/work/projects/hotels/api/app/Controllers/v1/Search/IndexController.php",
+				"/home/crandel/work/projects/hotels/api/app/Classes/v1/Sphinx/SphinxManager.php",
+				"/home/crandel/conv",
+				"/home/crandel/work/projects/espermasters/Dockerfile",
+				"/home/crandel/work/projects/espermasters/settings_local.py",
+				"/home/crandel/work/projects/espermasters/settings.py",
+				"/home/crandel/work/projects/docker/solr/Dockerfile",
+				"/run/mount/utab",
+				"/home/crandel/.config/fish/completions/d.fish",
+				"/home/crandel/work/projects/stroylandiya/settings/base.py",
+				"/home/crandel/work/projects/espermasters/.gitignore",
+				"/home/crandel/work/projects/stroylandiya-django/sh/core.sh",
+				"/home/crandel/work/projects/stroylandiya-django/docker-compose.yml",
+				"/home/crandel/work/projects/stroylandiya-django/Dockerfile",
+				"/home/crandel/work/projects/stroylandiya-django/settings/local.py",
+				"/home/crandel/work/projects/stroylandiya-django/requirements/dev.txt",
+				"/home/crandel/go/src/test/test.go",
+				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/USAGE.md",
+				"/home/crandel/Downloads/Sublime Text 3 Build 3083/Key.txt",
+				"/home/crandel/work/projects/espermasters/run.sh",
+				"/home/crandel/work/projects/tutorial/Dockerfile",
+				"/home/crandel/work/projects/tutorial/docker-compose.yml",
+				"/media/data/virtual/work/pass/password.py",
+				"/media/data/virtual/work/pass/password2.py",
 				"/home/crandel/.config/sublime-text-3/Packages/User/Refactor.sublime-settings",
 				"/home/crandel/.config/sublime-text-3/Packages/sublime-text-refactor/Refactor.sublime-settings",
-				"/home/crandel/go/src/test/test.go",
 				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/GoSublime.sublime-settings",
 				"/home/crandel/.config/sublime-text-3/Packages/User/GoSublime.sublime-settings",
 				"/home/crandel/.config/sublime-text-3/Packages/GitGutter/GitGutter.sublime-settings",
 				"/home/crandel/go/src/exmpl/exmpl1_linux.go",
 				"/media/data/work/go/projects/test/src/test.go",
 				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/CHANGELOG.md",
-				"/home/crandel/.config/sublime-text-3/Packages/GoSublime/USAGE.md",
 				"/media/data/virtual/work/pass/hash_func.py",
 				"/media/data/virtual/work/pass/.gitignore",
 				"/home/crandel/My Games/SE5/CD key.txt",
 				"/media/data/virtual/work/espermasters/apps/account/accutils.py",
-				"/media/data/virtual/work/pass/password.py",
 				"/media/data/virtual/work/catalog/Dockerfile",
 				"/media/data/virtual/work/catalog/run.sh",
 				"/media/data/virtual/work/catalog/package.json",
@@ -683,8 +1170,6 @@
 				"/media/data/virtual/vagrant/work/angular/angular.html",
 				"/media/data/virtual/vagrant/work/bungalow/config/settings.py",
 				"/media/data/virtual/vagrant/work/espermasters/.gitignore",
-				"/usr/share/fish/functions/fish_prompt.fish",
-				"/home/crandel/.config/fish/functions/fish_prompt.fish",
 				"/home/crandel/.bashrc",
 				"/media/data/programs/ubuntu/Sublime Text Build 3059/Key.txt",
 				"/media/data/games/Counter-Strike-Source/cstrike/resource/cstrike_english.txt\n",
@@ -704,62 +1189,18 @@
 				"/media/data/programs/ubuntu/lamp.sh",
 				"/media/data/programs/ubuntu/java.sh",
 				"/media/data/programs/ubuntu/packEl.sh",
-				"/home/crandel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-				"/home/vitaliy/work/kuwait/templates/frontend_base.html",
-				"/home/vitaliy/work/kuwait/apps/portfolio/models.py",
-				"/home/vitaliy/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
-				"/home/vitaliy/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
-				"/home/vitaliy/work/virtual/Vagrantfile",
-				"/home/vitaliy/work/kuwait/apps/portfolio/views.py",
-				"/home/vitaliy/work/kuwait/apps/portfolio/tests.py",
-				"/home/vitaliy/work/kuwait/apps/news/tests.py",
-				"/home/vitaliy/Documents/1.json",
-				"/home/vitaliy/work/kuwait/templates/project/more_cariers.html",
-				"/home/vitaliy/work/kuwait/templates/project/portfolio_info.html",
-				"/home/vitaliy/Documents/tweeter.html",
-				"/home/vitaliy/work/kuwait/apps/news/models.py",
-				"/home/vitaliy/work/kuwait/apps/news/views.py",
-				"/home/vitaliy/work/kuwait/apps/news/urls.py",
-				"/home/vitaliy/work/kuwait/apps/portfolio/urls.py",
-				"/home/vitaliy/work/kuwait/kud/urls.py",
-				"/home/vitaliy/work/kuwait/apps/contactus/models.py",
-				"/home/vitaliy/work/kuwait/apps/contactus/admin.py",
-				"/home/vitaliy/work/kuwait/apps/news/admin.py",
-				"/home/vitaliy/work/kuwait/apps/careers/urls.py",
-				"/home/vitaliy/work/virtual/sh/core.sh",
-				"/home/vitaliy/work/kuwait/templates/project/project_list.html",
-				"/home/vitaliy/work/kuwait/requirements.txt",
-				"/home/vitaliy/work/kuwait/kud/server_settings.py",
-				"/home/vitaliy/work/virtual/sh/sql.sh",
-				"/home/vitaliy/.bash_history",
-				"/home/vitaliy/work/virtual/provision.sh",
-				"/home/vitaliy/work/virtual/sh/python.sh",
-				"/home/vitaliy/work/kuwait/templates/news/news_list.html",
-				"/home/vitaliy/work/kuwait/kudfinal_template/004-news.html",
-				"/home/crandel/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
-				"/media/data/work/vagrant/provision.sh",
-				"/home/crandel/1.py",
-				"/home/crandel/.bash_history",
-				"/home/crandel/touchpad.sh",
-				"/media/data/work/web/catalogOfBooks/views/layout.jade",
-				"/media/data/work/web/catalogOfBooks/views/homepage.jade",
-				"/home/crandel/.config/sublime-text-3/Packages/sublime-github/GitHub.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/User/Github Tools.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/User/GitHub.sublime-settings",
-				"/home/crandel/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
-				"/home/crandel/.wine/dosdevices/c:/users/Public/Desktop/Sword of the Stars - Complete Collection.lnk",
-				"/home/crandel/.config/sublime-text-3/Packages/Javatar/README.md"
+				"/home/crandel/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
 			],
 			"find":
 			{
-				"height": 37.0
+				"height": 26.0
 			},
 			"find_in_files":
 			{
-				"height": 0.0,
+				"height": 95.0,
 				"where_history":
 				[
+					"/home/crandel/work/projects/test/test"
 				]
 			},
 			"find_state":
@@ -767,6 +1208,22 @@
 				"case_sensitive": true,
 				"find_history":
 				[
+					"button",
+					"button1",
+					"+d",
+					"+d ",
+					" d ",
+					"ctrl",
+					"hid",
+					"hide",
+					"__fish_git_prompt",
+					"bb_post",
+					"from .post import Post",
+					"Post",
+					"i",
+					"_mistakeCorrection",
+					"redis",
+					"docker",
 					"Password",
 					"table",
 					"else",
@@ -784,6 +1241,7 @@
 				"regex": false,
 				"replace_history":
 				[
+					"d",
 					"TABLE"
 				],
 				"reverse": false,
@@ -795,30 +1253,30 @@
 			"folders":
 			[
 				{
-					"path": "/media/data/virtual/work/catalog"
+					"path": "/home/crandel/work/projects/redmine"
 				}
 			],
 			"groups":
 			[
 				{
-					"selected": 2,
+					"selected": 3,
 					"sheets":
 					[
 						{
 							"buffer": 0,
-							"file": "/media/data/virtual/work/pass/password.py",
+							"file": "/home/crandel/work/projects/redmine/settings.py",
 							"semi_transient": false,
 							"settings":
 							{
-								"buffer_size": 7365,
+								"buffer_size": 669,
 								"regions":
 								{
 								},
 								"selection":
 								[
 									[
-										0,
-										0
+										631,
+										631
 									]
 								],
 								"settings":
@@ -826,184 +1284,16 @@
 									"BracketHighlighterBusy": false,
 									"bh_regions":
 									[
-										"bh_default",
-										"bh_default_center",
-										"bh_default_open",
-										"bh_default_close",
-										"bh_default_content",
-										"bh_square",
-										"bh_square_center",
-										"bh_square_open",
-										"bh_square_close",
-										"bh_square_content",
-										"bh_c_define",
-										"bh_c_define_center",
-										"bh_c_define_open",
-										"bh_c_define_close",
-										"bh_c_define_content",
-										"bh_round",
-										"bh_round_center",
-										"bh_round_open",
-										"bh_round_close",
-										"bh_round_content",
-										"bh_unmatched",
-										"bh_unmatched_center",
-										"bh_unmatched_open",
-										"bh_unmatched_close",
-										"bh_unmatched_content",
-										"bh_regex",
-										"bh_regex_center",
-										"bh_regex_open",
-										"bh_regex_close",
-										"bh_regex_content",
-										"bh_double_quote",
-										"bh_double_quote_center",
-										"bh_double_quote_open",
-										"bh_double_quote_close",
-										"bh_double_quote_content",
-										"bh_tag",
-										"bh_tag_center",
-										"bh_tag_open",
-										"bh_tag_close",
-										"bh_tag_content",
-										"bh_angle",
-										"bh_angle_center",
-										"bh_angle_open",
-										"bh_angle_close",
-										"bh_angle_content",
 										"bh_curly",
 										"bh_curly_center",
 										"bh_curly_open",
 										"bh_curly_close",
 										"bh_curly_content",
-										"bh_single_quote",
-										"bh_single_quote_center",
-										"bh_single_quote_open",
-										"bh_single_quote_close",
-										"bh_single_quote_content"
-									],
-									"nodePath": "node",
-									"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
-								},
-								"translation.x": 0.0,
-								"translation.y": 1482.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 1,
-							"type": "text"
-						},
-						{
-							"buffer": 1,
-							"file": "/media/data/virtual/work/pass/password2.py",
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 7570,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										514,
-										514
-									]
-								],
-								"settings":
-								{
-									"BracketHighlighterBusy": false,
-									"auto_name": "Pa",
-									"bh_regions":
-									[
-										"bh_default",
-										"bh_default_center",
-										"bh_default_open",
-										"bh_default_close",
-										"bh_default_content",
-										"bh_square",
-										"bh_square_center",
-										"bh_square_open",
-										"bh_square_close",
-										"bh_square_content",
 										"bh_c_define",
 										"bh_c_define_center",
 										"bh_c_define_open",
 										"bh_c_define_close",
 										"bh_c_define_content",
-										"bh_round",
-										"bh_round_center",
-										"bh_round_open",
-										"bh_round_close",
-										"bh_round_content",
-										"bh_unmatched",
-										"bh_unmatched_center",
-										"bh_unmatched_open",
-										"bh_unmatched_close",
-										"bh_unmatched_content",
-										"bh_regex",
-										"bh_regex_center",
-										"bh_regex_open",
-										"bh_regex_close",
-										"bh_regex_content",
-										"bh_double_quote",
-										"bh_double_quote_center",
-										"bh_double_quote_open",
-										"bh_double_quote_close",
-										"bh_double_quote_content",
-										"bh_tag",
-										"bh_tag_center",
-										"bh_tag_open",
-										"bh_tag_close",
-										"bh_tag_content",
-										"bh_angle",
-										"bh_angle_center",
-										"bh_angle_open",
-										"bh_angle_close",
-										"bh_angle_content",
-										"bh_curly",
-										"bh_curly_center",
-										"bh_curly_open",
-										"bh_curly_close",
-										"bh_curly_content",
-										"bh_single_quote",
-										"bh_single_quote_center",
-										"bh_single_quote_open",
-										"bh_single_quote_close",
-										"bh_single_quote_content"
-									],
-									"syntax": "Packages/Python/Python.tmLanguage",
-									"tab_size": 4,
-									"translate_tabs_to_spaces": true
-								},
-								"translation.x": 0.0,
-								"translation.y": 228.0,
-								"zoom_level": 1.0
-							},
-							"stack_index": 2,
-							"type": "text"
-						},
-						{
-							"buffer": 2,
-							"semi_transient": false,
-							"settings":
-							{
-								"buffer_size": 369,
-								"regions":
-								{
-								},
-								"selection":
-								[
-									[
-										66,
-										66
-									]
-								],
-								"settings":
-								{
-									"BracketHighlighterBusy": false,
-									"auto_name": "sudo pacman -S htop yaourt vim mc jdk8-openjdk mel",
-									"bh_regions":
-									[
 										"bh_round",
 										"bh_round_center",
 										"bh_round_open",
@@ -1019,31 +1309,6 @@
 										"bh_double_quote_open",
 										"bh_double_quote_close",
 										"bh_double_quote_content",
-										"bh_square",
-										"bh_square_center",
-										"bh_square_open",
-										"bh_square_close",
-										"bh_square_content",
-										"bh_c_define",
-										"bh_c_define_center",
-										"bh_c_define_open",
-										"bh_c_define_close",
-										"bh_c_define_content",
-										"bh_unmatched",
-										"bh_unmatched_center",
-										"bh_unmatched_open",
-										"bh_unmatched_close",
-										"bh_unmatched_content",
-										"bh_regex",
-										"bh_regex_center",
-										"bh_regex_open",
-										"bh_regex_close",
-										"bh_regex_content",
-										"bh_curly",
-										"bh_curly_center",
-										"bh_curly_open",
-										"bh_curly_close",
-										"bh_curly_content",
 										"bh_single_quote",
 										"bh_single_quote_center",
 										"bh_single_quote_open",
@@ -1058,9 +1323,290 @@
 										"bh_tag_center",
 										"bh_tag_open",
 										"bh_tag_close",
-										"bh_tag_content"
+										"bh_tag_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content"
 									],
-									"syntax": "Packages/Text/Plain text.tmLanguage"
+									"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage"
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 3,
+							"type": "text"
+						},
+						{
+							"buffer": 1,
+							"file": "/home/crandel/work/projects/redmine/Redmine_reporter.py",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 3376,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										363,
+										363
+									]
+								],
+								"settings":
+								{
+									"BracketHighlighterBusy": false,
+									"bh_regions":
+									[
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content"
+									],
+									"syntax": "Packages/Djaneiro/Syntaxes/Python Django.tmLanguage",
+									"tab_size": 4,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 1188.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 2,
+							"type": "text"
+						},
+						{
+							"buffer": 2,
+							"file": "/home/crandel/work/projects/redmine/templates/report_table.html",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 2394,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										830,
+										830
+									]
+								],
+								"settings":
+								{
+									"BracketHighlighterBusy": false,
+									"bh_regions":
+									[
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content"
+									],
+									"syntax": "Packages/Djaneiro/Syntaxes/HTML (Django).tmLanguage",
+									"tab_size": 2,
+									"translate_tabs_to_spaces": true
+								},
+								"translation.x": 0.0,
+								"translation.y": 0.0,
+								"zoom_level": 1.0
+							},
+							"stack_index": 1,
+							"type": "text"
+						},
+						{
+							"buffer": 3,
+							"file": "/home/crandel/work/projects/redmine/requirements.txt",
+							"semi_transient": false,
+							"settings":
+							{
+								"buffer_size": 58,
+								"regions":
+								{
+								},
+								"selection":
+								[
+									[
+										53,
+										53
+									]
+								],
+								"settings":
+								{
+									"BracketHighlighterBusy": false,
+									"auto_name": "jinja2==2.7.3",
+									"bh_regions":
+									[
+										"bh_curly",
+										"bh_curly_center",
+										"bh_curly_open",
+										"bh_curly_close",
+										"bh_curly_content",
+										"bh_c_define",
+										"bh_c_define_center",
+										"bh_c_define_open",
+										"bh_c_define_close",
+										"bh_c_define_content",
+										"bh_round",
+										"bh_round_center",
+										"bh_round_open",
+										"bh_round_close",
+										"bh_round_content",
+										"bh_default",
+										"bh_default_center",
+										"bh_default_open",
+										"bh_default_close",
+										"bh_default_content",
+										"bh_double_quote",
+										"bh_double_quote_center",
+										"bh_double_quote_open",
+										"bh_double_quote_close",
+										"bh_double_quote_content",
+										"bh_single_quote",
+										"bh_single_quote_center",
+										"bh_single_quote_open",
+										"bh_single_quote_close",
+										"bh_single_quote_content",
+										"bh_angle",
+										"bh_angle_center",
+										"bh_angle_open",
+										"bh_angle_close",
+										"bh_angle_content",
+										"bh_tag",
+										"bh_tag_center",
+										"bh_tag_open",
+										"bh_tag_close",
+										"bh_tag_content",
+										"bh_unmatched",
+										"bh_unmatched_center",
+										"bh_unmatched_open",
+										"bh_unmatched_close",
+										"bh_unmatched_content",
+										"bh_square",
+										"bh_square_center",
+										"bh_square_open",
+										"bh_square_close",
+										"bh_square_content",
+										"bh_regex",
+										"bh_regex_center",
+										"bh_regex_open",
+										"bh_regex_close",
+										"bh_regex_content"
+									],
+									"syntax": "Packages/requirementstxt/requirementstxt.tmLanguage"
 								},
 								"translation.x": 0.0,
 								"translation.y": 0.0,
@@ -1074,7 +1620,7 @@
 			],
 			"incremental_find":
 			{
-				"height": 27.0
+				"height": 26.0
 			},
 			"input":
 			{
@@ -1103,6 +1649,10 @@
 				]
 			},
 			"menu_visible": true,
+			"output.GoSublime-output":
+			{
+				"height": 126.0
+			},
 			"output.MarGo-output":
 			{
 				"height": 126.0
@@ -1128,11 +1678,11 @@
 				"height": 126.0
 			},
 			"pinned_build_system": "",
-			"position": "0,1,0,0,0,0,0,0,0,1366,768",
+			"position": "0,1,0,0,0,0,0,0,0,1920,1080",
 			"project": "",
 			"replace":
 			{
-				"height": 66.0
+				"height": 48.0
 			},
 			"save_all_on_build": true,
 			"select_file":
@@ -1167,15 +1717,15 @@
 			{
 			},
 			"show_minimap": true,
-			"show_open_files": false,
+			"show_open_files": true,
 			"show_tabs": true,
-			"side_bar_visible": false,
+			"side_bar_visible": true,
 			"side_bar_width": 225.0,
 			"status_bar_visible": true,
 			"template_settings":
 			{
 			},
-			"window_id": 14,
+			"window_id": 26,
 			"workspace_name": ""
 		}
 	],
