@@ -28,6 +28,11 @@ Plugin 'vim-django'
 Plugin 'vim-go'
 Plugin 'vim-surround'
 Plugin 'vim_prj'
+Plugin 'vim_git'
+Plugin 'vim_grep'
+Plugin 'vim_write'
+Plugin 'vim_winmanager'
+" Plugin 'vim_start'
 
 filetype indent on
 " If using a dark background within the editing area and syntax highlighting
