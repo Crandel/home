@@ -18,14 +18,14 @@
 [profiles]
   [[default]]
     palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    font = Droid Sans Mono 13
+    font = Hack 13
     background_image = None
-    background_darkness = 0.79
+    background_darkness = 0.77
     urgent_bell = True
     background_type = transparent
     use_system_font = False
     cursor_color = "#c67d00"
-    foreground_color = "#00ff00"
+    foreground_color = "#10c832"
     backspace_binding = automatic
     login_shell = True
     cursor_shape = ibeam

@@ -1,8 +1,34 @@
-execute pathogen#infect()
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 set nocompatible
 syntax on
+colorscheme myterm
+set rtp=~/.vim/bundle/vim_lib
+call vim_lib#sys#Autoload#init('~/.vim', 'bundle')
+
+Plugin 'vim_lib'
+Plugin 'ctrlp'
+Plugin 'auto-pairs'
+Plugin 'EasyGrep'
+Plugin 'emmet-vim'
+Plugin 'html5.vim'
+Plugin 'indentLine'
+Plugin 'jedi-vim'
+Plugin 'nerdtree'
+Plugin 'syntastic'
+Plugin 'tagbar'
+Plugin 'ultisnips'
+Plugin 'vim-airline'
+Plugin 'vim-autopep8'
+Plugin 'vim_plugmanager'
+Plugin 'YouCompleteMe'
+Plugin 'vim-snippets'
+Plugin 'vim-fish'
+Plugin 'vim-django'
+Plugin 'vim-go'
+Plugin 'vim-surround'
+Plugin 'vim_prj'
+
 filetype indent on
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -52,6 +78,7 @@ set confirm
 set t_Co=256
 set colorcolumn=130
 set number
+set relativenumber
 set title
 set autoread         " check if file not changed by another editor
 
@@ -74,7 +101,6 @@ set cursorline
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 
-colorscheme myterm
 
 set pastetoggle=<F3>
 set clipboard=unnamed

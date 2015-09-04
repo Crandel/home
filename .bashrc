@@ -36,6 +36,7 @@ alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias arch='uname -m'
 
 # some more ls aliases
 alias ll='ls -alF'
@@ -49,6 +50,8 @@ alias vre='vagrant reload'
 alias vsh='vagrant ssh'
 alias virt='cd /media/data/virtual'
 alias work='cd /media/data/virtual/vagrant/work'
+
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like

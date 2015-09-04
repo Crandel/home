@@ -1,5 +1,23 @@
 # Changelog for SearchInProject
 
+## v1.7.0 2015-08-07
+
+* Support The Platinum Searcher (thanks to @jodaka)
+* Added links to configuration files to the command palette, and a post-install message.
+
+## v1.6.2 2015-07-29
+
+* Fix for missing result in results view (thanks to @dtaub)
+* Show line and file count in results view
+
+## v1.6.1 2015-07-21
+
+* Avoid showing console window on Windows platform (thanks to @kojoru)
+
+## v1.6.0 2015-07-21
+
+* List results in view
+
 ## v1.5.1 2015-03-18
 
 * Fix ack detection code for Sublime Text 2, by @keimlink

@@ -1,8 +1,0 @@
-# .coveragerc to control coverage.py
-[run]
-branch = True
-omit =
-    .tox/*
-    tests/*
-    linter-plugin-template/*
-    */__init__.py

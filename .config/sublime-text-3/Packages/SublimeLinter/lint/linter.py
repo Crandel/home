@@ -1364,17 +1364,23 @@ class Linter(metaclass=LinterMeta):
             if cmd is not None and not cmd:
                 return
 
+        cwd = None
+
         if self.filename:
-            cwd = os.getcwd()
+            try:
+                cwd = os.getcwd()
+            except OSError:
+                pass
 
             try:
                 os.chdir(os.path.dirname(self.filename))
             except OSError:
-                pass
+                # If chdir fails, there's no need to chdir back later on
+                cwd = None
 
         output = self.run(cmd, self.code)
 
-        if self.filename:
+        if cwd:
             os.chdir(cwd)
 
         if not output:
@@ -1427,17 +1433,18 @@ class Linter(metaclass=LinterMeta):
                             if demote_to_warning_match.match(message):
                                 demote_to_warning = True
 
-                            if persist.debug_mode():
-                                persist.printf(
-                                    '{} ({}): demote_to_warning_match: "{}" == "{}"'
-                                    .format(
-                                        self.name,
-                                        os.path.basename(self.filename) or '<unsaved>',
-                                        demote_to_warning_match.pattern,
-                                        message
+                                if persist.debug_mode():
+                                    persist.printf(
+                                        '{} ({}): demote_to_warning_match: "{}" == "{}"'
+                                        .format(
+                                            self.name,
+                                            os.path.basename(self.filename) or '<unsaved>',
+                                            demote_to_warning_match.pattern,
+                                            message
+                                        )
                                     )
-                                )
-                            break
+
+                                break
 
                     if demote_to_warning:
                         error_type = highlight.WARNING

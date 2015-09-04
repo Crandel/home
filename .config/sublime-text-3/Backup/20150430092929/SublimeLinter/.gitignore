@@ -1,8 +1,0 @@
-.DS_Store
-.cache
-.tox
-.coverage
-*.pyc
-*.sublime-project
-/Context.sublime-menu
-/Main.sublime-menu

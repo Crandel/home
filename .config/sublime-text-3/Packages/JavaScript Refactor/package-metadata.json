@@ -1,1 +1,1 @@
-{"platforms": ["*"], "url": "https://github.com/s-a/sublime-text-refactor", "version": "2015.06.14.20.19.20", "sublime_text": "*", "dependencies": [], "description": "A Sublime Text Refactor Plugin for Javascript Code"}
+{"sublime_text": "*", "platforms": ["*"], "dependencies": [], "version": "2015.07.15.19.51.17", "description": "A Sublime Text Refactor Plugin for Javascript Code", "url": "https://github.com/s-a/sublime-text-refactor"}

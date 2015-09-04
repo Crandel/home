@@ -4,6 +4,7 @@ import os.path
 import os
 import sys
 import inspect
+from collections import defaultdict
 
 ### Start of fixing import paths
 # realpath() with make your script run, even if you symlink it :)
@@ -60,6 +61,7 @@ class SearchInProjectCommand(sublime_plugin.WindowCommand):
             self.results = self.engine.run(text, folders)
             if self.results:
                 self.results = [[result[0].replace(self.common_path.replace('\"', ''), ''), result[1]] for result in self.results]
+                self.results.append("``` List results in view ```")
                 self.window.show_quick_panel(self.results, self.goto_result)
             else:
                 self.results = []
@@ -71,10 +73,21 @@ class SearchInProjectCommand(sublime_plugin.WindowCommand):
 
     def goto_result(self, file_no):
         if file_no != -1:
-            file_name = self.common_path.replace('\"', '') + self.results[file_no][0]
-            view = self.window.open_file(file_name, sublime.ENCODED_POSITION)
-            regions = view.find_all(self.last_search_string)
-            view.add_regions("search_in_project", regions, "entity.name.filename.find-in-files", "circle", sublime.DRAW_OUTLINED)
+            if file_no == len(self.results) - 1: # last result is "list in view"
+                self.list_in_view()
+            else:
+                file_name = self.common_path.replace('\"', '') + self.results[file_no][0]
+                view = self.window.open_file(file_name, sublime.ENCODED_POSITION)
+                regions = view.find_all(self.last_search_string)
+                view.add_regions("search_in_project", regions, "entity.name.filename.find-in-files", "circle", sublime.DRAW_OUTLINED)
+
+    def list_in_view(self):
+        self.results.pop()
+        view = sublime.active_window().new_file()
+        view.run_command('search_in_project_results',
+            {'query': self.last_search_string,
+             'results': self.results,
+             'common_path': self.common_path.replace('\"', '')})
 
     def search_folders(self):
         search_folders = self.window.folders()
@@ -97,3 +110,31 @@ class SearchInProjectCommand(sublime_plugin.WindowCommand):
             else:
                 break
         return "\"" + "/".join(common_path) + "/\""
+
+class SearchInProjectResultsCommand(sublime_plugin.TextCommand):
+    def format_result(self, common_path, filename, lines):
+        lines_text = "\n".join(["  %s: %s" % (location, text) for location, text in lines])
+        return "%s%s:\n%s\n" % (common_path, filename, lines_text)
+
+    def format_results(self, common_path, results, query):
+        grouped_by_filename = defaultdict(list)
+        for result in results:
+            filename, location = result[0].split(':', 1)
+            text = result[1]
+            grouped_by_filename[filename].append((location, text))
+        line_count = len(results)
+        file_count = len(grouped_by_filename)
+
+        file_results = [self.format_result(common_path, filename, grouped_by_filename[filename]) for filename in grouped_by_filename]
+        return ("Search In Project results for \"%s\" (%u lines in %u files):\n\n" % (query, line_count, file_count)) \
+            + "\n".join(file_results)
+
+    def run(self, edit, common_path, results, query):
+        self.view.set_name('Find Results')
+        self.view.set_scratch(True)
+        self.view.set_syntax_file('Packages/Default/Find Results.hidden-tmLanguage')
+        results_text = self.format_results(common_path, results, query)
+        self.view.insert(edit, self.view.text_point(0,0), results_text)
+        self.view.sel().clear()
+        self.view.sel().add(sublime.Region(0,0))
+

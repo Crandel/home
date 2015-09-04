@@ -28,5 +28,13 @@ function install_vim_bundles
     git clone https://github.com/dag/vim-fish.git
     git clone https://github.com/tell-k/vim-autopep8.git
     git clone https://github.com/jiangmiao/auto-pairs.git
+    git clone https://github.com/Bashka/vim_lib.git
+    git clone https://github.com/Bashka/vim_winmanager.git
+    git clone https://github.com/Bashka/vim_plugmanager
+    git clone https://github.com/Bashka/vim_prj
+    git clone https://github.com/Bashka/vim_git.git
+    git clone https://github.com/Bashka/vim_start.git
+    git clone https://github.com/Bashka/vim_grep.git
+    git clone https://github.com/Bashka/vim_write.git
     cd ~
 end
