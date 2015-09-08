@@ -34,12 +34,17 @@ function rita_up
 end
 
 function monup
-    sudo systemctl start mongodb.service
+    sudo chown -R mongodb: /opt/db/mongo/
+    sudo systemctl restart mongodb.service
     sudo systemctl status -l mongodb.service
 end
 
-function serup
+function servup
     paster serve --reload local.ini
+end
+
+function geocp
+    cp /home/crandel/work/projects/rita/mail/tmp/GeoLite2-City.mmdb /home/crandel/work/projects/rita/rita/public/GeoLite2-City.mmdb
 end
 
 set -x EDITOR vim

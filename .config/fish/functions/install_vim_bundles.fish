@@ -8,7 +8,6 @@ function install_vim_bundles
     sudo pip2 install jedi
     git clone --recursive https://github.com/davidhalter/jedi-vim.git
     git clone https://github.com/kien/ctrlp.vim.git
-    git clone https://github.com/vim-scripts/EasyGrep.git
     git clone https://github.com/SirVer/ultisnips.git
     git clone https://github.com/Yggdroot/indentLine.git
     git clone https://github.com/scrooloose/nerdtree.git

@@ -1,15 +1,17 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 set nocompatible
+if &shell =~# 'fish$'
+   set shell=sh
+endif
 syntax on
 colorscheme myterm
 set rtp=~/.vim/bundle/vim_lib
 call vim_lib#sys#Autoload#init('~/.vim', 'bundle')
 
 Plugin 'vim_lib'
-Plugin 'ctrlp'
+Plugin 'ctrlp.vim'
 Plugin 'auto-pairs'
-Plugin 'EasyGrep'
 Plugin 'emmet-vim'
 Plugin 'html5.vim'
 Plugin 'indentLine'
@@ -34,7 +36,7 @@ Plugin 'vim_write'
 Plugin 'vim_winmanager'
 " Plugin 'vim_start'
 
-filetype indent on
+filetype plugin indent on
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
