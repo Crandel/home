@@ -1,4 +1,5 @@
 " Automatic reloading of .vimrc
+execute pathogen#infect()
 autocmd! bufwritepost .vimrc source %
 set nocompatible
 if &shell =~# 'fish$'
@@ -6,35 +7,6 @@ if &shell =~# 'fish$'
 endif
 syntax on
 colorscheme myterm
-set rtp=~/.vim/bundle/vim_lib
-call vim_lib#sys#Autoload#init('~/.vim', 'bundle')
-
-Plugin 'vim_lib'
-Plugin 'ctrlp.vim'
-Plugin 'auto-pairs'
-Plugin 'emmet-vim'
-Plugin 'html5.vim'
-Plugin 'indentLine'
-Plugin 'jedi-vim'
-Plugin 'nerdtree'
-Plugin 'syntastic'
-Plugin 'tagbar'
-Plugin 'ultisnips'
-Plugin 'vim-airline'
-Plugin 'vim-autopep8'
-Plugin 'vim_plugmanager'
-Plugin 'YouCompleteMe'
-Plugin 'vim-snippets'
-Plugin 'vim-fish'
-Plugin 'vim-django'
-Plugin 'vim-go'
-Plugin 'vim-surround'
-Plugin 'vim_prj'
-Plugin 'vim_git'
-Plugin 'vim_grep'
-Plugin 'vim_write'
-Plugin 'vim_winmanager'
-" Plugin 'vim_start'
 
 filetype plugin indent on
 " If using a dark background within the editing area and syntax highlighting
@@ -85,7 +57,6 @@ set confirm
 set t_Co=256
 set colorcolumn=130
 set number
-set relativenumber
 set title
 set autoread         " check if file not changed by another editor
 
