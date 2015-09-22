@@ -1,4 +1,5 @@
 function upl
-    docker-compose up > docker.log ^&1
+    docker-compose logs &
+    docker-compose up
 end
 
