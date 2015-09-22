@@ -2,9 +2,6 @@
 execute pathogen#infect()
 autocmd! bufwritepost .vimrc source %
 set nocompatible
-if &shell =~# 'fish$'
-   set shell=sh
-endif
 syntax on
 colorscheme myterm
 
