@@ -1,0 +1,213 @@
+Name=Gadu-Gadu
+Description=Gadu-Gadu 
+Icon=../EAP/gg/gadu-gadu.png
+Author= Andrei Neculau, .H.
+
+
+# Gadu-Gadu 7.7
+[default]
+# Type 1
+../EAP/gg/1-usmiech.gif			:)
+../EAP/gg/1-ostr.gif			:>
+../EAP/gg/1-kwadr.gif			:]
+../EAP/gg/1-smutny.gif			:(
+../EAP/gg/1-yyyy.gif			:|
+../EAP/gg/1-uoeee.gif			<uoee>
+../EAP/gg/1-haha.gif			<lol>
+../EAP/gg/1-rotfl.gif			<rotfl>
+../EAP/gg/1-oczko.gif			;)
+../EAP/gg/1-jezyk.gif			:P
+../EAP/gg/1-jezyk_oko.gif		;P
+../EAP/gg/1-zacieszacz.gif		<radocha>
+../EAP/gg/1-luzik.gif			<luzik>
+../EAP/gg/1-figielek.gif		<figielek>
+../EAP/gg/1-milczek.gif			<milczek>
+../EAP/gg/1-stres.gif			<stres>
+../EAP/gg/1-nerwus.gif			<nerwus>
+../EAP/gg/1-zly.gif				:[
+../EAP/gg/1-zalamka.gif			<zalamka>
+../EAP/gg/1-wnerw.gif			<wnerw>
+../EAP/gg/1-glupek.gif			<glupek>	<g\łupek>
+../EAP/gg/1-mysli.gif			<mysli>
+../EAP/gg/1-okok.gif			<okok>
+../EAP/gg/1-szok.gif			<szok>
+../EAP/gg/1-wysmiewacz.gif		<wysmiewacz>
+../EAP/gg/1-dokuczacz.gif		<dokuczacz>
+../EAP/gg/1-oklasky.gif			<brawo>
+../EAP/gg/1-hura.gif			<hura>
+../EAP/gg/1-foch.gif			<foch>
+../EAP/gg/1-cwaniak.gif			<cwaniak>
+../EAP/gg/1-klotnia.gif			<klotnia>	<k\ł\ótnia>
+../EAP/gg/1-spadaj.gif			<spadaj>
+../EAP/gg/1-dobani.gif			<blee>
+../EAP/gg/1-paluszkiem.gif		<nono>
+../EAP/gg/1-beczy.gif			<beczy>
+../EAP/gg/1-kwiatek.gif			<kwiatek>
+../EAP/gg/1-zawstydzony.gif		<skromny>
+../EAP/gg/1-mniam.gif			<mniam>
+../EAP/gg/1-hejka.gif			<hejka>
+../EAP/gg/1-prosi.gif			<prosi>
+../EAP/gg/1-tak.gif				<tak>
+../EAP/gg/1-nie.gif				<nie>
+../EAP/gg/1-bezradny.gif		<bezradny>
+../EAP/gg/1-zmeczony.gif		<zmeczony>
+../EAP/gg/1-pocieszacz.gif		<pocieszacz>
+../EAP/gg/1-buziak.gif			<buziak>
+../EAP/gg/1-buzki.gif			<buzki>	<bu\źki>
+../EAP/gg/1-plask.gif			<plask>
+../EAP/gg/1-boisie.gif			<boisie>	<boisi\ę>
+../EAP/gg/1-zlezkawoku.gif		<zlezka>
+../EAP/gg/1-papa.gif			<papa>
+../EAP/gg/1-papa2.gif			<papa2>
+../EAP/gg/1-krzyk.gif			<krzyk>
+../EAP/gg/1-plotki.gif			<plotki>
+../EAP/gg/1-muza.gif			<muza>
+../EAP/gg/1-pies.gif			<pies>
+../EAP/gg/1-kotek.gif			<kot>
+../EAP/gg/1-zakupy.gif			<zakupy>
+../EAP/gg/1-aparat.gif			<fotka>
+../EAP/gg/1-w8.gif				<w8>
+
+# Type 2
+../EAP/gg/2-wesoly.gif				:))	:)))	:))))
+../EAP/gg/2-smutny.gif				:((	:(((	:((((	:-(
+../EAP/gg/2-mruga.gif				;))	;)))	;))))
+../EAP/gg/2-zly.gif					<zly>	wrrrr!
+../EAP/gg/2-z_jezorem.gif			<z\ jezorem>
+../EAP/gg/2-zniesmaczony.gif		<zniesmaczony>
+../EAP/gg/2-niee.gif				niee
+../EAP/gg/2-tiaaa.gif				tiaaa
+../EAP/gg/2-zdziwko.gif				<zdziwiony>
+../EAP/gg/2-beksa.gif				<beksa>
+../EAP/gg/2-lol.gif					<haha>
+../EAP/gg/2-rotfl.gif				<rotfl3>
+../EAP/gg/2-wstydnis.gif			<zawstydzony>
+../EAP/gg/2-8p.gif					<pokazal\ jezyk>	<pokaza\ł\ j\ęzyk>
+../EAP/gg/2-gafa.gif				<gafa>
+../EAP/gg/2-zab.gif					<zab>
+../EAP/gg/2-ziew.gif				<ziewa2>
+../EAP/gg/2-prysznic.gif			<prysznic>
+../EAP/gg/2-wanna.gif				<wanna>
+../EAP/gg/2-wc.gif					<wc>
+../EAP/gg/2-krecka_dostal.gif		<urwanie\ glowy>
+../EAP/gg/2-hmmm.gif				<mysli2>
+../EAP/gg/2-puknijsie.gif			<niedowiarek>
+../EAP/gg/2-olaboga.gif				<olaboga>
+../EAP/gg/2-tort.gif				<urodziny>
+../EAP/gg/2-bukiet.gif				<bukiet>
+../EAP/gg/2-szampan.gif				<winko>
+../EAP/gg/2-gool.gif				<gool>
+../EAP/gg/2-cmok.gif				<cmok2>
+../EAP/gg/2-onajego.gif				<onajego>
+../EAP/gg/2-buja_w_oblokach.gif		<buja\ w\ oblokach>	<buja\ w\ ob\łokach>
+../EAP/gg/2-zakochany.gif			<zakochany>
+../EAP/gg/2-pada.gif				<leje>
+../EAP/gg/2-okularnik.gif			<okularnik>
+../EAP/gg/2-snieg.gif				<snieg>	<\śnieg>
+../EAP/gg/2-spioch.gif				<spioch>	<\śpioch>
+../EAP/gg/2-je_pizze.gif			<je_pizze>
+../EAP/gg/2-piwko2.gif				<piwosz>
+../EAP/gg/2-drink.gif				<drinkuje>
+../EAP/gg/2-obiad.gif				<obiad>
+../EAP/gg/2-telefon.gif				<telefon2>
+../EAP/gg/2-gazeta.gif				<czyta\ gazete>	<czyta\ gazet\ę>
+../EAP/gg/2-chatownik.gif			<chatownik>
+../EAP/gg/2-gra.gif					<gra>
+../EAP/gg/2-bije.gif				<bije>
+../EAP/gg/2-dresiarz.gif			<dresik>
+../EAP/gg/2-dostal.gif				<bija>	<bij\ą>
+../EAP/gg/2-palacz.gif				<palacz>
+../EAP/gg/2-nonono.gif				<nonono>
+../EAP/gg/2-brawa.gif				<oklaski>
+../EAP/gg/2-heej.gif				<heej>
+../EAP/gg/2-fuck.gif				<spadowa>	<spad\ówa>
+../EAP/gg/2-dobani.gif				<do\ bani>
+../EAP/gg/2-ok.gif					<ok>
+../EAP/gg/2-papa.gif				<lapka>
+../EAP/gg/2-serducho.gif			<serducho>
+../EAP/gg/2-zegar.gif				<zegar>
+../EAP/gg/2-jablko.gif				<jablko>	<jab\łko>
+../EAP/gg/2-kawa.gif				<kawa>
+../EAP/gg/2-kwiatek.gif				<kwiatuszek>
+../EAP/gg/2-prezent.gif				<prezent>
+../EAP/gg/2-serce.gif				<serce>
+../EAP/gg/2-milosc.gif				<milosc>	<mi\ło\ś\ć>
+../EAP/gg/2-usta.gif				<usta>
+
+# Type 3
+../EAP/gg/3-usmiech.gif			<wesoly>	<weso\ły>
+../EAP/gg/3-usmiech2.gif		:-)	:-))	:-)))	:-))))	:-)))))	:-))))))	:-)))))))	:-))))))))	:-)))))))))	:-))))))))))	:-))))))))))
+../EAP/gg/3-smutny.gif			<smutny>
+../EAP/gg/3-oczko.gif			<mruga>
+../EAP/gg/3-oczko2.gif			;-)	;-))	;-)))	;-))))	;-)))))	;-))))))	;-)))))))	;-))))))))	;-)))))))))	;-))))))))))
+../EAP/gg/3-zly.gif				<zdenerwowany>
+../EAP/gg/3-jezyk1.gif			:PP	:PPP	:PPPP	:PPPPP	:PPPPPP	:PPPPPPP	:PPPPPPPP	:PPPPPPPPP	:PPPPPPPPPP	:-P	:-PP	:-PPP	:-PPPP	:-PPPPP	:-PPPPPP	:-PPPPPPP	:-PPPPPPPP	:-PPPPPPPPP	:-PPPPPPPPPP
+../EAP/gg/3-jezyk2.gif			;PP	;PPP	;PPPP	;PPPPP	;PPPPPP	;PPPPPPP	;PPPPPPPP	;PPPPPPPPP	;PPPPPPPPPP	;-P	;-PP	;-PPP	;-PPPP	;-PPPPP	;-PPPPPP	;-PPPPPPP	;-PPPPPPPP	;-PPPPPPPPP	;-PPPPPPPPPP
+../EAP/gg/3-nie.gif				<no>
+../EAP/gg/3-ok.gif				<yes>
+../EAP/gg/3-ok2.gif				<spox>
+../EAP/gg/3-wykrzyknik.gif		!!
+../EAP/gg/3-pytajnik.gif		??
+../EAP/gg/3-placze.gif			;(	;((	;(((	;((((	;(((((	;((((((	;-(	;-((	;-(((	;-((((	;-(((((	<placze>	<p\łacze>
+../EAP/gg/3-lol.gif				<lol2>
+../EAP/gg/3-zeby.gif			:D	:-D	;D	;-D
+../EAP/gg/3-rotfl.gif			<rotfl2>
+../EAP/gg/3-wow.gif				<wow>	<szok>	:O	:-O	;O	;-O
+../EAP/gg/3-wsciekly.gif		<wsciekly>	<w\ściek\ły>
+../EAP/gg/3-zawstydzony.gif		<wstydnis>	<wstydni\ś>
+../EAP/gg/3-co_jest.gif			<co\ jest?>	<co\ jest>
+../EAP/gg/3-chytry.gif			;>	:->	;->
+../EAP/gg/3-spie.gif			<spie>	<\śpi\ę>	<ziewa>
+../EAP/gg/3-ysz.gif				;|	:-|	;-|	<hmmm>
+../EAP/gg/3-krzywy.gif			;]	:-]	;-]
+../EAP/gg/3-kwasny.gif			:/	;/	:-/	;-/	<zniesmaczony>
+../EAP/gg/3-roza.gif			<roza>
+../EAP/gg/3-piwo.gif			<piwo>
+../EAP/gg/3-nie_powiem.gif		<nie\ powiem>
+../EAP/gg/3-sex.gif				<sex>
+../EAP/gg/3-soczek.gif			<soczek>
+../EAP/gg/3-cmok.gif			:*	:-*	;*	;-*	<cmok>
+../EAP/gg/3-calus.gif			<calus>		<ca\łus>
+../EAP/gg/3-oczy.gif			<marzyciel>
+../EAP/gg/3-sciana.gif			<sciana>	<\ściana>
+../EAP/gg/3-serduszka.gif		<serduszka>
+../EAP/gg/3-przytul.gif			<przytul>
+../EAP/gg/3-uscisk.gif			<uscisk>	<u\ścisk>
+../EAP/gg/3-glaszcze.gif		<glaszcze>	<g\łaszcze>
+../EAP/gg/3-cfaniak.gif			<cwaniak2>
+../EAP/gg/3-jem.gif				<jem>
+../EAP/gg/3-hahaha.gif			<hahaha>
+../EAP/gg/3-telefon.gif			<telefon>
+../EAP/gg/3-klotnia.gif			<halas>
+../EAP/gg/3-pisze.gif			<pisze>
+../EAP/gg/3-boks.gif			<boks>
+../EAP/gg/3-faja.gif			<faja>
+../EAP/gg/3-papa.gif			<papapa>
+../EAP/gg/3-3m_sie.gif			<3m\ sie>	<3m\ si\ę>
+../EAP/gg/3-czas.gif			<czas>
+../EAP/gg/3-cisza.gif			<cisza>
+../EAP/gg/3-co.gif				<co?>	<co>
+../EAP/gg/3-czarodziej.gif		<czarodziej>
+../EAP/gg/3-czytaj.gif			<czytaj>
+../EAP/gg/3-diabelek.gif		]:->
+../EAP/gg/3-dupa.gif			<dupa>
+../EAP/gg/3-ganja.gif			<ganja>
+../EAP/gg/3-glupek2.gif			<idiota>
+../EAP/gg/3-glupek.gif			<jestem\ z\ glupkiem>	<jestem\ z\ g\łupkiem>
+../EAP/gg/3-jupi.gif			<jupi>
+../EAP/gg/3-killer.gif			<killer>
+../EAP/gg/3-list.gif			<list>
+../EAP/gg/3-nauka.gif			<nauka>
+../EAP/gg/3-paker.gif			<paker>
+../EAP/gg/3-aniolek.gif			<aniolek>	<anio\łek>
+../EAP/gg/3-peace.gif			<peace>
+../EAP/gg/3-pomocy.gif			<pomocy>
+../EAP/gg/3-boje_sie.gif		<boje\ sie>	<boje\ si\ę>
+../EAP/gg/3-serduszka2.gif		<serduszka2>
+../EAP/gg/3-slonko.gif			<slonko>	<s\łonko>
+../EAP/gg/3-spoko.gif			<spoko>
+../EAP/gg/3-stop.gif			<stop>
+../EAP/gg/3-tancze.gif			<tancze>	<ta\ńcze>
+../EAP/gg/3-tuptup.gif			<tuptup>
+../EAP/gg/3-uczen.gif			<uczen>	<ucze\ń>
+../EAP/gg/3-rzygi.gif			<rzygi>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<theme type="pidgin buddy list"
+	           name="Radiance Impact Pink"
+	           author=".H."
+	           image="amb.png"
+	>
+	
+        <description>Cf: Radiance theme in Unity</description>
+
+	        <icon_theme name="(Default)"/>
+	        <blist color="#E0D9D1"/>	
+	        <groups>
+	                <expanded background="#E0D9D1" color="#CF3590" font="Impact"/>
+	                <collapsed background="#E0D9D1" color="#FF92D3" font="Impact"/>
+	        </groups>
+	
+	        <buddys>
+	                <placement status_icon="0" name="1" emblem="2" protocol_icon="4" buddy_icon="3" show_status="1"/>
+	
+	                <background color="#E0D9D1" font="Impact"/>	
+	                <contact_text color="#CF3590" font="Impact"/>	
+	                <online_text color="#CF3590" font="Impact"/>
+	                <away_text color="#CF3590" font="Impact"/>
+	                <offline_text color="#FF92D3" font="Impact"/>
+	                <idle_text color="#FF92D3" font="Impact"/>	
+	                <message_text color="#CF3590" font="Impact"/>
+	                <message_nick_said_text color="#F6324D" font="Impact"/>	
+	                <status_text color="#FF92D3" font="Impact"/>
+	        </buddys>
+	</theme>

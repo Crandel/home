@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme type="sound" name="Super Mario World Sound Theme" author="Darius Seiffert" image="logo.png">
+	<description>This is a soundset from the SNES game, Super Mario World. Thanks for the sounds, cortjezter</description>
+	<event name="login" file="buddyon.wav"/>
+	<event name="logout" file="buddyoff.wav"/>
+	<event name="im_recv" file="receive.wav"/>
+	<event name="first_im_recv" file="new.wav"/>
+	<event name="send_im" file="send.wav"/>
+	<event name="join_chat" file="idle.wav"/>
+	<event name="left_chat" file="away.wav"/>
+	<event name="send_chat_msg" file="send.wav"/>
+	<event name="chat_msg_recv" file="receive.wav"/>
+        <!-- event "nick_said" is not set-->
+</theme>

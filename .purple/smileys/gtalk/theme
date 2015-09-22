@@ -1,0 +1,50 @@
+Name=GTalk
+Description=GTalk 2011 (OLD)
+Icon=../EAP/gtalk-square/talk-32.png
+Author= Andrei Neculau, .H.
+
+
+# Google Talk
+[default]
+../EAP/gtalk/smile.gif				:)
+../EAP/gtalk/grin.gif				:D
+../EAP/gtalk/wink.gif				;)
+../EAP/gtalk/frown.gif				:(
+../EAP/gtalk/cry.gif				:'(
+
+../EAP/gtalk/shocked.gif			:-o
+../EAP/gtalk/slant.gif				:-/
+../EAP/gtalk/angry.gif				x-(
+../EAP/gtalk/wince.gif				\>.\<
+../EAP/gtalk/straightface.gif		:-|
+
+../EAP/gtalk/cool.gif				B-)
+../EAP/gtalk/tongue.gif				:p	:P
+../EAP/gtalk/heart.gif				<3
+../EAP/gtalk/brokenheart.gif		</3
+../EAP/gtalk/devil.gif				}:-)
+
+../EAP/gtalk/kissstar.gif			:*	:-x
+../EAP/gtalk/pig.gif				:(:)
+../EAP/gtalk/monkey.gif				:(|)
+../EAP/gtalk/rockout.gif			\\m/
+../EAP/gtalk/cowbell.gif			+/'\\
+
+../EAP/gtalk/crab.gif				V.v.V
+../EAP/gtalk/robot.gif				[:|]
+../EAP/gtalk/mustache.gif			:{
+../EAP/gtalk/poop.gif				~@~
+
+# Variations
+! ../EAP/gtalk/equalsmile.gif		=)
+! ../EAP/gtalk/equalgrin.gif		=D
+! ../EAP/gtalk/equalsad.gif			=(
+! ../EAP/gtalk/equalslant.gif		=/
+! ../EAP/gtalk/equaltongue.gif		=p	=P
+
+! ../EAP/gtalk/nosesmile.gif		:-)
+! ../EAP/gtalk/nosegrin.gif			:-D
+! ../EAP/gtalk/nosewink.gif			;-)
+! ../EAP/gtalk/nosebigwink.gif		;^)
+! ../EAP/gtalk/nosesad.gif			:-(
+! ../EAP/gtalk/nosetongue.gif		:-p	:-P

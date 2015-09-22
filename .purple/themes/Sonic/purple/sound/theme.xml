@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<theme author="adium2pidgin conventer" 
+	name="Sonic" 
+	image="sonic.png"		
+	type="sound">
+  <description>Generated at 2011-06-06 13:05 in adium2pidgin theme convert</description>
+  <event file="MessageInitial.mp3" name="first_im_recv"/>
+  <event file="MessageReceived.mp3" name="im_recv"/>
+  <event file="ContactSeen.mp3" name="login"/>
+  <event file="ContactNotSeen.mp3" name="logout"/>
+  <event file="GroupLeave.mp3" name="left_chat"/>
+  <event file="MessageSent.mp3" name="send_im"/>
+</theme>

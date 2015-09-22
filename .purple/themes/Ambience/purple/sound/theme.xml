@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<theme author="adium2pidgin conventer" name="Ambience" type="sound">
+  <description>Generated at 2011-06-06 13:05 in adium2pidgin theme convert</description>
+  <event file="contact-offline.mp3" name="logout"/>
+  <event file="message-firstreceived.mp3" name="first_im_recv"/>
+  <event file="message-sent.mp3" name="send_im"/>
+  <event file="message-received.mp3" name="im_recv"/>
+  <event file="contact-online.mp3" name="login"/>
+</theme>

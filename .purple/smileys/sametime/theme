@@ -1,0 +1,27 @@
+Name=Sametime
+Description=Sametime
+Icon=../EAP/sametime/Sametime_logo.png
+Author= Andrei Neculau, .H.
+
+
+# Sametime 7.5
+[default]
+../EAP/sametime/angel.gif		0:-)
+../EAP/sametime/angry.gif		:-@	:@
+../EAP/sametime/bigsmile.gif	:-D	:D
+../EAP/sametime/confused.gif	:-/	:/
+../EAP/sametime/cool.gif		8-)	8)
+../EAP/sametime/crying.gif		:'(
+../EAP/sametime/eyebrow.gif		/:-)	/:)
+../EAP/sametime/goofy.gif		:-S	:S
+../EAP/sametime/happy.gif		:-)	:)
+../EAP/sametime/hysterical.gif	rofl
+../EAP/sametime/laugh.gif		lol
+../EAP/sametime/lightbulb.gif	(i)
+../EAP/sametime/sad.gif			:-(	:(
+../EAP/sametime/shy.gif			:-$	:$
+../EAP/sametime/surprised.gif	:-O	:-o	:O	:o
+../EAP/sametime/thumbsdown.gif	(n)
+../EAP/sametime/thumbsup.gif	(y)
+../EAP/sametime/tongue.gif		:-P	:P
+../EAP/sametime/wink.gif		;-)	;)

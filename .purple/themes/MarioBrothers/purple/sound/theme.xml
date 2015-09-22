@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<theme author="adium2pidgin conventer"
+	 name="MarioBrothers" 
+	image="icon.png"
+	type="sound">
+  <description>Generated at 2011-06-06 13:04 in adium2pidgin theme convert</description>
+  <event file="nsmb_pipe.mp3" name="logout"/>
+  <event file="nsmb_mini-mario_jump.mp3" name="send_im"/>
+  <event file="nsmb_pause.mp3" name="first_im_recv"/>
+  <event file="nsmb_coin.mp3" name="im_recv"/>
+  <event file="nsmb_power-up.mp3" name="login"/>
+</theme>

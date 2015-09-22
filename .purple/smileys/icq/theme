@@ -1,0 +1,38 @@
+Name=ICQ
+Description=ICQ 
+Icon=../EAP/icq/icq.png
+Author= Andrei Neculau, .H.
+
+
+# ICQ 6
+[default]
+../EAP/icq/smile.gif				:)	:-)
+../EAP/icq/kiss.gif					:-*	:-{}
+../EAP/icq/confused.gif				:-$	:-|
+../EAP/icq/kissing.gif				*kissing*	*KISSING*
+../EAP/icq/sad.gif					:(	:-(
+../EAP/icq/blush.gif				:-[
+../EAP/icq/shocked.gif				=-o	=-O	*shocked*	*SHOCKED*	*surprised*	*SURPRISED*
+../EAP/icq/devil.gif				]:->
+../EAP/icq/wink.gif					;)	;-)
+
+../EAP/icq/angel.gif				o:-)	O:-)	O-)
+../EAP/icq/cool.gif					8)	8-)
+../EAP/icq/flower.gif 				@}->--
+../EAP/icq/tongueout.gif			:p	:-p	:P	:-P	
+../EAP/icq/silent.gif				:x	:-x	:X	:-X
+../EAP/icq/headphone.gif			[:-}
+../EAP/icq/bomb.gif					@=
+../EAP/icq/jokingly.gif				*jokingly*	*JOKINGLY*
+../EAP/icq/yell.gif					:-\\	:-/
+
+../EAP/icq/yawning.gif				*tired*	*TIRED*
+../EAP/icq/thumbsup.gif				thumbs\ up*	*THUMBS\ UP*
+../EAP/icq/crying.gif				:'(	:'-(	*whining*	*WHINING*
+../EAP/icq/mad.gif					>:-o	>:-O
+../EAP/icq/sick.gif					:-!
+../EAP/icq/drink.gif				*drink*	*DRINK*
+../EAP/icq/kissed.gif				*kissed*	*KISSED*
+../EAP/icq/laughing.gif				:d	:-d	:D	:-D
+../EAP/icq/stop.gif					*stop*	*STOP*
+../EAP/icq/inlove.gif				*in\ love*	*IN\ LOVE*

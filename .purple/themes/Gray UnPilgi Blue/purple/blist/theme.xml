@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<theme type="pidgin buddy list"
+	           name="Gray UnPilgi Blue"
+	           author=".H."
+	           image="amb.png"
+	>
+	
+        <description>muhaha</description>
+
+	        <icon_theme name="(Default)"/>
+	        <blist color="#F2F1F0"/>	
+	        <groups>
+	                <expanded background="#f2f1f0" color="#405580" font="UnPilgi"/>
+	                <collapsed background="#f2f1f0" color="#BFD5FF" font="UnPilgi"/>
+	        </groups>
+	
+	        <buddys>
+	                <placement status_icon="0" name="1" emblem="2" protocol_icon="4" buddy_icon="3" show_status="1"/>
+	
+	                <background color="#f2f1f0" font="UnPilgi"/>	
+	                <contact_text color="#405580" font="UnPilgi"/>	
+	                <online_text color="#405580" font="UnPilgi"/>
+	                <away_text color="#405580" font="UnPilgi"/>
+	                <offline_text color="#888ED3" font="UnPilgi"/>
+	                <idle_text color="#BFD5FF" font="UnPilgi"/>	
+	                <message_text color="#405580" font="UnPilgi"/>
+	                <message_nick_said_text color="#1FB9CE" font="UnPilgi"/>	
+	                <status_text color="#888ED3" font="UnPilgi"/>
+	        </buddys>
+	</theme>

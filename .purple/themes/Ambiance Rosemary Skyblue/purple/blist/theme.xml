@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<theme type="pidgin buddy list"
+	           name="Ambiance Rosemary skyblue"
+	           author=".H."
+	           image="amb.png"
+	>
+	
+        <description>Cf: Unity desktop. Font: rosemary</description>
+
+	        <icon_theme name="(Default)"/>
+	        <blist color="#BFD5FF"/>	
+	        <groups>
+	                <expanded background="#3C3B37" color="#BFD5FF" font="rosemary"/>
+	                <collapsed background="#3C3B37" color="#5C7095" font="rosemary"/>
+	        </groups>
+	
+	        <buddys>
+	                <placement status_icon="0" name="1" emblem="2" protocol_icon="4" buddy_icon="3" show_status="1"/>
+	                
+	
+	                <background color="#3C3B37" font="rosemary"/>	
+	                <contact_text color="#BFD5FF" font="rosemary"/>	
+	                <online_text color="#BFD5FF" font="rosemary"/>
+	                <away_text color="#BFD5FF" font="rosemary"/>
+	                <offline_text color="#5C7095" font="rosemary"/>
+	                <idle_text color="#5C7095" font="rosemary"/>
+	                <message_text color="#BFE4FF" font="rosemary"/>
+	                <message_nick_said_text color="#40EADF" font="rosemary"/>
+	                <status_text color="#5C7095" font="rosemary"/>
+	        </buddys>
+	</theme>

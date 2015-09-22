@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<theme author="adium2pidgin conventer" name="DotHack" type="sound">
+  <description>Generated at 2011-06-06 13:04 in adium2pidgin theme convert</description>
+  <event file="SignOff.mp3" name="logout"/>
+  <event file="MessageNew.mp3" name="first_im_recv"/>
+  <event file="MessageSent.mp3" name="send_im"/>
+  <event file="MessageReceived.mp3" name="im_recv"/>
+  <event file="SignOn.mp3" name="login"/>
+</theme>

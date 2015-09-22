@@ -1,0 +1,95 @@
+Name=MSN
+Description=MSN 2008 (VERY OLD)
+Icon=../EAP/msn/msn.png
+Author= Andrei Neculau, .H., Chris Baker
+
+
+# WLM 8.1
+[default]
+../EAP/msn/smile.gif				:)	:-)
+../EAP/msn/sad.gif					:(	:-(
+../EAP/msn/wink.gif					;)	;-)
+../EAP/msn/openmouthed.gif			:d	:-d	:D	:-D
+../EAP/msn/confused.gif				:s	:-s	:S	:-S
+../EAP/msn/tongueout.gif			:p	:-p	:P	:-P
+../EAP/msn/embarrassed.gif			:$	:-$
+../EAP/msn/surprised.gif			:o	:-o	:O	:-O
+../EAP/msn/disappointed.gif			:|	:-|
+
+../EAP/msn/angry.gif				:@	:-@
+../EAP/msn/angel.gif				(a)	(A)
+../EAP/msn/hot.gif					(h)	(H)
+../EAP/msn/devil.gif				(6)
+../EAP/msn/crying.gif				:'(
+../EAP/msn/donttellanyone.gif		:-#
+../EAP/msn/nerd.gif					8-|
+../EAP/msn/secrettelling.gif		:-*
+../EAP/msn/idontknow.gif			:^)
+
+../EAP/msn/party.gif				<:o)
+../EAP/msn/sleepy.gif				|-)
+../EAP/msn/baringteeth.gif			8o|
+../EAP/msn/sarcastic.gif			^o)
+../EAP/msn/sick.gif					+o(
+../EAP/msn/thinking.gif				*-)
+../EAP/msn/eyerolling.gif			8-)
+../EAP/msn/redrose.gif				(f)	(F)
+../EAP/msn/wiltedrose.gif			(w)	(W)
+
+../EAP/msn/lightbulb.gif			(i)	(I)
+../EAP/msn/boy.gif					(z)	(Z)
+../EAP/msn/girl.gif					(x)	(X)
+../EAP/msn/asl.gif					(?)
+../EAP/msn/catface.gif				(@)
+../EAP/msn/dogface.gif				(&)
+../EAP/msn/star.gif					(*)
+../EAP/msn/sleepinghalfmoon.gif		(S)
+../EAP/msn/sun.gif					(#)
+
+../EAP/msn/note.gif					(8)
+../EAP/msn/brb.gif					(brb)
+../EAP/msn/clap.gif					(h5)
+../EAP/msn/fingerscrossed.gif		(yn)
+../EAP/msn/handcuffs.gif			(%)
+../EAP/msn/vampirebat.gif			:[	:-[
+../EAP/msn/camera.gif				(p)	(P)
+../EAP/msn/filmstrip.gif			(~)
+../EAP/msn/coffeecup.gif			(c)	(C)
+
+../EAP/msn/giftwithabow.gif			(g)	(G)
+../EAP/msn/email.gif				(e)	(E)
+../EAP/msn/thumbsdown.gif			(n)	(N)
+../EAP/msn/thumbsup.gif				(y)	(Y)
+../EAP/msn/lefthug.gif				({)
+../EAP/msn/righthug.gif				(})
+../EAP/msn/msnmessengericon.gif		(m)	(M)
+../EAP/msn/birthdaycake.gif			(^)
+../EAP/msn/redheart.gif				(l)	(L)
+
+../EAP/msn/brokenheart.gif			(u)	(U)
+../EAP/msn/redlips.gif				(k)	(K)
+../EAP/msn/beermug.gif				(b)	(B)
+../EAP/msn/martiniglass.gif			(d)	(D)
+../EAP/msn/telephonereceiver.gif	(t)	(T)
+../EAP/msn/clock.gif				(o)	(O)
+../EAP/msn/rainbow.gif				(r)	(R)
+../EAP/msn/snail.gif				(sn)
+../EAP/msn/soccerball.gif			(so)
+
+../EAP/msn/blacksheep.gif			(bah)
+../EAP/msn/auto.gif					(au)
+../EAP/msn/bowl.gif					(||)
+../EAP/msn/computer.gif				(co)
+../EAP/msn/islandwithpalmtree.gif	(ip)
+../EAP/msn/lightning.gif			(li)
+../EAP/msn/mobilephone.gif			(mp)
+../EAP/msn/money.gif				(mo)
+../EAP/msn/pizza.gif				(pi)
+
+../EAP/msn/airplane.gif				(ap)
+../EAP/msn/plate.gif				(pl)
+../EAP/msn/stormycloud.gif			(st)
+../EAP/msn/umbrella.gif				(um)
+../EAP/msn/cigarette.gif			(ci)
+../EAP/msn/turtle.gif				(tu)
+../EAP/msn/xbox.gif					(xx)

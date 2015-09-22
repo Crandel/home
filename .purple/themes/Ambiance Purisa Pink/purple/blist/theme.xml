@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<theme type="pidgin buddy list"
+	           name="Ambiance Purisa Pink"
+	           author=".H."
+	           image="amb.png"
+	>
+	
+        <description>Cf: Unity desktop. Font: Purisa</description>
+
+	        <icon_theme name="(Default)"/>
+	        <blist color="#FC9DD7"/>	
+	        <groups>
+	                <expanded background="#3C3B37" color="#FC9DD7" font="Purisa"/>
+	                <collapsed background="#3C3B37" color="#894B6B" font="Purisa"/>
+	        </groups>
+	
+	        <buddys>
+	                <placement status_icon="0" name="1" emblem="2" protocol_icon="4" buddy_icon="3" show_status="1"/>
+	                
+	
+	                <background color="#3C3B37" font="Purisa"/>	
+	                <contact_text color="#FC9DD7" font="Purisa"/>	
+	                <online_text color="#FC9DD7" font="Purisa"/>
+	                <away_text color="#FC9DD7" font="Purisa"/>
+	                <offline_text color="#894B6B" font="Purisa"/>
+	                <idle_text color="#894B6B" font="Purisa"/>
+	                <message_text color="#DE5F5F" font="Purisa"/>
+	                <message_nick_said_text color="#F9C8ED" font="Purisa"/>
+	                <status_text color="#894B6B" font="Purisa"/>
+	        </buddys>
+	</theme>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<theme author="H" 
+	name="Facebook web Sounds" 
+	image="icon.png"
+	type="sound">
+
+	<description>(générated from facebook web: 21 september 2014)</description>
+
+	<event name="im_recv" file="q-Drar4Ade6.ogg"/>
+	<event name="first_im_recv" file="q-Drar4Ade6.ogg"/>
+	<event name="chat_msg_recv" file="q-Drar4Ade6.ogg"/>
+	<event name="pounce_default" file="Facebook_Notification_Sound.oga"/>
+	<event name="got_attention" file="Facebook_Notification_Sound.oga"/>
+        <!-- event "nick_said" is not set-->
+</theme>

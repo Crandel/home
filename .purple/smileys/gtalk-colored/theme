@@ -1,0 +1,50 @@
+Name=GTalk Colored
+Description=GTalk Colored 2011 (OLD)
+Icon=../EAP/gtalk-square/talk-32.png
+Author= Andrei Neculau, .H., Aditya Pandya
+
+
+# Google Talk
+[default]
+../EAP/gtalk-colored/smile.gif			:)	=)	:-)
+../EAP/gtalk-colored/grin.gif			:D	=D	:-D
+../EAP/gtalk-colored/wink.gif			;)	;-)	;^)
+../EAP/gtalk-colored/frown.gif			:(	=(	:-(
+../EAP/gtalk-colored/cry.gif			:'(
+
+../EAP/gtalk-colored/shocked.gif		:-o
+../EAP/gtalk-colored/slant.gif			:-/	=/
+../EAP/gtalk-colored/angry.gif			x-(
+../EAP/gtalk-colored/wince.gif			\>.\<
+../EAP/gtalk-colored/straightface.gif	:-|
+
+../EAP/gtalk-colored/cool.gif			B-)
+../EAP/gtalk-colored/tongue.gif			:p	:P	=p	=P	:-p	:-P
+../EAP/gtalk-colored/heart.gif			<3
+../EAP/gtalk-colored/brokenheart.gif	</3
+../EAP/gtalk-colored/devil.gif			}:-)
+
+../EAP/gtalk-colored/kissstar.gif		:*	:-x
+../EAP/gtalk-colored/pig.gif			:(:)
+../EAP/gtalk-colored/monkey.gif			:(|)
+../EAP/gtalk-colored/rockout.gif		\\m/
+../EAP/gtalk-colored/cowbell.gif		+/'\\
+
+../EAP/gtalk-colored/crab.gif			V.v.V
+../EAP/gtalk-colored/robot.gif			[:|]
+#../EAP/gtalk-colored/mustache.gif		:{
+../EAP/gtalk-colored/poop.gif			~@~
+
+# Variations
+! ../EAP/gtalk-colored/equalsmile.gif	=)
+! ../EAP/gtalk-colored/equalgrin.gif	=D
+! ../EAP/gtalk-colored/equalsad.gif		=(
+! ../EAP/gtalk-colored/equalslant.gif	=/
+! ../EAP/gtalk-colored/equaltongue.gif	=p	=P
+
+! ../EAP/gtalk-colored/nosesmile.gif	:-)
+! ../EAP/gtalk-colored/nosegrin.gif		:-D
+! ../EAP/gtalk-colored/nosewink.gif		;-)
+! ../EAP/gtalk-colored/nosebigwink.gif	;^)
+! ../EAP/gtalk-colored/nosesad.gif		:-(
+! ../EAP/gtalk-colored/nosetongue.gif	:-p	:-P

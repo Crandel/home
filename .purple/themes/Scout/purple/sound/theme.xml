@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<theme author="adium2pidgin conventer" name="Scout" type="sound">
+  <description>Generated at 2011-06-06 13:04 in adium2pidgin theme convert</description>
+  <event file="scout-diiismised.mp3" name="logout"/>
+  <event file="Scout_we got a spy.mp3" name="left_chat"/>
+  <event file="Message Sent.mp3" name="send_im"/>
+  <event file="Scout-WHOO.mp3" name="first_im_recv"/>
+  <event file="Message Recieved.mp3" name="im_recv"/>
+  <event file="Scout_generic01.mp3" name="nick_said"/>
+  <event file="Scout_wanananana.mp3" name="login"/>
+</theme>

@@ -1,0 +1,21 @@
+#/bin/bash
+#########################################################################
+# This is a small script who will update Pidgin-EAP theme for Pidgin.   #
+# Work only for Linux. Maybe somebody can make one for Windows and Mac  #
+#                                                                       #
+#       You can launch this script automaticly on startup...            #
+#########################################################################
+
+############################################
+#  Requires Git. Type this in a terminal:  #
+############################################
+#############################
+# Sudo apt-get install git  #
+#############################
+
+cd $HOME
+git clone https://github.com/Hernou/pidgin-EAP.git
+cp -ra $HOME/pidgin-EAP/* $HOME
+rm -rf $HOME/pidgin-EAP
+
+exit

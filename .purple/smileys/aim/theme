@@ -1,0 +1,25 @@
+Name=AIM
+Description=AIM 
+Icon=../EAP/aim/aim.png
+Author= Andrei Neculau, .H.
+
+
+# AIM 6.5
+[default]
+../EAP/aim/smiling.gif				:)	:-)
+../EAP/aim/winking.gif				;)	;-)
+../EAP/aim/frowning.gif				:(	:-(
+../EAP/aim/stickingouttongue.gif	:-p	:-P
+../EAP/aim/surprised.gif			=-O
+../EAP/aim/kissing.gif				:-*
+../EAP/aim/yelling.gif				>:o
+../EAP/aim/ecstatic.gif				:D	:-D
+../EAP/aim/moneymouth.gif			:-$
+
+../EAP/aim/footinmouth.gif			:-!
+../EAP/aim/embarrassed.gif			:-[
+../EAP/aim/innocent.gif				O:-)
+../EAP/aim/undecided.gif			:-\\
+../EAP/aim/crying.gif				:'(
+../EAP/aim/lipsaresealed.gif		:-X
+../EAP/aim/cool.gif					8-)

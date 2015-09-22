@@ -1,0 +1,175 @@
+Name=Tlen.pl
+Description=Tlen
+Icon=../EAP/tlen/tlenpl.png
+Author=	Kasper Wieczorek, Andrei Neculau, .H.
+
+
+# Tlen.pl
+[default]
+../EAP/tlen/usmiech.gif			:)	:-)
+../EAP/tlen/smutas.gif			:(	:-(
+../EAP/tlen/oczko.gif			;)	;-)
+../EAP/tlen/smiech.gif			:D	:-D
+../EAP/tlen/jezyk.gif			:P	:-P	:p	:-p
+../EAP/tlen/pechowiec.gif		:0	:-0	:o	:-o	:O	:-O
+../EAP/tlen/beksa.gif			[beksa]
+../EAP/tlen/cool.gif			[cool]
+../EAP/tlen/kwiatek.gif			[kwiat]	[kwiatek]
+../EAP/tlen/lapka.gif			[czesc]	[cze\ś\ć]
+../EAP/tlen/serduszko.gif		[serce]	[love]
+../EAP/tlen/spioch.gif			[spioch]	[\śpioch]
+../EAP/tlen/usta.gif			[usta]	[kiss]
+../EAP/tlen/zly.gif				[zly]	[z\ły]
+../EAP/tlen/wsciekly.gif		[wsciekly]	[w\ściek\ły]
+../EAP/tlen/ziewanie.gif		[ziewam]
+../EAP/tlen/pytanie.gif			[?]
+../EAP/tlen/pytanie2.gif		[??]
+../EAP/tlen/wykrzyknik.gif		[!]
+../EAP/tlen/stop.gif			[stop]
+../EAP/tlen/ok.gif				[ok]
+../EAP/tlen/nie.gif				[nie]
+../EAP/tlen/piorun.gif			[piorun]
+../EAP/tlen/czaszka.gif			[czaszka]
+../EAP/tlen/mail.gif			[mail]
+../EAP/tlen/czas.gif			[czas]
+../EAP/tlen/telefon.gif			[telefon]
+../EAP/tlen/komorka.gif			[komorka]
+../EAP/tlen/piwo.gif			[piwo]
+../EAP/tlen/jem.gif				[jem]
+../EAP/tlen/dom.gif				[dom]
+../EAP/tlen/prezent.gif			[prezent]
+../EAP/tlen/taktak.gif			[taktak]
+../EAP/tlen/nienie.gif			[nienie]
+../EAP/tlen/papa.gif			[papa]
+../EAP/tlen/beczy.gif			[beczy]
+../EAP/tlen/hihi.gif			[hihi]
+../EAP/tlen/mniam.gif			[mniam]
+../EAP/tlen/nie_wiem.gif		[nie_wiem]
+../EAP/tlen/ble.gif				[ble]
+../EAP/tlen/diabel.gif			[diabel]
+../EAP/tlen/zdziwona.gif		[zdziwona]
+../EAP/tlen/niedobrze.gif		[niedobrze]
+../EAP/tlen/strach.gif			[strach]
+../EAP/tlen/kreci.gif			[kreci]
+../EAP/tlen/boks.gif			[boks]
+../EAP/tlen/luzak.gif			[luzak]
+../EAP/tlen/chrapie.gif			[chrapie]
+../EAP/tlen/tanczaca.gif		[tanczaca]
+../EAP/tlen/aniolek.gif			[aniolek]
+../EAP/tlen/hura.gif			[hura]
+../EAP/tlen/gryz.gif			[gryz]
+../EAP/tlen/gadula.gif			[gadula]
+../EAP/tlen/gwizd.gif			[gwizd]
+../EAP/tlen/lezaca.gif			[lezaca]
+../EAP/tlen/tuli.gif			[tuli]
+../EAP/tlen/caluje.gif			[caluje]
+../EAP/tlen/balwan.gif			[balwan]
+../EAP/tlen/budzik.gif			[budzik]
+../EAP/tlen/stuk.gif			[stuk]
+../EAP/tlen/10ton.gif			[10ton]
+../EAP/tlen/kwitnie.gif			[kwitnie]
+../EAP/tlen/cmok.gif			[cmok]
+../EAP/tlen/tak_.gif			<yes>
+../EAP/tlen/nie_.gif			<no>	<nie%%_%%nie>	<nienie>
+../EAP/tlen/papa_.gif			<papa>	<pa%%_%%pa>	<pa_pa>	<papapa>
+../EAP/tlen/krzywy_.gif			:]	:-]
+../EAP/tlen/rotfl_.gif			<rotfl>
+../EAP/tlen/usmiech3_.gif		<:D>	<:-D>
+../EAP/tlen/usmiech4_.gif		<:F>	<:-F>	<:f>	<:-f>
+../EAP/tlen/10ton_.gif			<10ton>	<10%%_%%ton>
+../EAP/tlen/boje_sie_.gif		<boj\ę_si\ę>	<boj\ę_sie>	<boje_si\ę>	<boje_sie>	<boje%%_%%sie>
+../EAP/tlen/calus_.gif			<ca\łus>	<calus>	<ca\łuje>	<caluje>
+../EAP/tlen/cmok_.gif			<cmok>	<cmook>	<cmoook>
+../EAP/tlen/usta_.gif			<usta>
+../EAP/tlen/roza_.gif			<ro\ża>	<roza>	<r\ó\ża>
+../EAP/tlen/jupi_.gif			<huraaa>	<huraaa!>	<hura>	<yupi>	<yupi!>	<jupi>	<jupi!>
+../EAP/tlen/dom_.gif			<dom>
+../EAP/tlen/ok_.gif				<ok>	<OK>	<Ok>	<spoko>	<spox>
+../EAP/tlen/nie2_.gif			<nie>	<odpada>
+../EAP/tlen/pa_.gif				<pa>
+../EAP/tlen/lol_.gif			<lol>
+../EAP/tlen/haha_.gif			<hahaha>	<smiech>	<\śmiech>
+../EAP/tlen/usmiech2_.gif		<wesoly>	<u\śmiech>
+../EAP/tlen/zeby_.gif			<z\ęby>	<zeby>	:E	:-E
+../EAP/tlen/stop_.gif			<stop>	<stop!>	<przesta\ń>	<przestan>
+../EAP/tlen/strach_.gif			<boj\ę%%_%%si\ę>	<boj\ę%%_%%sie>	<boje%%_%%si\ę>
+../EAP/tlen/list_.gif			<list>	<mail>
+../EAP/tlen/serduszka_.gif		<serduszka>	<serduszko>	<serca>	<serce>
+../EAP/tlen/oczko_.gif			<mruga>
+../EAP/tlen/kwitnie_.gif		<kwiatek>
+../EAP/tlen/tancze_.gif			<tancze>	<ta\ńcze>
+../EAP/tlen/prezent_.gif		<prezent>	<niespodzianka>
+../EAP/tlen/piwo_.gif			<piwo>	<stuk>
+../EAP/tlen/jezyk2_.gif			<mniam>	<pycha>
+../EAP/tlen/tuptup_.gif			<id\ę>	<ide>	<idzie>	<tuptup>
+../EAP/tlen/faja_.gif			<faja>	<fajka>	<pal\ę>	<pale>	<pali>	<pali\ć>	<palic>
+../EAP/tlen/paker_.gif			<paker>	<silacz>	<si\łacz>	<silny>
+../EAP/tlen/uczen_.gif			<ucze\ń>	<uczen>	<student>
+../EAP/tlen/aniolek_.gif		<anio\łek>	<aniolek>	<anio\ł>	<aniol>	<niewinny>	<niewinna>
+../EAP/tlen/lezaca_.gif			<le\ż\ąca>	<lez\ąca>	<le\żaca>	<lezaca>	<chodz>	<chod\ź>
+../EAP/tlen/gwizd_.gif			<gwizd>
+../EAP/tlen/przytul_.gif		<przytul>	<przytulanie>
+../EAP/tlen/uscisk_.gif			<u\ścisk>	<uscisk>
+../EAP/tlen/soczek_.gif			<soczek>
+../EAP/tlen/zjem_.gif			<zjem>
+../EAP/tlen/chytry_.gif			:>
+../EAP/tlen/cwaniak_.gif		<cwaniak>	<cfaniak>	<cool>
+../EAP/tlen/samochod_.gif		<bryka>	<auto>	<samoch\ód>	<samochod>
+../EAP/tlen/czarodziej_.gif		<czarodziej>	<magik>
+../EAP/tlen/diabelek_.gif				]:->	<diabelek>	<diabe\ł>	<diabel>
+../EAP/tlen/sex_.gif			<sex>	<seks>
+../EAP/tlen/spie_.gif			<\śpioch>	<spi>	<sen>
+../EAP/tlen/glaszcze_.gif		<g\łaszcze>	<glaszcze>	<cacy>
+../EAP/tlen/3m_sie_.gif			<3m_si\ę>	<3m_sie>	<3m%%_%%si\ę>	<3m%%_%%sie>	<3msi\ę>	<3msie>	<trzymsie>	<trzymsi\ę>	<trzymaj_si\ę>	<trzymaj_sie>	<trzymaj%%_%%si\ę>	<trzymaj%%_%%sie>
+../EAP/tlen/kiler_.gif			<killer>	<kiler>	<strzela>
+../EAP/tlen/czaszka_.gif		<czaszka>
+../EAP/tlen/zly_.gif			<z\ły>	<zly>
+../EAP/tlen/fuck_.gif			<spad\ówa>
+../EAP/tlen/kreci_.gif			<kr\ęci>	<kreci>
+../EAP/tlen/wow_.gif			<wow>	<wow!>
+../EAP/tlen/co_.gif				<co>	<co?>
+../EAP/tlen/slonko_.gif			<s\łonko>	<slonko>	<s\ło\ńce>	<slo\ńce>	<s\łonce>	<slonce>
+../EAP/tlen/nie_powiem_.gif		<nie_powiem>	<niepowiem>	<nie_powie>	<milcze>	<milcz\ę>	<nie%%_%%powiem>
+../EAP/tlen/menu_.gif			<menu>
+../EAP/tlen/nie_wiem_.gif		<nie_wiem>	<niewiem>
+../EAP/tlen/oczy_.gif			<k\łamie>	<klamie>	<k\łamczuch>	<klamczuch>
+../EAP/tlen/pytajnik_.gif		<??>
+../EAP/tlen/piorun_.gif			<piorun>
+../EAP/tlen/wykrzyknik_.gif		<!!>
+../EAP/tlen/peace_.gif			<peace>	<pok\ój>	<pokoj>
+../EAP/tlen/klotnia_.gif		<k\ł\ótnia>	<kl\ótnia>	<k\łotnia>	<klotnia>
+../EAP/tlen/wsciekly_.gif		<w\ściek\ły>	<grr>	<gr>	<w\ściek\ły>	<wsciek\ły>	<w\ściekly>	<wsciekly>
+../EAP/tlen/boks_.gif			<boks>	<bije>	<bij>
+../EAP/tlen/dupa_.gif			<dupa>	<pupa>
+../EAP/tlen/niedobrze_.gif		<niedobrze>
+../EAP/tlen/sciana_.gif			<mur>	<sciana>	<\ściana>
+../EAP/tlen/pomocy_.gif			<pomocy>	<pomocy!>	<help>	<help!>
+../EAP/tlen/co_jest_.gif		<co_jest>	<co%%_%%jest>
+../EAP/tlen/kwasny_.gif			<zniesmaczony>	<kwasny>
+../EAP/tlen/ysz_.gif			:|	<nie_rozumiem>	<nie%%_%%rozumiem>
+../EAP/tlen/zmieszanie_.gif		<zmieszanie>
+../EAP/tlen/zawstydzony_.gif	<wstydni\ś>	<zawstydzony>
+../EAP/tlen/smutny_.gif			<smutny>
+../EAP/tlen/placze_.gif			;(	<placz>	<placze>	<beksa>
+../EAP/tlen/telefon2_.gif		<dzwoni>
+../EAP/tlen/telefon_.gif		<telefon>	<gadula>	<telefonuje>	<telefonuj\ę>
+../EAP/tlen/komora_.gif			<kom\óra>	<komora>
+../EAP/tlen/czas_.gif			<czas>	<budzik>
+../EAP/tlen/balwan_.gif			<ba\łwan>	<balwan>
+../EAP/tlen/glupek_.gif			<g\łupek>	<glupek>
+../EAP/tlen/jezyk_.gif			;P	<blee>	<ble>
+../EAP/tlen/prysznic_.gif		<prysznic>
+../EAP/tlen/pisze_.gif			<chatownik>	<czatownik>	<klika>	<pisze>	<czatuje>
+../EAP/tlen/czytaj_.gif			<czytaj>	<czytaj_to>
+../EAP/tlen/cisza_.gif			<cisza>	<cisza!>
+../EAP/tlen/czyta_.gif			<czyta	gazete>	<uczy_si\ę>	<uczy_sie>	<uczy>	<nauka>
+../EAP/tlen/jem_.gif			<jem>	<je>
+../EAP/tlen/usmiech_b.gif		<U\ŚMIECH>	<USMIECH>
+../EAP/tlen/smutny_b.gif		<SMUTNY>
+../EAP/tlen/wsciekly_b.gif		<Z\ŁY>	<ZLY>	<W\ŚCIEK\ŁY>	<WSCIEK\ŁY>	<W\ŚCIEKLY>	<WSCIEKLY>
+../EAP/tlen/spacer_b.gif		<SPACER>
+../EAP/tlen/jem_b.gif			<JEM>
+../EAP/tlen/mail_b.gif			<MAIL>	<LIST>
+../EAP/tlen/kwiatek_b.gif		<KWIATEK>
+../EAP/tlen/telefon_b.gif		<TELEFON>
+../EAP/tlen/usmiech1_.gif		:->

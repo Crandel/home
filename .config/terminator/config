@@ -1,44 +1,44 @@
 [global_config]
-  window_state = maximise
-  handle_size = 0
-  enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
   always_split_with_profile = True
-  title_transmit_fg_color = "#040b00"
+  enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  handle_size = 0
+  title_font = Hack 13
+  title_inactive_bg_color = "#dadada"
   title_inactive_fg_color = "#c88b14"
   title_receive_bg_color = "#00ceae"
-  title_transmit_bg_color = "#23b37f"
   title_receive_fg_color = "#9100a4"
-  title_inactive_bg_color = "#dadada"
+  title_transmit_bg_color = "#23b37f"
+  title_transmit_fg_color = "#040b00"
+  title_use_system_font = False
+  window_state = maximise
 [keybindings]
-  toggle_zoom = <Alt>z
   hide_window = F1
   split_horiz = <Primary><Shift>z
-  zoom_in = <Primary><Shift>p
   split_vert = <Primary><Shift>x
-[profiles]
-  [[default]]
-    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
-    font = Hack 13
-    background_image = None
-    background_darkness = 0.77
-    urgent_bell = True
-    background_type = transparent
-    use_system_font = False
-    cursor_color = "#c67d00"
-    foreground_color = "#10c832"
-    backspace_binding = automatic
-    login_shell = True
-    cursor_shape = ibeam
-    copy_on_selection = True
-    scrollback_lines = 10000
-    scrollback_infinite = True
+  toggle_zoom = <Alt>z
+  zoom_in = <Primary><Shift>p
 [layouts]
   [[default]]
     [[[child1]]]
-      type = Terminal
       parent = window0
       profile = default
+      type = Terminal
     [[[window0]]]
-      type = Window
       parent = ""
+      type = Window
 [plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.77
+    background_image = None
+    backspace_binding = automatic
+    copy_on_selection = True
+    cursor_color = "#c67d00"
+    cursor_shape = ibeam
+    font = Hack 13
+    foreground_color = "#10c832"
+    login_shell = True
+    palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
+    scrollback_lines = 30000
+    urgent_bell = True
+    use_system_font = False

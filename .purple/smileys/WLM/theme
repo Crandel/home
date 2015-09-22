@@ -1,0 +1,107 @@
+Name=WLM 2011
+Description=WLM 2011 (OLD) 
+Icon=../EAP/WLM/msn.png
+Author=.H.
+
+[default]
+../EAP/WLM/smile.png	:)	:-)	
+../EAP/WLM/sad.png	:(	:-(	
+../EAP/WLM/wink.gif	;)	;-)	
+../EAP/WLM/grin.png	:D	:-D	:d	:-d	
+../EAP/WLM/confused.png	:S	:-S	:s	:-s	
+../EAP/WLM/tongue.png	:P	:-P	:p	:-p	
+../EAP/WLM/shy.png	:$	:-$	
+../EAP/WLM/surprised.png	:O	:-O	:o	:-o	
+../EAP/WLM/shocked.png	:|	:-|	
+../EAP/WLM/angry.png	:@	:-@	
+../EAP/WLM/angel.png	(a)	(A)	
+../EAP/WLM/cool.png	(h)	(H)	
+../EAP/WLM/devil.png	-6	
+../EAP/WLM/cry.gif	:'(	
+../EAP/WLM/quiet.png	:-#	
+../EAP/WLM/smart.png	8-|	
+../EAP/WLM/secret.png	:-*	
+../EAP/WLM/dunno.gif	:^)	
+../EAP/WLM/party.gif	<:o)	
+../EAP/WLM/tired.gif	|-)	
+../EAP/WLM/teeth.png	8o|	
+../EAP/WLM/sarcastic.png	^o)	
+../EAP/WLM/sick.png	+o(	
+../EAP/WLM/thinking.gif	*-)	
+../EAP/WLM/rolleyes.gif	8-)	
+../EAP/WLM/shifty.png	;-\	;\	
+../EAP/WLM/disappointed.png	:-\	
+../EAP/WLM/joke.png	(jk)	
+../EAP/WLM/ninja.png	(j)	(J)	
+../EAP/WLM/envy.png	(v)	(V)	
+../EAP/WLM/lol.gif	(lol)	
+../EAP/WLM/rofl.gif	(rofl)	(rotfl)	
+../EAP/WLM/alien.png	:8)	
+../EAP/WLM/flirtfemale.gif	(ff)	
+../EAP/WLM/flirtmale.gif	(fm)	
+../EAP/WLM/freezing.gif	:'|	:'-|	
+../EAP/WLM/love.gif	:]	:-]	
+../EAP/WLM/princess.png	:}	:-}	
+../EAP/WLM/ghost.png	(BOO)	
+../EAP/WLM/punch.gif	*|	*-|	
+../EAP/WLM/punk.png	*\	*-\	
+../EAP/WLM/furious.gif	;@	;-@	
+../EAP/WLM/whome.png	(wm)	
+../EAP/WLM/kissing.gif	(xo)	
+../EAP/WLM/rose.png	(f)	(F)	
+../EAP/WLM/rosewilt.gif	(w)	(W)	
+../EAP/WLM/bulb.png	(i)	(I)	
+../EAP/WLM/boy.png	(z)	(Z)	
+../EAP/WLM/girl.png	(x)	(X)	
+../EAP/WLM/cat.png	(@)	dog.png	(&amp;)	
+../EAP/WLM/star.png	(*)	
+../EAP/WLM/moon.png	(s)	(S)	
+../EAP/WLM/sun.png	(#)	
+../EAP/WLM/bunny.png	('.')	
+../EAP/WLM/music.png	-8	
+../EAP/WLM/back.gif	(brb)	
+../EAP/WLM/highfive.gif	(h5)	
+../EAP/WLM/crossed.png	(yn)	
+../EAP/WLM/pointup.png	(pu)	
+../EAP/WLM/vampire.gif	:[	:-[	
+../EAP/WLM/camera.png	(p)	(P)	
+../EAP/WLM/film.png	(~)	
+../EAP/WLM/coffee.png	(c)	(C)	
+../EAP/WLM/present.png	(g)	(G)	
+../EAP/WLM/letter.png	(e)	(E)	
+../EAP/WLM/thumbsdown.png	(n)	(N)	
+../EAP/WLM/thumbsup.png	(y)	(Y)	
+../EAP/WLM/hugleft.png	({)	
+../EAP/WLM/hugright.png	(})	
+../EAP/WLM/msn.png	(m)	(M)	
+../EAP/WLM/birthday.gif	(^)	
+../EAP/WLM/heart.png	(l)	(L)	
+../EAP/WLM/broken.png	(u)	(U)	
+../EAP/WLM/kiss.png	(k)	(K)	
+../EAP/WLM/beer.png	(b)	(B)	
+../EAP/WLM/martini.png	(d)	(D)	
+../EAP/WLM/phone.png	(t)	(T)	
+../EAP/WLM/clock.gif	(o)	(O)	
+../EAP/WLM/rainbow.png	(r)	(R)	
+../EAP/WLM/snail.png	(sn)	
+../EAP/WLM/football.png	(so)	
+../EAP/WLM/sheep.png	(bah)	
+../EAP/WLM/car.png	(au)	
+../EAP/WLM/bowl.png	(||)	
+../EAP/WLM/computer.png	(co)	
+../EAP/WLM/island.png	(ip)	
+../EAP/WLM/lightning.gif	(li)	
+../EAP/WLM/work.png	(wo)	
+../EAP/WLM/mobile.png	(mp)	
+../EAP/WLM/money.png	(mo)	
+../EAP/WLM/pizza.png	(pi)	
+../EAP/WLM/airplane.png	(ap)	
+../EAP/WLM/food.png	(pl)	
+../EAP/WLM/rain.png	(st)	
+../EAP/WLM/umbrella.png	(um)	
+../EAP/WLM/turtle.png	(tu)	
+../EAP/WLM/xbox.png	(xx)	
+../EAP/WLM/peace.png	*p*	
+../EAP/WLM/books.png	*s*	
+../EAP/WLM/bus.png	(bus)	
+../EAP/WLM/goat.png	(nnh)	

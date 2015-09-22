@@ -1,0 +1,33 @@
+Name=MySpaceIM
+Description=MySpaceIM 
+Icon=../EAP/myspace/myspace.png
+Author= Andrei Neculau, .H.
+
+
+# MySpaceIM 1
+[default]
+../EAP/myspace/bigsmile.png		:D	:-D
+../EAP/myspace/devil.png		}:)
+../EAP/myspace/frazzled.png		:Z
+../EAP/myspace/geek.png			B)
+../EAP/myspace/googles.png		%)
+../EAP/myspace/growl.png		:E
+../EAP/myspace/happy.png		:)	:-)
+../EAP/myspace/heart.png		:X
+../EAP/myspace/laugh.png		:))
+../EAP/myspace/mohawk.png		-:
+../EAP/myspace/mad.png			X(
+../EAP/myspace/messed.png		X)
+../EAP/myspace/nerd.png			Q)
+../EAP/myspace/oops.png			:G
+../EAP/myspace/pirate.png		P)
+../EAP/myspace/scared.png		:O
+../EAP/myspace/sidefrown.png	:{
+../EAP/myspace/sinister.png		:B
+../EAP/myspace/smirk.png		:,
+../EAP/myspace/straight.png		:|
+../EAP/myspace/tongue.png		:P	:p
+../EAP/myspace/upset.png		B|
+../EAP/myspace/wink.png			;-)	;)
+../EAP/myspace/worried.png		:[
+../EAP/myspace/kiss.png			:x

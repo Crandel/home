@@ -1,0 +1,516 @@
+Name=Facebook
+Description=Facebook smileys for Pidgin
+Icon=../EAP/facebook/facebook.png
+Author=mehdevil, .H.
+
+[default]
+../EAP/facebook/facebook-smiley-face-for-comments.png	:) :-) :] =)
+../EAP/facebook/big-smile-emoticon-for-facebook.png	:D :-D =D
+../EAP/facebook/facebook-frown-emoticon.png	:( :-( :[ =(
+../EAP/facebook/facebook-cry-emoticon-crying-symbol.png	:'(
+../EAP/facebook/facebook-tongue-out-emoticon.png	:p :P :-p :-P =P
+../EAP/facebook/angel+emoticon.png	O:) O:-)
+../EAP/facebook/confused-emoticon-wtf-symbol-for-facebook.png	O.o o.O
+../EAP/facebook/wink+emoticon.png	;) ;-)
+../EAP/facebook/surprised+emoticon.png	:o :O :-o :-O
+../EAP/facebook/squinting-emoticon.png	-_-
+../EAP/facebook/angry+emoticon.png	>:o >:O >:-o >:-O
+../EAP/facebook/kiss+emoticon.png	:* :-*
+../EAP/facebook/kiki+emoticon.png	^_^
+../EAP/facebook/glasses+emoticon.png	8-) B-)
+../EAP/facebook/sunglasses+emoticon.png	8| B| 8-| B-| 
+../EAP/facebook/grumpy+emoticon.png	>:( >:-(
+../EAP/facebook/pacman+emoticon.png	:v
+../EAP/facebook/unsure+emoticon.png	:/ :\\ :-/ :-\\
+../EAP/facebook/curly+lips+emoticon.png	:3
+../EAP/facebook/facebook-blush-emoticon.png	☺
+
+../EAP/facebook/facebook-comments-emoticon-with-heart-eyes.png	😍
+
+../EAP/facebook/heart-smiley.png	😘
+../EAP/facebook/kiss-emoticon.png	😚
+../EAP/facebook/happy-smiley-blushing.png	😊
+../EAP/facebook/smirking-smiley.png	😏
+../EAP/facebook/satisfied-smiley-face.png	😌
+../EAP/facebook/smiling-face.png	😃
+../EAP/facebook/big-smile-with-closed-eyes.png	😄
+../EAP/facebook/disappointed.png	😞
+../EAP/facebook/crying-smiley.png	😢
+../EAP/facebook/medic-facebook-smiley.png	😷
+../EAP/facebook/cold-sweat-emoticon.png	😓
+../EAP/facebook/fear-emoji.png	😰
+../EAP/facebook/relieved-emoticon.png	😥
+../EAP/facebook/sleepy-smiley.png	😪
+../EAP/facebook/scared-emoticon.png	😨
+../EAP/facebook/facebook-emoticon--terrified-with-fear.png	😱
+../EAP/facebook/dizzy-emoticon.png	😵
+../EAP/facebook/facebook-emoticon-crying-big-tears.png	😭
+../EAP/facebook/mad-angry-emoticon-for-facebook.png	😠
+../EAP/facebook/emoticon-with-eyes-wide-open.png	😳
+../EAP/facebook/astonished-smiley-emoticon-for-facebook.png	😲
+../EAP/facebook/emoticon-with-look-of-triumph.png	😤
+../EAP/facebook/tongue-out-winking-emoticon-for-facebook.png	😜
+../EAP/facebook/emoticon-mocking--with-tongue-out.png	😝
+../EAP/facebook/winking-face-facebook-symbol.png	😉
+../EAP/facebook/sad-face-symbol-for-facebook.png	😔
+../EAP/facebook/unamused-emoticon.png	😒
+../EAP/facebook/emoticon-crying-tears-of-joy.png	😂
+../EAP/facebook/red-angry-emoticon-for-facebook.png	😡
+../EAP/facebook/devil+emoticon.png	3:) 3:-)
+../EAP/facebook/purple-devil-facebook-emoticon.png	👿
+
+../EAP/facebook/angel-symbol.png	👼
+../EAP/facebook/playboy-bunny-emoticon-for-facebook.png	👯
+../EAP/facebook/guardsman-symbol.png	💂
+../EAP/facebook/man-with-turban.png	👳
+../EAP/facebook/Santa-claus-symbol-for-facebook.png	🎅
+../EAP/facebook/facebook-policeman-symbol.png	👮
+../EAP/facebook/construction-worker-emoticon.png	👷
+../EAP/facebook/princess-emoticon-for-facebook.png	👸
+../EAP/facebook/bald-man-emoticon.png	👴
+../EAP/facebook/old-woman-emoticon.png	👵
+../EAP/facebook/man-emoticon.png	👨
+../EAP/facebook/woman-emoticon.png	👩
+../EAP/facebook/boy-emoticon.png	👦
+../EAP/facebook/girl-emoticon-for-facebook.png	👧
+../EAP/facebook/baby-face-emoticon.png	👶
+../EAP/facebook/blonde-girl-emoticon.png	👱
+../EAP/facebook/putnam-emoticon.png	:putnam:
+../EAP/facebook/boy-and-girl-holding-hands.png	👫
+../EAP/facebook/man-and-woman-holding-hands.png	🎎
+../EAP/facebook/dancer-emoticon-for-facebook.png	💃
+../EAP/facebook/restroom-emoticon.png	🚻
+../EAP/facebook/mens-emoticon.png	🚹
+../EAP/facebook/womens-emoticon.png	🚺
+../EAP/facebook/child-emoticon.png	🚼
+
+../EAP/facebook/pumpkin-symbol.png	🎃
+../EAP/facebook/skull-emoticon.png	💀
+../EAP/facebook/robot+emoticon.png	:|]
+../EAP/facebook/alien-symbol.png	👽
+../EAP/facebook/green-extraterrestrial-symbol.png	👾
+../EAP/facebook/ghost-symbol.png	👻
+
+
+../EAP/facebook/shark+emoticon.png	(^^^)
+../EAP/facebook/facebook-penguine-emoticon.png	<(")
+../EAP/facebook/puppy.png	🐶
+../EAP/facebook/teddy-bear-fb-emoticon.png	🐻
+../EAP/facebook/monkey-face-symbol.png	🐵
+../EAP/facebook/mouse-fb-emoticon.png	🐭
+../EAP/facebook/hamster-fb-emoticon.png	🐹
+../EAP/facebook/facebook-wolf-emoticon.png	🐺
+../EAP/facebook/facebook-tiger-emoticon.png	🐯
+../EAP/facebook/horse-face-symbol.png	🐴
+../EAP/facebook/piggy-emoticon.png	🐷
+../EAP/facebook/facebook-cat-symbol.png	🐱
+../EAP/facebook/facebook-bunny-symbol.png	🐰
+../EAP/facebook/poodle-emoticon.png	🐩
+../EAP/facebook/sheep-emoticon.png	🐑
+../EAP/facebook/penguin-face-symbol.png	🐧
+../EAP/facebook/koala-emoticon.png	🐨
+../EAP/facebook/cow-emoticon.png	🐮
+../EAP/facebook/wild-boar-emoticon.png	🐗
+../EAP/facebook/chicken-symbol.png	🐔
+../EAP/facebook/yellow-chick-emoticon.png	🐥
+../EAP/facebook/bird-emoticon-for-facebook.png	🐦
+../EAP/facebook/elephant-emoticon-for-facebook.png	🐘
+../EAP/facebook/horse-emoticon-for-facebook.png	🐎
+../EAP/facebook/monkey-symbol-for-facebook.png	🐒
+../EAP/facebook/camel-emoticon.png	🐫
+../EAP/facebook/facebook-dolphin-emoticon.png	🐬
+../EAP/facebook/whale-emoticon-for-facebook.png	🐳
+../EAP/facebook/tropical-fish-emoticon.png	🐠
+../EAP/facebook/facebook-fish-symbol.png	🐟
+../EAP/facebook/blowfish-symbol.png	🐡
+../EAP/facebook/octopus-emoticon.png	🐙
+../EAP/facebook/facebook-seashell-symbol.png	🐚
+../EAP/facebook/frog-emoticon.png	🐸
+../EAP/facebook/snake-symbol-for-facebook.png	🐍
+../EAP/facebook/facebook-bug-emoticon.png	🐛
+
+../EAP/facebook/couple-in-love.png	💑
+../EAP/facebook/couple-in-love-kiss.png	💏
+../EAP/facebook/heart+emoticon.png	<3
+../EAP/facebook/broken-heart-emoticon-for-facebook-comments.png	💔
+../EAP/facebook/facebook-blue-heart-icon.png	💙
+../EAP/facebook/green-heart-emoticon-for-facebook.png	💚
+../EAP/facebook/yellow-heart-emoticon-for-fb-comments.png	💛
+../EAP/facebook/purple-heart-icon.png	💜
+../EAP/facebook/triple-hearts-emoticon.png	💗
+../EAP/facebook/emoticon-of-heart-stabbed-with-an-arrow.png	💘
+../EAP/facebook/new-heart-symbol-for-facebook.png	💓
+../EAP/facebook/facebook-heart-symbol-wrapped-as-a-gift.png	💝
+../EAP/facebook/sparkling-heart-symbol-for-facebook.png	💖
+../EAP/facebook/spinning-hearts-emoticon.png	💞
+../EAP/facebook/white-heart-facebook-emoticon.png	💟
+../EAP/facebook/love-letter-facebook-emoticon.png	💌
+../EAP/facebook/facebook-lips-emoticon.png	💋
+../EAP/facebook/lips-symbol.png	👄
+
+../EAP/facebook/ear-emoticon.png	👂
+../EAP/facebook/nose-symbol.png	👃
+../EAP/facebook/facebook-eyes-symbol.png	👀
+
+
+
+../EAP/facebook/its-ok-fingers-sign.png	👌
+../EAP/facebook/peace-fingers-facebook-symbol.png	✌
+../EAP/facebook/thumb-up-facebook-emoticon-like-symbol.png	(y) 👍
+../EAP/facebook/facebook-emoticon-of--dislike-symbol.png	👎
+../EAP/facebook/clenched-fist-emoticon-for-facebook-status.png	✊
+../EAP/facebook/index-finger-emoticon.png	☝
+../EAP/facebook/open-hand-emoticon.png	✋
+../EAP/facebook/two-hands-clap.png	🙏
+../EAP/facebook/two-hands-reaching-up.png	🙌
+../EAP/facebook/muscle-arm.png	💪
+../EAP/facebook/fist-symbol.png	👊
+../EAP/facebook/clapping-hands-emoticon.png	👏
+../EAP/facebook/finger-pointing-up-symbol.png	👆
+../EAP/facebook/finger-pointing-to-right.png	👉
+../EAP/facebook/finger-pointing-left.png	👈
+../EAP/facebook/finger-pointing-down.png	👇
+
+
+
+../EAP/facebook/poop-facebook-emoticon.png	:poop: 💩
+
+../EAP/facebook/sun+emoticon+for+facebook+comments.png	☀
+../EAP/facebook/cloud-emoticon-for-facebook-comments.png	☁
+../EAP/facebook/thunder-symbol-facebook-emoticon.png	⚡
+../EAP/facebook/stars-emoticon.png	✨
+../EAP/facebook/white-star.png	⭐
+../EAP/facebook/snowflake-emoji.png	✳
+../EAP/facebook/snowman-emoticon.png	⛄
+../EAP/facebook/star-symbol-for-facebook.png	🌟
+../EAP/facebook/moon-symbol.png	🌙
+../EAP/facebook/fire-symbol-emoticon-for-facebook.png	🔥
+../EAP/facebook/wind-emoticon.png	💨
+../EAP/facebook/wave-symbol.png	🌊
+../EAP/facebook/droplets-symbol.png	💦
+../EAP/facebook/droplet-emoticon.png	💧
+../EAP/facebook/snowflake-emoticon.png	✴
+
+../EAP/facebook/umbrella-symbol-for-facebook-comments.png	☔
+../EAP/facebook/graduation-symbol.png	🎓
+../EAP/facebook/top-hat-emoticon.png	🎩
+../EAP/facebook/womans-hat-emoji.png	👒
+../EAP/facebook/crown-emoticon.png	👑
+../EAP/facebook/tie-emoticon-facebook.png	👔
+../EAP/facebook/ribbon-emoticon.png	🎀
+../EAP/facebook/ring-emoticon.png	💍
+../EAP/facebook/bikini-emoticon-for-facebook.png	👙
+../EAP/facebook/lipstick-emoticon.png	💄
+../EAP/facebook/t-shirt-emoticon-for-facebook.png	👕
+../EAP/facebook/kimono-emoticon.png	👘
+../EAP/facebook/dress-emoticon.png	👗
+../EAP/facebook/boots-facebook-emoticon.png	👢
+../EAP/facebook/emoji_1f45f_32.png	👟
+../EAP/facebook/high-heels-emoticon.png	👠
+../EAP/facebook/womans-sandal.png	👡
+../EAP/facebook/briefcase-emoticon.png	💼
+../EAP/facebook/handbag.png	👜
+../EAP/facebook/school-bag-emoticon.png	🎒
+../EAP/facebook/anger-symbol-facebook-emoticon.png	💢
+../EAP/facebook/nail-polish-emoticon.png	💅
+../EAP/facebook/footprints-emoticon.png	🐾
+
+../EAP/facebook/coffee-emoticon.png	☕
+
+
+../EAP/facebook/hot-plate-emoticon.png	♨
+../EAP/facebook/boat-emoticon.png	⛵
+../EAP/facebook/fuel-pump.png	⛽
+../EAP/facebook/airplane-emoticon.png	✈
+../EAP/facebook/fountain-emoticon.png	⛲
+../EAP/facebook/tent-emoticon.png	⛺
+../EAP/facebook/church-emoticon.png	⛪
+../EAP/facebook/telephone-emoticon.png	☎
+../EAP/facebook/envelope-emoticon.png	✉
+../EAP/facebook/scissors-emoticon.png	✂
+../EAP/facebook/toilet-emoticon.png	🚽
+../EAP/facebook/bath-emoticon.png	🛀
+
+
+
+
+../EAP/facebook/soccer-ball-emoticon.png	⚽
+../EAP/facebook/baseball-emoticon.png	⚾
+../EAP/facebook/golf-emoticon.png	⛳
+../EAP/facebook/american-football-emoticon.png	🏈
+../EAP/facebook/basketball-emoticon.png	🏀
+../EAP/facebook/tennis-ball-emoticon.png	🎾
+../EAP/facebook/eight-8-ball-emoticon.png	🎱
+../EAP/facebook/target-emoticon.png	🎯
+../EAP/facebook/skis-emoticon.png	🎿
+../EAP/facebook/crossed-flags-emoticon.png	🎌
+../EAP/facebook/finish-line-flag.png	🏁
+../EAP/facebook/trophy-symbol.png	🏆
+
+
+
+../EAP/facebook/music-note.png	🎵
+../EAP/facebook/facebook-music-notes-symbols.png	🎶
+../EAP/facebook/zzz-facebook-emoticon.png	💤
+../EAP/facebook/bell-symbol-for-facebook.png	🔔
+../EAP/facebook/balloon-symbol-for-facebook.png	🎈
+../EAP/facebook/Party-popper.png	🎉
+../EAP/facebook/champagne-glass-symbol.png	🍸
+../EAP/facebook/beer-mug-symbol.png	🍺
+../EAP/facebook/clinking-beer-mugs.png	🍻
+../EAP/facebook/bottle-emoticon.png	🍶
+../EAP/facebook/teacup-emoticon.png	🍵
+../EAP/facebook/fork-and-knife-facebook-emoticons.png	🍴
+../EAP/facebook/bread-emoticon.png	🍞
+../EAP/facebook/frying-pan.png	🍳
+../EAP/facebook/french-fries-facebook-emoji.png	🍟
+../EAP/facebook/the-food-pot-emoticon.png	🍲
+../EAP/facebook/sushi-emoticon.png	🍣
+../EAP/facebook/spaghetti-emoticon.png	🍝
+../EAP/facebook/steaming-bowl.png	🍜
+../EAP/facebook/cake-emoticon.png	🍰
+../EAP/facebook/shaved-ice-emoticon-for-facebook.png	🍧
+../EAP/facebook/ice-cream-facebook-emoticon.png	🍦
+../EAP/facebook/hamburger-symbol.png	🍔
+../EAP/facebook/emoji_1f358_32.png	🍘
+../EAP/facebook/emoji_1f359_32.png	🍙
+../EAP/facebook/emoji_1f35a_32.png	🍚
+../EAP/facebook/emoji_1f35b_32.png	🍛
+../EAP/facebook/emoji_1f361_32.png	🍡
+../EAP/facebook/emoji_1f362_32.png	🍢
+../EAP/facebook/emoji_1f371_32.png	🍱
+../EAP/facebook/red-apple-symbol.png	🍎
+../EAP/facebook/strawberry-symbol.png	🍓
+../EAP/facebook/orange-fruit-emoticon.png	🍊
+../EAP/facebook/watermelon-emoticon.png	🍉
+../EAP/facebook/tomato-emoticon.png	🍅
+../EAP/facebook/eggplant-emoticon.png	🍆
+../EAP/facebook/seedling-emoticon.png	🌱
+../EAP/facebook/palm-tree-emoticon.png	🌴
+../EAP/facebook/cactus-symbol.png	🌵
+../EAP/facebook/maple-leaf-symbol.png	🍁
+../EAP/facebook/fallen-leaf-emoticon.png	🍂
+../EAP/facebook/Fluttering-leaf-icon.png	🍃
+../EAP/facebook/four-leaf-clover.png	🍀
+../EAP/facebook/cherry-blossom.png	🌸
+../EAP/facebook/rose-symbol-for-facebook.png	🌹
+../EAP/facebook/tulip-symbol.png	🌷
+../EAP/facebook/sunflower-emoticon.png	🌻
+../EAP/facebook/hibiscus-flower--symbol.png	🌺
+../EAP/facebook/flower-bouquet-symbol.png	💐
+../EAP/facebook/christmas-tree-symbol.png	🎄
+
+
+
+../EAP/facebook/phone-symbol.png	📞
+../EAP/facebook/fax-emoticon.png	📠
+../EAP/facebook/speaker-emoticon.png	🔈
+../EAP/facebook/radio-emoticon.png	📻
+../EAP/facebook/camera-emoji.png	📷
+../EAP/facebook/movie-camera-emoticon.png	🎥
+../EAP/facebook/vhs-emoticon.png	📼
+../EAP/facebook/satellite-dish.png	📡
+../EAP/facebook/tv-symbol.png	📺
+../EAP/facebook/pc-emoticon.png	💻
+../EAP/facebook/floppy-disk-emoticon.png	💾
+../EAP/facebook/md-disk.png 	💽
+../EAP/facebook/cd-emoticon.png	📀
+../EAP/facebook/cd-argent.png	💿
+../EAP/facebook/tablet-smartphone-emoticon.png	📱
+../EAP/facebook/gift-emoticon.png	🎁
+../EAP/facebook/carp-streamers.png	🎏
+../EAP/facebook/atm-emoticon.png	🏧
+../EAP/facebook/money-bag-emoticon.png	💰
+../EAP/facebook/dollar-bill-emoticon.png	💵
+../EAP/facebook/yen-banknote.png	💴
+../EAP/facebook/bicycle-emoticon.png	🚲
+../EAP/facebook/automobile-emoji.png	🚗
+../EAP/facebook/car-emoticon.png	🚙
+../EAP/facebook/truck-emoji.png	🚚
+../EAP/facebook/bus-emoticon.png	🚌
+../EAP/facebook/fire-engine-emoticon.png	🚒
+../EAP/facebook/police-car-emoticon.png	🚓
+../EAP/facebook/ambulance-facebook-emoticon.png	🚑
+../EAP/facebook/taxi-emoticon.png	🚕
+../EAP/facebook/train-emoticon.png	🚄
+../EAP/facebook/tram-car-emoji.png	🚃
+../EAP/facebook/high-speed-train-emoji.png	🚅
+../EAP/facebook/station-emoji.png	🚉
+../EAP/facebook/speedboat-emoji.png	🚤
+../EAP/facebook/ship-emoticon.png	🚢
+../EAP/facebook/roller-coaster.png	🎢
+../EAP/facebook/rocket-emoji.png	🚀
+../EAP/facebook/ticket-emoticon.png	🎫
+../EAP/facebook/bus-stop-emoticon.png	🚏
+../EAP/facebook/mobile-phone-off-emoticon.png	📴
+../EAP/facebook/mailbox-emoticon.png	📪
+../EAP/facebook/mailbox-with-raised-flag.png	📫
+../EAP/facebook/emoji_1f4ec_32.png	📬
+../EAP/facebook/emoji_1f4ed_32.png	📭
+../EAP/facebook/postbox-emoticon.png	📮
+../EAP/facebook/mail-emoticon-for-facebook.png	📩
+../EAP/facebook/incoming-mail-facebook-emoticon.png	📨
+../EAP/facebook/memo-sign-for-facebook.png	📝
+
+../EAP/facebook/open-book-emoticon.png	📖
+../EAP/facebook/paint-palette.png	🎨
+../EAP/facebook/microphone-emoticon.png	🎤
+../EAP/facebook/megaphone-emoticon.png	📣
+../EAP/facebook/headphones-emoticon.png	🎧
+../EAP/facebook/saxophone-emoticon.png	🎷
+../EAP/facebook/trumpet-emoticon.png	🎺
+../EAP/facebook/guitar-emoticon.png	🎸
+../EAP/facebook/public-address-loudspeaker.png	📢
+../EAP/facebook/lock-emoji.png	🔒
+../EAP/facebook/closed-lock-with-key.png	🔐
+../EAP/facebook/key-emoticon.png	🔑
+../EAP/facebook/open-lock-emoticon.png	🔓
+../EAP/facebook/emoji_1f50f_32.png	🔏
+../EAP/facebook/magnifying-glass-emoticon.png	🔎
+../EAP/facebook/emoji_1f50d_32.png	🔍
+../EAP/facebook/light-bulb-emoticon.png	💡
+../EAP/facebook/dollar-sign.png	💲
+../EAP/facebook/pistol-emoticon.png	🔫
+../EAP/facebook/bomb-emoticon.png	💣
+../EAP/facebook/cigarette-emoticon.png	🚬
+../EAP/facebook/pill-emoticon.png	💊
+../EAP/facebook/syringe-emoticon.png	💉
+../EAP/facebook/mask-emoticon-for-facebook.png	🎭
+../EAP/facebook/clapper-board.png	🎬
+../EAP/facebook/cinema-emoticon.png	🎦
+
+../EAP/facebook/heart-suit-emoticon.png	♥
+../EAP/facebook/spade-emoticon.png	♠
+../EAP/facebook/diamond-suit-emoticon.png	♦
+../EAP/facebook/club-suit-emoticon.png	♣
+../EAP/facebook/rainbow-emoticon.png	🌈
+../EAP/facebook/sunrise-emoticon.png	🌅
+../EAP/facebook/sunrise-over-mountains.png	🌄
+../EAP/facebook/sunset-emoticon.png	🌇
+../EAP/facebook/dusk-emoticon.png	🌆
+../EAP/facebook/starry-night.png	🌃
+../EAP/facebook/mount-fuji-emoji.png	🗻
+../EAP/facebook/japanese-castle.png	🏯
+../EAP/facebook/japanese-building-emoji.png	🏣
+../EAP/facebook/castle-emoticon.png	🏰
+../EAP/facebook/bank-emoticon-for-facebook.png	🏦
+../EAP/facebook/statue-of-liberty-emoticon.png	🗽
+../EAP/facebook/ferris-wheel-emoticon.png	🎡
+../EAP/facebook/tokyo-tower.png	🗼
+../EAP/facebook/hotel-emoticon.png	🏨
+../EAP/facebook/love-hotel.png	🏩
+../EAP/facebook/office-building.png	🏢
+../EAP/facebook/school-emoticon.png	🏫
+../EAP/facebook/factory-emoticon.png	🏭
+../EAP/facebook/hospital-emoticon.png	🏥
+../EAP/facebook/department-store-emoticon.png	🏬
+../EAP/facebook/convenience-store.png	🏪
+../EAP/facebook/wedding-emoticon.png	💒
+../EAP/facebook/house-emoji.png	🏡
+../EAP/facebook/house-emoticon.png	🏠
+../EAP/facebook/traffic-lights-emoticon.png	🚥
+../EAP/facebook/construction-sign.png	🚧
+../EAP/facebook/barber-emoticon.png	💈
+../EAP/facebook/antenna-signal.png	📶
+../EAP/facebook/no-under-18-sign.png	🔞
+../EAP/facebook/vibration-mode.png	📳
+../EAP/facebook/no-smoking-emoticon.png	🚭
+../EAP/facebook/warning-sign.png	⚠
+../EAP/facebook/no-entry-emoticon.png	⛔
+../EAP/facebook/exclamation-point-emoji.png	❕
+../EAP/facebook/exclamation-mark-emoticon.png	❓
+../EAP/facebook/red-exclamation-mark.png	❗
+../EAP/facebook/question-mark-emoticon.png	❔
+../EAP/facebook/cross-mark-emoticon.png	❌
+../EAP/facebook/cross-mark-emoji.png	❎
+../EAP/facebook/multiplication-x.png	✖
+../EAP/facebook/vs-emoticon-versus.png	🆚
+../EAP/facebook/up-sign.png	🆙
+../EAP/facebook/cool-emoticon-sign.png	🆒
+../EAP/facebook/wheelchair-emoji.png	♿
+../EAP/facebook/curly-loops.png	➿
+../EAP/facebook/wc-emoticon.png	🚾
+../EAP/facebook/congratulations-emoticon.png	㊗
+../EAP/facebook/secret-emoticon.png	㊙
+../EAP/facebook/free-service-emoticon.png	🈂
+../EAP/facebook/available-emoticon.png	🈳
+../EAP/facebook/katakana-koko-emoji.png	🈁
+../EAP/facebook/finger-point-emoticon.png	🈯
+../EAP/facebook/full-emoticon.png	🈵
+../EAP/facebook/sale-emoticon.png	🈹
+../EAP/facebook/have-nothing.png	🈚
+../EAP/facebook/month-emoticon-for-facebook.png	🈷
+../EAP/facebook/own-emoticon.png	🈶
+../EAP/facebook/request-emoticon.png	🈸
+../EAP/facebook/work-emoticon.png	🈺
+../EAP/facebook/good-bargain.png	🉐
+
+../EAP/facebook/rightwards-arrow.png	➡
+../EAP/facebook/downwards-arrow.png	⬇
+../EAP/facebook/leftwards-arrow.png	⬅
+../EAP/facebook/upwards-arrow.png	⬆
+../EAP/facebook/north-east-arrow.png	↗
+../EAP/facebook/north-west-arrow.png	↖
+../EAP/facebook/south-east-arrow.png	↘
+../EAP/facebook/south-west-arrow.png	↙
+../EAP/facebook/up-right-arrow.png	⤴
+../EAP/facebook/arrow-pointing-down-right.png	⤵
+../EAP/facebook/closed-umbrella.png	🌂
+
+../EAP/facebook/hammer-emoticon.png	🔨
+../EAP/facebook/seat-emoticon.png	💺
+../EAP/facebook/Part-Alternation-Mark.png	〽
+../EAP/facebook/trident-emoticon.png	🔱
+../EAP/facebook/noob-emoticon.png	🔰
+../EAP/facebook/mahong-tile-red-dragon.png	🀄
+../EAP/facebook/gem-stone-emoticon.png	💎
+../EAP/facebook/diamond-emoticon.png	💠
+../EAP/facebook/blue-diamond-emoticon.png	🔷
+../EAP/facebook/orange-diamond-emoticon.png	🔶
+../EAP/facebook/emoji_1f538_32.png	🔸
+../EAP/facebook/emoji_1f539_32.png	🔹
+
+../EAP/facebook/emoji_1f532_32.png	🔲
+../EAP/facebook/emoji_1f533_32.png	🔳
+../EAP/facebook/emoji_1f534_32.png	🔴
+../EAP/facebook/emoji_1f535_32.png	🔵
+
+
+../EAP/facebook/emoji_25aa_32.png	▪
+../EAP/facebook/emoji_25ab_32.png	▫
+../EAP/facebook/emoji_25fb_32.png	◻
+../EAP/facebook/emoji_25fc_32.png	◼
+../EAP/facebook/emoji_25fd_32.png	◽
+../EAP/facebook/emoji_25fe_32.png	◾
+../EAP/facebook/emoji_26ab_32.png	⚫
+../EAP/facebook/circle-emoji.png	⚪
+../EAP/facebook/square-emoticon.png	⬜
+../EAP/facebook/emoji_2b1b_32.png	⬛
+../EAP/facebook/emoji_2b55_32.png	⭕
+
+
+
+
+
+! ../EAP/facebook/emoji_1f1e8_1f1f3_32.png	🇨
+! ../EAP/facebook/emoji_1f1e9_1f1ea_32.png	🇩
+! ../EAP/facebook/emoji_1f1ea_1f1f8_32.png	🇪
+! ../EAP/facebook/emoji_1f1eb_1f1f7_32.png	🇫
+! ../EAP/facebook/emoji_1f1ec_1f1e7_32.png	🇬
+! ../EAP/facebook/emoji_1f1ee_1f1f9_32.png	🇮
+! ../EAP/facebook/emoji_1f1ef_1f1f5_32.png	🇯
+! ../EAP/facebook/emoji_1f1f0_1f1f7_32.png	🇰
+! ../EAP/facebook/emoji_1f1f7_1f1fa_32.png	🇷
+! ../EAP/facebook/emoji_1f1fa_1f1f8_32.png	🇺
+! ../EAP/facebook/emoji_23_20e3_32.png	#⃣	
+! ../EAP/facebook/emoji_30_20e3_32.png	0⃣	
+! ../EAP/facebook/emoji_31_20e3_32.png	1⃣	
+! ../EAP/facebook/emoji_32_20e3_32.png	2⃣	
+! ../EAP/facebook/emoji_33_20e3_32.png	3⃣	
+! ../EAP/facebook/emoji_34_20e3_32.png	4⃣	
+! ../EAP/facebook/emoji_35_20e3_32.png	5⃣	
+! ../EAP/facebook/emoji_36_20e3_32.png	6⃣	
+! ../EAP/facebook/emoji_37_20e3_32.png	7⃣
+! ../EAP/facebook/emoji_38_20e3_32.png	8⃣	
+! ../EAP/facebook/emoji_39_20e3_32.png	9⃣	
+! ../EAP/facebook/emoji_blank_32.png	

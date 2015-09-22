@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<theme type="pidgin buddy list"
+	           name="Black Rosemary White"
+	           author=".H."
+	           image="amb.png"
+	>
+	
+        <description>Muhaha</description>
+
+	        <icon_theme name="(Default)"/>
+	        <blist color="#FFFFFF"/>	
+	        <groups>
+	                <expanded background="#000000" color="#FFFFFF" font="rosemary"/>
+	                <collapsed background="#000000" color="#9B9B9B" font="rosemary"/>
+	        </groups>
+	
+	        <buddys>
+	                <placement status_icon="0" name="1" emblem="2" protocol_icon="4" buddy_icon="3" show_status="1"/>
+	                
+	
+	                <background color="#000000" font="rosemary"/>	
+	                <contact_text color="#FFFFFF" font="rosemary"/>	
+	                <online_text color="#FFFFFF" font="rosemary"/>
+	                <away_text color="#FFFFFF" font="rosemary"/>
+	                <offline_text color="#9B9B9B" font="rosemary"/>
+	                <idle_text color="#C8C8C8" font="rosemary"/>
+	                <message_text color="#80B2D7" font="rosemary"/>
+	                <message_nick_said_text color="#327FF3" font="rosemary"/>
+	                <status_text color="#9B9B9B" font="rosemary"/>
+	        </buddys>
+	</theme>

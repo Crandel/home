@@ -1,0 +1,50 @@
+Name=GTalk Square
+Description=GTalk Square 2011 (OLD)
+Icon=../EAP/gtalk-square/talk-32.png
+Author= Andrei Neculau, .H.
+
+
+# Google Talk
+[default]
+../EAP/gtalk-square/smile.gif			:)	=)	:-)
+../EAP/gtalk-square/grin.gif			:D	=D	:-D
+../EAP/gtalk-square/wink.gif			;)	;-)	;^)
+../EAP/gtalk-square/frown.gif			:(	=(	:-(
+../EAP/gtalk-square/cry.gif				:'(
+
+../EAP/gtalk-square/shocked.gif			:-o
+../EAP/gtalk-square/slant.gif			:-/	=/
+../EAP/gtalk-square/angry.gif			x-(
+../EAP/gtalk-square/wince.gif			\>.\<
+../EAP/gtalk-square/straightface.gif	:-|
+
+../EAP/gtalk-square/cool.gif			B-)
+../EAP/gtalk-square/tongue.gif			:p	:P	=p	=P	:-p	:-P
+../EAP/gtalk-square/heart.gif			<3
+../EAP/gtalk-square/brokenheart.gif		</3
+../EAP/gtalk-square/devil.gif			}:-)
+
+../EAP/gtalk-square/kissstar.gif		:*	:-x
+../EAP/gtalk-square/pig.gif				:(:)
+../EAP/gtalk-square/monkey.gif			:(|)
+../EAP/gtalk-square/rockout.gif			\\m/
+../EAP/gtalk-square/cowbell.gif			+/'\\
+
+../EAP/gtalk-square/crab.gif			V.v.V
+../EAP/gtalk-square/robot.gif			[:|]
+../EAP/gtalk-square/mustache.gif		:{
+../EAP/gtalk-square/poop.gif			~@~
+
+# Variations
+! ../EAP/gtalk-square/equalsmile.gif	=)
+! ../EAP/gtalk-square/equalgrin.gif		=D
+! ../EAP/gtalk-square/equalsad.gif		=(
+! ../EAP/gtalk-square/equalslant.gif	=/
+! ../EAP/gtalk-square/equaltongue.gif	=p	=P
+
+! ../EAP/gtalk-square/nosesmile.gif		:-)
+! ../EAP/gtalk-square/nosegrin.gif		:-D
+! ../EAP/gtalk-square/nosewink.gif		;-)
+! ../EAP/gtalk-square/nosebigwink.gif	;^)
+! ../EAP/gtalk-square/nosesad.gif		:-(
+! ../EAP/gtalk-square/nosetongue.gif	:-p	:-P

@@ -1,0 +1,121 @@
+Name=Yahoo! (big)
+Description=Yahoo! (big)
+Icon=../EAP/yahoo/yahoo.png
+Author= Andrei Neculau, .H.
+
+
+# Yahoo Messenger 9 big
+[default]
+../EAP/yahoo-big/happy.gif				:)	:-)
+../EAP/yahoo-big/sad.gif				:(	:-(
+../EAP/yahoo-big/winking.gif			;)	;-)
+../EAP/yahoo-big/biggrin.gif			:d	:-d	:D	:-D
+../EAP/yahoo-big/battingeyelashes.gif	;;)	;;-)
+../EAP/yahoo-big/bighug.gif				>:d<	>:D<
+../EAP/yahoo-big/confused.gif			:-/	:-\\
+../EAP/yahoo-big/lovestruck.gif			:x	:-x	:X	:-X
+../EAP/yahoo-big/blushing.gif			:">
+
+../EAP/yahoo-big/tongue.gif				:p	:-p	:P	:-P
+../EAP/yahoo-big/kiss.gif				:*	:-*
+../EAP/yahoo-big/brokenheart.gif		=((
+../EAP/yahoo-big/surprise.gif			:o	:O	:-o	:-O
+../EAP/yahoo-big/angry.gif				x(	x-(	X(	X-(
+../EAP/yahoo-big/smug.gif				:>	:->
+../EAP/yahoo-big/cool.gif				b-)	B-)
+../EAP/yahoo-big/worried.gif			:-s	:-S
+../EAP/yahoo-big/whew.gif				#:-s	#:S	#:-S
+../EAP/yahoo-big/devil.gif				>:)
+
+../EAP/yahoo-big/cry.gif				:((	:-((
+../EAP/yahoo-big/laughing.gif			:))	:-))
+../EAP/yahoo-big/straightface.gif		:|	:-|
+../EAP/yahoo-big/raisedeyebrow.gif		/:)
+../EAP/yahoo-big/rollingonthefloor.gif	=))
+../EAP/yahoo-big/angel.gif				o:-)	O:-)
+../EAP/yahoo-big/nerd.gif				:-b	:-B
+../EAP/yahoo-big/talktothehand.gif		=;
+../EAP/yahoo-big/sleepy.gif				|-)	i-)	I-)
+../EAP/yahoo-big/rollingeyes.gif		8-|
+
+../EAP/yahoo-big/loser.gif				l-)	L-)
+../EAP/yahoo-big/sick.gif				:-&
+../EAP/yahoo-big/donttellanyone.gif		:-$
+../EAP/yahoo-big/nottalking.gif			[-(
+../EAP/yahoo-big/clown.gif				:o)	:O)
+../EAP/yahoo-big/silly.gif				8-}
+../EAP/yahoo-big/party.gif				<:-p	<:-P
+../EAP/yahoo-big/yawn.gif				(:|
+../EAP/yahoo-big/drooling.gif			=p~	=P~
+../EAP/yahoo-big/thinking.gif			:-?
+
+../EAP/yahoo-big/doh.gif				#-o	#-O
+../EAP/yahoo-big/applause.gif			=d>	=D>
+../EAP/yahoo-big/nailbiting.gif			:-ss	:-sS	:-Ss	:-SS
+../EAP/yahoo-big/hypnotized.gif			@-)
+../EAP/yahoo-big/liar.gif				:^o	:^O
+../EAP/yahoo-big/waiting.gif			:-w	:-W
+../EAP/yahoo-big/sigh.gif				:-<
+../EAP/yahoo-big/phbbbbt.gif			>:p	>:P
+../EAP/yahoo-big/cowboy.gif				<):)
+
+# Hidden Yahoo
+../EAP/yahoo-big/pig.gif				:@)
+
+../EAP/yahoo-big/cow.gif				3:-o	3:-O
+../EAP/yahoo-big/monkey.gif				:(|)
+../EAP/yahoo-big/chicken.gif			~:>
+../EAP/yahoo-big/rose.gif				@};-
+../EAP/yahoo-big/goodluck.gif			%%-
+../EAP/yahoo-big/flag.gif				**==
+../EAP/yahoo-big/pumpkin.gif			(~~)
+../EAP/yahoo-big/coffee.gif				~o)	~O)
+../EAP/yahoo-big/idea.gif				*-:)
+../EAP/yahoo-big/skull.gif				8-x	8-X
+
+../EAP/yahoo-big/bug.gif				=:)
+../EAP/yahoo-big/alien.gif				>-)
+../EAP/yahoo-big/frustrated.gif			:-l	:-L
+../EAP/yahoo-big/praying.gif			[-o<	[-O<
+../EAP/yahoo-big/moneyeyes.gif			$-)
+../EAP/yahoo-big/whistling.gif			:-"
+../EAP/yahoo-big/feelingbeatup.gif		b-(	B-(
+../EAP/yahoo-big/peacesign.gif			:)>-
+../EAP/yahoo-big/shameonyou.gif			[-x	[-X
+../EAP/yahoo-big/dancing.gif			\\:d/	\\:D/
+
+../EAP/yahoo-big/bringiton.gif			>:/
+../EAP/yahoo-big/heehee.gif				;))
+../EAP/yahoo-big/hiro.gif				o->	O->
+../EAP/yahoo-big/billy.gif				o=>	O=>
+../EAP/yahoo-big/april.gif				o-+	O-+
+../EAP/yahoo-big/yinyang.gif			(%)
+../EAP/yahoo-big/chatterbox.gif			:-@
+../EAP/yahoo-big/ohgoon.gif				:-j
+../EAP/yahoo-big/notworthy.gif			^:)^
+
+../EAP/yahoo-big/star.gif				(*)
+# Hidden - end
+
+../EAP/yahoo-big/onthephone.gif 		:)]
+../EAP/yahoo-big/callme.gif				:-c	:-C
+../EAP/yahoo-big/atwitsend.gif			~x(	~X(
+../EAP/yahoo-big/wave.gif				:-h	:-H
+../EAP/yahoo-big/timeout.gif			:-t	:-T
+../EAP/yahoo-big/daydreaming.gif		8->
+
+# Hidden Yahoo
+../EAP/yahoo-big/idontknow.gif			:-??
+../EAP/yahoo-big/notlistening.gif		%-(
+../EAP/yahoo-big/puppydogeyes.gif		:o3	:O3
+# Hidden - end
+
+# Web Messenger Only
+../EAP/yahoo-big/noxxx.gif				x_x	x_X	X_x	X_X
+../EAP/yahoo-big/hurryup.gif			:!!	:-!!
+../EAP/yahoo-big/rockon.gif				\\m/	\\M/
+../EAP/yahoo-big/thumbsdown.gif			:q	:-q
+../EAP/yahoo-big/thumbsup.gif			:bd	:-bd
+../EAP/yahoo-big/wasntme.gif			^#(^
+../EAP/yahoo-big/bee.gif				:bz
+# Web Messenger Only - end

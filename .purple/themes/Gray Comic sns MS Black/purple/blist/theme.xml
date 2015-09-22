@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<theme type="pidgin buddy list"
+	           name="Gray Comic Sans MS Black"
+	           author=".H."
+	           image="amb.png"
+	>
+	
+        <description>muhaha</description>
+
+	        <icon_theme name="(Default)"/>
+	        <blist color="#f2f1f0"/>	
+	        <groups>
+	                <expanded background="#f2f1f0" color="#000000" font="Comic Sans MS"/>
+	                <collapsed background="#f2f1f0" color="#7D7676" font="Comic Sans MS"/>
+	        </groups>
+	
+	        <buddys>
+	                <placement status_icon="0" name="1" emblem="2" protocol_icon="4" buddy_icon="3" show_status="1"/>
+	
+	                <background color="#f2f1f0" font="Comic Sans MS"/>	
+	                <contact_text color="#000000" font="Comic Sans MS"/>	
+	                <online_text color="#000000" font="Comic Sans MS"/>
+	                <away_text color="#000000" font="Comic Sans MS"/>
+	                <offline_text color="#7D7676" font="Comic Sans MS"/>
+	                <idle_text color="#7D7676" font="Comic Sans MS"/>	
+	                <message_text color="#000000" font="Comic Sans MS"/>
+	                <message_nick_said_text color="#5B6B92" font="Comic Sans MS"/>	
+	                <status_text color="#7D7676" font="Comic Sans MS"/>
+	        </buddys>
+	</theme>

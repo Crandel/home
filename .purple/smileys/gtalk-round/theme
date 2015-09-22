@@ -1,0 +1,50 @@
+Name=GTalk Round
+Description=GTalk Round 2011 (OLD)
+Icon=../EAP/gtalk-square/talk-32.png
+Author= Andrei Neculau, .H.
+
+
+# Google Talk
+[default]
+../EAP/gtalk-round/smile.gif			:)	=)	:-)
+../EAP/gtalk-round/grin.gif				:D	=D	:-D
+../EAP/gtalk-round/wink.gif				;)	;-)	;^)
+../EAP/gtalk-round/frown.gif			:(	=(	:-(
+../EAP/gtalk-round/cry.gif				:'(
+
+../EAP/gtalk-round/shocked.gif			:-o
+../EAP/gtalk-round/slant.gif			:-/	=/
+../EAP/gtalk-round/angry.gif			x-(
+../EAP/gtalk-round/wince.gif			\>.\<
+../EAP/gtalk-round/straightface.gif		:-|
+
+../EAP/gtalk-round/cool.gif				B-)
+../EAP/gtalk-round/tongue.gif			:p	:P	=p	=P	:-p	:-P
+../EAP/gtalk-round/heart.gif			<3
+../EAP/gtalk-round/brokenheart.gif		</3
+../EAP/gtalk-round/devil.gif			}:-)
+
+../EAP/gtalk-round/kissstar.gif			:*	:-x
+../EAP/gtalk-round/pig.gif				:(:)
+../EAP/gtalk-round/monkey.gif			:(|)
+../EAP/gtalk-round/rockout.gif			\\m/
+../EAP/gtalk-round/cowbell.gif			+/'\\
+
+../EAP/gtalk-round/crab.gif				V.v.V
+../EAP/gtalk-round/robot.gif			[:|]
+../EAP/gtalk-round/mustache.gif			:{
+../EAP/gtalk-round/poop.gif				~@~
+
+# Variations
+! ../EAP/gtalk-round/equalsmile.gif		=)
+! ../EAP/gtalk-round/equalgrin.gif		=D
+! ../EAP/gtalk-round/equalsad.gif		=(
+! ../EAP/gtalk-round/equalslant.gif		=/
+! ../EAP/gtalk-round/equaltongue.gif	=p	=P
+
+! ../EAP/gtalk-round/nosesmile.gif		:-)
+! ../EAP/gtalk-round/nosegrin.gif		:-D
+! ../EAP/gtalk-round/nosewink.gif		;-)
+! ../EAP/gtalk-round/nosebigwink.gif	;^)
+! ../EAP/gtalk-round/nosesad.gif		:-(
+! ../EAP/gtalk-round/nosetongue.gif		:-p	:-P
