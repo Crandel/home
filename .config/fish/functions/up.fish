@@ -1,3 +1,3 @@
 function up
-    docker-compose up --x-smart-recreate
+    docker-compose up -d
 end
