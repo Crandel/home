@@ -4,7 +4,7 @@
 function install_vim_bundles
     set -l ROOT ~/.vim/bundle
     cd $ROOT
-    sudo rm -r $ROOT/*
+    sudo mv $ROOT/* /tmp
     sudo pip2 install jedi
     git clone --recursive https://github.com/davidhalter/jedi-vim.git
     git clone https://github.com/kien/ctrlp.vim.git
@@ -19,7 +19,7 @@ function install_vim_bundles
     git clone https://github.com/tpope/vim-surround.git
     git clone --recursive https://github.com/Valloric/YouCompleteMe.git
     cd $ROOT/YouCompleteMe
-    ./install.sh --gocode-completer
+    ./install.py --gocode-completer
     cd $ROOT
     git clone https://github.com/cwood/vim-django.git
     git clone https://github.com/mattn/emmet-vim.git
