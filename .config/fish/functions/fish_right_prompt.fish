@@ -18,6 +18,6 @@ function fish_right_prompt
     end
 
     set -g __date (set_color $fish_color_date) (date "+%H:%M")
-    echo "$CMD_DURATION"(set_color normal)ms "$__fish_prompt_user" "$USER" "$__date" (set_color normal)
+    echo "$CMD_DURATION" (set_color normal)ms "$__fish_prompt_user" "$USER" "$__date" (set_color normal)
 end
 
