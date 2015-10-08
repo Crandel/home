@@ -5,7 +5,7 @@ background no
 max_text_width 0
 
 # Update interval in seconds
-update_interval 2.0
+update_interval 1.0
 
 # This is the number of times Conky will update before quitting.
 # Set to zero to run forever.
@@ -45,4 +45,5 @@ TEXT
   { "full_text" : "SWAP:$swap/$swapperc", "color" : "\#F5DA81"},
   { "full_text" : "Processes:$processes", "color" : "\#A5DF00"},
   { "full_text" : "Uptime: $uptime_short", "color": "\#F8FBEF"},
+  { "full_text" : "Net:D:${downspeedf enp3s0}/U:${upspeedf enp3s0}", "color": "\#FA8258"},
   { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
