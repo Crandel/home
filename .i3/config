@@ -180,7 +180,16 @@ bindsym $mod+Control+Right workspace next
 bindsym $mod+Control+Shift+q exec systemctl poweroff
 bindsym $mod+Control+Shift+r exec systemctl restart
 
-exec_always --no-startup-id setleds -D +num
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+
+exec_always --no-startup-id numlockx on
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 exec_always --no-startup-id xxkb
