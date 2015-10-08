@@ -160,9 +160,6 @@ bar {
 
 # my settings
 # assings
-assign [class="plaidchat"] 3
-assign [class="pycharm"] 2
-assign [class="chromium"] 1
 workspace_layout tabbed
 # The middle button over a titlebar kills the window
 bindsym --release button2 kill
@@ -174,12 +171,13 @@ bindsym $mod+c exec chromium
 bindsym $mod+p exec pycharm
 
 # lock screen
-bindsym $mod+Control+l exec i3lock
+bindsym $mod+Control+l exec i3lock -c 122A0A
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
-
+exec_always --no-startup-id setleds -D +num
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 exec_always --no-startup-id xxkb
 exec plaidchat
