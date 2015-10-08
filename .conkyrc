@@ -43,6 +43,6 @@ TEXT
   { "full_text" : "RAM:$mem/${memperc}%" , "color" :
     ${if_match ${memperc}<90}"\#F7FE2E"${else}"\#FF0000"${endif} },
   { "full_text" : "SWAP:$swap/$swapperc", "color" : "\#F5DA81"},
-  { "full_text" : "Processes:$running_processes/$processes", "color" : "\#A5DF00"},
+  { "full_text" : "Processes:$processes", "color" : "\#A5DF00"},
   { "full_text" : "Uptime: $uptime_short", "color": "\#F8FBEF"},
   { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
