@@ -176,6 +176,10 @@ bindsym $mod+Control+l exec i3lock -c 122A0A
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
+# reboot and shutdown
+bindsym $mod+Control+Shift+q exec systemctl poweroff
+bindsym $mod+Control+Shift+r exec systemctl restart
+
 exec_always --no-startup-id setleds -D +num
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
