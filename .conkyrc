@@ -39,7 +39,7 @@ TEXT
  [{ "full_text" : "Crandel:${execpi 300 ~/gmail.fish crandel}" , "color" : "\#81BEF7" },
   { "full_text" : "Steelkiwi:${execpi 300 ~/gmail.fish steelkiwi}" , "color" : "\#0080FF" },
   { "full_text" : "HDD:${fs_free /} Free" , "color" : "\#FA5882" },
-  { "full_text": "CPU:$cpu%/$running_threads", "color" : ${if_match ${memperc}<90}"\#04B404"${else}"\#FF0000"${endif} },
+  { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${memperc}<90}"\#04B404"${else}"\#FF0000"${endif} },
   { "full_text" : "RAM:$mem/${memperc}%" , "color" :
     ${if_match ${memperc}<90}"\#F7FE2E"${else}"\#FF0000"${endif} },
   { "full_text" : "SWAP:$swap/$swapperc", "color" : "\#F5DA81"},
