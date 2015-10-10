@@ -191,6 +191,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 exec_always --no-startup-id numlockx on
+exec_always --no-startup-id xmenud -t
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 exec_always --no-startup-id xxkb
