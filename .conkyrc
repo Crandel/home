@@ -40,9 +40,9 @@ TEXT
   { "full_text" : "S:${execpi 300 ~/gmail.fish steelkiwi}" , "color" : "\#0080FF" },
   { "full_text" : "HDD:${fs_free /}" , "color" : "\#FA5882" },
   { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${memperc}<90}"\#04B404"${else}"\#FF0000"${endif} },
-  { "full_text" : "RAM:$mem/${memperc}%" , "color" :
+  { "full_text" : "RAM:$mem" , "color" :
     ${if_match ${memperc}<90}"\#F7FE2E"${else}"\#FF0000"${endif} },
   { "full_text" : "Up:$uptime_short", "color": "\#F8FBEF"},
   { "full_text" : "V:${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6}", "color": "\#F8FBEF"},
-  { "full_text" : "Nt:D:${downspeedf wlp3s0}/U:${upspeedf wlp3s0}", "color": "\#FA8258"},
+  { "full_text" : "Nt:D:${downspeed wlp3s0}", "color": "\#FA8258"},
   { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
