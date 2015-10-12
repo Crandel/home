@@ -179,6 +179,9 @@ bindsym $mod+c exec chromium
 # pycharm
 bindsym $mod+p exec pycharm
 
+# xmenud
+bindsym $mod+m exec xmenud
+
 # lock screen
 bindsym $mod+Control+l exec i3lock -c 122A0A
 
@@ -187,7 +190,7 @@ bindsym $mod+Control+Left workspace prev
 bindsym $mod+Control+Right workspace next
 # reboot and shutdown
 bindsym $mod+Control+Shift+q exec systemctl poweroff
-bindsym $mod+Control+Shift+r exec systemctl restart
+bindsym $mod+Control+Shift+r exec systemctl reboot
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -199,10 +202,8 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 exec_always --no-startup-id numlockx on
-exec_always --no-startup-id xmenud -t
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
-exec_always --no-startup-id xxkb
 exec plaidchat
 exec skype
 exec radiotray
