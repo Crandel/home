@@ -10,6 +10,9 @@ filetype plugin indent on
 " turn on this option as well
 set background=dark
 
+if &shell =~# 'fish$'
+    set shell=sh
+endif
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -58,7 +61,24 @@ set title
 set autoread         " check if file not changed by another editor
 
 " tab section
+" virtual tabstops using spaces
+let my_tab=4
+execute "set shiftwidth=".my_tab
+execute "set softtabstop=".my_tab
 set expandtab        " switch tab into spaces
+" allow toggling between local and default mode
+function! TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+  else
+    execute "set shiftwidth=".g:my_tab
+    execute "set softtabstop=".g:my_tab
+    set expandtab
+  endif
+endfunction
+nmap <F9> mz:execute TabToggle()<CR>'z
 set tabstop=4        " width of tab
 set shiftwidth=4     " for command << and >>
 set softtabstop=4    " number of spaces in tab
@@ -78,7 +98,8 @@ set cursorline
 
 
 set pastetoggle=<F3>
-set clipboard=unnamed
+set clipboard=unnamedplus
+vnoremap <C-c> "+y
 set wildmode=list:full
 set enc=utf-8
 set ls=2
@@ -133,6 +154,8 @@ call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
 " NerdTree start if empty vim
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeIgnore=['\.pyc$', '\.pyo$']
 " End NERDTree section
 
@@ -196,3 +219,4 @@ let g:autopep8_max_line_length=130
 " Emmet
 let g:user_emmet_mode='a'
 let g:user_emmet_leader_key='<leader>'
+set secure

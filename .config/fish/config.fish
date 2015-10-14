@@ -16,6 +16,7 @@ set -x EDITOR vim
 
 set -xg GOPATH $HOME/go
 set -xg PATH $PATH $GOPATH
+set -xg TERM "xterm-256color"
 set -x WORKON_HOME $HOME/.virtualenvs
 eval (python2 -m virtualfish auto_activation global_requirements)
 set -xg _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
