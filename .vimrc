@@ -80,8 +80,6 @@ function! TabToggle()
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
 set tabstop=4        " width of tab
-set shiftwidth=4     " for command << and >>
-set softtabstop=4    " number of spaces in tab
 set smartindent      " set auto indent into new row
 set smarttab         " set indent if cursor in begin of row and press tab
 set shiftround
