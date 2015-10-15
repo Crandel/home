@@ -156,18 +156,23 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-#    colors{
-#        background #F8FBEF
-#        statusline #DCDCDC
-#    }
+    colors{
+        background #000000
+        statusline #E1F5A9
+        focused_workspace  #688A08 #688A08 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+        binding_mode       #2f343a #900000 #ffffff
+    }
     status_command $HOME/.i3/conky-i3bar
 }
 
 # my settings
-#client.focused          #3F8AC2 #D8F781 #0B4C5F #00DA8E
-#client.focused_inactive #333333 #5F676A #ECF6CE #484e50
-#client.unfocused        #333333 #424242 #ECF6CE #292d2e
-#client.urgent           #C10004 #900000 #ffffff #900000
+client.focused          #4B610B  #BFFF00 #8904B1 #00DA8E
+client.focused_inactive #4B610B  #000000 #FFFFFF #484e50
+client.unfocused        #4B610B  #424242 #ECF6CE #292d2e
+client.urgent           #4B610B  #900000 #ffffff #900000
 # assings
 workspace_layout tabbed
 # The middle button over a titlebar kills the window

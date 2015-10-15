@@ -30,5 +30,6 @@ function install_vim_bundles
     git clone https://github.com/tpope/vim-fugitive.git
     git clone git://github.com/airblade/vim-gitgutter.git
     git clone https://github.com/Xuyuanp/nerdtree-git-plugin.git
+    git clone https://github.com/dkprice/vim-easygrep.git
     cd ~
 end
