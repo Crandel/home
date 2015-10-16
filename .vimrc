@@ -5,7 +5,6 @@ set nocompatible
 syntax on
 colorscheme myterm
 
-filetype plugin indent on
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
 set background=dark
@@ -59,29 +58,8 @@ set colorcolumn=130
 set number
 set title
 set autoread         " check if file not changed by another editor
-
-" tab section
-" virtual tabstops using spaces
-let my_tab=4
-execute "set shiftwidth=".my_tab
-execute "set softtabstop=".my_tab
-set expandtab        " switch tab into spaces
-" allow toggling between local and default mode
-function! TabToggle()
-  if &expandtab
-    set shiftwidth=8
-    set softtabstop=0
-    set noexpandtab
-  else
-    execute "set shiftwidth=".g:my_tab
-    execute "set softtabstop=".g:my_tab
-    set expandtab
-  endif
-endfunction
-nmap <F9> mz:execute TabToggle()<CR>'z
-set tabstop=4        " width of tab
 set smartindent      " set auto indent into new row
-set smarttab         " set indent if cursor in begin of row and press tab
+"set smarttab         " set indent if cursor in begin of row and press tab
 set shiftround
 set bs=2             " make backspace behave like normal again
 set wildmenu
@@ -94,10 +72,9 @@ set cursorline
 " Show whitespace
 " MUST be inserted BEFORE the colorscheme command
 
-
-set pastetoggle=<F3>
 set clipboard=unnamedplus
 vnoremap <C-c> "+y
+set pastetoggle=<F3>
 set wildmode=list:full
 set enc=utf-8
 set ls=2
@@ -217,4 +194,24 @@ let g:autopep8_max_line_length=130
 " Emmet
 let g:user_emmet_mode='a'
 let g:user_emmet_leader_key='<leader>'
-set secure
+
+" TagBar
+nmap <F10> :TagbarToggle<CR>
+
+" tab section
+" virtual tabstops using spaces
+let my_tab=4
+execute "set shiftwidth=".my_tab
+execute "set softtabstop=".my_tab
+execute "set tabstop=".my_tab
+set expandtab        " switch tab into spaces
+" allow toggling between local and default mode
+function! TabToggle()
+  if &expandtab
+    set noexpandtab
+  else
+    set expandtab
+  endif
+endfunction
+nmap <F9> mz:execute TabToggle()<CR>'z
+filetype plugin indent on
