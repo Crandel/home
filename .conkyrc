@@ -30,20 +30,21 @@ override_utf8_locale no
 # number of cpu samples to average
 # set to 1 to disable averaging
 cpu_avg_samples 2
-
+template0 ${execpi 300 ~/gmail.fish crandel}
+template1 ${execpi 300 ~/gmail.fish steelkiwi}
+template2 ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6}
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
 # JSON for i3bar
- [{ "full_text" : "C:${execpi 300 ~/gmail.fish crandel}" , "color" : "\#A9BCF5" },
-  { "full_text" : "S:${execpi 300 ~/gmail.fish steelkiwi}" , "color" : "\#BCA9F5" },
+ [{ "full_text" : "C:$template0" , "color" : ${if_match ${template0}==0}"\#91B77E"${else}"\#FF0000"${endif}},
+  { "full_text" : "S:$template1" , "color" : ${if_match ${template1}==0}"\#835EEC"${else}"\#FF0000"${endif}},
   { "full_text" : "HDD:${fs_free /}" , "color" : "\#F6CECE" },
   { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${cpu}<90}"\#CEF6CE"${else}"\#FF0000"${endif} },
   { "full_text" : "RAM:$mem" , "color" :
     ${if_match ${memperc}<90}"\#F3E2A9"${else}"\#FF0000"${endif} },
-  { "full_text" : "SWAP:$swapperc", "color" : "\#B45F04"},
+  { "full_text" : "B:$battery_short", "color" : "\#B45F04"},
   { "full_text" : "Pr:$processes", "color" : "\#CEF6CE"},
-  { "full_text" : "Up: $uptime_short", "color": "\#F5BCA9"},
-  { "full_text" : "V:${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6}", "color": "\#E1F5A9"},
-  { "full_text" : "Net:D:${downspeed enp3s0}", "color": "\#F6CECE"},
+  { "full_text" : "V:$template2", "color": ${if_match $template2}"\#E1F5A9"${else}"\#FF0000"${endif}},
+  { "full_text" : "Net:D:${downspeed wlp3s0}|${wireless_bitrate wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
   { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#E1F5A9"}],
