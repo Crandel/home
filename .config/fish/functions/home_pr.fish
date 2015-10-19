@@ -1,4 +1,4 @@
 function home_pr
-    cd /media/ubuntu/home/vitaliy/Documents/ARCH/home
+    cd /opt/work/home
 end
 
