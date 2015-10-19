@@ -5,11 +5,11 @@ function projects
 end
 
 function geocp
-    cp /home/crandel/work/projects/rita/mail/tmp/GeoLite2-City.mmdb /home/crandel/work/projects/rita/rita/public/GeoLite2-City.mmdb
+    cp $MY_PROJECTS_ROOT/rita/mail/tmp/GeoLite2-City.mmdb $MY_PROJECTS_ROOT/rita/rita/public/GeoLite2-City.mmdb
 end
 
-function backup
-    cd /media/ubuntu/home/vitaliy/work/backup
+function geocl
+    git checkout rita/public/GeoLite2-City.mmdb
 end
 
 set -x EDITOR vim
