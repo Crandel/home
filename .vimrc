@@ -10,7 +10,7 @@ colorscheme myterm
 set background=dark
 
 if &shell =~# 'fish$'
-    set shell=sh
+    set shell=bash
 endif
 " Uncomment the following to have Vim jump to the last position when
 " reopening a file
@@ -130,7 +130,7 @@ call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 && (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeIgnore=['\.pyc$', '\.pyo$']
 " End NERDTree section
 
@@ -146,7 +146,7 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-c>
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-b>
 
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -198,13 +198,15 @@ let g:user_emmet_leader_key='<leader>'
 " TagBar
 nmap <F10> :TagbarToggle<CR>
 
+" Git
+nmap <C-g> :Gblame<CR>
 " tab section
 " virtual tabstops using spaces
 let my_tab=4
 execute "set shiftwidth=".my_tab
 execute "set softtabstop=".my_tab
 execute "set tabstop=".my_tab
-set expandtab        " switch tab into spaces
+set noexpandtab        " switch tab into spaces
 " allow toggling between local and default mode
 function! TabToggle()
   if &expandtab
