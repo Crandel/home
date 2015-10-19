@@ -1,4 +1,4 @@
-set -x MY_PROJECTS_ROOT /home/crandel/work/projects
+set -xg MY_PROJECTS_ROOT /home/crandel/work/projects
 
 function projects
    cd $MY_PROJECTS_ROOT
