@@ -1,4 +1,4 @@
 function backup
-   cd /media/ubuntu/home/vitaliy/work/backup/$argv
+   cd /opt/work/backup/$argv
 end
 
