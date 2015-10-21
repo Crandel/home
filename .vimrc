@@ -201,7 +201,7 @@ let g:user_emmet_leader_key='<leader>'
 nmap <F10> :TagbarToggle<CR>
 
 " Git
-nmap <F11> :Gblame<CR>
+nmap <C-g> :Gblame<CR>
 nmap <F12> :Gdiff<CR>
 
 " tab section
