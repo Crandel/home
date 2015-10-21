@@ -1,8 +1,8 @@
 function fish_prompt --description 'Write out the prompt'
     set -l fish_color_status red
     set -l fish_color_cwd magenta
-    set -l fish_color_venv blue
-    set -l fish_color_git yellow
+    set -l fish_color_venv yellow
+    set -l fish_color_git cyan
     set -l last_status $status
 
     if not set -q __fish_prompt_normal
