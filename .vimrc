@@ -146,7 +146,9 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT<C-b>
+let g:jedi#use_tag_stack = 0
+autocmd FileType python setlocal completeopt-=preview
+map <Leader>b Oimport pudb; pudb.set_trace() # BREAKPOINT
 
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -199,7 +201,9 @@ let g:user_emmet_leader_key='<leader>'
 nmap <F10> :TagbarToggle<CR>
 
 " Git
-nmap <C-g> :Gblame<CR>
+nmap <F11> :Gblame<CR>
+nmap <F12> :Gdiff<CR>
+
 " tab section
 " virtual tabstops using spaces
 let my_tab=4
