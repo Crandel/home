@@ -1,23 +1,23 @@
 [user]
-	name = VitaliyDrevenchuk
-	email = drevenchuk@steelkiwi.com
+	name = Crandel
+	email = cradlemann@gmail.com
 [core]
 	autocrlf = false
 	safecrlf = true
 [color]
 	ui = true
 [color "branch"]
-    current = yellow reverse
+    current = green
     local = yellow
-    remote = green
+    remote = yellow reverse
 [color "diff"]
     meta = yellow bold
     frag = magenta bold
     old = red bold
     new = green bold
 [color "status"]
-    added = yellow
-    changed = green
+	added = green
+    changed = yellow
     untracked = cyan
 [alias]
 	co = checkout
