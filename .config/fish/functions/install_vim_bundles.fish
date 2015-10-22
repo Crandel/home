@@ -5,8 +5,7 @@ function install_vim_bundles
     set -l ROOT $HOME/.vim/bundle
     cd $ROOT
     sudo rm -rf *
-    sudo pip2 install jedi
-    git clone --recursive https://github.com/davidhalter/jedi-vim.git
+    git clone https://github.com/klen/python-mode.git
     git clone https://github.com/kien/ctrlp.vim.git
     git clone https://github.com/SirVer/ultisnips.git
     git clone https://github.com/Yggdroot/indentLine.git
@@ -25,7 +24,6 @@ function install_vim_bundles
     git clone https://github.com/mattn/emmet-vim.git
     git clone https://github.com/othree/html5.vim.git
     git clone https://github.com/dag/vim-fish.git
-    git clone https://github.com/tell-k/vim-autopep8.git
     git clone https://github.com/jiangmiao/auto-pairs.git
     git clone https://github.com/tpope/vim-fugitive.git
     git clone git://github.com/airblade/vim-gitgutter.git

@@ -54,7 +54,6 @@ set linebreak
 set ruler
 set confirm
 set t_Co=256
-set colorcolumn=130
 set number
 set title
 set autoread         " check if file not changed by another editor
@@ -127,8 +126,8 @@ call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
 call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
 " NerdTree start if empty vim
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+"autocmd StdinReadPre * let s:std_in=1
+"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 && (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeIgnore=['\.pyc$', '\.pyo$']
@@ -137,18 +136,19 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$']
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
-" Settings for jedi-vim
-let g:jedi#popup_on_dot = 0 
-let g:jedi#popup_select_first = 0
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader>r"
-let g:jedi#use_tag_stack = 0
-autocmd FileType python setlocal completeopt-=preview
 map <Leader>b Oimport pudb; pudb.set_trace() # BREAKPOINT
+
+" python-mode
+let g:pymode_options = 0
+let g:pymode_indent = 0
+let g:pymode_rope_goto_definition_bind = "<Leader>d"
+let g:pymode_options_max_line_length = 130
+let g:pymode_folding = 0
+let g:pymode_breakpoint_cmd = 'import pudb; pu.db'
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_project_root = "/opt/work/backup/"
+let g:pymode_rope_goto_definition_cmd = 'e'
 
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
@@ -189,9 +189,6 @@ let g:html5_microdata_attributes_complete = 0
 "Disable WAI-ARIA attribute support:
 
 let g:html5_aria_attributes_complete = 0
-
-" Autopep8
-let g:autopep8_max_line_length=130
 
 " Emmet
 let g:user_emmet_mode='a'
