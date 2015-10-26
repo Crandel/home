@@ -1,0 +1,11 @@
+
+# 2015-10-26 12:24:40.316553
++from rita.report.controller import ReportsController
++
++print([x for x in [1, 2, 3,4,5,76,54,22,34,56,75,23]])
++
++
+
+# 2015-10-26 12:25:19.920532
++print([x for x in [1, 2, 3,4,5,76,54,22,34,56,75,23]])
++
