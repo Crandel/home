@@ -1,5 +1,5 @@
-" Automatic reloading of .vimrc
 execute pathogen#infect()
+" Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 set nocompatible
 syntax on
@@ -129,26 +129,29 @@ call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
 "autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " close vim if the only window left open is a NERDTree
-autocmd bufenter * if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 && (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+"autocmd bufenter * if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 && (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 let NERDTreeIgnore=['\.pyc$', '\.pyo$']
 " End NERDTree section
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 
-map <Leader>b Oimport pudb; pudb.set_trace() # BREAKPOINT
 
 " python-mode
 let g:pymode_options = 0
 let g:pymode_indent = 0
+let g:pymode_lint_ignore = "W191"
 let g:pymode_rope_goto_definition_bind = "<Leader>d"
 let g:pymode_options_max_line_length = 130
+let g:pymode_lint_on_write = 0
 let g:pymode_folding = 0
-let g:pymode_breakpoint_cmd = 'import pudb; pu.db'
+let g:pymode_breakpoint = 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_project_root = "/opt/work/backup/"
+let g:pymode_rope_ropefolder='/opt/work/backup'
 let g:pymode_rope_goto_definition_cmd = 'e'
+map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT
 
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
