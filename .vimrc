@@ -173,24 +173,38 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+
+" Easy-grep
+let g:EasyGrepRecursive = 1
+let g:EasyGrepCommand = 1
+let g:EasyGrepFilesToExclude=".svn,.git"
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 " django
 let g:django_activate_virtualenv = 1 "Try to activate the associated virtualenv
 let g:django_activate_nerdtree = 1 "Try to open nerdtree at the project root.
 let g:django_projects = $MY_PROJECTS_ROOT "Sets all projects under project
 let g:python_highlight_all = 1
+
 " Html5
 let g:html_indent_inctags = "html,body,head,tbody"
 "Disable event-handler attributes support:
-
 let g:html5_event_handler_attributes_complete = 0
 "Disable RDFa attributes support:
-
 let g:html5_rdfa_attributes_complete = 0
 "Disable microdata attributes support:
-
 let g:html5_microdata_attributes_complete = 0
 "Disable WAI-ARIA attribute support:
-
 let g:html5_aria_attributes_complete = 0
 
 " Emmet
@@ -203,6 +217,36 @@ nmap <F10> :TagbarToggle<CR>
 " Git
 nmap <C-g> :Gblame<CR>
 nmap <F12> :Gdiff<CR>
+
+" Comment section
+let s:comment_map = {
+    \   "c": '// ',
+    \   "cpp": '// ',
+    \   "go": '// ',
+    \   "java": '// ',
+    \   "javascript": '// ',
+    \   "php": '// ',
+    \   "python": '# ',
+    \   "ruby": '# ',
+    \   "vim": '" ',
+    \ }
+
+function! ToggleComment()
+    if has_key(s:comment_map, &filetype)
+        let comment_leader = s:comment_map[&filetype]
+        if getline('.') =~ "^" . comment_leader
+            " Uncomment the line
+            execute "silent s/^" . comment_leader . "//"
+        else
+            " Comment the line
+            execute "silent s/^/" . comment_leader . "/"
+        endif
+    else
+        echo "No comment leader found for filetype"
+    end
+endfunction
+
+map <Leader>/ :call ToggleComment()<cr>
 
 " tab section
 " virtual tabstops using spaces

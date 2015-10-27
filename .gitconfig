@@ -26,3 +26,5 @@
 [merge]
 	tool = meld
 	conflictstyle = diff3
+[diff]
+	external = /home/crandel/git_meld.sh
