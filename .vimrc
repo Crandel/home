@@ -178,6 +178,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:EasyGrepRecursive = 1
 let g:EasyGrepCommand = 1
 let g:EasyGrepFilesToExclude=".svn,.git"
+
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
