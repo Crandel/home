@@ -41,6 +41,7 @@ set infercase       " подсказка по регистру
 "set autowrite      " Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
 set mouse=a        " Enable mouse usage (all modes)
+set regexpengine=1
 " отключаем пищалку и мигание
 set novisualbell
 " Source a global configuration file if available
@@ -166,8 +167,8 @@ let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_leadingSpaceEnabled = 1
 
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsExpandTrigger="<c-a>"
+let g:UltiSnipsJumpForwardTrigger="<c-a>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " CtrlP
@@ -217,6 +218,8 @@ nmap <F10> :TagbarToggle<CR>
 " Git
 nmap <C-g> :Gblame<CR>
 nmap <F12> :Gdiff<CR>
+" javascript
+let g:javascript_enable_domhtmlcss = 1
 
 " Comment section
 let s:comment_map = {
