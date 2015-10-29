@@ -32,7 +32,10 @@ override_utf8_locale no
 cpu_avg_samples 2
 template0 ${execpi 300 ~/gmail.fish crandel}
 template1 ${execpi 300 ~/gmail.fish steelkiwi}
-template2 ${exec amixer -c 0 get Master | grep Mono: | cut -d " " -f6}
+# Volume on/off
+template2 ${exec amixer -c 0 get Master | grep Mono: | awk '{print $6}' | tr -d '[]'}
+# Volume level
+template3 ${exec amixer -c 0 get Master | grep Mono: | awk '{print $4}' | tr -d '[]'}
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
@@ -45,6 +48,6 @@ TEXT
     ${if_match ${memperc}<90}"\#F3E2A9"${else}"\#FF0000"${endif} },
   { "full_text" : "B:$battery_short", "color" : "\#B45F04"},
   { "full_text" : "Pr:$processes", "color" : "\#CEF6CE"},
-  { "full_text" : "V:$template2", "color": ${if_match $template2}"\#E1F5A9"${else}"\#FF0000"${endif}},
+  { "full_text" : "V:$template3", "color": ${if_match "$template2" == "on"}"\#E1F5A9"${else}"\#FF0000"${endif}},
   { "full_text" : "Net:D:${downspeed wlp3s0}|${wireless_bitrate wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
   { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#E1F5A9"}],
