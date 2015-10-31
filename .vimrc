@@ -193,10 +193,10 @@ if executable('ag')
 endif
 
 " django
-let g:django_activate_virtualenv = 1 "Try to activate the associated virtualenv
-let g:django_activate_nerdtree = 1 "Try to open nerdtree at the project root.
-let g:django_projects = $MY_PROJECTS_ROOT "Sets all projects under project
-let g:python_highlight_all = 1
+"let g:django_activate_virtualenv = 1 "Try to activate the associated virtualenv
+"let g:django_activate_nerdtree = 1 "Try to open nerdtree at the project root.
+"let g:django_projects = $MY_PROJECTS_ROOT "Sets all projects under project
+"let g:python_highlight_all = 1
 
 " Html5
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -258,7 +258,7 @@ let my_tab=4
 execute "set shiftwidth=".my_tab
 execute "set softtabstop=".my_tab
 execute "set tabstop=".my_tab
-set noexpandtab        " switch tab into spaces
+set expandtab        " switch tab into spaces
 " allow toggling between local and default mode
 function! TabToggle()
   if &expandtab
