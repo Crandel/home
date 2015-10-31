@@ -154,6 +154,9 @@ let g:pymode_rope_ropefolder='/opt/work/backup'
 let g:pymode_rope_goto_definition_cmd = 'e'
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT
 
+"vim-go
+au FileType go nmap <Leader>d <Plug>(go-def)
+
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
