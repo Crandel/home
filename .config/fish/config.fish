@@ -1,9 +1,5 @@
 set -xg MY_PROJECTS_ROOT /opt/work/projects
 
-function projects 
-   cd $MY_PROJECTS_ROOT
-end
-
 function internet
    cd /media/data/internet
 end
