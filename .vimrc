@@ -156,6 +156,12 @@ map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT
 
 "vim-go
 au FileType go nmap <Leader>d <Plug>(go-def)
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
 
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
