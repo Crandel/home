@@ -154,6 +154,15 @@ let g:pymode_rope_ropefolder='/opt/work/backup'
 let g:pymode_rope_goto_definition_cmd = 'e'
 map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT
 
+"vim-go
+au FileType go nmap <Leader>d <Plug>(go-def)
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+
 "" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
@@ -193,10 +202,10 @@ if executable('ag')
 endif
 
 " django
-let g:django_activate_virtualenv = 1 "Try to activate the associated virtualenv
-let g:django_activate_nerdtree = 1 "Try to open nerdtree at the project root.
-let g:django_projects = $MY_PROJECTS_ROOT "Sets all projects under project
-let g:python_highlight_all = 1
+"let g:django_activate_virtualenv = 1 "Try to activate the associated virtualenv
+"let g:django_activate_nerdtree = 1 "Try to open nerdtree at the project root.
+"let g:django_projects = $MY_PROJECTS_ROOT "Sets all projects under project
+"let g:python_highlight_all = 1
 
 " Html5
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -258,7 +267,7 @@ let my_tab=4
 execute "set shiftwidth=".my_tab
 execute "set softtabstop=".my_tab
 execute "set tabstop=".my_tab
-set noexpandtab        " switch tab into spaces
+set expandtab        " switch tab into spaces
 " allow toggling between local and default mode
 function! TabToggle()
   if &expandtab

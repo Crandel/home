@@ -30,20 +30,20 @@ override_utf8_locale no
 # number of cpu samples to average
 # set to 1 to disable averaging
 cpu_avg_samples 2
-# Volume on/off
-template0 ${exec amixer -c 0 get Master | grep Mono: | awk '{print $4}' | tr -d '[]'}
 # Volume level
+template0 ${exec amixer -c 0 get Master | grep Mono: | awk '{print $4}' | tr -d '[]'}
+# Volume on/off
 template1 ${exec amixer -c 0 get Master | grep Mono: | awk '{print $6}' | tr -d '[]'}
 # Stuff after 'TEXT' will be formatted on screen
 TEXT
 
 # JSON for i3bar
-  { "full_text" : "HDD:${fs_free /}" , "color" : "\#F6CECE" },
+ [{ "full_text" : "HDD:${fs_free /}" , "color" : "\#F6CECE" },
   { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${cpu}<90}"\#CEF6CE"${else}"\#FF0000"${endif} },
   { "full_text" : "RAM:$mem" , "color" :
     ${if_match ${memperc}<90}"\#F3E2A9"${else}"\#FF0000"${endif} },
   { "full_text" : "B:$battery_short", "color" : "\#B45F04"},
   { "full_text" : "Pr:$processes", "color" : "\#CEF6CE"},
   { "full_text" : "V:$template0", "color": ${if_match "$template1" == "on"}"\#E1F5A9"${else}"\#FF0000"${endif}},
-  { "full_text" : "Net:D:${downspeed wlp3s0}|${wireless_bitrate wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
+  { "full_text" : "Net:D:${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
   { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#E1F5A9"}],

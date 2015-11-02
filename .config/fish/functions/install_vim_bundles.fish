@@ -19,7 +19,7 @@ function install_vim_bundles
     cd $ROOT/YouCompleteMe
     python2 install.py --gocode-completer
     cd $ROOT
-    git clone https://github.com/cwood/vim-django.git
+    # git clone https://github.com/cwood/vim-django.git
     git clone https://github.com/mattn/emmet-vim.git
     git clone https://github.com/othree/html5.vim.git
     git clone https://github.com/dag/vim-fish.git
