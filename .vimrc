@@ -2,6 +2,7 @@ execute pathogen#infect()
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 set nocompatible
+
 syntax on
 colorscheme myterm
 
@@ -56,6 +57,7 @@ set ruler
 set confirm
 set t_Co=256
 set number
+set ttyfast
 set title
 set autoread         " check if file not changed by another editor
 set smartindent      " set auto indent into new row
@@ -184,6 +186,34 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
+"Easy-motion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+" Bi-directional find motion
+" Jump to anywhere you want with minimal keystrokes, with just one key
+" binding.
+" `s{char}{label}`
+"nmap s <Plug>(easymotion-s)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-s2)
+"
+"" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+map <Leader>w <Plug>(easymotion-w)
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+" Search
+map  / <Plug>(easymotion-sn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to
+" EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide
+" different highlight method and have some other features )
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)"
+
 " Easy-grep
 let g:EasyGrepRecursive = 1
 let g:EasyGrepCommand = 1
@@ -278,3 +308,29 @@ function! TabToggle()
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
 filetype plugin indent on
+
+"relative numbers
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+
+set rnu
+function ToggleNumbersOn()
+    set rnu!
+    set nu
+endfunction
+function ToggleRelativeOn()
+    set nu!
+    set rnu
+endfunction
+
+autocmd FocusLost * call ToggleNumbersOn()
+autocmd FocusGained * call ToggleRelativeOn()
+autocmd InsertEnter * call ToggleNumbersOn()
+autocmd InsertLeave * call ToggleRelativeOn()
+
+nnoremap <C-n> :call NumberToggle()<cr>

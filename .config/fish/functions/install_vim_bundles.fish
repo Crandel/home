@@ -15,6 +15,7 @@ function install_vim_bundles
     git clone https://github.com/bling/vim-airline.git
     git clone https://github.com/fatih/vim-go.git
     git clone https://github.com/tpope/vim-surround.git
+    git clone https://github.com/easymotion/vim-easymotion
     git clone --recursive https://github.com/Valloric/YouCompleteMe.git
     cd $ROOT/YouCompleteMe
     python2 install.py --gocode-completer
