@@ -1,8 +1,9 @@
 [global_config]
   always_split_with_profile = True
   enabled_plugins = CustomCommandsMenu, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
-  handle_size = 0
+  handle_size = 3
   title_font = Hack 13
+  title_hide_sizetext = True
   title_inactive_bg_color = "#dadada"
   title_inactive_fg_color = "#c88b14"
   title_receive_bg_color = "#00ceae"
@@ -12,7 +13,9 @@
   title_use_system_font = False
   window_state = maximise
 [keybindings]
+  cycle_next = <Primary>t
   hide_window = F1
+  next_tab = <Primary>Tab
   split_horiz = <Primary><Shift>z
   split_vert = <Primary><Shift>x
   toggle_zoom = <Alt>z
@@ -29,16 +32,18 @@
 [plugins]
 [profiles]
   [[default]]
-    background_darkness = 0.77
+    background_darkness = 0.83
     background_image = None
-    backspace_binding = automatic
     copy_on_selection = True
     cursor_color = "#c67d00"
     cursor_shape = ibeam
     font = Hack 13
-    foreground_color = "#10c832"
+    foreground_color = "#00ff00"
+    icon_bell = False
     login_shell = True
     palette = "#000000:#cc0000:#4e9a06:#c4a000:#3465a4:#75507b:#06989a:#d3d7cf:#555753:#ef2929:#8ae234:#fce94f:#729fcf:#ad7fa8:#34e2e2:#eeeeec"
     scrollback_lines = 30000
+    show_titlebar = False
+    update_records = False
     urgent_bell = True
     use_system_font = False

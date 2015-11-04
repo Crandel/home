@@ -68,9 +68,15 @@ function fish_prompt --description 'Write out the prompt'
 
     if set -q VIRTUAL_ENV
         set -g virtual_env (set_color $fish_color_venv) "["(basename "$VIRTUAL_ENV")"]"
+    else
+        set -g virtual_env ""
     end
 
-    set -g __fish_prompt_git (set_color $fish_color_git) (__fish_git_prompt) (__fish_git_prompt_informative_status)
+    set -g __fish_prompt_git ""
+    set -l git_branch (__fish_git_prompt)
+    if test $git_branch
+        set -g __fish_prompt_git (set_color $fish_color_git) (__fish_git_prompt) (__fish_git_prompt_informative_status)
+    end
 
     echo -n -s "$__date" "$virtual_env" "$__fish_prompt_user"  "$__fish_prompt_cwd" "$__fish_prompt_git" "$prompt_status" "$__fish_prompt_duration"
     printf "\n"
