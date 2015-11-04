@@ -1,7 +1,86 @@
-execute pathogen#infect()
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 set nocompatible
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" https://github.com/tpope/vim-fugitive
+Plugin 'tpope/vim-fugitive'
+
+" https://github.com/fatih/vim-go
+Plugin 'fatih/vim-go'
+
+" https://github.com/kien/ctrlp.vim
+Plugin 'kien/ctrlp.vim'
+
+" https://github.com/davidhalter/jedi-vim
+Plugin 'davidhalter/jedi-vim'
+
+" https://github.com/Yggdroot/indentLine
+Plugin 'Yggdroot/indentLine'
+
+" https://github.com/scrooloose/nerdtree
+Plugin 'scrooloose/nerdtree'
+
+" https://github.com/scrooloose/syntastic
+Plugin 'scrooloose/syntastic'
+
+" https://github.com/majutsushi/tagbar
+Plugin 'majutsushi/tagbar'
+
+" https://github.com/bling/vim-airline
+Plugin 'bling/vim-airline'
+
+" https://github.com/SirVer/ultisnips
+Plugin 'SirVer/ultisnips'
+
+" https://github.com/tpope/vim-surround
+Plugin 'tpope/vim-surround'
+
+" https://github.com/Valloric/YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+" https://github.com/cwood/vim-django
+" Plugin 'cwood/vim-django'
+
+" https://github.com/mattn/emmet-vim
+Plugin 'mattn/emmet-vim'
+
+" https://github.com/othree/html5.vim
+Plugin 'othree/html5.vim'
+
+" https://github.com/jiangmiao/auto-pairs
+Plugin 'jiangmiao/auto-pairs'
+
+" https://github.com/Xuyuanp/nerdtree-git-plugin
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" https://github.com/dag/vim-fish
+Plugin 'dag/vim-fish'
+
+" https://github.com/airblade/vim-gitgutter
+Plugin 'airblade/vim-gitgutter'
+
+" https://github.com/dkprice/vim-easygrep
+Plugin 'dkprice/vim-easygrep'
+
+" https://github.com/klen/python-mode
+Plugin 'klen/python-mode'
+
+" https://github.com/easymotion/vim-easymotion
+Plugin 'easymotion/vim-easymotion'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 syntax on
 colorscheme myterm
@@ -307,7 +386,6 @@ function! TabToggle()
   endif
 endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
-filetype plugin indent on
 
 "relative numbers
 function! NumberToggle()
