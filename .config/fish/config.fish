@@ -22,7 +22,10 @@ function sword
 end
 
 set -x EDITOR vim
-
+set -x DE gnome
+set -x BROWSER chromium
+set -xg XDG_CONFIG_HOME $HOME/.config
+set -xg XDG_DATA_HOME $HOME/.local
 set -xg GOPATH $HOME/go
 set -xg PATH $PATH $GOPATH
 set -xg TERM "xterm-256color"

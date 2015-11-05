@@ -1,6 +1,5 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
-set nocompatible
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -115,12 +114,9 @@ set showmatch       " Show matching brackets.
 " Make search case insensitive
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
-set incsearch       " Incremental search
-set hlsearch        " highlighting search word
 set infercase       " подсказка по регистру
 "set autowrite      " Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
-set mouse=a        " Enable mouse usage (all modes)
 set regexpengine=1
 " отключаем пищалку и мигание
 set novisualbell
@@ -136,15 +132,9 @@ set ruler
 set confirm
 set t_Co=256
 set number
-set ttyfast
 set title
-set autoread         " check if file not changed by another editor
 set smartindent      " set auto indent into new row
-set smarttab         " set indent if cursor in begin of row and press tab
 set shiftround
-set bs=2             " make backspace behave like normal again
-set wildmenu
-set laststatus=2
 set tabpagemax=30    " max opened tabs
 "set statusline=%<%f\ [%Y%R%W]%1*%{(&modified)?'\ [+]\ ':''}%*%=%c%V,%l\ %P\ [%n]
        
@@ -157,7 +147,6 @@ set clipboard=unnamedplus
 vnoremap <C-c> "+y
 set pastetoggle=<F3>
 set wildmode=list:full
-set enc=utf-8
 set ls=2
 set fileformat=unix    " forman file ending
 " Просмотр списка буферов по <F4>
