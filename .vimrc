@@ -46,7 +46,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'tpope/vim-surround'
 
 " https://github.com/Valloric/YouCompleteMe
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe', { 'do': 'youch test.ggg' }
 
 " https://github.com/cwood/vim-django
 " Plugin 'cwood/vim-django'
