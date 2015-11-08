@@ -5,7 +5,7 @@ background no
 max_text_width 0
 
 # Update interval in seconds
-update_interval 1.0
+update_interval 2.0
 
 # This is the number of times Conky will update before quitting.
 # Set to zero to run forever.
@@ -38,13 +38,13 @@ template1 ${exec amixer -c 0 get Master | grep Mono: | awk '{print $6}' | tr -d 
 TEXT
 
 # JSON for i3bar
- [{ "full_text" : "Gmail:${exec gmail}" , "color" : "\#819FF7" },
-  { "full_text" : "HDD:${fs_free /}" , "color" : "\#F6CECE" },
-  { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${cpu}<90}"\#CEF6CE"${else}"\#FF0000"${endif} },
+ [{ "full_text" : "Gmail:${exec gmail}" , "color" : "\#2E64FE" },
+  { "full_text" : "HDD:${fs_free /}" , "color" : "\#FA5882" },
+  { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${cpu}<90}"\#04B404"${else}"\#FF0000"${endif} },
   { "full_text" : "RAM:$mem" , "color" :
-    ${if_match ${memperc}<90}"\#F3E2A9"${else}"\#FF0000"${endif} },
-  { "full_text" : "B:$battery_short", "color" : "\#B45F04"},
+    ${if_match ${memperc}<90}"\#F7FE2E"${else}"\#FF0000"${endif} },
+  { "full_text" : "B:$battery_short", "color" : "\#FE9A2E"},
   { "full_text" : "Pr:$processes", "color" : "\#CEF6CE"},
   { "full_text" : "V:$template0", "color": ${if_match "$template1" == "on"}"\#E1F5A9"${else}"\#FF0000"${endif}},
   { "full_text" : "Net:D:${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
-  { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#E1F5A9"}],
+  { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],

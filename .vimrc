@@ -78,6 +78,12 @@ Plugin 'klen/python-mode'
 " https://github.com/easymotion/vim-easymotion
 Plugin 'easymotion/vim-easymotion'
 
+" https://github.com/Matt-Deacalion/vim-systemd-syntax
+Plugin 'Matt-Deacalion/vim-systemd-syntax'
+
+" https://github.com/ekalinin/Dockerfile.vim
+Plugin 'ekalinin/Dockerfile.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
