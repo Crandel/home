@@ -1,30 +1,22 @@
 " Automatic reloading of .vimrc
-autocmd! bufwritepost init.vim source %
-let g:python_host_prog='/usr/bin/python2'
+autocmd! bufwritepost .vimrc source %
+set nocompatible
 filetype off                  " required
+
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin("~/.config/nvim/bundle")
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" https://github.com/airblade/vim-gitgutter
-Plugin 'airblade/vim-gitgutter'
-
 " https://github.com/bling/vim-airline
 Plugin 'bling/vim-airline'
 
-" https://github.com/cwood/vim-django
-" Plugin 'cwood/vim-django'
-
 " https://github.com/dag/vim-fish
 Plugin 'dag/vim-fish'
-
-" https://github.com/davidhalter/jedi-vim
-Plugin 'davidhalter/jedi-vim'
 
 " https://github.com/dkprice/vim-easygrep
 Plugin 'dkprice/vim-easygrep'
@@ -32,50 +24,8 @@ Plugin 'dkprice/vim-easygrep'
 " https://github.com/easymotion/vim-easymotion
 Plugin 'easymotion/vim-easymotion'
 
-" https://github.com/fatih/vim-go
-Plugin 'fatih/vim-go'
-
-" https://github.com/jiangmiao/auto-pairs
-Plugin 'jiangmiao/auto-pairs'
-
 " https://github.com/kien/ctrlp.vim
 Plugin 'kien/ctrlp.vim'
-
-" https://github.com/klen/python-mode
-Plugin 'klen/python-mode'
-
-" https://github.com/majutsushi/tagbar
-Plugin 'majutsushi/tagbar'
-
-" https://github.com/mattn/emmet-vim
-Plugin 'mattn/emmet-vim'
-
-" https://github.com/othree/html5.vim
-Plugin 'othree/html5.vim'
-
-" https://github.com/scrooloose/nerdtree
-Plugin 'scrooloose/nerdtree'
-
-" https://github.com/scrooloose/syntastic
-Plugin 'scrooloose/syntastic'
-
-" https://github.com/SirVer/ultisnips
-Plugin 'SirVer/ultisnips'
-
-" https://github.com/tpope/vim-fugitive
-Plugin 'tpope/vim-fugitive'
-
-" https://github.com/tpope/vim-surround
-Plugin 'tpope/vim-surround'
-
-" https://github.com/Valloric/YouCompleteMe
-Plugin 'Valloric/YouCompleteMe', { 'do': 'python2 ./install.py --gocode-completer' }
-
-" https://github.com/Xuyuanp/nerdtree-git-plugin
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" https://github.com/Yggdroot/indentLine
-Plugin 'Yggdroot/indentLine'
 
 " https://github.com/Matt-Deacalion/vim-systemd-syntax
 Plugin 'Matt-Deacalion/vim-systemd-syntax'
@@ -120,9 +70,12 @@ set showmatch       " Show matching brackets.
 " Make search case insensitive
 set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
+set incsearch       " Incremental search
+set hlsearch        " highlighting search word
 set infercase       " подсказка по регистру
 "set autowrite      " Automatically save before commands like :next and :make
 set hidden          " Hide buffers when they are abandoned
+set mouse=a        " Enable mouse usage (all modes)
 set regexpengine=1
 " отключаем пищалку и мигание
 set novisualbell
@@ -138,9 +91,15 @@ set ruler
 set confirm
 set t_Co=256
 set number
+set ttyfast
 set title
+set autoread         " check if file not changed by another editor
 set smartindent      " set auto indent into new row
+set smarttab         " set indent if cursor in begin of row and press tab
 set shiftround
+set bs=2             " make backspace behave like normal again
+set wildmenu
+set laststatus=2
 set tabpagemax=30    " max opened tabs
 "set statusline=%<%f\ [%Y%R%W]%1*%{(&modified)?'\ [+]\ ':''}%*%=%c%V,%l\ %P\ [%n]
        
@@ -153,6 +112,7 @@ set clipboard=unnamedplus
 vnoremap <C-c> "+y
 set pastetoggle=<F3>
 set wildmode=list:full
+set enc=utf-8
 set ls=2
 set fileformat=unix    " forman file ending
 " Просмотр списка буферов по <F4>
@@ -180,82 +140,8 @@ set noswapfile
 set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
 set ttyfast
 
-" NerdTree start section
-let g:NERDTreeShowHidden=1
-map <F7> :NERDTreeToggle<CR>
-" NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('py', 'Magenta', 'none', '#ff00ff', '#151515')
-" NerdTree start if empty vim
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" close vim if the only window left open is a NERDTree
-"autocmd bufenter * if len(filter(range(1, bufnr('$')), '! empty(bufname(v:val)) && buflisted(v:val)')) == 1 && (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-let NERDTreeIgnore=['\.pyc$', '\.pyo$']
-" End NERDTree section
-
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
-
-
-" python-mode
-let g:pymode_options = 0
-let g:pymode_indent = 0
-let g:pymode_lint_ignore = "W191"
-let g:pymode_rope_goto_definition_bind = "<Leader>d"
-let g:pymode_options_max_line_length = 130
-let g:pymode_lint_on_write = 0
-let g:pymode_folding = 0
-let g:pymode_breakpoint = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_project_root = "/opt/work/backup/"
-let g:pymode_rope_ropefolder='/opt/work/backup'
-let g:pymode_rope_goto_definition_cmd = 'e'
-map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT
-
-"vim-go
-au FileType go nmap <Leader>d <Plug>(go-def)
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-let g:go_fmt_command = "goimports"
-
-"" YouCompleteMe settings
-let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
-let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
-let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
-let g:ycm_complete_in_comments = 1 " Completion in comments
-let g:ycm_complete_in_strings = 1 " Completion in string
-let g:ycm_server_keep_logfiles = 1
-
-" IndentLine plugin
-let g:indentLine_char = '|'
-let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_leadingSpaceEnabled = 1
-
-" ultisnips
-let g:UltiSnipsExpandTrigger="<c-a>"
-let g:UltiSnipsJumpForwardTrigger="<c-a>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -305,36 +191,6 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
 endif
-
-" django
-"let g:django_activate_virtualenv = 1 "Try to activate the associated virtualenv
-"let g:django_activate_nerdtree = 1 "Try to open nerdtree at the project root.
-"let g:django_projects = $MY_PROJECTS_ROOT "Sets all projects under project
-"let g:python_highlight_all = 1
-
-" Html5
-let g:html_indent_inctags = "html,body,head,tbody"
-"Disable event-handler attributes support:
-let g:html5_event_handler_attributes_complete = 0
-"Disable RDFa attributes support:
-let g:html5_rdfa_attributes_complete = 0
-"Disable microdata attributes support:
-let g:html5_microdata_attributes_complete = 0
-"Disable WAI-ARIA attribute support:
-let g:html5_aria_attributes_complete = 0
-
-" Emmet
-let g:user_emmet_mode='a'
-let g:user_emmet_leader_key='<leader>'
-
-" TagBar
-nmap <F10> :TagbarToggle<CR>
-
-" Git
-nmap <C-g> :Gblame<CR>
-nmap <F12> :Gdiff<CR>
-" javascript
-let g:javascript_enable_domhtmlcss = 1
 
 " Comment section
 let s:comment_map = {
