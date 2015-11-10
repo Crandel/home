@@ -1,11 +1,11 @@
 [user]
-	name = Crandel
-	email = cradlemann@gmail.com
+    name = Crandel
+    email = cradlemann@gmail.com
 [core]
-	autocrlf = false
-	safecrlf = true
+    autocrlf = false
+    safecrlf = true
 [color]
-	ui = true
+    ui = true
 [color "branch"]
     current = green
     local = yellow
@@ -16,15 +16,20 @@
     old = red bold
     new = green bold
 [color "status"]
-	added = green
+    added = green
     changed = yellow
     untracked = cyan
 [alias]
-	co = checkout
-	st = status
-	br = branch
+    co = checkout
+    st = status
+    br = branch
+    d = difftool
 [merge]
-	tool = meld
-	conflictstyle = diff3
+    tool = meld
+    conflictstyle = diff3
 [diff]
-	external = /home/crandel/git_meld.sh
+    tool = nvimdiff
+[difftool "nvimdiff"]
+    cmd = "nvim -d -u ~/.config/nvim/init.vim \"$LOCAL\" \"$REMOTE\""
+[difftool]
+    prompt = false
