@@ -222,7 +222,7 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$']
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
-
+let g:airline_powerline_fonts = 1
 
 " python-mode
 let g:pymode_options = 0
