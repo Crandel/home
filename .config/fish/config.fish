@@ -129,7 +129,29 @@ function servup
     paster serve --reload local.ini
 end
 # rita end
+# localhost
+function internet
+   cd /media/data/internet
+end
 
+function torrent
+   cd /media/data/torrent
+end
+
+function work
+   cd /media/data/work
+end
+
+function civ
+    cd /media/data/games/Civilisation5/
+    primusrun ./Civ5XP
+end
+
+function sword
+    cd /media/data/games/SwordoftheStars
+    primusrun env WINEPREFIX="/home/crandel/.wine" wine /media/data/games/SwordoftheStars/Sword\ of\ the\ Stars.exe
+end
+# localhost end
 set -x EDITOR vim
 set -x DE gnome
 set -x BROWSER chromium
