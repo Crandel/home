@@ -4,7 +4,7 @@ set -xg MY_PROJECTS_ROOT /opt/work/projects
 
 # Docker
 function run
-    docker-compose run --service-ports $argv
+    docker-compose run --rm --service-ports $argv
 end
 
 function dl
