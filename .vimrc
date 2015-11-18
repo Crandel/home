@@ -72,9 +72,6 @@ Plugin 'airblade/vim-gitgutter'
 " https://github.com/dkprice/vim-easygrep
 Plugin 'dkprice/vim-easygrep'
 
-" https://github.com/klen/python-mode
-Plugin 'klen/python-mode'
-
 " https://github.com/easymotion/vim-easymotion
 Plugin 'easymotion/vim-easymotion'
 
@@ -224,23 +221,27 @@ let NERDTreeIgnore=['\.pyc$', '\.pyo$']
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-" python-mode
-let g:pymode_options = 0
-let g:pymode_indent = 0
-let g:pymode_lint_ignore = "W191"
-let g:pymode_rope_goto_definition_bind = "<Leader>d"
-let g:pymode_options_max_line_length = 130
-let g:pymode_lint_on_write = 0
-let g:pymode_folding = 0
-let g:pymode_breakpoint = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_project_root = "/opt/work/backup/"
-let g:pymode_rope_ropefolder='/opt/work/backup'
-let g:pymode_rope_goto_definition_cmd = 'e'
-map <Leader>b Oimport pdb; pdb.set_trace() # BREAKPOINT
+" Settings for jedi-vim
+let g:jedi#completions_enabled = 0
+let g:jedi#popup_on_dot = 0 
+let g:jedi#popup_select_first = 0
+let g:jedi#goto_assignments_command = "<leader>g"
+let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>n"
+let g:jedi#rename_command = "<leader>r"
+let g:jedi#use_tag_stack = 0
+au FileType python setlocal completeopt-=preview
+map <Leader>b Oimport pudb; pudb.set_trace() # BREAKPOINT
 
-"vim-go
+" Syntastic
+map <F4> :SyntasticCheck<CR>
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_go_checkers = ['gofmt']
+let g:syntastic_python_flake8_args='--ignore="W191"'
+
+
+" vim-go
 au FileType go nmap <Leader>d <Plug>(go-def)
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -249,7 +250,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
 
-"" YouCompleteMe settings
+" YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
 let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language's keyword
