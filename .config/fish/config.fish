@@ -43,6 +43,7 @@ end
 
 function install_vim_bundles
     sudo pip2 install -U flake8 jedi
+    go get github.com/alecthomas/gometalinter
     set -l ROOT $HOME/.vim/bundle
     set -l ROOT_NVIM $HOME/.config/nvim/bundle
     cd $ROOT/YouCompleteMe
