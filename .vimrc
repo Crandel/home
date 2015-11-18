@@ -237,7 +237,7 @@ map <Leader>b Oimport pudb; pudb.set_trace() # BREAKPOINT
 " Syntastic
 map <F4> :SyntasticCheck<CR>
 let g:syntastic_python_checkers = ['flake8']
-let g:syntastic_go_checkers = ['gofmt']
+let g:syntastic_go_checkers = ['gometalinter']
 let g:syntastic_python_flake8_args='--ignore="W191"'
 
 
