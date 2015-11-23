@@ -130,6 +130,13 @@ function servup
     cd $MY_PROJECTS_ROOT/rita
     paster serve --reload local.ini
 end
+
+function rita_temp
+    cd /opt/work/env/rita/lib/python2.7/site-packages
+    rm -rf marrow.templating-1.0.2-py2.7-nspkg.pth marrow.templating-1.0.2-py2.7.egg-info/ marrow/templating/
+    cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg .
+    cd /opt/work/projects/rita
+end
 # rita end
 # localhost
 function internet
