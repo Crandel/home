@@ -232,7 +232,7 @@ let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#use_tag_stack = 0
 au FileType python setlocal completeopt-=preview
-map <Leader>b Oimport pudb; pudb.set_trace() # BREAKPOINT
+map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT
 
 " Syntastic
 map <F4> :SyntasticCheck<CR>
