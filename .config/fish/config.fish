@@ -69,7 +69,7 @@ function pacman
     sudo pacman $argv
 end
 
-function projects
+function pr
     # if argv when go to directory
     if count $argv > /dev/null
         cd $MY_PROJECTS_ROOT/$argv
