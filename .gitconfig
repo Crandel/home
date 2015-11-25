@@ -28,8 +28,7 @@
     tool = meld
     conflictstyle = diff3
 [diff]
-    tool = nvimdiff
-[difftool "nvimdiff"]
-    cmd = "nvim -d -u ~/.config/nvim/init.vim \"$LOCAL\" \"$REMOTE\""
+	tool = meld
+
 [difftool]
-    prompt = false
+	prompt = false
