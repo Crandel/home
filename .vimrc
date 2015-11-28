@@ -12,6 +12,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" https://github.com/hdima/python-syntax
+Plugin 'hdima/python-syntax'
+
 " https://github.com/tpope/vim-fugitive
 Plugin 'tpope/vim-fugitive'
 
@@ -186,6 +189,9 @@ set noswapfile
 " set Ignore file
 set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
 set ttyfast
+
+" Python Syntax
+let g:python_highlight_all = 1
 
 " NerdTree start section
 let g:NERDTreeShowHidden=1
