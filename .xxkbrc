@@ -1,0 +1,18 @@
+XXkb.image.path: /home/crandel/.flags
+XXkb.mainwindow.type:tray
+XXkb.group.base: 1
+XXkb.group.alt: 2
+XXkb.mainwindow.enable: yes
+XXkb.mainwindow.image.1: us.xpm
+XXkb.mainwindow.image.2: ua.xpm
+XXkb.mainwindow.image.3:
+XXkb.mainwindow.image.4:
+XXkb.mainwindow.appicon: yes
+XXkb.mainwindow.geometry: 22x22+2+2
+XXkb.mainwindow.in_tray: true
+XXkb.button.enable: no
+XXkb.controls.add_when_start: yes
+XXkb.controls.add_when_create: yes
+XXkb.controls.add_when_change: no
+XXkb.controls.focusout: yes
+XXkb.mainwindow.label.enable: no
