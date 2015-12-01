@@ -21,8 +21,8 @@ Plugin 'tpope/vim-fugitive'
 " https://github.com/fatih/vim-go
 Plugin 'fatih/vim-go'
 
-" https://github.com/kien/ctrlp.vim
-Plugin 'kien/ctrlp.vim'
+" https://github.com/ctrlpvim/ctrlp.vim
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " https://github.com/davidhalter/jedi-vim
 Plugin 'davidhalter/jedi-vim'

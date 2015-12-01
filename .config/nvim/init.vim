@@ -41,8 +41,8 @@ Plugin 'fatih/vim-go'
 " https://github.com/jiangmiao/auto-pairs
 Plugin 'jiangmiao/auto-pairs'
 
-" https://github.com/kien/ctrlp.vim
-Plugin 'kien/ctrlp.vim'
+" https://github.com/ctrlpvim/ctrlp.vim
+Plugin 'ctrlpvim/ctrlp.vim'
 
 " https://github.com/majutsushi/tagbar
 Plugin 'majutsushi/tagbar'
