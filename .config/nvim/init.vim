@@ -38,6 +38,9 @@ Plugin 'easymotion/vim-easymotion'
 " https://github.com/fatih/vim-go
 Plugin 'fatih/vim-go'
 
+" https://github.com/garyburd/go-explorer
+Plugin 'garyburd/go-explorer'
+
 " https://github.com/jiangmiao/auto-pairs
 Plugin 'jiangmiao/auto-pairs'
 

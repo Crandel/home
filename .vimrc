@@ -21,6 +21,9 @@ Plugin 'tpope/vim-fugitive'
 " https://github.com/fatih/vim-go
 Plugin 'fatih/vim-go'
 
+" https://github.com/garyburd/go-explorer
+Plugin 'garyburd/go-explorer'
+
 " https://github.com/ctrlpvim/ctrlp.vim
 Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -141,7 +144,6 @@ set linebreak
 set ruler
 set confirm
 set t_Co=256
-set ttyfast
 set title
 set autoread         " check if file not changed by another editor
 set smartindent      " set auto indent into new row

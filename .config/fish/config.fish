@@ -85,8 +85,10 @@ function install_vim_bundles
     set -l ROOT_NVIM $HOME/.config/nvim/bundle
     cd $ROOT/YouCompleteMe
     python2 install.py --gocode-completer
-    cd $ROOT_NVIM/YouCompleteMe
-    python2 install.py --gocode-completer
+    if test -f nvim
+        cd $ROOT_NVIM/YouCompleteMe
+        python2 install.py --gocode-completer
+    end
     cd $HOME
 end
 
