@@ -25,11 +25,11 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'dag/vim-fish'
-NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim', {'build': 'sudo pip install -U jedi'}
 NeoBundle 'dkprice/vim-easygrep'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'ekalinin/Dockerfile.vim'
-NeoBundle 'fatih/vim-go'
+NeoBundle 'fatih/vim-go', {'build': 'go get github.com/alecthomas/gometalinter'}
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
