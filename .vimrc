@@ -1,91 +1,48 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+if has('nvim')
+    let g:python_host_prog='/usr/bin/python2'
+endif
 set nocompatible
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" set the runtime path to include neobundle and initialize
+set rtp+=~/.vim/bundle/neobundle.vim/
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call neobundle#begin(expand('~/.vim/bundle/'))
+" alternatively, pass a path where neobundle should install plugins
+" call neobundle#begin('~/some/path/here')
 
-" https://github.com/hdima/python-syntax
-Plugin 'hdima/python-syntax'
+" let neobundle manage neobundle, required
+NeoBundle 'Shougo/neobundle.vim'
+" NeoBundle 'cwood/vim-django'
+NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer'}
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'dag/vim-fish'
+NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'dkprice/vim-easygrep'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'hdima/python-syntax'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'othree/html5.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
 
-" https://github.com/tpope/vim-fugitive
-Plugin 'tpope/vim-fugitive'
+" All of your NeoBundles must be added before the following line
+call neobundle#end()         " required
 
-" https://github.com/fatih/vim-go
-Plugin 'fatih/vim-go'
-
-" https://github.com/ctrlpvim/ctrlp.vim
-Plugin 'ctrlpvim/ctrlp.vim'
-
-" https://github.com/davidhalter/jedi-vim
-Plugin 'davidhalter/jedi-vim'
-
-" https://github.com/Yggdroot/indentLine
-Plugin 'Yggdroot/indentLine'
-
-" https://github.com/scrooloose/nerdtree
-Plugin 'scrooloose/nerdtree'
-
-" https://github.com/scrooloose/syntastic
-Plugin 'scrooloose/syntastic'
-
-" https://github.com/majutsushi/tagbar
-Plugin 'majutsushi/tagbar'
-
-" https://github.com/bling/vim-airline
-Plugin 'bling/vim-airline'
-
-" https://github.com/SirVer/ultisnips
-Plugin 'SirVer/ultisnips'
-
-" https://github.com/tpope/vim-surround
-Plugin 'tpope/vim-surround'
-
-" https://github.com/Valloric/YouCompleteMe
-Plugin 'Valloric/YouCompleteMe', { 'do': 'youch test.ggg' }
-
-" https://github.com/cwood/vim-django
-" Plugin 'cwood/vim-django'
-
-" https://github.com/mattn/emmet-vim
-Plugin 'mattn/emmet-vim'
-
-" https://github.com/othree/html5.vim
-Plugin 'othree/html5.vim'
-
-" https://github.com/jiangmiao/auto-pairs
-Plugin 'jiangmiao/auto-pairs'
-
-" https://github.com/Xuyuanp/nerdtree-git-plugin
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-" https://github.com/dag/vim-fish
-Plugin 'dag/vim-fish'
-
-" https://github.com/airblade/vim-gitgutter
-Plugin 'airblade/vim-gitgutter'
-
-" https://github.com/dkprice/vim-easygrep
-Plugin 'dkprice/vim-easygrep'
-
-" https://github.com/easymotion/vim-easymotion
-Plugin 'easymotion/vim-easymotion'
-
-" https://github.com/Matt-Deacalion/vim-systemd-syntax
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-
-" https://github.com/ekalinin/Dockerfile.vim
-Plugin 'ekalinin/Dockerfile.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on
@@ -102,11 +59,9 @@ endif
 " reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-if &term =~ "terminator"
-    let &t_SI = "\<Esc>]12;purple\x7"
-    let &t_SR = "\<Esc>]12;red\x7"
-    let &t_EI = "\<Esc>]12;blue\x7"
-endif
+let &t_SI = "\<Esc>]12;purple\x7"
+let &t_SR = "\<Esc>]12;red\x7"
+let &t_EI = "\<Esc>]12;blue\x7"
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
@@ -136,6 +91,7 @@ set ai
 set cin
 set lz
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set colorcolumn=130
 set list
 set linebreak
 set ruler
@@ -152,7 +108,7 @@ set wildmenu
 set laststatus=2
 set tabpagemax=30    " max opened tabs
 "set statusline=%<%f\ [%Y%R%W]%1*%{(&modified)?'\ [+]\ ':''}%*%=%c%V,%l\ %P\ [%n]
-       
+
 " Подсвечивать линию текста, на которой находится курсор
 set cursorline
 " Show whitespace
@@ -165,10 +121,7 @@ set wildmode=list:full
 set enc=utf-8
 set ls=2
 set fileformat=unix    " forman file ending
-" Просмотр списка буферов по <F4>
-nmap <F4> <Esc>:buffers<CR>
-vmap <F4> <Esc>:buffers<CR>
-imap <F4> <Esc><Esc>:buffers<CR>
+
 " предыдущий буфер
 map <F5> :bp<CR>
 vmap <F5> <Esc>:bp<CR>i
@@ -180,6 +133,8 @@ imap <F6> <Esc>:bn<CR>i
 " Useful settings
 set history=700
 set undolevels=700
+" swap the current word with the next, without changing cursor position
+nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
@@ -404,6 +359,8 @@ endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
 
 "relative numbers
+set nu
+set rnu
 function! NumberToggle()
   if(&relativenumber == 1)
     set rnu!
@@ -412,8 +369,6 @@ function! NumberToggle()
   endif
 endfunc
 
-set nu
-set rnu
 function! ToggleNumbersOn()
     set rnu!
 endfunction
