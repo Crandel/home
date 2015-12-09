@@ -78,18 +78,6 @@ function group_fix
     sudo grpck
 end
 
-function install_vim_bundles
-    sudo pip2 install -U flake8 jedi
-    go get github.com/alecthomas/gometalinter
-    set -l ROOT $HOME/.vim/bundle
-    set -l ROOT_NVIM $HOME/.config/nvim/bundle
-    cd $ROOT/YouCompleteMe
-    python2 install.py --gocode-completer
-    cd $ROOT_NVIM/YouCompleteMe
-    python2 install.py --gocode-completer
-    cd $HOME
-end
-
 function l
    ls -CF $argv
 end
