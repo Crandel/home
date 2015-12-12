@@ -35,6 +35,8 @@ NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'othree/html5.vim'
+NeoBundle 'racer-rust/vim-racer', {'build': 'cargo install --git https://github.com/phildawes/racer.git'}
+NeoBundle 'rust-lang/rust.vim', {'build': 'cargo install --git https://github.com/rust-lang-nursery/rustfmt'}
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
@@ -210,6 +212,14 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 let g:go_fmt_command = "goimports"
+
+" rust.vim
+let g:rustfmt_autosave = 1
+
+" vim-racer
+set hidden
+let g:racer_cmd = $CARGO.'/bin'
+let $RUST_SRC_PATH = $CARGO.'/src/rust'
 
 " YouCompleteMe settings
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
