@@ -192,8 +192,8 @@ set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
 set -xg GOPATH $HOME/go
-set -xg CARGO $HOME/.cargo
-set -xg PATH $PATH $GOPATH $GOPATH/bin $CARGO/bin
+set -xg RUST $HOME/rust
+set -xg PATH $PATH $GOPATH $GOPATH/bin $RUST/bin
 set -xg TERM "xterm-256color"
 set -x WORKON_HOME $HOME/.virtualenvs
 set -x INFINALITY_FT_BRIGHTNESS "-10"
