@@ -23,7 +23,7 @@
 #   - :meth:`init_code`
 
 # Execute the given command string.
-c.InteractiveShellApp.code_to_run = 'autoreload 2'
+#c.InteractiveShellApp.code_to_run = 'autoreload'
 
 # Reraise exceptions encountered loading IPython extensions?
 # c.InteractiveShellApp.reraise_ipython_extension_failures = False
@@ -60,7 +60,7 @@ c.InteractiveShellApp.code_to_run = 'autoreload 2'
 
 # Should variables loaded at startup (by startup files, exec_lines, etc.) be
 # hidden from tools like %who?
-c.InteractiveShellApp.hide_initial_ns = True
+c.InteractiveShellApp.hide_initial_ns = False
 
 # dotted module name of an IPython extension to load.
 c.InteractiveShellApp.extra_extension = 'autoreload'
@@ -162,7 +162,7 @@ c.InteractiveShell.color_info = True
 # c.InteractiveShell.ast_transformers = traitlets.Undefined
 
 #
-c.InteractiveShell.history_length = 10000
+c.InteractiveShell.history_length = 1000
 
 # Don't call post-execute functions that have failed in the past.
 # c.InteractiveShell.disable_failing_post_execute = False
@@ -528,7 +528,7 @@ c.TerminalInteractiveShell.pager = 'less'
 # When 1: all 'magic' names (``__foo__``) will be excluded.
 #
 # When 0: nothing will be excluded.
-# c.IPCompleter.omit__names = 2
+c.IPCompleter.omit__names = 0
 
 # Whether to merge completion results into a single list
 #
