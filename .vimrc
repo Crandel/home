@@ -32,7 +32,7 @@ NeoBundle 'dkprice/vim-easygrep'
 NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'fatih/vim-go', {'build': 'go get github.com/alecthomas/gometalinter'}
-NeoBundle 'hdima/python-syntax'
+NeoBundleLazy 'hdima/python-syntax', {'autoload':{'filetypes':['python']}}
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'mattn/emmet-vim'
@@ -51,7 +51,7 @@ call neobundle#end()         " required
 filetype plugin indent on    " required
 
 syntax on
-colorscheme myterm
+colorscheme behelit
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
