@@ -43,6 +43,7 @@ NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript, html']}}
 
 " All of your NeoBundles must be added before the following line
 call neobundle#end()         " required
@@ -94,7 +95,7 @@ set wrap
 set ai
 set cin
 set lz
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=eol:¬,tab:>-,trail:~,extends:#,precedes:<
 set colorcolumn=130
 set list
 set linebreak
@@ -122,7 +123,6 @@ set clipboard=unnamedplus
 vnoremap <C-c> "+y
 set pastetoggle=<F3>
 set wildmode=list:full
-set enc=utf-8
 set ls=2
 set fileformat=unix    " forman file ending
 
@@ -244,6 +244,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 " IndentLine plugin
 let g:indentLine_char = '|'
 let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_color_term = 239
 let g:indentLine_leadingSpaceEnabled = 1
 
 " ultisnips
