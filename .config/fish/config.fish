@@ -162,6 +162,10 @@ function rita_temp
     cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg .
     cd /opt/work/projects/rita
 end
+
+function rita
+    nvim -S ~/.vim/sessions/rita.vim
+end
 # rita end
 # localhost
 function internet
@@ -186,6 +190,7 @@ function sword
     primusrun env WINEPREFIX="/home/crandel/.wine" wine /media/data/games/SwordoftheStars/Sword\ of\ the\ Stars.exe
 end
 # localhost end
+
 set -x EDITOR vim
 set -x DE gnome
 set -x BROWSER chromium

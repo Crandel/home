@@ -15,9 +15,5 @@ XXkb.controls.add_when_start: yes
 XXkb.controls.add_when_create: yes
 XXkb.controls.add_when_change: no
 XXkb.controls.focusout: no
-XXkb.mainwindow.label.enable: yes
-XXkb.mainwindow.label.background: #000000
-XXkb.mainwindow.label.foreground: #FFFFFF
-XXkb.mainwindow.label.font: -misc-*-r-*-18-*
-XXkb*label.text.1: En
-XXkb*label.text.2: Ua
+XXkb.mainwindow.label.enable: no
+
