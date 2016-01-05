@@ -20,6 +20,8 @@ NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer'}
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'xolox/vim-session'
+NeoBundle 'xolox/vim-misc'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
@@ -150,6 +152,11 @@ set ttyfast
 " Python Syntax
 let g:python_highlight_all = 1
 
+" vim session
+let g:session_autoload = 0
+let g:session_autosave = 0
+let g:session_command_aliases = 1
+
 " NerdTree start section
 let g:NERDTreeShowHidden=1
 map <F7> :NERDTreeToggle<CR>
@@ -201,8 +208,10 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT
 map <F4> :SyntasticCheck<CR>
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_python_flake8_args='--ignore="W191"'
-
+let g:syntastic_python_flake8_args='--ignore="W191" --max-line-length=130'
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+nmap <Leader>l :lne<CR>
 
 " vim-go
 au FileType go nmap <Leader>d <Plug>(go-def)
