@@ -18,7 +18,7 @@ NeoBundle 'Shougo/neobundle.vim'
 " NeoBundle 'cwood/vim-django'
 NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer'}
+NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer --tern-completer'}
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'xolox/vim-session'
 NeoBundle 'xolox/vim-misc'
@@ -193,7 +193,7 @@ let g:airline_powerline_fonts = 1
 
 " Settings for jedi-vim
 let g:jedi#completions_enabled = 0
-let g:jedi#popup_on_dot = 0 
+let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
@@ -325,11 +325,16 @@ let g:user_emmet_leader_key='<leader>'
 " TagBar
 nmap <F10> :TagbarToggle<CR>
 
-" Git
+" Git Fugitive
 nmap <C-g> :Gblame<CR>
 nmap <F12> :Gdiff<CR>
+
 " javascript
 let g:javascript_enable_domhtmlcss = 1
+
+"Git Gutter
+nmap <C-.> <Plug>GitGutterNextHunk
+nmap <C-,> <Plug>GitGutterPrevHunk
 
 " Comment section
 let s:comment_map = {

@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack 12
+font pango:Hack 14
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -191,8 +191,7 @@ bindsym $mod+m exec xmenud
 bindsym $mod+Control+l exec i3lock -c 122A0A
 
 # switch workspaces by mod+ctrl+left/right
-bindsym $mod+Control+Left workspace prev
-bindsym $mod+Control+Right workspace next
+bindsym $mod+z workspace next
 # reboot and shutdown
 bindsym $mod+Control+Shift+q exec systemctl poweroff
 bindsym $mod+Control+Shift+p exec systemctl reboot
@@ -206,10 +205,11 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
-exec xxkb
+exec --no-startup-id xxkb
 exec_always --no-startup-id numlockx on
-# exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
+exec --no-startup-id xpad
 exec plaidchat
 exec skype
 exec radiotray
