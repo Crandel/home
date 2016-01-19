@@ -76,7 +76,7 @@ end
 
 function group_fix
     sudo grpck
-	sudo pwck
+    sudo pwck
 end
 
 function l
