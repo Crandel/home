@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack 14
+font pango:Hack 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -207,12 +207,9 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 exec --no-startup-id sbxkb
 exec_always --no-startup-id numlockx on
-exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec --no-startup-id nm-applet
-exec --no-startup-id xpad
-exec plaidchat
-exec skype
-exec radiotray
-exec pidgin
 exec terminator
+#exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id nm-applet
+exec pidgin
+exec skype
 exec clipit
