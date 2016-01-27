@@ -3,42 +3,34 @@ autocmd! bufwritepost .vimrc source %
 set nocompatible
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" set the runtime path to include neobundle and initialize
+set rtp+=~/.vim/bundle/neobundle.vim/
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call neobundle#begin(expand('~/.vim/bundle/'))
+" alternatively, pass a path where neobundle should install plugins
+" call neobundle#begin('~/some/path/here')
 
-" https://github.com/bling/vim-airline
-Plugin 'bling/vim-airline'
+" let neobundle manage neobundle, required
+NeoBundle 'Shougo/neobundle.vim'
+" NeoBundle 'cwood/vim-django'
+NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'dag/vim-fish'
+NeoBundle 'dkprice/vim-easygrep'
+NeoBundle 'easymotion/vim-easymotion'
+NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'jiangmiao/auto-pairs'
+NeoBundle 'tpope/vim-surround'
 
-" https://github.com/dag/vim-fish
-Plugin 'dag/vim-fish'
+" All of your NeoBundles must be added before the following line
+call neobundle#end()         " required
 
-" https://github.com/dkprice/vim-easygrep
-Plugin 'dkprice/vim-easygrep'
-
-" https://github.com/easymotion/vim-easymotion
-Plugin 'easymotion/vim-easymotion'
-
-" https://github.com/kien/ctrlp.vim
-Plugin 'kien/ctrlp.vim'
-
-" https://github.com/Matt-Deacalion/vim-systemd-syntax
-Plugin 'Matt-Deacalion/vim-systemd-syntax'
-
-" https://github.com/ekalinin/Dockerfile.vim
-Plugin 'ekalinin/Dockerfile.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
 filetype plugin indent on    " required
 
 syntax on
-colorscheme myterm
+colorscheme behelit
 
 " If using a dark background within the editing area and syntax highlighting
 " turn on this option as well
@@ -51,11 +43,9 @@ endif
 " reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-if &term =~ "terminator"
-    let &t_SI = "\<Esc>]12;purple\x7"
-    let &t_SR = "\<Esc>]12;red\x7"
-    let &t_EI = "\<Esc>]12;blue\x7"
-endif
+let &t_SI = "\<Esc>]12;purple\x7"
+let &t_SR = "\<Esc>]12;red\x7"
+let &t_EI = "\<Esc>]12;blue\x7"
 
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
@@ -84,7 +74,8 @@ set wrap
 set ai
 set cin
 set lz
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=eol:¬,tab:>-,trail:~,extends:#,precedes:<
+set colorcolumn=130
 set list
 set linebreak
 set ruler
@@ -115,10 +106,7 @@ set wildmode=list:full
 set enc=utf-8
 set ls=2
 set fileformat=unix    " forman file ending
-" Просмотр списка буферов по <F4>
-nmap <F4> <Esc>:buffers<CR>
-vmap <F4> <Esc>:buffers<CR>
-imap <F4> <Esc><Esc>:buffers<CR>
+
 " предыдущий буфер
 map <F5> :bp<CR>
 vmap <F5> <Esc>:bp<CR>i
@@ -130,6 +118,8 @@ imap <F6> <Esc>:bn<CR>i
 " Useful settings
 set history=700
 set undolevels=700
+" swap the current word with the next, without changing cursor position
+nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
@@ -138,11 +128,16 @@ set nowritebackup
 set noswapfile
 " set Ignore file
 set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
-set ttyfast
 
 " vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+" IndentLine plugin
+let g:indentLine_char = '|'
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_color_term = 239
+let g:indentLine_leadingSpaceEnabled = 1
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -241,21 +236,20 @@ endfunction
 nmap <F9> mz:execute TabToggle()<CR>'z
 
 "relative numbers
+set nu
+set rnu
 function! NumberToggle()
   if(&relativenumber == 1)
-    set number
+    set rnu!
   else
-    set relativenumber
+    set rnu
   endif
 endfunc
 
-set rnu
-function ToggleNumbersOn()
+function! ToggleNumbersOn()
     set rnu!
-    set nu
 endfunction
-function ToggleRelativeOn()
-    set nu!
+function! ToggleRelativeOn()
     set rnu
 endfunction
 
