@@ -18,7 +18,7 @@ NeoBundle 'Shougo/neobundle.vim'
 " NeoBundle 'cwood/vim-django'
 NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer --tern-completer'}
+NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer'}
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'xolox/vim-session'
 NeoBundle 'xolox/vim-misc'
