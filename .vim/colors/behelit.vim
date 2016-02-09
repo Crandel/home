@@ -154,7 +154,7 @@ if &t_Co > 255
   highlight Error           ctermfg=161     ctermbg=NONE    cterm=bold
   highlight Todo            ctermfg=141     ctermbg=NONE    cterm=bold
   highlight Title           ctermfg=141     ctermbg=NONE    cterm=NONE
-  highlight MatchParen      ctermfg=0       ctermbg=209     cterm=NONE
+  highlight MatchParen      ctermfg=NONE    ctermbg=NONE    cterm=underline
   highlight Underlined      ctermfg=NONE    ctermbg=NONE    cterm=underline
   highlight diffRemoved     ctermfg=161     ctermbg=NONE    cterm=NONE
   highlight diffAdded       ctermfg=69      ctermbg=NONE    cterm=NONE
