@@ -195,6 +195,7 @@ let g:airline_powerline_fonts = 1
 let g:jedi#completions_enabled = 0
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
+let g:jedi#show_call_signatures = "2"
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
 let g:jedi#documentation_command = "K"
@@ -333,8 +334,8 @@ nmap <F12> :Gdiff<CR>
 let g:javascript_enable_domhtmlcss = 1
 
 "Git Gutter
-nmap <C-.> <Plug>GitGutterNextHunk
-nmap <C-,> <Plug>GitGutterPrevHunk
+"nmap <C-.> <Plug>GitGutterNextHunk
+"nmap <C-,> <Plug>GitGutterPrevHunk
 
 " Comment section
 let s:comment_map = {
@@ -347,6 +348,8 @@ let s:comment_map = {
     \   "python": '# ',
     \   "ruby": '# ',
     \   "vim": '" ',
+    \   "bash": '# ',
+    \   "sh": '# ',
     \ }
 
 function! ToggleComment()
@@ -405,5 +408,7 @@ autocmd FocusLost * call ToggleNumbersOn()
 autocmd FocusGained * call ToggleRelativeOn()
 autocmd InsertEnter * call ToggleNumbersOn()
 autocmd InsertLeave * call ToggleRelativeOn()
+
+nnoremap <NUL> :%s/\s\+$//e
 
 nnoremap <C-n> :call NumberToggle()<cr>
