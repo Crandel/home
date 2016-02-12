@@ -148,12 +148,12 @@ set nobackup
 set nowritebackup
 set noswapfile
 " set Ignore file
-set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
+set wildignore+=*/tmp/*,*.so,*.swp,*.pyc,**/bower_components/**,**/node_modules/**,**/.git/**,**/vendor/**
 " Neobundle
 let g:neobundle#log_filename = $HOME.'/.vim/tmp/neobundle.log'
 
 noremap <space>s :ls<cr>
-nnoremap <space>/ :Grep <cr>
+nnoremap <space>/ :Grep<Space>
 
 " Python Syntax
 let g:python_highlight_all = 1
@@ -299,7 +299,9 @@ let g:EasyGrepFilesToExclude=".svn,.git,.idea"
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --hidden\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+  nnoremap <leader>gg :grep <cword><CR>:cwindow<CR>
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
