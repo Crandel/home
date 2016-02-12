@@ -15,33 +15,35 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 " let neobundle manage neobundle, required
 NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim', {'build': {'linux': 'make'}}
 " NeoBundle 'cwood/vim-django'
-NeoBundle 'Matt-Deacalion/vim-systemd-syntax'
+NeoBundleLazy 'Matt-Deacalion/vim-systemd-syntax'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer'}
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-NeoBundle 'xolox/vim-session'
-NeoBundle 'xolox/vim-misc'
+NeoBundleLazy 'Xuyuanp/nerdtree-git-plugin'
+NeoBundleLazy 'xolox/vim-session'
+NeoBundleLazy 'xolox/vim-misc'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundle 'airblade/vim-gitgutter'
+NeoBundleLazy 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'dag/vim-fish'
-NeoBundle 'davidhalter/jedi-vim', {'build': 'sudo pip install -U jedi'}
+
+NeoBundleLazy 'dag/vim-fish'
+NeoBundleLazy 'davidhalter/jedi-vim', {'build': 'sudo pip install -U jedi', 'autoload': {'filetypes': ['python']}}
 NeoBundle 'dkprice/vim-easygrep'
 NeoBundle 'easymotion/vim-easymotion'
-NeoBundle 'ekalinin/Dockerfile.vim'
-NeoBundle 'fatih/vim-go', {'build': 'go get github.com/alecthomas/gometalinter'}
+NeoBundleLazy 'ekalinin/Dockerfile.vim'
+NeoBundleLazy 'fatih/vim-go', {'build': 'go get github.com/alecthomas/gometalinter', 'autoload': {'filetypes': ['go']}}
 NeoBundleLazy 'hdima/python-syntax', {'autoload':{'filetypes':['python']}}
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'othree/html5.vim'
+NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes': ['html', 'xhttml', 'css']}}
+NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes': ['html', 'xhttml', 'css']}}
 "NeoBundle 'racer-rust/vim-racer', {'build': 'cargo install --git https://github.com/phildawes/racer.git'}
 "NeoBundle 'rust-lang/rust.vim', {'build': 'cargo install --git https://github.com/rust-lang-nursery/rustfmt'}
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-fugitive'
+NeoBundleLazy 'scrooloose/nerdtree'
+NeoBundleLazy 'scrooloose/syntastic'
+NeoBundleLazy 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript, html']}}
 
@@ -147,7 +149,11 @@ set nowritebackup
 set noswapfile
 " set Ignore file
 set wildignore+=*/tmp/*,*.so,*.swp,*.pyc
-set ttyfast
+" Neobundle
+let g:neobundle#log_filename = $HOME.'/.vim/tmp/neobundle.log'
+
+noremap <space>s :ls<cr>
+nnoremap <space>/ :Grep <cr>
 
 " Python Syntax
 let g:python_highlight_all = 1
@@ -288,7 +294,7 @@ map  N <Plug>(easymotion-prev)"
 " Easy-grep
 let g:EasyGrepRecursive = 1
 let g:EasyGrepCommand = 1
-let g:EasyGrepFilesToExclude=".svn,.git"
+let g:EasyGrepFilesToExclude=".svn,.git,.idea"
 
 " The Silver Searcher
 if executable('ag')
