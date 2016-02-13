@@ -105,9 +105,9 @@ if &t_Co > 255
   highlight LineNr          ctermfg=67      ctermbg=233     cterm=NONE
   highlight StatusLine      ctermfg=61      ctermbg=234     cterm=NONE
   highlight StatusLineNC    ctermfg=240     ctermbg=234     cterm=NONE
-  highlight VertSplit       ctermfg=234     ctermbg=234     cterm=NONE
-  highlight Visual          ctermfg=NONE    ctermbg=234     cterm=NONE
-  highlight VisualNOS       ctermfg=NONE    ctermbg=234     cterm=underline
+  highlight VertSplit       ctermfg=141     ctermbg=234     cterm=NONE
+  highlight Visual          ctermfg=141     ctermbg=234     cterm=NONE
+  highlight VisualNOS       ctermfg=141     ctermbg=234     cterm=underline
   highlight WildMenu        ctermfg=161     ctermbg=234     cterm=bold
   highlight Folded          ctermfg=141     ctermbg=234     cterm=NONE
   highlight FoldColumn      ctermfg=141     ctermbg=234     cterm=NONE
