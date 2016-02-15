@@ -19,14 +19,15 @@ NeoBundle 'Shougo/vimproc.vim', {'build': {'linux': 'make'}}
 " NeoBundle 'cwood/vim-django'
 NeoBundleLazy 'Matt-Deacalion/vim-systemd-syntax'
 NeoBundle 'SirVer/ultisnips'
-NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer'}
-NeoBundleLazy 'Xuyuanp/nerdtree-git-plugin'
-NeoBundleLazy 'xolox/vim-session'
-NeoBundleLazy 'xolox/vim-misc'
+NeoBundle 'Valloric/YouCompleteMe', {'build': 'python2 install.py --gocode-completer --tern-completer'}
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'xolox/vim-session'
+NeoBundle 'xolox/vim-misc'
 NeoBundle 'Yggdroot/indentLine'
-NeoBundleLazy 'airblade/vim-gitgutter'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'jasoncodes/ctrlp-modified.vim'
 
 NeoBundleLazy 'dag/vim-fish'
 NeoBundleLazy 'davidhalter/jedi-vim', {'build': 'sudo pip install -U jedi', 'autoload': {'filetypes': ['python']}}
@@ -42,8 +43,8 @@ NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes': ['html', 'xhttml', '
 "NeoBundle 'racer-rust/vim-racer', {'build': 'cargo install --git https://github.com/phildawes/racer.git'}
 "NeoBundle 'rust-lang/rust.vim', {'build': 'cargo install --git https://github.com/rust-lang-nursery/rustfmt'}
 NeoBundleLazy 'scrooloose/nerdtree'
-NeoBundleLazy 'scrooloose/syntastic'
-NeoBundleLazy 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript, html']}}
 
@@ -141,6 +142,8 @@ set history=700
 set undolevels=700
 " swap the current word with the next, without changing cursor position
 nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+" JSON PRETTIFY
+nnoremap <leader>jp :%!python -m json.tool<cr>
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
@@ -215,7 +218,7 @@ map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT
 map <F4> :SyntasticCheck<CR>
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_python_flake8_args='--ignore="W191" --max-line-length=130'
+let g:syntastic_python_flake8_args='--ignore="W191,E128,E262,E702" --max-line-length=130'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 nmap <Leader>l :lne<CR>
@@ -262,6 +265,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+map <Leader>m :CtrlPModified<CR>
 
 "Easy-motion
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -340,6 +344,7 @@ nmap <F12> :Gdiff<CR>
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1
+"au BufRead *.html set filetype+=javascript
 
 "Git Gutter
 "nmap <C-.> <Plug>GitGutterNextHunk
