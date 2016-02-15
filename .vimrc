@@ -29,7 +29,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'jasoncodes/ctrlp-modified.vim'
 
-NeoBundleLazy 'dag/vim-fish'
+NeoBundleLazy 'dag/vim-fish', {'autoload': {'filetypes': ['fish']}}
 NeoBundleLazy 'davidhalter/jedi-vim', {'build': 'sudo pip install -U jedi', 'autoload': {'filetypes': ['python']}}
 NeoBundle 'dkprice/vim-easygrep'
 NeoBundle 'easymotion/vim-easymotion'
