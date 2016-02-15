@@ -125,6 +125,10 @@ function tm
    tmux new
 end
 
+function em
+   emacs -nw
+end
+
 function update_kernel
     sudo mkinitcpio -p linux
 end
