@@ -126,7 +126,7 @@ function tm
 end
 
 function em
-   emacs -nw
+   emacs -nw $argv
 end
 
 function update_kernel
