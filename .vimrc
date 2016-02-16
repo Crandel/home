@@ -222,6 +222,8 @@ let g:syntastic_python_flake8_args='--ignore="W191,E128,E262,E702" --max-line-le
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 nmap <Leader>l :lne<CR>
+nmap <Leader>L :llast<CR>
+nmap <Leader>P :lprevious<CR>
 
 " vim-go
 au FileType go nmap <Leader>d <Plug>(go-def)
