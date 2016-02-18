@@ -7,6 +7,16 @@
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
 
+;; Dired
+(require 'dired)
+(setq dired-recursive-deletes 'top) ;; чтобы можно было непустые директории удалять...
+
+;; Imenu
+(require 'imenu)
+(setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере
+(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
+(global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F7
+
 ;; Electric-modes settings
 (electric-pair-mode    1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
 
@@ -15,8 +25,8 @@
 
 ;; Disable GUI components
 (tooltip-mode      -1)
-(menu-bar-mode     -1) ;; отключаем графическое меню
 (tool-bar-mode     -1) ;; отключаем tool-bar
+(menu-bar-mode     -1) ;; отключаем графическое меню
 (scroll-bar-mode   -1) ;; отключаем полосу прокрутки
 (blink-cursor-mode -1) ;; курсор не мигает
 (setq use-dialog-box     nil) ;; никаких графических диалогов и окон - все через минибуфер
@@ -24,7 +34,7 @@
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
 
 ;; Display the name of the current buffer in the title bar
-(setq frame-title-format "GNU Emacs: %b")
+(setq frame-title-format "%b")
 
 ;; Disable backup/autosave files
 (setq make-backup-files        nil)
