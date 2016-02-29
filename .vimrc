@@ -30,6 +30,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'jasoncodes/ctrlp-modified.vim'
 
 NeoBundleLazy 'dag/vim-fish', {'autoload': {'filetypes': ['fish']}}
+NeoBundleLazy 'shime/vim-livedown', {'autoload':{'filetypes':['markdown']}}
 NeoBundleLazy 'davidhalter/jedi-vim', {'build': 'sudo pip install -U jedi', 'autoload': {'filetypes': ['python']}}
 NeoBundle 'dkprice/vim-easygrep'
 NeoBundle 'easymotion/vim-easymotion'
@@ -38,15 +39,15 @@ NeoBundleLazy 'fatih/vim-go', {'build': 'go get github.com/alecthomas/gometalint
 NeoBundleLazy 'hdima/python-syntax', {'autoload':{'filetypes':['python']}}
 NeoBundle 'jiangmiao/auto-pairs'
 NeoBundle 'majutsushi/tagbar'
-NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes': ['html', 'xhttml', 'css']}}
-NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes': ['html', 'xhttml', 'css']}}
+NeoBundleLazy 'mattn/emmet-vim', {'autoload':{'filetypes': ['html', 'xhttml', 'css', 'htmldjango']}}
+NeoBundleLazy 'othree/html5.vim', {'autoload':{'filetypes': ['html', 'xhttml', 'css', 'htmldjango']}}
 "NeoBundle 'racer-rust/vim-racer', {'build': 'cargo install --git https://github.com/phildawes/racer.git'}
 "NeoBundle 'rust-lang/rust.vim', {'build': 'cargo install --git https://github.com/rust-lang-nursery/rustfmt'}
 NeoBundleLazy 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
-NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript, html']}}
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript, html', 'htmldjango']}}
 
 " All of your NeoBundles must be added before the following line
 call neobundle#end()         " required
@@ -157,6 +158,8 @@ let g:neobundle#log_filename = $HOME.'/.vim/tmp/neobundle.log'
 
 noremap <space>s :ls<cr>
 nnoremap <space>/ :Grep<Space>
+
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " Python Syntax
 let g:python_highlight_all = 1
