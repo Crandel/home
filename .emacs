@@ -25,6 +25,7 @@
 
 ;; Disable GUI components
 (tooltip-mode      -1)
+(menu-bar-mode     -1) ;; отключаем графическое меню
 (tool-bar-mode     -1) ;; отключаем tool-bar
 (menu-bar-mode     -1) ;; отключаем графическое меню
 (scroll-bar-mode   -1) ;; отключаем полосу прокрутки
