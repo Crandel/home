@@ -270,6 +270,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 map <Leader>m :CtrlPModified<CR>
 
 "Easy-motion
@@ -349,7 +350,6 @@ nmap <F12> :Gdiff<CR>
 
 " javascript
 let g:javascript_enable_domhtmlcss = 1
-"au BufRead *.html set filetype+=javascript
 
 "Git Gutter
 "nmap <C-.> <Plug>GitGutterNextHunk
