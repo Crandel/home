@@ -17,6 +17,10 @@
 (setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
 (global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F7
 
+;; Ido
+(require 'ido)
+(ido-mode t)
+
 ;; Electric-modes settings
 (electric-pair-mode    1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
 
@@ -94,3 +98,36 @@
 ;; Highlight search resaults
 (setq search-highlight        t)
 (setq query-replace-highlight t)
+
+;; Package manager:
+;; Initialise package and add Melpa repository
+
+(add-to-list 'load-path "~/.emacs.d/")
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t) ;; Добавляем ресурс Melpa
+(package-initialize) ;; Инициализируем пакетный менеджер
+;; El-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
+        (goto-char (point-max))
+        (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+;; Package list
+(defvar required-packages
+  '(autopair ;;
+    projectile ;; Удобный менеджер проектов
+    auto-complete
+    auto-virtualenv ;; Auto virtualenv activates virtualenv automatically when called.
+    flycheck ;; Syntax check on fly
+    jedi))
+
+;; Auto-virtualenv
+(add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
+(add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)
