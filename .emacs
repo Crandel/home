@@ -107,18 +107,6 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t) ;; Добавляем ресурс Melpa
 (package-initialize) ;; Инициализируем пакетный менеджер
-;; El-get
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/dimitri/el-get/master/el-get-install.el")
-        (goto-char (point-max))
-        (eval-print-last-sexp)))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync)
 ;; Package list
 (defvar required-packages
   '(autopair ;;
@@ -128,6 +116,37 @@
     flycheck ;; Syntax check on fly
     jedi))
 
+;; Функция реализет проверку факта установки перечисленных выше пакетов:
+(defun packages-installed-p ()
+    "Packages availability checking."
+    (interactive)
+    (loop for package in required-packages
+          (unless (require 'package nil t)
+            do (return nil)
+          finally (return t)))
+
+;; Автоматическая установка пакетов
+;; при первом запуске Emacs
+;; Auto-install packages
+(unless (packages-installed-p)
+    (message "%s" "Emacs is now refreshing it's package database...")
+    (package-refresh-contents)
+    (message "%s" " done.")
+    (dolist (package required-packages)
+        (unless (package-installed-p package)
+            (package-install package))))
+
 ;; Auto-virtualenv
+(require 'auto-virtualenv)
 (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
 (add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)
+
+;; Jedi
+(require 'jedi)
+(add-hook 'python-mode-hook 'auto-complete-mode)
+(add-hook 'python-mode-hook 'jedi:ac-setup)
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+
+(require 'autopair)
+(autopair-global-mode) 
