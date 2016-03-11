@@ -102,39 +102,36 @@
 ;; Package manager:
 ;; Initialise package and add Melpa repository
 
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/packages/")
+(require 'cl)
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t) ;; Добавляем ресурс Melpa
-(package-initialize) ;; Инициализируем пакетный менеджер
-;; Package list
-(defvar required-packages
-  '(autopair ;;
+
+(setq cfg-var:packages '(
+    autopair ;;
+    emmet-mode
     projectile ;; Удобный менеджер проектов
     auto-complete
+    py-autopep8
+    py-isort
+    yasnippet
     auto-virtualenv ;; Auto virtualenv activates virtualenv automatically when called.
     flycheck ;; Syntax check on fly
     jedi))
 
-;; Функция реализет проверку факта установки перечисленных выше пакетов:
-(defun packages-installed-p ()
-    "Packages availability checking."
-    (interactive)
-    (loop for package in required-packages
-          (unless (require 'package nil t)
-            do (return nil)
-          finally (return t)))
+(defun cfg:install-packages ()
+    (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
+        (when pkgs
+            (message "%s" "Emacs refresh packages database...")
+            (package-refresh-contents)
+            (message "%s" " done.")
+            (dolist (p cfg-var:packages)
+                (package-install p)))))
 
-;; Автоматическая установка пакетов
-;; при первом запуске Emacs
-;; Auto-install packages
-(unless (packages-installed-p)
-    (message "%s" "Emacs is now refreshing it's package database...")
-    (package-refresh-contents)
-    (message "%s" " done.")
-    (dolist (package required-packages)
-        (unless (package-installed-p package)
-            (package-install package))))
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(package-initialize)
+
+(cfg:install-packages)
 
 ;; Auto-virtualenv
 (require 'auto-virtualenv)
@@ -149,4 +146,4 @@
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (require 'autopair)
-(autopair-global-mode) 
+(autopair-global-mode)
