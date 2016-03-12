@@ -22,7 +22,7 @@
 (ido-mode t)
 
 ;; Electric-modes settings
-(electric-pair-mode    1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
+(electric-pair-mode   -1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
 (electric-indent-mode -1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
 ;; Delete selection
 (delete-selection-mode t)
@@ -33,7 +33,6 @@
 (tool-bar-mode     -1) ;; отключаем tool-bar
 (menu-bar-mode     -1) ;; отключаем графическое меню
 (scroll-bar-mode   -1) ;; отключаем полосу прокрутки
-(blink-cursor-mode -1) ;; курсор не мигает
 (setq use-dialog-box     nil) ;; никаких графических диалогов и окон - все через минибуфер
 (setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
 (setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
@@ -107,7 +106,7 @@
 (require 'package)
 
 (setq cfg-var:packages '(
-    autopair ;;
+    smartparens
     emmet-mode
     projectile ;; Удобный менеджер проектов
     auto-complete
@@ -142,8 +141,11 @@
 (require 'jedi)
 (add-hook 'python-mode-hook 'auto-complete-mode)
 (add-hook 'python-mode-hook 'jedi:ac-setup)
-
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(require 'smartparens-config)
+(smartparens-global-mode 1)
 
-(require 'autopair)
-(autopair-global-mode)
+(require 'whitespace)
+(autoload 'global-whitespace-mode  "whitespace" "Toggle whitespace visualization." t)
+(setq whitespace-style '(trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
+(global-whitespace-mode 1)
