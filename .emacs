@@ -79,7 +79,7 @@
 (setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
 (setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
-(setq lisp-indent-function  'common-lisp-indent-function)
+(setq indent-line-function  'insert-tab)
 
 ;; Scrolling settings
 (setq scroll-step               1) ;; вверх-вниз по 1 строке
@@ -115,7 +115,9 @@
     yasnippet
     auto-virtualenv ;; Auto virtualenv activates virtualenv automatically when called.
     flycheck ;; Syntax check on fly
-    jedi))
+    company ;; Complete All
+    company-jedi
+    company-flx))
 
 (defun cfg:install-packages ()
     (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
@@ -136,15 +138,21 @@
 (require 'auto-virtualenv)
 (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
 (add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)
-
-;; Jedi
-(require 'jedi)
-(add-hook 'python-mode-hook 'auto-complete-mode)
-(add-hook 'python-mode-hook 'jedi:ac-setup)
+;; Company
+(add-hook 'after-init-hook 'global-company-mode)
+;; company fix
+(with-eval-after-load 'company
+    (company-flx-mode +1))
+;; company jedi
+(defun my/python-mode-hook ()
+      (add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'my/python-mode-hook)
+;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+;; Smartparent
 (require 'smartparens-config)
 (smartparens-global-mode 1)
-
+;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode  "whitespace" "Toggle whitespace visualization." t)
 (setq whitespace-style '(trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
