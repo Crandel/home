@@ -5,7 +5,7 @@
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)
-(setq ingibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
+(setq inhibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
 
 ;; Dired
 (require 'dired)
@@ -47,7 +47,7 @@
 
 ;; Coding-system settings
 (set-language-environment 'UTF-8)
-(setq default-buffer-file-coding-system 'utf-8)
+(setq buffer-file-coding-system 'utf-8)
 (setq-default coding-system-for-read    'utf-8)
 (setq file-name-coding-system           'utf-8)
 (set-selection-coding-system            'utf-8)
@@ -149,6 +149,7 @@
 (add-hook 'python-mode-hook 'my/python-mode-hook)
 ;; Flycheck
 (add-hook 'after-init-hook #'global-flycheck-mode)
+(global-flycheck-mode)
 ;; Smartparent
 (require 'smartparens-config)
 (smartparens-global-mode 1)
@@ -157,3 +158,10 @@
 (autoload 'global-whitespace-mode  "whitespace" "Toggle whitespace visualization." t)
 (setq whitespace-style '(trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
 (global-whitespace-mode 1)
+(setq whitespace-display-mappings
+  ;; all numbers are Unicode codepoint in decimal. ⁖ (insert-char 182 1)
+  '(
+    (space-mark 32 [183] [46]) ; 32 SPACE 「 」, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
+    (newline-mark 10 [8617 10]) ; 10 LINE FEED
+    (tab-mark 9 [8594 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
+  ))
