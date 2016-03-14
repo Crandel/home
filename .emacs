@@ -81,6 +81,12 @@
 (setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 (setq indent-line-function  'insert-tab)
+(setq tab-stop-list (number-sequence 4 200 4))
+(add-hook 'python-mode-hook
+  (lambda ()
+    (setq indent-tabs-mode nil)
+    (setq tab-width 4)
+    (setq python-indent 4)))
 
 ;; Scrolling settings
 (setq scroll-step               1) ;; вверх-вниз по 1 строке
