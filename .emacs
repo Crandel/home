@@ -23,7 +23,7 @@
 
 ;; Electric-modes settings
 (electric-pair-mode   -1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
-(electric-indent-mode -1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
+(electric-indent-mode 1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
 ;; Delete selection
 (delete-selection-mode t)
 
@@ -75,9 +75,10 @@
 ;; Indent settings
 (setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
 (setq-default tab-width          4) ;; ширина табуляции - 4 пробельных символа
+(setq tab-width                  4) ;; ширина табуляции - 4 пробельных символа
+(setq-default tab-always-indent nil) ;; make tab key call indent command or insert tab character, depending on cursor position
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
-(setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 (setq indent-line-function  'insert-tab)
 
@@ -106,6 +107,7 @@
 (require 'package)
 
 (setq cfg-var:packages '(
+    multiple-cursors
     smartparens
     emmet-mode
     projectile ;; Удобный менеджер проектов
@@ -118,7 +120,8 @@
     company ;; Complete All
     company-jedi
     company-flx))
-
+;; for gnu repository
+;(setq package-check-signature nil)
 (defun cfg:install-packages ()
     (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
         (when pkgs
@@ -128,8 +131,9 @@
             (dolist (p cfg-var:packages)
                 (package-install p)))))
 
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
 (cfg:install-packages)
@@ -165,3 +169,6 @@
     (newline-mark 10 [8617 10]) ; 10 LINE FEED
     (tab-mark 9 [8594 9] [92 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
   ))
+
+;; Custom keybindings
+(global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
