@@ -215,13 +215,13 @@ let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#use_tag_stack = 0
 au FileType python setlocal completeopt-=preview
-map <Leader>b Oimport ipdb; ipdb.set_trace() # BREAKPOINT
+map <Leader>b Oimport ipdb; ipdb.set_trace()  # BREAKPOINT
 
 " Syntastic
 map <F4> :SyntasticCheck<CR>
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_python_flake8_args='--ignore="W191,E128,E262,E702" --max-line-length=130'
+let g:syntastic_python_flake8_args='--ignore="W191,E126,E128,E251,E262,E702" --max-line-length=130'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 nmap <Leader>l :lne<CR>
@@ -304,7 +304,7 @@ map  N <Plug>(easymotion-prev)"
 " Easy-grep
 let g:EasyGrepRecursive = 1
 let g:EasyGrepCommand = 1
-let g:EasyGrepFilesToExclude=".svn,.git,.idea"
+let g:EasyGrepFilesToExclude=".svn,.git,.idea,vendor"
 
 " The Silver Searcher
 if executable('ag')
