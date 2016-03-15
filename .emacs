@@ -124,6 +124,7 @@
     emmet-mode
     projectile ;; Удобный менеджер проектов
     auto-complete
+    calmer-forest-theme
     py-autopep8
     py-isort
     yasnippet
@@ -145,12 +146,15 @@
             (dolist (p cfg-var:packages)
                 (package-install p)))))
 
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(setq my-package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("org" . "http://orgmode.org/elpa/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(add-to-list 'package-archives my-package-archives)
 (package-initialize)
 
 (cfg:install-packages)
+
+(load-theme 'calmer-forest t) ;; load material theme
 
 ;; Auto-virtualenv
 (require 'auto-virtualenv)
