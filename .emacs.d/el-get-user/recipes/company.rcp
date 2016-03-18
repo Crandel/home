@@ -1,0 +1,5 @@
+(:name company
+       :type github
+       :pkgname "company-mode/company-mode"
+       :description "Company is a text completion framework for Emacs"
+       :depends (cl-lib))
