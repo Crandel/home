@@ -169,7 +169,7 @@ bar {
 }
 
 # my settings
-client.focused          #4B610B  #BFFF00 #8904B1 #00DA8E
+client.focused          #4B610B  #999900 #e6ffff #00DA8E
 client.focused_inactive #4B610B  #000000 #FFFFFF #484e50
 client.unfocused        #4B610B  #424242 #ECF6CE #292d2e
 client.urgent           #4B610B  #900000 #ffffff #900000
@@ -207,9 +207,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 exec --no-startup-id sbxkb
 exec_always --no-startup-id numlockx on
-exec terminator
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 exec pidgin
-exec skype
+exec terminator
 exec clipit

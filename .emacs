@@ -114,12 +114,11 @@
 ;; Package manager:
 ;; Initialise package and add Melpa repository
 
-(add-to-list 'load-path "~/.emacs.d/packages/")
 (require 'cl)
 (require 'package)
 
-(setq cfg-var:packages '(
-    multiple-cursors
+(setq cfg-var:packages
+  '(multiple-cursors
     smartparens
     emmet-mode
     projectile ;; Удобный менеджер проектов
@@ -146,15 +145,24 @@
             (dolist (p cfg-var:packages)
                 (package-install p)))))
 
-(setq my-package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("org" . "http://orgmode.org/elpa/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-(add-to-list 'package-archives my-package-archives)
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
-(cfg:install-packages)
+(unless (require 'el-get nil 'noerror)
+    (package-refresh-contents)
+    (package-initialize)
+    (package-install 'el-get)
+    (require 'el-get))
 
-(load-theme 'calmer-forest t) ;; load material theme
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync cfg-var:packages)
+
+;(cfg:install-packages)
+
+;(load-theme 'calmer-forest t) ;; load material theme
 
 ;; Auto-virtualenv
 (require 'auto-virtualenv)
