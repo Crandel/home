@@ -207,8 +207,10 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 exec --no-startup-id sbxkb
 exec_always --no-startup-id numlockx on
+exec terminator
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 exec pidgin
 exec terminator
 exec clipit
+#exec qtox
