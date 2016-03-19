@@ -1,7 +1,0 @@
-(:name calmer-forest-theme
-       :type github
-       :pkgname "caldwell/calmer-forest-theme"
-       :description "Calmer forest theme, dark and green"
-       :depends color-theme
-       :prepare (autoload 'calmer-forest "calmer-forest"
-                  "color-theme: calmer-forest" t))

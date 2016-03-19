@@ -68,9 +68,9 @@
 (setq linum-format " %d") ;; задаем формат нумерации строк
 
 ;; Fringe settings
-(fringe-mode '(8 . 0)) ;; органичиталь текста только слева
-(setq-default indicate-empty-lines t) ;; отсутствие строки выделить глифами рядом с полосой с номером строки
-(setq-default indicate-buffer-boundaries 'left) ;; индикация только слева
+;(fringe-mode '(8 . 0)) ;; органичиталь текста только слева
+;(setq-default indicate-empty-lines t) ;; отсутствие строки выделить глифами рядом с полосой с номером строки
+;(setq-default indicate-buffer-boundaries 'left) ;; индикация только слева
 
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format t) ;; 24-часовой временной формат в mode-line
@@ -88,11 +88,6 @@
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 (setq indent-line-function  'insert-tab)
 (setq tab-stop-list (number-sequence 4 200 4))
-(add-hook 'python-mode-hook
-  (lambda ()
-    (setq indent-tabs-mode nil)
-    (setq tab-width 4)
-    (setq python-indent 4)))
 
 ;; Scrolling settings
 (setq scroll-step               1) ;; вверх-вниз по 1 строке
@@ -111,79 +106,7 @@
 (setq search-highlight        t)
 (setq query-replace-highlight t)
 
-;; Package manager:
-;; Initialise package and add Melpa repository
-
-(require 'cl)
-(require 'package)
-
-(setq cfg-var:packages
-  '(multiple-cursors
-    smartparens
-    emmet-mode
-    projectile ;; Удобный менеджер проектов
-    auto-complete
-    calmer-forest-theme
-    py-autopep8
-    py-isort
-    yasnippet
-    auto-virtualenv ;; Auto virtualenv activates virtualenv automatically when called.
-    flycheck ;; Syntax check on fly
-    company ;; Complete All
-    company-jedi
-    company-flx))
-
-;; for gnu repository
-(setq package-check-signature nil)
-
-(defun cfg:install-packages ()
-    (let ((pkgs (remove-if #'package-installed-p cfg-var:packages)))
-        (when pkgs
-            (message "%s" "Emacs refresh packages database...")
-            (package-refresh-contents)
-            (message "%s" " done.")
-            (dolist (p cfg-var:packages)
-                (package-install p)))))
-
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(package-initialize)
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-    (package-refresh-contents)
-    (package-initialize)
-    (package-install 'el-get)
-    (require 'el-get))
-
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(el-get 'sync cfg-var:packages)
-
-;(cfg:install-packages)
-
-;(load-theme 'calmer-forest t) ;; load material theme
-
-;; Auto-virtualenv
-(require 'auto-virtualenv)
-(add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv)
-(add-hook 'projectile-after-switch-project-hook 'auto-virtualenv-set-virtualenv)
-;; Company
-(add-hook 'after-init-hook 'global-company-mode)
-;; company fix
-(with-eval-after-load 'company
-    (company-flx-mode +1))
-;; company jedi
-(defun my/python-mode-hook ()
-      (add-to-list 'company-backends 'company-jedi))
-(add-hook 'python-mode-hook 'my/python-mode-hook)
-;; Flycheck
-(add-hook 'after-init-hook #'global-flycheck-mode)
-(global-flycheck-mode)
-;; Smartparent
-(require 'smartparens-config)
-(smartparens-global-mode 1)
-;; Whitespace
+;;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode  "whitespace" "Toggle whitespace visualization." t)
 (setq whitespace-style '(trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
@@ -196,5 +119,4 @@
     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
   ))
 
-;; Custom keybindings
-(global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
+(provide 'my_scratch)
