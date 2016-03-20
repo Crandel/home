@@ -20,11 +20,15 @@
 ;; Ido
 (require 'ido)
 (ido-mode t)
+(icomplete-mode t)
+(ido-everywhere t)
+(setq ido-virtual-buffers t)
+(setq ido-enable-flex-matching t)
 
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file "~/.emacs.d/saved-places")
-(setq save-place-forget-unreadable-files nil)
+(setq save-place-forget-unreadable-files t)
 
 ;; Electric-modes settings
 (electric-pair-mode   -1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
