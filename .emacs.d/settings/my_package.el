@@ -49,17 +49,25 @@
     (add-hook 'javascript-mode-hook 'projectile-mode))
 
 (el-get-bundle company-mode
-    (add-hook 'after-init-hook 'global-company-mode))
+    (global-company-mode t)
+    (company-idle-delay -1))
 
 (el-get-bundle company-flx
     (with-eval-after-load 'company
         (company-flx-mode +1)))
 
+(el-get-bundle jedi-core
+    :type github
+    :pkgname "tkf/emacs-jedi"
+    :depends (cl-lib epc python-environment)
+    (add-hook 'python-mode-hook 'jedi:setup)
+    (setq jedi:complete-on-dot t))
+
 (el-get-bundle company-jedi
     :depends (cl-lib company-mode jedi-core)
     (with-eval-after-load 'company
         (add-hook 'python-mode-hook
-            (add-to-list 'company-backends 'company-jedi ))))
+            (add-to-list 'company-backends 'company-jedi))))
 
 (el-get-bundle flycheck
     (add-hook 'after-init-hook #'global-flycheck-mode))
