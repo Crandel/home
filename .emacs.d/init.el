@@ -3,5 +3,3 @@
 (require 'my_package)
 (require 'my_python)
 (require 'my_keybindings)
-(require 'dark-mint-theme)
-(load-theme 'dark-mint t)

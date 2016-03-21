@@ -1,5 +1,0 @@
-(:name auto-virtualenv
-       :type github
-       :pkgname "marcwebbie/auto-virtualenv"
-       :description "Automatically compile Emacs Lisp libraries."
-       :depends (cl-lib pyvenv s))
