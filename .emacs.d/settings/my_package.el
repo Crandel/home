@@ -13,10 +13,13 @@
         dark-mint-theme
         emmet-mode
         ergoemacs-mode
+        flycheck
         jedi-core
         multiple-cursors
         py-autopep8
         py-isort
+        projectile
+        smartparens
         yasnippet
       )
 )
@@ -40,17 +43,4 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync my-packages)
 
-
-
-
-;(el-get-bundle projectile
-;    (add-hook 'python-mode-hook 'projectile-mode)
-;    (add-hook 'javascript-mode-hook 'projectile-mode))
-
-;(el-get-bundle flycheck
-;    (add-hook 'after-init-hook #'global-flycheck-mode))
-;
-;(el-get-bundle smartparens
-;     (add-hook 'after-init-hook #'smartparens-global-mode))
-;
 (provide 'my_package)
