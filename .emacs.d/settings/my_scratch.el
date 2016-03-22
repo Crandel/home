@@ -120,6 +120,7 @@
   '(
     (space-mark 32 [183] [46]) ; 32 SPACE 「 」, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
     (newline-mark 10 [8617 10]) ; 10 LINE FEED
+    (lines-tail 10 [8617 10]) ; 10 LINE FEED
     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
   ))
 

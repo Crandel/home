@@ -1,0 +1,7 @@
+(:name jedi-core
+       :type github
+       :pkgname "tkf/emacs-jedi" 
+       :depends (cl-lib epc python-environment)
+       :post-init (progn
+                    (add-hook 'python-mode-hook 'jedi:setup)
+                    (setq jedi:complete-on-dot t)))

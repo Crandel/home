@@ -1,0 +1,4 @@
+(:name py-isort
+    :type github
+    :pkgname "paetzke/py-isort.el"
+    :description "Provides commands, which use the external isort tool to tidy up the imports in the current buffer")
