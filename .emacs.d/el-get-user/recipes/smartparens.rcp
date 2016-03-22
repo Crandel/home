@@ -1,0 +1,6 @@
+(:name smartparens
+       :description "Autoinsert pairs of defined brackets and wrap regions"
+       :type github
+       :pkgname "Fuco1/smartparens"
+       :depends dash
+       :post-init (add-hook 'after-init-hook #'smartparens-global-mode))

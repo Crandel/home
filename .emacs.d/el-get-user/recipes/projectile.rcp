@@ -1,0 +1,8 @@
+(:name projectile
+       :description "Project navigation and management library for Emacs."
+       :type github
+       :pkgname "bbatsov/projectile"
+       :depends (dash pkg-info)
+       :post-init (progn
+                    (add-hook 'python-mode-hook 'projectile-mode)
+                    (add-hook 'javascript-mode-hook 'projectile-mode)))
