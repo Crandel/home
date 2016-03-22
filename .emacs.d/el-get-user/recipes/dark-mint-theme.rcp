@@ -1,0 +1,7 @@
+(:name dark-mint-theme
+       :description "Dark theme"
+       :type "github"
+       :pkgname "shaunvxc/dark-mint-theme"
+       :prepare (add-to-list 'custom-theme-load-path
+                             default-directory)
+       :post-init (load-theme 'dark-mint t))

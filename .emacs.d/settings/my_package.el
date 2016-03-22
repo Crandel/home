@@ -4,13 +4,22 @@
 (require 'package)
 
 (setq my-packages
-    '(el-get
-      emmet-mode
-      ergoemacs-mode
-      multiple-cursors
-      py-autopep8
-      smartparens
-      yasnippet))
+    '(
+        el-get
+        auto-virtualenv
+        company-mode
+        company-flx
+        company-jedi
+        dark-mint-theme
+        emmet-mode
+        ergoemacs-mode
+        jedi-core
+        multiple-cursors
+        py-autopep8
+        py-isort
+        yasnippet
+      )
+)
 
 ;; for gnu repository
 (setq package-check-signature nil)
@@ -31,45 +40,17 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (el-get 'sync my-packages)
 
-(el-get-bundle elpa:dark-mint-theme
-    (load-theme 'dark-mint t))
 
-(el-get-bundle magit
-    (global-set-key (kbd "C-x C-z") 'magit-status))
 
-(el-get-bundle! marcwebbie/auto-virtualenv
-    :depends (cl-lib pyvenv s)
-    (add-hook 'python-mode-hook 'auto-virtualenv-set-virtualenv))
 
-(el-get-bundle! elpa:py-isort
-    :build ("sudo pip install -U isort"))
+;(el-get-bundle projectile
+;    (add-hook 'python-mode-hook 'projectile-mode)
+;    (add-hook 'javascript-mode-hook 'projectile-mode))
 
-(el-get-bundle projectile
-    (add-hook 'python-mode-hook 'projectile-mode)
-    (add-hook 'javascript-mode-hook 'projectile-mode))
-
-(el-get-bundle company-mode
-    (global-company-mode t)
-    (company-idle-delay -1))
-
-(el-get-bundle company-flx
-    (with-eval-after-load 'company
-        (company-flx-mode +1)))
-
-(el-get-bundle jedi-core
-    :type github
-    :pkgname "tkf/emacs-jedi"
-    :depends (cl-lib epc python-environment)
-    (add-hook 'python-mode-hook 'jedi:setup)
-    (setq jedi:complete-on-dot t))
-
-(el-get-bundle company-jedi
-    :depends (cl-lib company-mode jedi-core)
-    (with-eval-after-load 'company
-        (add-hook 'python-mode-hook
-            (add-to-list 'company-backends 'company-jedi))))
-
-(el-get-bundle flycheck
-    (add-hook 'after-init-hook #'global-flycheck-mode))
-
+;(el-get-bundle flycheck
+;    (add-hook 'after-init-hook #'global-flycheck-mode))
+;
+;(el-get-bundle smartparens
+;     (add-hook 'after-init-hook #'smartparens-global-mode))
+;
 (provide 'my_package)
