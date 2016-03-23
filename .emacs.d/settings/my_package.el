@@ -12,7 +12,7 @@
         company-jedi
         dark-mint-theme
         emmet-mode
-        ergoemacs-mode
+        ;ergoemacs-mode
         flycheck
         jedi-core
         multiple-cursors
