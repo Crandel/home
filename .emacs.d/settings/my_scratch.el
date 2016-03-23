@@ -24,7 +24,11 @@
 (ido-everywhere t)
 (setq ido-virtual-buffers t)
 (setq ido-enable-flex-matching t)
-
+(setq ido-all-frames t)
+(setq ido-auto-merge-delay-time 0)
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(setq ido-mode (quote both) nil (ido))
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file "~/.emacs.d/saved-places")
