@@ -1,6 +1,6 @@
 ;; Custom keybindings
 (global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
-;; Movingi
+;; Moving
 ;;UP
 (global-unset-key (kbd "M-i"))
 (global-set-key (kbd "M-i") 'previous-line)
@@ -15,6 +15,28 @@
 (global-unset-key (kbd "M-l"))
 (global-set-key (kbd "M-l") 'forward-char)
 (global-set-key (kbd "C-c l") 'downcase-word)
+;; RIGHT WORD
+(global-unset-key (kbd "M-u"))
+(global-set-key (kbd "M-u") 'forward-word)
+(global-set-key (kbd "C-c u") 'upcase-word)
+;; LEFT WORD
+(global-unset-key (kbd "M-o"))
+(global-set-key (kbd "M-o") 'backward-word)
+
+;; move line up
+(defun move-line-up ()
+    (interactive)
+    (transpose-lines 1)
+    (previous-line 2))
+(global-set-key [M-S-up] 'move-line-up)
+
+;; move line down
+(defun move-line-down ()
+    (interactive)
+    (next-line 1)
+    (transpose-lines 1)
+    (previous-line 1))
+(global-set-key [M-S-down] 'move-line-down)
 
 ;; Multiple cursors
 (global-set-key (kbd "C-c .") 'mc/mark-next-like-this-word) ; choose same word next

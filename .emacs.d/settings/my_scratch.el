@@ -32,7 +32,7 @@
 
 ;; Electric-modes settings
 (electric-pair-mode   -1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
-(electric-indent-mode 1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
+(electric-indent-mode -1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
 ;; Delete selection
 (delete-selection-mode t)
 
@@ -72,9 +72,9 @@
 (setq linum-format " %d") ;; задаем формат нумерации строк
 
 ;; Fringe settings
-;(fringe-mode '(8 . 0)) ;; органичиталь текста только слева
-;(setq-default indicate-empty-lines t) ;; отсутствие строки выделить глифами рядом с полосой с номером строки
-;(setq-default indicate-buffer-boundaries 'left) ;; индикация только слева
+(fringe-mode '(8 . 0)) ;; органичиталь текста только слева
+(setq-default indicate-empty-lines t) ;; отсутствие строки выделить глифами рядом с полосой с номером строки
+(setq-default indicate-buffer-boundaries 'left) ;; индикация только слева
 
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format t) ;; 24-часовой временной формат в mode-line
