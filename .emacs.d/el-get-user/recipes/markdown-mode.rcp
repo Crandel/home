@@ -1,0 +1,11 @@
+(:name markdown-mode
+       :description "Major mode to edit Markdown files in Emacs"
+       :website "http://jblevins.org/projects/markdown-mode/"
+       :type github
+       :pkgname "jrblevin/markdown-mode"
+       :prepare (add-to-list 'auto-mode-alist
+                             '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))
+       :post-init (add-hook 'markdown-mode-hook
+                    (progn
+                        (when buffer-file-name
+                            (add-hook 'after-save-hook 'check-parens nil t)))))

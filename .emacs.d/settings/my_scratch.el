@@ -28,7 +28,6 @@
 (setq ido-auto-merge-delay-time 0)
 (setq ido-enable-flex-matching t)
 (setq ido-everywhere t)
-(setq ido-mode (quote both) nil (ido))
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file "~/.emacs.d/saved-places")
