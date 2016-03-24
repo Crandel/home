@@ -6,7 +6,6 @@
 (setq my-packages
     '(
         el-get
-        auto-complete
         auto-virtualenv
         company-mode
         company-flx
@@ -14,7 +13,6 @@
         dark-mint-theme
         emmet-mode
         emacs-fish
-        ;ergoemacs-mode
         flycheck
         jedi-core
         go-mode
@@ -26,6 +24,7 @@
         py-isort
         projectile
         smartparens
+        tabbar
         yasnippet
       )
 )

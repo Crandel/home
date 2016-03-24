@@ -1,0 +1,18 @@
+(:name tabbar
+       :description "Display a tab bar in the header line."
+       :type github
+       :pkgname "dholm/tabbar"
+       :post-init
+            (progn
+                (tabbar-mode t)
+                (setq tabbar-cycle-scope 'tabs)
+                (setq tabbar-use-images nil)
+                (setq tabbar-background-color "#959A79") ;; the color of the tabbar background
+                (custom-set-faces
+                    '(tabbar-default ((t (:inherit variable-pitch :background "#959A79" :foreground "black" :weight bold))))
+                    '(tabbar-button ((t (:inherit tabbar-default :foreground "dark red"))))
+                    '(tabbar-button-highlight ((t (:inherit tabbar-default))))
+                    '(tabbar-highlight ((t (:underline t))))
+                    '(tabbar-selected ((t (:inherit tabbar-default :background "#95CA59"))))
+                    '(tabbar-separator ((t (:inherit tabbar-default :background "#95CA59"))))
+                    '(tabbar-unselected ((t (:inherit tabbar-default)))))))
