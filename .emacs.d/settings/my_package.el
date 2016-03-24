@@ -6,16 +6,22 @@
 (setq my-packages
     '(
         el-get
+        auto-complete
         auto-virtualenv
         company-mode
         company-flx
         company-jedi
         dark-mint-theme
         emmet-mode
+        emacs-fish
         ;ergoemacs-mode
         flycheck
         jedi-core
+        go-mode
+        go-company
+        markdown-mode
         multiple-cursors
+        less-css-mode
         py-autopep8
         py-isort
         projectile

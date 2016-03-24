@@ -6,5 +6,5 @@
        :post-init(progn
                     (setq ergoemacs-theme nil) ;; Uses Standard Ergoemacs keyboard theme
                     (setq ergoemacs-keyboard-layout "us") ;; Assumes QWERTY keyboard layout
-                    (setq ergoemacs-theme "lvl2")
+                    ;(setq ergoemacs-theme "lvl2")
                     (ergoemacs-mode 1)))
