@@ -11,11 +11,10 @@
         company-mode
         company-flx
         dark-mint-theme
+        ecb
         emmet-mode
         emacs-fish
         flycheck
-        ;jedi-core
-        ;company-jedi
         go-mode
         go-company
         markdown-mode

@@ -10,8 +10,7 @@
 ;; Imenu
 (require 'imenu)
 (setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере
-;(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
-(global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F7
+(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
 
 ;; Ido
 (require 'ido)
