@@ -7,14 +7,10 @@
 (setq inhibit-splash-screen   t)
 (setq inhibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
 
-;; Dired
-(require 'dired)
-(setq dired-recursive-deletes 'top) ;; чтобы можно было непустые директории удалять...
-
 ;; Imenu
 (require 'imenu)
 (setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере
-(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
+;(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
 (global-set-key (kbd "<f7>") 'imenu) ;; вызов Imenu на F7
 
 ;; Ido
@@ -94,7 +90,6 @@
 (setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 (setq indent-line-function  'insert-tab)
-(setq tab-stop-list (number-sequence 4 200 4))
 
 ;; Scrolling settings
 (setq scroll-step               1) ;; вверх-вниз по 1 строке
