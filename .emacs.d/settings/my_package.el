@@ -7,14 +7,15 @@
     '(
         el-get
         auto-virtualenv
+        anaconda-mode
         company-mode
         company-flx
-        company-jedi
         dark-mint-theme
         emmet-mode
         emacs-fish
         flycheck
-        jedi-core
+        ;jedi-core
+        ;company-jedi
         go-mode
         go-company
         markdown-mode
@@ -24,7 +25,6 @@
         py-isort
         projectile
         smartparens
-        tabbar
         yasnippet
       )
 )

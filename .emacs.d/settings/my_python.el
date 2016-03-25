@@ -8,7 +8,7 @@
         (setq indent-tabs-mode t)
       (setq indent-tabs-mode nil)
     )
-    (add-to-list 'company-backends 'company-jedi)
+    ;(add-to-list 'company-backends 'company-jedi)
 )
 (add-hook 'python-mode-hook 'my_python_hooks)
 
