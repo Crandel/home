@@ -11,7 +11,6 @@
         company-mode
         company-flx
         dark-mint-theme
-        ecb
         emmet-mode
         emacs-fish
         flycheck
@@ -19,6 +18,7 @@
         go-company
         markdown-mode
         multiple-cursors
+        neotree
         less-css-mode
         py-autopep8
         py-isort

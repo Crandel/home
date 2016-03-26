@@ -11,6 +11,7 @@
 (require 'imenu)
 (setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере
 (setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
+(semantic-mode 1)
 
 ;; Ido
 (require 'ido)
@@ -120,5 +121,8 @@
     (lines-tail 10 [8617 10]) ; 10 LINE FEED
     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
   ))
+
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
 
 (provide 'my_scratch)
