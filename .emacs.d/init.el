@@ -1,5 +1,5 @@
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 (require 'my_scratch)
 (require 'my_package)
-(require 'my_python)
+(require 'my_hooks)
 (require 'my_keybindings)

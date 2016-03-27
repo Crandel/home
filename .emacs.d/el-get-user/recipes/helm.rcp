@@ -1,0 +1,23 @@
+(:name helm
+       :description "Emacs incremental completion and narrowing framework"
+       :type github
+       :pkgname "emacs-helm/helm"
+       :autoloads "helm-autoloads"
+       :build (("make"))
+       :build/darwin `(("make" ,(format "EMACS_COMMAND=%s" el-get-emacs)))
+       ;; Windows probably doesn't have make available so we fake it.
+       :build/windows-nt
+       (let ((generated-autoload-file (expand-file-name "helm-autoloads.el")) \
+             (backup-inhibited t))
+         (update-directory-autoloads default-directory)
+         nil)
+       :features "helm-config"
+       :post-init (progn
+                    (setq helm-mode-fuzzy-match                 t
+                          helm-split-window-in-side-p           t
+                          helm-completion-in-region-fuzzy-match t
+                          helm-candidate-number-limit           50
+                          helm-move-to-line-cycle-in-source     t
+                          helm-buffers-fuzzy-matching           t
+                          helm-recentf-fuzzy-match              t)
+                    (helm-mode)))

@@ -1,0 +1,9 @@
+(:name helm-company
+       :description "Helm interface for company-mode."
+       :type github
+       :pkgname "manuel-uberti/helm-company"
+       :depends (company-mode helm)
+       :post-init (eval-after-load 'company
+                    '(progn
+                        (define-key company-mode-map (kbd "C-:") 'helm-company)
+                        (define-key company-active-map (kbd "C-:") 'helm-company))))

@@ -16,6 +16,10 @@
         flycheck
         go-mode
         go-company
+        helm
+        helm-ls-git
+        helm-projectile
+        js2-mode
         markdown-mode
         multiple-cursors
         neotree

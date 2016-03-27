@@ -5,10 +5,8 @@
        :pkgname "company-mode/company-mode"
        :post-init (progn
                     (global-company-mode t)
-                    (setq company-idle-delay -1)
-                    (setq company-auto-complete (quote (quote company-explicit-action-p)))
-                    (setq company-auto-complete-chars (quote (32 40 41 46 60)))
-                    (setq delete-selection-mode t)
-                    (setq selection-coding-system (quote utf-8))
+                    (setq company-idle-delay -1
+                        delete-selection-mode t
+                        selection-coding-system (quote utf-8))
                     ))
 
