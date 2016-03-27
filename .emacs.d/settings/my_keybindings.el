@@ -47,4 +47,11 @@
 ;; Magit
 (global-set-key (kbd "C-x C-z") 'magit-status)
 
+;; Helm
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "C-p") 'helm-mini)
+(global-set-key [f10] 'helm-semantic-or-imenu)
+
+
+
 (provide 'my_keybindings)

@@ -17,11 +17,15 @@
     (add-to-list
         'imenu-generic-expression
         '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
-    ;(setq imenu-create-index-function 'my-merge-imenu)
-    (setq imenu-create-index-function 'python-imenu-create-index)
-)
+    (setq imenu-create-index-function 'my-merge-imenu))
+
 (add-hook 'python-mode-hook 'my_python_hooks)
 
+(defun my_js_hooks()
+    (interactive)
+    (imenu-add-menubar-index))
 
-(provide 'my_python)
+(add-hook 'js2-mode-hook 'my_js_hooks)
+
+(provide 'my_hooks)
 
