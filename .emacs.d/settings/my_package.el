@@ -19,6 +19,7 @@
         helm
         helm-ls-git
         helm-projectile
+        jinja2-mode
         js2-mode
         markdown-mode
         multiple-cursors
