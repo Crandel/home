@@ -16,12 +16,12 @@
 (global-set-key (kbd "M-l") 'forward-char)
 (global-set-key (kbd "C-c l") 'downcase-word)
 ;; RIGHT WORD
-(global-unset-key (kbd "M-u"))
-(global-set-key (kbd "M-u") 'forward-word)
-(global-set-key (kbd "C-c u") 'upcase-word)
-;; LEFT WORD
 (global-unset-key (kbd "M-o"))
-(global-set-key (kbd "M-o") 'backward-word)
+(global-set-key (kbd "M-o") 'forward-word)
+;; LEFT WORD
+(global-unset-key (kbd "M-u"))
+(global-set-key (kbd "M-u") 'backward-word)
+(global-set-key (kbd "C-c u") 'upcase-word)
 
 ;; move line up
 (defun move-line-up ()

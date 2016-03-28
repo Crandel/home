@@ -49,6 +49,7 @@
 (setq frame-title-format "%b")
 
 ;; Disable backup/autosave files
+(setq backup-inhibited           t)
 (setq make-backup-files        nil)
 (setq auto-save-default        nil)
 (setq auto-save-list-file-name nil) ;; я так привык... хотите включить - замените nil на t
