@@ -10,6 +10,7 @@
         anaconda-mode
         company-mode
         company-flx
+        company-anaconda
         dark-mint-theme
         emmet-mode
         emacs-fish
@@ -29,6 +30,7 @@
         py-isort
         projectile
         smartparens
+        xclip
         yasnippet
       )
 )
