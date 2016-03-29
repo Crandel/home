@@ -2,11 +2,15 @@
        :website "https://github.com/jaypei/emacs-neotree"
        :description "An Emacs tree plugin like NerdTree for Vim."
        :type github
-       :branch "master"
+       :branch "dev"
        :pkgname "jaypei/emacs-neotree"
        :post-init (progn
                     (global-set-key [f7] 'neotree-toggle)
-                    (setq neo-smart-open t)
-                    (setq projectile-switch-project-action 'neotree-projectile-action)
-                    )
+                    (setq neo-smart-open                   t
+                          neo-theme                        'arrow
+                          neo-show-hidden-files            t
+                          neo-vc-integration               (quote (face))
+                          neo-cwd-line-style               'text
+                          neo-create-file-auto-open        t
+                          projectile-switch-project-action 'neotree-projectile-action))
 )
