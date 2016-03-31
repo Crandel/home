@@ -1,6 +1,7 @@
 (:name flycheck
        :type github
        :pkgname "flycheck/flycheck"
+       :checkout "0.25.1"
        :minimum-emacs-version "24.3"
        :description "On-the-fly syntax checking extension"
        :build '(("makeinfo" "-o" "doc/flycheck.info" "doc/flycheck.texi"))
@@ -18,6 +19,5 @@
                     (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change))
                     (setq flycheck-highlighting-mode 'lines)
                     (setq flycheck-indication-mode 'left-fringe)
-                    ;(setq flycheck-flake8-maximum-line-length 120)
                     (setq flycheck-checker-error-threshold 2000)
                     ))
