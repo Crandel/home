@@ -22,7 +22,9 @@
         helm-projectile
         jinja2-mode
         js2-mode
+        magit
         markdown-mode
+        mo-git-blame
         multiple-cursors
         neotree
         less-css-mode

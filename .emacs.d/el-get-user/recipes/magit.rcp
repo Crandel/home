@@ -18,4 +18,5 @@
        :build/berkeley-unix `(("gmake" ,(format "EMACSBIN=%s" el-get-emacs) "docs")
                               ("touch" "lisp/magit-autoloads.el"))
        ;; assume windows lacks make and makeinfo
-       :build/windows-nt (with-temp-file "lisp/magit-autoloads.el" nil))
+       :build/windows-nt (with-temp-file "lisp/magit-autoloads.el" nil)
+       :post-init (global-magit-file-mode t))

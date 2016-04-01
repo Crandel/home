@@ -46,6 +46,8 @@
 (global-set-key (kbd "C-c /") 'mc/mark-all-like-this)
 ;; Magit
 (global-set-key (kbd "C-x C-z") 'magit-status)
+;; Mo-git-blame
+(global-set-key (kbd "C-c g") 'mo-git-blame-file)
 
 ;; Helm
 (global-set-key (kbd "M-x") 'helm-M-x)

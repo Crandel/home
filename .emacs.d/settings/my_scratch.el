@@ -23,6 +23,7 @@
 (setq ido-all-frames t)
 (setq ido-auto-merge-delay-time 0)
 (setq ido-enable-flex-matching t)
+
 ;; SavePlace
 (require 'saveplace)
 (setq-default save-place t)
@@ -123,7 +124,16 @@
     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
   ))
 
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
+;(setq split-height-threshold nil)
+;(setq split-width-threshold 0)
 
+(if (equal nil (equal major-mode 'org-mode))
+    (windmove-default-keybindings 'meta))
+
+;; Show paren
+(show-paren-mode 1)
+(setq show-paren-delay 0)
+(set-face-background 'show-paren-match (face-background 'default))
+    (set-face-foreground 'show-paren-match "#def")
+    (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
 (provide 'my_scratch)
