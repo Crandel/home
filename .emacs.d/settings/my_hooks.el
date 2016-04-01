@@ -17,7 +17,9 @@
     (add-to-list
         'imenu-generic-expression
         '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
-    (setq imenu-create-index-function 'my-merge-imenu))
+    (setq imenu-create-index-function 'my-merge-imenu)
+    (eval-after-load 'company
+                    (setq company-backends '(company-anaconda company-semantic company-files company-etags company-gtags company-keywords company-dabbrev-code company-nxml))))
 
 (add-hook 'python-mode-hook 'my_python_hooks)
 
