@@ -5,8 +5,10 @@
        :pkgname "company-mode/company-mode"
        :post-init (progn
                     (global-company-mode t)
-                    (setq company-idle-delay -1
-                        delete-selection-mode t
-                        selection-coding-system (quote utf-8))
+                    (setq company-idle-delay            -1
+                        delete-selection-mode           t
+                        company-minimum-prefix-length   1
+                        company-dabbrev-downcase        nil
+                        selection-coding-system         'utf-8)
                     ))
 
