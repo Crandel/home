@@ -3,6 +3,7 @@
        :description "Modular in-buffer completion framework for Emacs"
        :type github
        :pkgname "company-mode/company-mode"
+       :features (company-files company-semantic company-css company-etags company-keywords)
        :post-init (progn
                     (global-company-mode t)
                     (setq company-idle-delay            -1

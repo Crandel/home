@@ -1,5 +1,5 @@
 ;; Custom keybindings
-(global-set-key "\C-c\C-d" "\C-a\C- \C-n\M-w\C-y")
+
 ;; Moving
 ;;UP
 (global-unset-key (kbd "M-i"))
@@ -77,4 +77,22 @@
 )
 (global-set-key (kbd "C-k") 'my-delete-line)
 
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank)
+)
+(global-unset-key (kbd "C-x C-d"))
+(global-set-key (kbd "C-x C-d") 'duplicate-line)
+
+
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-x u") 'suspend-frame)
+
+(global-set-key (kbd "C-c r") '(redo undo-tree-redo ergoemacs-redo))
 (provide 'my_keybindings)
