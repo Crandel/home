@@ -3,3 +3,4 @@
 (require 'my_package)
 (require 'my_hooks)
 (require 'my_keybindings)
+(require 'my_faces)

@@ -41,13 +41,13 @@
 ;; Multiple cursors
 (global-set-key (kbd "C-c .") 'mc/mark-next-like-this-word) ; choose same word next
 (global-set-key (kbd "C-c ,") 'mc/mark-previous-word-like-this) ; choose same word previous
-(global-set-key (kbd "C-c n") 'mc/mark-next-like-this) ; choose char from next line same position
-(global-set-key (kbd "C-c m") 'mc/mark-previous-like-this); choose char from previous line same position
-(global-set-key (kbd "C-c /") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this) ; choose char from next line same position
+(global-set-key (kbd "C-c C-m") 'mc/mark-previous-like-this); choose char from previous line same position
+(global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
 ;; Magit
 (global-set-key (kbd "C-x C-z") 'magit-status)
 ;; Mo-git-blame
-(global-set-key (kbd "C-c g") 'mo-git-blame-file)
+(global-set-key (kbd "C-c g") 'mo-git-blame-current)
 
 ;; Helm
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -55,5 +55,26 @@
 (global-set-key [f10] 'helm-semantic-or-imenu)
 
 
+(define-key company-active-map "\t" 'company-yasnippet-or-completion)
+
+(defun company-yasnippet-or-completion ()
+  (interactive)
+  (if (yas/expansion-at-point)
+      (progn (company-abort)
+             (yas/expand))
+    (company-complete-common)))
+
+(defun yas/expansion-at-point ()
+    (first (yas/current-key)))
+
+(defun my-delete-line ()
+  "Delete text from current position to end of line char."
+  (interactive)
+  (delete-region
+   (move-beginning-of-line 1)
+   (save-excursion (move-end-of-line 1) (point)))
+  (delete-char 1)
+)
+(global-set-key (kbd "C-k") 'my-delete-line)
 
 (provide 'my_keybindings)

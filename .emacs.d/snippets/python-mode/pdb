@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: pdb
+# key: p
+# --
+import ipdb; ipdb.set_trace()  # BREAKPOINT
