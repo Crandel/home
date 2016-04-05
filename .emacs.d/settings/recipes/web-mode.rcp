@@ -1,0 +1,8 @@
+(:name web-mode
+       :description "emacs major mode for editing PHP/JSP/ASP HTML templates (with embedded CSS and JS blocks)"
+       :type github
+       :pkgname "fxbois/web-mode"
+       :post-init (progn
+           (setq web-mode-engines-alist
+            '(("jinja" . "\\.html\\'")
+             ))))

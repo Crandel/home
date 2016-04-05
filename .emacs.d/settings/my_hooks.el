@@ -1,3 +1,4 @@
+;; Python mode
 (defun my-merge-imenu ()
   (interactive)
   (let ((mode-imenu (imenu-default-create-index-function))
@@ -18,15 +19,13 @@
         'imenu-generic-expression
         '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
     (setq imenu-create-index-function 'my-merge-imenu)
-    (setq company-backends '(company-files company-anaconda company-semantic company-css company-etags company-gtags company-keywords company-dabbrev-code company-nxml company-yasnippet)))
+    (setq company-backends '(company-files company-anaconda company-semantic company-yasnippet company-css company-etags company-gtags company-keywords company-dabbrev-code company-nxml)))
 
 (add-hook 'python-mode-hook 'my_python_hooks)
 
-(defun my_js_hooks()
-    (interactive)
-    (imenu-add-menubar-index))
-
-(add-hook 'js2-mode-hook 'my_js_hooks)
+;; Web mode
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 (provide 'my_hooks)
 
