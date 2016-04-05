@@ -44,8 +44,7 @@
 (global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this) ; choose char from next line same position
 (global-set-key (kbd "C-c C-m") 'mc/mark-previous-like-this); choose char from previous line same position
 (global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
-;; Magit
-(global-set-key (kbd "C-x C-z") 'magit-status)
+
 ;; Mo-git-blame
 (global-set-key (kbd "C-c g") 'mo-git-blame-current)
 
@@ -55,7 +54,8 @@
 (global-set-key [f10] 'helm-semantic-or-imenu)
 
 
-(define-key company-active-map "\t" 'company-yasnippet-or-completion)
+(defun yas/expansion-at-point ()
+    (first (yas/current-key)))
 
 (defun company-yasnippet-or-completion ()
   (interactive)
@@ -64,8 +64,7 @@
              (yas/expand))
     (company-complete-common)))
 
-(defun yas/expansion-at-point ()
-    (first (yas/current-key)))
+(define-key company-active-map [tab] 'company-yasnippet-or-completion)
 
 (defun my-delete-line ()
   "Delete text from current position to end of line char."

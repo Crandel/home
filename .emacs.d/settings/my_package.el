@@ -20,9 +20,6 @@
         helm
         helm-ls-git
         helm-projectile
-        jinja2-mode
-        js2-mode
-        magit
         markdown-mode
         mo-git-blame
         multiple-cursors
@@ -32,6 +29,7 @@
         py-isort
         projectile
         smartparens
+        web-mode
         xclip
         yasnippet
       )
@@ -53,7 +51,7 @@
     (require 'el-get)
     (el-get 'sync))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
 (el-get 'sync my-packages)
 
 (provide 'my_package)
