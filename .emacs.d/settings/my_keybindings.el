@@ -39,11 +39,13 @@
 (global-set-key [M-S-down] 'move-line-down)
 
 ;; Multiple cursors
-(global-set-key (kbd "C-c .") 'mc/mark-next-like-this-word) ; choose same word next
-(global-set-key (kbd "C-c ,") 'mc/mark-previous-word-like-this) ; choose same word previous
-(global-set-key (kbd "C-c C-n") 'mc/mark-next-like-this) ; choose char from next line same position
-(global-set-key (kbd "C-c C-m") 'mc/mark-previous-like-this); choose char from previous line same position
+(global-set-key (kbd "C-c >") 'mc/mark-next-like-this-word) ; choose same word next
+(global-set-key (kbd "C-c <") 'mc/mark-previous-word-like-this) ; choose same word previous
+(global-set-key (kbd "M-n") 'mc/mark-next-like-this) ; choose char from next line same position
+(global-set-key (kbd "M-m") 'mc/mark-previous-like-this); choose char from previous line same position
 (global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-x M-m") 'back-to-indentation)
+
 
 ;; Mo-git-blame
 (global-set-key (kbd "C-c g") 'mo-git-blame-current)
