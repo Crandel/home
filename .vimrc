@@ -221,7 +221,7 @@ map <Leader>b Oimport ipdb; ipdb.set_trace()  # BREAKPOINT
 map <F4> :SyntasticCheck<CR>
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_go_checkers = ['gometalinter']
-let g:syntastic_python_flake8_args='--ignore="W191,E126,E128,E251,E262,E702" --max-line-length=130'
+"let g:syntastic_python_flake8_args='--ignore="W191,E126,E128,E251,E262,E702" --max-line-length=130'
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
 nmap <Leader>l :lne<CR>
