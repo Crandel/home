@@ -56,27 +56,27 @@
 (global-set-key [f10] 'helm-semantic-or-imenu)
 
 
-(defun yas/expansion-at-point ()
-    (first (yas/current-key)))
-
-(defun company-yasnippet-or-completion ()
-  (interactive)
-  (if (yas/expansion-at-point)
-      (progn (company-abort)
-             (yas/expand))
-    (company-complete-common)))
-
-(define-key company-active-map [tab] 'company-yasnippet-or-completion)
-
-(defun my-delete-line ()
-  "Delete text from current position to end of line char."
-  (interactive)
-  (delete-region
-   (move-beginning-of-line 1)
-   (save-excursion (move-end-of-line 1) (point)))
-  (delete-char 1)
-)
-(global-set-key (kbd "C-k") 'my-delete-line)
+;(defun yas/expansion-at-point ()
+;    (first (yas/current-key)))
+;
+;(defun company-yasnippet-or-completion ()
+;  (interactive)
+;  (if (yas/expansion-at-point)
+;      (progn (company-abort)
+;             (yas/expand))
+;    (company-complete-common)))
+;
+;(define-key company-active-map [tab] 'company-yasnippet-or-completion)
+;
+;(defun my-delete-line ()
+;  "Delete text from current position to end of line char."
+;  (interactive)
+;  (delete-region
+;   (move-beginning-of-line 1)
+;   (save-excursion (move-end-of-line 1) (point)))
+;  (delete-char 1)
+;)
+;(global-set-key (kbd "C-k") 'my-delete-line)
 
 (defun duplicate-line()
   (interactive)
@@ -96,4 +96,30 @@
 (global-set-key (kbd "C-x u") 'suspend-frame)
 
 (global-set-key (kbd "C-c r") '(redo undo-tree-redo ergoemacs-redo))
+
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
+
+(defun do-yas-expand ()
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
+
+(defun tab-indent-or-complete ()
+  (interactive)
+  (message (minibufferp))
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
+
+(global-set-key [tab] 'tab-indent-or-complete)
+
 (provide 'my_keybindings)
