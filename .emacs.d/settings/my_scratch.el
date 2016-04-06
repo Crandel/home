@@ -81,6 +81,10 @@
 (setq display-time-24hr-format t) ;; 24-часовой временной формат в mode-line
 (display-time-mode             t) ;; показывать часы в mode-line
 (size-indication-mode          t) ;; размер файла в %-ах
+(defun add-mode-line-dirtrack ()
+    (add-to-list 'mode-line-buffer-identification 
+       '(:propertize (" " default-directory " ") face dired-directory)))
+(add-hook 'shell-mode-hook 'add-mode-line-dirtrack)
 
 ;; Indent settings
 (setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
@@ -133,7 +137,5 @@
 ;; Show paren
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-(set-face-background 'show-paren-match (face-background 'default))
-    (set-face-foreground 'show-paren-match "#def")
-    (set-face-attribute 'show-paren-match nil :weight 'extra-bold)
+
 (provide 'my_scratch)
