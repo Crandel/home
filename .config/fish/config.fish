@@ -4,6 +4,8 @@ set -xg MY_PROJECTS_ROOT /opt/work/projects
 
 # Docker
 function run
+    cd /opt/work/projects/
+    cd $argv
     docker-compose run --rm --service-ports $argv
 end
 
@@ -25,6 +27,19 @@ function upl
 end
 # End Docker
 
+# Vagrant
+function vup
+    vagrant up
+end
+
+function vh
+    vagrant halt
+end
+
+function vs
+    vagrant ssh
+end
+# End Vagrant
 function extract
     if set -q argv
         switch $argv
@@ -58,6 +73,18 @@ function extract
                 cabextract $argv
             case '*'
                 echo $argv ": unrecognized file compression"
+        end
+    end
+end
+
+function zipin
+    for f in *
+        switch $f
+            case '*zip'
+                echo $f
+            case '*'
+                zip -9 $f.zip $f
+                rm $f
         end
     end
 end
@@ -156,6 +183,10 @@ function monup
     d start mongo
 end
 
+function pup
+    d start postgres
+end
+
 function servup
     cd $MY_PROJECTS_ROOT/rita
     paster serve --reload local.ini
@@ -164,7 +195,7 @@ end
 function rita_temp
     cd /opt/work/env/rita/lib/python2.7/site-packages
     rm -rf marrow.templating-1.0.2-py2.7-nspkg.pth marrow.templating-1.0.2-py2.7.egg-info/ marrow/templating/
-    cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg .
+    cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg /opt/work/env/rita/lib/python2.7/site-packages/
     cd /opt/work/projects/rita
 end
 

@@ -182,7 +182,7 @@ bindsym --release button2 kill
 bindsym $mod+c exec chromium
 
 # pycharm
-bindsym $mod+p exec pycharm
+bindsym $mod+p exec pycharm-eap
 
 # xmenud
 bindsym $mod+m exec xmenud
@@ -213,4 +213,4 @@ exec --no-startup-id nm-applet
 exec pidgin
 exec terminator
 exec clipit
-#exec qtox
+exec qtox
