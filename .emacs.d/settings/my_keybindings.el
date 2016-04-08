@@ -50,33 +50,15 @@
 ;; Mo-git-blame
 (global-set-key (kbd "C-c g") 'mo-git-blame-current)
 
+;; Git gutter
+(global-set-key (kbd "C-c [") 'git-gutter:next-hunk)
+(global-set-key (kbd "C-c ]") 'git-gutter:previous-hunk)
+
 ;; Helm
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-p") 'helm-mini)
 (global-set-key [f10] 'helm-semantic-or-imenu)
-
-
-;(defun yas/expansion-at-point ()
-;    (first (yas/current-key)))
-;
-;(defun company-yasnippet-or-completion ()
-;  (interactive)
-;  (if (yas/expansion-at-point)
-;      (progn (company-abort)
-;             (yas/expand))
-;    (company-complete-common)))
-;
-;(define-key company-active-map [tab] 'company-yasnippet-or-completion)
-;
-;(defun my-delete-line ()
-;  "Delete text from current position to end of line char."
-;  (interactive)
-;  (delete-region
-;   (move-beginning-of-line 1)
-;   (save-excursion (move-end-of-line 1) (point)))
-;  (delete-char 1)
-;)
-;(global-set-key (kbd "C-k") 'my-delete-line)
+(global-set-key (kbd "M-p") 'helm-projectile-ag)
 
 (defun duplicate-line()
   (interactive)

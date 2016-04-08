@@ -15,9 +15,11 @@
         emmet-mode
         emacs-fish
         flycheck
+        git-gutter
         go-mode
         go-company
         helm
+        helm-ag
         helm-ls-git
         helm-projectile
         markdown-mode

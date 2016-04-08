@@ -1,7 +1,12 @@
+;; Font settings
+(set-default-font "Hack 14")
 ;; The full name of the user logged in
 (setq-default user-full-name "crandel")
 ;; Full mailing address of user
 (setq-default user-mail-adress "cradlemann@gmail.com")
+
+;; Set bash as default shell
+(setq shell-file-name "/bin/bash")
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)
@@ -111,8 +116,9 @@
 (setq next-line-add-newlines nil) ;; не добавлять новую строку в конец при смещении курсора  стрелками
 
 ;; Highlight search resaults
-(setq search-highlight        t)
-(setq query-replace-highlight t)
+(setq search-highlight        t
+      query-replace-highlight t
+      auto-window-vscroll     nil)
 
 ;;; Whitespace
 (require 'whitespace)
@@ -128,8 +134,8 @@
     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
   ))
 
-;(setq split-height-threshold nil)
-;(setq split-width-threshold 0)
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
 
 (if (equal nil (equal major-mode 'org-mode))
     (windmove-default-keybindings 'meta))
