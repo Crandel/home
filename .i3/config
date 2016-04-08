@@ -182,7 +182,7 @@ bindsym --release button2 kill
 bindsym $mod+c exec chromium
 
 # pycharm
-bindsym $mod+p exec pycharm-eap
+bindsym $mod+p exec pycharm
 
 # xmenud
 bindsym $mod+m exec xmenud
@@ -211,6 +211,5 @@ exec terminator
 #exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 exec pidgin
-exec terminator
 exec clipit
 exec qtox
