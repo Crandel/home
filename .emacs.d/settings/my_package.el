@@ -27,9 +27,9 @@
         multiple-cursors
         neotree
         less-css-mode
+        projectile
         py-autopep8
         py-isort
-        projectile
         smartparens
         web-mode
         xclip

@@ -84,7 +84,6 @@
 
 (global-unset-key (kbd "C-z"))
 (global-set-key (kbd "C-z") 'undo)
-(global-set-key (kbd "C-x u") 'suspend-frame)
 
 (global-set-key (kbd "C-c r") '(redo undo-tree-redo ergoemacs-redo))
 

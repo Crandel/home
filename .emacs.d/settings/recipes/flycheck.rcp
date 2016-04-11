@@ -10,8 +10,7 @@
        :post-init (progn
                     (add-hook 'python-mode-hook     #'flycheck-mode)
                     (add-hook 'js-mode-hook         #'flycheck-mode)
-                    (add-hook 'html-mode-hook       #'flycheck-mode)
-                    (add-hook 'less-css-mode-hook   #'flycheck-mode)
+                    (add-hook 'web-mode-hook        #'flycheck-mode)
                     (add-hook 'lisp-mode-hook       #'flycheck-mode)
                     (add-hook 'fish-mode-hook       #'flycheck-mode)
                     (add-hook 'markdown-mode-hook   #'flycheck-mode)
