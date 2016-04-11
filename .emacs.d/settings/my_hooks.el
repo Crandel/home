@@ -18,8 +18,7 @@
     (add-to-list
         'imenu-generic-expression
         '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
-    (setq imenu-create-index-function 'my-merge-imenu)
-    (setq company-backends '((company-yasnippet company-files company-anaconda company-semantic company-css company-etags) company-gtags company-keywords company-dabbrev-code company-nxml)))
+    (setq imenu-create-index-function 'my-merge-imenu))
 
 (add-hook 'python-mode-hook 'my_python_hooks)
 
@@ -27,5 +26,13 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
-(provide 'my_hooks)
+;; Po mode
+(autoload 'po-mode "po-mode"
+             "Major mode for translators to edit PO files" t)
+(setq auto-mode-alist (cons '("\\.po\\'\\|\\.po\\." . po-mode)
+                        auto-mode-alist))
+(autoload 'po-find-file-coding-system "po-compat")
+(modify-coding-system-alist 'file "\\.po\\'\\|\\.po\\."
+                            'po-find-file-coding-system)
 
+(provide 'my_hooks)
