@@ -11,7 +11,6 @@
         company-mode
         company-flx
         company-anaconda
-        dark-mint-theme
         emmet-mode
         emacs-fish
         flycheck
