@@ -1,4 +1,5 @@
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+(require 'dark-mint-theme)
 (require 'my_scratch)
 (require 'my_package)
 (require 'my_hooks)
