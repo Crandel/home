@@ -123,7 +123,8 @@
 ;;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode  "whitespace" "Toggle whitespace visualization." t)
-(setq whitespace-style '(trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
+(setq whitespace-style
+ '(face trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
 (global-whitespace-mode 1)
 (setq whitespace-display-mappings
   ;; all numbers are Unicode codepoint in decimal. ⁖ (insert-char 182 1)
@@ -132,7 +133,8 @@
     (newline-mark 10 [8617 10]) ; 10 LINE FEED
     (lines-tail 10 [8617 10]) ; 10 LINE FEED
     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
-  ))
+  )
+  whitespace-line-column 130)
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 0)
