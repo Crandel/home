@@ -19,15 +19,15 @@
 (semantic-mode 1)
 
 ;; Ido
-(require 'ido)
-(ido-mode t)
-(icomplete-mode t)
-(ido-everywhere t)
-(setq ido-virtual-buffers t)
-(setq ido-enable-flex-matching t)
-(setq ido-all-frames t)
-(setq ido-auto-merge-delay-time 0)
-(setq ido-enable-flex-matching t)
+;(require 'ido)
+;(ido-mode t)
+;(icomplete-mode t)
+;(ido-everywhere t)
+;(setq ido-virtual-buffers t)
+;(setq ido-enable-flex-matching t)
+;(setq ido-all-frames t)
+;(setq ido-auto-merge-delay-time 0)
+;(setq ido-enable-flex-matching t)
 
 ;; SavePlace
 (require 'saveplace)
