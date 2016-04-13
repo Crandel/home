@@ -40,7 +40,7 @@
  '(font-lock-type-face ((t (:foreground "light slate blue"))))
  '(font-lock-comment-face ((t (:foreground "#E6E6E6"))))
  '(font-lock-function-name-face ((t (:foreground "Gold"))))
- '(font-lock-keyword-face ((t (:weight bold :foreground "RoyalBlue"))))
+ '(font-lock-keyword-face ((t (:weight bold :foreground "GreenYellow"))))
  '(font-lock-string-face ((t (:foreground "#DF7401"))))
  '(font-lock-variable-name-face ((t (:foreground "YellowGreen"))))
 

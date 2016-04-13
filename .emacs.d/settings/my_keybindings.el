@@ -59,6 +59,7 @@
 (global-set-key (kbd "C-p") 'helm-mini)
 (global-set-key [f10] 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (defun duplicate-line()
   (interactive)
