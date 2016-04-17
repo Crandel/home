@@ -5,7 +5,7 @@
         (custom-imenu (imenu--generic-function imenu-generic-expression)))
     (append mode-imenu custom-imenu)))
 
-(defun my_python_hooks()
+(defun my-python-hooks()
     (interactive)
     (setq tab-width 4)
     (setq python-indent 4)
@@ -18,9 +18,15 @@
     (add-to-list
         'imenu-generic-expression
         '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
-    (setq imenu-create-index-function 'my-merge-imenu))
+    (setq imenu-create-index-function 'my-merge-imenu)
+    (eval-after-load "company"
+        '(progn
+            (setq comp-back (car company-backends))
+            (push 'company-anaconda comp-back)
+            (setq company-backends (list comp-back))
+            )))
 
-(add-hook 'python-mode-hook 'my_python_hooks)
+(add-hook 'python-mode-hook 'my-python-hooks)
 
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
@@ -34,5 +40,17 @@
 (autoload 'po-find-file-coding-system "po-compat")
 (modify-coding-system-alist 'file "\\.po\\'\\|\\.po\\."
                             'po-find-file-coding-system)
+
+(defun my-lisp-hooks()
+    (progn
+     (eval-after-load "company"
+              '(progn
+                   (setq comp-back (car company-backends))
+                   (push 'company-elisp comp-back)
+                   (setq company-backends (list comp-back))
+                   ))))
+;; Lisp mode
+(add-hook 'lisp-interaction-mode-hook 'my-lisp-hooks)
+
 
 (provide 'my_hooks)

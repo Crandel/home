@@ -11,6 +11,5 @@
                           company-minimum-prefix-length   1
                           company-dabbrev-downcase        nil
                           selection-coding-system         'utf-8
-                          company-backends '((company-yasnippet company-files company-anaconda company-semantic company-css
-                                company-etags company-keywords company-nxml company-dabbrev-code) company-gtags))))
-
+                          company-backends '((company-yasnippet company-files company-semantic company-css
+                                company-etags company-keywords company-nxml company-dabbrev-code company-dabbrev)))))
