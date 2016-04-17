@@ -21,9 +21,10 @@
     (setq imenu-create-index-function 'my-merge-imenu)
     (eval-after-load "company"
         '(progn
-            (setq comp-back (car company-backends))
-            (push 'company-anaconda comp-back)
-            (setq company-backends (list comp-back))
+            (unless (member 'company-anaconda (car company-backends))
+                (setq comp-back (car company-backends))
+                (push 'company-anaconda comp-back)
+                (setq company-backends (list comp-back)))
             )))
 
 (add-hook 'python-mode-hook 'my-python-hooks)
@@ -45,9 +46,10 @@
     (progn
      (eval-after-load "company"
               '(progn
-                   (setq comp-back (car company-backends))
-                   (push 'company-elisp comp-back)
-                   (setq company-backends (list comp-back))
+                   (unless (member 'company-elisp (car company-backends))
+                            (setq comp-back (car company-backends))
+                            (push 'company-elisp comp-back)
+                            (setq company-backends (list comp-back)))
                    ))))
 ;; Lisp mode
 (add-hook 'lisp-interaction-mode-hook 'my-lisp-hooks)
