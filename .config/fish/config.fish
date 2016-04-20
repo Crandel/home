@@ -126,6 +126,18 @@ function pr
     # if argv when go to directory
     if count $argv > /dev/null
         cd $MY_PROJECTS_ROOT/$argv
+        switch (echo $argv)
+        case cashback
+            set -l check (docker inspect -f "{{.State.Running}}" postgres)
+            if [ $check = "false" ]
+                docker start postgres
+            end
+        case rita
+            set -l check (docker inspect -f "{{.State.Running}}" mongo)
+            if [ $check = "false" ]
+                docker start mongo
+            end
+        end
     else
         cd $MY_PROJECTS_ROOT
     end
