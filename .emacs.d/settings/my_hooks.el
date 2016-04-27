@@ -28,6 +28,7 @@
             )))
 
 (add-hook 'python-mode-hook 'my-python-hooks)
+(add-hook 'python-mode-hook #'aggressive-indent-mode)
 
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
