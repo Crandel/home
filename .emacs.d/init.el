@@ -5,6 +5,11 @@
 (require 'my_hooks)
 (require 'my_keybindings)
 
+;; Paren face
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "#def")
+(set-face-attribute  'show-paren-match nil :weight 'extra-bold)
+
 ;; Custom section
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
