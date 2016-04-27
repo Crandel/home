@@ -79,7 +79,6 @@
 
 ;; Fringe settings
 (fringe-mode '(8 . 0)) ;; органичиталь текста только слева
-(setq-default indicate-empty-lines t) ;; отсутствие строки выделить глифами рядом с полосой с номером строки
 (setq-default indicate-buffer-boundaries 'left) ;; индикация только слева
 
 ;; Display file size/time in mode-line

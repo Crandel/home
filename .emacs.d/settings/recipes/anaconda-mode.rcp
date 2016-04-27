@@ -4,5 +4,4 @@
        :pkgname "proofit404/anaconda-mode"
        :depends (dash f json-rpc pythonic)
        :post-init (progn
-                    (add-hook 'python-mode-hook 'anaconda-mode)
-                    (add-hook 'python-mode-hook 'anaconda-eldoc-mode)))
+                    (add-hook 'python-mode-hook 'anaconda-mode)))

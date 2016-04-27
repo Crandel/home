@@ -7,6 +7,7 @@
     '(
         el-get
         auto-virtualenv
+        aggressive-indent-mode
         anaconda-mode
         company-mode
         company-flx
@@ -26,10 +27,13 @@
         multiple-cursors
         neotree
         less-css-mode
+        pip-requirements
+        powerline
         projectile
         py-autopep8
         py-isort
         smartparens
+        undo-tree
         web-mode
         xclip
         yasnippet
