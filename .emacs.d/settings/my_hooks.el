@@ -28,7 +28,6 @@
             )))
 
 (add-hook 'python-mode-hook 'my-python-hooks)
-(add-hook 'python-mode-hook #'aggressive-indent-mode)
 
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
@@ -55,5 +54,9 @@
 ;; Lisp mode
 (add-hook 'lisp-interaction-mode-hook 'my-lisp-hooks)
 
+(defadvice yes-or-no-p (around hack-exit (prompt))
+   (if (string= prompt "Active processes exist; kill them and exit anyway? ")
+       t
+      ad-do-it))
 
 (provide 'my_hooks)

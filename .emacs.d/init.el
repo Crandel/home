@@ -30,7 +30,7 @@
  '(company-tooltip ((t (:background "black" :foreground "brightyellow"))))
  '(company-tooltip-selection ((t (:background "color-108"))))
  '(powerline-active1 ((t (:inherit mode-line :background "color-235"))))
- '(powerline-active2 ((t (:inherit mode-line :background "color-220"))))
+ '(powerline-active2 ((t (:inherit mode-line :background "color-17"))))
  '(whitespace-empty ((t (:foreground "color-166"))))
  '(whitespace-indentation ((t (:foreground "color-241"))))
  '(whitespace-line ((t (:underline (:color foreground-color :style wave)))))
