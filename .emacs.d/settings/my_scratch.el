@@ -37,7 +37,7 @@
 
 ;; Electric-modes settings
 (electric-pair-mode   -1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
-(electric-indent-mode -1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
+(electric-indent-mode  1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
 ;; Delete selection
 (delete-selection-mode t)
 
@@ -98,7 +98,6 @@
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
 (setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
-(global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 (setq indent-line-function  'insert-tab)
 
 ;; Scrolling settings

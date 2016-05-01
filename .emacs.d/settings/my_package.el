@@ -7,7 +7,6 @@
     '(
         el-get
         auto-virtualenv
-        aggressive-indent-mode
         anaconda-mode
         company-mode
         company-flx
