@@ -147,4 +147,4 @@
 (setq show-paren-style 'expression)
 (show-paren-mode 2)
 
-(provide 'my_scratch)
+(provide 'scratch_my)

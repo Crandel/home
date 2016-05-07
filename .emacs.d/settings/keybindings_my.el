@@ -46,6 +46,10 @@
 (global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-x M-m") 'back-to-indentation)
 
+;; Magit
+(global-unset-key (kbd "C-x C-z"))
+(global-set-key (kbd "C-x C-z") 'magit-status)
+
 
 ;; Mo-git-blame
 (global-set-key (kbd "C-c g") 'mo-git-blame-current)
@@ -73,6 +77,16 @@
 )
 (global-unset-key (kbd "C-x C-d"))
 (global-set-key (kbd "C-x C-d") 'duplicate-line)
+
+(defun copy-line (arg)
+      "Copy lines (as many as prefix argument) in the kill ring"
+      (interactive "p")
+      (kill-ring-save (line-beginning-position)
+                      (line-beginning-position (+ 1 arg)))
+      (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
+
+(global-unset-key (kbd "C-c C-k"))
+(global-set-key (kbd "C-c C-k") 'copy-line)
 
 (defun my-delete-line ()
   "Delete text from current position to end of line char."
@@ -138,4 +152,4 @@
 
 (global-set-key [tab] 'tab-indent-or-complete)
 
-(provide 'my_keybindings)
+(provide 'keybindings_my)

@@ -1,9 +1,9 @@
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 (require 'dark-mint-theme)
-(require 'my_scratch)
-(require 'my_package)
-(require 'my_hooks)
-(require 'my_keybindings)
+(require 'scratch_my)
+(require 'package_my)
+(require 'hooks_my)
+(require 'keybindings_my)
 
 ;; Paren face
 (set-face-background 'show-paren-match (face-background 'default))
