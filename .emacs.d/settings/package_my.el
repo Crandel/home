@@ -21,6 +21,7 @@
         helm-ag
         helm-ls-git
         helm-projectile
+        magit
         markdown-mode
         mo-git-blame
         multiple-cursors
@@ -58,4 +59,4 @@
 (add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
 (el-get 'sync my-packages)
 
-(provide 'my_package)
+(provide 'package_my)

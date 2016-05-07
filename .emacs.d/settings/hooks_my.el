@@ -59,4 +59,4 @@
        t
       ad-do-it))
 
-(provide 'my_hooks)
+(provide 'hooks_my)
