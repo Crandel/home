@@ -23,21 +23,6 @@
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "C-c u") 'upcase-word)
 
-;; move line up
-(defun move-line-up ()
-    (interactive)
-    (transpose-lines 1)
-    (previous-line 2))
-(global-set-key [M-S-up] 'move-line-up)
-
-;; move line down
-(defun move-line-down ()
-    (interactive)
-    (next-line 1)
-    (transpose-lines 1)
-    (previous-line 1))
-(global-set-key [M-S-down] 'move-line-down)
-
 ;; Multiple cursors
 (global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
 (global-set-key (kbd "C-c <left>") 'mc/mark-previous-word-like-this) ; choose same word previous
@@ -66,6 +51,22 @@
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
+;; move line up
+(defun move-line-up ()
+    (interactive)
+    (transpose-lines 1)
+    (previous-line 2))
+(global-set-key [M-S-up] 'move-line-up)
+
+;; move line down
+(defun move-line-down ()
+    (interactive)
+    (next-line 1)
+    (transpose-lines 1)
+    (previous-line 1))
+(global-set-key [M-S-down] 'move-line-down)
+
+;; duplicate line
 (defun duplicate-line()
   (interactive)
   (move-beginning-of-line 1)
@@ -78,6 +79,7 @@
 (global-unset-key (kbd "C-x C-d"))
 (global-set-key (kbd "C-x C-d") 'duplicate-line)
 
+;; copy line
 (defun copy-line (arg)
       "Copy lines (as many as prefix argument) in the kill ring"
       (interactive "p")
@@ -88,6 +90,7 @@
 (global-unset-key (kbd "C-c C-k"))
 (global-set-key (kbd "C-c C-k") 'copy-line)
 
+;; delete line
 (defun my-delete-line ()
   "Delete text from current position to end of line char."
   (interactive)
@@ -100,6 +103,7 @@
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 
 (defvar newline-and-indent t)
+;; open new line (vi's o command)
 (defun open-next-line ()
     (interactive)
     (end-of-line)
@@ -122,11 +126,11 @@
 
 
 (global-unset-key (kbd "C-z"))
-
 (global-set-key (kbd "C-z") 'undo-tree-visualize)
 
 (global-set-key (kbd "C-c r") 'undo-tree-redo)
 
+;; tab indent or complete
 (defun check-expansion ()
   (save-excursion
     (if (looking-at "\\_>") t
