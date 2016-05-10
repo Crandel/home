@@ -137,6 +137,11 @@ function pr
             if [ $check = "false" ]
                 docker start mongo
             end
+        case photoculture
+            set -l check (docker inspect -f "{{.State.Running}}" photo_db)
+            if [ $check = "false" ]
+                docker start photo_db
+            end
         end
     else
         cd $MY_PROJECTS_ROOT
@@ -239,8 +244,7 @@ function sword
 end
 # localhost end
 
-set -x EDITOR vim
-set -x DE gnome
+set -x EDITOR em
 set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
