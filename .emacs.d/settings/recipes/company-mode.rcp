@@ -9,7 +9,7 @@
                     (setq company-idle-delay              -1
                           delete-selection-mode           t
                           company-minimum-prefix-length   1
-                          ;company-dabbrev-downcase        nil
+                          company-dabbrev-downcase        nil
                           selection-coding-system         'utf-8
                           company-backends '((company-yasnippet company-files company-semantic company-css
                                 company-etags company-keywords company-nxml company-dabbrev-code company-dabbrev)))))
