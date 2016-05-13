@@ -10,6 +10,7 @@
         anaconda-mode
         company-mode
         company-flx
+        ;company-jedi
         company-anaconda
         emmet-mode
         emacs-fish
@@ -21,6 +22,7 @@
         helm-ag
         helm-ls-git
         helm-projectile
+        ;jedi-core
         magit
         markdown-mode
         mo-git-blame

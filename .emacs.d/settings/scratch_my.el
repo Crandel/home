@@ -140,6 +140,7 @@
 (if (equal nil (equal major-mode 'org-mode))
     (windmove-default-keybindings 'meta))
 
+(recentf-mode 1)
 (setq recentf-max-menu-items 150)
 
 ;; Show paren
