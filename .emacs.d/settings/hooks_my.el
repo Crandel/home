@@ -59,4 +59,14 @@
        t
       ad-do-it))
 
+;; company sorting
+(defun my-sort-uppercase (candidates)
+  (let (case-fold-search
+        (re "\\`[[:upper:]]*\\'"))
+    (sort candidates
+          (lambda (s1 s2)
+            (and (string-match-p re s2)
+                 (not (string-match-p re s1)))))))
+(push 'my-sort-uppercase company-transformers)
+
 (provide 'hooks_my)

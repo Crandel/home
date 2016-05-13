@@ -51,6 +51,17 @@
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
+;; Smartparent
+(global-unset-key (kbd "C-c w"))
+(global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
+;; Jedi
+;(global-unset-key (kbd "M-."))
+;(global-set-key (kbd "M-.") 'jedi:goto-definition)
+;(global-unset-key (kbd "M-,"))
+;(global-set-key (kbd "M-,") 'jedi:goto-definition-pop-marker)
+;(global-unset-key (kbd "M-?"))
+;(global-set-key (kbd "M-?") 'jedi:show-doc)
+
 ;; move line up
 (defun move-line-up ()
     (interactive)
@@ -89,6 +100,29 @@
 
 (global-unset-key (kbd "C-c C-k"))
 (global-set-key (kbd "C-c C-k") 'copy-line)
+
+;; copy word
+(defun get-point (symbol &optional arg)
+      "get the point"
+      (funcall symbol arg)
+      (point)
+)
+
+(defun copy-thing (begin-of-thing end-of-thing &optional arg)
+  "copy thing between beg & end into kill ring"
+   (save-excursion
+     (let ((beg (get-point begin-of-thing 1))
+           (end (get-point end-of-thing arg)))
+      (copy-region-as-kill beg end)))
+)
+(defun copy-word (&optional arg)
+      "Copy words at point into kill-ring"
+       (interactive "P")
+       (copy-thing 'backward-word 'forward-word arg)
+       ;;(paste-to-mark arg)
+)
+(global-unset-key (kbd "C-c C-w"))
+(global-set-key (kbd "C-c C-w") 'copy-word)
 
 ;; delete line
 (defun my-delete-line ()
