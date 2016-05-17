@@ -55,12 +55,14 @@
 (global-unset-key (kbd "C-c w"))
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
 ;; Jedi
-;(global-unset-key (kbd "M-."))
-;(global-set-key (kbd "M-.") 'jedi:goto-definition)
-;(global-unset-key (kbd "M-,"))
-;(global-set-key (kbd "M-,") 'jedi:goto-definition-pop-marker)
-;(global-unset-key (kbd "M-?"))
-;(global-set-key (kbd "M-?") 'jedi:show-doc)
+(global-unset-key (kbd "M-."))
+(global-set-key (kbd "M-.") 'jedi:goto-definition)
+(global-unset-key (kbd "M-,"))
+(global-set-key (kbd "M-,") 'jedi:goto-definition-pop-marker)
+(global-unset-key (kbd "M-/"))
+(global-set-key (kbd "M-/") 'jedi:show-doc)
+(global-unset-key (kbd "M-?"))
+(global-set-key (kbd "M-?") 'helm-jedi-related-names)
 
 ;; move line up
 (defun move-line-up ()
