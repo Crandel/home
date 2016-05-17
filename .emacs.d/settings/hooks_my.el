@@ -21,9 +21,9 @@
     (setq imenu-create-index-function 'my-merge-imenu)
     (eval-after-load "company"
         '(progn
-            (unless (member 'company-anaconda (car company-backends))
+            (unless (member 'company-jedi (car company-backends))
                 (setq comp-back (car company-backends))
-                (push 'company-anaconda comp-back)
+                (push 'company-jedi comp-back)
                 (setq company-backends (list comp-back)))
             )))
 
