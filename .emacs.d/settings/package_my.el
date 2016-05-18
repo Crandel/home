@@ -7,6 +7,7 @@
     '(
         el-get
         auto-virtualenv
+        avy
         company-mode
         company-flx
         company-jedi
@@ -20,6 +21,7 @@
         helm-ag
         helm-ls-git
         helm-projectile
+        helm-swoop
         jedi-core
         magit
         markdown-mode
