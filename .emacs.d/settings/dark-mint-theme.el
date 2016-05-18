@@ -24,14 +24,14 @@
 (custom-theme-set-faces
  'dark-mint
  
- '(default ((t (:background "black" :foreground "green"))))
+ '(default ((t (:background "black" :foreground "DarkOliveGreen"))))
  '(mouse ((t (:foregound "#000000"))))
- '(fringe ((t (:background "black" :foreground "green"))))
+ '(fringe ((t (:background "black" :foreground "DarkOliveGreen"))))
  '(cursor ((t (:foregound "#000000"))))
  '(border ((t (:foregound "black"))))
 
 
- '(mode-line ((t (:background "black" :foreground "green"))))
+ '(mode-line ((t (:background "black" :foreground "DarkOliveGreen"))))
  '(Man-overstrike-face ((t (:weight bold))))
  '(Man-underline-face ((t (:underline t))))
  '(apropos-keybinding-face ((t (:underline t))))
