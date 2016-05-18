@@ -23,6 +23,8 @@
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "C-c u") 'upcase-word)
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; Multiple cursors
 (global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
 (global-set-key (kbd "C-c <left>") 'mc/mark-previous-word-like-this) ; choose same word previous
@@ -50,6 +52,11 @@
 (global-set-key [f10] 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+;;Helm-swoop
+(global-unset-key (kbd "C-s"))
+(global-unset-key (kbd "C-r"))
+(global-set-key (kbd "C-s") 'helm-swoop)
+(global-set-key (kbd "C-r") 'helm-multi-swoop-current-mode)
 
 ;; Smartparent
 (global-unset-key (kbd "C-c w"))
@@ -63,6 +70,18 @@
 (global-set-key (kbd "M-/") 'jedi:show-doc)
 (global-unset-key (kbd "M-?"))
 (global-set-key (kbd "M-?") 'helm-jedi-related-names)
+
+;; Undo-tree
+(global-unset-key (kbd "C-z"))
+
+;; Avy
+(global-unset-key (kbd "C-_"))
+(global-unset-key (kbd "C-/"))
+(global-unset-key (kbd "C-c /"))
+(global-set-key (kbd "C-_") 'avy-goto-char)
+(global-set-key (kbd "C-/") 'avy-goto-char)
+(global-set-key (kbd "C-c /") 'avy-goto-line)
+
 
 ;; move line up
 (defun move-line-up ()
@@ -160,11 +179,6 @@
     (indent-according-to-mode)))
 (global-set-key (kbd "C-c o") 'open-previous-line)
 
-
-(global-unset-key (kbd "C-z"))
-(global-set-key (kbd "C-z") 'undo-tree-visualize)
-
-(global-set-key (kbd "C-c r") 'undo-tree-redo)
 
 ;; tab indent or complete
 (defun check-expansion ()

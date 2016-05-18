@@ -1,0 +1,6 @@
+(:name avy
+       :description "Jump to things in Emacs tree-style."
+       :type github
+       :pkgname "abo-abo/avy"
+       :depends (cl-lib)
+       :post-init (setq avy-all-windows 'all-frames))
