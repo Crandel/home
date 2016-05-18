@@ -23,7 +23,7 @@
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "C-c u") 'upcase-word)
 
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'buffer-menu)
 
 ;; Multiple cursors
 (global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
@@ -61,6 +61,7 @@
 ;; Smartparent
 (global-unset-key (kbd "C-c w"))
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
+
 ;; Jedi
 (global-unset-key (kbd "M-."))
 (global-set-key (kbd "M-.") 'jedi:goto-definition)

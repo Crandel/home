@@ -148,4 +148,6 @@
 (setq show-paren-style 'expression)
 (show-paren-mode 2)
 
+(setq ns-pop-up-frames nil)
+
 (provide 'scratch_my)
