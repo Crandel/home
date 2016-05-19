@@ -16,7 +16,21 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(neo-vc-state-char-alist
+   (quote
+    ((up-to-date . 32)
+     (edited . 69)
+     (added . 43)
+     (removed . 45)
+     (missing . 33)
+     (needs-merge . 77)
+     (conflict . 33)
+     (unlocked-changes . 33)
+     (needs-update . 85)
+     (ignored . 38)
+     (user . 85)
+     (unregistered . 40)
+     (nil . 40)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -29,6 +43,10 @@
  '(company-template-field ((t (:background "black" :foreground "yellow"))))
  '(company-tooltip ((t (:background "black" :foreground "brightyellow"))))
  '(company-tooltip-selection ((t (:background "color-108"))))
+ '(neo-vc-ignored-face ((t (:foreground "color-240"))))
+ '(neo-vc-removed-face ((t (:box (:line-width 2 :color "yellow" :style released-button)))))
+ '(neo-vc-unregistered-face ((t (:foreground "brightblue"))) t)
+ '(neo-vc-up-to-date-face ((t (:foreground "brightwhite"))))
  '(powerline-active1 ((t (:inherit mode-line :background "color-235"))))
  '(powerline-active2 ((t (:inherit mode-line :background "color-17"))))
  '(whitespace-empty ((t (:foreground "color-166"))))
