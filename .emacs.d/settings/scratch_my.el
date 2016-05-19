@@ -149,5 +149,6 @@
 (show-paren-mode 2)
 
 (setq ns-pop-up-frames nil)
+(setq ad-redefinition-action 'accept)
 
 (provide 'scratch_my)
