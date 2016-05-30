@@ -12,4 +12,5 @@
                             (define-key undo-tree-map (kbd "C-?") nil)
                             (define-key undo-tree-map (kbd "M-_") nil)
                             (define-key undo-tree-map (kbd "C-z") 'undo-tree-visualize)
+                            (key-chord-define-global "zz" 'undo-tree-visualize)
                             (define-key undo-tree-map (kbd "C-c C-z") 'undo-tree-redo)))))
