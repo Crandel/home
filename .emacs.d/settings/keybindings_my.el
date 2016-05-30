@@ -222,5 +222,8 @@
           (indent-for-tab-command)))))
 
 (global-set-key [tab] 'tab-indent-or-complete)
+(key-chord-define-global "ss" 'save-buffer)
+(key-chord-define-global "qq" 'delete-other-windows)
+(key-chord-define-global "cc" 'save-buffers-kill-terminal)
 
 (provide 'keybindings_my)
