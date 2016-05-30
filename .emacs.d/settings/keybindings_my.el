@@ -18,18 +18,26 @@
 ;; RIGHT WORD
 (global-unset-key (kbd "M-o"))
 (global-set-key (kbd "M-o") 'forward-word)
+(key-chord-define-global "ll" 'forward-word)
 ;; LEFT WORD
 (global-unset-key (kbd "M-u"))
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "C-c u") 'upcase-word)
+(key-chord-define-global "jj" 'backward-word)
+
 
 (global-set-key (kbd "C-x C-b") 'buffer-menu)
+(key-chord-define-global "bb" 'buffer-menu)
+
 
 ;; Multiple cursors
 (global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
 (global-set-key (kbd "C-c <left>") 'mc/mark-previous-word-like-this) ; choose same word previous
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this) ; choose char from next line same position
+(key-chord-define-global "nn" 'mc/mark-next-like-this)
 (global-set-key (kbd "M-m") 'mc/mark-previous-like-this); choose char from previous line same position
+(key-chord-define-global "mm" 'mc/mark-previous-like-this)
+
 (global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-x M-m") 'back-to-indentation)
 
@@ -40,6 +48,7 @@
 
 ;; Mo-git-blame
 (global-set-key (kbd "C-c g") 'mo-git-blame-current)
+(key-chord-define-global "gg" 'mo-git-blame-current)
 
 ;; Git gutter
 (global-set-key (kbd "C-c [") 'git-gutter:next-hunk)
@@ -61,6 +70,7 @@
 ;; Smartparent
 (global-unset-key (kbd "C-c w"))
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
+(key-chord-define-global "''" 'sp-rewrap-sexp)
 
 ;; Jedi
 (global-unset-key (kbd "M-."))
@@ -111,6 +121,7 @@
 )
 (global-unset-key (kbd "C-x C-d"))
 (global-set-key (kbd "C-x C-d") 'duplicate-line)
+(key-chord-define-global "yp" 'duplicate-line)
 
 ;; copy line
 (defun copy-line (arg)
@@ -122,6 +133,7 @@
 
 (global-unset-key (kbd "C-c C-k"))
 (global-set-key (kbd "C-c C-k") 'copy-line)
+(key-chord-define-global "yy" 'copy-line)
 
 ;; copy word
 (defun get-point (symbol &optional arg)
@@ -145,6 +157,7 @@
 )
 (global-unset-key (kbd "C-c C-w"))
 (global-set-key (kbd "C-c C-w") 'copy-word)
+(key-chord-define-global "ww" 'copy-word)
 
 ;; delete line
 (defun my-delete-line ()
@@ -156,6 +169,8 @@
   (delete-char 1)
 )
 (global-set-key (kbd "C-k") 'my-delete-line)
+(key-chord-define-global "dd" 'my-delete-line)
+
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 
 (defvar newline-and-indent t)
@@ -168,6 +183,7 @@
     (when newline-and-indent
         (indent-according-to-mode)))
 (global-set-key (kbd "C-o") 'open-next-line) ;; при нажатии Enter перевести каретку и сделать отступ
+(key-chord-define-global "oo" 'open-next-line)
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)

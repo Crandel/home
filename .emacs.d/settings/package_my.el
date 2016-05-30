@@ -23,6 +23,7 @@
         helm-projectile
         helm-swoop
         jedi-core
+        key-chord
         magit
         markdown-mode
         mo-git-blame
