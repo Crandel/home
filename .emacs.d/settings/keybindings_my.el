@@ -93,6 +93,10 @@
 (global-set-key (kbd "C-/") 'avy-goto-char)
 (global-set-key (kbd "C-c /") 'avy-goto-line)
 
+;; Expand region
+(global-unset-key (kbd "C-q"))
+(global-set-key (kbd "C-q") 'er/expand-region)
+(key-chord-define-global "//" 'er/expand-region)
 
 ;; move line up
 (defun move-line-up ()
@@ -225,5 +229,6 @@
 (key-chord-define-global "xx" 'save-buffer)
 (key-chord-define-global "qq" 'delete-other-windows)
 (key-chord-define-global "tt" 'save-buffers-kill-terminal)
+
 
 (provide 'keybindings_my)

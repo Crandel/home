@@ -13,6 +13,7 @@
         company-jedi
         emmet-mode
         emacs-fish
+        expand-region
         flycheck
         git-gutter
         go-mode
