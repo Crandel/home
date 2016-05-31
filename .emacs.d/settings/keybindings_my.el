@@ -18,7 +18,7 @@
 ;; RIGHT WORD
 (global-unset-key (kbd "M-o"))
 (global-set-key (kbd "M-o") 'forward-word)
-(key-chord-define-global "ll" 'forward-word)
+(key-chord-define-global "kk" 'forward-word)
 ;; LEFT WORD
 (global-unset-key (kbd "M-u"))
 (global-set-key (kbd "M-u") 'backward-word)
@@ -183,7 +183,7 @@
     (when newline-and-indent
         (indent-according-to-mode)))
 (global-set-key (kbd "C-o") 'open-next-line) ;; при нажатии Enter перевести каретку и сделать отступ
-(key-chord-define-global "oo" 'open-next-line)
+(key-chord-define-global "pp" 'open-next-line)
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
@@ -222,8 +222,8 @@
           (indent-for-tab-command)))))
 
 (global-set-key [tab] 'tab-indent-or-complete)
-(key-chord-define-global "ss" 'save-buffer)
+(key-chord-define-global "xx" 'save-buffer)
 (key-chord-define-global "qq" 'delete-other-windows)
-(key-chord-define-global "cc" 'save-buffers-kill-terminal)
+(key-chord-define-global "tt" 'save-buffers-kill-terminal)
 
 (provide 'keybindings_my)
