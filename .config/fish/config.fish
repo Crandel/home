@@ -243,6 +243,12 @@ function sword
     primusrun env WINEPREFIX="/home/crandel/.wine" wine /media/data/games/SwordoftheStars/Sword\ of\ the\ Stars.exe
 end
 # localhost end
+# start X at login
+#if status --is-login
+#    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+#        exec startx -- -keeptty
+#    end
+#end
 
 set -x EDITOR vim
 set -x BROWSER chromium
@@ -250,7 +256,7 @@ set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
 set -xg GOPATH $HOME/go
 #set -xg RUST $HOME/rust
-set -xg PATH $PATH $GOPATH $GOPATH/bin $RUST/bin
+set -xg PATH $PATH $GOPATH $GOPATH/bin
 set -xg TERM "xterm-256color"
 set -x WORKON_HOME $HOME/.virtualenvs
 set -x INFINALITY_FT_BRIGHTNESS "-10"
