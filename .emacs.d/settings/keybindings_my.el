@@ -34,9 +34,7 @@
 (global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
 (global-set-key (kbd "C-c <left>") 'mc/mark-previous-word-like-this) ; choose same word previous
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this) ; choose char from next line same position
-(key-chord-define-global "nn" 'mc/mark-next-like-this)
 (global-set-key (kbd "M-m") 'mc/mark-previous-like-this); choose char from previous line same position
-(key-chord-define-global "mm" 'mc/mark-previous-like-this)
 
 (global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-x M-m") 'back-to-indentation)
@@ -187,7 +185,7 @@
     (when newline-and-indent
         (indent-according-to-mode)))
 (global-set-key (kbd "C-o") 'open-next-line) ;; при нажатии Enter перевести каретку и сделать отступ
-(key-chord-define-global "pp" 'open-next-line)
+(key-chord-define-global "ii" 'open-next-line)
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
@@ -228,7 +226,7 @@
 (global-set-key [tab] 'tab-indent-or-complete)
 (key-chord-define-global "xx" 'save-buffer)
 (key-chord-define-global "qq" 'delete-other-windows)
-(key-chord-define-global "tt" 'save-buffers-kill-terminal)
+(key-chord-define-global "vv" 'save-buffers-kill-terminal)
 
 
 (provide 'keybindings_my)
