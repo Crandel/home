@@ -39,11 +39,13 @@ TEXT
 
 # JSON for i3bar
  [{ "full_text" : "Gmail:${exec gmail}" , "color" : "\#2E64FE" },
-  { "full_text" : "HDD:${fs_free /}" , "color" : "\#FA5882" },
+  { "full_text" : "/:${fs_free /}" , "color" : "\#FA5882" },
   { "full_text": "CPU:${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" : ${if_match ${cpu}<90}"\#04B404"${else}"\#FF0000"${endif} },
   { "full_text" : "RAM:$mem" , "color" :
     ${if_match ${memperc}<90}"\#F7FE2E"${else}"\#FF0000"${endif} },
-  { "full_text" : "B:$battery_short", "color" : "\#FE9A2E"},
+  #{ "full_text" : "SWAP:$swapperc", "color" : "\#FE9A2E"},
+  #{ "full_text" : "Up: $uptime_short", "color": "\#F5BCA9"},
+  #{ "full_text" : "B:$battery_short", "color" : "\#FE9A2E"},
   { "full_text" : "Pr:$processes", "color" : "\#CEF6CE"},
   { "full_text" : "V:$template0", "color": ${if_match "$template1" == "on"}"\#E1F5A9"${else}"\#FF0000"${endif}},
   { "full_text" : "Net:D:${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},

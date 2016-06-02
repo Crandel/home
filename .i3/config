@@ -30,7 +30,7 @@ font pango:Hack 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec tilda
 
 # kill focused window
 bindsym $mod+q kill
@@ -207,9 +207,8 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 exec --no-startup-id sbxkb
 exec_always --no-startup-id numlockx on
-exec terminator
-#exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
-exec pidgin
+exec tilda
 exec clipit
 exec qtox

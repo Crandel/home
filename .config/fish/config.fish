@@ -132,16 +132,16 @@ function pr
             if [ $check = "false" ]
                 docker start postgres
             end
-        case rita
-            set -l check (docker inspect -f "{{.State.Running}}" mongo)
-            if [ $check = "false" ]
-                docker start mongo
-            end
-        case photoculture
-            set -l check (docker inspect -f "{{.State.Running}}" photo_db)
-            if [ $check = "false" ]
-                docker start photo_db
-            end
+        #case rita
+        #    set -l check (docker inspect -f "{{.State.Running}}" mongo)
+        #    if [ $check = "false" ]
+        #        docker start mongo
+        #    end
+        #case photoculture
+        #    set -l check (docker inspect -f "{{.State.Running}}" photo_db)
+        #    if [ $check = "false" ]
+        #        docker start photo_db
+        #    end
         end
     else
         cd $MY_PROJECTS_ROOT
@@ -197,16 +197,20 @@ end
 
 function monup
     sudo chown -R mongodb: /opt/db/mongo/
-    d start mongo
-end
-
-function pup
-    d start postgres
+    set -l check (docker inspect -f "{{.State.Running}}" mongo)
+    if [ $check = "false" ]
+        echo $check
+        docker start mongo
+    end
 end
 
 function servup
     cd $MY_PROJECTS_ROOT/rita
-    paster serve --reload local.ini
+    set -lx MONGODB_ADDON_URI "mongodb://mongo/rita"
+    set -lx VIRTUAL_ENV ""
+    set -lx PORT "8060"
+    monup
+    python run.py serve
 end
 
 function rita_temp
@@ -214,10 +218,6 @@ function rita_temp
     rm -rf marrow.templating-1.0.2-py2.7-nspkg.pth marrow.templating-1.0.2-py2.7.egg-info/ marrow/templating/
     cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg /opt/work/env/rita/lib/python2.7/site-packages/
     cd /opt/work/projects/rita
-end
-
-function rita
-    nvim -S ~/.vim/sessions/rita.vim
 end
 # rita end
 # localhost
@@ -244,12 +244,12 @@ function sword
 end
 # localhost end
 
-set -x EDITOR em
+set -x EDITOR vim
 set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
 set -xg GOPATH $HOME/go
-set -xg RUST $HOME/rust
+#set -xg RUST $HOME/rust
 set -xg PATH $PATH $GOPATH $GOPATH/bin $RUST/bin
 set -xg TERM "xterm-256color"
 set -x WORKON_HOME $HOME/.virtualenvs

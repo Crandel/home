@@ -68,10 +68,6 @@ endif
 " reopening a file
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-let &t_SI = "\<Esc>]12;purple\x7"
-let &t_SR = "\<Esc>]12;red\x7"
-let &t_EI = "\<Esc>]12;blue\x7"
-
 " Uncomment the following to have Vim load indentation rules and plugins
 " according to the detected filetype.
 "if has("autocmd")
@@ -368,6 +364,7 @@ let s:comment_map = {
     \   "vim": '" ',
     \   "bash": '# ',
     \   "sh": '# ',
+    \   "el": '; ',
     \ }
 
 function! ToggleComment()
