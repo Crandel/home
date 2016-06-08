@@ -152,4 +152,7 @@
 (setq ns-pop-up-frames nil)
 (setq ad-redefinition-action 'accept)
 
+;; Desktop mode
+(desktop-save-mode 1)
+
 (provide 'scratch_my)
