@@ -170,8 +170,7 @@
    (save-excursion (move-end-of-line 1) (point)))
   (delete-char 1)
 )
-(global-set-key (kbd "C-k") 'my-delete-line)
-(key-chord-define-global "dd" 'my-delete-line)
+(global-set-key (kbd "C-d") 'my-delete-line)
 
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 
