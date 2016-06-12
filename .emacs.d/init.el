@@ -16,6 +16,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(magit-log-arguments
+   (quote
+    ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
  '(neo-vc-state-char-alist
    (quote
     ((up-to-date . 32)
@@ -43,6 +46,10 @@
  '(company-template-field ((t (:background "black" :foreground "yellow"))))
  '(company-tooltip ((t (:background "black" :foreground "brightyellow"))))
  '(company-tooltip-selection ((t (:background "color-108"))))
+ '(magit-diff-added ((t (:background "green" :foreground "white"))))
+ '(magit-diff-added-highlight ((t (:background "color-118" :foreground "color-58"))))
+ '(magit-diff-removed ((t (:background "red" :foreground "#ffdddd"))))
+ '(magit-diff-removed-highlight ((t (:background "brightred" :foreground "brightcyan"))))
  '(neo-vc-ignored-face ((t (:foreground "color-240"))))
  '(neo-vc-removed-face ((t (:box (:line-width 2 :color "yellow" :style released-button)))))
  '(neo-vc-unregistered-face ((t (:foreground "brightblue"))) t)
