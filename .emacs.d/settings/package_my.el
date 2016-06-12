@@ -31,6 +31,7 @@
         multiple-cursors
         neotree
         less-css-mode
+        livedown
         pip-requirements
         powerline
         projectile
