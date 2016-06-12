@@ -37,6 +37,7 @@
         projectile
         py-autopep8
         py-isort
+        restclient
         smartparens
         undo-tree
         web-mode
