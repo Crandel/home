@@ -59,6 +59,7 @@
 (global-set-key [f10] 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
 ;;Helm-swoop
 (global-unset-key (kbd "C-s"))
 (global-unset-key (kbd "C-r"))
@@ -95,6 +96,12 @@
 (global-unset-key (kbd "C-q"))
 (global-set-key (kbd "C-q") 'er/expand-region)
 (key-chord-define-global "//" 'er/expand-region)
+
+;; Company-mode
+(global-unset-key (kbd "M-["))
+(global-set-key (kbd "M-[") 'company-select-previous)
+(global-unset-key (kbd "M-]"))
+(global-set-key (kbd "M-]") 'company-select-next)
 
 ;; move line up
 (defun move-line-up ()

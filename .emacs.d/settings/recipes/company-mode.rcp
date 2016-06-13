@@ -11,6 +11,7 @@
                           company-minimum-prefix-length    1
                           company-dabbrev-downcase         nil
                           company-dabbrev-other-buffers    t
+                          company-show-numbers             t
                           company-dabbrev-code-everywhere  t
                           company-dabbrev-code-ignore-case t
                           selection-coding-system          'utf-8
