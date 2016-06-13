@@ -30,7 +30,7 @@ font pango:Hack 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec tilda
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+q kill
@@ -156,6 +156,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
+    tray_output primary
     colors{
         background #000000
         statusline #E1F5A9
@@ -182,7 +183,7 @@ bindsym --release button2 kill
 bindsym $mod+c exec chromium
 
 # pycharm
-bindsym $mod+p exec pycharm
+bindsym $mod+e exec emacs
 
 # xmenud
 bindsym $mod+m exec xmenud
@@ -209,6 +210,7 @@ exec --no-startup-id sbxkb
 exec_always --no-startup-id numlockx on
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
-exec tilda
+exec terminator
 exec clipit
 exec qtox
+exec viber
