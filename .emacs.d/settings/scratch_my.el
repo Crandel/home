@@ -12,6 +12,10 @@
 (setq inhibit-splash-screen   t)
 (setq inhibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
 
+;; Cursor
+(setq-default cursor-type 'bar)
+(set-cursor-color "#BE81F7")
+
 ;; Imenu
 (require 'imenu)
 (setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере

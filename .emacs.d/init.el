@@ -16,6 +16,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-auto-complete-chars (quote (32 40 41 119 46 34 36 47 124 33)))
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
@@ -54,8 +55,8 @@
  '(neo-vc-removed-face ((t (:box (:line-width 2 :color "yellow" :style released-button)))))
  '(neo-vc-unregistered-face ((t (:foreground "brightblue"))) t)
  '(neo-vc-up-to-date-face ((t (:foreground "brightwhite"))))
- '(powerline-active1 ((t (:inherit mode-line :background "color-235"))))
- '(powerline-active2 ((t (:inherit mode-line :background "color-17"))))
+ '(powerline-active1 ((t (:inherit mode-line :background "peru"))))
+ '(powerline-active2 ((t (:inherit mode-line :background "goldenrod"))))
  '(whitespace-empty ((t (:foreground "color-166"))))
  '(whitespace-indentation ((t (:foreground "color-241"))))
  '(whitespace-line ((t (:underline (:color foreground-color :style wave)))))
