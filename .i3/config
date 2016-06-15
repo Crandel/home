@@ -55,8 +55,11 @@ bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-# alt tab
+
+# change focused container
 bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
+
 # move focused window
 bindsym $mod+Shift+j move left
 bindsym $mod+Shift+k move down
@@ -121,8 +124,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
+
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -156,7 +161,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-    tray_output primary
+    # tray_output primary
     colors{
         background #000000
         statusline #E1F5A9
@@ -183,7 +188,7 @@ bindsym --release button2 kill
 bindsym $mod+c exec chromium
 
 # pycharm
-bindsym $mod+e exec emacs
+bindsym $mod+x exec emacs
 
 # xmenud
 bindsym $mod+m exec xmenud

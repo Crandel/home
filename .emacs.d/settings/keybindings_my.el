@@ -26,8 +26,8 @@
 (key-chord-define-global "jj" 'backward-word)
 
 
-(global-set-key (kbd "C-x C-b") 'buffer-menu)
-(key-chord-define-global "bb" 'buffer-menu)
+(global-set-key (kbd "C-x C-b") 'electric-buffer-list)
+(key-chord-define-global "bb" 'electric-buffer-list)
 
 
 ;; Multiple cursors

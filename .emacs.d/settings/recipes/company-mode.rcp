@@ -6,14 +6,17 @@
        :features (company-files company-semantic company-css company-etags company-keywords)
        :post-init (progn
                     (global-company-mode t)
-                    (setq company-idle-delay               -1
-                          delete-selection-mode            t
-                          company-minimum-prefix-length    1
-                          company-dabbrev-downcase         nil
-                          company-dabbrev-other-buffers    t
-                          company-show-numbers             t
-                          company-dabbrev-code-everywhere  t
-                          company-dabbrev-code-ignore-case t
-                          selection-coding-system          'utf-8
+                    (setq company-idle-delay                -1
+                          delete-selection-mode             t
+                          company-minimum-prefix-length     1
+                          company-dabbrev-downcase          nil
+                          company-dabbrev-other-buffers     t
+                          company-show-numbers              t
+                          company-dabbrev-code-everywhere   t
+                          company-dabbrev-code-ignore-case  t
+                          company-selection-wrap-around     t
+                          company-tooltip-align-annotations t
+                          selection-coding-system           'utf-8
+                          company-auto-complete-chars       '(32 40 41 119 46 34 36 47 124 33)
                           company-backends '((company-yasnippet company-files company-semantic company-css company-capf
                                 company-etags company-keywords company-nxml company-dabbrev-code company-dabbrev)))))
