@@ -104,12 +104,6 @@
 (global-set-key (kbd "C-q") 'er/expand-region)
 (key-chord-define-global "//" 'er/expand-region)
 
-;; Company-mode
-(global-unset-key (kbd "M-["))
-(global-set-key (kbd "M-[") 'company-select-previous)
-(global-unset-key (kbd "M-]"))
-(global-set-key (kbd "M-]") 'company-select-next)
-
 ;; move line up
 (defun move-line-up ()
     (interactive)
