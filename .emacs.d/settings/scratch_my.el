@@ -7,7 +7,10 @@
 
 ;; Set bash as default shell
 (setq shell-file-name "/bin/bash")
-(setenv "GOPATH" "$HOME/go")
+(setenv "GOPATH"
+  (concat
+        (getenv "HOME")
+        "/go"))
 (setenv "PATH"
   (concat
    (getenv "PATH") ":"
