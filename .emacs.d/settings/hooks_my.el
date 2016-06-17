@@ -28,10 +28,12 @@
             )))
 
 (add-hook 'python-mode-hook 'my-python-hooks)
+;; End Python mode
 
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+;; End Web mode
 
 ;; Po mode
 (autoload 'po-mode "po-mode"
@@ -41,7 +43,9 @@
 (autoload 'po-find-file-coding-system "po-compat")
 (modify-coding-system-alist 'file "\\.po\\'\\|\\.po\\."
                             'po-find-file-coding-system)
+;; End Po mode
 
+;; Lisp mode
 (defun my-lisp-hooks()
     (progn
      (eval-after-load "company"
@@ -51,8 +55,23 @@
                             (push 'company-elisp comp-back)
                             (setq company-backends (list comp-back)))
                    ))))
-;; Lisp mode
 (add-hook 'lisp-interaction-mode-hook 'my-lisp-hooks)
+;; End Lisp mode
+
+;; Go mode
+(defun my-go-hooks()
+    (progn
+        (add-hook 'before-save-hook #'gofmt-before-save)
+        (eval-after-load "company"
+            '(progn
+                 (unless (member 'company-go (car company-backends))
+                     (setq comp-back (car company-go))
+                     (push 'company-elisp comp-back)
+                     (setq company-backends (list comp-back)))
+     ))))
+
+(add-hook 'go-mode-hook 'my-go-hooks)
+;; End Go mode
 
 (defadvice yes-or-no-p (around hack-exit (prompt))
    (if (string= prompt "Active processes exist; kill them and exit anyway? ")
