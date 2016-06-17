@@ -1,0 +1,11 @@
+(:name flycheck-gometalinter
+       :type github
+       :pkgname "favadi/flycheck-gometalinter"
+       :description "On-the-fly syntax checking extension for golang"
+       :build (("go" "get" "-u" "github.com/alecthomas/gometalinter"))
+       :depends (flycheck)
+       :post-init (progn
+                      (eval-after-load 'flycheck
+                          '(add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup))
+                   )
+)

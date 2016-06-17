@@ -61,6 +61,7 @@
 ;; Go mode
 (defun my-go-hooks()
     (progn
+        (setq gofmt-command "goimports")
         (add-hook 'before-save-hook #'gofmt-before-save)
         (eval-after-load "company"
             '(progn

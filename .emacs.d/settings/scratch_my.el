@@ -7,6 +7,15 @@
 
 ;; Set bash as default shell
 (setq shell-file-name "/bin/bash")
+(setenv "GOPATH" "$HOME/go")
+(setenv "PATH"
+  (concat
+   (getenv "PATH") ":"
+   (getenv "GOPATH")
+  )
+)
+(message (getenv "PATH"))
+(message (getenv "GOPATH"))
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)

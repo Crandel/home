@@ -15,6 +15,7 @@
         emacs-fish
         expand-region
         flycheck
+        flycheck-gometalinter
         git-gutter
         go-mode
         go-company
