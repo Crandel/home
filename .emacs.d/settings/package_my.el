@@ -24,6 +24,7 @@
         helm-projectile
         helm-swoop
         jedi-core
+        json-mode
         key-chord
         magit
         markdown-mode
