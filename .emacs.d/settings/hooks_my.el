@@ -19,6 +19,13 @@
         'imenu-generic-expression
         '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
     (setq imenu-create-index-function 'my-merge-imenu)
+    ;; pythom mode keybindings
+    (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+    (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
+    (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
+    (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
+    ;; end python mode keybindings
+
     (eval-after-load "company"
         '(progn
             (unless (member 'company-jedi (car company-backends))
@@ -63,6 +70,9 @@
     (progn
         (setq gofmt-command "goimports")
         (add-hook 'before-save-hook #'gofmt-before-save)
+        ;; Go mode keybindings
+        (define-key go-mode-map (kbd "M-.") #'godef-jump)
+        ;; End keybindings
         (eval-after-load "company"
             '(progn
                  (unless (member 'company-go (car company-backends))
