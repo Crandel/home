@@ -15,7 +15,7 @@
   (concat
    (getenv "PATH") ":"
    (getenv "GOPATH") ":"
-   (setenv "GOPATH") "/bin"
+   (getenv "GOPATH") "/bin"
   )
 )
 (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
