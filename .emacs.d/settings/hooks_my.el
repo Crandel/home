@@ -66,8 +66,8 @@
         (eval-after-load "company"
             '(progn
                  (unless (member 'company-go (car company-backends))
-                     (setq comp-back (car company-go))
-                     (push 'company-elisp comp-back)
+                     (setq comp-back (car company-backends))
+                     (push 'company-go comp-back)
                      (setq company-backends (list comp-back)))
      ))))
 
