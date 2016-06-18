@@ -14,11 +14,11 @@
 (setenv "PATH"
   (concat
    (getenv "PATH") ":"
-   (getenv "GOPATH")
+   (getenv "GOPATH") ":"
+   (setenv "GOPATH") "/bin"
   )
 )
-(message (getenv "PATH"))
-(message (getenv "GOPATH"))
+(add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)
