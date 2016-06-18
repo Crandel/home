@@ -71,23 +71,6 @@
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
 (key-chord-define-global "''" 'sp-rewrap-sexp)
 
-;; Jedi
-;(eval-after-load "python-mode"
-;    (progn
-;        '(define-key python-mode-map (kbd "M-.") #'jedi:goto-definition)))
-(global-unset-key (kbd "M-."))
-(global-set-key (kbd "M-.") 'jedi:goto-definition)
-(global-unset-key (kbd "M-,"))
-(global-set-key (kbd "M-,") 'jedi:goto-definition-pop-marker)
-(global-unset-key (kbd "M-/"))
-(global-set-key (kbd "M-/") 'jedi:show-doc)
-(global-unset-key (kbd "M-?"))
-(global-set-key (kbd "M-?") 'helm-jedi-related-names)
-;;; Go-mode
-;(eval-after-load "go-mode"
-;    (progn
-;        '(define-key go-mode-map (kbd "M-.") #'godef-jump)))
-
 ;; Undo-tree
 (global-unset-key (kbd "C-z"))
 
