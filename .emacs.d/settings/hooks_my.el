@@ -7,10 +7,10 @@
 
 (defun my-python-hooks()
     (interactive)
-    (setq tab-width 4)
-    (setq python-indent 4)
-    (setq-default py-shell-name "ipython")
-    (setq-default py-which-bufname "IPython")
+    (setq tab-width     4
+          python-indent 4
+          python-shell-interpreter "ipython"
+          python-shell-interpreter-args "-i")
     (if (string-match-p "rita" (or (buffer-file-name) ""))
         (setq indent-tabs-mode t)
       (setq indent-tabs-mode nil)
@@ -101,8 +101,8 @@
 
 (setq buffer-menu-buffer-font-lock-keywords
     '(("^....[*]Man .*Man.*"    . font-lock-variable-name-face) ; Man page
-      (".*.py"                   . font-lock-comment-face)      ; Python
-      (".*.el"                   . font-lock-doc-face)          ; Emacs Lisp
+      (".*.py"                  . font-lock-comment-face)       ; Python
+      (".*.el"                  . font-lock-doc-face)           ; Emacs Lisp
       (".*Dired.*"              . font-lock-comment-face)       ; Dired
       ("^....[*]shell.*"        . font-lock-preprocessor-face)  ; shell buff
       (".*[*]scratch[*].*"      . font-lock-function-name-face) ; scratch buffer
