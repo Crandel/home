@@ -24,14 +24,14 @@
 (custom-theme-set-faces
  'dark-mint
  
- '(default ((t (:background "black" :foreground "DarkOliveGreen"))))
+ '(default ((t (:background "black" :foreground "GreenYellow"))))
  '(mouse ((t (:foregound "#000000"))))
- '(fringe ((t (:background "black" :foreground "DarkOliveGreen"))))
+ '(fringe ((t (:background "black" :foreground "GreenYellow"))))
  '(cursor ((t (:foregound "#000000"))))
  '(border ((t (:foregound "black"))))
 
 
- '(mode-line ((t (:background "black" :foreground "DarkOliveGreen"))))
+ '(mode-line ((t (:background "black" :foreground "GreenYellow"))))
  '(Man-overstrike-face ((t (:weight bold))))
  '(Man-underline-face ((t (:underline t))))
  '(apropos-keybinding-face ((t (:underline t))))
@@ -40,11 +40,11 @@
  '(font-lock-type-face ((t (:foreground "light slate blue"))))
  '(font-lock-comment-face ((t (:foreground "#E6E6E6"))))
  '(font-lock-function-name-face ((t (:foreground "Gold"))))
- '(font-lock-keyword-face ((t (:weight bold :foreground "GreenYellow"))))
+ '(font-lock-keyword-face ((t (:weight bold :foreground "DarkGoldenrod"))))
  '(font-lock-string-face ((t (:foreground "#DF7401"))))
- '(font-lock-variable-name-face ((t (:foreground "YellowGreen"))))
+ '(font-lock-variable-name-face ((t (:foreground "DarkOliveGreen3"))))
 
- '(region ((t (:background "MidnightBlue"))))
+ '(region ((t (:background "SteelBlue"))))
  '(secondary-selection ((t (:background "dodger blue"))))
  
  '(mouse ((t (:foregound "wheat"))))
