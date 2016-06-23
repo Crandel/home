@@ -19,6 +19,7 @@
         git-gutter
         go-mode
         go-company
+        go-rename
         helm
         helm-ag
         helm-ls-git
