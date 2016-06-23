@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # ~/.xinitrc
 #
@@ -9,6 +9,8 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   done
   unset f
 fi
+
+source /etc/profile
 
 # exec gnome-session
 # exec startkde
