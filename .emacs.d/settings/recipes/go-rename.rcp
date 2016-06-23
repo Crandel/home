@@ -1,0 +1,7 @@
+(:name go-rename
+    :description "go-rename wrapper for Emacs"
+    :url "https://github.com/golang/tools/blob/master/refactor/rename/go-rename.el"
+    :type http
+    :depends (go-mode)
+    :build (("go" "get" "-u" "golang.org/x/tools/cmd/gorename"))
+    :compile "go-rename.el")
