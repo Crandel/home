@@ -199,6 +199,6 @@
   (let ((local-function-key-map nil))
     ad-do-it))
 
- (reverse-input-method 'russian-typewriter)
+(reverse-input-method 'russian-typewriter)
 
 (provide 'scratch_my)

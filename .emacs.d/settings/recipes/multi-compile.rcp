@@ -1,0 +1,13 @@
+(:name multi-compile
+       :description "Multi target interface to compile."
+       :type github
+       :pkgname "ReanGD/emacs-multi-compile"
+       :depends (dash)
+       :post-init (progn
+                      (setq multi-compile-alist '(
+                            (go-mode . (("go-run" "go run -v"
+                                            (buffer-file-name))
+                                        ("go-build" "go build -v"
+                                            (locate-dominating-file buffer-file-name ".git"))
+                                        ("go-build-and-run" "go build -v && echo 'build finish' && eval ./${PWD##*/}"
+                                            (multi-compile-locate-file-dir ".git"))))))))
