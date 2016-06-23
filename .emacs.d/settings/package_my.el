@@ -30,6 +30,7 @@
         magit
         markdown-mode
         mo-git-blame
+        multi-compile
         multiple-cursors
         neotree
         less-css-mode

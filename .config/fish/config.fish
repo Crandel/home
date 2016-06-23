@@ -90,7 +90,11 @@ function zipin
 end
 
 function backup
-   cd /opt/work/backup/$argv
+    if count $argv > /dev/null
+        cd /opt/work/backup/$argv
+    else
+        cd /opt/work/backup/$argv
+    end
 end
 
 function go_path
