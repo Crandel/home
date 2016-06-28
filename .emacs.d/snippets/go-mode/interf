@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: interf
+# key: inf
+# --
+type $1 interface {
+     $0
+}
