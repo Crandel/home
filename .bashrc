@@ -94,29 +94,29 @@ fi
 function parse_git_dirty {
     status=`git status 2>&1 | tee`
     changed_files=`git diff --name-status | cut -c 1-2`
-    dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" | wc -l`
-    untracked=`echo -n $(git ls-files --others --exclude-standard | tee | wc -l)`
     ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-    newfile=`echo -n "${status}" 2> /dev/null | grep "new file:" &> /dev/null; echo "$?"`
+    stashedfile=`git diff --cached --numstat | wc -l`
+    unstashedfile=`git diff --numstat | wc -l`
     renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
     deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+    untracked=`git ls-files --others | wc -l`
+    if [ "${untracked}" != "0" ]; then
+        bits="%${untracked}${bits}"
+    fi
     if [ "${renamed}" == "0" ]; then
         bits=">${bits}"
     fi
     if [ "${ahead}" == "0" ]; then
         bits="!${bits}"
     fi
-    if [ "${newfile}" == "0" ]; then
-        bits="+${bits}"
-    fi
-    if [ "${untracked}" != "0" ]; then
-        bits="%${untracked}${bits}"
+    if [ "${stashedfile}" != "0" ]; then
+        bits="+${stashedfile}${bits}"
     fi
     if [ "${deleted}" == "0" ]; then
         bits="x${bits}"
     fi
-    if [ "${dirty}" != "0" ]; then
-        bits="*${dirty}${bits}"
+    if [ "${unstashedfile}" != "0" ]; then
+        bits="*${unstashedfile}${bits}"
     fi
 }
 
