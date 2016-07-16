@@ -98,7 +98,7 @@ function parse_git_dirty {
     stashedfile=`git diff --cached --numstat | wc -l`
     unstashedfile=`git diff --numstat | wc -l`
     renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-    deleted=`echo -n "${status}" 2> /dev/null | grep "deleted:" &> /dev/null; echo "$?"`
+    deleted=`git ls-files -d | wc -l`
     untracked=`git ls-files --others | wc -l`
     if [ "${untracked}" != "0" ]; then
         bits="%${untracked}${bits}"
@@ -112,8 +112,8 @@ function parse_git_dirty {
     if [ "${stashedfile}" != "0" ]; then
         bits="+${stashedfile}${bits}"
     fi
-    if [ "${deleted}" == "0" ]; then
-        bits="x${bits}"
+    if [ "${deleted}" != "0" ]; then
+        bits="x${deleted}${bits}"
     fi
     if [ "${unstashedfile}" != "0" ]; then
         bits="*${unstashedfile}${bits}"
