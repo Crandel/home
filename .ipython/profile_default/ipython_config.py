@@ -335,7 +335,7 @@ c.TerminalInteractiveShell.highlighting_style = 'colorful'
 c.TerminalInteractiveShell.mouse_support = True
 
 # Class used to generate Prompt token for prompt_toolkit
-c.TerminalInteractiveShell.prompts_class = 'IPython.terminal.prompts.Prompts'
+c.TerminalInteractiveShell.prompts_class = 'my_prompt.MyPrompt'
 
 # Use `raw_input` for the REPL, without completion, multiline input, and prompt
 # colors.
@@ -352,7 +352,7 @@ c.TerminalInteractiveShell.prompts_class = 'IPython.terminal.prompts.Prompts'
 # c.TerminalInteractiveShell.space_for_menu = 6
 
 # Automatically set the terminal title
-# c.TerminalInteractiveShell.term_title = True
+c.TerminalInteractiveShell.term_title = True
 
 #------------------------------------------------------------------------------
 # HistoryAccessorBase configuration
