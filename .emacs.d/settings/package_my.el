@@ -22,6 +22,7 @@
         go-rename
         helm
         helm-ag
+        helm-git-grep
         helm-ls-git
         helm-projectile
         helm-swoop

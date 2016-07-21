@@ -66,6 +66,10 @@
 (global-set-key (kbd "C-s") 'helm-swoop)
 (global-set-key (kbd "C-r") 'helm-multi-swoop-current-mode)
 
+;; Helm-git-grep
+(global-unset-key (kbd "C-x g"))
+(global-set-key (kbd "C-x g") 'helm-git-grep-at-point)
+
 ;; Smartparent
 (global-unset-key (kbd "C-c w"))
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)

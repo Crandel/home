@@ -93,7 +93,7 @@ function backup
     if count $argv > /dev/null
         cd /opt/work/backup/$argv
     else
-        cd /opt/work/backup/$argv
+        cd /opt/work/backup/
     end
 end
 
