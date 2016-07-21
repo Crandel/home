@@ -100,6 +100,10 @@ function parse_git_dirty {
     renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
     deleted=`git ls-files -d | wc -l`
     untracked=`git ls-files --others | wc -l`
+    ignored="0"
+    if [ -f .gitignore ]; then
+        ignored=`git ls-files -X .gitignore -i | wc -l`
+    fi
     if [ "${untracked}" != "0" ]; then
         bits="%${untracked}${bits}"
     fi
@@ -107,7 +111,7 @@ function parse_git_dirty {
         bits=">${bits}"
     fi
     if [ "${ahead}" == "0" ]; then
-        bits="!${bits}"
+        bits="&${bits}"
     fi
     if [ "${stashedfile}" != "0" ]; then
         bits="+${stashedfile}${bits}"
@@ -118,6 +122,10 @@ function parse_git_dirty {
     if [ "${unstashedfile}" != "0" ]; then
         bits="*${unstashedfile}${bits}"
     fi
+    if [ "${ignored}" != "0" ]; then
+        bits="!${ignored}${bits}"
+    fi
+
 }
 
 # determine git branch name

@@ -1,3 +1,0 @@
-[
-    { "keys": ["ctrl+d"], "command": "goto_definition" },
-]
