@@ -1,6 +1,0 @@
-[
-    {
-        "caption": "SublimeREPL: Restart REPL",
-        "command": "repl_restart"
-    }
-]

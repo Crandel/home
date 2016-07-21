@@ -1,1 +1,0 @@
-{"sublime_text": "*", "platforms": ["*"], "version": "1.7.0", "dependencies": [], "description": "Use ag, ack, grep and git grep directly from Sublime Text 2 and 3", "url": "https://github.com/leonid-shevtsov/SearchInProject_SublimeText"}

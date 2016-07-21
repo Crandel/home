@@ -1,1 +1,0 @@
-{"sublime_text": ">=3000", "url": "https://github.com/ticcky/sublime_goimports", "platforms": ["*"], "version": "2014.08.20.20.29.44", "description": "Sublime3 Plugin for integrating goimports (https://github.com/bradfitz/goimports) to your favorite editor.", "dependencies": []}
