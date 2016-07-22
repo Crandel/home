@@ -2,4 +2,4 @@
 # name: debug
 # key: deb
 # --
-{% debug %}
+<pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>
