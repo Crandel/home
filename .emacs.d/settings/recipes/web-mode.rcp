@@ -3,6 +3,7 @@
        :type github
        :pkgname "fxbois/web-mode"
        :post-init (progn
-           (setq web-mode-engines-alist
-            '(("jinja" . "\\.html\\'")
-             ))))
+           (setq web-mode-engines-alist               '(("jinja" . "\\.html\\'"))
+            web-mode-enable-current-element-highlight t
+            web-mode-enable-current-column-highlight  t)
+           ))

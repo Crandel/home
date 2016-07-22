@@ -4,5 +4,4 @@
        :pkgname "yasuyk/helm-git-grep"
        :depends helm
        :post-init(progn
-                     
-                  ))
+                     (setq helm-git-grep-max-length-history 300)))
