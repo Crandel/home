@@ -3,66 +3,55 @@ function fish_prompt --description 'Write out the prompt'
     set -l fish_color_status red
     set -l fish_color_cwd magenta
     set -l fish_color_venv yellow
-    set -l fish_color_git $fish_color_normal
     set -l last_status $status
     set -l fish_color_user green
     set -l fish_color_root red
     set -l fish_color_date cyan
+    set -l fish_color_git_branch cyan
+    set -l fish_color_git_unstaged yellow
+    set -l fish_color_git_staged green
 
-    if not set -q __fish_git_prompt_show_informative_status
-        set -g __fish_git_prompt_show_informative_status 1
+    set oldIFS "$IFS"
+    set IFS ""
+    set -l new_status git status --porcelain
+    set git_branch (git branch 2> /dev/null | sed -n 's/^\* //p')
+    set -l X (eval $new_status | cut -c 1-1)
+    set -l Y (eval $new_status | cut -c 2-2)
+    set -l modified_unstaged (echo $Y | grep "M" -c)
+    set -l deleted_unstaged (echo $Y | grep "D" -c)
+    set -l untracked_unstaged (echo $Y | grep "?" -c)
+    set -l modified_staged (echo $X | grep "M" -c)
+    set -l deleted_staged (echo $X | grep "D" -c)
+    set -l renamed_staged (echo $X | grep "R" -c)
+    set -l new_staged (echo $X | grep "A" -c)
+    # unstagedFiles
+    set unstagedFiles ""
+    if test $modified_unstaged -ne 0
+        set unstagedFiles "%$modified_unstaged$unstagedFiles"
     end
-    if not set -q __fish_git_prompt_hide_untrackedfiles
-        set -g __fish_git_prompt_hide_untrackedfiles 1
+    if test $untracked_unstaged -ne 0
+        set unstagedFiles "*$untracked_unstaged$unstagedFiles"
     end
-
-    if not set -q __fish_git_prompt_color_branch
-        set -g __fish_git_prompt_color_branch cyan --bold
-    end
-    if not set -q __fish_git_prompt_showupstream
-        set -g __fish_git_prompt_showupstream "informative"
-    end
-    if not set -q __fish_git_prompt_char_upstream_ahead
-        set -g __fish_git_prompt_char_upstream_ahead "↑"
-    end
-    if not set -q __fish_git_prompt_char_upstream_behind
-        set -g __fish_git_prompt_char_upstream_behind "↓"
-    end
-    if not set -q __fish_git_prompt_char_upstream_prefix
-        set -g __fish_git_prompt_char_upstream_prefix ""
-    end
-
-    if not set -q __fish_git_prompt_char_stagedstate
-        set -g __fish_git_prompt_char_stagedstate "●"
-    end
-    if not set -q __fish_git_prompt_char_dirtystate
-        set -g __fish_git_prompt_char_dirtystate "✚"
-    end
-    if not set -q __fish_git_prompt_char_untrackedfiles
-        set -g __fish_git_prompt_char_untrackedfiles "…"
-    end
-    if not set -q __fish_git_prompt_char_conflictedstate
-        set -g __fish_git_prompt_char_conflictedstate "✖"
-    end
-    if not set -q __fish_git_prompt_char_cleanstate
-        set -g __fish_git_prompt_char_cleanstate "✔"
+    if test $deleted_unstaged -ne 0
+        set unstagedFiles "-$deleted_unstaged$unstagedFiles"
     end
 
-    if not set -q __fish_git_prompt_color_dirtystate
-        set -g __fish_git_prompt_color_dirtystate yellow
+    # stagedFiles
+    set stagedFiles ""
+    if test $modified_staged -ne 0
+        set stagedFiles "%$modified_staged$stagedFiles"
     end
-    if not set -q __fish_git_prompt_color_stagedstate
-        set -g __fish_git_prompt_color_stagedstate green
+    if test $deleted_staged -ne 0
+        set stagedFiles "%$deleted_staged$stagedFiles"
     end
-    if not set -q __fish_git_prompt_color_invalidstate
-        set -g __fish_git_prompt_color_invalidstate red
+    if test $renamed_staged -ne 0
+        set stagedFiles "%$renamed_staged$stagedFiles"
     end
-    if not set -q __fish_git_prompt_color_untrackedfiles
-        set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+    if test $new_staged -ne 0
+        set stagedFiles "%$new_staged$stagedFiles"
     end
-    if not set -q __fish_git_prompt_color_cleanstate
-        set -g __fish_git_prompt_color_cleanstate green --bold
-    end
+    set IFS "$oldIFS"
+
 
     if test $CMD_DURATION
         if test $CMD_DURATION -gt (math "1000 * 10")
@@ -104,9 +93,18 @@ function fish_prompt --description 'Write out the prompt'
     end
 
     set -g __fish_prompt_git ""
-    set -l git_branch (__fish_git_prompt)
     if test $git_branch
-        set -g __fish_prompt_git (set_color $fish_color_git) (__fish_git_prompt)
+        set -g __git_branch (set_color $fish_color_git_branch)"$git_branch"(set_color $fish_color_normal)
+        set -g __git_unstaged (set_color $fish_color_git_unstaged)"$unstagedFiles"(set_color $fish_color_normal)
+        set -g __git_staged (set_color $fish_color_git_staged)"$stagedFiles"(set_color $fish_color_normal)
+        set -g __fish_prompt_git (set_color $fish_color_normal)"($__git_branch"
+        if test $unstagedFiles
+            set -g __fish_prompt_git "$__fish_prompt_git|$__git_unstaged"
+        end
+        if test $stagedFiles
+            set -g __fish_prompt_git "$__fish_prompt_git/$__git_staged"
+        end
+        set -g __fish_prompt_git "$__fish_prompt_git)"
     end
 
     echo -n -s "$__date" "$virtual_env" "$__fish_prompt_user" "$__fish_prompt_cwd" "$__fish_prompt_git" "$prompt_status" "$__fish_prompt_duration"
