@@ -266,5 +266,4 @@ set -x WORKON_HOME $HOME/.virtualenvs
 set -x INFINALITY_FT_BRIGHTNESS "-10"
 set -x INFINALITY_FT_FILTER_PARAMS "16 20 28 20 16"
 eval (python2 -m virtualfish auto_activation global_requirements)
-set -xg _JAVA_OPTIONS '-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 set fish_greeting ""
