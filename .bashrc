@@ -92,58 +92,60 @@ fi
 
 # get current status of git repo
 function parse_git_dirty {
-    status=`git status 2>&1 | tee`
-    changed_files=`git diff --name-status | cut -c 1-2`
-    ahead=`echo -n "${status}" 2> /dev/null | grep "Your branch is ahead of" &> /dev/null; echo "$?"`
-    stashedfile=`git diff --cached --numstat | wc -l`
-    unstashedfile=`git diff --numstat | wc -l`
-    renamed=`echo -n "${status}" 2> /dev/null | grep "renamed:" &> /dev/null; echo "$?"`
-    deleted=`git ls-files -d | wc -l`
-    untracked=`git ls-files --others | wc -l`
-    ignored="0"
-    if [ -f .gitignore ]; then
-        ignored=`git ls-files -X .gitignore -i | wc -l`
+    new_status=`git status --porcelain`
+    # staged files
+    X=`echo -n "${new_status}" 2> /dev/null | cut -c 1-1`
+    # unstaged files
+    Y=`echo -n "${new_status}" 2> /dev/null | cut -c 2-2`
+    modified_unstaged=`echo -n "${Y}" | grep "M" -c`
+    deleted_unstaged=`echo -n "${Y}" | grep "D" -c`
+    untracked_unstaged=`echo -n "${Y}" | grep "?" -c`
+    modified_staged=`echo -n "${X}" | grep "M" -c`
+    deleted_staged=`echo -n "${X}" | grep "D" -c`
+    renamed_staged=`echo -n "${X}" | grep "R" -c`
+    new_staged=`echo -n "${X}" | grep "A" -c`
+    # unstaged_files
+    if [ "${modified_unstaged}" != "0" ]; then
+        unstaged_files="%${modified_unstaged}${unstaged_files}"
     fi
-    if [ "${untracked}" != "0" ]; then
-        bits="%${untracked}${bits}"
+    if [ "${deleted_unstaged}" != "0" ]; then
+        unstaged_files="@${deleted_unstaged}${unstaged_files}"
     fi
-    if [ "${renamed}" == "0" ]; then
-        bits=">${bits}"
+    if [ "${untracked_unstaged}" != "0" ]; then
+        unstaged_files="*${untracked_unstaged}${unstaged_files}"
     fi
-    if [ "${ahead}" == "0" ]; then
-        bits="&${bits}"
+    # staged_files
+    if [ "${modified_staged}" != "0" ]; then
+        staged_files="%${modified_staged}${staged_files}"
     fi
-    if [ "${stashedfile}" != "0" ]; then
-        bits="+${stashedfile}${bits}"
+    if [ "${deleted_staged}" != "0" ]; then
+        staged_files="@${deleted_staged}${staged_files}"
     fi
-    if [ "${deleted}" != "0" ]; then
-        bits="x${deleted}${bits}"
+    if [ "${renamed_staged}" != "0" ]; then
+        staged_files="^${renamed_staged}${staged_files}"
     fi
-    if [ "${unstashedfile}" != "0" ]; then
-        bits="*${unstashedfile}${bits}"
+    if [ "${new_staged}" != "0" ]; then
+        staged_files="+${new_staged}${staged_files}"
     fi
-    if [ "${ignored}" != "0" ]; then
-        bits="!${ignored}${bits}"
-    fi
-
 }
 
 # determine git branch name
 function parse_git_branch(){
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+  git branch 2> /dev/null | sed -n 's/^\* //p'
 }
 
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
   # Get the name of the branch.
   branch=$(parse_git_branch)
-  bits=''
+  staged_files=''
+  unstaged_files=''
   if [ ! "${branch}" == "" ]; then
       parse_git_dirty
   fi
 
   # Set the final branch string.
-  BRANCH="${BLUE}${branch}${bits}${COLOR_NONE} "
+  BRANCH="${BLUE}(${branch}${COLOR_NONE}|${YELLOW}${unstaged_files}${COLOR_NONE}/${GREEN}${staged_files}${COLOR_NONE}) "
 }
 
 # Return the prompt symbol to use, colorized based on the return value of the
