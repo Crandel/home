@@ -11,6 +11,7 @@
         company-mode
         company-flx
         company-jedi
+        company-restclient
         emmet-mode
         emacs-fish
         expand-region
@@ -29,6 +30,7 @@
         jedi-core
         json-mode
         key-chord
+        know-your-http-well
         magit
         markdown-mode
         mo-git-blame

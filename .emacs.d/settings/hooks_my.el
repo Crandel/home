@@ -84,6 +84,46 @@
 (add-hook 'go-mode-hook 'my-go-hooks)
 ;; End Go mode
 
+;; Smartparents hooks
+(defun my-smartparents()
+    (sp-with-modes '(markdown-mode gfm-mode rst-mode)
+        (sp-local-pair "*" "*")
+        (sp-local-pair "**" "**")
+        (sp-local-pair "_" "_" ))
+    (sp-pair "%" "%")
+    (sp-pair "<" ">"))
+
+(add-hook 'smartparens-mode-hook 'my-smartparents)
+;; End smartparens hooks
+
+;; Restclient hooks
+(defun my-restclient-hooks()
+    (progn
+        (define-key restclient-mode-map (kbd "RET") 'newline)
+        (eval-after-load "company"
+            '(progn
+                 (unless (member 'company-restclient (car company-backends))
+                     (setq comp-back (car company-backends))
+                     (push 'company-restclient comp-back)
+                     (setq company-backends (list comp-back)))
+     ))))
+
+(add-hook 'restclient-mode-hook 'my-restclient-hooks)
+;; End restclient hooks
+
+;; Buffer-menu-mode-hook
+(defun buffer-menu-custom-font-lock  ()
+      (let ((font-lock-unfontify-region-function
+             (lambda (start end)
+               (remove-text-properties start end '(font-lock-face nil)))))
+        (font-lock-unfontify-buffer)
+        (set (make-local-variable 'font-lock-defaults)
+             '(buffer-menu-buffer-font-lock-keywords t))
+        (font-lock-fontify-buffer)))
+
+(add-hook 'buffer-menu-mode-hook 'buffer-menu-custom-font-lock)
+;; End buffer-menu-mode-hook
+
 (defadvice yes-or-no-p (around hack-exit (prompt))
    (if (string= prompt "Active processes exist; kill them and exit anyway? ")
        t
@@ -111,25 +151,5 @@
       ("^.[%].*"                . font-lock-keyword-face)       ; Read only
       ))
 
-(defun buffer-menu-custom-font-lock  ()
-      (let ((font-lock-unfontify-region-function
-             (lambda (start end)
-               (remove-text-properties start end '(font-lock-face nil)))))
-        (font-lock-unfontify-buffer)
-        (set (make-local-variable 'font-lock-defaults)
-             '(buffer-menu-buffer-font-lock-keywords t))
-        (font-lock-fontify-buffer)))
-
-(add-hook 'buffer-menu-mode-hook 'buffer-menu-custom-font-lock)
-
-(defun my-smartparents()
-    (sp-with-modes '(markdown-mode gfm-mode rst-mode)
-        (sp-local-pair "*" "*")
-        (sp-local-pair "**" "**")
-        (sp-local-pair "_" "_" ))
-    (sp-pair "%" "%")
-    (sp-pair "<" ">"))
-
-(add-hook 'smartparens-mode-hook 'my-smartparents)
 
 (provide 'hooks_my)
