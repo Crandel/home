@@ -127,7 +127,7 @@
 ;; Clipboard settings
 (setq x-select-enable-clipboard t)
 
-(setq next-line-add-newlines nil) ;; не добавлять новую строку в конец при смещении курсора  стрелками
+(setq next-line-add-newlines nil) ;; не добавлять новую строку в конец при смещении курсора стрелками
 
 ;; Highlight search resaults
 (setq search-highlight        t
