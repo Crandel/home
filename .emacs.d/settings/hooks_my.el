@@ -122,5 +122,14 @@
 
 (add-hook 'buffer-menu-mode-hook 'buffer-menu-custom-font-lock)
 
+(defun my-smartparents()
+    (sp-with-modes '(markdown-mode gfm-mode rst-mode)
+        (sp-local-pair "*" "*")
+        (sp-local-pair "**" "**")
+        (sp-local-pair "_" "_" ))
+    (sp-pair "%" "%")
+    (sp-pair "<" ">"))
+
+(add-hook 'smartparens-mode-hook 'my-smartparents)
 
 (provide 'hooks_my)
