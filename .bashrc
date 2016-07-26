@@ -109,7 +109,7 @@ function parse_git_dirty {
         unstaged_files="%${modified_unstaged}${unstaged_files}"
     fi
     if [ "${deleted_unstaged}" != "0" ]; then
-        unstaged_files="@${deleted_unstaged}${unstaged_files}"
+        unstaged_files="-${deleted_unstaged}${unstaged_files}"
     fi
     if [ "${untracked_unstaged}" != "0" ]; then
         unstaged_files="*${untracked_unstaged}${unstaged_files}"
@@ -119,7 +119,7 @@ function parse_git_dirty {
         staged_files="%${modified_staged}${staged_files}"
     fi
     if [ "${deleted_staged}" != "0" ]; then
-        staged_files="@${deleted_staged}${staged_files}"
+        staged_files="-${deleted_staged}${staged_files}"
     fi
     if [ "${renamed_staged}" != "0" ]; then
         staged_files="^${renamed_staged}${staged_files}"
