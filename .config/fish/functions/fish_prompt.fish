@@ -1,13 +1,68 @@
 function fish_prompt --description 'Write out the prompt'
+
     set -l fish_color_status red
     set -l fish_color_cwd magenta
     set -l fish_color_venv yellow
-    set -l fish_color_git cyan
+    set -l fish_color_git $fish_color_normal
     set -l last_status $status
-    set -l fish_color_user green 
+    set -l fish_color_user green
     set -l fish_color_root red
     set -l fish_color_date cyan
 
+    if not set -q __fish_git_prompt_show_informative_status
+        set -g __fish_git_prompt_show_informative_status 1
+    end
+    if not set -q __fish_git_prompt_hide_untrackedfiles
+        set -g __fish_git_prompt_hide_untrackedfiles 1
+    end
+
+    if not set -q __fish_git_prompt_color_branch
+        set -g __fish_git_prompt_color_branch cyan --bold
+    end
+    if not set -q __fish_git_prompt_showupstream
+        set -g __fish_git_prompt_showupstream "informative"
+    end
+    if not set -q __fish_git_prompt_char_upstream_ahead
+        set -g __fish_git_prompt_char_upstream_ahead "↑"
+    end
+    if not set -q __fish_git_prompt_char_upstream_behind
+        set -g __fish_git_prompt_char_upstream_behind "↓"
+    end
+    if not set -q __fish_git_prompt_char_upstream_prefix
+        set -g __fish_git_prompt_char_upstream_prefix ""
+    end
+
+    if not set -q __fish_git_prompt_char_stagedstate
+        set -g __fish_git_prompt_char_stagedstate "●"
+    end
+    if not set -q __fish_git_prompt_char_dirtystate
+        set -g __fish_git_prompt_char_dirtystate "✚"
+    end
+    if not set -q __fish_git_prompt_char_untrackedfiles
+        set -g __fish_git_prompt_char_untrackedfiles "…"
+    end
+    if not set -q __fish_git_prompt_char_conflictedstate
+        set -g __fish_git_prompt_char_conflictedstate "✖"
+    end
+    if not set -q __fish_git_prompt_char_cleanstate
+        set -g __fish_git_prompt_char_cleanstate "✔"
+    end
+
+    if not set -q __fish_git_prompt_color_dirtystate
+        set -g __fish_git_prompt_color_dirtystate yellow
+    end
+    if not set -q __fish_git_prompt_color_stagedstate
+        set -g __fish_git_prompt_color_stagedstate green
+    end
+    if not set -q __fish_git_prompt_color_invalidstate
+        set -g __fish_git_prompt_color_invalidstate red
+    end
+    if not set -q __fish_git_prompt_color_untrackedfiles
+        set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
+    end
+    if not set -q __fish_git_prompt_color_cleanstate
+        set -g __fish_git_prompt_color_cleanstate green --bold
+    end
 
     if test $CMD_DURATION
         if test $CMD_DURATION -gt (math "1000 * 10")
@@ -16,30 +71,6 @@ function fish_prompt --description 'Write out the prompt'
           set -g __fish_prompt_duration (set_color red) $secs "s"
         else 
           set -g __fish_prompt_duration ""
-        end
-    end
-
-
-    if not set -q -g __fish_classic_git_functions_defined
-        set -g __fish_classic_git_functions_defined
-        function __fish_repaint_user --on-variable fish_color_user --description "Event handler, repaint when fish_color_user changes"
-            if status --is-interactive
-                commandline -f repaint ^/dev/null
-            end
-        end
-        
-        function __fish_repaint_host --on-variable fish_color_host --description "Event handler, repaint when fish_color_host changes"
-            if status --is-interactive
-                set -e __fish_prompt_host
-                commandline -f repaint ^/dev/null
-            end
-        end
-        
-        function __fish_repaint_status --on-variable fish_color_status --description "Event handler; repaint when fish_color_status changes"
-            if status --is-interactive
-                set -e __fish_prompt_status
-                commandline -f repaint ^/dev/null
-            end
         end
     end
 
