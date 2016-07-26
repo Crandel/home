@@ -143,9 +143,15 @@ function set_git_branch() {
   if [ ! "${branch}" == "" ]; then
       parse_git_dirty
   fi
+  if [ ! "${staged_files}" == "" ]; then
+      staged_files="/${GREEN}${staged_files}${COLOR_NONE}"
+  fi
+  if [ ! "${unstaged_files}" == "" ]; then
+      unstaged_files="|${YELLOW}${unstaged_files}${COLOR_NONE}"
+  fi
 
   # Set the final branch string.
-  BRANCH="${BLUE}(${branch}${COLOR_NONE}|${YELLOW}${unstaged_files}${COLOR_NONE}/${GREEN}${staged_files}${COLOR_NONE}) "
+  BRANCH="(${BLUE}${branch}${COLOR_NONE}${unstaged_files}${staged_files}) "
 }
 
 # Return the prompt symbol to use, colorized based on the return value of the
