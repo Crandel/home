@@ -4,9 +4,10 @@ set -xg MY_PROJECTS_ROOT /opt/work/projects
 
 # Docker
 function run
-    cd /opt/work/projects/
-    cd $argv
-    docker-compose run --rm --service-ports $argv
+    if count $argv > /dev/null
+        cd /opt/work/projects/$argv
+        docker-compose run --rm --service-ports $argv
+    end
 end
 
 function dl
@@ -262,6 +263,10 @@ set -xg GOPATH $HOME/go
 #set -xg RUST $HOME/rust
 set -xg PATH $PATH $GOPATH $GOPATH/bin
 set -xg TERM "xterm-256color"
+# fix emacs dumb term
+if test "$TERM" = "dumb"
+    set -xg TERM "ansi-term"
+end
 set -x WORKON_HOME $HOME/.virtualenvs
 set -x INFINALITY_FT_BRIGHTNESS "-10"
 set -x INFINALITY_FT_FILTER_PARAMS "16 20 28 20 16"
