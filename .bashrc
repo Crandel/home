@@ -93,6 +93,8 @@ fi
 # get current status of git repo
 function parse_git_dirty {
     new_status=`git status --porcelain`
+    ahead=`git status -sb 2> /dev/null | grep -o "ahead [0-9]*" | grep -o "[0-9]*"`
+    behind=`git status -sb 2> /dev/null | grep -o "behind [0-9]*" | grep -o "[0-9]*"`
     # staged files
     X=`echo -n "${new_status}" 2> /dev/null | cut -c 1-1`
     # unstaged files
@@ -138,20 +140,27 @@ function parse_git_branch(){
 function set_git_branch() {
   # Get the name of the branch.
   branch=$(parse_git_branch)
-  staged_files=''
-  unstaged_files=''
+  BRANCH=''
   if [ ! "${branch}" == "" ]; then
+      staged_files=''
+      unstaged_files=''
       parse_git_dirty
-  fi
-  if [ ! "${staged_files}" == "" ]; then
-      staged_files="/${GREEN}${staged_files}${COLOR_NONE}"
-  fi
-  if [ ! "${unstaged_files}" == "" ]; then
-      unstaged_files="|${YELLOW}${unstaged_files}${COLOR_NONE}"
+      if [ ! "${staged_files}" == "" ]; then
+          staged_files="/${GREEN}${staged_files}${COLOR_NONE}"
+      fi
+      if [ ! "${unstaged_files}" == "" ]; then
+          unstaged_files="|${YELLOW}${unstaged_files}${COLOR_NONE}"
+      fi
+      if [ ! "${ahead}" == "" ]; then
+          ahead="{${LIGHT_GREEN}>${ahead}${COLOR_NONE}}"
+      fi
+      if [ ! "${behind}" == "" ]; then
+          ahead="{${LIGHT_RED}<${behind}${COLOR_NONE}}"
+      fi
+      # Set the final branch string.
+      BRANCH="(${BLUE}${branch}${COLOR_NONE}${ahead}${behind}${unstaged_files}${staged_files}) "
   fi
 
-  # Set the final branch string.
-  BRANCH="(${BLUE}${branch}${COLOR_NONE}${unstaged_files}${staged_files}) "
 }
 
 # Return the prompt symbol to use, colorized based on the return value of the
