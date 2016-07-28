@@ -3,5 +3,4 @@
        :website "https://github.com/iquiw/company-restclient"
        :type github
        :pkgname "iquiw/company-restclient"
-       :depends (company-mode restclient know-your-http-well)
-       :features (know-your-http-well))
+       :depends (company-mode restclient know-your-http-well))
