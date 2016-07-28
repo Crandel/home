@@ -2,4 +2,4 @@
 # name: pdb
 # key: b
 # --
-import ipdb; ipdb.set_trace()  # BREAKPOINT
+import pdb; pdb.set_trace()  # BREAKPOINT

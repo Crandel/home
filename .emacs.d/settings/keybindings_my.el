@@ -1,35 +1,6 @@
 ;; Custom keybindings
 
-;; Moving
-;;UP
-(global-unset-key (kbd "M-i"))
-(global-set-key (kbd "M-i") 'previous-line)
-;; LEFT
-(global-unset-key (kbd "M-j"))
-(global-set-key (kbd "M-j") 'backward-char)
-;; DOWN
-(global-unset-key (kbd "M-k"))
-(global-set-key (kbd "M-k") 'next-line)
-(global-set-key (kbd "C-c k") 'kill-sentence)
-;; RIGHT
-(global-unset-key (kbd "M-l"))
-(global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "C-c l") 'downcase-word)
-;; RIGHT WORD
-(global-unset-key (kbd "M-o"))
-(global-set-key (kbd "M-o") 'forward-word)
-(key-chord-define-global "kk" 'forward-word)
-;; LEFT WORD
-(global-unset-key (kbd "M-u"))
-(global-set-key (kbd "M-u") 'backward-word)
-(global-set-key (kbd "C-c u") 'upcase-word)
-(key-chord-define-global "jj" 'backward-word)
-
-
-(global-set-key (kbd "C-x C-b") 'electric-buffer-list)
-(key-chord-define-global "bb" 'electric-buffer-list)
-
-
+;; Plugin keybindings
 ;; Multiple cursors
 (global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
 (global-set-key (kbd "C-c <left>") 'mc/mark-previous-word-like-this) ; choose same word previous
@@ -90,6 +61,41 @@
 (global-unset-key (kbd "C-q"))
 (global-set-key (kbd "C-q") 'er/expand-region)
 (key-chord-define-global "//" 'er/expand-region)
+
+;; Custom keybindings
+;; Moving
+;;UP
+(global-unset-key (kbd "M-i"))
+(global-set-key (kbd "M-i") 'previous-line)
+;; LEFT
+(global-unset-key (kbd "M-j"))
+(global-set-key (kbd "M-j") 'backward-char)
+;; DOWN
+(global-unset-key (kbd "M-k"))
+(global-set-key (kbd "M-k") 'next-line)
+(global-set-key (kbd "C-c k") 'kill-sentence)
+;; RIGHT
+(global-unset-key (kbd "M-l"))
+(global-set-key (kbd "M-l") 'forward-char)
+(global-set-key (kbd "C-c l") 'downcase-word)
+;; RIGHT WORD
+(global-unset-key (kbd "M-o"))
+(global-set-key (kbd "M-o") 'forward-word)
+(key-chord-define-global "kk" 'forward-word)
+;; LEFT WORD
+(global-unset-key (kbd "M-u"))
+(global-set-key (kbd "M-u") 'backward-word)
+(global-set-key (kbd "C-c u") 'upcase-word)
+(key-chord-define-global "jj" 'backward-word)
+
+;; Yank
+(global-unset-key (kbd "C-v"))
+(global-unset-key (kbd "C-y"))
+(global-set-key (kbd "C-v") 'yank)
+(global-set-key (kbd "C-y") 'scroll-up-command)
+
+(global-set-key (kbd "C-x C-b") 'electric-buffer-list)
+(key-chord-define-global "bb" 'electric-buffer-list)
 
 ;; move line up
 (defun move-line-up ()

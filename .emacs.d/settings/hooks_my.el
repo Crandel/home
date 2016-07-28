@@ -9,8 +9,8 @@
     (interactive)
     (setq tab-width     4
           python-indent 4
-          python-shell-interpreter "ipython"
-          python-shell-interpreter-args "-i --simple-prompt")
+          python-shell-interpreter "python"
+          python-shell-interpreter-args "-i")
     (if (string-match-p "rita" (or (buffer-file-name) ""))
         (setq indent-tabs-mode t)
       (setq indent-tabs-mode nil)

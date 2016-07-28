@@ -6,7 +6,9 @@
 (setq-default user-mail-adress "cradlemann@gmail.com")
 
 ;; Set bash as default shell
-(setq shell-file-name "/bin/bash")
+(setq shell-file-name "/bin/bash"
+      explicit-shell-file-name "/bin/bash")
+
 (setenv "GOPATH"
   (concat
         (getenv "HOME")
