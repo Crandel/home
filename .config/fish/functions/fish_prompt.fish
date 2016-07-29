@@ -10,7 +10,7 @@ function fish_prompt --description 'Write out the prompt'
     set -l fish_color_git_branch cyan
     set -l fish_color_git_unstaged yellow
     set -l fish_color_git_staged green
-    set -l fish_color_git_ahead 90EE90  # light green
+    set -l fish_color_git_ahead 7FFF00  # light green
     set -l fish_color_git_behind FF4500 # light red
 
     if test $CMD_DURATION
