@@ -112,7 +112,7 @@ function fish_prompt --description 'Write out the prompt'
             set -g __fish_prompt_git "$__fish_prompt_git$__git_unstaged"
         end
         if test $stagedFiles
-            set -l __git_staged (set_color $fish_color_git_staged)"/$stagedFiles"(set_color $fish_color_normal)
+            set -l __git_staged (set_color $fish_color_git_staged)"|$stagedFiles"(set_color $fish_color_normal)
             set -g __fish_prompt_git "$__fish_prompt_git$__git_staged"
         end
         set -g __fish_prompt_git "$__fish_prompt_git)"
