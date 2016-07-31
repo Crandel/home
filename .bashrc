@@ -146,7 +146,7 @@ function set_git_branch() {
       unstaged_files=''
       parse_git_dirty
       if [ ! "${staged_files}" == "" ]; then
-          staged_files="/${GREEN}${staged_files}${COLOR_NONE}"
+          staged_files="|${GREEN}${staged_files}${COLOR_NONE}"
       fi
       if [ ! "${unstaged_files}" == "" ]; then
           unstaged_files="|${YELLOW}${unstaged_files}${COLOR_NONE}"
