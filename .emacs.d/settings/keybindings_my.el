@@ -30,6 +30,8 @@
 (global-set-key [f10] 'helm-semantic-or-imenu)
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-c m") 'helm-all-mark-rings)
+(key-chord-define-global "m/" 'helm-all-mark-rings)
 
 ;;Helm-swoop
 (global-unset-key (kbd "C-s"))
