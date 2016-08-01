@@ -1,0 +1,6 @@
+[general]
+autocomplete_mode = fuzzy
+hist_length = 1000
+editor = vim
+hist_duplicates = False
+hist_file = ~/.bpython_hist
