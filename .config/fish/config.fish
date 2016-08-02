@@ -11,7 +11,11 @@ function run
 end
 
 function dl
-    docker-compose logs
+    if count $argv > /dev/null
+        docker-compose logs $argv
+    else
+        docker-compose logs
+    end
 end
 
 function ds
@@ -121,6 +125,10 @@ end
 
 function ll
    ls -alF $argv
+end
+
+function hm
+    history --merge
 end
 
 function pacman
