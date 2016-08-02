@@ -186,6 +186,10 @@ function em
    emacs -nw $argv
 end
 
+function smc
+    sudo -E mc
+end
+
 function update_kernel
     sudo mkinitcpio -p linux
 end
