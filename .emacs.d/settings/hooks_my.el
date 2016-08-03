@@ -24,6 +24,9 @@
     (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
     (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
     (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
+    (define-key python-mode-map (kbd "RET") 'newline-and-indent)
+    (define-key python-mode-map (kbd "M-RET") 'newline)
+    (define-key python-mode-map (kbd "M-<return>") 'newline)
     ;; end python mode keybindings
 
     (eval-after-load "company"
@@ -31,8 +34,8 @@
             (unless (member 'company-jedi (car company-backends))
                 (setq comp-back (car company-backends))
                 (push 'company-jedi comp-back)
-                (setq company-backends (list comp-back)))
-            )))
+                (setq company-backends (list comp-back)))))
+)
 
 (add-hook 'python-mode-hook 'my-python-hooks)
 ;; End Python mode
