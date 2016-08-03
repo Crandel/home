@@ -139,12 +139,12 @@ function pr
     # if argv when go to directory
     if count $argv > /dev/null
         cd $MY_PROJECTS_ROOT/$argv
-        switch (echo $argv)
-        case cashback
-            set -l check (docker inspect -f "{{.State.Running}}" postgres)
-            if [ $check = "false" ]
-                docker start postgres
-            end
+        #switch (echo $argv)
+        #case cashback
+        #    set -l check (docker inspect -f "{{.State.Running}}" postgres)
+        #    if [ $check = "false" ]
+        #        docker start postgres
+        #    end
         #case rita
         #    set -l check (docker inspect -f "{{.State.Running}}" mongo)
         #    if [ $check = "false" ]
@@ -155,7 +155,7 @@ function pr
         #    if [ $check = "false" ]
         #        docker start photo_db
         #    end
-        end
+        #end
     else
         cd $MY_PROJECTS_ROOT
     end
@@ -284,3 +284,8 @@ set -x INFINALITY_FT_BRIGHTNESS "-10"
 set -x INFINALITY_FT_FILTER_PARAMS "16 20 28 20 16"
 eval (python2 -m virtualfish auto_activation global_requirements)
 set fish_greeting ""
+
+function fish_title
+    echo $_ ' '
+    echo (prompt_pwd)
+end

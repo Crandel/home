@@ -90,7 +90,7 @@ function fish_prompt --description 'Write out the prompt'
             set stagedFiles "-$deleted_staged$stagedFiles"
         end
         if test $renamed_staged -ne 0
-            set stagedFiles "^renamed_staged$stagedFiles"
+            set stagedFiles "^$renamed_staged$stagedFiles"
         end
         if test $new_staged -ne 0
             set stagedFiles "+$new_staged$stagedFiles"

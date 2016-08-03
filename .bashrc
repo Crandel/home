@@ -152,10 +152,10 @@ function set_git_branch() {
           unstaged_files="|${YELLOW}${unstaged_files}${COLOR_NONE}"
       fi
       if [ ! "${ahead}" == "" ]; then
-          ahead="{${LIGHT_GREEN}>${ahead}${COLOR_NONE}}"
+          ahead="${LIGHT_GREEN}{>${ahead}}${COLOR_NONE}"
       fi
       if [ ! "${behind}" == "" ]; then
-          ahead="{${LIGHT_RED}<${behind}${COLOR_NONE}}"
+          behind="${LIGHT_RED}{<${behind}}${COLOR_NONE}"
       fi
       # Set the final branch string.
       BRANCH="(${BLUE}${branch}${COLOR_NONE}${ahead}${behind}${unstaged_files}${staged_files}) "
@@ -197,7 +197,7 @@ function set_bash_prompt () {
 
   # Set the bash prompt variable.
   PS1="
-${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH}
+ ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH}
 ${PROMPT_SYMBOL} "
 }
 
