@@ -40,7 +40,7 @@ conky.config = {
 conky.text = [[
 [
 { "full_text" : "@ ${exec gmail}", "color" : "\#2E64FE"},
-{ "full_text" : "/${fs_free /} | ub${fs_free /media/ubuntu}", "color" : "\#FA5882" },
+{ "full_text" : "/${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
 { "full_text": "CP ${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" :
   ${if_match ${cpu}<90}
     "\#04B404"
@@ -71,6 +71,7 @@ ${if_up enp3s0}
 { "full_text" : "Net \u2193${downspeed enp3s0}", "color": "\#F6CECE"},
 ${endif}
 ${if_up wlp3s0}
+{ "full_text" : "B $battery_short", "color" : "\#FE9A2E"},
 { "full_text" : "Net \u2193${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
 ${endif}
 { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
