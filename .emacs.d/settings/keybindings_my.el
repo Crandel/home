@@ -175,7 +175,8 @@
 )
 (global-set-key (kbd "C-d") 'my-delete-line)
 
-(global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
+(global-set-key (kbd "M-<return>") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
+(global-set-key (kbd "M-RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
 
 (defvar newline-and-indent t)
 ;; open new line (vi's o command)

@@ -159,8 +159,8 @@
     (windmove-default-keybindings 'meta))
 
 (recentf-mode 1)
-(setq recentf-max-menu-items 150)
-(setq recentf-max-saved-items 100)
+(setq recentf-max-menu-items 1500)
+(setq recentf-max-saved-items 1500)
 
 ;; Show paren
 (setq show-paren-delay 0)
