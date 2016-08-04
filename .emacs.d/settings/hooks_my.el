@@ -5,39 +5,38 @@
         (custom-imenu (imenu--generic-function imenu-generic-expression)))
     (append mode-imenu custom-imenu)))
 
-(defun my-python-hooks()
-    (interactive)
-    (setq tab-width     4
-          python-indent 4
-          python-shell-interpreter "python"
-          python-shell-interpreter-args "-i")
-    (if (string-match-p "rita" (or (buffer-file-name) ""))
-        (setq indent-tabs-mode t)
-      (setq indent-tabs-mode nil)
-    )
-    (add-to-list
-        'imenu-generic-expression
-        '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
-    (setq imenu-create-index-function 'my-merge-imenu)
-    ;; pythom mode keybindings
-    (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
-    (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
-    (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
-    (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
-    (define-key python-mode-map (kbd "RET") 'newline-and-indent)
-    (define-key python-mode-map (kbd "M-RET") 'newline)
-    (define-key python-mode-map (kbd "M-<return>") 'newline)
-    ;; end python mode keybindings
+(add-hook 'python-mode-hook '(lambda()
+                                 (interactive)
+                                 (setenv "TERM" "ansi-term")
+                                 (setq tab-width     4
+                                       python-indent 4
+                                       python-shell-interpreter "python"
+                                       python-shell-interpreter-args "-i")
+                                 (if (string-match-p "rita" (or (buffer-file-name) ""))
+                                         (setq indent-tabs-mode t)
+                                     (setq indent-tabs-mode nil)
+                                     )
+                                 (add-to-list
+                                  'imenu-generic-expression
+                                  '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
+                                 (setq imenu-create-index-function 'my-merge-imenu)
+                                 ;; pythom mode keybindings
+                                 (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+                                 (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
+                                 (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
+                                 (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
+                                 (define-key python-mode-map (kbd "RET") 'newline-and-indent)
+                                 (define-key python-mode-map (kbd "M-RET") 'newline)
+                                 (define-key python-mode-map (kbd "M-<return>") 'newline)
+                                 ;; end python mode keybindings
 
-    (eval-after-load "company"
-        '(progn
-            (unless (member 'company-jedi (car company-backends))
-                (setq comp-back (car company-backends))
-                (push 'company-jedi comp-back)
-                (setq company-backends (list comp-back)))))
-)
-
-(add-hook 'python-mode-hook 'my-python-hooks)
+                                 (eval-after-load "company"
+                                     '(progn
+                                          (unless (member 'company-jedi (car company-backends))
+                                              (setq comp-back (car company-backends))
+                                              (push 'company-jedi comp-back)
+                                              (setq company-backends (list comp-back)))))
+                                 ))
 ;; End Python mode
 
 ;; Web mode
@@ -56,76 +55,75 @@
 ;; End Po mode
 
 ;; Lisp mode
-(defun my-lisp-hooks()
-    (progn
-     (eval-after-load "company"
-              '(progn
-                   (unless (member 'company-elisp (car company-backends))
-                            (setq comp-back (car company-backends))
-                            (push 'company-elisp comp-back)
-                            (setq company-backends (list comp-back)))
-                   ))))
-(add-hook 'lisp-interaction-mode-hook 'my-lisp-hooks)
+(add-hook 'lisp-interaction-mode-hook '(lambda()
+                                           (progn
+                                               (eval-after-load "company"
+                                                   '(progn
+                                                        (unless (member 'company-elisp (car company-backends))
+                                                            (setq comp-back (car company-backends))
+                                                            (push 'company-elisp comp-back)
+                                                            (setq company-backends (list comp-back)))
+                                                        )))))
 ;; End Lisp mode
 
 ;; Go mode
-(defun my-go-hooks()
-    (progn
-        (setq gofmt-command "goimports")
-        (add-hook 'before-save-hook #'gofmt-before-save)
-        ;; Go mode keybindings
-        (define-key go-mode-map (kbd "M-.") #'godef-jump)
-        ;; End keybindings
-        (eval-after-load "company"
-            '(progn
-                 (unless (member 'company-go (car company-backends))
-                     (setq comp-back (car company-backends))
-                     (push 'company-go comp-back)
-                     (setq company-backends (list comp-back)))
-     ))))
-
-(add-hook 'go-mode-hook 'my-go-hooks)
+(add-hook 'go-mode-hook '(lambda()
+                             (progn
+                                 (setq gofmt-command "goimports")
+                                 (add-hook 'before-save-hook #'gofmt-before-save)
+                                 ;; Go mode keybindings
+                                 (define-key go-mode-map (kbd "M-.") #'godef-jump)
+                                 ;; End keybindings
+                                 (eval-after-load "company"
+                                     '(progn
+                                          (unless (member 'company-go (car company-backends))
+                                              (setq comp-back (car company-backends))
+                                              (push 'company-go comp-back)
+                                              (setq company-backends (list comp-back)))
+                                          )))))
 ;; End Go mode
 
 ;; Smartparents hooks
-(defun my-smartparents()
-    (sp-with-modes '(markdown-mode gfm-mode rst-mode)
-        (sp-local-pair "*" "*")
-        (sp-local-pair "**" "**")
-        (sp-local-pair "_" "_" ))
-    (sp-pair "%" "%")
-    (sp-pair "<" ">"))
-
-(add-hook 'smartparens-mode-hook 'my-smartparents)
+(add-hook 'smartparens-mode-hook '(lambda()
+                                      (sp-with-modes '(markdown-mode gfm-mode rst-mode)
+                                          (sp-local-pair "*" "*")
+                                          (sp-local-pair "**" "**")
+                                          (sp-local-pair "_" "_" ))
+                                      (sp-pair "%" "%")
+                                      (sp-pair "<" ">")))
 ;; End smartparens hooks
 
 ;; Restclient hooks
-(defun my-restclient-hooks()
-    (progn
-        (define-key restclient-mode-map (kbd "RET") 'newline)
-        (eval-after-load "company"
-            '(progn
-                 (unless (member 'company-restclient (car company-backends))
-                     (setq comp-back (car company-backends))
-                     (push 'company-restclient comp-back)
-                     (setq company-backends (list comp-back)))
-     ))))
+(add-hook 'restclient-mode-hook '(lambda()
+                                     (progn
+                                         (eval-after-load "company"
+                                             '(progn
+                                                  (unless (member 'company-restclient (car company-backends))
+                                                      (setq comp-back (car company-backends))
+                                                      (push 'company-restclient comp-back)
+                                                      (setq company-backends (list comp-back)))
+                                                  )))))
 
-(add-hook 'restclient-mode-hook 'my-restclient-hooks)
 ;; End restclient hooks
 
 ;; Buffer-menu-mode-hook
-(defun buffer-menu-custom-font-lock  ()
-      (let ((font-lock-unfontify-region-function
-             (lambda (start end)
-               (remove-text-properties start end '(font-lock-face nil)))))
-        (font-lock-unfontify-buffer)
-        (set (make-local-variable 'font-lock-defaults)
-             '(buffer-menu-buffer-font-lock-keywords t))
-        (font-lock-fontify-buffer)))
-
-(add-hook 'buffer-menu-mode-hook 'buffer-menu-custom-font-lock)
+(add-hook 'buffer-menu-mode-hook '(lambda()
+                                      (let ((font-lock-unfontify-region-function
+                                             (lambda (start end)
+                                                 (remove-text-properties start end '(font-lock-face nil)))))
+                                          (font-lock-unfontify-buffer)
+                                          (set (make-local-variable 'font-lock-defaults)
+                                               '(buffer-menu-buffer-font-lock-keywords t))
+                                          (font-lock-fontify-buffer))))
 ;; End buffer-menu-mode-hook
+
+;; Yaml-mode hooks
+(add-hook 'yaml-mode-hook
+      '(lambda()
+        (define-key yaml-mode-map (kbd "RET") 'newline-and-indent)
+        (define-key yaml-mode-map (kbd "M-RET") 'newline)
+        (define-key yaml-mode-map (kbd "M-<return>") 'newline)))
+;; End Yaml-mode
 
 (defadvice yes-or-no-p (around hack-exit (prompt))
    (if (string= prompt "Active processes exist; kill them and exit anyway? ")
