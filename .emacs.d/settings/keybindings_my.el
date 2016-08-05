@@ -37,11 +37,11 @@
 (global-unset-key (kbd "C-s"))
 (global-unset-key (kbd "C-r"))
 (global-set-key (kbd "C-s") 'helm-swoop)
-(global-set-key (kbd "C-r") 'helm-multi-swoop-current-mode)
+(global-set-key (kbd "C-r") 'helm-multi-swoop-projectile)
 
 ;; Helm-git-grep
 (global-unset-key (kbd "C-x g"))
-(global-set-key (kbd "C-x g") 'helm-git-grep-at-point)
+(global-set-key (kbd "C-x g") 'helm-do-ag-project-root)
 
 ;; Smartparent
 (global-unset-key (kbd "C-c w"))

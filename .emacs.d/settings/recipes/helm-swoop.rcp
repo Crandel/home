@@ -2,4 +2,10 @@
        :type github
        :description "Efficiently hopping squeezed lines powered by Emacs helm interface"
        :pkgname "ShingoFukuyama/helm-swoop"
-       :depends (helm))
+       :depends (helm)
+       :post-init(progn
+                     (setq helm-multi-swoop-edit-save               nil
+                           helm-swoop-split-with-multiple-windows   t
+                           helm-swoop-split-direction               'split-window-vertically
+                           helm-swoop-move-to-line-cycle            t
+                           helm-swoop-use-fuzzy-match               t)))
