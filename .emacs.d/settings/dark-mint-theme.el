@@ -38,11 +38,22 @@
  '(apropos-label-face ((t (:italic t))))
 
  '(font-lock-type-face ((t (:foreground "light slate blue"))))
- '(font-lock-comment-face ((t (:foreground "#E6E6E6"))))
- '(font-lock-function-name-face ((t (:foreground "Gold"))))
+ '(font-lock-comment-face ((t (:foreground "Grey"))))
+ '(font-lock-comment-delimiter-face ((t (:foreground "DarkGrey" :slant italic))))
+ '(font-lock-constant-face ((t (:foreground "GoldenRod" :weight bold))))
+ '(font-lock-doc-face ((t (:foreground "Khaki"))))
+ '(font-lock-doc-string-face ((t (:foreground "LemonChiffon"))))
+ '(font-lock-function-name-face ((t (:foreground "Gold" :weight bold))))
  '(font-lock-keyword-face ((t (:weight bold :foreground "DarkGoldenrod"))))
  '(font-lock-string-face ((t (:foreground "#DF7401"))))
  '(font-lock-variable-name-face ((t (:foreground "DarkOliveGreen3"))))
+
+ '(font-lock-negation-char-face ((t (:foreground "Indigo"))))
+ '(font-lock-preprocessor-face ((t (:foreground "DarkOrange"))))
+ '(font-lock-regexp-grouping-backslash ((t (:foreground "Cyan"))))
+ '(font-lock-regexp-grouping-construct ((t (:foreground "Cyan"))))
+ '(font-lock-warning-face ((t (:weight bold :foreground "OrangeRed"))))
+
 
  '(region ((t (:background "SteelBlue"))))
  '(secondary-selection ((t (:background "dodger blue"))))
