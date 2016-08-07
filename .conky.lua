@@ -51,6 +51,9 @@ conky.text = [[
 ${if_match ${cpu}>90}
 { "full_text" : "T ${top name 1}", "color" : "\#F0E68C", "separator_block_width": 1},
 ${endif}
+${if_match ${memperc}>90}
+{ "full_text" : "T ${top name 1}", "color" : "\#F0E68C", "separator_block_width": 1},
+${endif}
 { "full_text" : "V $template0", "color":
   ${if_match "$template1"=="on"}
     "\#E1F5A9"
