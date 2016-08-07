@@ -27,6 +27,8 @@
         helm-swoop
         jedi-core
         json-mode
+        js2-mode
+        js2-refactor
         key-chord
         know-your-http-well
         magit

@@ -41,6 +41,7 @@
 
 ;; Web mode
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 ;; End Web mode
 
@@ -53,6 +54,10 @@
 (modify-coding-system-alist 'file "\\.po\\'\\|\\.po\\."
                             'po-find-file-coding-system)
 ;; End Po mode
+
+;; Js2 mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; End Js2 mode
 
 ;; Lisp mode
 (add-hook 'lisp-interaction-mode-hook '(lambda()
