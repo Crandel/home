@@ -39,9 +39,9 @@ conky.config = {
 -- JSON for i3bar
 conky.text = [[
 [
-{ "full_text" : "@ ${exec gmail}", "color" : "\#2E64FE"},
-{ "full_text" : "/${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
-{ "full_text": "CP ${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" :
+{ "full_text" : "\u267F ${exec gmail}", "color" : "\#2E64FE"},
+{ "full_text" : "\u262F /${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
+{ "full_text": "\u25C9 ${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" :
   ${if_match ${cpu}<90}
     "\#04B404"
   ${else}
@@ -54,14 +54,14 @@ ${endif}
 ${if_match ${memperc}>90}
 { "full_text" : "T ${top name 1}", "color" : "\#F0E68C", "separator_block_width": 1},
 ${endif}
-{ "full_text" : "V $template0", "color":
+{ "full_text" : "\u266C $template0", "color":
   ${if_match "$template1"=="on"}
     "\#E1F5A9"
   ${else}
     "\#FF0000"
   ${endif}
 },
-{ "full_text" : "RM $mem" , "color" :
+{ "full_text" : "\u2622 $mem" , "color" :
   ${if_match ${memperc}<90}
     "\#F7FE2E"
   ${else}
@@ -69,13 +69,13 @@ ${endif}
   ${endif}
 },
 ${if_up enp3s0}
-{ "full_text" : "SW $swapperc", "color" : "\#FE9A2E"},
-{ "full_text" : "Up $uptime_short", "color": "\#8B008B"},
-{ "full_text" : "Net \u2193${downspeed enp3s0}", "color": "\#F6CECE"},
+{ "full_text" : "\u2614 $swapperc", "color" : "\#FE9A2E"},
+{ "full_text" : "\u2605 $uptime_short", "color": "\#8B008B"},
+{ "full_text" : "\u2042 \u2193${downspeed enp3s0}", "color": "\#F6CECE"},
 ${endif}
 ${if_up wlp3s0}
-{ "full_text" : "B $battery_short", "color" : "\#FE9A2E"},
-{ "full_text" : "Net \u2193${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
+{ "full_text" : "\u26A1 $battery_short", "color" : "\#FE9A2E"},
+{ "full_text" : "\u2042 \u2193${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
 ${endif}
 { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
 ]];
