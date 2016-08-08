@@ -39,9 +39,9 @@ conky.config = {
 -- JSON for i3bar
 conky.text = [[
 [
-{ "full_text" : "\u267F ${exec gmail}", "color" : "\#2E64FE"},
-{ "full_text" : "\u262F /${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
-{ "full_text": "\u25C9 ${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" :
+{ "full_text" : "\uEB05 ${exec gmail}", "color" : "\#2E64FE"},
+{ "full_text" : "\u26C1 /${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
+{ "full_text": "\uE003 ${cpu cpu1}%, ${cpu cpu2}%, ${cpu cpu3}%, ${cpu cpu4}%", "color" :
   ${if_match ${cpu}<90}
     "\#04B404"
   ${else}
@@ -70,12 +70,12 @@ ${endif}
 },
 ${if_up enp3s0}
 { "full_text" : "\u2614 $swapperc", "color" : "\#FE9A2E"},
-{ "full_text" : "\u2605 $uptime_short", "color": "\#8B008B"},
+{ "full_text" : "\u2735 $uptime_short", "color": "\#8B008B"},
 { "full_text" : "\u2042 \u2193${downspeed enp3s0}", "color": "\#F6CECE"},
 ${endif}
 ${if_up wlp3s0}
-{ "full_text" : "\u26A1 $battery_short", "color" : "\#FE9A2E"},
-{ "full_text" : "\u2042 \u2193${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
+{ "full_text" : "\u267B $battery_short", "color" : "\#FE9A2E"},
+{ "full_text" : "\u26B6 \u2193${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
 ${endif}
 { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
 ]];
