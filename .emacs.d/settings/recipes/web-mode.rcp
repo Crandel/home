@@ -3,7 +3,9 @@
        :type github
        :pkgname "fxbois/web-mode"
        :post-init (progn
-           (setq web-mode-engines-alist                     '(("django" . "\\.html\\'"))
+           (setq web-mode-engines-alist                     '(
+                                                              ("django" . "\\.html\\'")
+                                                              ("jsx" . "\\.js\\'"))
                  web-mode-enable-current-element-highlight  t
                  web-mode-enable-block-face                 t
                  web-mode-markup-indent-offset              4  ;; HTML
