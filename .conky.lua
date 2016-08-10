@@ -74,7 +74,7 @@ ${if_up enp3s0}
 { "full_text" : "\uF0E4 \u2193${downspeed enp3s0}", "color": "\#F6CECE"},
 ${endif}
 ${if_up wlp3s0}
-{ "full_text" : "\uF242 $battery_short", "color" : "\#FE9A2E"},
+{ "full_text" : "\uF3CF $battery_short", "color" : "\#FE9A2E"},
 { "full_text" : "\uF1EB \u2193${downspeed wlp3s0}|${wireless_link_qual_perc wlp3s0}|$wireless_essid", "color": "\#F6CECE"},
 ${endif}
 { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
