@@ -23,13 +23,12 @@
 
 (custom-theme-set-faces
  'dark-mint
- 
+
  '(default ((t (:background "black" :foreground "GreenYellow"))))
  '(mouse ((t (:foregound "#000000"))))
  '(fringe ((t (:background "black" :foreground "GreenYellow"))))
  '(cursor ((t (:foregound "#000000"))))
  '(border ((t (:foregound "black"))))
-
 
  '(mode-line ((t (:background "black" :foreground "GreenYellow"))))
  '(Man-overstrike-face ((t (:weight bold))))
@@ -57,7 +56,7 @@
 
  '(region ((t (:background "SteelBlue"))))
  '(secondary-selection ((t (:background "dodger blue"))))
- 
+
  '(mouse ((t (:foregound "wheat"))))
  '(highlight ((t (:background "blue" :foreground "orange"))))
  '(show-paren-match-face ((t (:background "turquoise" :foreground "coral"))))

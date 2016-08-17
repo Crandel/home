@@ -2,8 +2,8 @@
 
 ;; Plugin keybindings
 ;; Multiple cursors
-(global-set-key (kbd "C-c <right>") 'mc/mark-next-like-this-word) ; choose same word next
-(global-set-key (kbd "C-c <left>") 'mc/mark-previous-word-like-this) ; choose same word previous
+(global-set-key (kbd "C-c C-<right>") 'mc/mark-next-like-this-word) ; choose same word next
+(global-set-key (kbd "C-c C-<left>") 'mc/mark-previous-word-like-this) ; choose same word previous
 (global-set-key (kbd "M-n") 'mc/mark-next-like-this) ; choose char from next line same position
 (global-set-key (kbd "M-m") 'mc/mark-previous-like-this); choose char from previous line same position
 
