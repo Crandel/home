@@ -135,7 +135,7 @@
 (setq search-highlight        t
       query-replace-highlight t
       auto-window-vscroll     nil)
-
+(setq bidi-display-reordering nil)
 ;;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode  "whitespace" "Toggle whitespace visualization." t)
@@ -159,8 +159,8 @@
     (windmove-default-keybindings 'meta))
 
 (recentf-mode 1)
-(setq recentf-max-menu-items 1500)
-(setq recentf-max-saved-items 1500)
+(setq recentf-max-menu-items 150)
+(setq recentf-max-saved-items 150)
 
 ;; Show paren
 (setq show-paren-delay 0)
