@@ -94,8 +94,9 @@
                                           (sp-local-pair "*" "*")
                                           (sp-local-pair "**" "**")
                                           (sp-local-pair "_" "_" ))
-                                      (sp-pair "%" "%")
-                                      (sp-pair "<" ">")))
+                                      (sp-with-modes '(web-mode)
+                                          (sp-local-pair "%" "%")
+                                          (sp-local-pair "<" ">"))))
 ;; End smartparens hooks
 
 ;; Restclient hooks
