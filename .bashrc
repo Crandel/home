@@ -70,7 +70,13 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export INFINALITY_FT_BRIGHTNESS="-10"
 export INFINALITY_FT_FILTER_PARAMS="16 20 28 20 16"
-source /usr/bin/virtualenvwrapper.sh
+if [ "$TERM" = dumb ] && [ "$INSIDE_EMACS" ]; then
+    export TERM='ansi-term'
+fi
+virtual='/usr/bin/virtualenvwrapper.sh'
+if [ -f $virtual ]; then
+    . $virtual
+fi
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
