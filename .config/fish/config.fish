@@ -6,6 +6,14 @@ set -xg MY_PROJECTS_ROOT /opt/work/projects
 function run
     if count $argv > /dev/null
         cd /opt/work/projects/$argv
+        ds
+        docker-compose run --rm --service-ports $argv
+    end
+end
+
+function rapp
+    if count $argv > /dev/null
+        ds
         docker-compose run --rm --service-ports $argv
     end
 end
@@ -267,7 +275,7 @@ end
 #    end
 #end
 
-set -x EDITOR vim
+set -x EDITOR 'emacs -nw'
 set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local

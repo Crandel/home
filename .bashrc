@@ -64,6 +64,7 @@ alias systemctl='sudo systemctl'
 alias pacman='sudo pacman'
 alias pr='cd /opt/work/projects'
 
+export EDITOR='emacs -nw'
 export WORKON_HOME=~/.virtualenvs/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin

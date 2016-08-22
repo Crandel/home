@@ -38,7 +38,7 @@ set wrap
 set ai
 set cin
 set lz
-set listchars=eol:¬,tab:>-,trail:~,extends:#,precedes:<
+set listchars=eol:¬,tab:>-,trail:~,extends:#,precedes:<,space:.
 set colorcolumn=130
 set list
 set linebreak

@@ -86,6 +86,10 @@ function ll
    ls -alF $argv
 end
 
+function hm
+    history --merge
+end
+
 function pr
     # if argv when go to directory
     if count $argv > /dev/null
@@ -104,7 +108,12 @@ function soff
 end
 
 function son
-    swapon /dev/sda5
+   swapon /dev/sda5
+end
+
+function tm
+   tmux attach
+   tmux new
 end
 
 function em
@@ -119,10 +128,17 @@ function upg
     pacman -Syu
 end
 
-set -x EDITOR vim
-
+set -x EDITOR 'emacs -nw'
 set -xg GOPATH /home/crandel/go
 set -xg PATH $PATH $GOPATH
 set -xg TERM "xterm-256color"
-
+# fix emacs dumb term
+if test "$TERM" = "dumb"
+    set -xg TERM "ansi-term"
+end
 set fish_greeting ""
+
+function fish_title
+    echo $_ ' '
+    echo (prompt_pwd)
+end
