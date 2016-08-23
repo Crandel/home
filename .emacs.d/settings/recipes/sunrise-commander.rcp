@@ -1,0 +1,5 @@
+(:name sunrise-commander
+       :description "Two-pane file manager for Emacs based on Dired and inspired by MC"
+       :type github
+       :pkgname "escherdragon/sunrise-commander"
+       :load ("sunrise-x-loop.el" "sunrise-x-tree.el" "sunrise-x-modeline.el"))

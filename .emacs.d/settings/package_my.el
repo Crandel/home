@@ -46,6 +46,7 @@
         py-isort
         restclient
         smartparens
+        sunrise-commander
         undo-tree
         web-mode
         xclip
