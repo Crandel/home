@@ -194,6 +194,10 @@ function em
    emacs -nw $argv
 end
 
+function sem
+   sudo emacs -nw $argv
+end
+
 function smc
     sudo -E mc
 end
