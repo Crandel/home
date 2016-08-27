@@ -34,6 +34,10 @@ function up
     docker-compose up -d
 end
 
+function dcps
+    docker-compose ps
+end
+
 function upl
     docker-compose logs &
     docker-compose up
@@ -215,39 +219,39 @@ function upgy
 end
 
 
-# rita
-function geocl
-    git checkout rita/public/GeoLite2-City.mmdb
-end
+# # rita
+# function geocl
+#     git checkout rita/public/GeoLite2-City.mmdb
+# end
 
-function geocp
-    cp $MY_PROJECTS_ROOT/rita/mail/tmp/GeoLite2-City.mmdb $MY_PROJECTS_ROOT/rita/rita/public/GeoLite2-City.mmdb
-end
+# function geocp
+#     cp $MY_PROJECTS_ROOT/rita/mail/tmp/GeoLite2-City.mmdb $MY_PROJECTS_ROOT/rita/rita/public/GeoLite2-City.mmdb
+# end
 
-function monup
-    sudo chown -R mongodb: /opt/db/mongo/
-    set -l check (docker inspect -f "{{.State.Running}}" mongo)
-    if [ $check = "false" ]
-        echo $check
-        docker start mongo
-    end
-end
+# function monup
+#     sudo chown -R mongodb: /opt/db/mongo/
+#     set -l check (docker inspect -f "{{.State.Running}}" mongo)
+#     if [ $check = "false" ]
+#         echo $check
+#         docker start mongo
+#     end
+# end
 
-function servup
-    cd $MY_PROJECTS_ROOT/rita
-    set -lx MONGODB_ADDON_URI "mongodb://mongo/rita"
-    set -lx VIRTUAL_ENV ""
-    set -lx PORT "8060"
-    monup
-    python run.py serve
-end
+# function servup
+#     cd $MY_PROJECTS_ROOT/rita
+#     set -lx MONGODB_ADDON_URI "mongodb://mongo/rita"
+#     set -lx VIRTUAL_ENV ""
+#     set -lx PORT "8060"
+#     monup
+#     python run.py serve
+# end
 
-function rita_temp
-    cd /opt/work/env/rita/lib/python2.7/site-packages
-    rm -rf marrow.templating-1.0.2-py2.7-nspkg.pth marrow.templating-1.0.2-py2.7.egg-info/ marrow/templating/
-    cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg /opt/work/env/rita/lib/python2.7/site-packages/
-    cd /opt/work/projects/rita
-end
+# function rita_temp
+#     cd /opt/work/env/rita/lib/python2.7/site-packages
+#     rm -rf marrow.templating-1.0.2-py2.7-nspkg.pth marrow.templating-1.0.2-py2.7.egg-info/ marrow/templating/
+#     cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg /opt/work/env/rita/lib/python2.7/site-packages/
+#     cd /opt/work/projects/rita
+# end
 # rita end
 # localhost
 function internet
