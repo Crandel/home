@@ -180,7 +180,11 @@ client.focused_inactive #4B610B  #000000 #FFFFFF #484e50
 client.unfocused        #4B610B  #424242 #ECF6CE #292d2e
 client.urgent           #4B610B  #900000 #ffffff #900000
 # assings
+assign [class="(?i)Viber"] 2
 workspace_layout tabbed
+
+# workspace 1 output HDMI1
+# workspace 2 output VGA1
 # The middle button over a titlebar kills the window
 bindsym --release button2 kill
 
@@ -218,9 +222,9 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id radiotray
 # exec skype
 # exec plaidchat
+# exec xfce4-notes
 # exec qtox
-exec xfce4-notes
 exec clipit
 exec terminator
 exec_always --no-startup-id sbxkb
-exec --no-startup-id i3-msg 'workspace 3; exec viber; workspace 1'
+exec viber
