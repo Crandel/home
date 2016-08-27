@@ -55,10 +55,18 @@ alias l='ls -CF'
 alias upg='sudo pacman -Syu'
 alias upgy='yaourt -Syu'
 alias tm='tmux attach || tmux new'
+# Docker
+alias d='docker'
+alias dc='docker-compose'
+alias dl='docker-compose logs --tail 15'
+alias run='docker-compose stop && docker-compose run --rm --service-ports app'
+# Docker end
+# Vagrant
 alias vup='vagrant up'
 alias vsus='vagrant suspend'
 alias vre='vagrant reload'
 alias vsh='vagrant ssh'
+# Vagrant end
 alias backup='cd /opt/work/backup'
 alias systemctl='sudo systemctl'
 alias pacman='sudo pacman'

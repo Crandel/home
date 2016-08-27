@@ -3,44 +3,35 @@ set -xg MY_PROJECTS_ROOT /opt/work/projects
 # common functions
 
 # Docker
-function run
+function d
+    docker $argv
+end
+
+function dc
     if count $argv > /dev/null
-        cd /opt/work/projects/$argv
-        ds
-        docker-compose run --rm --service-ports $argv
+        docker-compose $argv
+    else
+        docker-compose config
     end
 end
 
-function rapp
+function run
     if count $argv > /dev/null
-        ds
-        docker-compose run --rm --service-ports $argv
+        set -l path $MY_PROJECTS_ROOT/$argv
+        if test -d $path
+            cd $path
+        end
     end
+    dc stop
+    dc run --rm --service-ports app
 end
 
 function dl
     if count $argv > /dev/null
-        docker-compose logs $argv
+        dc logs --tail 15 $argv
     else
-        docker-compose logs
+        dc logs --tail 15
     end
-end
-
-function ds
-    docker-compose stop
-end
-
-function up
-    docker-compose up -d
-end
-
-function dcps
-    docker-compose ps
-end
-
-function upl
-    docker-compose logs &
-    docker-compose up
 end
 # End Docker
 
