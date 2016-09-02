@@ -140,8 +140,9 @@ end
 
 function pr
     # if argv when go to directory
+    set -l path $MY_PROJECTS_ROOT
     if count $argv > /dev/null
-        cd $MY_PROJECTS_ROOT/$argv
+        set -x path $path"/"$argv
         #switch (echo $argv)
         #case cashback
         #    set -l check (docker inspect -f "{{.State.Running}}" postgres)
@@ -159,8 +160,9 @@ function pr
         #        docker start photo_db
         #    end
         #end
-    else
-        cd $MY_PROJECTS_ROOT
+    end
+    if test -d $path
+        cd $path
     end
 end
 
