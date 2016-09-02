@@ -314,7 +314,7 @@ c.TerminalInteractiveShell.display_completions = 'multicolumn'
 # c.TerminalInteractiveShell.display_completions_in_columns = None
 
 # Shortcut style to use at the prompt. 'vi' or 'emacs'.
-# c.TerminalInteractiveShell.editing_mode = 'emacs'
+c.TerminalInteractiveShell.editing_mode = 'emacs'
 
 # Set the editor used by IPython (default to $EDITOR/vi/notepad).
 # c.TerminalInteractiveShell.editor = u'vim'
@@ -326,13 +326,13 @@ c.TerminalInteractiveShell.display_completions = 'multicolumn'
 # lovelace, xcode, vim, autumn, vs, rrt, native, perldoc, borland, tango, emacs,
 # friendly, monokai, paraiso-dark, colorful, murphy, bw, pastie, algol_nu,
 # paraiso-light, trac, default, algol, fruity
-c.TerminalInteractiveShell.highlighting_style = 'colorful'
+c.TerminalInteractiveShell.highlighting_style = 'native'
 
 # Override highlighting format for specific tokens
 # c.TerminalInteractiveShell.highlighting_style_overrides = {}
 
 # Enable mouse support in the prompt
-c.TerminalInteractiveShell.mouse_support = True
+# c.TerminalInteractiveShell.mouse_support = True
 
 # Class used to generate Prompt token for prompt_toolkit
 c.TerminalInteractiveShell.prompts_class = 'my_prompt.MyPrompt'
