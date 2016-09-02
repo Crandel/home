@@ -37,7 +37,11 @@
  '(package-selected-packages (quote (el-get)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
- '(powerline-gui-use-vcs-glyph t))
+ '(powerline-gui-use-vcs-glyph t)
+ '(semantic-which-function-use-color t)
+ '(sr-show-hidden-files t)
+ '(sr-tree-explosion-ratio 5)
+ '(sr-tree-isearch-always-sticky t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -65,6 +69,11 @@
  '(neo-vc-user-face ((t (:foreground "red" :slant italic))))
  '(powerline-active1 ((t (:inherit mode-line :background "saddle brown" :foreground "green yellow"))))
  '(powerline-active2 ((t (:inherit mode-line :background "green4" :foreground "khaki"))))
+ '(sr-active-path-face ((t (:foreground "yellow" :weight bold :height 120))))
+ '(sr-editing-path-face ((t (:foreground "yellow" :underline "red" :weight bold :height 120))))
+ '(sr-highlight-path-face ((t (:foreground "#ace6ac" :underline "magenta" :weight bold :height 120))))
+ '(sr-mirror-path-face ((t (:foreground "yellow" :underline "sienna" :weight bold :height 120))))
+ '(sr-passive-path-face ((t (:foreground "lightgray" :underline "white" :weight bold :height 120))))
  '(whitespace-empty ((t (:foreground "sienna"))))
  '(whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
  '(whitespace-indentation ((t (:foreground "dim gray"))))
