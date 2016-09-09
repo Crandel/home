@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: p
+# key: p
+# --
+```python
+$0
+```
