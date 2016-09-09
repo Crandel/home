@@ -171,6 +171,7 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
+    bindsym button2 exec gsimplecal
     status_command $HOME/.i3/conky-i3bar
 }
 
@@ -221,7 +222,7 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id radiotray
 # exec skype
-# exec plaidchat
+# exec slack
 # exec xfce4-notes
 # exec qtox
 exec clipit
