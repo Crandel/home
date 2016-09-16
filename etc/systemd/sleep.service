@@ -1,7 +1,12 @@
 [Unit]
 Description=Run lock screen
+Before=sleep.target
 
 [Service]
-Type=simple
+User=crandel
+Type=forking
 Environment=DISPLAY=:0
 ExecStart=/usr/bin/i3lock -c 122A0A
+
+[Install]
+WantedBy=sleep.target
