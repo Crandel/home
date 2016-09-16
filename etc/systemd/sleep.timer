@@ -1,0 +1,10 @@
+[Unit]
+Description=Block screen every hour
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=1h
+Unit=sleep.service
+
+[Install]
+WantedBy=multi-user.target
