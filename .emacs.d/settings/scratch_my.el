@@ -9,18 +9,18 @@
 (setq shell-file-name "/bin/bash"
       explicit-shell-file-name "/bin/bash")
 
-(setenv "GOPATH"
-  (concat
-        (getenv "HOME")
-        "/go"))
-(setenv "PATH"
-  (concat
-   (getenv "PATH") ":"
-   (getenv "GOPATH") ":"
-   (getenv "GOPATH") "/bin"
-  )
-)
-(add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
+;; (setenv "GOPATH"
+;;   (concat
+;;         (getenv "HOME")
+;;         "/go"))
+;; (setenv "PATH"
+;;   (concat
+;;    (getenv "PATH") ":"
+;;    (getenv "GOPATH") ":"
+;;    (getenv "GOPATH") "/bin"
+;;   )
+;; )
+;; (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t)
