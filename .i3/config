@@ -221,7 +221,7 @@ exec_always --no-startup-id numlockx on
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id nm-applet
 # exec --no-startup-id radiotray
-# exec skype
+# exec pidgin
 # exec slack
 # exec xfce4-notes
 # exec qtox

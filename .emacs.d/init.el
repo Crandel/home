@@ -1,3 +1,5 @@
+;(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 (require 'dark-mint-theme)
 (require 'scratch_my)
@@ -84,3 +86,4 @@
  '(whitespace-space-before-tab ((t (:foreground "firebrick"))))
  '(whitespace-tab ((t (:foreground "magenta"))))
  '(whitespace-trailing ((t (:foreground "yellow" :weight bold)))))
+(put 'downcase-region 'disabled nil)

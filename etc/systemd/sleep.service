@@ -1,0 +1,7 @@
+[Unit]
+Description=Run lock screen
+
+[Service]
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/i3lock -c 122A0A
