@@ -8,7 +8,7 @@
 ;; Set bash as default shell
 (setq shell-file-name "/bin/bash"
       explicit-shell-file-name "/bin/bash")
-
+(blink-cursor-mode 0)
 ;; (setenv "GOPATH"
 ;;   (concat
 ;;         (getenv "HOME")
