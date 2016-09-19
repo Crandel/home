@@ -1,0 +1,24 @@
+directory: /media/ubuntu/home/vitaliy/Documents/ARCH/music
+import:
+  move: yes
+  resume: yes
+  group_albums: yes
+plugins: chroma inline convert fromfilename embedart fetchart lyrics duplicates fuzzy discogs
+acoustid:
+  apikey: R5dC3olT3u
+convert:
+  auto: yes
+  copy_album_art: yes
+  album_art_maxwidth: 600
+  extension: mp3
+embedart:
+  maxwidth: 600
+  remove_art_file: yes
+fetchart:
+  minwidth: 300
+  maxwidth: 600
+  enforce_ratio: yes
+ui:
+  color: yes
+paths:
+  default: $albumartist/$year-$album%aunique{}/$track $title
