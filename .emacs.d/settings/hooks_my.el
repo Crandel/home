@@ -8,6 +8,7 @@
 (add-hook 'python-mode-hook '(lambda()
                                  (interactive)
                                  (setenv "TERM" "ansi-term")
+                                 (setq python-shell-completion-native nil)
                                  (setq tab-width     4
                                        python-indent 4
                                        python-shell-interpreter "python"
