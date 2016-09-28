@@ -48,8 +48,7 @@
 ;(setq ido-enable-flex-matching t)
 
 ;; SavePlace
-(require 'saveplace)
-(setq-default save-place t)
+(save-place-mode 1) 
 (setq save-place-file "~/.emacs.d/saved-places")
 (setq save-place-forget-unreadable-files t)
 
