@@ -8,11 +8,11 @@
 (add-hook 'python-mode-hook '(lambda()
                                  (interactive)
                                  (setenv "TERM" "ansi-term")
-                                 (setq python-shell-completion-native nil)
-                                 (setq tab-width     4
-                                       python-indent 4
-                                       python-shell-interpreter "python"
-                                       python-shell-interpreter-args "-i")
+                                 (setq python-shell-completion-native nil
+                                       tab-width                      4
+                                       python-indent                  4
+                                       python-shell-interpreter       "python"
+                                       python-shell-interpreter-args  "-i")
                                  (if (string-match-p "rita" (or (buffer-file-name) ""))
                                          (setq indent-tabs-mode t)
                                      (setq indent-tabs-mode nil)

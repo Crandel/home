@@ -289,6 +289,7 @@ if test "$TERM" = "dumb"
     set -xg TERM "ansi-term"
 end
 set -x WORKON_HOME $HOME/.virtualenvs
+set -x GNOME_DESKTOP_SESSION_ID 1
 set -x INFINALITY_FT_BRIGHTNESS "-10"
 set -x INFINALITY_FT_FILTER_PARAMS "16 20 28 20 16"
 eval (python2 -m virtualfish auto_activation global_requirements)
