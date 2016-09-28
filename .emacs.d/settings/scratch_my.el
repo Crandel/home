@@ -202,4 +202,6 @@
 
 ;(reverse-input-method 'russian-typewriter)
 
+(setq warning-minimum-level :emergency)
+
 (provide 'scratch_my)

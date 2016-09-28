@@ -8,9 +8,9 @@
                                                               ("jsx" . "\\.js\\'"))
                  web-mode-enable-current-element-highlight  t
                  web-mode-enable-block-face                 t
-                 web-mode-markup-indent-offset              4  ;; HTML
-                 web-mode-css-indent-offset                 4  ;; CSS
-                 web-mode-code-indent-offset                4  ;; JavaScript
+                 web-mode-markup-indent-offset              2  ;; HTML
+                 web-mode-css-indent-offset                 2  ;; CSS
+                 web-mode-code-indent-offset                2  ;; JavaScript
                  web-mode-enable-part-face                  t
                  web-mode-enable-comment-keywords           t
                  web-mode-enable-css-colorization           t
