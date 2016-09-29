@@ -284,6 +284,7 @@ set -xg GOPATH $HOME/go
 #set -xg RUST $HOME/rust
 set -xg PATH $PATH $GOPATH $GOPATH/bin
 set -xg TERM "xterm-256color"
+set -xg WINEARCH "win32"
 # fix emacs dumb term
 if test "$TERM" = "dumb"
     set -xg TERM "ansi-term"
