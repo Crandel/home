@@ -294,8 +294,11 @@ set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
 #set -xg RUST $HOME/rust
-set -xg GOPATH $HOME/golibs $MY_GO_PROJECTS_ROOT
-set -xg PATH $PATH $GOPATH $GOPATH/bin
+set -xg GOPATH1 $HOME/golibs
+set -xg GOPATH2 $MY_GO_PROJECTS_ROOT
+set -xg GOPATH $GOPATH1:$GOPATH2
+set -xg PATH $PATH $GOPATH1/bin
+set -xg PATH $PATH $GOPATH2/bin
 set -xg TERM "xterm-256color"
 set -xg WINEARCH "win32"
 # fix emacs dumb term
