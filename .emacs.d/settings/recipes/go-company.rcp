@@ -7,5 +7,6 @@
        :prepare (eval-after-load 'go-mode
                   '(require 'company-go))
        :post-init (progn
+                    (setq company-go-insert-arguments nil)
                     (add-to-list 'exec-path (concat default-directory "bin"))
                             ))

@@ -1,11 +1,8 @@
 (:name flycheck
        :type github
        :pkgname "flycheck/flycheck"
-       :checkout "0.25.1"
        :minimum-emacs-version "24.3"
        :description "On-the-fly syntax checking extension"
-       :build '(("makeinfo" "-o" "doc/flycheck.info" "doc/flycheck.texi"))
-       :info "./doc"
        :depends (dash pkg-info let-alist seq)
        :post-init (progn
                     (add-hook 'python-mode-hook             #'flycheck-mode)
