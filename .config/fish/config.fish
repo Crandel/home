@@ -1,4 +1,6 @@
 set -xg MY_PROJECTS_ROOT /opt/work/projects
+set -xg GOPATH $HOME/go
+set -xg MY_GO_PROJECTS_ROOT $GOPATH/src/projects
 
 # common functions
 
@@ -166,6 +168,17 @@ function pr
     end
 end
 
+function gp
+    # if argv when go to directory
+    set -l path $MY_GO_PROJECTS_ROOT
+    if count $argv > /dev/null
+        set -x path $path"/"$argv
+    end
+    if test -d $path
+        cd $path
+    end
+end
+
 function rmv
     sudo mv $argv /tmp
 end
@@ -280,7 +293,6 @@ set -x EDITOR 'emacs -nw'
 set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
-set -xg GOPATH $HOME/go
 #set -xg RUST $HOME/rust
 set -xg PATH $PATH $GOPATH $GOPATH/bin
 set -xg TERM "xterm-256color"
