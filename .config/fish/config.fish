@@ -1,6 +1,5 @@
 set -xg MY_PROJECTS_ROOT /opt/work/projects
-set -xg GOPATH $HOME/go
-set -xg MY_GO_PROJECTS_ROOT $GOPATH/src/projects
+set -xg MY_GO_PROJECTS_ROOT /opt/work/goprojects
 
 # common functions
 
@@ -35,6 +34,7 @@ function dl
         dc logs --tail 15
     end
 end
+
 # End Docker
 
 # Vagrant
@@ -294,6 +294,7 @@ set -x BROWSER chromium
 set -xg XDG_CONFIG_HOME $HOME/.config
 set -xg XDG_DATA_HOME $HOME/.local
 #set -xg RUST $HOME/rust
+set -xg GOPATH $HOME/golibs $MY_GO_PROJECTS_ROOT
 set -xg PATH $PATH $GOPATH $GOPATH/bin
 set -xg TERM "xterm-256color"
 set -xg WINEARCH "win32"
