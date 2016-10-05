@@ -185,7 +185,7 @@ function gp
     # if argv when go to directory
     set -l path $MY_GO_PROJECTS_ROOT
     if count $argv > /dev/null
-        set -x path $path"/"$argv
+        set -x path $path"/src/"$argv
     end
     if test -d $path
         cd $path
