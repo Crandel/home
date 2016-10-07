@@ -1,19 +1,9 @@
 set -xg MY_PROJECTS_ROOT /opt/work/projects
 
-function go_path
-    set -l GOPATH1 $HOME/go
-    set -xg MY_GO_PROJECTS_ROOT $GOPATH1/goprojects
-    set -xg GOPATH $GOPATH1:$MY_GO_PROJECTS_ROOT
-    set -xg PATH $PATH $GOPATH1/bin
-    # for d in (ls $MY_GO_PROJECTS_ROOT)
-    #     set -l project $MY_GO_PROJECTS_ROOT/$d
-    #     if test -d $project
-    #         set -xg GOPATH $GOPATH:$project
-    #     end
-    # end
-end
-
-go_path
+set -l GOPATH1 $HOME/go
+set -xg MY_GO_PROJECTS_ROOT $GOPATH1/goprojects
+set -xg GOPATH $GOPATH1:$MY_GO_PROJECTS_ROOT
+set -xg PATH $PATH $GOPATH1/bin
 # common functions
 
 # Docker
