@@ -1,13 +1,13 @@
 ;; Font settings
 (set-default-font "Hack 14")
 ;; The full name of the user logged in
-(setq-default user-full-name "crandel")
 ;; Full mailing address of user
-(setq-default user-mail-adress "cradlemann@gmail.com")
+(setq-default user-full-name   "crandel"
+              user-mail-adress "cradlemann@gmail.com")
 
 ;; Set bash as default shell
-(setq shell-file-name "/bin/bash"
-      explicit-shell-file-name "/bin/bash")
+(setq shell-file-name           "/bin/bash"
+      explicit-shell-file-name  "/bin/bash")
 (blink-cursor-mode 0)
 ;; (setenv "GOPATH"
 ;;   (concat
@@ -23,8 +23,8 @@
 ;; (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
 ;; Inhibit startup/splash screen
-(setq inhibit-splash-screen   t)
-(setq inhibit-startup-message t) ;; экран приветствия можно вызвать комбинацией C-h C-a
+(setq inhibit-splash-screen   t
+      inhibit-startup-message t)
 
 ;; Cursor
 (setq-default cursor-type 'bar)
@@ -32,8 +32,8 @@
 
 ;; Imenu
 (require 'imenu)
-(setq imenu-auto-rescan      t) ;; автоматически обновлять список функций в буфере
-(setq imenu-use-popup-menu nil) ;; диалоги Imenu только в минибуфере
+(setq imenu-auto-rescan      t
+      imenu-use-popup-menu   nil)
 (semantic-mode 1)
 
 ;; Ido
@@ -48,79 +48,79 @@
 ;(setq ido-enable-flex-matching t)
 
 ;; SavePlace
-(save-place-mode 1) 
-(setq save-place-file "~/.emacs.d/saved-places")
-(setq save-place-forget-unreadable-files t)
+(save-place-mode 1)
+(setq save-place-file                       "~/.emacs.d/saved-places"
+      save-place-forget-unreadable-files    t)
 
 ;; Electric-modes settings
-(electric-pair-mode   -1) ;; автозакрытие {},[],() с переводом курсора внутрь скобок
-(electric-indent-mode -1) ;; отключить индентацию  electric-indent-mod'ом (default in Emacs-24.4)
+(electric-pair-mode   -1)
+(electric-indent-mode -1)
 ;; Delete selection
 (delete-selection-mode t)
 
 ;; Disable GUI components
 (tooltip-mode      -1)
-(menu-bar-mode     -1) ;; отключаем графическое меню
-(tool-bar-mode     -1) ;; отключаем tool-bar
-(menu-bar-mode     -1) ;; отключаем графическое меню
-(scroll-bar-mode   -1) ;; отключаем полосу прокрутки
-(setq use-dialog-box     nil) ;; никаких графических диалогов и окон - все через минибуфер
-(setq redisplay-dont-pause t)  ;; лучшая отрисовка буфера
-(setq ring-bell-function 'ignore) ;; отключить звуковой сигнал
+(menu-bar-mode     -1)
+(tool-bar-mode     -1)
+(menu-bar-mode     -1)
+(scroll-bar-mode   -1)
+(setq use-dialog-box        nil
+      redisplay-dont-pause  t
+      ring-bell-function    'ignore)
 
 ;; Display the name of the current buffer in the title bar
 (setq frame-title-format "%b")
 
 ;; Disable backup/autosave files
-(setq backup-inhibited           t)
-(setq make-backup-files        nil)
-(setq auto-save-default        nil)
-(setq auto-save-list-file-name nil) ;; я так привык... хотите включить - замените nil на t
+(setq backup-inhibited           t
+      make-backup-files        nil
+      auto-save-default        nil
+      auto-save-list-file-name nil)
 
 ;; Coding-system settings
-(set-language-environment 'UTF-8)
-(setq buffer-file-coding-system 'utf-8)
+(set-language-environment               'UTF-8)
+(setq buffer-file-coding-system         'utf-8
+      file-name-coding-system           'utf-8)
 (setq-default coding-system-for-read    'utf-8)
-(setq file-name-coding-system           'utf-8)
 (set-selection-coding-system            'utf-8)
 (set-keyboard-coding-system        'utf-8-unix)
 (set-terminal-coding-system             'utf-8)
 (prefer-coding-system                   'utf-8)
 
 ;; Linum plugin
-(require 'linum) ;; вызвать Linum
-(line-number-mode   t) ;; показать номер строки в mode-line
-(global-linum-mode  t) ;; показывать номера строк во всех буферах
-(column-number-mode t) ;; показать номер столбца в mode-line
-(setq linum-format " %d") ;; задаем формат нумерации строк
+(require 'linum)
+(line-number-mode   t)
+(global-linum-mode  t)
+(column-number-mode t)
+(setq linum-format " %d")
 
 ;; Fringe settings
-(fringe-mode '(8 . 0)) ;; органичиталь текста только слева
-(setq-default indicate-buffer-boundaries 'left) ;; индикация только слева
+(fringe-mode '(8 . 0))
+(setq-default indicate-buffer-boundaries 'left)
 
 ;; Display file size/time in mode-line
-(setq display-time-24hr-format t) ;; 24-часовой временной формат в mode-line
-(display-time-mode             t) ;; показывать часы в mode-line
-(size-indication-mode          t) ;; размер файла в %-ах
+(setq display-time-24hr-format t)
+(display-time-mode             t)
+(size-indication-mode          t)
 (defun add-mode-line-dirtrack ()
-    (add-to-list 'mode-line-buffer-identification 
+    (add-to-list 'mode-line-buffer-identification
        '(:propertize (" " default-directory " ") face dired-directory)))
 (add-hook 'shell-mode-hook 'add-mode-line-dirtrack)
 
 ;; Indent settings
-(setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
-(setq-default tab-width          4) ;; ширина табуляции - 4 пробельных символа
-(setq tab-width                  4) ;; ширина табуляции - 4 пробельных символа
-(setq-default tab-always-indent nil) ;; make tab key call indent command or insert tab character, depending on cursor position
-(setq-default c-basic-offset     4)
-(setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
-(setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
-(setq indent-line-function  'insert-tab)
+(setq-default indent-tabs-mode nil
+              tab-width          4
+              tab-always-indent nil
+              c-basic-offset     4
+              standart-indent    4
+              lisp-body-indent   4)
+(setq tab-width             4
+      indent-line-function  'insert-tab)
 
 ;; Scrolling settings
-(setq scroll-step               1) ;; вверх-вниз по 1 строке
-(setq scroll-margin            10) ;; сдвигать буфер верх/вниз когда курсор в 10 шагах от верхней/нижней границы
-(setq scroll-conservatively 10000)
+(setq scroll-step               1
+      scroll-margin            10
+      scroll-conservatively 10000)
 
 ;; Short messages
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -128,7 +128,7 @@
 ;; Clipboard settings
 (setq x-select-enable-clipboard t)
 
-(setq next-line-add-newlines nil) ;; не добавлять новую строку в конец при смещении курсора стрелками
+(setq next-line-add-newlines nil)
 
 ;; Highlight search resaults
 (setq search-highlight        t
@@ -151,23 +151,23 @@
   )
   whitespace-line-column 130)
 
-(setq split-height-threshold nil)
-(setq split-width-threshold 0)
+(setq split-height-threshold nil
+      split-width-threshold  0)
 
 (if (equal nil (equal major-mode 'org-mode))
     (windmove-default-keybindings 'meta))
 
 (recentf-mode 1)
-(setq recentf-max-menu-items 350)
-(setq recentf-max-saved-items 350)
+(setq recentf-max-menu-items    550
+      recentf-max-saved-items   550)
 
 ;; Show paren
-(setq show-paren-delay 0)
-(setq show-paren-style 'expression)
+(setq show-paren-delay 0
+      show-paren-style 'expression)
 (show-paren-mode 2)
 
-(setq ns-pop-up-frames nil)
-(setq ad-redefinition-action 'accept)
+(setq ns-pop-up-frames          nil
+      ad-redefinition-action    'accept)
 
 (if (fboundp 'global-font-lock-mode)
     (global-font-lock-mode 1))
@@ -202,6 +202,6 @@
 
 ;(reverse-input-method 'russian-typewriter)
 
-(setq warning-minimum-level :emergency)
+(setq max-mini-window-height 0.4)
 
 (provide 'scratch_my)

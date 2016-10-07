@@ -11,6 +11,7 @@
                                  (setq python-shell-completion-native nil
                                        tab-width                      4
                                        python-indent                  4
+                                       warning-minimum-level          :emergency
                                        python-shell-interpreter       "python"
                                        python-shell-interpreter-args  "-i")
                                  (if (string-match-p "rita" (or (buffer-file-name) ""))
@@ -44,6 +45,7 @@
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
 ;; End Web mode
 
 ;; Po mode
@@ -73,6 +75,7 @@
 ;; End Lisp mode
 
 ;; Go mode
+; neaded bins godef, gometalinter, gorename, goimports, govendor, gocode
 (add-hook 'go-mode-hook '(lambda()
                              (progn
                                  (setq gofmt-command "goimports")

@@ -5,6 +5,7 @@
        :post-init (progn
            (setq web-mode-engines-alist                     '(
                                                               ("django" . "\\.html\\'")
+                                                              ("go" . "\\.gotmpl\\'")
                                                               ("jsx" . "\\.js\\'"))
                  web-mode-enable-current-element-highlight  t
                  web-mode-enable-block-face                 t
