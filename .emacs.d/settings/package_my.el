@@ -18,6 +18,7 @@
         flycheck
         flycheck-gometalinter
         git-gutter
+        go-eldoc
         go-mode
         go-company
         go-rename
