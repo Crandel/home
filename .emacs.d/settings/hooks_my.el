@@ -27,8 +27,6 @@
                                  (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
                                  (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
                                  (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
-                                 (define-key python-mode-map (kbd "RET") 'newline-and-indent)
-                                 (define-key python-mode-map (kbd "M-RET") 'newline)
                                  (define-key python-mode-map (kbd "M-<return>") 'newline)
                                  ;; end python mode keybindings
 
@@ -78,7 +76,9 @@
 ; neaded bins godef, gometalinter, gorename, goimports, govendor, gocode
 (add-hook 'go-mode-hook '(lambda()
                              (progn
-                                 (setq gofmt-command "goimports")
+                                 (setq gofmt-command    "goimports"
+                                       indent-tabs-mode t
+                                       tab-width        2)
                                  (add-hook 'before-save-hook #'gofmt-before-save)
                                  ;; Go mode keybindings
                                  (define-key go-mode-map (kbd "M-.") #'godef-jump)
@@ -126,14 +126,6 @@
                                                '(buffer-menu-buffer-font-lock-keywords t))
                                           (font-lock-fontify-buffer))))
 ;; End buffer-menu-mode-hook
-
-;; Yaml-mode hooks
-(add-hook 'yaml-mode-hook
-      '(lambda()
-        (define-key yaml-mode-map (kbd "RET") 'newline-and-indent)
-        (define-key yaml-mode-map (kbd "M-RET") 'newline)
-        (define-key yaml-mode-map (kbd "M-<return>") 'newline)))
-;; End Yaml-mode
 
 (defadvice yes-or-no-p (around hack-exit (prompt))
    (if (string= prompt "Active processes exist; kill them and exit anyway? ")
