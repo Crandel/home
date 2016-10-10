@@ -175,8 +175,8 @@
 )
 (global-set-key (kbd "C-d") 'my-delete-line)
 
-(global-set-key (kbd "M-<return>") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
-(global-set-key (kbd "M-RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
+(global-set-key (kbd "RET") 'newline-and-indent)
+(global-set-key (kbd "M-RET") 'newline)
 
 (defvar newline-and-indent t)
 ;; open new line (vi's o command)
@@ -187,13 +187,12 @@
     (next-line 1)
     (when newline-and-indent
         (indent-according-to-mode)))
-(global-set-key (kbd "C-o") 'open-next-line) ;; при нажатии Enter перевести каретку и сделать отступ
+(global-set-key (kbd "C-o") 'open-next-line)
 (key-chord-define-global "ii" 'open-next-line)
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
-  "Open a new line before the current one. 
- See also `newline-and-indent'."
+  "Open a new line before the current one. See also `newline-and-indent'."
   (interactive "p")
   (beginning-of-line)
   (open-line arg)
