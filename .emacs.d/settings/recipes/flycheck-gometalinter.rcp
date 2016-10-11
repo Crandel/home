@@ -6,7 +6,6 @@
        :depends (flycheck)
        :post-init (progn
                       (setq flycheck-gometalinter-vendor            t
-                            flycheck-gometalinter-disable-linters   '("gotype")
                             flycheck-gometalinter-fast              t
                             flycheck-gometalinter-test              t
                             flycheck-gometalinter-deadline          "10s")
