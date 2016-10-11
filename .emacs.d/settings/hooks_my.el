@@ -74,7 +74,11 @@
 ;; End Lisp mode
 
 ;; Go mode
-; neaded bins godef, gometalinter, gorename, goimports, govendor, gocode
+; go get -u github.com/alecthomas/gometalinter
+; gometalinter --install
+; go get -u github.com/rogpeppe/godef
+; go get -u github.com/nsf/gocode
+; go get -u github.com/kardianos/govendor
 (add-hook 'go-mode-hook '(lambda()
                              (progn
                                  (setq gofmt-command    "goimports"
