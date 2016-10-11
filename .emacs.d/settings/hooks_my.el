@@ -44,6 +44,7 @@
 (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
 ;; End Web mode
 
 ;; Po mode
