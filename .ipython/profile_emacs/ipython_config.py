@@ -29,10 +29,10 @@
 #c.InteractiveShellApp.exec_files = []
 
 ## lines of code to run at IPython startup.
-c.InteractiveShellApp.exec_lines = ['%autoreload 2',]
+# c.InteractiveShellApp.exec_lines = ['%autoreload 2',]
 
 ## A list of dotted module names of IPython extensions to load.
-c.InteractiveShellApp.extensions = ['autoreload',]
+# c.InteractiveShellApp.extensions = ['autoreload',]
 
 ## dotted module name of an IPython extension to load.
 #c.InteractiveShellApp.extra_extension = ''
@@ -74,13 +74,13 @@ c.InteractiveShellApp.extensions = ['autoreload',]
 ## This is an application.
 
 ## The date format used by logging formatters for %(asctime)s
-c.Application.log_datefmt = '%d-%m-%Y %H:%M:%S'
+#c.Application.log_datefmt = '%d-%m-%Y %H:%M:%S'
 
 ## The Logging format template
-c.Application.log_format = '[%(name)s]%(highlevel)s %(message)s'
+#c.Application.log_format = '[%(name)s]%(highlevel)s %(message)s'
 
 ## Set the log level by value or name.
-c.Application.log_level = 30
+#c.Application.log_level = 30
 
 #------------------------------------------------------------------------------
 # BaseIPythonApplication(Application) configuration
@@ -123,11 +123,11 @@ c.Application.log_level = 30
 #------------------------------------------------------------------------------
 
 ## Whether to display a banner upon starting IPython.
-c.TerminalIPythonApp.display_banner = True
+#c.TerminalIPythonApp.display_banner = True
 
 ## If a command or file is given via the command-line, e.g. 'ipython foo.py',
 #  start an interactive shell after executing the file or command.
-c.TerminalIPythonApp.force_interact = True
+#c.TerminalIPythonApp.force_interact = True
 
 ## Start IPython quickly by skipping the loading of config files.
 #c.TerminalIPythonApp.quick = False
@@ -155,10 +155,10 @@ c.TerminalIPythonApp.force_interact = True
 #c.InteractiveShell.autocall = 0
 
 ## Autoindent IPython code entered interactively.
-c.InteractiveShell.autoindent = True
+#c.InteractiveShell.autoindent = True
 
 ## Enable magic commands to be called without the leading %.
-c.InteractiveShell.automagic = True
+#c.InteractiveShell.automagic = True
 
 ## The part of the banner to be printed before the profile
 #c.InteractiveShell.banner1 = 'Python 3.5.2 (default, Jun 28 2016, 08:46:01) \nType "copyright", "credits" or "license" for more information.\n\nIPython 4.2.1 -- An enhanced Interactive Python.\n?         -> Introduction and overview of IPython\'s features.\n%quickref -> Quick reference.\nhelp      -> Python\'s own help system.\nobject?   -> Details about \'object\', use \'object??\' for extra details.\n'
@@ -177,10 +177,10 @@ c.InteractiveShell.automagic = True
 ## Use colors for displaying information about objects. Because this information
 #  is passed through a pager (like 'less'), and some pagers get confused with
 #  color codes, this capability can be turned off.
-c.InteractiveShell.color_info = True
+#c.InteractiveShell.color_info = True
 
 ## Set the color scheme (NoColor, Linux, or LightBG).
-c.InteractiveShell.colors = 'Linux'
+#c.InteractiveShell.colors = 'Linux'
 
 ## 
 #c.InteractiveShell.debug = False
@@ -289,10 +289,10 @@ c.InteractiveShell.colors = 'Linux'
 c.TerminalInteractiveShell.confirm_exit = False
 
 ## Set the editor used by IPython (default to $EDITOR/vi/notepad).
-c.TerminalInteractiveShell.editor = 'emacs -nw'
+# c.TerminalInteractiveShell.editor = 'emacs -nw'
 
 ## The shell program to be used for paging.
-c.TerminalInteractiveShell.pager = 'less'
+# c.TerminalInteractiveShell.pager = 'less'
 
 ## Number of lines of your screen, used to control printing of very long strings.
 #  Strings longer than this number of lines will be sent through a pager instead
@@ -314,19 +314,19 @@ c.TerminalInteractiveShell.pager = 'less'
 ## This is the primary interface for producing IPython's prompts.
 
 ## 
-c.PromptManager.color_scheme = 'Linux'
+#c.PromptManager.color_scheme = 'Linux'
 
 ## Continuation prompt.
-c.PromptManager.in2_template = '....\\D.: '
+#c.PromptManager.in2_template = '....\\D.: '
 
 ## Input prompt.  '\#' will be transformed to the prompt number
-c.PromptManager.in_template = '-> [\\#]: '
+#c.PromptManager.in_template = '-> [\\#]: '
 
 ## If True (default), each prompt will be right-aligned with the preceding one.
-c.PromptManager.justify = True
+# c.PromptManager.justify = True
 
 ## Output prompt. '\#' will be transformed to the prompt number
-c.PromptManager.out_template = '<- [\\#]: '
+# c.PromptManager.out_template = '<- [\\#]: '
 
 #------------------------------------------------------------------------------
 # HistoryAccessor(HistoryAccessorBase) configuration
@@ -465,13 +465,13 @@ c.HistoryAccessor.enabled = True
 #c.PlainTextFormatter.max_seq_length = 1000
 
 ## 
-c.PlainTextFormatter.max_width = 120
+# c.PlainTextFormatter.max_width = 120
 
 ## 
-c.PlainTextFormatter.newline = '\n'
+# c.PlainTextFormatter.newline = '\n'
 
 ## 
-c.PlainTextFormatter.pprint = True
+# c.PlainTextFormatter.pprint = True
 
 ## 
 #c.PlainTextFormatter.verbose = False

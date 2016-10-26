@@ -11,9 +11,13 @@
                                  (setq python-shell-completion-native nil
                                        tab-width                      4
                                        python-indent                  4
-                                       warning-minimum-level          :emergency
                                        python-shell-interpreter       "ipython"
-                                       python-shell-interpreter-args  "-i")
+                                       python-shell-interpreter-args  "--profile=emacs"
+                                       )
+                                 (defun python-startup-function (start end &optional send-main msg)
+                                     (unless (python-shell-get-process)
+                                             (run-python)))
+                                 (add-function :before (symbol-function 'python-shell-send-region)  #'python-startup-function)
                                  (if (string-match-p "rita" (or (buffer-file-name) ""))
                                          (setq indent-tabs-mode t)
                                      (setq indent-tabs-mode nil)
