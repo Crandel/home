@@ -22,6 +22,7 @@
         go-mode
         go-company
         go-rename
+        go-scratch
         helm
         helm-ag
         helm-projectile
