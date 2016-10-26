@@ -12,7 +12,7 @@
                                        tab-width                      4
                                        python-indent                  4
                                        warning-minimum-level          :emergency
-                                       python-shell-interpreter       "python"
+                                       python-shell-interpreter       "ipython"
                                        python-shell-interpreter-args  "-i")
                                  (if (string-match-p "rita" (or (buffer-file-name) ""))
                                          (setq indent-tabs-mode t)
