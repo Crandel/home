@@ -18,6 +18,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(compilation-disable-input t)
+ '(compilation-window-height 10)
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
@@ -57,8 +59,8 @@
  '(company-tooltip ((t (:background "black" :foreground "yellow green"))))
  '(company-tooltip-search ((t (:background "dark khaki" :underline "blue"))))
  '(company-tooltip-selection ((t (:background "honeydew" :foreground "dark green"))))
- '(magit-diff-added ((t (:background "green" :foreground "white"))))
- '(magit-diff-added-highlight ((t (:background "olive drab" :foreground "cyan"))))
+ '(magit-diff-added ((t (:background "dark slate gray" :foreground "chocolate"))))
+ '(magit-diff-added-highlight ((t (:background "dark olive green" :foreground "gold"))))
  '(magit-diff-removed ((t (:background "red" :foreground "#ffdddd"))))
  '(magit-diff-removed-highlight ((t (:background "dark red" :foreground "navajo white"))))
  '(mode-line-buffer-id-inactive ((t (:inherit mode-line-buffer-id :foreground "dark goldenrod"))))

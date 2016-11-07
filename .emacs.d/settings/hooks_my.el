@@ -91,6 +91,7 @@
                                  (add-hook 'before-save-hook #'gofmt-before-save)
                                  ;; Go mode keybindings
                                  (define-key go-mode-map (kbd "M-.") #'godef-jump)
+                                 (define-key go-mode-map [f8] #'multi-compile-run)
                                  ;; End keybindings
                                  (eval-after-load "company"
                                      '(progn
