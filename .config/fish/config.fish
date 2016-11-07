@@ -4,6 +4,7 @@ set -l GOPATH1 $HOME/go
 set -xg MY_GO_PROJECTS_ROOT $GOPATH1/goprojects
 set -xg GOPATH $GOPATH1:$MY_GO_PROJECTS_ROOT
 set -xg PATH $PATH $GOPATH1/bin
+set -xg GO_VENDOR 1
 # common functions
 
 # Docker
@@ -176,6 +177,13 @@ function gp
     set -l path $MY_GO_PROJECTS_ROOT
     if count $argv > /dev/null
         set -x path $path"/src/"$argv
+        switch (echo $argv)
+        case go_chat
+           set -l check (docker inspect -f "{{.State.Running}}" postgres)
+           if [ $check = "false" ]
+               docker start postgres
+           end
+        end
     end
     if test -d $path
         cd $path

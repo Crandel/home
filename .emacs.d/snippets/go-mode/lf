@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: lf
+# key: lf
+# --
+log.Printf("%#v\n", $0)
