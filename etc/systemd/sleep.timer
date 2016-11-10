@@ -2,7 +2,7 @@
 Description=Block screen every hour
 
 [Timer]
-OnBootSec=10min
+OnBootSec=1min
 OnUnitActiveSec=1h
 Unit=sleep.service
 
