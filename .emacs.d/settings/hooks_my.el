@@ -137,6 +137,20 @@
                                           (font-lock-fontify-buffer))))
 ;; End buffer-menu-mode-hook
 
+;; Compilation hook
+(defun bury-compile-buffer-if-successful (buffer string)
+  "Bury a compilation buffer if succeeded without warnings "
+  (if (and
+       (string-match "compilation" (buffer-name buffer))
+       (string-match "finished" string)
+       (not
+        (with-current-buffer buffer
+          (search-forward "warning" nil t))))
+      (delete-other-windows)
+   ))
+(add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+;; End compilation hook
+
 (defadvice yes-or-no-p (around hack-exit (prompt))
    (if (string= prompt "Active processes exist; kill them and exit anyway? ")
        t
