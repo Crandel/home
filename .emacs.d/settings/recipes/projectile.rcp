@@ -3,6 +3,4 @@
        :type github
        :pkgname "bbatsov/projectile"
        :depends (dash pkg-info ag)
-       :post-init (progn
-                      (projectile-global-mode t)
-                      (setq projectile-require-project-root nil)))
+       :post-init (projectile-global-mode t))
