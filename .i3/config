@@ -187,7 +187,7 @@ workspace_layout tabbed
 # workspace 1 output HDMI1
 # workspace 2 output VGA1
 # The middle button over a titlebar kills the window
-bindsym --release button2 kill
+bindsym --release Mod2+button2 kill
 
 # chromium
 bindsym $mod+c exec chromium
