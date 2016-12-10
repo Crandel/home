@@ -161,7 +161,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     position top
-    # tray_output primary
+    tray_output primary
     colors{
         background #000000
         statusline #E1F5A9
