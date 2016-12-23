@@ -1,4 +1,4 @@
-directory: /media/ubuntu/home/vitaliy/Documents/ARCH/music
+directory: /media/data/music
 import:
   move: yes
   resume: yes

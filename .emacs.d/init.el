@@ -89,3 +89,4 @@
  '(whitespace-tab ((t (:foreground "magenta"))))
  '(whitespace-trailing ((t (:foreground "yellow" :weight bold)))))
 (put 'downcase-region 'disabled nil)
+(put 'upcase-region 'disabled nil)

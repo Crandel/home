@@ -195,11 +195,11 @@ function rmv
 end
 
 function soff
-    sudo swapoff /dev/sda5
+    sudo swapoff /dev/sda4
 end
 
 function son
-   sudo swapon /dev/sda5
+   sudo swapon /dev/sda4
 end
 
 function systemctl
@@ -271,6 +271,10 @@ end
 # end
 # rita end
 # localhost
+function nvidia
+    sudo (echo ON > /proc/acpi/bbswitch)
+end
+# localhost
 function internet
    cd /media/data/internet
 end
@@ -290,10 +294,20 @@ end
 
 function sword
     cd /media/data/games/SwordoftheStars
-    primusrun env WINEPREFIX="/home/crandel/.wine" wine /media/data/games/SwordoftheStars/Sword\ of\ the\ Stars.exe
+    optirun env WINEPREFIX="/home/crandel/.wine" wine /media/data/games/SwordoftheStars/Sword\ of\ the\ Stars.exe
+end
+function sword2
+    cd /media/data/games/SwordOfTheStars\ 2.EnhancedEdition
+    optirun wine bin/x86/sots2.exe
 end
 # localhost end
 # start X at login
+# start X at login
+if status --is-login
+    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+        exec /bin/bash startx -- -keeptty
+    end
+end
 #if status --is-login
 #    if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
 #        exec startx -- -keeptty
@@ -312,10 +326,8 @@ if test "$TERM" = "dumb"
     set -xg TERM "ansi-term"
 end
 set -x WORKON_HOME $HOME/.virtualenvs
+set -x JAVA_HOME /usr/lib/jvm/default
 set -x GNOME_DESKTOP_SESSION_ID 1
-set -x INFINALITY_FT_BRIGHTNESS "-10"
-set -x INFINALITY_FT_FILTER_PARAMS "16 20 28 20 16"
-set -x JAVA_HOME /usr/lib/jvm/java-8-openjdk
 eval (python2 -m virtualfish auto_activation global_requirements)
 set fish_greeting ""
 
