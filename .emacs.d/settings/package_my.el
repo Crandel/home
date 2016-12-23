@@ -14,6 +14,7 @@
         company-restclient
         emmet-mode
         emacs-fish
+        ensime
         expand-region
         flycheck
         flycheck-gometalinter
@@ -47,6 +48,8 @@
         py-autopep8
         py-isort
         restclient
+        sbt-mode
+        scala-mode
         smartparens
         sunrise-commander
         undo-tree

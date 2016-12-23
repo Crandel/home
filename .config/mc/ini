@@ -70,6 +70,7 @@ editor_simple_statusbar=0
 editor_check_new_line=0
 editor_show_right_margin=0
 editor_group_undo=0
+editor_state_full_filename=0
 editor_ask_filename_before_edit=0
 nice_rotating_dash=1
 mcview_remember_file_position=0
@@ -81,7 +82,6 @@ editor_stop_format_chars=-+*\\,.;:&>
 mcview_eof=
 ignore_ftp_chattr_errors=true
 skin=modarcon16
-
 filepos_max_saved_entries=1024
 
 [Layout]
@@ -94,7 +94,7 @@ menubar_visible=1
 free_space=1
 horizontal_split=0
 vertical_equal=1
-left_panel_size=84
+left_panel_size=73
 horizontal_equal=1
 top_panel_size=1
 
@@ -111,10 +111,10 @@ clipboard_paste=
 
 [Colors]
 base_color=
-xterm=
+linux=
 color_terminals=
 
-screen=
+xterm-256color=
 
 [Panels]
 show_mini_info=true
@@ -129,12 +129,16 @@ reverse_files_only=true
 auto_save_setup_panels=false
 navigate_with_arrows=false
 panel_scroll_pages=true
+panel_scroll_center=false
 mouse_move_pages=true
 filetype_mode=true
 permission_mode=false
 torben_fj_mode=false
 quick_search_mode=2
 select_flags=6
+
+[HotlistConfig]
+expanded_view_of_groups=0
 
 [Panelize]
 Find *.orig after patching=find . -name \\*.orig -print

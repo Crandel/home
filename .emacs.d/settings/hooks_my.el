@@ -31,7 +31,6 @@
                                  (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
                                  (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
                                  (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
-                                 (define-key python-mode-map (kbd "M-<return>") 'newline)
                                  ;; end python mode keybindings
 
                                  (eval-after-load "company"
@@ -126,6 +125,29 @@
 
 ;; End restclient hooks
 
+;; Web-mode hook
+(add-hook 'web-mode-hook '(lambda()
+                              (progn
+                                  (eval-after-load "company"
+                                      '(progn
+                                           (unless (member 'company-css (car company-backends))
+                                               (setq comp-back (car company-backends))
+                                               (push 'company-css comp-back)
+                                               (push 'company-nxml comp-back)
+                                               (setq company-backends (list comp-back)))
+                                           )))))
+
+;; End Web-mode hook
+
+;; Scala mode hook
+(add-hook 'scala-mode-hook '(lambda()
+                              (progn
+                                  (ensime-mode)
+                                  (define-key scala-mode-map (kbd "M-/") 'jedi:show-doc)
+                                  (define-key scala-mode-map (kbd "M-?") 'helm-jedi-related-names)
+                )))
+;; End scala mode hook
+
 ;; Buffer-menu-mode-hook
 (add-hook 'buffer-menu-mode-hook '(lambda()
                                       (let ((font-lock-unfontify-region-function
@@ -150,6 +172,7 @@
    ))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 ;; End compilation hook
+(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
 (defadvice yes-or-no-p (around hack-exit (prompt))
    (if (string= prompt "Active processes exist; kill them and exit anyway? ")
