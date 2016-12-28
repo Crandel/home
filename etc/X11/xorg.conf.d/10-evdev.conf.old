@@ -1,5 +1,0 @@
-Section "InputClass"
-        Identifier "Emulate Middle Butten"
-        MatchIsPointer "on"
-        Option "Emulate3Buttons" "on"
-EndSection
