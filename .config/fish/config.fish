@@ -172,7 +172,18 @@ function pr
     end
 end
 
-function gp
+function spr
+    # if argv when go to directory
+    set -l path $MY_PROJECTS_ROOT/scala
+    if count $argv > /dev/null
+        set -x path $path"/"$argv
+    end
+    if test -d $path
+        cd $path
+    end
+end
+
+function gpr
     # if argv when go to directory
     set -l path $MY_GO_PROJECTS_ROOT
     if count $argv > /dev/null
@@ -271,8 +282,20 @@ end
 # end
 # rita end
 # localhost
-function nvidia
-    sudo (echo ON > /proc/acpi/bbswitch)
+function hdmi_on
+    xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --primary --dpi 96 --set "Broadcast RGB" "Full"
+end
+
+function hdmi_off
+    xrandr --output eDP1 --auto --primary --output HDMI1 --off
+end
+
+function both_on
+    xrandr --output eDP1 --dpi 150 --mode 1920x1080 --primary --output HDMI1 --mode 1920x1080 --dpi 96 --right-of eDP1 --set "Broadcast RGB" "Full"
+end
+
+function openvpn_run
+    sudo openvpn --config /etc/openvpn/client/client.conf
 end
 # localhost
 function internet
@@ -290,6 +313,11 @@ end
 function civ
     cd /media/data/games/Civilisation5/
     primusrun ./Civ5XP
+end
+
+function pret
+    cd /media/data/games/Praetorians
+    optirun wine Praetorians.exe
 end
 
 function sword
@@ -327,6 +355,10 @@ if test "$TERM" = "dumb"
 end
 set -x WORKON_HOME $HOME/.virtualenvs
 set -x JAVA_HOME /usr/lib/jvm/default
+set -x HADOOP_USER_NAME hadoop
+set -x HIVE_HOME /usr/lib/hive
+set -x SCALA_HOME /usr/share/scala
+set -xg PATH $PATH $SCALA_HOME/bin
 set -x GNOME_DESKTOP_SESSION_ID 1
 eval (python2 -m virtualfish auto_activation global_requirements)
 set fish_greeting ""
