@@ -173,7 +173,7 @@ bar {
         binding_mode       #2f343a #900000 #ffffff
     }
     bindsym button2 exec gsimplecal
-    status_command $HOME/.i3/conky-i3bar
+    status_command $HOME/.i3/i3bar_conky
 }
 
 # my settings
