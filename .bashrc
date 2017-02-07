@@ -76,8 +76,7 @@ export EDITOR='emacs -nw'
 export WORKON_HOME=~/.virtualenvs/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export INFINALITY_FT_BRIGHTNESS="-10"
-export INFINALITY_FT_FILTER_PARAMS="16 20 28 20 16"
+export JAVA_HOME=/usr/lib/jvm/default-java
 if [ "$TERM" = dumb ] && [ "$INSIDE_EMACS" ]; then
     export TERM='ansi-term'
 fi

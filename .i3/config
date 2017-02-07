@@ -192,6 +192,8 @@ bindsym --release Mod2+button2 kill
 
 # chromium
 bindsym $mod+c exec chromium
+# terminix
+bindcode 67 exec terminix -q
 
 # pycharm
 bindsym $mod+x exec emacs
@@ -200,7 +202,7 @@ bindsym $mod+x exec emacs
 bindsym $mod+m exec xmenud
 
 # lock screen
-bindsym $mod+Control+l exec i3lock -c 122A0A
+bindsym $mod+Control+l exec i3lock -c 000000
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+z workspace next
@@ -224,11 +226,10 @@ exec --no-startup-id nm-applet
 exec feh --bg-scale /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg
 exec_always --no-startup-id numlockx on
 exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec --no-startup-id radiotray
-exec pidgin
-exec skype
 exec clipit
-exec terminator
-exec_always "sh -c 'sleep 5; exec sbxkb'"
+exec terminix -q
+exec pidgin
+exec radiotray-lite
+exec_always --no-startup-id sbxkb
 exec viber
 exec albert
