@@ -193,7 +193,7 @@ bindsym --release Mod2+button2 kill
 # chromium
 bindsym $mod+c exec chromium
 # terminix
-bindcode 67 exec terminix -q
+bindsym F1 exec terminix --quake
 
 # pycharm
 bindsym $mod+x exec emacs
