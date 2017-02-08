@@ -1,0 +1,3 @@
+dconf dump /com/gexperts/Terminix/ > terminix.dconf
+
+dconf load /com/gexperts/Terminix/ < terminix.dconf
