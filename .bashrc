@@ -76,7 +76,7 @@ export EDITOR='emacs -nw'
 export WORKON_HOME=~/.virtualenvs/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-export JAVA_HOME=/usr/lib/jvm/default-java
+export JAVA_HOME=/usr/lib/jvm/default
 if [ "$TERM" = dumb ] && [ "$INSIDE_EMACS" ]; then
     export TERM='ansi-term'
 fi
