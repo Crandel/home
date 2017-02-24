@@ -30,14 +30,14 @@ font pango:Hack 16
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec terminix
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec albert toggle
-bindsym $mod+Shift+d exec j4-dmenu-desktop --display-binary --use-xdg-de --term=terminator --usage-log="/home/vitaliidrevenchuk/.j4.log"
+bindsym $mod+Shift+d exec j4-dmenu-desktop --display-binary --use-xdg-de --term=terminix --usage-log="/home/vitaliidrevenchuk/.j4.log"
 bindsym $mod+Shift+a exec dmenu_run
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -189,6 +189,7 @@ workspace_layout tabbed
 # workspace 2 output VGA1
 # The middle button over a titlebar kills the window
 bindsym --release Mod2+button2 kill
+bindsym --release button2 kill
 
 # chromium
 bindsym $mod+c exec chromium

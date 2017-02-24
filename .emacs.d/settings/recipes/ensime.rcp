@@ -10,5 +10,6 @@
                  company-mode
                  yasnippet)
        :post-init (setq ensime-company-case-sensitive t
+                        ensime-startup-notification   nil
                         ensime-graphical-tooltips     t
                         ensime-use-helm               t))
