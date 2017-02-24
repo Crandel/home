@@ -47,6 +47,7 @@
 (global-unset-key (kbd "C-c w"))
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
 (key-chord-define-global "''" 'sp-rewrap-sexp)
+(global-set-key (kbd "C-c r") 'sp-unwrap-sexp)
 
 ;; Undo-tree
 (global-unset-key (kbd "C-z"))

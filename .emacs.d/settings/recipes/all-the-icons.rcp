@@ -1,0 +1,6 @@
+(:name all-the-icons
+       :description "A utility package to collect various Icon Fonts and propertize them within Emacs."
+       :type github
+       :pkgname "domtronn/all-the-icons.el"
+       :load-path ("." "fonts")
+       :depends (font-lock+ dash))

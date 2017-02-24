@@ -7,5 +7,11 @@
        :load-path "."
        :features powerline
        :post-init (progn
-           (powerline-center-theme)
+           (setq powerline-display-buffer-size  t
+                 powerline-buffer-size-suffix   t
+                 powerline-gui-use-vcs-glyph    t
+                 powerline-display-mule-info    t
+                 powerline-display-hud          t
+                 )
+           (powerline-default-theme)
            ))

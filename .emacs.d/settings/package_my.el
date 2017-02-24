@@ -6,6 +6,7 @@
 (setq my-packages
     '(
         el-get
+        all-the-icons
         auto-virtualenv
         avy
         company-mode
