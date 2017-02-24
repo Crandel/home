@@ -23,8 +23,8 @@
                                               company-yasnippet
                                               company-semantic
                                               company-capf
-                                              company-etags)
+                                              company-etags
                                               company-files
                                               company-keywords
                                               company-dabbrev-code
-                                              company-dabbrev))))
+                                              company-dabbrev)))))

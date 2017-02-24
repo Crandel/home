@@ -48,6 +48,8 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.sc\\'" . scala-mode))
 ;; End Web mode
 
 ;; Po mode
@@ -62,6 +64,7 @@
 
 ;; Js2 mode
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2)))
 ;; End Js2 mode
 
 ;; Lisp mode
