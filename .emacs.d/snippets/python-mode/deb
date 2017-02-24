@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: deb
+# key: deb
+# --
+log.debug($0)

@@ -6,7 +6,7 @@
        :pkgname "jaypei/emacs-neotree"
        :post-init (progn
                     (global-set-key [f7] 'neotree-toggle)
-                    (setq neo-theme                        'arrow
+                    (setq neo-theme                        'icons
                           neo-hidden-regexp-list           '("\\.pyc$" "\\.elc$" "\\.git$" "__pycache__$")
                           neo-vc-integration               '(face)
                           neo-cwd-line-style               'text

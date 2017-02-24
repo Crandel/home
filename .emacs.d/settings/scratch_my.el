@@ -109,12 +109,12 @@
 
 ;; Indent settings
 (setq-default indent-tabs-mode nil
-              tab-width          4
+              tab-width          2
               tab-always-indent nil
               c-basic-offset     4
-              standart-indent    4
+              standart-indent    2
               lisp-body-indent   4)
-(setq tab-width             4
+(setq tab-width             2
       indent-line-function  'insert-tab)
 
 ;; Scrolling settings

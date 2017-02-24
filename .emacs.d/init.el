@@ -41,7 +41,6 @@
  '(package-selected-packages (quote (el-get)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
- '(powerline-gui-use-vcs-glyph t)
  '(semantic-which-function-use-color t)
  '(sr-show-hidden-files t)
  '(sr-tree-explosion-ratio 5)
