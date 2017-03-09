@@ -52,6 +52,7 @@
         sbt-mode
         scala-mode
         smartparens
+        smart-mode-line
         sunrise-commander
         undo-tree
         web-mode

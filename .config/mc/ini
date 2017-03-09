@@ -109,12 +109,14 @@ autodetect_codeset=
 clipboard_store=
 clipboard_paste=
 
+spell_language=en
+
 [Colors]
 base_color=
 linux=
-color_terminals=
+color_terminals=1
 
-xterm-256color=
+xterm-256color=1
 
 [Panels]
 show_mini_info=true
