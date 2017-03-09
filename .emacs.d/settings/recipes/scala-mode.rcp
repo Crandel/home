@@ -3,7 +3,7 @@
        :type github
        :website "http://ensime.org"
        :pkgname "ensime/emacs-scala-mode"
-       :post-init(progn
+       :post-init (progn
                      (setq scala-indent:use-javadoc-style   t
                            scala-indent:align-parameters    t
                            max-lisp-eval-depth              50000

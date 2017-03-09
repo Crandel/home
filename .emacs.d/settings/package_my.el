@@ -44,7 +44,6 @@
         less-css-mode
         livedown
         pip-requirements
-        powerline
         projectile
         py-autopep8
         py-isort

@@ -2,4 +2,11 @@
        :description "A color coded smart mode-line."
        :type github
        :depends (dash rich-minority)
-       :pkgname "Malabarba/smart-mode-line")
+       :load-path "."
+       :pkgname "Malabarba/smart-mode-line"
+       :post-init (progn
+                      (setq sml/theme 'dark)
+                      (setq sml/no-confirm-load-theme t)
+                      (sml/setup)
+                      (smart-mode-line-enable))
+                      )
