@@ -31,9 +31,9 @@ conky.config = {
     cpu_avg_samples = 1,
     top_name_width = 8,
     -- Volume level
-    template0 = [[${exec pactl list sinks | grep 'Volume: front-left' | cut -d ' ' -f6}]],
+    template0 = [[${exec pactl list sinks | grep 'Volume: front-left' | awk '{print $5}'}]],
     -- Volume on/off
-    template1 = [[${exec pactl list sinks | grep 'Mute:' | cut -d ' ' -f2}]],
+    template1 = [[${exec pactl list sinks | grep 'Mute:' | awk '{print $2}'}]],
 };
 -- Stuff in text will be formatted on screen
 -- JSON for i3bar
