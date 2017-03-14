@@ -31,9 +31,9 @@ conky.config = {
     cpu_avg_samples = 1,
     top_name_width = 8,
     -- Volume level
-    template0 = [[${exec amixer -c 0 get Master | grep Mono: | awk '{print $4}' | tr -d '[]'}]],
+    template0 = [[${exec pactl list sinks | grep 'Volume: front-left' | cut -d ' ' -f6}]],
     -- Volume on/off
-    template1 = [[${exec amixer -c 0 get Master | grep Mono: | awk '{print $6}' | tr -d '[]'}]],
+    template1 = [[${exec pactl list sinks | grep 'Mute:' | cut -d ' ' -f2}]],
 };
 -- Stuff in text will be formatted on screen
 -- JSON for i3bar
@@ -55,7 +55,7 @@ ${if_match ${memperc}>90}
 { "full_text" : "T ${top name 1}", "color" : "\#F0E68C", "separator_block_width": 1},
 ${endif}
 { "full_text" : "\uF028 $template0", "color":
-  ${if_match "$template1"=="on"}
+  ${if_match "$template1"=="no"}
     "\#E1F5A9"
   ${else}
     "\#FF0000"

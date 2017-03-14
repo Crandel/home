@@ -2,7 +2,7 @@
        :type github
        :pkgname "favadi/flycheck-gometalinter"
        :description "On-the-fly syntax checking extension for golang"
-       :build (("bash" "-c" "go get -u github.com/alecthomas/gometalinter && gometalinter --install --update"))
+       :build (("go" "get" "-u" "github.com/alecthomas/gometalinter") ("gometalinter" "--install" "--update"))
        :depends (flycheck)
        :post-init (progn
                       (setq flycheck-gometalinter-vendor            t
