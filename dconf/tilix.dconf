@@ -9,10 +9,11 @@ use-theme-colors=false
 use-system-font=false
 terminal-bell='none'
 font='Hack 18'
+terminal-title='${id}: ${title}${directory}'
 cursor-blink-mode='on'
 background-transparency-percent=2
 dim-transparency-percent=42
-scrollback-lines=38192
+scrollback-lines=58192
 
 [/]
 prompt-on-close=true
@@ -24,7 +25,7 @@ auto-hide-mouse=true
 terminal-title-style='none'
 theme-variant='dark'
 control-scroll-zoom=true
-new-instance-mode='split-down'
+new-instance-mode='new-session'
 quake-hide-headerbar=true
 quake-show-on-all-workspaces=false
 warn-vte-config-issue=false
