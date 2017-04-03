@@ -7,6 +7,7 @@ function fish_prompt --description 'Write out the prompt'
 	set -l fish_color_venv yellow
 	set -l fish_color_user green
 	set -l fish_color_root red
+	set -l fish_color_delim green
 	set -l fish_color_date cyan
 	set -l fish_color_git_branch cyan
 	set -l fish_color_git_unstaged yellow
@@ -18,40 +19,40 @@ function fish_prompt --description 'Write out the prompt'
 		if test $CMD_DURATION -gt (math "1000 * 10")
 			set -l secs (math "$CMD_DURATION / 1000")
 			echo
-			set -g __fish_prompt_duration (set_color red) $secs "s"
+			set -g __duration (set_color red) $secs "s"
 		else
-			set -g __fish_prompt_duration ""
+			set -g __duration ""
 		end
 	end
 
 	switch $USER
-
 		case root
-			set -g __fish_prompt_user (set_color $fish_color_root) $USER
+			set -g __user (set_color $fish_color_root) $USER
 		case '*'
-			set -g __fish_prompt_user (set_color $fish_color_user) $USER
+			set -g __user (set_color $fish_color_user) $USER
 	end
 
 	set -g __date (set_color $fish_color_date) (date "+%H:%M")
 
-	set -l delim '➤ '
+	set -g __pwd (set_color $fish_color_cwd) "{"(prompt_pwd)"}"
 
-	set -g __fish_prompt_cwd (set_color $fish_color_cwd) "{"(prompt_pwd)"}"
-
-	set -l prompt_status
+	set -l __status
 
 	if test $last_status -ne 0
-		set prompt_status (set_color $fish_color_status) "[$last_status]"
+		set __status (set_color $fish_color_status) "[$last_status]"
+		set fish_color_delim red
 	end
 
+	set -l __delim (set_color $fish_color_delim)'➤ '
+
 	if set -q VIRTUAL_ENV
-		set -g virtual_env (set_color $fish_color_venv) "["(basename "$VIRTUAL_ENV")"]"
+		set -g __v_env (set_color $fish_color_venv) "["(basename "$VIRTUAL_ENV")"]"
 	else
-		set -g virtual_env ""
+		set -g __v_env ""
 	end
 
 	set git_branch (git branch ^ /dev/null | sed -n 's/^\* //p')
-	set -g __fish_prompt_git ""
+	set -g __prompt_git ""
 	if test $git_branch
 		set oldIFS "$IFS"
 		set IFS ""
@@ -96,27 +97,27 @@ function fish_prompt --description 'Write out the prompt'
 		set IFS "$oldIFS"
 
 		set -g __git_branch (set_color $fish_color_git_branch)"$git_branch"(set_color $fish_color_normal)
-		set -g __fish_prompt_git (set_color $fish_color_normal)"($__git_branch"
+		set -g __prompt_git (set_color $fish_color_normal)"($__git_branch"
 		if test $ahead
 			set -l __ahead (set_color $fish_color_git_ahead)"{>$ahead}"(set_color $fish_color_normal)
-			set -g __fish_prompt_git "$__fish_prompt_git$__ahead"
+			set -g __prompt_git "$__prompt_git$__ahead"
 		end
 		if test $behind
 			set -l __behind (set_color $fish_color_git_behind)"{<$behind}"(set_color $fish_color_normal)
-			set -g __fish_prompt_git "$__fish_prompt_git$__behind"
+			set -g __prompt_git "$__prompt_git$__behind"
 		end
 		if test $unstagedFiles
 			set -l __git_unstaged (set_color $fish_color_git_unstaged)"|$unstagedFiles"(set_color $fish_color_normal)
-			set -g __fish_prompt_git "$__fish_prompt_git$__git_unstaged"
+			set -g __prompt_git "$__prompt_git$__git_unstaged"
 		end
 		if test $stagedFiles
 			set -l __git_staged (set_color $fish_color_git_staged)"|$stagedFiles"(set_color $fish_color_normal)
-			set -g __fish_prompt_git "$__fish_prompt_git$__git_staged"
+			set -g __prompt_git "$__prompt_git$__git_staged"
 		end
-		set -g __fish_prompt_git "$__fish_prompt_git)"
+		set -g __prompt_git "$__prompt_git)"
 	end
 
-	echo -n -s "$__date" "$virtual_env" "$__fish_prompt_user" "$__fish_prompt_cwd" "$__fish_prompt_git" "$__fish_prompt_duration"
+	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" "$__duration" "$__status"
 	printf "\n"
-	echo -n "$prompt_status"(set_color $fish_color_user)"$delim"
+	echo -n "$__delim"
 end

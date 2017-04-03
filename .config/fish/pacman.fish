@@ -56,7 +56,7 @@ function pss
 	pacman -Ss $argv
 end
 
-function yss
+function yss --description 'Search using yaourt'
 	yaourt -Ss $argv
 end
 
@@ -64,6 +64,6 @@ function upg -d 'Run pacman system update'
 	sudo pacman -Syu
 end
 
-function upgy -d 'Run yaourt system update'
+function upgy --description 'Run yaourt system update'
 	yaourt -Syua
 end
