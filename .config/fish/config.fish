@@ -38,6 +38,14 @@ set -g fish_cdhist_max 128
 
 # common functions
 
+# different checkers
+function sudo_run
+  if test (id -u) -eq 0
+    eval $argv
+  else
+    sudo $argv
+  end
+end
 
 if type -pq pacman
 	source $fish_config_path/pacman.fish
@@ -156,8 +164,8 @@ function home_pr
 end
 
 function group_fix
-	sudo grpck
-	sudo pwck
+	sudo_run grpck
+	sudo_run pwck
 end
 
 ## Aliases
@@ -246,19 +254,19 @@ function gpr
 end
 
 function rmv
-	sudo mv $argv /tmp
+	sudo_run mv $argv /tmp
 end
 
 function soff
-	sudo swapoff /dev/sda4
+	sudo_run swapoff /dev/sda4
 end
 
 function son
-	sudo swapon /dev/sda4
+	sudo_run swapon /dev/sda4
 end
 
 function systemctl
-	sudo systemctl $argv
+	sudo_run systemctl $argv
 end
 
 function tm
@@ -271,15 +279,15 @@ function em
 end
 
 function sem
-	sudo emacs -nw $argv
+	sudo_run emacs -nw $argv
 end
 
 function smc
-	sudo -E mc
+	sudo_run -E mc
 end
 
 function update_kernel
-	sudo mkinitcpio -p linux
+	sudo_run mkinitcpio -p linux
 end
 
 # # rita
@@ -292,7 +300,7 @@ end
 # end
 
 # function monup
-#			sudo chown -R mongodb: /opt/db/mongo/
+#			sudo_run chown -R mongodb: /opt/db/mongo/
 #			set -l check (docker inspect -f "{{.State.Running}}" mongo)
 #			if [ $check = "false" ]
 #					echo $check
@@ -330,7 +338,7 @@ function both_on
 end
 
 function openvpn_run
-	sudo openvpn --config /etc/openvpn/client/client.conf
+	sudo_run openvpn --config /etc/openvpn/client/client.conf
 end
 
 function internet

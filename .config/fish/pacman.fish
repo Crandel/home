@@ -14,7 +14,7 @@ end
 complete -c pel -a "$listinstalled"
 
 function pi
-	sudo pacman -S --needed $argv
+	sudo_run pacman -S --needed $argv
 end
 complete -c pi -a "$listall"
 
@@ -43,7 +43,7 @@ function pqs
 end
 
 function pacr
-	sudo pacman -Rs $argv
+	sudo_run pacman -Rs $argv
 end
 complete -c pr -a "$listinstalled"
 
@@ -61,7 +61,7 @@ function yss --description 'Search using yaourt'
 end
 
 function upg -d 'Run pacman system update'
-	sudo pacman -Syu
+	sudo_run pacman -Syu
 end
 
 function upgy --description 'Run yaourt system update'
