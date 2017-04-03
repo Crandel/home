@@ -162,7 +162,7 @@ function set_virtualenv () {
 # Set the full bash prompt.
 function set_zsh_prompt () {
     PROMPT=' %F{blue}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f
-%(?.%F{green}.%F{red})➤%f '
+%(?.%F{green}.%F{red}[%?])➤%f '
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
