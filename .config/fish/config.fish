@@ -64,6 +64,14 @@ function dc
 	end
 end
 
+function drs
+  d stop (d ps -q)
+end
+
+function d_rm_all
+  d rm (d ps -aq)
+end
+
 function run
 	if count $argv > /dev/null
 		set -l path $MY_PROJECTS_ROOT/$argv
