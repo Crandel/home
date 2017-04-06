@@ -149,7 +149,10 @@ function set_git_branch() {
     fi
 
 }
-
+function set_prompt_symbol () {
+    echo "%(?.%F{green}.%F{red}[%?])
+➤%f "
+}
 # Determine active Python virtualenv details.
 function set_virtualenv () {
   if test -z "$VIRTUAL_ENV" ; then
@@ -161,8 +164,7 @@ function set_virtualenv () {
 
 # Set the full bash prompt.
 function set_zsh_prompt () {
-    PROMPT=' %F{blue}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f%(?.%F{green}.%F{red}[%?])
-➤%f '
+    PROMPT=' %F{blue}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f$(set_prompt_symbol)'
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
