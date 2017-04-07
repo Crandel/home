@@ -117,7 +117,7 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __prompt_git "$__prompt_git)"
 	end
 
-	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" "$__duration" "$__status"
+	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" " F" "$__duration" "$__status"
 	printf "\n"
 	echo -n "$__delim"
 end

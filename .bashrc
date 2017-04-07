@@ -77,7 +77,8 @@ export WORKON_HOME=~/.virtualenvs/
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export JAVA_HOME=/usr/lib/jvm/default
-if [ "$TERM" = dumb ] && [ "$INSIDE_EMACS" ]; then
+export TERM="xterm-256color"
+if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
     export TERM='ansi-term'
 fi
 virtual='/usr/bin/virtualenvwrapper.sh'
@@ -91,6 +92,10 @@ fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
+fi
+
+if [ -f ~/clusterdock.sh ]; then
+    . ~/clusterdock.sh 
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -212,8 +217,7 @@ function set_bash_prompt () {
   set_git_branch
 
   # Set the bash prompt variable.
-  PS1="
- ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH}${PROMPT_SYMBOL} "
+  PS1=" ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH} B ${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
