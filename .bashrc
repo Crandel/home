@@ -49,9 +49,9 @@ alias egrep='egrep --color=auto'
 alias arch='uname -m'
 
 # some more ls aliases
-alias ll='ls -alF'
+alias ll='ls -ahlF'
 alias la='ls -A'
-alias l='ls -CF'
+
 alias upg='sudo pacman -Syu'
 alias upgy='yaourt -Syu'
 alias tm='tmux attach || tmux new'
