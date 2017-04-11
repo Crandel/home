@@ -196,6 +196,7 @@ bindsym --release button2 kill
 # chromium
 bindsym $mod+c exec chromium
 
+# tilix
 bindsym F1 exec tilix --quake
 
 # pycharm
@@ -233,4 +234,3 @@ exec clipit
 exec tilix -q
 exec_always --no-startup-id sbxkb
 exec viber
-exec albert

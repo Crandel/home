@@ -197,7 +197,7 @@ function la
 end
 
 function ll
-	ls -alF $argv
+	ls -ahlF $argv
 end
 
 function hm -d "Merge history from several shells"
