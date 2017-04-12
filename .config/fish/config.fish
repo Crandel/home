@@ -7,21 +7,17 @@ set -q XDG_CONFIG_HOME; or set -l XDG_CONFIG_HOME $HOME/.config
 set -q fish_data_path; or set -g fish_data_path $XDG_DATA_HOME/fish
 set -q fish_config_path; or set -g fish_config_path $XDG_CONFIG_HOME/fish
 
-set -l GOPATH1 $HOME/go
-set -xg MY_GO_PROJECTS_ROOT $GOPATH1/goprojects
-set -xg GOPATH $GOPATH1:$MY_GO_PROJECTS_ROOT
-
-set -x WORKON_HOME $HOME/.virtualenvs
 
 set -x JAVA_HOME /usr/lib/jvm/default
 set -x HADOOP_USER_NAME hadoop
 set -x HIVE_HOME /usr/lib/hive
-set -x SCALA_HOME /usr/share/scala
 
-set -xg PATH $PATH $SCALA_HOME/bin $GOPATH1/bin
+if type -pq scala
+	set -x SCALA_HOME /usr/share/scala
+	set -xg PATH $PATH $SCALA_HOME/bin
+end
 
 ## Functional variables
-set -xg GO_VENDOR 1
 set -x EDITOR 'emacs -nw'
 set -x BROWSER chromium
 #set -xg RUST $HOME/rust
@@ -29,7 +25,15 @@ set -xg TERM "xterm-256color"
 set -xg WINEARCH "win32"
 
 set -x GNOME_DESKTOP_SESSION_ID 1
-eval (python2 -m virtualfish auto_activation global_requirements)
+
+if type -pq virtualfish
+	set -x WORKON_HOME $HOME/.virtualenvs
+end
+
+if type -pq virtualfish
+	eval (python2 -m virtualfish auto_activation global_requirements)
+end
+
 set fish_greeting ""
 
 ## cdhist options
@@ -40,72 +44,29 @@ set -g fish_cdhist_max 128
 
 # different checkers
 function sudo_run
-  if test (id -u) -eq 0
-    eval $argv
-  else
-    sudo $argv
-  end
+	if test (id -u) -eq 0
+		eval $argv
+	else
+		sudo $argv
+	end
 end
 
 if type -pq pacman
 	source $fish_config_path/pacman.fish
 end
 
-# Docker
-function d
-	docker $argv
+if type -pq docker
+	source $fish_config_path/docker.fish
 end
 
-function dc
-	if count $argv > /dev/null
-		docker-compose $argv
-	else
-		docker-compose config
-	end
+if type -pq vagrant
+	source $fish_config_path/vagrant.fish
 end
 
-function drs
-  d stop (d ps -q)
+if type -pq go
+	source $fish_config_path/go.fish
 end
 
-function d_rm_all
-  d rm (d ps -aq)
-end
-
-function run
-	if count $argv > /dev/null
-		set -l path $MY_PROJECTS_ROOT/$argv
-		if test -d $path
-			cd $path
-		end
-	end
-	dc stop
-	dc run --rm --service-ports app
-end
-
-function dl
-	if count $argv > /dev/null
-		dc logs --tail 15 $argv
-	else
-		dc logs --tail 15
-	end
-end
-
-# End Docker
-
-# Vagrant
-function vup
-	vagrant up
-end
-
-function vh
-	vagrant halt
-end
-
-function vs
-	vagrant ssh
-end
-# End Vagrant
 function extract
 	if set -q argv
 		switch $argv
@@ -156,15 +117,10 @@ function zipin
 end
 
 function backup
+	cd /opt/work/backup
 	if count $argv > /dev/null
-		cd /opt/work/backup/$argv
-	else
-		cd /opt/work/backup/
+		cd $argv
 	end
-end
-
-function go_path
-	cd ~/go
 end
 
 function home_pr
@@ -209,27 +165,8 @@ function pr -d "project directory"
 	set -l path $MY_PROJECTS_ROOT
 	if count $argv > /dev/null
 		set -x path $path"/"$argv
-		#switch (echo $argv)
-		#case cashback
-		#		 set -l check (docker inspect -f "{{.State.Running}}" postgres)
-		#		 if [ $check = "false" ]
-		#				 docker start postgres
-		#		 end
-		#case rita
-		#		 set -l check (docker inspect -f "{{.State.Running}}" mongo)
-		#		 if [ $check = "false" ]
-		#				 docker start mongo
-		#		 end
-		#case photoculture
-		#		 set -l check (docker inspect -f "{{.State.Running}}" photo_db)
-		#		 if [ $check = "false" ]
-		#				 docker start photo_db
-		#		 end
-		#end
 	end
-	if test -d $path
-		cd $path
-	end
+	cd $path
 end
 
 function spr
@@ -238,9 +175,7 @@ function spr
 	if count $argv > /dev/null
 		set -x path $path"/"$argv
 	end
-	if test -d $path
-		cd $path
-	end
+	cd $path
 end
 
 function gpr
@@ -256,9 +191,7 @@ function gpr
 				end
 		end
 	end
-	if test -d $path
-		cd $path
-	end
+	cd $path
 end
 
 function rmv
@@ -277,9 +210,11 @@ function systemctl
 	sudo_run systemctl $argv
 end
 
-function tm
-	tmux attach
-	tmux new
+if type -pq tmux
+	function tm
+		tmux attach
+		tmux new
+	end
 end
 
 function em
@@ -298,89 +233,10 @@ function update_kernel
 	sudo_run mkinitcpio -p linux
 end
 
-# # rita
-# function geocl
-#			git checkout rita/public/GeoLite2-City.mmdb
-# end
-
-# function geocp
-#			cp $MY_PROJECTS_ROOT/rita/mail/tmp/GeoLite2-City.mmdb $MY_PROJECTS_ROOT/rita/rita/public/GeoLite2-City.mmdb
-# end
-
-# function monup
-#			sudo_run chown -R mongodb: /opt/db/mongo/
-#			set -l check (docker inspect -f "{{.State.Running}}" mongo)
-#			if [ $check = "false" ]
-#					echo $check
-#					docker start mongo
-#			end
-# end
-
-# function servup
-#			cd $MY_PROJECTS_ROOT/rita
-#			set -lx MONGODB_ADDON_URI "mongodb://mongo/rita"
-#			set -lx VIRTUAL_ENV ""
-#			set -lx PORT "8060"
-#			monup
-#			python run.py serve
-# end
-
-# function rita_temp
-#			cd /opt/work/env/rita/lib/python2.7/site-packages
-#			rm -rf marrow.templating-1.0.2-py2.7-nspkg.pth marrow.templating-1.0.2-py2.7.egg-info/ marrow/templating/
-#			cp /opt/work/backup/rita/marrow.templating-1.0.2-py2.7.egg /opt/work/env/rita/lib/python2.7/site-packages/
-#			cd /opt/work/projects/rita
-# end
-# rita end
-# localhost
-function hdmi_on
-	xrandr --output eDP1 --off --output HDMI1 --mode 1920x1080 --primary --dpi 96 --set "Broadcast RGB" "Full"
+if test -f $fish_config_path/local.fish
+  source $fish_config_path/local.fish
 end
 
-function hdmi_off
-	xrandr --output eDP1 --auto --primary --output HDMI1 --off
-end
-
-function both_on
-	xrandr --output eDP1 --dpi 150 --mode 1920x1080 --primary --output HDMI1 --mode 1920x1080 --dpi 96 --right-of eDP1 --set "Broadcast RGB" "Full"
-end
-
-function openvpn_run
-	sudo_run openvpn --config /etc/openvpn/client/client.conf
-end
-
-function internet
-	cd /media/data/internet
-end
-
-function torrent
-	cd /media/data/torrent
-end
-
-function work
-	cd /media/data/work
-end
-
-function civ
-	cd /media/data/games/Civilisation5/
-	optirun ./Civ5XP
-end
-
-function pret
-	cd /media/data/games/Praetorians
-	optirun wine Praetorians.exe
-end
-
-function sword
-	cd /media/data/games/SwordoftheStars
-	optirun env WINEPREFIX="/home/crandel/.wine" wine /media/data/games/SwordoftheStars/Sword\ of\ the\ Stars.exe
-end
-function sword2
-	cd /media/data/games/SwordOfTheStars\ 2.EnhancedEdition
-	optirun wine bin/x86/sots2.exe
-end
-
-# localhost end
 # start X at login
 if status --is-login
 	if test -z "$DISPLAY" -a $XDG_VTNR -eq 1

@@ -8,6 +8,7 @@ function fish_prompt --description 'Write out the prompt'
 	set -l fish_color_user green
 	set -l fish_color_root red
 	set -l fish_color_delim green
+	set -l fish_color_shell white
 	set -l fish_color_date cyan
 	set -l fish_color_git_branch cyan
 	set -l fish_color_git_unstaged yellow
@@ -44,6 +45,7 @@ function fish_prompt --description 'Write out the prompt'
 	end
 
 	set -l __delim (set_color $fish_color_delim)'➤ '
+  set -l __shell (set_color $fish_color_shell)" F" (set_color $fish_color_normal)
 
 	if set -q VIRTUAL_ENV
 		set -g __v_env (set_color $fish_color_venv) "["(basename "$VIRTUAL_ENV")"]"
@@ -94,6 +96,7 @@ function fish_prompt --description 'Write out the prompt'
 		if test $new_staged -ne 0
 			set stagedFiles "+$new_staged$stagedFiles"
 		end
+
 		set IFS "$oldIFS"
 
 		set -g __git_branch (set_color $fish_color_git_branch)"$git_branch"(set_color $fish_color_normal)
@@ -117,7 +120,7 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __prompt_git "$__prompt_git)"
 	end
 
-	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" " F" "$__duration" "$__status"
+	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" "$__shell" "$__duration" "$__status"
 	printf "\n"
 	echo -n "$__delim"
 end
