@@ -44,8 +44,7 @@ function fish_prompt --description 'Write out the prompt'
 		set fish_color_delim red
 	end
 
-	set -l __delim (set_color $fish_color_delim)'➤ '
-  set -l __shell (set_color $fish_color_shell)" F" (set_color $fish_color_normal)
+	set -l __delim (set_color $fish_color_delim)'➤ ' (set_color $fish_color_normal)
 
 	if set -q VIRTUAL_ENV
 		set -g __v_env (set_color $fish_color_venv) "["(basename "$VIRTUAL_ENV")"]"
@@ -120,7 +119,7 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __prompt_git "$__prompt_git)"
 	end
 
-	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" "$__shell" "$__duration" "$__status"
+	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" "$__duration" "$__status"
 	printf "\n"
 	echo -n "$__delim"
 end
