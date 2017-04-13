@@ -85,9 +85,10 @@ if command_exists docker ; then
 fi
 if command_exists vagrant ; then
 	alias vup='vagrant up'
+	alias vh='vagrant halt'
 	alias vsus='vagrant suspend'
 	alias vre='vagrant reload'
-	alias vsh='vagrant ssh'
+	alias vs='vagrant ssh'
 fi
 
 if command_exists systemctl ; then
@@ -228,7 +229,7 @@ function set_git_branch() {
 # previous command.
 function set_prompt_symbol () {
 	if test $1 -eq 0 ; then
-		PROMPT_SYMBOL="${GREEN}
+		PROMPT_SYMBOL="${BLUE}
 ➤${COLOR_NONE}"
 	else
 		PROMPT_SYMBOL="${LIGHT_RED}[$1]
@@ -259,7 +260,7 @@ function set_bash_prompt () {
 	set_git_branch
 
 	# Set the bash prompt variable.
-	PS1=" ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH} ${WHITE}B${COLOR_NONE} ${PROMPT_SYMBOL} "
+	PS1=" ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH} ${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.

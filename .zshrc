@@ -70,9 +70,10 @@ fi
 if command_exists vagrant ; then
 	# Vagrant
 	alias vup='vagrant up'
+	alias vh='vagrant halt'
 	alias vsus='vagrant suspend'
 	alias vre='vagrant reload'
-	alias vsh='vagrant ssh'
+	alias vs='vagrant ssh'
 fi
 
 if command_exists systemctl ; then
@@ -192,7 +193,7 @@ function set_git_branch() {
 
 }
 function set_prompt_symbol () {
-	echo "%(?.%F{green}.%F{red}[%?])
+	echo "%(?.%F{yellow}.%F{red}[%?])
 ➤%f "
 }
 # Determine active Python virtualenv details.
@@ -206,7 +207,7 @@ function set_virtualenv () {
 
 # Set the full bash prompt.
 function set_zsh_prompt () {
-	PROMPT=' %F{blue}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f %F{white}Z%f $(set_prompt_symbol)'
+	PROMPT=' %F{blue}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f $(set_prompt_symbol)'
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
