@@ -13,9 +13,6 @@ function pel
 end
 complete -c pel -a "$listinstalled"
 
-function pi
-	sudo_run pacman -S --needed $argv
-end
 complete -c pi -a "$listall"
 
 function pli -a size -d 'Pacman last installed packages'
@@ -52,7 +49,12 @@ function psi
 end
 complete -c psi -a "$listall"
 
-function pss
+function paci
+	sudo_run pacman -S --needed $argv
+end
+complete -c pi -a "$listall"
+
+function pacs
 	pacman -Ss $argv
 end
 
