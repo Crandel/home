@@ -60,12 +60,16 @@ if command_exists pacman ; then
 	alias pacman='sudo pacman'
 	alias upg='pacman -Syu'
 	alias upgy='yaourt -Syu'
+	alias pacs='pacman -Ss'
+	alias paci='pacman -S'
 fi
 
 if command_exists apt ; then
 	alias apt='sudo apt'
 	alias upgy='apt update'
 	alias upg='upgy && apt upgrade'
+	alias pacs='apt search'
+	alias paci='apt install'
 fi
 
 if command_exists tmux ; then
@@ -113,7 +117,7 @@ fi
 
 if command_exists emacs; then
 	alias em='emacs -nw'
-	export EDITOR=em
+	export EDITOR='emacs -nw'
 elif command_exists vim; then
 	export EDITOR='vim'
 fi

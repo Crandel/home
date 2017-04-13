@@ -11,10 +11,10 @@ function upg
 	apt upgrade
 end
 
-function pss
+function pacs
 	apt search $argv
 end
 
-function psi
+function paci
 	apt install $argv
 end
