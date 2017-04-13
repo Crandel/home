@@ -78,13 +78,11 @@ fi
 alias backup='cd /opt/work/backup'
 alias pr='cd /opt/work/projects; cd'
 
-if command_exists virtualenvwrapper ; then
+virtual='/usr/bin/virtualenvwrapper.sh'
+if [ -f $virtual ]; then
 	export VIRTUAL_ENV_DISABLE_PROMPT=1
 	export WORKON_HOME=~/.virtualenvs/
-	virtual='/usr/bin/virtualenvwrapper.sh'
-	if [ -f $virtual ]; then
-		. $virtual
-	fi
+	. $virtual
 fi
 
 if command_exists go ; then
@@ -100,7 +98,7 @@ fi
 
 if command_exists emacs; then
 	alias em='emacs -nw'
-	export EDITOR=em
+	export EDITOR='emacs -nw'
 elif command_exists vim; then
 	export EDITOR='vim'
 fi

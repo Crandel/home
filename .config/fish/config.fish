@@ -7,10 +7,19 @@ set -q XDG_CONFIG_HOME; or set -l XDG_CONFIG_HOME $HOME/.config
 set -q fish_data_path; or set -g fish_data_path $XDG_DATA_HOME/fish
 set -q fish_config_path; or set -g fish_config_path $XDG_CONFIG_HOME/fish
 
+if test -d /usr/lib/jvm/default
+	set -x JAVA_HOME /usr/lib/jvm/default
+else if test -d /usr/lib/jvm/default-java
+	set -x JAVA_HOME /usr/lib/jvm/default-java
+end
 
-set -x JAVA_HOME /usr/lib/jvm/default
-set -x HADOOP_USER_NAME hadoop
-set -x HIVE_HOME /usr/lib/hive
+if type -pq hadoop
+	set -x HADOOP_USER_NAME hadoop
+end
+
+if type -pq hadoop
+	set -x HIVE_HOME /usr/lib/hive
+end
 
 if type -pq scala
 	set -x SCALA_HOME /usr/share/scala
@@ -19,18 +28,28 @@ end
 
 ## Functional variables
 set -x EDITOR 'emacs -nw'
-set -x BROWSER chromium
-#set -xg RUST $HOME/rust
+if type -pq chromium
+	set -x BROWSER chromium
+else if type -pq chromium-browser
+	set -x BROWSER chromium-browser
+end
+
+if type -pq rust
+	set -xg RUST $HOME/rust
+end
+
 set -xg TERM "xterm-256color"
-set -xg WINEARCH "win32"
+if type -pq wine
+	set -xg WINEARCH "win32"
+end
 
 set -x GNOME_DESKTOP_SESSION_ID 1
 
-if type -pq virtualfish
+if type -pq virtualenvwrapper.sh
 	set -x WORKON_HOME $HOME/.virtualenvs
 end
 
-if type -pq virtualfish
+if [ (python2 -c 'import pkgutil; print(1 if pkgutil.find_loader("virtualfish") else 0)') = "1" ]
 	eval (python2 -m virtualfish auto_activation global_requirements)
 end
 
@@ -53,6 +72,10 @@ end
 
 if type -pq pacman
 	source $fish_config_path/pacman.fish
+end
+
+if type -pq apt
+	source $fish_config_path/apt.fish
 end
 
 if type -pq docker
@@ -234,7 +257,7 @@ function update_kernel
 end
 
 if test -f $fish_config_path/local.fish
-  source $fish_config_path/local.fish
+	source $fish_config_path/local.fish
 end
 
 # start X at login

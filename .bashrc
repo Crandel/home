@@ -94,12 +94,10 @@ alias pr='cd /opt/work/projects; cd'
 alias backup='cd /opt/work/backup'
 
 
-if command_exists virtualenvwrapper ; then
+virtual='/usr/bin/virtualenvwrapper.sh'
+if [ -f $virtual ]; then
 	export WORKON_HOME=~/.virtualenvs/
-	virtual='/usr/bin/virtualenvwrapper.sh'
-	if [ -f $virtual ]; then
-		. $virtual
-	fi
+	. $virtual
 fi
 
 if command_exists go ; then
