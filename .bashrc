@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 shopt -s checkwinsize
-complete -cf sudo
+
 shopt -s globstar
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -56,8 +56,14 @@ command_exists () {
 	type "$1" &> /dev/null ;
 }
 
+SUDO=''
+if [[ $EUID -ne 0 ]] && command_exists sudo ; then
+	complete -cf sudo
+	SUDO='sudo'
+fi
+
 if command_exists pacman ; then
-	alias pacman='sudo pacman'
+	alias pacman="$SUDO pacman"
 	alias upg='pacman -Syu'
 	alias upgy='yaourt -Syu'
 	alias pacs='pacman -Ss'
@@ -65,7 +71,7 @@ if command_exists pacman ; then
 fi
 
 if command_exists apt ; then
-	alias apt='sudo apt'
+	alias apt="$SUDO apt"
 	alias upgy='apt update'
 	alias upg='upgy && apt upgrade'
 	alias pacs='apt search'
@@ -92,7 +98,7 @@ if command_exists vagrant ; then
 fi
 
 if command_exists systemctl ; then
-	alias systemctl='sudo systemctl'
+	alias systemctl="$SUDO systemctl"
 fi
 
 alias pr='cd /opt/work/projects; cd'

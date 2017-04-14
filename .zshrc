@@ -39,8 +39,14 @@ command_exists () {
 	type "$1" &> /dev/null ;
 }
 
+SUDO=''
+if [[ $EUID -ne 0 ]] && command_exists sudo ; then
+	SUDO='sudo'
+fi
+
+
 if command_exists pacman ; then
-	alias pacman='sudo pacman'
+	alias pacman="$SUDO pacman"
 	alias upg='pacman -Syu'
 	alias upgy='yaourt -Syu'
 	alias pacs='pacman -Ss'
@@ -48,7 +54,7 @@ if command_exists pacman ; then
 fi
 
 if command_exists apt ; then
-	alias apt='sudo apt'
+	alias apt="$SUDO apt"
 	alias upgy='apt update'
 	alias upg='upgy && apt upgrade'
 	alias pacs='apt search'
@@ -77,7 +83,7 @@ if command_exists vagrant ; then
 fi
 
 if command_exists systemctl ; then
-	alias systemctl='sudo systemctl'
+	alias systemctl="$SUDO systemctl"
 fi
 
 alias backup='cd /opt/work/backup'
@@ -207,7 +213,7 @@ function set_virtualenv () {
 
 # Set the full bash prompt.
 function set_zsh_prompt () {
-	PROMPT=' %F{blue}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f $(set_prompt_symbol)'
+	PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f $(set_prompt_symbol)'
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt

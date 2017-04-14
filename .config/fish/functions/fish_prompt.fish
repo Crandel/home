@@ -20,7 +20,7 @@ function fish_prompt --description 'Write out the prompt'
 		if test $CMD_DURATION -gt (math "1000 * 10")
 			set -l secs (math "$CMD_DURATION / 1000")
 			echo
-			set -g __duration (set_color red) $secs "s"
+			set -g __duration (set_color red)$secs "s"(set_color $fish_color_normal)
 		else
 			set -g __duration ""
 		end
@@ -28,26 +28,26 @@ function fish_prompt --description 'Write out the prompt'
 
 	switch $USER
 		case root
-			set -g __user (set_color $fish_color_root) $USER
+			set -g __user (set_color $fish_color_root)$USER(set_color $fish_color_normal)
 		case '*'
-			set -g __user (set_color $fish_color_user) $USER
+			set -g __user (set_color $fish_color_user)$USER(set_color $fish_color_normal)
 	end
 
-	set -g __date (set_color $fish_color_date) (date "+%H:%M")
+	set -g __date (set_color $fish_color_delim)(date "+%H:%M")(set_color $fish_color_normal)
 
-	set -g __pwd (set_color $fish_color_cwd) "{"(prompt_pwd)"}"
+	set -g __pwd (set_color $fish_color_cwd)"{"(prompt_pwd)"}"(set_color $fish_color_normal)
 
 	set -l __status
 
 	if test $last_status -ne 0
-		set __status (set_color $fish_color_status) "[$last_status]"
+		set __status (set_color $fish_color_status)"[$last_status]"(set_color $fish_color_normal)
 		set fish_color_delim red
 	end
 
-	set -l __delim (set_color $fish_color_delim)'➤ ' (set_color $fish_color_normal)
+	set -l __delim (set_color $fish_color_delim)'➤ '(set_color $fish_color_normal)
 
 	if set -q VIRTUAL_ENV
-		set -g __v_env (set_color $fish_color_venv) "["(basename "$VIRTUAL_ENV")"]"
+		set -g __v_env (set_color $fish_color_venv)"["(basename "$VIRTUAL_ENV")"]"(set_color $fish_color_normal)
 	else
 		set -g __v_env ""
 	end
@@ -72,7 +72,7 @@ function fish_prompt --description 'Write out the prompt'
 		# unstagedFiles
 		set unstagedFiles ""
 		if test $modified_unstaged -ne 0
-			set unstagedFiles "%$modified_unstaged$unstagedFiles"
+			set unstagedFiles "%%$modified_unstaged$unstagedFiles"
 		end
 		if test $untracked_unstaged -ne 0
 			set unstagedFiles "*$untracked_unstaged$unstagedFiles"
@@ -84,7 +84,7 @@ function fish_prompt --description 'Write out the prompt'
 		# stagedFiles
 		set stagedFiles ""
 		if test $modified_staged -ne 0
-			set stagedFiles "%$modified_staged$stagedFiles"
+			set stagedFiles "%%$modified_staged$stagedFiles"
 		end
 		if test $deleted_staged -ne 0
 			set stagedFiles "-$deleted_staged$stagedFiles"
@@ -119,7 +119,5 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __prompt_git "$__prompt_git)"
 	end
 
-	echo -n -s "$__date" "$__v_env" "$__user" "$__pwd" "$__prompt_git" "$__duration" "$__status"
-	printf "\n"
-	echo -n "$__delim"
+	printf " $__date $__v_env $__user $__pwd $__prompt_git $__duration $__status\n$__delim"
 end
