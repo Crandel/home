@@ -108,12 +108,13 @@
 (add-hook 'shell-mode-hook 'add-mode-line-dirtrack)
 
 ;; Indent settings
-(setq-default indent-tabs-mode nil
+(setq-default indent-tabs-mode   t
               tab-width          2
               tab-always-indent nil
-              c-basic-offset     4
+              c-basic-offset     2
+              sh-basic-offset    2
               standart-indent    2
-              lisp-body-indent   4)
+              lisp-body-indent   2)
 (setq tab-width             2
       indent-line-function  'insert-tab)
 
