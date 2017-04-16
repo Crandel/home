@@ -17,25 +17,22 @@ if test -t 1; then
 		export TERM="xterm"
 		force_color_prompt=yes
 		color_prompt=yes
-		BOLD="$(tput bold)"
-		UNDERLINE="$(tput smul)"
-		STANDOUT="$(tput smso)"
-		NORMAL="$(tput sgr0)"
+		NORMAL="\[\e[0m\]"
 		BLACK="$(tput setaf 0)"
 		RED="$(tput setaf 1)"
-		LIGHT_RED="$RED"
+		LIGHT_RED="$(tput setaf 1)"
 		GREEN="$(tput setaf 2)"
-		LIGHT_GREEN="$GREEN"
+		LIGHT_GREEN="$(tput setaf 2)"
 		YELLOW="$(tput setaf 3)"
 		BLUE="$(tput setaf 4)"
 		MAGENTA="$(tput setaf 5)"
-		PURPLE="$MAGENTA"
+		PURPLE="$(tput setaf 5)"
 		CYAN="$(tput setaf 6)"
 		WHITE="$(tput setaf 7)"
-		LIGHT_GRAY="$WHITE"
+		LIGHT_GRAY="$(tput setaf 7)"
+		# enable color support of ls and also add handy aliases
 		bind 'set colored-completion-prefix on'
 		bind 'set colored-stats on'
-		# enable color support of ls and also add handy aliases
 		alias ls='ls --color=auto'
 		alias dir='dir --color=auto'
 		alias vdir='vdir --color=auto'
@@ -293,9 +290,9 @@ function set_git_branch() {
 # previous command.
 function set_prompt_symbol () {
 	if test $1 -eq 0 ; then
-		PROMPT_SYMBOL="${BLUE}\n➤${NORMAL}"
+		P_SYMBOL="${BLUE}\n➤${NORMAL} "
 	else
-		PROMPT_SYMBOL="${LIGHT_RED}[$1]\n➤${NORMAL}"
+		P_SYMBOL="${LIGHT_RED}[$1]\n➤${NORMAL} "
 	fi
 }
 
@@ -318,21 +315,25 @@ function new_line () {
 
 # Set the full bash prompt.
 function set_bash_prompt () {
-	# Set the PROMPT_SYMBOL variable. We do this first so we don't lose the
+	local EXIT_CODE="$?"
+	# Set the P_SYMBOL variable. We do this first so we don't lose the
 	# return value of the last command.
-	set_prompt_symbol $?
+	new_line
 
+	set_prompt_symbol $EXIT_CODE
 	# Set the PYTHON_VIRTUALENV variable.
 	set_virtualenv
 
 	# Set the BRANCH variable.
 	set_git_branch
 
-	new_line
+	history -a
+	history -c
+	history -r
+
 	# Set the bash prompt variable.
-	PS1="${NEW_LINE} ${BLUE}\A${NORMAL}${PYTHON_VIRTUALENV} ${GREEN}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH} ${PROMPT_SYMBOL} "
+	PS1="${NEW_LINE} ${BLUE}\A${NORMAL}${PYTHON_VIRTUALENV} ${GREEN}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.
-PROMPT_COMMAND=set_bash_prompt
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND=set_bash_prompt
