@@ -37,6 +37,16 @@ HISTFILESIZE=10000
 # should be on the output of commands, not on the prompt
 force_color_prompt=yes
 color_prompt=yes
+set completion-ignore-case On
+
+bind '"\eOC":forward-word'
+bind '"\e[1;5C":forward-word'
+bind '"\eOD":backward-word'
+bind '"\e[1;5D":backward-word'
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+bind '"\eOA":history-search-backward'
+bind '"\eOB":history-search-forward'
 
 # enable color support of ls and also add handy aliases
 alias ls='ls --color=auto'
