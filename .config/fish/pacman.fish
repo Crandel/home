@@ -13,8 +13,6 @@ function pel
 end
 complete -c pel -a "$listinstalled"
 
-complete -c pi -a "$listall"
-
 function pli -a size -d 'Pacman last installed packages'
 	[ $size ]; or set size 30
 	expac -t '%F %T' '%-8l %n' | sort -rn | head -$size
@@ -42,7 +40,7 @@ end
 function pacr
 	sudo_run pacman -Rs $argv
 end
-complete -c pr -a "$listinstalled"
+complete -c pacr -a "$listinstalled"
 
 function psi
 	pacman -Si $argv
@@ -52,12 +50,12 @@ complete -c psi -a "$listall"
 function paci
 	sudo_run pacman -S --needed $argv
 end
-complete -c pi -a "$listall"
+complete -c paci -a "$listall"
 
 function yaci
 	yaourt -Sa $argv
 end
-complete -c pi -a "$listall"
+complete -c yaci -a "$listall"
 
 function pacs
 	pacman -Ss $argv
