@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 shopt -s checkwinsize
-
+shopt -s cdspell
 shopt -s globstar
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -47,6 +47,12 @@ bind '"\e[A":history-search-backward'
 bind '"\e[B":history-search-forward'
 bind '"\eOA":history-search-backward'
 bind '"\eOB":history-search-forward'
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+bind 'set completion-query-items 30'
+bind 'set colored-completion-prefix on'
+bind 'set colored-stats on'
+bind 'set editing-mode emacs'
 
 # enable color support of ls and also add handy aliases
 alias ls='ls --color=auto'
@@ -256,10 +262,18 @@ function set_prompt_symbol () {
 
 # Determine active Python virtualenv details.
 function set_virtualenv () {
-	if test -z "$VIRTUAL_ENV" ; then
-		PYTHON_VIRTUALENV=""
-	else
+	PYTHON_VIRTUALENV=""
+	if ! test -z "$VIRTUAL_ENV" ; then
 		PYTHON_VIRTUALENV=" ${YELLOW}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE}"
+	fi
+}
+
+function new_line () {
+	NEW_LINE=""
+	echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
+	if [[ ${CURPOS##*;} -gt 1 ]]; then
+			NEW_LINE="${RED}¬
+${COLOR_NONE}"
 	fi
 }
 
@@ -275,9 +289,11 @@ function set_bash_prompt () {
 	# Set the BRANCH variable.
 	set_git_branch
 
+	new_line
 	# Set the bash prompt variable.
-	PS1=" ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH} ${PROMPT_SYMBOL} "
+	PS1="${NEW_LINE} ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH} ${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.
 PROMPT_COMMAND=set_bash_prompt
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
