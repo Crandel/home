@@ -21,6 +21,18 @@ promptinit
 force_color_prompt=yes
 color_prompt=yes
 
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+bindkey "\eOC" forward-word
+bindkey "\eOD" backward-word
+
+bindkey "\e[A" history-search-backward
+bindkey "\e[B" history-search-forward
+
+bindkey "\eOA" history-search-backward
+bindkey "\eOB" history-search-forward
+
 # enable color support of ls and also add handy aliases
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
@@ -170,7 +182,7 @@ function set_git_branch() {
 		fi
 		# staged_files
 		if [ "${modified_staged}" != 0 ]; then
-			staged_files="%${modified_staged}${staged_files}"
+			staged_files="%%${modified_staged}${staged_files}"
 		fi
 		if [ "${deleted_staged}" != 0 ]; then
 			staged_files="-${deleted_staged}${staged_files}"
