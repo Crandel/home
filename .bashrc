@@ -1,15 +1,58 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
-RED="\[\033[0;31m\]"
-YELLOW="\[\033[1;33m\]"
-GREEN="\[\033[0;32m\]"
-BLUE="\[\033[1;34m\]"
-PURPLE="\[\033[0;35m\]"
-LIGHT_RED="\[\033[1;31m\]"
-LIGHT_GREEN="\[\033[1;32m\]"
-WHITE="\[\033[1;37m\]"
-LIGHT_GRAY="\[\033[0;37m\]"
-COLOR_NONE="\[\e[0m\]"
+RED=""
+YELLOW=""
+GREEN=""
+BLUE=""
+PURPLE=""
+LIGHT_RED=""
+LIGHT_GREEN=""
+WHITE=""
+LIGHT_GRAY=""
+NORMAL=""
+# check if stdout is a terminal...
+if test -t 1; then
+	# see if it supports colors...
+	ncolors=$(tput colors)
+	if test -n "$ncolors" && test $ncolors -ge 8; then
+		export TERM="xterm"
+		force_color_prompt=yes
+		color_prompt=yes
+		BOLD="$(tput bold)"
+		UNDERLINE="$(tput smul)"
+		STANDOUT="$(tput smso)"
+		NORMAL="$(tput sgr0)"
+		BLACK="$(tput setaf 0)"
+		RED="$(tput setaf 1)"
+		LIGHT_RED="$RED"
+		GREEN="$(tput setaf 2)"
+		LIGHT_GREEN="$GREEN"
+		YELLOW="$(tput setaf 3)"
+		BLUE="$(tput setaf 4)"
+		MAGENTA="$(tput setaf 5)"
+		PURPLE="$MAGENTA"
+		CYAN="$(tput setaf 6)"
+		WHITE="$(tput setaf 7)"
+		LIGHT_GRAY="$WHITE"
+		bind 'set colored-completion-prefix on'
+		bind 'set colored-stats on'
+		# enable color support of ls and also add handy aliases
+		alias ls='ls --color=auto'
+		alias dir='dir --color=auto'
+		alias vdir='vdir --color=auto'
 
+		alias grep='grep --color=auto'
+		alias fgrep='fgrep --color=auto'
+		alias egrep='egrep --color=auto'
+	fi
+	if test -n "$ncolors" && test $ncolors -gt 8; then
+		export TERM="xterm-256color"
+		BLUE="$(tput setaf 12)"
+		PURPLE="$(tput setaf 53)"
+		LIGHT_RED="$(tput setaf 9)"
+		LIGHT_GREEN="$(tput setaf 10)"
+		LIGHT_GRAY="$(tput setaf 8)"
+	fi
+fi
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
@@ -35,9 +78,6 @@ HISTFILESIZE=10000
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-force_color_prompt=yes
-color_prompt=yes
-set completion-ignore-case On
 
 bind '"\eOC":forward-word'
 bind '"\e[1;5C":forward-word'
@@ -50,24 +90,14 @@ bind '"\eOB":history-search-forward'
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-query-items 30'
-bind 'set colored-completion-prefix on'
-bind 'set colored-stats on'
 bind 'set editing-mode emacs'
 
-# enable color support of ls and also add handy aliases
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
-alias arch='uname -m'
 
 # some more ls aliases
 alias ll='ls -ahlF'
 alias la='ls -A'
 
+alias arch='uname -m'
 command_exists () {
 	type "$1" &> /dev/null ;
 }
@@ -83,7 +113,7 @@ if command_exists pacman ; then
 	alias upg='pacman -Syu'
 	alias upgy='yaourt -Syu'
 	alias pacs='pacman -Ss'
-	alias paci='pacman -S'
+	alias paci='pacman -S --needed'
 fi
 
 if command_exists apt ; then
@@ -117,8 +147,20 @@ if command_exists systemctl ; then
 	alias systemctl="$SUDO systemctl"
 fi
 
-alias pr='cd /opt/work/projects; cd'
-alias backup='cd /opt/work/backup'
+function pr () {
+	local projects_folder="/opt/work/projects/"
+	cd $projects_folder
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
+function backup () {
+	local backup="/opt/work/backup"
+	cd $backup
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
 
 
 virtual='/usr/bin/virtualenvwrapper.sh'
@@ -145,7 +187,7 @@ elif command_exists vim; then
 	export EDITOR='vim'
 fi
 
-export TERM="xterm-256color"
+
 if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
 	export TERM='ansi-term'
 fi
@@ -230,19 +272,19 @@ function set_git_branch() {
 		unstaged_files=''
 		parse_git_dirty
 		if [ ! "${staged_files}" == "" ]; then
-			staged_files="|${GREEN}${staged_files}${COLOR_NONE}"
+			staged_files="|${GREEN}${staged_files}${NORMAL}"
 		fi
 		if [ ! "${unstaged_files}" == "" ]; then
-			unstaged_files="|${YELLOW}${unstaged_files}${COLOR_NONE}"
+			unstaged_files="|${YELLOW}${unstaged_files}${NORMAL}"
 		fi
 		if [ ! "${ahead}" == "" ]; then
-			ahead="${LIGHT_GREEN}{>${ahead}}${COLOR_NONE}"
+			ahead="${LIGHT_GREEN}{>${ahead}}${NORMAL}"
 		fi
 		if [ ! "${behind}" == "" ]; then
-			behind="${LIGHT_RED}{<${behind}}${COLOR_NONE}"
+			behind="${LIGHT_RED}{<${behind}}${NORMAL}"
 		fi
 		# Set the final branch string.
-		BRANCH="(${BLUE}${branch}${COLOR_NONE}${ahead}${behind}${unstaged_files}${staged_files}) "
+		BRANCH=" (${CYAN}${branch}${NORMAL}${ahead}${behind}${unstaged_files}${staged_files}) "
 	fi
 
 }
@@ -251,9 +293,9 @@ function set_git_branch() {
 # previous command.
 function set_prompt_symbol () {
 	if test $1 -eq 0 ; then
-		PROMPT_SYMBOL="${BLUE}\n➤${COLOR_NONE}"
+		PROMPT_SYMBOL="${BLUE}\n➤${NORMAL}"
 	else
-		PROMPT_SYMBOL="${LIGHT_RED}[$1]\n➤${COLOR_NONE}"
+		PROMPT_SYMBOL="${LIGHT_RED}[$1]\n➤${NORMAL}"
 	fi
 }
 
@@ -262,7 +304,7 @@ function set_prompt_symbol () {
 function set_virtualenv () {
 	PYTHON_VIRTUALENV=""
 	if ! test -z "$VIRTUAL_ENV" ; then
-		PYTHON_VIRTUALENV=" ${YELLOW}[`basename \"$VIRTUAL_ENV\"`]${COLOR_NONE}"
+		PYTHON_VIRTUALENV=" ${YELLOW}[`basename \"$VIRTUAL_ENV\"`]${NORMAL}"
 	fi
 }
 
@@ -270,7 +312,7 @@ function new_line () {
 	NEW_LINE=""
 	echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
 	if [[ ${CURPOS##*;} -gt 1 ]]; then
-			NEW_LINE="${RED}¬\n${COLOR_NONE}"
+			NEW_LINE="${RED}¬\n${NORMAL}"
 	fi
 }
 
@@ -288,7 +330,7 @@ function set_bash_prompt () {
 
 	new_line
 	# Set the bash prompt variable.
-	PS1="${NEW_LINE} ${BLUE}\A${COLOR_NONE}${PYTHON_VIRTUALENV} ${GREEN}\u${COLOR_NONE} ${PURPLE}{\w}${COLOR_NONE}${BRANCH} ${PROMPT_SYMBOL} "
+	PS1="${NEW_LINE} ${BLUE}\A${NORMAL}${PYTHON_VIRTUALENV} ${GREEN}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH} ${PROMPT_SYMBOL} "
 }
 
 # Tell bash to execute this function just before displaying its prompt.

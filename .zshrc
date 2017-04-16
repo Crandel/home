@@ -62,7 +62,7 @@ if command_exists pacman ; then
 	alias upg='pacman -Syu'
 	alias upgy='yaourt -Syu'
 	alias pacs='pacman -Ss'
-	alias paci='pacman -S'
+	alias paci='pacman -S --needed'
 fi
 
 if command_exists apt ; then
@@ -98,8 +98,20 @@ if command_exists systemctl ; then
 	alias systemctl="$SUDO systemctl"
 fi
 
-alias backup='cd /opt/work/backup'
-alias pr='cd /opt/work/projects; cd'
+function pr () {
+	local projects_folder="/opt/work/projects/"
+	cd $projects_folder
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
+function backup () {
+	local backup="/opt/work/backup"
+	cd $backup
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
 
 virtual='/usr/bin/virtualenvwrapper.sh'
 if [ -f $virtual ]; then
@@ -206,13 +218,12 @@ function set_git_branch() {
 			behind="%F{red}{<${behind}}%f"
 		fi
 		# Set the final branch string.
-		echo "%F{cyan}(${branch}${ahead}${behind}${unstaged_files}${staged_files})%f "
+		echo " (%F{cyan}${branch}${ahead}${behind}${unstaged_files}${staged_files}%f)"
 	fi
 
 }
 function set_prompt_symbol () {
-	echo "%(?.%F{yellow}.%F{red}[%?])
-➤%f "
+	echo " %(?.%F{yellow}.%F{red}[%?])\n➤%f "
 }
 # Determine active Python virtualenv details.
 function set_virtualenv () {
@@ -225,7 +236,7 @@ function set_virtualenv () {
 
 # Set the full bash prompt.
 function set_zsh_prompt () {
-	PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f%F{cyan}$(set_git_branch)%f $(set_prompt_symbol)'
+	PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{%~}%f$(set_git_branch)$(set_prompt_symbol)'
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
