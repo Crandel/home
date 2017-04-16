@@ -251,11 +251,9 @@ function set_git_branch() {
 # previous command.
 function set_prompt_symbol () {
 	if test $1 -eq 0 ; then
-		PROMPT_SYMBOL="${BLUE}
-➤${COLOR_NONE}"
+		PROMPT_SYMBOL="${BLUE}\n➤${COLOR_NONE}"
 	else
-		PROMPT_SYMBOL="${LIGHT_RED}[$1]
-➤${COLOR_NONE}"
+		PROMPT_SYMBOL="${LIGHT_RED}[$1]\n➤${COLOR_NONE}"
 	fi
 }
 
@@ -272,8 +270,7 @@ function new_line () {
 	NEW_LINE=""
 	echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
 	if [[ ${CURPOS##*;} -gt 1 ]]; then
-			NEW_LINE="${RED}¬
-${COLOR_NONE}"
+			NEW_LINE="${RED}¬\n${COLOR_NONE}"
 	fi
 }
 
