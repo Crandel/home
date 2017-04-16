@@ -20,7 +20,7 @@ function fish_prompt --description 'Write out the prompt'
 		if test $CMD_DURATION -gt (math "1000 * 10")
 			set -l secs (math "$CMD_DURATION / 1000")
 			echo
-			set -g __duration (set_color red)$secs "s"(set_color $fish_color_normal)
+			set -g __duration (set_color red) $secs "s"(set_color $fish_color_normal)
 		else
 			set -g __duration ""
 		end
@@ -40,14 +40,14 @@ function fish_prompt --description 'Write out the prompt'
 	set -l __status
 
 	if test $last_status -ne 0
-		set __status (set_color $fish_color_status)"[$last_status]"(set_color $fish_color_normal)
+		set __status (set_color $fish_color_status)" [$last_status]"(set_color $fish_color_normal)
 		set fish_color_delim red
 	end
 
 	set -l __delim (set_color $fish_color_delim)'➤ '(set_color $fish_color_normal)
 
 	if set -q VIRTUAL_ENV
-		set -g __v_env (set_color $fish_color_venv)"["(basename "$VIRTUAL_ENV")"]"(set_color $fish_color_normal)
+		set -g __v_env (set_color $fish_color_venv)" ["(basename "$VIRTUAL_ENV")"]"(set_color $fish_color_normal)
 	else
 		set -g __v_env ""
 	end
@@ -99,7 +99,7 @@ function fish_prompt --description 'Write out the prompt'
 		set IFS "$oldIFS"
 
 		set -g __git_branch (set_color $fish_color_git_branch)"$git_branch"(set_color $fish_color_normal)
-		set -g __prompt_git (set_color $fish_color_normal)"($__git_branch"
+		set -g __prompt_git (set_color $fish_color_normal)" ($__git_branch"
 		if test $ahead
 			set -l __ahead (set_color $fish_color_git_ahead)"{>$ahead}"(set_color $fish_color_normal)
 			set -g __prompt_git "$__prompt_git$__ahead"
@@ -119,5 +119,5 @@ function fish_prompt --description 'Write out the prompt'
 		set -g __prompt_git "$__prompt_git)"
 	end
 
-	printf " $__date $__v_env $__user $__pwd $__prompt_git $__duration $__status\n$__delim"
+	printf " $__date$__v_env $__user $__pwd$__prompt_git$__duration$__status\n$__delim"
 end

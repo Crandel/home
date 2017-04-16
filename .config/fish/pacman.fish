@@ -54,11 +54,16 @@ function paci
 end
 complete -c pi -a "$listall"
 
+function yaci
+	yaourt -Sa $argv
+end
+complete -c pi -a "$listall"
+
 function pacs
 	pacman -Ss $argv
 end
 
-function yss --description 'Search using yaourt'
+function yacs --description 'Search using yaourt'
 	yaourt -Ss $argv
 end
 
