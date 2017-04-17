@@ -1,12 +1,10 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
+
 set nocompatible
-filetype plugin indent on    " required
 
 syntax on
 
-" If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
 set background=dark
 
 if &shell =~# 'fish$'
@@ -25,20 +23,17 @@ set ignorecase      " Do case insensitive matching
 set smartcase       " Do smart case matching
 set incsearch       " Incremental search
 set hlsearch        " highlighting search word
-set infercase       " подсказка по регистру
-"set autowrite      " Automatically save before commands like :next and :make
+set infercase       " Register help
 set hidden          " Hide buffers when they are abandoned
-set mouse=a        " Enable mouse usage (all modes)
 set regexpengine=1
-" отключаем пищалку и мигание
+" turn off bell
 set novisualbell
 " Source a global configuration file if available
 set wrap
 set ai
 set cin
 set lz
-set listchars=eol:¬,tab:>-,trail:~,extends:#,precedes:<,space:.
-set colorcolumn=130
+set listchars=eol:$,tab:>-,trail:~,extends:#,precedes:<,nbsp:%
 set list
 set linebreak
 set ruler
@@ -55,23 +50,21 @@ set laststatus=2
 set tabpagemax=30    " max opened tabs
 set statusline=%<%f\ [%Y%R%W]%1*%{(&modified)?'\ [+]\ ':''}%*%=%c%V,%l\ %P\ [%n]
 
-" Подсвечивать линию текста, на которой находится курсор
 set cursorline
-" Show whitespace
-" MUST be inserted BEFORE the colorscheme command
 
 set clipboard=unnamedplus
+
 vnoremap <C-c> "+y
 set pastetoggle=<F3>
 set wildmode=list:full
 set ls=2
 set fileformat=unix    " forman file ending
 
-" предыдущий буфер
+" previous buffer
 map <F5> :bp<CR>
 vmap <F5> <Esc>:bp<CR>i
 imap <F5> <Esc>:bp<CR>i
-" следующий буфер
+" next buffer
 map <F6> :bn<CR>
 vmap <F6> <Esc>:bn<CR>i
 imap <F6> <Esc>:bn<CR>i
