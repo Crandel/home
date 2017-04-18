@@ -53,8 +53,8 @@ fi
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=-1
-HISTFILESIZE=-1
+HISTSIZE=
+HISTFILESIZE=
 HISTTIMEFORMAT="%F %T "
 
 # append to the history file, don't overwrite it
