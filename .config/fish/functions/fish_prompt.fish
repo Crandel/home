@@ -1,4 +1,5 @@
 function fish_prompt --description 'Write out the prompt'
+	history --merge
 	# save to temp var because new command will override $status
 	set -l last_status $status
 

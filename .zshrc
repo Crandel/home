@@ -9,9 +9,9 @@ compinit
 # Lines configured by zsh-newuser-install
 HISTCONTROL=ignoreboth
 HISTFILE=~/.hist_zsh
-HISTSIZE=10000
-SAVEHIST=10000
-setopt autocd extendedglob notify PROMPT_SUBST
+HISTSIZE=5000000
+SAVEHIST=5000000
+setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST HIST_IGNORE_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY
 bindkey -e
 autoload -Uz promptinit
 promptinit

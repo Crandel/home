@@ -183,6 +183,7 @@ function hm -d "Merge history from several shells"
 	history --merge
 end
 
+set -l listpr "(ls $MY_PROJECTS_ROOT | string replace '/' \t)"
 function pr -d "project directory"
 	# if argv when go to directory
 	set -l path $MY_PROJECTS_ROOT
@@ -191,6 +192,7 @@ function pr -d "project directory"
 	end
 	cd $path
 end
+complete -c pr -a "$listpr"
 
 function spr
 	# if argv when go to directory
@@ -240,12 +242,14 @@ if type -pq tmux
 	end
 end
 
-function em
-	emacs -nw $argv
-end
+if type -pq emacs
+	function em
+		emacs -nw $argv
+	end
 
-function sem
-	sudo_run emacs -nw $argv
+	function sem
+		sudo_run emacs -nw $argv
+	end
 end
 
 function smc
@@ -261,11 +265,11 @@ if test -f $fish_config_path/local.fish
 end
 
 # start X at login
-if status --is-login
-	if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
-		exec /bin/bash startx -- -keeptty
-	end
-end
+# if status --is-login
+# 	if test -z "$DISPLAY" -a $XDG_VTNR -eq 1
+# 		exec /bin/bash startx -- -keeptty
+# 	end
+# end
 
 # if test -z "$DESKTOP_SESSION"
 #	eval (gnome-keyring-daemon --start)
