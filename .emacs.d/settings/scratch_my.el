@@ -36,17 +36,6 @@
       imenu-use-popup-menu   nil)
 (semantic-mode 1)
 
-;; Ido
-;(require 'ido)
-;(ido-mode t)
-;(icomplete-mode t)
-;(ido-everywhere t)
-;(setq ido-virtual-buffers t)
-;(setq ido-enable-flex-matching t)
-;(setq ido-all-frames t)
-;(setq ido-auto-merge-delay-time 0)
-;(setq ido-enable-flex-matching t)
-
 ;; SavePlace
 (save-place-mode 1)
 (setq save-place-file                       "~/.emacs.d/saved-places"
@@ -108,15 +97,14 @@
 (add-hook 'shell-mode-hook 'add-mode-line-dirtrack)
 
 ;; Indent settings
-(setq-default indent-tabs-mode   t
-              tab-width          2
-              tab-always-indent nil
-              c-basic-offset     2
-              sh-basic-offset    2
-              standart-indent    2
-              lisp-body-indent   2)
-(setq tab-width             2
-      indent-line-function  'insert-tab)
+(setq-default indent-tabs-mode      t
+              tab-width             2
+              tab-always-indent     nil
+              c-basic-offset        2
+              sh-basic-offset       2
+              standart-indent       2
+              lisp-body-indent      2
+              indent-line-function  'insert-tab)
 
 ;; Scrolling settings
 (setq scroll-step               1

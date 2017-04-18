@@ -9,6 +9,7 @@
                                  (interactive)
                                  (setenv "TERM" "ansi-term")
                                  (setq python-shell-completion-native nil
+                                       indent-tabs-mode               t
                                        tab-width                      4
                                        python-indent                  4
                                        python-shell-interpreter       "ipython"
