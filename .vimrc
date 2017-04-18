@@ -25,7 +25,6 @@ set incsearch       " Incremental search
 set hlsearch        " highlighting search word
 set infercase       " Register help
 set hidden          " Hide buffers when they are abandoned
-set regexpengine=1
 " turn off bell
 set novisualbell
 " Source a global configuration file if available
@@ -149,26 +148,6 @@ nmap <F9> mz:execute TabToggle()<CR>'z
 
 "relative numbers
 set nu
-set rnu
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set rnu!
-  else
-    set rnu
-  endif
-endfunc
-
-function! ToggleNumbersOn()
-    set rnu!
-endfunction
-function! ToggleRelativeOn()
-    set rnu
-endfunction
-
-autocmd FocusLost * call ToggleNumbersOn()
-autocmd FocusGained * call ToggleRelativeOn()
-autocmd InsertEnter * call ToggleNumbersOn()
-autocmd InsertLeave * call ToggleRelativeOn()
 
 nnoremap <NUL> :%s/\s\+$//e
 
