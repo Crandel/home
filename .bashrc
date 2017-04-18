@@ -316,6 +316,7 @@ function new_line () {
 # Set the full bash prompt.
 function set_bash_prompt () {
 	local EXIT_CODE="$?"
+	local USERCOLOR="${GREEN}"
 	# Set the P_SYMBOL variable. We do this first so we don't lose the
 	# return value of the last command.
 	new_line
@@ -330,9 +331,12 @@ function set_bash_prompt () {
 	history -a
 	history -c
 	history -r
+	if [[ $EUID -eq 0 ]] ; then
+		USERCOLOR="${RED}"
+	fi
 
 	# Set the bash prompt variable.
-	PS1="${NEW_LINE} ${BLUE}\A${NORMAL}${PYTHON_VIRTUALENV} ${GREEN}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
+	PS1="${NEW_LINE} ${BLUE}\A${NORMAL}${PYTHON_VIRTUALENV} ${USERCOLOR}\u${NORMAL}@${WHITE}\h${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.

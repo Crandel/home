@@ -20,6 +20,9 @@
  ;; If there is more than one, they won't work right.
  '(compilation-disable-input t)
  '(compilation-window-height 10)
+ '(custom-safe-themes
+   (quote
+    ("b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
@@ -42,6 +45,11 @@
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
  '(semantic-which-function-use-color t)
+ '(sml/pos-id-separator "> ")
+ '(sml/pos-minor-modes-separator "|")
+ '(sml/pre-id-separator "<")
+ '(sml/pre-minor-modes-separator " ")
+ '(sml/pre-modes-separator " ")
  '(sr-show-hidden-files t)
  '(sr-tree-explosion-ratio 5)
  '(sr-tree-isearch-always-sticky t))
@@ -72,6 +80,7 @@
  '(neo-vc-user-face ((t (:foreground "red" :slant italic))))
  '(powerline-active1 ((t (:inherit mode-line :background "saddle brown" :foreground "green yellow"))))
  '(powerline-active2 ((t (:inherit mode-line :background "green4" :foreground "khaki"))))
+ '(sml/read-only ((t (:inherit sml/not-modified :foreground "deep sky blue"))))
  '(sr-active-path-face ((t (:foreground "yellow" :weight bold :height 120))))
  '(sr-editing-path-face ((t (:foreground "yellow" :underline "red" :weight bold :height 120))))
  '(sr-highlight-path-face ((t (:foreground "#ace6ac" :underline "magenta" :weight bold :height 120))))

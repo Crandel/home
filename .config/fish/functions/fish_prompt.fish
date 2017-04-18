@@ -8,7 +8,7 @@ function fish_prompt --description 'Write out the prompt'
 	set -l fish_color_user green
 	set -l fish_color_root red
 	set -l fish_color_delim green
-	set -l fish_color_shell white
+	set -l fish_color_host white
 	set -l fish_color_date cyan
 	set -l fish_color_git_branch cyan
 	set -l fish_color_git_unstaged yellow
@@ -32,6 +32,7 @@ function fish_prompt --description 'Write out the prompt'
 		case '*'
 			set -g __user (set_color $fish_color_user)$USER(set_color $fish_color_normal)
 	end
+	set -g __user $__user@(set_color $fish_color_host)(hostname)(set_color $fish_color_normal)
 
 	set -g __date (set_color $fish_color_delim)(date "+%H:%M")(set_color $fish_color_normal)
 
