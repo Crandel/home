@@ -172,6 +172,10 @@ if command_exists go ; then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
+if command_exists hadoop ; then
+	alias hdp='sudo -u hdfs hadoop fs'
+fi
+
 if [ -d /usr/lib/jvm/default ]; then
 	export JAVA_HOME=/usr/lib/jvm/default
 elif [ -d /usr/lib/jvm/default-java ]; then

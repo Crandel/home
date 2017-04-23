@@ -1,6 +1,10 @@
 set -l listinstalled "(pacman -Q | string replace ' ' \t)"
 set -l listall "(__fish_print_packages)"
 
+function pacman
+	sudo_run pacman $argv
+end
+
 function pacfiles -d 'List of files in pacman package packages sorted by size'
 	pacman -Qlq $argv | grep -v '/$' | xargs du -cbh | sort -h
 end
@@ -38,7 +42,7 @@ function pqs
 end
 
 function pacr
-	sudo_run pacman -Rs $argv
+	pacman -Rs $argv
 end
 complete -c pacr -a "$listinstalled"
 
@@ -48,7 +52,7 @@ end
 complete -c psi -a "$listall"
 
 function paci
-	sudo_run pacman -S --needed $argv
+	pacman -S --needed $argv
 end
 complete -c paci -a "$listall"
 
@@ -66,7 +70,7 @@ function yacs --description 'Search using yaourt'
 end
 
 function upg -d 'Run pacman system update'
-	sudo_run pacman -Syu
+	pacman -Syu
 end
 
 function upgy --description 'Run yaourt system update'
