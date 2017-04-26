@@ -77,14 +77,12 @@ shopt -s globstar
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 
-bind '"\eOC":forward-word'
 bind '"\e[1;5C":forward-word'
-bind '"\eOD":backward-word'
 bind '"\e[1;5D":backward-word'
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+
 bind '"\eOA":history-search-backward'
 bind '"\eOB":history-search-forward'
+
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-query-items 30'
