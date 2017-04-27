@@ -79,10 +79,12 @@ shopt -s globstar
 
 bind '"\e[1;5C":forward-word'
 bind '"\e[1;5D":backward-word'
-
+# bind '"\eOD":backward-word'
+# bind '"\eOC":forward-word'
 bind '"\eOA":history-search-backward'
 bind '"\eOB":history-search-forward'
-
+# bind '"\e[A":history-search-backward'
+# bind '"\e[B":history-search-forward'
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-query-items 30'
