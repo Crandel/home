@@ -333,9 +333,9 @@ function set_bash_prompt () {
 	# Set the BRANCH variable.
 	set_git_branch
 
-	history -a
-	history -c
-	history -r
+	# history -a
+	# history -c
+	# history -r
 	if [[ $EUID -eq 0 ]] ; then
 		USERCOLOR="${RED}"
 	fi
