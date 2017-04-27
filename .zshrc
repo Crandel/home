@@ -24,6 +24,12 @@ color_prompt=yes
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
+#bindkey "\eOC" forward-word
+#bindkey "\eOD" backward-word
+
+#bindkey "\e[A" history-search-backward
+#bindkey "\e[B" history-search-forward
+
 bindkey "\eOA" history-search-backward
 bindkey "\eOB" history-search-forward
 

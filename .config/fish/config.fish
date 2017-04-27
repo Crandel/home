@@ -224,7 +224,7 @@ function rmv
 end
 
 function soff
-	sudo_run swapoff (swapon --noheadings --show=NAME)
+	sudo_run swapoff (swapon --noheadings --show=NAME) # /dev/sda4
 end
 
 function son
