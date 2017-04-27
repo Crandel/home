@@ -224,11 +224,11 @@ function rmv
 end
 
 function soff
-	sudo_run swapoff /dev/sda4
+	sudo_run swapoff (swapon --noheadings --show=NAME)
 end
 
 function son
-	sudo_run swapon /dev/sda4
+	sudo_run swapon (swapon --noheadings --show=NAME) #/dev/mapper/xubuntu--vg-swap_1
 end
 
 function systemctl
