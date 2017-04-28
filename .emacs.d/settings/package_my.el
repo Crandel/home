@@ -4,60 +4,60 @@
 (require 'package)
 
 (setq my-packages
-    '(
-        el-get
-        all-the-icons
-        auto-virtualenv
-        avy
-        company-mode
-        company-flx
-        company-jedi
-        company-restclient
-        emmet-mode
-        emacs-fish
-        ensime
-        expand-region
-        flycheck
-        flycheck-gometalinter
-        git-gutter
-        go-eldoc
-        go-mode
-        go-company
-        go-rename
-        go-scratch
-        helm
-        helm-ag
-        helm-projectile
-        helm-swoop
-        jedi-core
-        json-mode
-        js2-mode
-        js2-refactor
-        key-chord
-        know-your-http-well
-        magit
-        markdown-mode
-        mo-git-blame
-        multi-compile
-        multiple-cursors
-        neotree
-        less-css-mode
-        livedown
-        pip-requirements
-        projectile
-        py-autopep8
-        py-isort
-        restclient
-        sbt-mode
-        scala-mode
-        smartparens
-        smart-mode-line
-        undo-tree
-        web-mode
-        xclip
-        yaml-mode
-        yasnippet
-      )
+		'(
+			el-get
+			all-the-icons
+			auto-virtualenv
+			avy
+			company-mode
+			company-flx
+			company-jedi
+			company-restclient
+			emmet-mode
+			emacs-fish
+			ensime
+			expand-region
+			flycheck
+			;; flycheck-gometalinter
+			git-gutter
+			;; go-eldoc
+			;; go-mode
+			;; go-company
+			;; go-rename
+			;; go-scratch
+			helm
+			helm-ag
+			helm-projectile
+			helm-swoop
+			jedi-core
+			json-mode
+			js2-mode
+			js2-refactor
+			key-chord
+			know-your-http-well
+			magit
+			markdown-mode
+			mo-git-blame
+			multi-compile
+			multiple-cursors
+			neotree
+			less-css-mode
+			livedown
+			pip-requirements
+			projectile
+			py-autopep8
+			py-isort
+			restclient
+			sbt-mode
+			scala-mode
+			smartparens
+			smart-mode-line
+			undo-tree
+			web-mode
+			xclip
+			yaml-mode
+			yasnippet
+			)
 )
 
 ;; for gnu repository
@@ -70,11 +70,11 @@
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil t)
-    (package-refresh-contents)
-    (package-install 'el-get)
-    (message "require is")
-    (require 'el-get)
-    (el-get 'sync))
+	(package-refresh-contents)
+	(package-install 'el-get)
+	(message "require is")
+	(require 'el-get)
+	(el-get 'sync))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
 (el-get 'sync my-packages)
