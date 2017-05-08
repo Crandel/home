@@ -227,6 +227,7 @@
 					(indent-for-tab-command)))))
 
 (global-set-key [tab] 'tab-indent-or-complete)
+(global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
 (key-chord-define-global "xx" 'save-buffer)
 (key-chord-define-global "qq" 'delete-other-windows)
 (key-chord-define-global "vv" 'save-buffers-kill-terminal)
