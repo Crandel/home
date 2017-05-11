@@ -1,6 +1,6 @@
 (:name restclient
-       :description "HTTP REST client tool for emacs"
-       :type github
-       :pkgname "pashky/restclient.el"
-       :post-init (progn
-                      (add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))))
+			:description "HTTP REST client tool for emacs"
+			:type github
+			:pkgname "pashky/restclient.el"
+			:post-init (progn
+									(add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))))

@@ -206,7 +206,7 @@ bindsym $mod+x exec emacs
 bindsym $mod+m exec xmenud
 
 # lock screen
-bindsym $mod+Control+l exec i3lock -c 000000
+bindsym $mod+Control+z exec i3lock -c 000000
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+z workspace next
