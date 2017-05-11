@@ -183,12 +183,19 @@ elif [ -d /usr/lib/jvm/default-java ]; then
 fi
 
 if command_exists emacs; then
-	alias em='emacs -nw'
-	export EDITOR='emacs -nw'
+	alias em="emacs -nw"
+	export EDITOR="emacs -nw"
 elif command_exists vim; then
 	export EDITOR='vim'
 fi
 
+function soff {
+	eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
+}
+
+function son {
+	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
+}
 
 if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
 	export TERM='ansi-term'

@@ -157,8 +157,17 @@
 (add-hook 'scala-mode-hook '(lambda()
 															(progn
 																(ensime-mode)
-																(define-key scala-mode-map (kbd "M-/") 'jedi:show-doc)
-																(define-key scala-mode-map (kbd "M-?") 'helm-jedi-related-names)
+																(local-unset-key (kbd "M-."))
+																(local-unset-key (kbd "M-,"))
+																(define-key scala-mode-map (kbd "M-.") 'scala-syntax:beginning-of-definition)
+																(define-key scala-mode-map (kbd "M-,") 'scala-syntax:end-of-definition)
+																)))
+(add-hook 'ensime-mode-hook '(lambda()
+															(progn
+																(local-unset-key (kbd "M-n"))
+																(local-unset-key (kbd "M-m"))
+																(define-key ensime-mode-map (kbd "M-n") 'mc/mark-next-like-this)
+																(define-key ensime-mode-map (kbd "M-m") 'mc/mark-previous-like-this)
 																)))
 (add-to-list 'auto-mode-alist '("\\.sc\\'" . scala-mode))
 ;; End scala mode hook
