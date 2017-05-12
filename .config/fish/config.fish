@@ -69,23 +69,23 @@ function sudo_run
 	end
 end
 
-if type -pq pacman and test -f $fish_config_path/pacman.fish
+if type -pq pacman; and test -f $fish_config_path/pacman.fish
 	source $fish_config_path/pacman.fish
 end
 
-if type -pq apt and test -f $fish_config_path/apt.fish
+if type -pq apt; and test -f $fish_config_path/apt.fish
 	source $fish_config_path/apt.fish
 end
 
-if type -pq docker and test -f $fish_config_path/docker.fish
+if type -pq docker; and test -f $fish_config_path/docker.fish
 	source $fish_config_path/docker.fish
 end
 
-if type -pq vagrant and test -f $fish_config_path/vagrant.fish
+if type -pq vagrant; and test -f $fish_config_path/vagrant.fish
 	source $fish_config_path/vagrant.fish
 end
 
-if type -pq go and test -f $fish_config_path/go.fish
+if type -pq go; and test -f $fish_config_path/go.fish
 	source $fish_config_path/go.fish
 end
 
@@ -246,13 +246,13 @@ if type -pq tmux
 end
 
 if type -pq emacs
-	set -x EDITOR 'emacs -nw'
+	set -x EDITOR "emacs -nw"
 	function em
 		emacs -nw $argv
 	end
 
 	function sem
-		sudo_run em $argv
+		sudo_run emacs -nw $argv
 	end
 else if type -pq vim
 	set -x EDITOR vim
