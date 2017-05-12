@@ -20,6 +20,7 @@ promptinit
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 force_color_prompt=yes
 color_prompt=yes
+export TERM="xterm-256color"
 
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
@@ -46,6 +47,7 @@ alias arch='uname -m'
 # some more ls aliases
 alias ll='ls -ahlF'
 alias la='ls -A'
+alias ~='cd $HOME'
 
 command_exists () {
 	type "$1" &> /dev/null ;
@@ -55,7 +57,6 @@ SUDO=''
 if [[ $EUID -ne 0 ]] && command_exists sudo ; then
 	SUDO='sudo'
 fi
-
 
 if command_exists pacman ; then
 	alias pacman="$SUDO pacman"
@@ -125,6 +126,14 @@ if command_exists go ; then
 	export PATH=$PATH:$GOPATH/bin
 fi
 
+if command_exists hadoop ; then
+	alias hdp='sudo -u hdfs hadoop fs'
+fi
+
+if command_exists hive ; then
+	alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
+fi
+
 if [ -d /usr/lib/jvm/default ]; then
 	export JAVA_HOME=/usr/lib/jvm/default
 elif [ -d /usr/lib/jvm/default-java ]; then
@@ -133,15 +142,27 @@ fi
 
 if command_exists emacs; then
 	alias em='emacs -nw'
+	alias sem="$SUDO em"
 	export EDITOR='emacs -nw'
+	if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
+		export TERM='ansi-term'
+	fi
 elif command_exists vim; then
 	export EDITOR='vim'
 fi
 
-export TERM="xterm-256color"
-if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
-	export TERM='ansi-term'
+if command_exists mc; then
+	alias smc="$SUDO mc"
 fi
+
+function soff {
+	eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
+}
+
+function son {
+	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
+}
+
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -150,7 +171,6 @@ fi
 if [ -f ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi
-
 
 if [ -f ~/clusterdock.sh ]; then
 	. ~/clusterdock.sh
