@@ -17,7 +17,7 @@ if type -pq hadoop
 	set -x HADOOP_USER_NAME hadoop
 end
 
-if type -pq hadoop
+if type -pq hive
 	set -x HIVE_HOME /usr/lib/hive
 end
 
