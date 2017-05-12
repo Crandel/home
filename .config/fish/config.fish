@@ -27,7 +27,6 @@ if type -pq scala
 end
 
 ## Functional variables
-set -x EDITOR 'emacs -nw'
 if type -pq chromium
 	set -x BROWSER chromium
 else if type -pq chromium-browser
@@ -70,23 +69,23 @@ function sudo_run
 	end
 end
 
-if type -pq pacman
+if type -pq pacman and test -f $fish_config_path/pacman.fish
 	source $fish_config_path/pacman.fish
 end
 
-if type -pq apt
+if type -pq apt and test -f $fish_config_path/apt.fish
 	source $fish_config_path/apt.fish
 end
 
-if type -pq docker
+if type -pq docker and test -f $fish_config_path/docker.fish
 	source $fish_config_path/docker.fish
 end
 
-if type -pq vagrant
+if type -pq vagrant and test -f $fish_config_path/vagrant.fish
 	source $fish_config_path/vagrant.fish
 end
 
-if type -pq go
+if type -pq go and test -f $fish_config_path/go.fish
 	source $fish_config_path/go.fish
 end
 
@@ -194,6 +193,7 @@ function pr -d "project directory"
 end
 complete -c pr -a "$listpr"
 
+set -l slistpr "(ls $MY_PROJECTS_ROOT/scala | string replace '/' \t)"
 function spr
 	# if argv when go to directory
 	set -l path $MY_PROJECTS_ROOT/scala
@@ -202,7 +202,9 @@ function spr
 	end
 	cd $path
 end
+complete -c spr -a "$slistpr"
 
+set -l glistpr "(ls $MY_GO_PROJECTS_ROOT | string replace '/' \t)"
 function gpr
 	# if argv when go to directory
 	set -l path $MY_GO_PROJECTS_ROOT
@@ -218,6 +220,7 @@ function gpr
 	end
 	cd $path
 end
+complete -c gpr -a "$glistpr"
 
 function rmv
 	sudo_run mv $argv /tmp
@@ -243,17 +246,22 @@ if type -pq tmux
 end
 
 if type -pq emacs
+	set -x EDITOR 'emacs -nw'
 	function em
 		emacs -nw $argv
 	end
 
 	function sem
-		sudo_run emacs -nw $argv
+		sudo_run em $argv
 	end
+else if type -pq vim
+	set -x EDITOR vim
 end
 
-function smc
-	sudo_run -E mc
+if type -pq mc
+	function smc
+		sudo_run -E mc
+	end
 end
 
 function update_kernel

@@ -81,10 +81,11 @@ bind '"\e[1;5C":forward-word'
 bind '"\e[1;5D":backward-word'
 # bind '"\eOD":backward-word'
 # bind '"\eOC":forward-word'
-bind '"\eOA":history-search-backward'
-bind '"\eOB":history-search-forward'
-# bind '"\e[A":history-search-backward'
-# bind '"\e[B":history-search-forward'
+# bind '"\eOA":history-search-backward'
+# bind '"\eOB":history-search-forward'
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
 bind 'set completion-ignore-case on'
 bind 'set show-all-if-ambiguous on'
 bind 'set completion-query-items 30'
@@ -94,6 +95,7 @@ bind 'set editing-mode emacs'
 # some more ls aliases
 alias ll='ls -ahlF'
 alias la='ls -A'
+alias ~='cd $HOME'
 
 alias arch='uname -m'
 command_exists () {
@@ -133,7 +135,9 @@ if command_exists docker ; then
 	alias dl='docker-compose logs --tail 15'
 	alias run='docker-compose stop && docker-compose run --rm --service-ports app'
 fi
+
 if command_exists vagrant ; then
+	# Vagrant
 	alias vup='vagrant up'
 	alias vh='vagrant halt'
 	alias vsus='vagrant suspend'
@@ -160,9 +164,9 @@ function backup () {
 	fi
 }
 
-
 virtual='/usr/bin/virtualenvwrapper.sh'
 if [ -f $virtual ]; then
+	export VIRTUAL_ENV_DISABLE_PROMPT=1
 	export WORKON_HOME=~/.virtualenvs/
 	. $virtual
 fi
@@ -176,6 +180,10 @@ if command_exists hadoop ; then
 	alias hdp='sudo -u hdfs hadoop fs'
 fi
 
+if command_exists hive ; then
+	alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
+fi
+
 if [ -d /usr/lib/jvm/default ]; then
 	export JAVA_HOME=/usr/lib/jvm/default
 elif [ -d /usr/lib/jvm/default-java ]; then
@@ -183,10 +191,18 @@ elif [ -d /usr/lib/jvm/default-java ]; then
 fi
 
 if command_exists emacs; then
-	alias em="emacs -nw"
-	export EDITOR="emacs -nw"
+	alias em='emacs -nw'
+	alias sem="$SUDO em"
+	export EDITOR='emacs -nw'
+	if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
+		export TERM='ansi-term'
+	fi
 elif command_exists vim; then
 	export EDITOR='vim'
+fi
+
+if command_exists mc; then
+	alias smc="$SUDO mc"
 fi
 
 function soff {
@@ -196,10 +212,6 @@ function soff {
 function son {
 	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
 }
-
-if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
-	export TERM='ansi-term'
-fi
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
