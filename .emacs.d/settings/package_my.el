@@ -18,13 +18,13 @@
 			ensime
 			expand-region
 			flycheck
-			;; flycheck-gometalinter
+			flycheck-gometalinter
 			git-gutter
-			;; go-eldoc
-			;; go-mode
-			;; go-company
-			;; go-rename
-			;; go-scratch
+			go-eldoc
+			go-mode
+			go-company
+			go-rename
+			go-scratch
 			helm
 			helm-ag
 			helm-projectile
@@ -72,6 +72,8 @@
 (unless (require 'el-get nil t)
 	(package-refresh-contents)
 	(package-install 'el-get)
+	(package-install 'async)
+	(package-install 'memoize)
 	(message "require is")
 	(require 'el-get)
 	(el-get 'sync))
