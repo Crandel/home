@@ -78,9 +78,9 @@
 
 ;; Linum plugin
 (require 'linum)
-(line-number-mode		t)
+(line-number-mode			t)
 (global-linum-mode		t)
-(column-number-mode	t)
+(column-number-mode		t)
 (setq linum-format		" %d")
 
 ;; Fringe settings
@@ -90,7 +90,7 @@
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format	t)
 (display-time-mode							t)
-(size-indication-mode					t)
+(size-indication-mode						t)
 (defun add-mode-line-dirtrack ()
 	(add-to-list 'mode-line-buffer-identification
 							'(:propertize (" " default-directory " ") face dired-directory)))
@@ -98,12 +98,12 @@
 
 ;; Indent settings
 (setq-default indent-tabs-mode			t
-							tab-width						2
-							tab-always-indent		nil
+							tab-width							2
+							tab-always-indent			nil
 							c-basic-offset				2
-							sh-basic-offset			2
+							sh-basic-offset				2
 							scala-basic-offset		2
-							standart-indent			2
+							standart-indent				2
 							lisp-body-indent			2
 							indent-line-function	'insert-tab)
 
@@ -122,9 +122,9 @@
 
 ;; Highlight search resaults
 (setq search-highlight					t
-			query-replace-highlight	t
-			auto-window-vscroll			nil)
-(setq bidi-display-reordering	nil)
+			query-replace-highlight		t
+			auto-window-vscroll				nil)
+(setq bidi-display-reordering		nil)
 ;;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode	"whitespace" "Toggle whitespace visualization." t)
@@ -192,7 +192,7 @@
 ;(reverse-input-method 'russian-typewriter)
 
 (setq max-mini-window-height		0.4
-			compilation-always-kill	t)
+			compilation-always-kill		t)
 
 
 (provide 'scratch_my)

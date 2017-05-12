@@ -230,5 +230,7 @@
 				("^.[%].*"								. font-lock-keyword-face)				; Read only
 				))
 
+(add-to-list 'auto-mode-alist '("\\.hql\\'" . sql-mode))
+
 
 (provide 'hooks_my)
