@@ -25,9 +25,9 @@ end
 complete -c pacr -a "$listinstalled"
 
 function pql
-	sudo_run apt-file list $argv
+	dpkg-query -L $argv
 end
-complete -c pacr -a "$listinstalled"
+complete -c pql -a "$listinstalled"
 
 function paci
 	apt install $argv
