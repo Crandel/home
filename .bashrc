@@ -122,7 +122,7 @@ if command_exists apt ; then
 	alias upg='upgy && apt upgrade'
 	alias pacs='apt search'
 	alias paci='apt install'
-	alias pql="$SUDO apt-file list"
+	alias pql="dpkg-query -L"
 fi
 
 if command_exists tmux ; then
