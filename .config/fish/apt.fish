@@ -24,6 +24,11 @@ function pacr
 end
 complete -c pacr -a "$listinstalled"
 
+function pql
+	sudo_run apt-file list $argv
+end
+complete -c pacr -a "$listinstalled"
+
 function paci
 	apt install $argv
 end
