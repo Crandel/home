@@ -120,6 +120,7 @@ if command_exists docker ; then
 	alias dc='docker-compose'
 	alias dl='docker-compose logs --tail 15'
 	alias run='docker-compose stop && docker-compose run --rm --service-ports app'
+	alias dst='d stop (d ps -q)'
 fi
 
 if command_exists vagrant ; then
@@ -153,8 +154,12 @@ if command_exists hadoop ; then
 fi
 
 if command_exists hive ; then
-	if [ -d /usr/lib/hive ]; then
-		 export HIVE_HOME=/usr/lib/hive
+	function hive_home {
+		grep hive /etc/passwd | awk -F: '{print $6}'
+	}
+	h_home=$(hive_home)
+	if [ ! -z $h_home ]; then
+		 export HIVE_HOME=$h_home
 	fi
 	alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
 	alias hvfs='sudo -u hive hadoop fs'
