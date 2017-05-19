@@ -6,22 +6,38 @@ zstyle :compinstall filename '/home/crandel/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
-# Lines configured by zsh-newuser-install
-HISTCONTROL=ignoreboth
-HISTFILE=~/.hist_zsh
-HISTSIZE=5000000
-SAVEHIST=5000000
+# ZSH SPECIFIC
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST HIST_IGNORE_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY
 bindkey -e
 autoload -Uz promptinit
 promptinit
+
+# Lines configured by zsh-newuser-install
+
+# HISTORY
+HISTCONTROL=ignoreboth
+HISTFILE=~/.hist_zsh
+HISTSIZE=5000000
+SAVEHIST=5000000
+
 # End of lines configured by zsh-newuser-install
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-force_color_prompt=yes
-color_prompt=yes
-export TERM="xterm-256color"
 
+if test -t 1; then
+	force_color_prompt=yes
+	color_prompt=yes
+	export TERM="xterm-256color"
+	# enable color support of ls and also add handy aliases
+	alias ls='ls --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
+fi
+
+# NAVIGATION
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
@@ -34,25 +50,44 @@ bindkey "\e[B" history-search-forward
 # bindkey "\eOA" history-search-backward
 # bindkey "\eOB" history-search-forward
 
-# enable color support of ls and also add handy aliases
-alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
-
-alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
+# ALIASES
 alias arch='uname -m'
-
 # some more ls aliases
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
 
-command_exists () {
+# FUNCTIONS
+function command_exists () {
 	type "$1" &> /dev/null ;
 }
 
+function pr () {
+	local projects_folder="/opt/work/projects/"
+	cd $projects_folder
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
+
+function backup () {
+	local backup="/opt/work/backup"
+	cd $backup
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
+
+function soff {
+	eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
+}
+
+function son {
+	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
+}
+
+
+# CONDITIONS
 SUDO=''
 if [[ $EUID -ne 0 ]] && command_exists sudo ; then
 	SUDO='sudo'
@@ -100,21 +135,6 @@ if command_exists systemctl ; then
 	alias systemctl="$SUDO systemctl"
 fi
 
-function pr () {
-	local projects_folder="/opt/work/projects/"
-	cd $projects_folder
-	if [ ! -z $1 ]; then
-		cd $1
-	fi
-}
-function backup () {
-	local backup="/opt/work/backup"
-	cd $backup
-	if [ ! -z $1 ]; then
-		cd $1
-	fi
-}
-
 virtual='/usr/bin/virtualenvwrapper.sh'
 if [ -f $virtual ]; then
 	export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -128,11 +148,21 @@ if command_exists go ; then
 fi
 
 if command_exists hadoop ; then
+	export HADOOP_USER_NAME=hadoop
 	alias hdp='sudo -u hdfs hadoop fs'
 fi
 
 if command_exists hive ; then
+	if [ -d /usr/lib/hive ]; then
+		 export HIVE_HOME=/usr/lib/hive
+	fi
 	alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
+	alias hvfs='sudo -u hive hadoop fs'
+fi
+
+if [ -d /usr/share/scala ]; then
+	export SCALA_HOME=/usr/share/scala
+	export PATH=$PATH:$SCALA_HOME/bin
 fi
 
 if [ -d /usr/lib/jvm/default ]; then
@@ -156,27 +186,11 @@ if command_exists mc; then
 	alias smc="$SUDO mc"
 fi
 
-function soff {
-	eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
-}
-
-function son {
-	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
-}
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi
 
-if [ -f ~/clusterdock.sh ]; then
-	. ~/clusterdock.sh
-fi
-
+# PROMPT
 # determine git branch name
 function parse_git_branch(){
 	git branch 2> /dev/null | sed -n 's/^\* //p'

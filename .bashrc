@@ -1,4 +1,6 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+
+# COLORS
 RED=""
 YELLOW=""
 GREEN=""
@@ -50,9 +52,11 @@ if test -t 1; then
 		LIGHT_GRAY="$(tput setaf 8)"
 	fi
 fi
+
+# HISTORY
 # don't put duplicate lines or lines starting with space in the history.
-HISTCONTROL=ignoreboth
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTCONTROL=ignoreboth
 HISTSIZE=
 HISTFILESIZE=
 HISTTIMEFORMAT="%F %T "
@@ -63,20 +67,10 @@ shopt -s checkwinsize
 shopt -s cdspell
 shopt -s globstar
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-
+# NAVIGATION
 bind '"\e[1;5C":forward-word'
 bind '"\e[1;5D":backward-word'
 # bind '"\eOD":backward-word'
@@ -92,16 +86,52 @@ bind 'set completion-query-items 30'
 bind 'set editing-mode emacs'
 
 
+# ALIASES
 # some more ls aliases
+alias arch='uname -m'
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
 
-alias arch='uname -m'
-command_exists () {
+if [ -f ~/.bash_aliases ]; then
+	. ~/.bash_aliases
+fi
+
+if [ -f ~/clusterdock.sh ]; then
+	. ~/clusterdock.sh
+fi
+
+# FUNCTIONS
+function command_exists () {
 	type "$1" &> /dev/null ;
 }
 
+function pr () {
+	local projects_folder="/opt/work/projects/"
+	cd $projects_folder
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
+
+function backup () {
+	local backup="/opt/work/backup"
+	cd $backup
+	if [ ! -z $1 ]; then
+		cd $1
+	fi
+}
+
+function soff {
+	eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
+}
+
+function son {
+	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
+}
+
+
+# BINS CONDITIONS
 SUDO=''
 if [[ $EUID -ne 0 ]] && command_exists sudo ; then
 	complete -cf sudo
@@ -150,20 +180,6 @@ if command_exists systemctl ; then
 	alias systemctl="$SUDO systemctl"
 fi
 
-function pr () {
-	local projects_folder="/opt/work/projects/"
-	cd $projects_folder
-	if [ ! -z $1 ]; then
-		cd $1
-	fi
-}
-function backup () {
-	local backup="/opt/work/backup"
-	cd $backup
-	if [ ! -z $1 ]; then
-		cd $1
-	fi
-}
 
 virtual='/usr/bin/virtualenvwrapper.sh'
 if [ -f $virtual ]; then
@@ -178,11 +194,21 @@ if command_exists go ; then
 fi
 
 if command_exists hadoop ; then
+	export HADOOP_USER_NAME=hadoop
 	alias hdp='sudo -u hdfs hadoop fs'
 fi
 
 if command_exists hive ; then
+	if [ -d /usr/lib/hive ]; then
+		 export HIVE_HOME=/usr/lib/hive
+	fi
 	alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
+	alias hvfs='sudo -u hive hadoop fs'
+fi
+
+if [ -d /usr/share/scala ]; then
+	export SCALA_HOME=/usr/share/scala
+	export PATH=$PATH:$SCALA_HOME/bin
 fi
 
 if [ -d /usr/lib/jvm/default ]; then
@@ -206,27 +232,6 @@ if command_exists mc; then
 	alias smc="$SUDO mc"
 fi
 
-function soff {
-	eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
-}
-
-function son {
-	eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
-}
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
-fi
-
-if [ -f ~/clusterdock.sh ]; then
-	. ~/clusterdock.sh
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -238,6 +243,7 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+# PROMPT
 # get current status of git repo
 function parse_git_dirty {
 	new_status=`git status --porcelain`

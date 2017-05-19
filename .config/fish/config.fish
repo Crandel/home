@@ -17,11 +17,11 @@ if type -pq hadoop
 	set -x HADOOP_USER_NAME hadoop
 end
 
-if type -pq hive
+if type -pq hive; and test -f /usr/lib/hive
 	set -x HIVE_HOME /usr/lib/hive
 end
 
-if type -pq scala
+if type -pq scala; and test -f /usr/share/scala
 	set -x SCALA_HOME /usr/share/scala
 	set -xg PATH $PATH $SCALA_HOME/bin
 end
