@@ -155,6 +155,13 @@ if command_exists apt ; then
 	alias pql="dpkg-query -L"
 fi
 
+if command_exists yum ; then
+	alias apt="$SUDO yum"
+	alias upg='yum upgrade'
+	alias pacs='yum search'
+	alias paci='yum install'
+fi
+
 if command_exists tmux ; then
 	alias tm='tmux attach || tmux new'
 fi
