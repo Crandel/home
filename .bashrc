@@ -217,6 +217,11 @@ if command_exists hive ; then
 	alias hvfs='sudo -u hive hadoop fs'
 fi
 
+if command_exists spark-shell ; then
+	alias spll='sudo -u spark spark-shell'
+	alias spmit='sudo -u spark spark-submit'
+fi
+
 if [ -d /usr/share/scala ]; then
 	export SCALA_HOME=/usr/share/scala
 	export PATH=$PATH:$SCALA_HOME/bin
