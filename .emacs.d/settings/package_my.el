@@ -13,6 +13,7 @@
 			company-flx
 			company-jedi
 			company-restclient
+			edi-mode
 			emmet-mode
 			emacs-fish
 			ensime

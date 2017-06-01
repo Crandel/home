@@ -1,0 +1,6 @@
+(:name edi-mode
+		:description "EdiFact mode"
+		:url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/edi-mode.el"
+		:type http
+		:compile "edi-mode.el"
+		:load "edi-mode.el")
