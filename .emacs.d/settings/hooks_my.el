@@ -58,6 +58,7 @@
 (add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.edi\\'" . edi-mode))
 
 ;; End Web mode
 
