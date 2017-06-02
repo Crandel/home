@@ -61,7 +61,6 @@
 (global-unset-key (kbd "C-q"))
 (global-set-key (kbd "C-q") 'er/expand-region)
 
-
 ;; Custom keybindings
 ;; Moving
 ;;UP
@@ -81,12 +80,10 @@
 ;; RIGHT WORD
 (global-unset-key (kbd "M-o"))
 (global-set-key (kbd "M-o") 'forward-word)
-
 ;; LEFT WORD
 (global-unset-key (kbd "M-u"))
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "C-c u") 'upcase-word)
-
 
 ;; Yank
 (global-unset-key (kbd "C-v"))
@@ -95,7 +92,6 @@
 (global-set-key (kbd "C-y") 'scroll-up-command)
 
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
-
 
 ;; move line up
 (defun move-line-up ()
@@ -125,7 +121,6 @@
 (global-unset-key (kbd "C-x C-d"))
 (global-set-key (kbd "C-x C-d") 'duplicate-line)
 
-
 ;; copy line
 (defun copy-line (arg)
 	"Copy lines (as many as prefix argument) in the kill ring"
@@ -136,7 +131,6 @@
 
 (global-unset-key (kbd "C-c C-k"))
 (global-set-key (kbd "C-c C-k") 'copy-line)
-
 
 ;; copy word
 (defun get-point (symbol &optional arg)
@@ -160,7 +154,6 @@
 	)
 (global-unset-key (kbd "C-c C-w"))
 (global-set-key (kbd "C-c C-w") 'copy-word)
-
 
 ;; delete line
 (defun my-delete-line ()
@@ -186,7 +179,6 @@
 	(when newline-and-indent
 		(indent-according-to-mode)))
 (global-set-key (kbd "C-o") 'open-next-line)
-
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
