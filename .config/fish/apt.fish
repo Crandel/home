@@ -33,3 +33,7 @@ function paci
 	apt install $argv
 end
 complete -c paci -a "$listall"
+
+function aar
+	sudo_run add-apt-repository $argv
+end
