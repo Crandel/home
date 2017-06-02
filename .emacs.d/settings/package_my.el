@@ -13,19 +13,19 @@
 			company-flx
 			company-jedi
 			company-restclient
-			edi-mode
+			;; edi-mode
 			emmet-mode
 			emacs-fish
-			ensime
+			;; ensime
 			expand-region
 			flycheck
-			flycheck-gometalinter
+			;; flycheck-gometalinter
 			git-gutter
-			go-eldoc
-			go-mode
-			go-company
-			go-rename
-			go-scratch
+			;; go-eldoc
+			;; go-mode
+			;; go-company
+			;; go-rename
+			;; go-scratch
 			helm
 			helm-ag
 			helm-projectile
@@ -34,7 +34,7 @@
 			json-mode
 			js2-mode
 			js2-refactor
-			key-chord
+			;; key-chord
 			know-your-http-well
 			magit
 			markdown-mode

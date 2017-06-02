@@ -17,7 +17,6 @@
 
 ;; Mo-git-blame
 (global-set-key (kbd "C-c g") 'mo-git-blame-current)
-(key-chord-define-global "gg" 'mo-git-blame-current)
 
 ;; Git gutter
 (global-set-key (kbd "C-c [") 'git-gutter:next-hunk)
@@ -31,7 +30,6 @@
 (global-set-key (kbd "M-p") 'helm-projectile-ag)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-c m") 'helm-all-mark-rings)
-(key-chord-define-global "m/" 'helm-all-mark-rings)
 
 ;;Helm-swoop
 (global-unset-key (kbd "C-s"))
@@ -46,7 +44,6 @@
 ;; Smartparent
 (global-unset-key (kbd "C-c w"))
 (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
-(key-chord-define-global "''" 'sp-rewrap-sexp)
 (global-set-key (kbd "C-c r") 'sp-unwrap-sexp)
 
 ;; Undo-tree
@@ -63,7 +60,7 @@
 ;; Expand region
 (global-unset-key (kbd "C-q"))
 (global-set-key (kbd "C-q") 'er/expand-region)
-(key-chord-define-global "//" 'er/expand-region)
+
 
 ;; Custom keybindings
 ;; Moving
@@ -84,12 +81,12 @@
 ;; RIGHT WORD
 (global-unset-key (kbd "M-o"))
 (global-set-key (kbd "M-o") 'forward-word)
-(key-chord-define-global "kk" 'forward-word)
+
 ;; LEFT WORD
 (global-unset-key (kbd "M-u"))
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "C-c u") 'upcase-word)
-(key-chord-define-global "jj" 'backward-word)
+
 
 ;; Yank
 (global-unset-key (kbd "C-v"))
@@ -98,7 +95,7 @@
 (global-set-key (kbd "C-y") 'scroll-up-command)
 
 (global-set-key (kbd "C-x C-b") 'electric-buffer-list)
-(key-chord-define-global "bb" 'electric-buffer-list)
+
 
 ;; move line up
 (defun move-line-up ()
@@ -127,7 +124,7 @@
 	)
 (global-unset-key (kbd "C-x C-d"))
 (global-set-key (kbd "C-x C-d") 'duplicate-line)
-(key-chord-define-global "yp" 'duplicate-line)
+
 
 ;; copy line
 (defun copy-line (arg)
@@ -139,7 +136,7 @@
 
 (global-unset-key (kbd "C-c C-k"))
 (global-set-key (kbd "C-c C-k") 'copy-line)
-(key-chord-define-global "yy" 'copy-line)
+
 
 ;; copy word
 (defun get-point (symbol &optional arg)
@@ -163,7 +160,7 @@
 	)
 (global-unset-key (kbd "C-c C-w"))
 (global-set-key (kbd "C-c C-w") 'copy-word)
-(key-chord-define-global "ww" 'copy-word)
+
 
 ;; delete line
 (defun my-delete-line ()
@@ -189,7 +186,7 @@
 	(when newline-and-indent
 		(indent-according-to-mode)))
 (global-set-key (kbd "C-o") 'open-next-line)
-(key-chord-define-global "ii" 'open-next-line)
+
 
 ;; Behave like vi's O command
 (defun open-previous-line (arg)
@@ -228,9 +225,6 @@
 
 (global-set-key [tab] 'tab-indent-or-complete)
 (global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
-(key-chord-define-global "xx" 'save-buffer)
-(key-chord-define-global "qq" 'delete-other-windows)
-(key-chord-define-global "vv" 'save-buffers-kill-terminal)
 
 
 (provide 'keybindings_my)
