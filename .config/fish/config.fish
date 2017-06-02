@@ -264,6 +264,21 @@ if type -pq mc
 	end
 end
 
+if type -pq git
+	function pll
+		git pull origin $argv
+	end
+	function psh
+		git push origin $argv
+	end
+	function gst
+		git status
+	end
+	function gco
+		git checkout $argv
+	end
+end
+
 function update_kernel
 	sudo_run mkinitcpio -p linux
 end
