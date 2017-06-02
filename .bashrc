@@ -257,6 +257,8 @@ if command_exists git; then
 	alias psh="git push origin"
 	alias gst="git status"
 	alias gco="git checkout"
+	alias gadd="git add ."
+	alias gcmt="git commit -m"
 fi
 
 # enable programmable completion features (you don't need to enable

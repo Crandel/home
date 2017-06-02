@@ -206,6 +206,8 @@ if command_exists git; then
 	alias psh="git push origin"
 	alias gst="git status"
 	alias gco="git checkout"
+	alias gadd="git add ."
+	alias gcmt="git commit -m"
 fi
 
 if [ -f ~/.zsh_aliases ]; then
