@@ -201,6 +201,13 @@ if command_exists mc; then
 	alias smc="$SUDO mc"
 fi
 
+if command_exists git; then
+	alias pll="git pull origin"
+	alias psh="git push origin"
+	alias gst="git status"
+	alias gco="git checkout"
+fi
+
 if [ -f ~/.zsh_aliases ]; then
 	. ~/.zsh_aliases
 fi

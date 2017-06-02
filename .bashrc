@@ -252,6 +252,13 @@ if command_exists mc; then
 	alias smc="$SUDO mc"
 fi
 
+if command_exists git; then
+	alias pll="git pull origin"
+	alias psh="git push origin"
+	alias gst="git status"
+	alias gco="git checkout"
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
