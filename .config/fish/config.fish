@@ -277,6 +277,12 @@ if type -pq git
 	function gco
 		git checkout $argv
 	end
+	function gadd
+		git add .
+	end
+	function gcmt
+		git commit -m "$argv"
+	end
 end
 
 function update_kernel
