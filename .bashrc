@@ -153,6 +153,7 @@ if command_exists apt ; then
 	alias pacs='apt search'
 	alias paci='apt install'
 	alias pql="dpkg-query -L"
+	alias aar="$SUDO add-apt-repository"
 fi
 
 if command_exists yum ; then
