@@ -5,9 +5,15 @@
        :depends (dash)
        :post-init (progn
                       (setq multi-compile-alist '(
-                            (go-mode . (("go-run" "go run -v"
+                            (go-mode . (("gr" "go run -v"
                                             (buffer-file-name))
-                                        ("go-build" "go build -v"
+                                        ("gb" "go build -v"
                                             (locate-dominating-file buffer-file-name ".git"))
-                                        ("go-build-and-run" "go build -v && echo 'build finish' && eval ./${PWD##*/}"
-                                            (multi-compile-locate-file-dir ".git"))))))))
+                                        ("gbr" "go build -v && echo 'build finish' && eval ./${PWD##*/}"
+                                            (multi-compile-locate-file-dir ".git"))))
+                            (rust-mode . (("rc" "rustc" (buffer-file-name))
+                                        ("rb" "cargo build --release"
+                                            (locate-dominating-file buffer-file-name ".git"))
+                                        ("rbr" "cargo build --release && echo 'build finish' && eval target/release/${PWD##*/}"
+                                            (multi-compile-locate-file-dir ".git"))))
+                            ))))
