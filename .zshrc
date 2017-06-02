@@ -99,6 +99,7 @@ if command_exists pacman ; then
 	alias upgy='yaourt -Syu'
 	alias pacs='pacman -Ss'
 	alias paci='pacman -S --needed'
+	alias pacr='pacman -Rs'
 fi
 
 if command_exists apt ; then
@@ -107,6 +108,7 @@ if command_exists apt ; then
 	alias upg='upgy && apt upgrade'
 	alias pacs='apt search'
 	alias paci='apt install'
+	alias pacr='apt remove'
 	alias pql="dpkg-query -L"
 	alias aar="$SUDO add-apt-repository"
 fi
@@ -116,6 +118,7 @@ if command_exists yum ; then
 	alias upg='yum upgrade'
 	alias pacs='yum search'
 	alias paci='yum install'
+	alias pacr='yum remove'
 fi
 
 if command_exists tmux ; then
