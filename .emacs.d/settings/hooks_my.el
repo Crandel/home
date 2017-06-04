@@ -197,6 +197,8 @@
         (with-current-buffer buffer
           (search-forward "warning" nil t))))
       (delete-other-windows)
+    (switch-to-buffer buffer)
+    (delete-other-windows)
     ))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
 ;; End compilation hook
