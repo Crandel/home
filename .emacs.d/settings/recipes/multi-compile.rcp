@@ -11,11 +11,17 @@
                                             (locate-dominating-file buffer-file-name ".git"))
                                         ("gbr" "go build -v && echo 'build finish' && eval ./${PWD##*/}"
                                             (multi-compile-locate-file-dir ".git"))))
+                            (scala-mode . (("sr" "scala"
+                                            (buffer-file-name))
+                                        ("sbr" "sbt run"
+                                            (locate-dominating-file buffer-file-name ".git"))
+                                        ("sbt" "sbt compile; sbt test; sbt run"
+                                            (multi-compile-locate-file-dir ".git"))))
                             (rust-mode . (("rw" "cargo build --release -q"
                                             (locate-dominating-file buffer-file-name ".git"))
-                                        ("rb" "cargo build --release"
+                                        ("rb" "cargo build --release --color always"
                                             (locate-dominating-file buffer-file-name ".git"))
-                                        ("rbr" "cargo run --release" ; && echo 'build finish' && eval target/release/${PWD##*/}"
+                                        ("rbr" "cargo run --release --color always"
                                             (multi-compile-locate-file-dir ".git"))))
                             ))
                       (global-set-key [f8] #'multi-compile-run)
