@@ -2,6 +2,6 @@
        :description "Racer support for Emacs"
        :type github
        :pkgname "racer-rust/emacs-racer"
-       :depends (rust-mode rust-racer company-mode dash s)
+       :depends (rust-mode rust-racer company-mode dash s f)
        :prepare (add-hook 'rust-mode-hook #'racer-mode)
        :post-init (add-hook 'racer-mode-hook #'eldoc-mode))

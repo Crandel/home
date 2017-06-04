@@ -21,27 +21,27 @@
  '(compilation-disable-input t)
  '(compilation-window-height 10)
  '(custom-safe-themes
-	 (quote
-		("b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+   (quote
+    ("b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(magit-log-arguments
-	 (quote
-		("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
+   (quote
+    ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
  '(neo-vc-state-char-alist
-	 (quote
-		((up-to-date . 32)
-		 (edited . 69)
-		 (added . 43)
-		 (removed . 45)
-		 (missing . 33)
-		 (needs-merge . 77)
-		 (conflict . 33)
-		 (unlocked-changes . 33)
-		 (needs-update . 85)
-		 (ignored . 38)
-		 (user . 85)
-		 (unregistered . 40)
-		 (nil . 40))))
- '(package-selected-packages (quote (async memoize el-get)))
+   (quote
+    ((up-to-date . 32)
+     (edited . 69)
+     (added . 43)
+     (removed . 45)
+     (missing . 33)
+     (needs-merge . 77)
+     (conflict . 33)
+     (unlocked-changes . 33)
+     (needs-update . 85)
+     (ignored . 38)
+     (user . 85)
+     (unregistered . 40)
+     (nil . 40))))
+ '(package-selected-packages (quote (async el-get)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
  '(semantic-which-function-use-color t)

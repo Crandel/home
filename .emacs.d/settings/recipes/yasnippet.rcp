@@ -1,23 +1,24 @@
 (:name yasnippet
-	:website "https://github.com/capitaomorte/yasnippet.git"
-	:description "YASnippet is a template system for Emacs."
-	:type github
-	:pkgname "capitaomorte/yasnippet"
-	:compile "yasnippet.el"
-	;; only fetch the `snippets' submodule, others have funny
-	;; file names that can cause problems
-	;; see https://github.com/dimitri/el-get/issues/1511
-	:submodule nil
-	:build (("git" "submodule" "update" "--init" "--" "snippets"))
-	:features (yasnippet)
-	:post-init (progn
-							(yas-reload-all)
-							(add-hook 'python-mode-hook							#'yas-minor-mode)
-							(add-hook 'js-mode-hook									#'yas-minor-mode)
-							(add-hook 'web-mode-hook									#'yas-minor-mode)
-							(add-hook 'lisp-interaction-mode-hook		#'yas-minor-mode)
-							(add-hook 'fish-mode-hook								#'yas-minor-mode)
-							(add-hook 'markdown-mode-hook						#'yas-minor-mode)
-							(add-hook 'go-mode-hook									#'yas-minor-mode)
-							(add-hook 'scala-mode-hook								#'yas-minor-mode)
-							))
+  :website "https://github.com/capitaomorte/yasnippet.git"
+  :description "YASnippet is a template system for Emacs."
+  :type github
+  :pkgname "capitaomorte/yasnippet"
+  :compile "yasnippet.el"
+  ;; only fetch the `snippets' submodule, others have funny
+  ;; file names that can cause problems
+  ;; see https://github.com/dimitri/el-get/issues/1511
+  :submodule nil
+  :build (("git" "submodule" "update" "--init" "--" "snippets"))
+  :features (yasnippet)
+  :post-init (progn
+              (yas-reload-all)
+              (add-hook 'python-mode-hook               #'yas-minor-mode)
+              (add-hook 'js-mode-hook                   #'yas-minor-mode)
+              (add-hook 'web-mode-hook                  #'yas-minor-mode)
+              (add-hook 'lisp-interaction-mode-hook     #'yas-minor-mode)
+              (add-hook 'fish-mode-hook                 #'yas-minor-mode)
+              (add-hook 'markdown-mode-hook             #'yas-minor-mode)
+              (add-hook 'go-mode-hook                   #'yas-minor-mode)
+              (add-hook 'scala-mode-hook                #'yas-minor-mode)
+              (add-hook 'rust-mode-hook                 #'yas-minor-mode)
+              ))
