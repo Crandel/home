@@ -48,11 +48,17 @@
 (delete-selection-mode t)
 
 ;; Disable GUI components
+(when (display-graphic-p)
+  (tool-bar-mode    -1)
+  (scroll-bar-mode  -1)
+  ;; Fringe settings
+  (fringe-mode '(8 . 0))
+  (setq-default indicate-buffer-boundaries 'left)
+  )
+
 (tooltip-mode     -1)
 (menu-bar-mode    -1)
-(tool-bar-mode    -1)
 (menu-bar-mode    -1)
-(scroll-bar-mode  -1)
 (setq use-dialog-box        nil
       redisplay-dont-pause  t
       ring-bell-function    'ignore)
@@ -83,9 +89,6 @@
 (column-number-mode     t)
 (setq linum-format    " %d")
 
-;; Fringe settings
-(fringe-mode '(8 . 0))
-(setq-default indicate-buffer-boundaries 'left)
 
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format  t)
