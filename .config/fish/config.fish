@@ -33,9 +33,15 @@ else if type -pq chromium-browser
   set -x BROWSER chromium-browser
 end
 
-if type -pq rust
-  set -xg RUST $HOME/rust
+# Rust
+if test -d $HOME/.cargo/bin
+  set -xg PATH $PATH $HOME/.cargo/bin
 end
+
+if test -d /usr/src/rust
+  set -x RUST_SRC_PATH /usr/src/rust/src
+end
+# End Rust
 
 set -xg TERM "xterm-256color"
 if type -pq wine
@@ -287,10 +293,6 @@ end
 
 function update_kernel
   sudo_run mkinitcpio -p linux
-end
-
-if test -d /usr/src/rust
-  set -x RUST_SRC_PATH /usr/src/rust/src
 end
 
 if test -f $fish_config_path/local.fish
