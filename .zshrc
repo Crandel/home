@@ -180,9 +180,16 @@ if [ -d /usr/share/scala ]; then
   export PATH=$PATH:$SCALA_HOME/bin
 fi
 
-if [ -d /usr/src/rust ]; then
-  export RUST_SRC_PATH=/usr/src/rust/src
+
+# Rust
+if [-d $HOME/.cargo/bin ]; then
+    export PATH=$PATH:$HOME/.cargo/bin
 fi
+
+if [ -d /usr/src/rust ]; then
+    export RUST_SRC_PATH=/usr/src/rust/src
+fi
+# End Rust
 
 if [ -d /usr/lib/jvm/default ]; then
   export JAVA_HOME=/usr/lib/jvm/default
