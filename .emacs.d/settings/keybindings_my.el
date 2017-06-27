@@ -164,6 +164,8 @@
    (save-excursion (move-end-of-line 1) (point)))
   (delete-char 1)
   )
+
+(global-unset-key (kbd "C-d"))
 (global-set-key (kbd "C-d") 'my-delete-line)
 
 (global-set-key (kbd "RET") 'newline-and-indent)

@@ -41,7 +41,7 @@
      (user . 85)
      (unregistered . 40)
      (nil . 40))))
- '(package-selected-packages (quote (async el-get)))
+ '(package-selected-packages (quote (csv-mode async el-get)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
  '(semantic-which-function-use-color t)
