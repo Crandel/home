@@ -20,5 +20,6 @@
               (add-hook 'markdown-mode-hook             #'yas-minor-mode)
               (add-hook 'go-mode-hook                   #'yas-minor-mode)
               (add-hook 'scala-mode-hook                #'yas-minor-mode)
+              (add-hook 'java-mode-hook                 #'yas-minor-mode)
               (add-hook 'rust-mode-hook                 #'yas-minor-mode)
               ))
