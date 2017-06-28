@@ -25,6 +25,10 @@
                                             (locate-dominating-file buffer-file-name ".git"))
                                         ("rbr" "cargo run --release --color always"
                                             (multi-compile-locate-file-dir ".git"))))
+                            (java-mode . (("mpac" "mvn package"
+                                            (locate-dominating-file buffer-file-name ".git"))
+                                        ("mtest" "mvn validate"
+                                            (locate-dominating-file buffer-file-name ".git"))))
                             ))
                       (global-set-key [f8] #'multi-compile-run)
                       ))
