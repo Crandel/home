@@ -82,9 +82,6 @@
     (add-to-list 'my-packages 'scala-mode)
 )
 
-(when (executable-find "eclimd")
-    (add-to-list 'my-packages 'eclim)
-)
 ;; for gnu repository
 (setq package-check-signature nil)
 
