@@ -186,22 +186,7 @@
 ;; java-mode hooks
 (add-hook 'java-mode-hook '(lambda()
                               (progn
-                                ;(eclim-mode t)
-                                ;(local-unset-key (kbd "M-."))
-                                ;(local-unset-key (kbd "M-,"))
                                 (local-unset-key (kbd "C-d"))
-                                ;(local-unset-key [tab])
-                                ;(define-key java-mode-map (kbd "TAB") nil)
-                                ;(define-key java-mode-map (kbd "TAB") nil)
-                                ;(define-key java-mode-map (kbd "M-.") 'java-syntax:beginning-of-definition)
-                                ;(define-key java-mode-map (kbd "M-,") 'java-syntax:end-of-definition)
-                                ;(define-key ensime-mode-map [tab] 'tab-indent-or-complete)
-                                ;(define-key java-mode-map [tab] 'tab-indent-or-complete)
-                                (eval-after-load "company"
-                                  '(progn
-                                     (eclim-mode t)
-                                     (company-emacs-eclim-setup)
-                                     ))
                                 )))
 ;; End java-mode
 ;; Sh
