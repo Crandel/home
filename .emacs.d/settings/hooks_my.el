@@ -188,7 +188,7 @@
                               (progn
                                 (local-unset-key (kbd "C-d"))
                                 (meghanada-mode t))
-                                )))
+                                ))
 ;; End java-mode
 ;; Sh
 (add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
