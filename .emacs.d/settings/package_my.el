@@ -82,6 +82,11 @@
     (add-to-list 'my-packages 'scala-mode)
 )
 
+(when (executable-find "javac")
+    (add-to-list 'my-packages 'meghanada)
+)
+
+
 ;; for gnu repository
 (setq package-check-signature nil)
 

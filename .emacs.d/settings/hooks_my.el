@@ -187,6 +187,7 @@
 (add-hook 'java-mode-hook '(lambda()
                               (progn
                                 (local-unset-key (kbd "C-d"))
+                                (meghanada-mode t))
                                 )))
 ;; End java-mode
 ;; Sh
