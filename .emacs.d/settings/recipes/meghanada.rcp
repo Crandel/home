@@ -1,0 +1,9 @@
+(:name meghanada
+       :type github
+       :pkgname "mopemope/meghanada-emacs"
+       :description "A Better Java Development Environment for Emacs"
+       :minimum-emacs-version "24"
+       :depends (yasnippet company-mode flycheck cl-lib)
+       :compile "."
+       :post-init (progn
+                    (setq c-basic-offset 2)))
