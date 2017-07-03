@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: setr
+# key: setr
+# --
+public void set$1($2 $3){
+    this.$3 = $3;
+}

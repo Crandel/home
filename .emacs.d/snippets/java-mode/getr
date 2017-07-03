@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: getr
+# key: getr
+# --
+public $1 get$2() {
+    return $0;
+}

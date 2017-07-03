@@ -188,7 +188,23 @@ function hm -d "Merge history from several shells"
   history --merge
 end
 
-set -l listpr "(ls $MY_PROJECTS_ROOT | string replace '/' \t)"
+function listpr
+  set -l list
+  for dir in (ls $MY_PROJECTS_ROOT/)
+    set -l inside_dir $MY_PROJECTS_ROOT"/"$dir
+    if test -d $inside_dir
+      set list $list $dir
+      for d in (ls $inside_dir/)
+        set -l double_dir $dir"/"$d
+        if test -d $MY_PROJECTS_ROOT"/"$double_dir
+          set list $list $double_dir
+        end
+      end
+    end
+  end
+  echo $list
+end
+
 function pr -d "project directory"
   # if argv when go to directory
   set -l path $MY_PROJECTS_ROOT
@@ -197,18 +213,7 @@ function pr -d "project directory"
   end
   cd $path
 end
-complete -c pr -a "$listpr"
-
-set -l slistpr "(ls $MY_PROJECTS_ROOT/scala | string replace '/' \t)"
-function spr
-  # if argv when go to directory
-  set -l path $MY_PROJECTS_ROOT/scala
-  if count $argv > /dev/null
-    set -x path $path"/"$argv
-  end
-  cd $path
-end
-complete -c spr -a "$slistpr"
+complete -c pr -a (listpr)
 
 set -l glistpr "(ls $MY_GO_PROJECTS_ROOT/src | string replace '/' \t)"
 function gpr
