@@ -29,6 +29,10 @@
                                             (locate-dominating-file buffer-file-name ".git"))
                                         ("mtest" "mvn validate"
                                             (locate-dominating-file buffer-file-name ".git"))))
+                            (c-mode . (("cpac" "make"
+                                            (locate-dominating-file buffer-file-name ".git"))
+                                        ("cclean" "make clean"
+                                            (locate-dominating-file buffer-file-name ".git"))))
                             ))
                       (global-set-key [f8] #'multi-compile-run)
                       ))
