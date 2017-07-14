@@ -187,8 +187,10 @@
 (add-hook 'java-mode-hook '(lambda()
                               (progn
                                 (local-unset-key (kbd "C-d"))
-                                (meghanada-mode t))
-                                ))
+                                (local-unset-key (kbd "C-c e"))
+                                (define-key java-mode-map (kbd "C-c e") 'meghanada-mode)
+                                ;(meghanada-mode t)
+                                )))
 ;; End java-mode
 ;; Sh
 (add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))

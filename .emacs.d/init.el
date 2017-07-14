@@ -41,6 +41,7 @@
      (user . 85)
      (unregistered . 40)
      (nil . 40))))
+ '(neo-window-fixed-size nil)
  '(package-selected-packages (quote (csv-mode async el-get)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
