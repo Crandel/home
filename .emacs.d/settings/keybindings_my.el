@@ -35,7 +35,9 @@
 (global-unset-key (kbd "C-s"))
 (global-unset-key (kbd "C-r"))
 (global-set-key (kbd "C-s") 'helm-swoop)
+(global-set-key (kbd "C-c s") 'search-forward)
 (global-set-key (kbd "C-r") 'helm-multi-swoop-projectile)
+
 
 ;; Helm-git-grep
 (global-unset-key (kbd "C-x g"))

@@ -197,5 +197,4 @@
 (setq max-mini-window-height      0.4
       compilation-always-kill     t)
 
-
 (provide 'scratch_my)
