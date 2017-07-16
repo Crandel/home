@@ -192,6 +192,12 @@
                                 ;(meghanada-mode t)
                                 )))
 ;; End java-mode
+;; c-mode hooks
+(add-hook 'c-mode-hook '(lambda()
+                              (progn
+                                (local-unset-key (kbd "C-d"))
+                                )))
+;; End c-mode
 ;; Sh
 (add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
