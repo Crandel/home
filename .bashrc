@@ -206,7 +206,35 @@ if command_exists go ; then
 fi
 
 if command_exists hadoop ; then
-  alias hdp='sudo -u hdfs hadoop fs'
+  if command_exists hdfs ; then
+      alias hdp='hdfs dfs'
+  else
+      alias hdp='hadoop fs'
+  fi
+  function run_exec_2_file() {
+    # second parameter - path to exec file who works with hdfs files
+    local run_script=$2
+    # first parameter - file with hdfs file paths, needed for exec file
+    for line in $(cat $1)
+    do
+      $run_script "$line"
+      echo "-----------\n\n"
+    done
+
+  }
+
+  function load2hdfs(){
+    # second parameter - path to hdfs directory where we need to put local files
+    local hdfs_path=$2
+    # first parameter - directory pwd where files placed
+    for file in $(cd $1 && pwd)/*
+    do
+      if [ -f "$file" ]
+      then
+          hdp -copyFromLocal $file $2
+      fi
+    done
+  }
 fi
 
 if command_exists hive ; then
