@@ -129,6 +129,7 @@ endfunction
 
 execute "set <M-;>=\e;"
 noremap <M-;> :call ToggleComment()<cr>
+map <F9> Oimport pdb; pdb.set_trace() # BREAKPOINT
 
 " tab section
 " virtual tabstops using spaces
@@ -146,7 +147,7 @@ function! TabToggle()
   endif
 endfunction
 nmap <F10> mz:execute TabToggle()<CR>'z
-map <F9> Oimport pdb; pdb.set_trace() # BREAKPOINT
+
 "relative numbers
 set nu
 
