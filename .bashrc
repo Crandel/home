@@ -33,8 +33,11 @@ if test -t 1; then
     WHITE="$(tput setaf 7)"
     LIGHT_GRAY="$(tput setaf 7)"
     # enable color support of ls and also add handy aliases
-    bind 'set colored-completion-prefix on'
-    bind 'set colored-stats on'
+    if [ -t 1 ]
+    then
+        bind 'set colored-completion-prefix on'
+        bind 'set colored-stats on'
+    fi
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
@@ -71,20 +74,22 @@ shopt -s globstar
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # NAVIGATION
-bind '"\e[1;5C":forward-word'
-bind '"\e[1;5D":backward-word'
-# bind '"\eOD":backward-word'
-# bind '"\eOC":forward-word'
-# bind '"\eOA":history-search-backward'
-# bind '"\eOB":history-search-forward'
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+if [ -t 1 ]
+then
+    bind '"\e[1;5C":forward-word'
+    bind '"\e[1;5D":backward-word'
+    # bind '"\eOD":backward-word'
+    # bind '"\eOC":forward-word'
+    # bind '"\eOA":history-search-backward'
+    # bind '"\eOB":history-search-forward'
+    bind '"\e[A":history-search-backward'
+    bind '"\e[B":history-search-forward'
 
-bind 'set completion-ignore-case on'
-bind 'set show-all-if-ambiguous on'
-bind 'set completion-query-items 30'
-bind 'set editing-mode emacs'
-
+    bind 'set completion-ignore-case on'
+    bind 'set show-all-if-ambiguous on'
+    bind 'set completion-query-items 30'
+    bind 'set editing-mode emacs'
+fi
 
 # ALIASES
 # some more ls aliases
