@@ -150,6 +150,15 @@ if command_exists pacman ; then
   alias pacs='pacman -Ss'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
+  recovery-pacman() {
+    sudo pacman "$@"  \
+    --log /dev/null   \
+    --noscriptlet     \
+    --dbonly          \
+    --force           \
+    --nodeps          \
+    --needed
+}
 fi
 
 if command_exists apt ; then
@@ -225,7 +234,6 @@ if command_exists hadoop ; then
       $run_script "$line"
       echo "-----------\n\n"
     done
-
   }
 
   function load2hdfs(){
