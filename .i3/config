@@ -10,6 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $lock i3lock -c 000000
 set $term tilix
 set $browser chromium
 # Font for window titles. Will also be used by the bar unless a different font
@@ -207,7 +208,7 @@ bindsym $mod+x exec emacs
 bindsym $mod+m exec xmenud
 
 # lock screen
-bindsym $mod+Control+z exec i3lock -c 000000
+bindsym $mod+Control+z exec $lock
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+z workspace next
@@ -227,10 +228,11 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 workspace_auto_back_and_forth yes
 
 exec --no-startup-id libinput-gestures
+exec --no-startup-id xss-lock -- $lock
 exec --no-startup-id nm-applet
 exec feh --bg-scale /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg
 exec_always --no-startup-id numlockx on
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id compton --paint-on-overlay --config ~/.config/compton.conf -b
 exec clipit
 exec $term --quake
 exec_always --no-startup-id sbxkb
