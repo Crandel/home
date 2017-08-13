@@ -232,7 +232,7 @@ exec --no-startup-id xss-lock -- $lock
 exec --no-startup-id nm-applet
 exec feh --bg-scale /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg
 exec_always --no-startup-id numlockx on
-exec --no-startup-id compton --paint-on-overlay --config ~/.config/compton.conf -b
+exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec clipit
 exec $term --quake
 exec_always --no-startup-id sbxkb
