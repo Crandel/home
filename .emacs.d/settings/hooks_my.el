@@ -37,6 +37,8 @@
                                ;; pythom mode keybindings
                                (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
                                (define-key python-mode-map (kbd "C-c C-b") 'insert_ipdb)
+                               (define-key python-mode-map (kbd "RET") 'newline-and-indent)
+                               (define-key python-mode-map (kbd "M-RET") 'newline)
                                (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
                                (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
                                (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
@@ -80,6 +82,8 @@
 ;; Lisp mode
 (add-hook 'lisp-interaction-mode-hook '(lambda()
                                          (progn
+                                           (define-key lisp-interaction-mode-map (kbd "RET") 'newline-and-indent)
+                                           (define-key lisp-interaction-mode-map (kbd "M-RET") 'newline)
                                            (eval-after-load "company"
                                              '(progn
                                                 (unless (member 'company-elisp (car company-backends))
@@ -103,6 +107,8 @@
                              (add-hook 'before-save-hook #'gofmt-before-save)
                              ;; Go mode keybindings
                              (define-key go-mode-map (kbd "M-.") #'godef-jump)
+                             (define-key go-mode-map (kbd "RET") 'newline-and-indent)
+                             (define-key go-mode-map (kbd "M-RET") 'newline)
                              ;; End keybindings
                              (eval-after-load "company"
                                '(progn
@@ -127,8 +133,6 @@
 ;; Restclient hooks
 (add-hook 'restclient-mode-hook '(lambda()
                                   (progn
-                                    (define-key restclient-mode-map (kbd "RET") 'newline)
-                                    (define-key restclient-mode-map (kbd "M-RET") 'newline-and-indent)
                                     (eval-after-load "company"
                                       '(progn
                                           (unless (member 'company-restclient (car company-backends))
@@ -142,6 +146,8 @@
 ;; Web-mode hook
 (add-hook 'web-mode-hook '(lambda()
                             (progn
+                              (define-key web-mode-map (kbd "RET") 'newline-and-indent)
+                              (define-key web-mode-map (kbd "M-RET") 'newline)
                               (eval-after-load "company"
                                 '(progn
                                    (unless (member 'company-css (car company-backends))
@@ -160,6 +166,8 @@
                                 (local-unset-key (kbd "M-."))
                                 (local-unset-key (kbd "M-,"))
                                 (local-unset-key [tab])
+                                (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
+                                (define-key scala-mode-map (kbd "M-RET") 'newline)
                                 (define-key scala-mode-map (kbd "TAB") nil)
                                 (define-key scala-mode-map (kbd "TAB") nil)
                                 (define-key scala-mode-map (kbd "M-.") 'scala-syntax:beginning-of-definition)
@@ -189,6 +197,8 @@
                                 (local-unset-key (kbd "C-d"))
                                 (local-unset-key (kbd "C-c e"))
                                 (define-key java-mode-map (kbd "C-c e") 'meghanada-mode)
+                                (define-key java-mode-map (kbd "RET") 'newline-and-indent)
+                                (define-key java-mode-map (kbd "M-RET") 'newline)
                                 ;(meghanada-mode t)
                                 )))
 ;; End java-mode
@@ -196,6 +206,8 @@
 (add-hook 'c-mode-hook '(lambda()
                               (progn
                                 (local-unset-key (kbd "C-d"))
+                                (define-key c-mode-map (kbd "RET") 'newline-and-indent)
+                                (define-key c-mode-map (kbd "M-RET") 'newline)
                                 )))
 ;; End c-mode
 ;; Sh
