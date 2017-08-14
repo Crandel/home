@@ -213,8 +213,8 @@ if command_exists mc; then
 fi
 
 if command_exists git; then
-  alias pll="git pull"
-  alias psh="git push"
+  alias pll="git pull origin"
+  alias psh="git push origin"
   alias gst="git status"
   alias gco="git checkout"
   alias gadd="git add ."

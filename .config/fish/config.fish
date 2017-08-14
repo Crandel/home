@@ -277,10 +277,10 @@ end
 
 if type -pq git
   function pll
-    git pull $argv
+    git pull origin $argv
   end
   function psh
-    git push $argv
+    git push origin $argv
   end
   function gst
     git status
