@@ -275,22 +275,36 @@ if type -pq mc
   end
 end
 
+function _list_git_branches
+    # In some cases, git can end up on no branch - e.g. with a detached head
+    # This will result in output like `* (no branch)` or a localized `* (HEAD detached at SHA)`
+    # The first `string match -v` filters it out because it's not useful as a branch argument
+    command git branch --no-color -a $argv ^/dev/null | string match -v '\* (*)' | string match -r -v ' -> ' | string trim -c "* " | string replace -r "^remotes/" ""
+end
+
 if type -pq git
   function pll
     git pull origin $argv
   end
+  complete -c pll -a '(_list_git_branches)' -d 'Pull from origin branches'
   function psh
     git push origin $argv
   end
+  complete -c psh -a '(_list_git_branches)' -d 'Push to origin branches'
   function gst
     git status
   end
   function gco
     git checkout $argv
   end
+  complete -f -c gco -a '(_list_git_branches)' -d 'Checkout branches'
   function gadd
     git add .
   end
+  function gbr
+    git branch $argv
+  end
+  complete -f -c gbr -a '(_list_git_branches)' -d 'Branch'
   function gcmt
     git commit -m "$argv"
   end
