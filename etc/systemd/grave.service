@@ -1,8 +1,7 @@
 [Unit]
-Description=Run lock screen
+Description=Run sync
 
 [Service]
 User=crandel
 Type=forking
-Environment=DISPLAY=:0
 ExecStart=<exec path>
