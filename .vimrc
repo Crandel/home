@@ -151,6 +151,21 @@ nmap <F10> mz:execute TabToggle()<CR>'z
 "relative numbers
 set nu
 
+" file browser section
+let g:netrw_liststyle     = 3
+let g:netrw_browse_split  = 3
+let g:netrw_altv          = 1
+let g:netrw_fastbrowse    = 2
+let g:netrw_keepdir       = 1
+let g:netrw_retmap        = 1
+let g:netrw_silent        = 1
+let g:netrw_special_syntax= 1
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+map <F7> :Texplore<CR>
+
 nnoremap <NUL> :%s/\s\+$//e
 
 nnoremap <C-n> :call NumberToggle()<cr>
