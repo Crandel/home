@@ -314,7 +314,7 @@ function set_git_branch() {
       unstaged_files="|%F{yellow}${unstaged_files}%f"
     fi
     if [ ! -z "${ahead}" ]; then
-      ahead="%F{cyan}{>${ahead}}%f"
+      ahead="%F{green}{>${ahead}}%f"
     fi
     if [ ! -z "${behind}" ]; then
       behind="%F{red}{<${behind}}%f"
