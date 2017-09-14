@@ -7,10 +7,31 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # ZSH SPECIFIC
-setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST HIST_IGNORE_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY
+setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST HIST_IGNORE_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY MAGIC_EQUAL_SUBST AUTONAMEDIRS
 bindkey -e
 autoload -Uz promptinit
 promptinit
+
+antigen_source="$HOME/antigen.zsh"
+if [ -f $antigen_source ]; then
+  source $antigen_source
+  antigen use oh-my-zsh
+  antigen bundle git
+  antigen bundle pip
+  antigen bundle command-not-found
+  antigen bundle autojump
+  antigen bundle shrink-path
+  antigen bundle mvn
+  antigen bundle sbt
+  antigen bundle scala
+  antigen bundle cargo
+  antigen bundle per-directory-history
+  antigen bundle zsh-users/zsh-autosuggestions
+  antigen bundle zsh-users/zsh-completions
+  antigen bundle zsh-users/zsh-history-substring-search
+  antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen apply
+fi
 
 # Lines configured by zsh-newuser-install
 
@@ -38,14 +59,23 @@ if test -t 1; then
 fi
 
 # NAVIGATION
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
+[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+bindkey "^[[1;5A" history-substring-search-up
+bindkey "^[[1;5B" history-substring-search-down
+
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
-#bindkey "\eOC" forward-word
-#bindkey "\eOD" backward-word
+# bindkey "\eOC" forward-word
+# bindkey "\eOD" backward-word
 
-bindkey "\e[A" history-search-backward
-bindkey "\e[B" history-search-forward
+# bindkey "\e[A" history-search-backward
+# bindkey "\e[B" history-search-forward
 
 # bindkey "\eOA" history-search-backward
 # bindkey "\eOB" history-search-forward
@@ -58,10 +88,6 @@ alias la='ls -A'
 alias ~='cd $HOME'
 
 # FUNCTIONS
-function command_exists () {
-  type "$1" &> /dev/null ;
-}
-
 function pr () {
   local projects_folder="/opt/work/projects/"
   cd $projects_folder
@@ -89,11 +115,11 @@ function son {
 
 # CONDITIONS
 SUDO=''
-if [[ $EUID -ne 0 ]] && command_exists sudo ; then
+if [[ $EUID -ne 0 ]] && (( $+commands[sudo] )) ; then
   SUDO='sudo'
 fi
 
-if command_exists pacman ; then
+if (( $+commands[pacman] )) ; then
   alias pacman="$SUDO pacman"
   alias upg='pacman -Syu'
   alias upgy='yaourt -Syu'
@@ -102,7 +128,12 @@ if command_exists pacman ; then
   alias pacr='pacman -Rs'
 fi
 
-if command_exists apt ; then
+if (( $+commands[apt] )) ; then
+  paclist() {
+  # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
+  LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
+    awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
+  }
   alias apt="$SUDO apt"
   alias upgy='apt update'
   alias upg='upgy && apt upgrade'
@@ -113,7 +144,7 @@ if command_exists apt ; then
   alias aar="$SUDO add-apt-repository"
 fi
 
-if command_exists yum ; then
+if (( $+commands[yum] )) ; then
   alias apt="$SUDO yum"
   alias upg='yum upgrade'
   alias pacs='yum search'
@@ -121,20 +152,21 @@ if command_exists yum ; then
   alias pacr='yum remove'
 fi
 
-if command_exists tmux ; then
+if (( $+commands[tmux] )) ; then
   alias tm='tmux attach || tmux new'
 fi
 
-if command_exists docker ; then
+if (( $+commands[docker] )) ; then
   # Docker
   alias d='docker'
+  compdef d='docker'
   alias dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
   alias run='docker-compose stop && docker-compose run --rm --service-ports app'
   alias dst='d stop (d ps -q)'
 fi
 
-if command_exists vagrant ; then
+if (( $+commands[vagrant] )) ; then
   # Vagrant
   alias vup='vagrant up'
   alias vh='vagrant halt'
@@ -143,7 +175,7 @@ if command_exists vagrant ; then
   alias vs='vagrant ssh'
 fi
 
-if command_exists systemctl ; then
+if (( $+commands[systemctl] )) ; then
   alias systemctl="$SUDO systemctl"
 fi
 
@@ -154,16 +186,16 @@ if [ -f $virtual ]; then
   . $virtual
 fi
 
-if command_exists go ; then
+if (( $+commands[go] )) ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
 fi
 
-if command_exists hadoop ; then
+if (( $+commands[hadoop] )) ; then
   alias hdp='sudo -u hdfs hadoop fs'
 fi
 
-if command_exists hive ; then
+if (( $+commands[hive] )) ; then
   function hive_home {
     grep hive /etc/passwd | awk -F: '{print $6}'
   }
@@ -197,22 +229,22 @@ elif [ -d /usr/lib/jvm/default-java ]; then
   export JAVA_HOME=/usr/lib/jvm/default-java
 fi
 
-if command_exists emacs; then
+if (( $+commands[emacs] )); then
   alias em='emacs -nw'
   alias sem="$SUDO em"
   export EDITOR='emacs -nw'
   if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
     export TERM='ansi-term'
   fi
-elif command_exists vim; then
+elif (( $+commands[vim] )); then
   export EDITOR='vim'
 fi
 
-if command_exists mc; then
+if (( $+commands[mc] )); then
   alias smc="$SUDO mc"
 fi
 
-if command_exists git; then
+if (( $+commands[git] )); then
   alias pll="git pull origin"
   alias psh="git push origin"
   alias gst="git status"
@@ -306,7 +338,7 @@ function set_virtualenv () {
 
 # Set the full bash prompt.
 function set_zsh_prompt () {
-  PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f@%F{white}%m%f %F{magenta}{%~}%f$(set_git_branch)$(set_prompt_symbol)'
+  PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f@%F{white}%m%f %F{magenta}{$(shrink_path -f)}%f$(set_git_branch)$(set_prompt_symbol)'
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
