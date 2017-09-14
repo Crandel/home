@@ -7,7 +7,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 # ZSH SPECIFIC
-setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST HIST_IGNORE_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY MAGIC_EQUAL_SUBST AUTONAMEDIRS
+setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
 bindkey -e
 autoload -Uz promptinit
 promptinit
@@ -36,10 +36,11 @@ fi
 # Lines configured by zsh-newuser-install
 
 # HISTORY
-HISTCONTROL=ignoreboth
+setopt HIST_IGNORE_ALL_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY HIST_IGNORE_SPACE HIST_FIND_NO_DUPS HIST_SAVE_NO_DUPS
 HISTFILE=~/.hist_zsh
 HISTSIZE=5000000
-SAVEHIST=5000000
+SAVEHIST=$HISTSIZE
+# History end
 
 # End of lines configured by zsh-newuser-install
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -86,15 +87,20 @@ alias arch='uname -m'
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
+alias home_pr='cd $HOME/home/'
 
 # FUNCTIONS
+projects_folder="/opt/work/projects/"
 function pr () {
-  local projects_folder="/opt/work/projects/"
   cd $projects_folder
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
+_pr (){
+    _values "(ls $projects_folder)"
+}
+compdef _pr pr
 
 function backup () {
   local backup="/opt/work/backup"
@@ -231,7 +237,7 @@ fi
 
 if (( $+commands[emacs] )); then
   alias em='emacs -nw'
-  alias sem="$SUDO em"
+  alias sem="$SUDO emacs -nw"
   export EDITOR='emacs -nw'
   if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
     export TERM='ansi-term'
@@ -255,6 +261,10 @@ fi
 
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
+fi
+
+if [ -f /etc/profile.d/vte.sh ]; then
+  . /etc/profile.d/vte.sh
 fi
 
 # PROMPT
