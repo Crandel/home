@@ -12,9 +12,17 @@ bindkey -e
 autoload -Uz promptinit
 promptinit
 
+fish_pwd() {
+    if [ -f $antigen_source ]; then
+        echo "$(shrink_path -f)"
+    else
+        echo "%~"
+    fi
+}
+
 antigen_source="$HOME/antigen.zsh"
-if [ -f $antigen_source ]; then
-  source $antigen_source
+function anti_init() {
+  . $antigen_source
   antigen use oh-my-zsh
   antigen bundle git
   antigen bundle pip
@@ -31,6 +39,14 @@ if [ -f $antigen_source ]; then
   antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen apply
+  fish_pwd="$(shrink_path -f)"
+}
+
+if [ -f $antigen_source ]; then
+    anti_init
+else;
+    curl -L git.io/antigen > $antigen_source
+    anti_init
 fi
 
 # Lines configured by zsh-newuser-install
@@ -87,7 +103,7 @@ alias arch='uname -m'
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
-alias home_pr='cd $HOME/home/'
+alias home_pr='cd /opt/work/home/'
 
 # FUNCTIONS
 projects_folder="/opt/work/projects/"
@@ -348,7 +364,7 @@ function set_virtualenv () {
 
 # Set the full bash prompt.
 function set_zsh_prompt () {
-  PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f@%F{white}%m%f %F{magenta}{$(shrink_path -f)}%f$(set_git_branch)$(set_prompt_symbol)'
+  PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f@%F{white}%m%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch)$(set_prompt_symbol)'
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
