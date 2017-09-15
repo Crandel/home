@@ -13,6 +13,7 @@ bindkey -e
 autoload -Uz promptinit
 promptinit
 
+antigen_source="$HOME/antigen.zsh"
 fish_pwd() {
     if [ -f $antigen_source ]; then
         echo "$(shrink_path -f)"
@@ -21,7 +22,6 @@ fish_pwd() {
     fi
 }
 
-antigen_source="$HOME/antigen.zsh"
 function anti_init() {
   . $antigen_source
   antigen use oh-my-zsh
@@ -40,7 +40,6 @@ function anti_init() {
   antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-syntax-highlighting
   antigen apply
-  fish_pwd="$(shrink_path -f)"
 }
 
 if [ -f $antigen_source ]; then
@@ -397,3 +396,7 @@ function set_zsh_prompt () {
 }
 # Tell bash to execute this function just before displaying its prompt.
 set_zsh_prompt
+
+#if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+#  exec startx
+#fi
