@@ -5,6 +5,7 @@ zstyle :compinstall filename '/home/crandel/.zshrc'
 
 autoload -Uz compinit
 compinit
+zstyle ':completion:*' menu select=2
 # End of lines added by compinstall
 # ZSH SPECIFIC
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
@@ -113,9 +114,37 @@ function pr () {
     cd $1
   fi
 }
-_pr (){
-    _values "(ls $projects_folder)"
+
+_pr(){
+    local -a list
+    for dir in $(ls $projects_folder); do
+        inside_dir=$projects_folder$dir
+        if [ -d $inside_dir ]; then
+            list=( $list $dir )
+            for d in $(ls $inside_dir); do
+                double_dir=$inside_dir/$d
+                if [ -d $double_dir ]; then
+                    list=( $list $dir/$d )
+                fi
+            done
+        fi
+    done
+    compadd -a $list
 }
+
+# _p() {
+#   _arguments '1: :->first' '2: :->second'
+#   case $state in
+#     first)
+#       _files -W $projects_folder
+#     ;;
+#     second)
+#       _files -W $projects_folder${(Q)words[CURRENT-1]}
+#     ;;
+#   esac
+# }
+
+#compdef '_path_files -W /opt/work/projects -/ && return 0 || return 1' pr
 compdef _pr pr
 
 function backup () {
