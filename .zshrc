@@ -176,6 +176,8 @@ if (( $+commands[pacman] )) ; then
   alias pacs='pacman -Ss'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
+  alias yacs='yaourt -Ss'
+  alias yaci='yaourt -Sa'
 fi
 
 if (( $+commands[apt] )) ; then
