@@ -108,7 +108,7 @@ fi
 
 # FUNCTIONS
 function command_exists () {
-  type "$1" &> /dev/null ;
+  command -v "$1"  > /dev/null 2>&1;
 }
 
 function pr () {
