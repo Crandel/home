@@ -5,5 +5,6 @@
        :depends (helm)
        :post-init (progn
                       (setq helm-ag-insert-at-point 'word
+                            helm-ag-base-command "rg --color=no -i"
                             helm-ag-use-temp-buffer t
                             helm-ag-fuzzy-match     t)))
