@@ -15,13 +15,6 @@ autoload -Uz promptinit
 promptinit
 
 antigen_source="$HOME/antigen.zsh"
-fish_pwd() {
-    if [ -f $antigen_source ]; then
-        echo "$(shrink_path -f)"
-    else
-        echo "%~"
-    fi
-}
 
 function anti_init() {
   . $antigen_source
@@ -38,7 +31,7 @@ function anti_init() {
   antigen bundle zsh-users/zsh-completions
   antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen apply
+  # antigen apply
 }
 
 if [ -f $antigen_source ]; then
@@ -104,14 +97,14 @@ alias ~='cd $HOME'
 alias home_pr='cd /opt/work/home/'
 
 # FUNCTIONS
-projects_folder="/opt/work/projects/"
+project_folders="/opt/work/projects/"
 function pr () {
-  cd $projects_folder
+  cd $project_folders
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-compdef "_path_files -W $projects_folder -/ && return 0 || return 1" pr
+compdef "_path_files -W $project_folders -/ && return 0 || return 1" pr
 
 # _pr(){
 #     local -a list
@@ -415,6 +408,14 @@ function set_virtualenv () {
   else
     echo " %F{yellow}[`basename \"$VIRTUAL_ENV\"`]"
   fi
+}
+
+function fish_pwd() {
+    if (( $+commands[antigen] )) ; then
+        echo "$(shrink_path -f)"
+    else
+        echo "%~"
+    fi
 }
 
 # Set the full bash prompt.
