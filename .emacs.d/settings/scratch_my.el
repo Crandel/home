@@ -103,9 +103,9 @@
 (setq-default indent-tabs-mode      nil
               tab-width             4
               tab-always-indent     nil
-              c-basic-offset        4
-              sh-basic-offset       4
-              scala-basic-offset    4
+              c-basic-offset        2
+              sh-basic-offset       2
+              scala-basic-offset    2
               java-basic-offset     4
               standart-indent       4
               lisp-body-indent      2

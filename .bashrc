@@ -135,6 +135,26 @@ function son {
   eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
 }
 
+extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)        tar xjf $1        ;;
+            *.tar.gz)         tar xzf $1        ;;
+            *.bz2)            bunzip2 $1        ;;
+            *.rar)            unrar x $1        ;;
+            *.gz)             gunzip $1         ;;
+            *.tar)            tar xf $1         ;;
+            *.tbz2)           tar xjf $1        ;;
+            *.tgz)            tar xzf $1        ;;
+            *.zip)            unzip $1          ;;
+            *.Z)              uncompress $1     ;;
+            *.7z)             7zr e $1          ;;
+            *)                echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 # BINS CONDITIONS
 SUDO=''
@@ -207,8 +227,8 @@ if command_exists systemctl ; then
 fi
 
 
-virtual='/usr/bin/virtualenvwrapper.sh'
-if [ -f $virtual ]; then
+virtual='virtualenvwrapper.sh'
+if command_exists $virtual && [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
   export WORKON_HOME=~/.virtualenvs/
   . $virtual
@@ -411,6 +431,10 @@ function set_prompt_symbol () {
 # Determine active Python virtualenv details.
 function set_virtualenv () {
   PYTHON_VIRTUALENV=""
+  if ! [[ -z ${VIRTUAL_ENV_DISABLE_PROMPT} ]] && [ -f .venv ] ; then
+      workon `cat .venv`
+  fi
+
   if ! test -z "$VIRTUAL_ENV" ; then
     PYTHON_VIRTUALENV=" ${YELLOW}[`basename \"$VIRTUAL_ENV\"`]${NORMAL}"
   fi

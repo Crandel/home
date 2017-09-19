@@ -171,8 +171,8 @@
 (global-unset-key (kbd "C-d"))
 (global-set-key (kbd "C-d") 'my-delete-line)
 
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "M-RET") 'newline)
+(global-set-key (kbd "RET") 'newline)
+(global-set-key (kbd "M-RET") 'newline-and-indent)
 
 (defvar newline-and-indent t)
 ;; open new line (vi's o command)

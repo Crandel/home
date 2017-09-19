@@ -1,11 +1,12 @@
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '/home/crandel/.zshrc'
 
 autoload -Uz compinit
 compinit
-zstyle ':completion:*' menu select=2
 # End of lines added by compinstall
 # ZSH SPECIFIC
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
@@ -28,13 +29,11 @@ function anti_init() {
   antigen bundle git
   antigen bundle pip
   antigen bundle command-not-found
-  antigen bundle autojump
   antigen bundle shrink-path
   antigen bundle mvn
   antigen bundle sbt
   antigen bundle scala
   antigen bundle cargo
-  antigen bundle per-directory-history
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-completions
   antigen bundle zsh-users/zsh-history-substring-search
@@ -99,7 +98,6 @@ bindkey "\e[1;5D" backward-word
 
 # ALIASES
 alias arch='uname -m'
-# some more ls aliases
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
@@ -150,6 +148,26 @@ function son {
   eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
 }
 
+function extract () {
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)        tar xjf $1        ;;
+            *.tar.gz)         tar xzf $1        ;;
+            *.bz2)            bunzip2 $1        ;;
+            *.rar)            unrar x $1        ;;
+            *.gz)             gunzip $1         ;;
+            *.tar)            tar xf $1         ;;
+            *.tbz2)           tar xjf $1        ;;
+            *.tgz)            tar xzf $1        ;;
+            *.zip)            unzip $1          ;;
+            *.Z)              uncompress $1     ;;
+            *.7z)             7zr e $1          ;;
+            *)                echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 # CONDITIONS
 SUDO=''
@@ -219,8 +237,8 @@ if (( $+commands[systemctl] )) ; then
   alias systemctl="$SUDO systemctl"
 fi
 
-virtual='/usr/bin/virtualenvwrapper.sh'
-if [ -f $virtual ]; then
+virtual='virtualenvwrapper.sh'
+if (( $+commands[$virtual] )) && [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
   export WORKON_HOME=~/.virtualenvs/
   . $virtual
@@ -229,6 +247,9 @@ fi
 if (( $+commands[go] )) ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  if (( !$+commands[fzf] )) ; then
+      go get -u github.com/junegunn/fzf
+  fi
 fi
 
 if (( $+commands[hadoop] )) ; then
@@ -256,6 +277,15 @@ fi
 # Rust
 if [ -d $HOME/.cargo/bin ]; then
     export PATH=$PATH:$HOME/.cargo/bin
+fi
+
+if (( $+commands[cargo] )) ; then
+    if (( !$+commands[tldr] )) ; then
+        cargo install tealdeer
+    fi
+    if (( !$+commands[rg] )) ; then
+        cargo install ripgrep
+    fi
 fi
 
 if [ -d /usr/src/rust ]; then
@@ -291,6 +321,10 @@ if (( $+commands[git] )); then
   alias gco="git checkout"
   alias gadd="git add ."
   alias gcmt="git commit -m"
+fi
+
+if (( $+commands[fzf] )) && [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh ]; then
+    . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
 fi
 
 if [ -f ~/.zsh_aliases ]; then
@@ -373,6 +407,9 @@ function set_prompt_symbol () {
 }
 # Determine active Python virtualenv details.
 function set_virtualenv () {
+  if ! [[ -z ${VIRTUAL_ENV_DISABLE_PROMPT} ]] && [ -f .venv ]; then
+      workon `cat .venv`
+  fi
   if test -z "$VIRTUAL_ENV" ; then
     echo ""
   else
