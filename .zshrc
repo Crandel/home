@@ -35,10 +35,10 @@ function anti_init() {
 }
 
 if [ -f $antigen_source ]; then
-    anti_init
+  anti_init
 else;
-    curl -L git.io/antigen > $antigen_source
-    anti_init
+  curl -L git.io/antigen > $antigen_source
+  anti_init
 fi
 
 # Lines configured by zsh-newuser-install
@@ -142,24 +142,24 @@ function son {
 }
 
 function extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar xjf $1        ;;
-            *.tar.gz)         tar xzf $1        ;;
-            *.bz2)            bunzip2 $1        ;;
-            *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar xf $1         ;;
-            *.tbz2)           tar xjf $1        ;;
-            *.tgz)            tar xzf $1        ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *.7z)             7zr e $1          ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 # CONDITIONS
@@ -241,7 +241,10 @@ if (( $+commands[go] )) ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
   if (( !$+commands[fzf] )) ; then
-      go get -u github.com/junegunn/fzf
+    go get -u github.com/junegunn/fzf
+    if [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh ]; then
+      . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
+    fi
   fi
 fi
 
@@ -255,7 +258,7 @@ if (( $+commands[hive] )) ; then
   }
   h_home=$(hive_home)
   if [ ! -z $h_home ]; then
-     export HIVE_HOME=$h_home
+    export HIVE_HOME=$h_home
   fi
   alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
   alias hvfs='sudo -u hive hadoop fs'
@@ -269,27 +272,29 @@ fi
 
 # Rust
 if [ -d $HOME/.cargo/bin ]; then
-    export PATH=$PATH:$HOME/.cargo/bin
+  export PATH=$PATH:$HOME/.cargo/bin
 fi
 
 if (( $+commands[cargo] )) ; then
-    if (( !$+commands[tldr] )) ; then
-        cargo install tealdeer
-    fi
-    if (( !$+commands[rg] )) ; then
-        cargo install ripgrep
-    fi
+  if (( !$+commands[tldr] )) ; then
+    cargo install tealdeer
+  fi
+  if (( !$+commands[rg] )) ; then
+    cargo install ripgrep
+  fi
 fi
 
 if [ -d /usr/src/rust ]; then
-    export RUST_SRC_PATH=/usr/src/rust/src
+  export RUST_SRC_PATH=/usr/src/rust/src
 fi
 # End Rust
 
-if [ -d /usr/lib/jvm/default ]; then
-  export JAVA_HOME=/usr/lib/jvm/default
-elif [ -d /usr/lib/jvm/default-java ]; then
-  export JAVA_HOME=/usr/lib/jvm/default-java
+if (( $+commands[java] )) ; then
+  if [ -d /usr/lib/jvm/default ]; then
+    export JAVA_HOME=/usr/lib/jvm/default
+  elif [ -d /usr/lib/jvm/default-java ]; then
+    export JAVA_HOME=/usr/lib/jvm/default-java
+  fi
 fi
 
 if (( $+commands[emacs] )); then
@@ -314,10 +319,6 @@ if (( $+commands[git] )); then
   alias gco="git checkout"
   alias gadd="git add ."
   alias gcmt="git commit -m"
-fi
-
-if (( $+commands[fzf] )) && [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh ]; then
-    . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
 fi
 
 if [ -f ~/.zsh_aliases ]; then
@@ -401,7 +402,7 @@ function set_prompt_symbol () {
 # Determine active Python virtualenv details.
 function set_virtualenv () {
   if ! [[ -z ${VIRTUAL_ENV_DISABLE_PROMPT} ]] && [ -f .venv ]; then
-      workon `cat .venv`
+    workon `cat .venv`
   fi
   if test -z "$VIRTUAL_ENV" ; then
     echo ""
@@ -411,11 +412,11 @@ function set_virtualenv () {
 }
 
 function fish_pwd() {
-    if (( $+commands[antigen] )) ; then
-        echo "$(shrink_path -f)"
-    else
-        echo "%~"
-    fi
+  if typeset -f shrink_path > /dev/null; then
+    echo "$(shrink_path -f)"
+  else
+    echo "%~"
+  fi
 }
 
 # Set the full bash prompt.

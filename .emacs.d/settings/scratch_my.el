@@ -105,6 +105,7 @@
               tab-always-indent     nil
               c-basic-offset        2
               sh-basic-offset       2
+              sh-indentation        2
               scala-basic-offset    2
               java-basic-offset     4
               standart-indent       4
