@@ -196,7 +196,7 @@ if (( $+commands[docker] )) ; then
   alias dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
   alias run='docker-compose stop && docker-compose run --rm --service-ports app'
-  alias dst='d stop (d ps -q)'
+  alias dst='d stop $(d ps -q)'
 fi
 
 if (( $+commands[vagrant] )) ; then
