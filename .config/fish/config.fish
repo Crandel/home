@@ -188,24 +188,7 @@ function hm -d "Merge history from several shells"
   history --merge
 end
 
-function listpr
-  set -l list
-  for dir in (ls $MY_PROJECTS_ROOT/)
-    set -l inside_dir $MY_PROJECTS_ROOT"/"$dir
-    if test -d $inside_dir
-      set list $list $dir
-      for d in (ls $inside_dir/)
-        set -l double_dir $dir"/"$d
-        if test -d $MY_PROJECTS_ROOT"/"$double_dir
-          set list $list $double_dir
-        end
-      end
-    end
-  end
-  echo $list
-end
-
-function pr -d "project directory"
+function prj -d "project directory"
   # if argv when go to directory
   set -l path $MY_PROJECTS_ROOT
   if count $argv > /dev/null
@@ -213,25 +196,7 @@ function pr -d "project directory"
   end
   cd $path
 end
-complete -c pr -a (listpr)
-
-set -l glistpr "(ls $MY_GO_PROJECTS_ROOT/src | string replace '/' \t)"
-function gpr
-  # if argv when go to directory
-  set -l path $MY_GO_PROJECTS_ROOT
-  if count $argv > /dev/null
-    set -x path $path"/src/"$argv
-    switch (echo $argv)
-      case go_chat
-        set -l check (docker inspect -f "{{.State.Running}}" postgres)
-        if [ $check = "false" ]
-          docker start postgres
-        end
-    end
-  end
-  cd $path
-end
-complete -c gpr -a "$glistpr"
+complete -c prj -a '(__fish_complete_directories (eval $MY_PROJECTS_ROOT))'
 
 function rmv
   sudo_run mv $argv /tmp

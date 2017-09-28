@@ -111,21 +111,33 @@ function command_exists () {
   command -v "$1"  > /dev/null 2>&1;
 }
 
-function pr () {
-  local projects_folder="/opt/work/projects/"
-  cd $projects_folder
+project_folders="/opt/work/projects/"
+function prj () {
+  cd $project_folders
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
+_prj()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(ls $project_folders)" -- $cur) )
+}
+complete -F _prj prj
 
+backup_dir="/opt/work/backup/"
 function backup () {
-  local backup="/opt/work/backup"
-  cd $backup
+  cd $backup_dir
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
+_backup()
+{
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    COMPREPLY=( $(compgen -W "$(ls $backup_dir)" -- $cur) )
+}
+complete -F _backup backup
 
 function soff {
   eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
