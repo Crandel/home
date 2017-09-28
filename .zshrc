@@ -98,40 +98,22 @@ alias home_pr='cd /opt/work/home/'
 
 # FUNCTIONS
 project_folders="/opt/work/projects/"
-function pr () {
+function prj () {
   cd $project_folders
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-compdef "_path_files -W $project_folders -/ && return 0 || return 1" pr
+compdef "_path_files -W $project_folders -/ && return 0 || return 1" prj
 
-# _pr(){
-#     local -a list
-#     for dir in $(ls $projects_folder); do
-#         inside_dir=$projects_folder$dir
-#         if [ -d $inside_dir ]; then
-#             list=( $list $dir )
-#             for d in $(ls $inside_dir); do
-#                 double_dir=$inside_dir/$d
-#                 if [ -d $double_dir ]; then
-#                     list=( $list $dir/$d )
-#                 fi
-#             done
-#         fi
-#     done
-#     compadd -a $list
-#}
-
-#compdef _pr pr
-
+backup_dir="/opt/work/backup"
 function backup () {
-  local backup="/opt/work/backup"
-  cd $backup
+  cd $backup_dir
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
+compdef "_path_files -W $backup_dir -/ && return 0 || return 1" backup
 
 function soff {
   eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
@@ -249,7 +231,7 @@ if (( $+commands[go] )) ; then
 fi
 
 if (( $+commands[hadoop] )) ; then
-  alias hdp='sudo -u hdfs hadoop fs'
+  alias hdp='sudo -u hdfs hdfs dfs'
 fi
 
 if (( $+commands[hive] )) ; then
