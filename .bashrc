@@ -168,6 +168,18 @@ extract () {
     fi
 }
 
+zipin () {
+  for f in $(ls -A);
+    do
+    if [ -f "$f" ]; then
+      case $f in
+        *.zip)       echo "$f already zipped"  ;;
+        *)           zip -9 $f.zip $f && rm $f ;;
+      esac
+    fi;
+  done
+}
+
 # BINS CONDITIONS
 SUDO=''
 if [[ $EUID -ne 0 ]] && command_exists sudo ; then
