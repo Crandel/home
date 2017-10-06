@@ -174,8 +174,8 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    wheel_up_cmd exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-    wheel_down_cmd exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+    bindsym button4 exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+    bindsym button5 exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
     bindsym button2 exec gsimplecal
     status_command $HOME/.i3/i3bar_conky
 }
@@ -195,14 +195,17 @@ workspace_layout tabbed
 bindsym --release Mod2+button2 kill
 bindsym --release button2 kill
 
-# chromium
+# browser
 bindsym $mod+c exec $browser
 
 # tilix
 bindsym F1 exec $term --quake
 
-# pycharm
+# emacs
 bindsym $mod+x exec emacs
+
+# Intellij
+bindsym $mod+b exec /opt/idea-IC-171.4694.23/bin/idea.sh
 
 # xmenud
 bindsym $mod+m exec xmenud

@@ -17,6 +17,8 @@
                                             (locate-dominating-file buffer-file-name ".git"))
                                         ("sbpack" "sbt package"
                                             (locate-dominating-file buffer-file-name ".git"))
+                                        ("sbass" "sbt assembly"
+                                            (locate-dominating-file buffer-file-name ".git"))
                                         ("sbtall" "sbt compile; sbt test; sbt run"
                                             (multi-compile-locate-file-dir ".git"))))
                             (rust-mode . (("rw" "cargo build --release -q"
