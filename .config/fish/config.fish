@@ -134,12 +134,14 @@ end
 
 function zipin
   for f in *
-    switch $f
-      case '*zip'
-        echo $f
-      case '*'
-        zip -9 $f.zip $f
-        rm $f
+    if test -f $f
+      switch $f
+        case '*zip'
+          echo "$f already zipped"
+        case '*'
+          zip -9 $f.zip $f
+          rm $f
+       end
     end
   end
 end
