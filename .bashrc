@@ -307,8 +307,8 @@ if command_exists hive ; then
 fi
 
 if command_exists spark-shell ; then
-  alias spll='sudo -u spark spark-shell'
-  alias spmit='sudo -u spark spark-submit'
+  alias spll='spark-shell'
+  alias spmit='spark-submit'
 fi
 
 if [ -d /usr/share/scala ]; then
