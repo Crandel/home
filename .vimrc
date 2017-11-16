@@ -169,3 +169,7 @@ map <F7> :Texplore<CR>
 nnoremap <NUL> :%s/\s\+$//e
 
 nnoremap <C-n> :call NumberToggle()<cr>
+
+" change coursor shape in different modes
+let &t_SI = "\<Esc>[6 q"
+let &t_EI = "\<Esc>[2 q"
