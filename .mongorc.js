@@ -10,10 +10,10 @@ if (!!user){
 var current_db = db.getName();
 
 var prompt = function() {
-  var def = username + "@" + host + "." + current_db;
+  var def = username + "@" + host + "." + current_db + " > ";
   var ndocs, obj, p, sec;
   ndocs = function(n) {
-    return def + n + " document" + (n > 1 ? 's' : '');
+    return "" + n + " document" + (n > 1 ? 's' : '');
   };
   db.setProfilingLevel(2);
   obj = db.getLastErrorObj();
@@ -32,15 +32,15 @@ var prompt = function() {
     }
     switch (p.op) {
     case 'insert':
-      return "Query OK, 1 document inserted (" + sec + ") > ";
+      return "\nQuery OK, 1 document inserted (" + sec + ")\n" + def;
     case 'query':
-      return ">= " + (ndocs(p.nreturned)) + " in set (" + sec + ") > ";
+      return "\n >= " + (ndocs(p.nreturned)) + " in set (" + sec + ")\n" + def;
     case 'remove':
-      return "Query OK, x documents removed (" + sec + ") > ";
+      return "\nQuery OK, x documents removed (" + sec + ")\n" + def;
     case 'update':
-      return "Query OK, " + (ndocs(p.nupdated)) + " affected (" + sec + ") > ";
+      return "\nQuery OK, " + (ndocs(p.nupdated)) + " affected (" + sec + ")\n" + def;
     }
   }
 
-  return def + " > ";
+  return def;
 };
