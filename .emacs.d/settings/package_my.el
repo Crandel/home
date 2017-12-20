@@ -20,8 +20,6 @@
       helm-projectile
       helm-swoop
       json-mode
-      js2-mode
-      js2-refactor
       key-chord
       know-your-http-well
       magit
@@ -51,6 +49,11 @@
     (add-to-list 'my-packages 'flycheck-gometalinter)
 )
 
+(when (executable-find "node")
+    (add-to-list 'my-packages 'js2-mode)
+    (add-to-list 'my-packages 'js2-refactor)
+    (add-to-list 'my-packages 'indium)
+)
 
 (when (executable-find "ag")
     (add-to-list 'my-packages 'helm-ag)
@@ -69,7 +72,7 @@
     (add-to-list 'my-packages 'py-autopep8)
     (add-to-list 'my-packages 'py-isort)
     (when (executable-find "virtualenv")
-        (add-to-list 'my-packages 'auto-virtualenv))
+      (add-to-list 'my-packages 'auto-virtualenv))
 )
 
 (when (executable-find "livedown")

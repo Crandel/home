@@ -9,6 +9,7 @@
                  sbt-mode
                  company-mode
                  yasnippet)
+       :checkout "v2.0.1"
        :post-init (setq ensime-company-case-sensitive   t
                         ensime-startup-notification     nil
                         ensime-graphical-tooltips       t
