@@ -6,4 +6,4 @@
        :depends (yasnippet company-mode flycheck cl-lib)
        :compile "."
        :post-init (progn
-                    (setq c-basic-offset 2)))
+                    (setq c-basic-offset 4)))
