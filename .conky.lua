@@ -40,7 +40,7 @@ conky.config = {
 conky.text = [[
 [
 { "full_text" : "\uF0E0 ${exec gmail}", "color" : "\#2E64FE"},
-{ "full_text" : "\uF07C /${fs_free /}|d${fs_free /media/data}", "color" : "\#FA5882" },
+{ "full_text" : "\uF07C /${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
 { "full_text": "\uF1DE ${cpubar cpu0 }", "color" :
   ${if_match ${cpu}<90}
     "\#04B404"

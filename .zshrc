@@ -14,6 +14,15 @@ bindkey -e
 autoload -Uz promptinit
 promptinit
 
+
+virtual='virtualenvwrapper.sh'
+if (( $+commands[$virtual] )); then
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  export WORKON_HOME=~/.virtualenvs/
+  export AUTOSWITCH_SILENT=1
+  source $virtual
+fi
+
 antigen_source="$HOME/antigen.zsh"
 
 function anti_init() {
@@ -31,6 +40,7 @@ function anti_init() {
   antigen bundle zsh-users/zsh-completions
   antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-syntax-highlighting
+  antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
   # antigen apply
 }
 
@@ -163,10 +173,18 @@ if [[ $EUID -ne 0 ]] && (( $+commands[sudo] )) ; then
 fi
 
 if (( $+commands[pacman] )) ; then
+  paclist() {
+  # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
+  LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
+    awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
+  }
+
   alias pacman="$SUDO pacman"
   alias upg='pacman -Syu'
-  alias upgy='yaourt -Syu'
+  alias upgy='yaourt -Syua'
   alias pacs='pacman -Ss'
+  alias pqs='pacman -Qs'
+  alias pql='pacman -Ql $1'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   alias yacs='yaourt -Ss'
@@ -174,11 +192,6 @@ if (( $+commands[pacman] )) ; then
 fi
 
 if (( $+commands[apt] )) ; then
-  paclist() {
-  # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
-  LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
-    awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
-  }
   alias apt="$SUDO apt"
   alias upgy='apt update'
   alias upg='upgy && apt upgrade'
@@ -222,13 +235,6 @@ fi
 
 if (( $+commands[systemctl] )) ; then
   alias systemctl="$SUDO systemctl"
-fi
-
-virtual='virtualenvwrapper.sh'
-if (( $+commands[$virtual] )) && [ -z "$VIRTUAL_ENV_DISABLE_PROMPT" ]; then
-  export VIRTUAL_ENV_DISABLE_PROMPT=1
-  export WORKON_HOME=~/.virtualenvs/
-  . $virtual
 fi
 
 if (( $+commands[go] )) ; then
@@ -284,14 +290,14 @@ fi
 # End Rust
 
 if (( $+commands[java] )) ; then
-  JAVA9_HOME=/usr/lib/jvm/java-9-openjdk-amd64
+  JAVA10_HOME=/usr/lib/jvm/java-10-jdk
   if [ -d /usr/lib/jvm/default ]; then
     export JAVA_HOME=/usr/lib/jvm/default
   elif [ -d /usr/lib/jvm/default-java ]; then
     export JAVA_HOME=/usr/lib/jvm/default-java
   fi
-  if [ -d $JAVA9_HOME ]; then
-    export PATH=$PATH:$JAVA9_HOME/bin
+  if [ -d $JAVA10_HOME ]; then
+    export PATH=$PATH:$JAVA10_HOME/bin
   fi
 fi
 
@@ -399,9 +405,6 @@ function set_prompt_symbol () {
 }
 # Determine active Python virtualenv details.
 function set_virtualenv () {
-  if ! [[ -z ${VIRTUAL_ENV_DISABLE_PROMPT} ]] && [ -f .venv ]; then
-    workon `cat .venv`
-  fi
   if test -z "$VIRTUAL_ENV" ; then
     echo ""
   else

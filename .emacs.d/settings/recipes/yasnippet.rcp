@@ -8,7 +8,7 @@
   ;; file names that can cause problems
   ;; see https://github.com/dimitri/el-get/issues/1511
   :submodule nil
-  :build (("git" "submodule" "update" "--init" "--" "snippets"))
+  ;:build (("git" "submodule" "update" "--init" "--" "snippets"))
   :features (yasnippet)
   :post-init (progn
               (yas-reload-all)
