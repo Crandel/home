@@ -5,6 +5,6 @@
        :depends (helm)
        :post-init (progn
                       (setq helm-ag-insert-at-point 'word
-                            helm-ag-base-command "rg --color=never -i"
+                            helm-ag-base-command "rg --color=never -i --vimgrep"
                             helm-ag-use-temp-buffer t
                             helm-ag-fuzzy-match     t)))

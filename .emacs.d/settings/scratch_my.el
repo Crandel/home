@@ -6,8 +6,8 @@
               user-mail-adress "cradlemann@gmail.com")
 
 ;; Set bash as default shell
-(setq shell-file-name             "/bin/bash"
-      explicit-shell-file-name  "/bin/bash")
+(setq shell-file-name           "/bin/zsh"
+      explicit-shell-file-name  "/bin/zsh")
 (blink-cursor-mode 0)
 ;; (setenv "GOPATH"
 ;;   (concat
@@ -23,16 +23,16 @@
 ;; (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
 
 ;; Inhibit startup/splash screen
-(setq inhibit-splash-screen     t
+(setq inhibit-splash-screen   t
       inhibit-startup-message t)
 
 ;; Cursor
-(setq-default cursor-type 'bar)
+(setq-default cursor-type 'hollow)
 (set-cursor-color "#BE81F7")
 
 ;; Imenu
 (require 'imenu)
-(setq imenu-auto-rescan        t
+(setq imenu-auto-rescan      t
       imenu-use-popup-menu   nil)
 (semantic-mode 1)
 
@@ -85,15 +85,15 @@
 ;; Linum plugin
 (require 'linum)
 (line-number-mode       t)
-(global-linum-mode    t)
+(global-linum-mode      t)
 (column-number-mode     t)
-(setq linum-format    " %d")
+(setq linum-format      " %d")
 
 
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format  t)
 (display-time-mode              t)
-(size-indication-mode             t)
+(size-indication-mode           t)
 (defun add-mode-line-dirtrack ()
   (add-to-list 'mode-line-buffer-identification
               '(:propertize (" " default-directory " ") face dired-directory)))
@@ -126,10 +126,10 @@
 (setq next-line-add-newlines nil)
 
 ;; Highlight search resaults
-(setq search-highlight          t
+(setq search-highlight            t
       query-replace-highlight     t
-      auto-window-vscroll         nil)
-(setq bidi-display-reordering     nil)
+      auto-window-vscroll         nil
+      bidi-display-reordering     nil)
 ;;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode   "whitespace" "Toggle whitespace visualization." t)
@@ -146,7 +146,7 @@
         )
       whitespace-line-column 130)
 
-(setq split-height-threshold nil
+(setq split-height-threshold  nil
       split-width-threshold   0)
 
 (if (equal nil (equal major-mode 'org-mode))
