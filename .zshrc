@@ -220,7 +220,7 @@ if (( $+commands[docker] )) ; then
   compdef d='docker'
   alias dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
-  alias run='docker-compose stop && docker-compose run --rm --service-ports app'
+  alias run='docker-compose stop && docker-compose run'
   alias dst='d stop $(d ps -q)'
 fi
 
@@ -249,7 +249,7 @@ if (( $+commands[go] )) ; then
 fi
 
 if (( $+commands[hadoop] )) ; then
-  alias hdp='sudo -u hdfs hdfs dfs'
+  alias hdp='hdfs dfs'
 fi
 
 if (( $+commands[hive] )) ; then
@@ -260,8 +260,7 @@ if (( $+commands[hive] )) ; then
   if [ ! -z $h_home ]; then
     export HIVE_HOME=$h_home
   fi
-  alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
-  alias hvfs='sudo -u hive hadoop fs'
+  alias bee='beeline --color=true -u jdbc:hive2://'
 fi
 
 if [ -d /usr/share/scala ]; then
