@@ -3,10 +3,10 @@
        :description "Modular in-buffer completion framework for Emacs"
        :type github
        :pkgname "company-mode/company-mode"
-       :features (company-files company-semantic company-css company-etags company-keywords)
+       :features (company-files company-semantic company-etags company-keywords)
        :post-init (progn
                     (global-company-mode t)
-                    (setq company-idle-delay                -1
+                    (setq company-idle-delay                0
                           delete-selection-mode             t
                           company-minimum-prefix-length     2
                           company-dabbrev-downcase          nil
@@ -19,12 +19,12 @@
                           company-tooltip-align-annotations t
                           selection-coding-system           'utf-8
                           company-auto-complete-chars       '(32 40 41 119 46 34 36 47 124 33)
-                          company-backends '((
-                                              company-yasnippet
+                          company-backends '(company-yasnippet
                                               company-semantic
                                               company-capf
-                                              company-etags
                                               company-files
+                                              (company-etags
                                               company-keywords
-                                              company-dabbrev-code
-                                              company-dabbrev)))))
+                                              company-dabbrev-code)
+                                              company-dabbrev))))
+

@@ -7,6 +7,7 @@
     '(
       el-get
       all-the-icons
+      apib-mode
       avy
       company-mode
       company-flx
@@ -87,6 +88,10 @@
 
 (when (executable-find "javac")
     (add-to-list 'my-packages 'meghanada)
+)
+
+(when (executable-find "docker")
+    (add-to-list 'my-packages 'dockerfile-mode)
 )
 
 

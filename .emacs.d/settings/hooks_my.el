@@ -16,10 +16,10 @@
                                (interactive)
                                (setenv "TERM" "ansi-term")
                                (setq python-shell-completion-native nil
-                                     indent-tabs-mode                 t
+                                     indent-tabs-mode               t
                                      tab-width                      4
                                      python-indent                  4
-                                     python-shell-interpreter         "ipython"
+                                     python-shell-interpreter       "ipython"
                                      python-shell-interpreter-args  "--profile=emacs"
                                      )
                                (defun python-startup-function (start end &optional send-main msg)
@@ -46,10 +46,10 @@
 
                                (eval-after-load "company"
                                  '(progn
-                                    (unless (member 'company-jedi (car company-backends))
-                                      (setq comp-back (car company-backends))
+                                    (unless (member 'company-jedi company-backends)
+                                      (setq comp-back company-backends)
                                       (push 'company-jedi comp-back)
-                                      (setq company-backends (list comp-back)))))
+                                      (setq company-backends comp-back))))
                                ))
 ;; End Python mode
 
@@ -86,11 +86,12 @@
                                            (define-key lisp-interaction-mode-map (kbd "M-RET") 'newline)
                                            (eval-after-load "company"
                                              '(progn
-                                                (unless (member 'company-elisp (car company-backends))
-                                                  (setq comp-back (car company-backends))
+                                                (unless (member 'company-elisp  company-backends)
+                                                  (setq comp-back  company-backends)
                                                   (push 'company-elisp comp-back)
-                                                  (setq company-backends (list comp-back)))
-                                                )))))
+                                                  (setq company-backends comp-back))
+                                           ))
+)))
 ;; End Lisp mode
 
 ;; Go mode
@@ -112,10 +113,10 @@
                              ;; End keybindings
                              (eval-after-load "company"
                                '(progn
-                                  (unless (member 'company-go (car company-backends))
-                                    (setq comp-back (car company-backends))
+                                  (unless (member 'company-go company-backends)
+                                    (setq comp-back company-backends)
                                     (push 'company-go comp-back)
-                                    (setq company-backends (list comp-back)))
+                                    (setq company-backends comp-back))
                                   )))))
 ;; End Go mode
 
@@ -135,10 +136,10 @@
                                   (progn
                                     (eval-after-load "company"
                                       '(progn
-                                          (unless (member 'company-restclient (car company-backends))
-                                            (setq comp-back (car company-backends))
+                                          (unless (member 'company-restclient company-backends)
+                                            (setq comp-back company-backends)
                                             (push 'company-restclient comp-back)
-                                            (setq company-backends (list comp-back)))
+                                            (setq company-backends  comp-back))
                                           )))))
 
 ;; End restclient hooks
@@ -150,11 +151,11 @@
                               (define-key web-mode-map (kbd "M-RET") 'newline)
                               (eval-after-load "company"
                                 '(progn
-                                   (unless (member 'company-css (car company-backends))
-                                     (setq comp-back (car company-backends))
+                                   (unless (member 'company-css company-backends)
+                                     (setq comp-back company-backends)
                                      (push 'company-css comp-back)
                                      (push 'company-nxml comp-back)
-                                     (setq company-backends (list comp-back)))
+                                     (setq company-backends comp-back))
                                   )))))
 
 ;; End Web-mode hook

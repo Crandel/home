@@ -5,7 +5,9 @@
        :pkgname "jrblevin/markdown-mode"
        :prepare (add-to-list 'auto-mode-alist
                              '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))
-       :post-init (add-hook 'markdown-mode-hook
-                    (progn
-                        (when buffer-file-name
-                            (add-hook 'after-save-hook 'check-parens nil t)))))
+       :post-init (eval-after-load "markdown-mode"
+                    '(progn
+                      (define-key markdown-mode-map (kbd "M-n") 'mc/mark-next-like-this)
+                      (define-key markdown-mode-map (kbd "M-m") 'mc/mark-previous-like-this)
+                        )))
+
