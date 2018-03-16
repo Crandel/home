@@ -201,6 +201,9 @@ bindsym $mod+c exec $browser
 # tilix
 bindsym F1 exec $term --quake
 
+# pulseaudio
+bindsym $mod+p exec pavucontrol
+
 # emacs
 bindsym $mod+x exec emacs
 
@@ -239,5 +242,4 @@ exec clipit
 exec $term --quake
 exec_always xxkb
 exec viber
-exec pasystray
 exec radiotray-ng
