@@ -174,8 +174,8 @@ bar {
         urgent_workspace   #2f343a #900000 #ffffff
         binding_mode       #2f343a #900000 #ffffff
     }
-    bindsym button4 exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-    bindsym button5 exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+    bindsym button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+    bindsym button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% #decrease sound volume
     bindsym button2 exec gsimplecal
     status_command $HOME/.i3/i3bar_conky
 }
@@ -220,9 +220,9 @@ bindsym $mod+Control+Shift+q exec systemctl poweroff
 bindsym $mod+Control+Shift+p exec systemctl reboot
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
