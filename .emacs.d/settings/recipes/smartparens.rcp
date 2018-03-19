@@ -3,4 +3,9 @@
        :type github
        :pkgname "Fuco1/smartparens"
        :depends dash
-       :post-init (add-hook 'after-init-hook #'smartparens-global-mode))
+       :post-init (progn
+                    (global-unset-key (kbd "C-c w"))
+                    (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
+                    (global-set-key (kbd "C-c r") 'sp-unwrap-sexp)
+                    (add-hook 'after-init-hook #'smartparens-global-mode))
+)

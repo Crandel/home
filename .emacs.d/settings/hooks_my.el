@@ -54,6 +54,9 @@
                                (eval-after-load "company"
                                  '(progn
                                     (my-change-company-backends 'company-jedi)))
+                               (add-hook 'before-save-hook
+                                 '(lambda()
+                                    (delete-trailing-whitespace)))
                                ))
 ;; End Python mode
 

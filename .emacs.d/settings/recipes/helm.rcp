@@ -15,6 +15,7 @@
        :post-init (progn
                     (setq helm-mode-fuzzy-match                 t
                           helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+                          helm-split-window-default-side        'below
                           helm-completion-in-region-fuzzy-match t
                           helm-candidate-number-limit           100
                           helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
@@ -23,11 +24,19 @@
                           helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
                           helm-buffers-fuzzy-matching           t
                           helm-case-fold-search                 nil
-                          helm-autoresize-max-height            30
+                          helm-autoresize-max-height            50
                           helm-autoresize-min-height            10
                           helm-recentf-fuzzy-match              t)
+                    (global-set-key (kbd "M-x") 'helm-M-x)
+                    (global-set-key (kbd "C-x x") 'execute-extended-command)
+                    (global-set-key (kbd "C-x C-f") 'helm-find-files)
+                    (global-set-key (kbd "C-p") 'helm-multi-files)
+                    (global-set-key [f10] 'helm-semantic-or-imenu)
+                    (global-set-key (kbd "M-p") 'helm-projectile-ag)
+                    (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+                    (global-set-key (kbd "C-c m") 'helm-all-mark-rings)
                     (helm-mode t)
                     (add-to-list 'helm-completing-read-handlers-alist '(find-file-read-only . ido))
                     (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
-                    (helm-autoresize-mode 1)
+                    ;(helm-autoresize-mode 1)
                     ))
