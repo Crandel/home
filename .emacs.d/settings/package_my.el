@@ -56,7 +56,7 @@
     (add-to-list 'my-packages 'indium)
 )
 
-(when (executable-find "ag")
+(when (executable-find "rg")
     (add-to-list 'my-packages 'helm-ag)
 )
 

@@ -4,8 +4,14 @@
        :pkgname "ShingoFukuyama/helm-swoop"
        :depends (helm)
        :post-init(progn
-                     (setq helm-multi-swoop-edit-save               nil
-                           helm-swoop-split-with-multiple-windows   t
-                           helm-swoop-split-direction               'split-window-vertically
-                           helm-swoop-move-to-line-cycle            t
-                           helm-swoop-use-fuzzy-match               t)))
+                   (global-unset-key (kbd "C-s"))
+                   (global-unset-key (kbd "C-r"))
+                   (global-set-key (kbd "C-s") 'helm-swoop)
+                   (global-set-key (kbd "C-c s") 'search-forward)
+                   (global-set-key (kbd "C-r") 'helm-multi-swoop-projectile)
+
+                   (setq helm-multi-swoop-edit-save               nil
+                         helm-swoop-split-with-multiple-windows   t
+                         helm-swoop-split-direction               'split-window-vertically
+                         helm-swoop-move-to-line-cycle            t
+                         helm-swoop-use-fuzzy-match               t)))

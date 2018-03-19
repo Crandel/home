@@ -1,68 +1,6 @@
 ;; Custom keybindings
 
 ;; Plugin keybindings
-;; Multiple cursors
-(global-set-key (kbd "C-c C-<right>") 'mc/mark-next-like-this-word) ; choose same word next
-(global-set-key (kbd "C-c C-<left>") 'mc/mark-previous-word-like-this) ; choose same word previous
-(global-set-key (kbd "M-n") 'mc/mark-next-like-this) ; choose char from next line same position
-(global-set-key (kbd "M-m") 'mc/mark-previous-like-this); choose char from previous line same position
-
-(global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-x M-m") 'back-to-indentation)
-
-;; Magit
-(global-unset-key (kbd "C-x C-z"))
-(global-set-key (kbd "C-x C-z") 'magit-status)
-
-
-;; Mo-git-blame
-(global-set-key (kbd "C-c g") 'mo-git-blame-current)
-
-;; Git gutter
-(global-set-key (kbd "C-c [") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-c ]") 'git-gutter:previous-hunk)
-
-;; Helm
-(global-set-key (kbd "M-x") 'helm-M-x)
-(global-set-key (kbd "C-x x") 'execute-extended-command)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
-(global-set-key (kbd "C-p") 'helm-multi-files)
-(global-set-key [f10] 'helm-semantic-or-imenu)
-(global-set-key (kbd "M-p") 'helm-projectile-ag)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-c m") 'helm-all-mark-rings)
-
-;;Helm-swoop
-(global-unset-key (kbd "C-s"))
-(global-unset-key (kbd "C-r"))
-(global-set-key (kbd "C-s") 'helm-swoop)
-(global-set-key (kbd "C-c s") 'search-forward)
-(global-set-key (kbd "C-r") 'helm-multi-swoop-projectile)
-
-
-;; Helm-git-grep
-(global-unset-key (kbd "C-x g"))
-(global-set-key (kbd "C-x g") 'helm-do-ag-project-root)
-
-;; Smartparent
-(global-unset-key (kbd "C-c w"))
-(global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
-(global-set-key (kbd "C-c r") 'sp-unwrap-sexp)
-
-;; Undo-tree
-(global-unset-key (kbd "C-z"))
-
-;; Avy
-(global-unset-key (kbd "C-_"))
-(global-unset-key (kbd "C-/"))
-(global-unset-key (kbd "C-c /"))
-(global-set-key (kbd "C-_") 'avy-goto-char)
-(global-set-key (kbd "C-/") 'avy-goto-char)
-(global-set-key (kbd "C-c /") 'avy-goto-line)
-
-;; Expand region
-(global-unset-key (kbd "C-q"))
-(global-set-key (kbd "C-q") 'er/expand-region)
 
 ;; Custom keybindings
 ;; Moving
