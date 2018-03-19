@@ -54,10 +54,7 @@
                                (eval-after-load "company"
                                  '(progn
                                     (my-change-company-backends 'company-jedi)))
-                               (add-hook 'before-save-hook
-                                 '(lambda()
-                                    (delete-trailing-whitespace)))
-                               ))
+                                                                        ))
 ;; End Python mode
 
 ;; Web mode
@@ -267,6 +264,14 @@
         ))
 
 (add-to-list 'auto-mode-alist '("\\.hql\\'" . sql-mode))
+
+;; Before save hook
+(defun my-before-save-hook ()
+  (when (eq major-mode 'python-mode)
+    (progn
+       (delete-trailing-whitespace))))
+
+(add-hook 'before-save-hook #'my-before-save-hook)
 
 
 (provide 'hooks_my)
