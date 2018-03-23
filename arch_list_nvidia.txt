@@ -1,0 +1,7 @@
+bbswitch
+bumblebee
+cuda
+nvidia-dkms
+nvidia-utils
+primus
+virtualgl
