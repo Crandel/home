@@ -2,6 +2,7 @@ ccminer-git
 clipit
 dashcore
 debtap
+ephifonts
 foxitreader
 furiusisomount
 grive
