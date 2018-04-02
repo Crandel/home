@@ -205,6 +205,7 @@ if (( $+commands[pacman] )) ; then
     --force           \
     --nodeps          \
     --needed
+  }
 fi
 
 if (( $+commands[apt] )) ; then
