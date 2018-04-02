@@ -189,11 +189,21 @@ fi
 
 if command_exists pacman ; then
   alias pacman="$SUDO pacman"
+  if (( $+commands[powerpill] )) ; then
+    alias pacman="$SUDO powerpill"
+  fi
   alias upg='pacman -Syu'
-  alias upgy='yaourt -Syu'
   alias pacs='pacman -Ss'
+  alias pqs='pacman -Qs'
+  alias pql='pacman -Ql $1'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
+  if (( $+commands[bb-wrapper] )) ; then
+    alias bb-wrapper='bb-wrapper --aur --build-dir $PERS_DIR/bb'
+    alias upgy='bb-wrapper -Syu'
+    alias yacs='bb-wrapper -Ss'
+    alias yaci='bb-wrapper -Sa'
+  fi
   recovery-pacman() {
     sudo pacman "$@"  \
     --log /dev/null   \

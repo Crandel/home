@@ -2,7 +2,11 @@ set -l listinstalled "(pacman -Q | string replace ' ' \t)"
 set -l listall "(__fish_print_packages)"
 
 function pacman
-	sudo_run pacman $argv
+	if type -pq powerfill;
+		sudo_run powerfill $argv
+	else
+		sudo_run pacman $argv
+	end
 end
 
 function pacfiles -d 'List of files in pacman package packages sorted by size'
@@ -56,23 +60,23 @@ function paci
 end
 complete -c paci -a "$listall"
 
-function yaci
-	yaourt -Sa $argv
-end
-complete -c yaci -a "$listall"
-
 function pacs
 	pacman -Ss $argv
-end
-
-function yacs --description 'Search using yaourt'
-	yaourt -Ss $argv
 end
 
 function upg -d 'Run pacman system update'
 	pacman -Syu
 end
 
-function upgy --description 'Run yaourt system update'
-	yaourt -Syua
+function yacs --description 'Search using bb-wrapper'
+	bb-wrapper -Ss $argv
+end
+
+function yaci
+	bb-wrapper -Sa $argv
+end
+complete -c yaci -a "$listall"
+
+function upgy --description 'Run bb-wrapper system update'
+	bb-wrapper -Syu
 end

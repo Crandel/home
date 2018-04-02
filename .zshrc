@@ -197,6 +197,14 @@ if (( $+commands[pacman] )) ; then
     alias yacs='bb-wrapper -Ss'
     alias yaci='bb-wrapper -Sa'
   fi
+  recovery-pacman() {
+    sudo pacman "$@"  \
+    --log /dev/null   \
+    --noscriptlet     \
+    --dbonly          \
+    --force           \
+    --nodeps          \
+    --needed
 fi
 
 if (( $+commands[apt] )) ; then
