@@ -3,7 +3,7 @@ zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
 zstyle ':completion:*' menu select=2
 zstyle ':completion:*' menu select=interactive
-zstyle :compinstall filename '/home/crandel/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -99,15 +99,17 @@ bindkey "\e[1;5D" backward-word
 # bindkey "\eOA" history-search-backward
 # bindkey "\eOB" history-search-forward
 
+export PERS_DIR='/opt/work'
+
 # ALIASES
 alias arch='uname -m'
 alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
-alias home_pr='cd /opt/work/home/'
+alias home_pr='cd $PERS_DIR/home/'
 
 # FUNCTIONS
-project_folders="/opt/work/projects/"
+project_folders="$PERS_DIR/projects/"
 function prj () {
   cd $project_folders
   if [ ! -z $1 ]; then
@@ -116,7 +118,7 @@ function prj () {
 }
 compdef "_path_files -W $project_folders -/ && return 0 || return 1" prj
 
-backup_dir="/opt/work/backup"
+backup_dir="$PERS_DIR/backup"
 function backup () {
   cd $backup_dir
   if [ ! -z $1 ]; then
@@ -180,15 +182,21 @@ if (( $+commands[pacman] )) ; then
   }
 
   alias pacman="$SUDO pacman"
+  if (( $+commands[powerpill] )) ; then
+    alias pacman="$SUDO powerpill"
+  fi
   alias upg='pacman -Syu'
-  alias upgy='yaourt -Syua'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
   alias pql='pacman -Ql $1'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
-  alias yacs='yaourt -Ss'
-  alias yaci='yaourt -Sa'
+  if (( $+commands[bb-wrapper] )) ; then
+    alias bb-wrapper='bb-wrapper --aur --build-dir $PERS_DIR/bb'
+    alias upgy='bb-wrapper -Syu'
+    alias yacs='bb-wrapper -Ss'
+    alias yaci='bb-wrapper -Sa'
+  fi
 fi
 
 if (( $+commands[apt] )) ; then
@@ -220,7 +228,7 @@ if (( $+commands[docker] )) ; then
   compdef d='docker'
   alias dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
-  alias run='docker-compose stop && docker-compose run'
+  alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
 fi
 
