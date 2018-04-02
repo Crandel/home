@@ -78,6 +78,7 @@ gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
 gtk3
+gtkd
 gucharmap
 gvfs
 gvfs-afc
@@ -213,6 +214,7 @@ texlive-bin
 texlive-core
 the_silver_searcher
 tig
+tilix
 tilda
 tmux
 tlp
