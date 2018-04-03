@@ -1,0 +1,39 @@
+{
+  "bin" : {
+    "pacman" : ["/usr/bin/pacman"],
+    "pbget" : ["/usr/bin/pbget", "--pull"],
+    "sudo" : ["/usr/bin/sudo"],
+    "bb-query_trust" : ["/usr/bin/bb-query_trust"]
+  },
+  "build patterns" : [],
+  "VCS patterns" : [
+    "*-git",
+    "*-hg",
+    "*-svn"
+  ],
+  "data ttl" : 300,
+  "makepkg commands" : {
+    "build" : {
+      "default" : ["makepkgx", "-irs", "--pconfig", "{PacmanConfig}", "--pkg", "{Name}"],
+      "VCS" : null,
+      "custom" : {
+      }
+    },
+    "download" : {
+      "default" : ["makepkg", "--verifysource"],
+      "VCS" : ["makepkg", "--nobuild"],
+      "common arguments" : ["--nodeps"]
+    }
+  },
+  "hooks" : {
+    "directory" : null,
+    "arguments" : {
+      "default": ["{PackageBase}", "{LastModified}"]
+    },
+    "commands" : {
+      "prebuild" : {
+        "default" : []
+      }
+    }
+  }
+}
