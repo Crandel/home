@@ -22,6 +22,7 @@
 (add-hook 'python-mode-hook '(lambda()
                                (interactive)
                                (setenv "TERM" "ansi-term")
+
                                (setq python-shell-completion-native nil
                                      indent-tabs-mode               t
                                      tab-width                      4
@@ -29,44 +30,38 @@
                                      python-shell-interpreter       "ipython"
                                      python-shell-interpreter-args  "--profile=emacs"
                                      )
+
                                (defun python-startup-function (start end &optional send-main msg)
                                  (unless (python-shell-get-process)
                                    (run-python)))
+
                                (add-function :before (symbol-function 'python-shell-send-region)  #'python-startup-function)
+
                                (if (string-match-p "rita" (or (buffer-file-name) ""))
                                    (setq indent-tabs-mode t)
                                  (setq indent-tabs-mode nil)
                                  )
+
                                (add-to-list
                                 'imenu-generic-expression
                                 '("Sections" "^#### \\[ \\(.*\\) \\]$" 1))
+
                                (setq imenu-create-index-function 'my-merge-imenu)
+
                                ;; pythom mode keybindings
                                (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+                               (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
                                (define-key python-mode-map (kbd "C-c C-b") 'insert_ipdb)
                                (define-key python-mode-map (kbd "RET") 'newline-and-indent)
                                (define-key python-mode-map (kbd "M-RET") 'newline)
-                               (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
                                (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
                                (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
                                ;; end python mode keybindings
 
                                (eval-after-load "company"
                                  '(progn
-                                    (my-change-company-backends 'company-jedi)))
-                                                                        ))
+                                    (my-change-company-backends 'company-jedi)))))
 ;; End Python mode
-
-;; Web mode
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.edi\\'" . edi-mode))
-
-;; End Web mode
 
 ;; Po mode
 (autoload 'po-mode "po-mode"
@@ -79,7 +74,6 @@
 ;; End Po mode
 
 ;; Js2 mode
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js2-mode-hook (lambda () (setq js2-basic-offset 2)))
 ;; End Js2 mode
 
@@ -181,7 +175,6 @@
                                 (define-key ensime-mode-map [tab] 'tab-indent-or-complete)
                                 (define-key scala-mode-map (kbd "TAB") 'tab-indent-or-complete)
                                 )))
-(add-to-list 'auto-mode-alist '("\\.sc\\'" . scala-mode))
 ;; End scala mode hook
 
 ;; java-mode hooks
@@ -203,9 +196,6 @@
                                 (define-key c-mode-map (kbd "M-RET") 'newline)
                                 )))
 ;; End c-mode
-;; Sh
-(add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
 
 ;; Buffer-menu-mode-hook
 (add-hook 'buffer-menu-mode-hook '(lambda()
@@ -264,6 +254,22 @@
         ))
 
 (add-to-list 'auto-mode-alist '("\\.hql\\'" . sql-mode))
+(add-to-list 'auto-mode-alist '("\\.sc\\'" . scala-mode))
+(add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
+
+;; Javascript
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.edi\\'" . edi-mode))
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+
+;; Web-mode
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
 
 ;; Before save hook
 (defun my-before-save-hook ()

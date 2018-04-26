@@ -8,19 +8,7 @@
 ;; Set bash as default shell
 (setq shell-file-name           "/bin/zsh"
       explicit-shell-file-name  "/bin/zsh")
-(blink-cursor-mode 0)
-;; (setenv "GOPATH"
-;;   (concat
-;;         (getenv "HOME")
-;;         "/go"))
-;; (setenv "PATH"
-;;   (concat
-;;    (getenv "PATH") ":"
-;;    (getenv "GOPATH") ":"
-;;    (getenv "GOPATH") "/bin"
-;;   )
-;; )
-;; (add-to-list 'exec-path (concat (getenv "GOPATH") "/bin"))
+(blink-cursor-mode 1)
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t
@@ -87,7 +75,7 @@
 (line-number-mode       t)
 (global-linum-mode      t)
 (column-number-mode     t)
-(setq linum-format      " %d")
+(setq linum-format      "%d")
 
 
 ;; Display file size/time in mode-line
@@ -191,12 +179,12 @@
     (when input-method
       (activate-input-method current))))
 
-;(defadvice read-passwd (around my-read-passwd act)
-;   (let ((local-function-key-map nil))
-;     ad-do-it))
-;(reverse-input-method 'russian-typewriter)
+(defadvice read-passwd (around my-read-passwd act)
+  (let ((local-function-key-map nil))
+    ad-do-it))
+(reverse-input-method 'russian-typewriter)
 
-(setq max-mini-window-height      0.4
+(setq max-mini-window-height      0.5
       compilation-always-kill     t)
 
 (provide 'scratch_my)
