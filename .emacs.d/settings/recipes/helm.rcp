@@ -36,6 +36,8 @@
                     (global-set-key (kbd "M-y") 'helm-show-kill-ring)
                     (global-set-key (kbd "C-c m") 'helm-all-mark-rings)
                     (helm-mode t)
+                    (define-key helm-buffer-map (kbd "C-v") 'yank)
+                    (define-key helm-map (kbd "C-v") 'yank)
                     (add-to-list 'helm-completing-read-handlers-alist '(find-file-read-only . ido))
                     (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
                     ;(helm-autoresize-mode 1)
