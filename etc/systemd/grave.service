@@ -1,7 +1,0 @@
-[Unit]
-Description=Run sync
-
-[Service]
-User=crandel
-Type=forking
-ExecStart=<exec path>

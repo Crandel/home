@@ -36,6 +36,7 @@ function anti_init() {
   antigen bundle sbt
   antigen bundle scala
   antigen bundle cargo
+  antigen bundle docker-compose
   antigen bundle zsh-users/zsh-autosuggestions
   antigen bundle zsh-users/zsh-completions
   antigen bundle zsh-users/zsh-history-substring-search
@@ -107,7 +108,8 @@ alias ll='ls -ahlF'
 alias la='ls -A'
 alias ~='cd $HOME'
 alias home_pr='cd $PERS_DIR/home/'
-
+alias L='|less'
+alias G='|grep'
 # FUNCTIONS
 project_folders="$PERS_DIR/projects/"
 function prj () {
@@ -195,7 +197,7 @@ if (( $+commands[pacman] )) ; then
     alias bb-wrapper='bb-wrapper --aur --build-dir $PERS_DIR/bb'
     alias upgy='bb-wrapper -Syu'
     alias yacs='bb-wrapper -Ss'
-    alias yaci='bb-wrapper -Sa'
+    alias yaci='bb-wrapper --build-all -S'
   fi
   recovery-pacman() {
     sudo pacman "$@"  \
@@ -239,6 +241,14 @@ if (( $+commands[docker] )) ; then
   alias dl='docker-compose logs --tail 15'
   alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
+  d_exec(){
+    docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
+  }
+  _d_exec(){
+    d ps --format "{{.Names}}" -f name=$2
+  }
+  compdef "_values _d_exec" d_exec;
+  export d_exec;
 fi
 
 if (( $+commands[vagrant] )) ; then
@@ -251,12 +261,16 @@ if (( $+commands[vagrant] )) ; then
 fi
 
 if (( $+commands[systemctl] )) ; then
-  alias systemctl="$SUDO systemctl"
+  alias ssystemctl="$SUDO systemctl"
 fi
 
 if (( $+commands[go] )) ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  if [ -d $GOPATH/goprojects ]; then
+    export GOPATH=$GOPATH:$GOPATH/goprojects
+  fi
+
   if (( !$+commands[fzf] )) ; then
     go get -u github.com/junegunn/fzf
     if [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh ]; then
@@ -343,6 +357,11 @@ fi
 
 if [ -f ~/.zsh_aliases ]; then
   . ~/.zsh_aliases
+fi
+
+LOCAL_BIN=$HOME/.local/bin
+if [ -d $LOCAL_BIN ]; then
+  export PATH=$PATH:$LOCAL_BIN
 fi
 
 if [ -f /etc/profile.d/vte.sh ]; then

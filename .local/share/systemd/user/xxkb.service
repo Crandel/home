@@ -1,0 +1,12 @@
+[Unit]
+Description=Run xxkb
+
+[Install]
+WantedBy=default.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=30
+KillMode=process
+ExecStart=/usr/bin/xxkb
