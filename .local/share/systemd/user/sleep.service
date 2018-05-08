@@ -2,7 +2,5 @@
 Description=Run lock screen
 
 [Service]
-User=crandel
 Type=forking
-Environment=DISPLAY=:0
-ExecStart=<exec path>
+ExecStart=/home/crandel/.sleep.fish

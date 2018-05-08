@@ -54,6 +54,7 @@
     (add-to-list 'my-packages 'js2-mode)
     (add-to-list 'my-packages 'js2-refactor)
     (add-to-list 'my-packages 'indium)
+    (add-to-list 'my-packages 'prettier-js)
 )
 
 (when (executable-find "rg")
