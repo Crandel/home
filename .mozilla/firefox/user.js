@@ -45,6 +45,8 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.prefetch-next", false);
 user_pref("network.tcp.tcp_fastopen_enable", true);
+user_pref("network.trr.mode", 1);
+user_pref("network.trr.uri", "https://dns.google.com/experimental");
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("reader.color_scheme", "dark");
 user_pref("reader.content_width", 9);
