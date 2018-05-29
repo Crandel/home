@@ -71,12 +71,12 @@
 (prefer-coding-system                   'utf-8)
 
 ;; Linum plugin
-(require 'linum)
-(line-number-mode       t)
-(global-linum-mode      t)
-(column-number-mode     t)
-(setq linum-format      "%d")
-
+;; (require 'linum)
+;; (line-number-mode       t)
+;; (global-linum-mode      t)
+;; (column-number-mode     t)
+;; (setq linum-format      "%d")
+(setq-default display-line-numbers t)
 
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format  t)

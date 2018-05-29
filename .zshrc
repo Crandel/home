@@ -244,10 +244,6 @@ if (( $+commands[docker] )) ; then
   d_exec(){
     docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
   }
-  _d_exec(){
-    d ps --format "{{.Names}}" -f name=$2
-  }
-  compdef "_values _d_exec" d_exec;
   export d_exec;
 fi
 
