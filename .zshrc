@@ -219,6 +219,11 @@ if (( $+commands[apt] )) ; then
   alias pacr='apt remove'
   alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
+  if (( $+commands[apt-fast] )) ; then
+    alias upgy='apt-fast update'
+    alias upg='apt-fast update && apt-fast upgrade'
+    alias paci='apt-fast install'
+  fi
 fi
 
 if (( $+commands[yum] )) ; then
