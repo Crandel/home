@@ -189,7 +189,7 @@ fi
 
 if command_exists pacman ; then
   alias pacman="$SUDO pacman"
-  if (( $+commands[powerpill] )) ; then
+  if command_exists powerpill ; then
     alias pacman="$SUDO powerpill"
   fi
   alias upg='pacman -Syu'
@@ -198,7 +198,7 @@ if command_exists pacman ; then
   alias pql='pacman -Ql $1'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
-  if (( $+commands[bb-wrapper] )) ; then
+  if command_exists bb-wrapper ; then
     alias bb-wrapper='bb-wrapper --aur --build-dir $PERS_DIR/bb'
     alias upgy='bb-wrapper -Syu'
     alias yacs='bb-wrapper -Ss'
@@ -224,6 +224,11 @@ if command_exists apt ; then
   alias pacr='apt remove'
   alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
+  if command_exists apt-fast ; then
+    alias upgy='apt-fast update'
+    alias upg='apt-fast update && apt-fast upgrade'
+    alias paci='apt-fast install'
+  fi
 fi
 
 if command_exists yum ; then
