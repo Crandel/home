@@ -77,6 +77,9 @@
     (add-to-list 'my-packages 'py-isort)
     (when (executable-find "virtualenv")
       (add-to-list 'my-packages 'auto-virtualenv))
+
+    ;; (when (executable-find "virtualenvwrapper")
+    ;;   (add-to-list 'my-packages 'auto-virtualenvwrapper))
 )
 
 (when (executable-find "livedown")

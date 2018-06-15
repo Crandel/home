@@ -1,0 +1,7 @@
+(:name auto-virtualenvwrapper
+    :type github
+    :pkgname "robert-zaremba/auto-virtualenvwrapper.el"
+    :description "Automatically compile Emacs Lisp libraries."
+    :depends (cl-lib s virtualenvwrapper)
+    :features (auto-virtualenvwrapper)
+    :post-init (add-hook 'python-mode-hook #'auto-virtualenvwrapper-activate))
