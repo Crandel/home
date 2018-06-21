@@ -199,6 +199,9 @@ if (( $+commands[pacman] )) ; then
     alias yacs='bb-wrapper -Ss'
     alias yaci='bb-wrapper --build-all -S'
   fi
+  if (( $+commands[powerpill] )) ; then 
+    alias upg='$SUDO powerpill -Syu'
+  fi
   recovery-pacman() {
     sudo pacman "$@"  \
     --log /dev/null   \
