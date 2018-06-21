@@ -39,8 +39,8 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec albert toggle
-bindsym $mod+d exec j4-dmenu-desktop --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
-bindsym $mod+Shift+d exec dmenu_run
+bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -l 5 -fn Hack:24" --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
+bindsym $mod+Shift+d exec dmenu_custom
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -190,8 +190,9 @@ assign [class="(?i)Viber"] 2
 assign [class="(?i)Slack"] 2
 workspace_layout tabbed
 
-#workspace 3 output HDMI1
 #workspace 1 output eDP1
+#workspace 2 output eDP1
+#workspace 3 output HDMI1
 # The middle button over a titlebar kills the window
 bindsym --release Mod2+button2 kill
 bindsym --release button2 kill
