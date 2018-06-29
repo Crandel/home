@@ -224,6 +224,15 @@ bindsym $mod+z workspace next
 bindsym $mod+Control+Shift+q exec systemctl poweroff
 bindsym $mod+Control+Shift+p exec systemctl reboot
 
+# toggle HDMI sound
+bindsym $mod+Control+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
+bindsym $mod+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
+
+# toggle HDMI output
+bindsym $mod+Control+Shift+v exec xrandr --output eDP1 --dpi 150 --mode 1920x1080 --primary --output HDMI1 --mode 1920x1080 --dpi 96 --right-of eDP1 --set "Broadcast RGB" "Full"
+bindsym $mod+Shift+v exec xrandr --output eDP1 --auto --primary --output HDMI1 --off
+
+
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
