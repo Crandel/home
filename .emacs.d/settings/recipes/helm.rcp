@@ -40,5 +40,5 @@
                     (define-key helm-map (kbd "C-v") 'yank)
                     (add-to-list 'helm-completing-read-handlers-alist '(find-file-read-only . ido))
                     (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
-                    ;(helm-autoresize-mode 1)
+                    (helm-autoresize-mode 1)
                     ))

@@ -4,6 +4,5 @@
        :description "Emacs mode for Rust"
        :post-init (progn
                      (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-mode))
-                     (add-hook 'rust-mode-hook #'racer-mode)
                      (setq rust-format-on-save t)
 ))
