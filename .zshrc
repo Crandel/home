@@ -184,9 +184,6 @@ if (( $+commands[pacman] )) ; then
   }
 
   alias pacman="$SUDO pacman"
-  if (( $+commands[powerpill] )) ; then
-    alias pacman="$SUDO powerpill"
-  fi
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
