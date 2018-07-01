@@ -56,6 +56,7 @@ set clipboard=unnamedplus
 vnoremap <C-c> "+y
 set pastetoggle=<F3>
 set wildmode=list:full
+set enc=utf-8
 set ls=2
 set fileformat=unix    " forman file ending
 
