@@ -190,11 +190,11 @@ if (( $+commands[pacman] )) ; then
   alias pql='pacman -Ql $1'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
-  if (( $+commands[bb-wrapper] )) ; then
-    alias bb-wrapper='bb-wrapper --aur --build-dir $PERS_DIR/bb'
-    alias upgy='bb-wrapper -Syu'
-    alias yacs='bb-wrapper -Ss'
-    alias yaci='bb-wrapper --build-all -S'
+  if (( $+commands[yay] )) ; then
+    alias yay='yay --aur --builddir $PERS_DIR/bb'
+    alias upgy='yay -Syua'
+    alias yacs='yay -Ss'
+    alias yaci='yay -Sa'
   fi
   if (( $+commands[powerpill] )) ; then 
     alias upg='$SUDO powerpill -Syu'
