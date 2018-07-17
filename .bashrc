@@ -96,6 +96,8 @@ fi
 alias arch='uname -m'
 alias ll='ls -ahlF'
 alias la='ls -A'
+alias L='|less'
+alias G='|grep'
 alias ~='cd $HOME'
 
 if [ -f ~/.bash_aliases ]; then
@@ -189,21 +191,22 @@ fi
 
 if command_exists pacman ; then
   alias pacman="$SUDO pacman"
-  if command_exists powerpill ; then
-    alias pacman="$SUDO powerpill"
-  fi
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
   alias pql='pacman -Ql $1'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
-  if command_exists bb-wrapper ; then
-    alias bb-wrapper='bb-wrapper --aur --build-dir $PERS_DIR/bb'
-    alias upgy='bb-wrapper -Syu'
-    alias yacs='bb-wrapper -Ss'
-    alias yaci='bb-wrapper -Sa'
+  if command_exists yay ; then
+    alias yay='yay --aur --builddir $PERS_DIR/bb'
+    alias upgy='yay -Syua'
+    alias yacs='yay -Ss'
+    alias yaci='yay -Sa'
   fi
+  if command_exists powerpill ; then
+    alias upg="$SUDO powerpill -Syu"
+  fi
+
   recovery-pacman() {
     sudo pacman "$@"  \
     --log /dev/null   \
@@ -276,54 +279,6 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
-fi
-
-if command_exists hadoop ; then
-  if command_exists hdfs ; then
-      alias hdp='hdfs dfs'
-  else
-      alias hdp='hadoop fs'
-  fi
-  function run_exec_2_file() {
-    # second parameter - path to exec file who works with hdfs files
-    local run_script=$2
-    # first parameter - file with hdfs file paths, needed for exec file
-    for line in $(cat $1)
-    do
-      $run_script "$line"
-      echo "-----------\n\n"
-    done
-  }
-
-  function load2hdfs(){
-    # second parameter - path to hdfs directory where we need to put local files
-    local hdfs_path=$2
-    # first parameter - directory pwd where files placed
-    for file in $(cd $1 && pwd)/*
-    do
-      if [ -f "$file" ]
-      then
-          hdp -copyFromLocal $file $2
-      fi
-    done
-  }
-fi
-
-if command_exists hive ; then
-  function hive_home {
-    grep hive /etc/passwd | awk -F: '{print $6}'
-  }
-  h_home=$(hive_home)
-  if [ ! -z $h_home ]; then
-     export HIVE_HOME=$h_home
-  fi
-  alias bee='sudo -u hive beeline --color=true -u jdbc:hive2://'
-  alias hvfs='sudo -u hive hadoop fs'
-fi
-
-if command_exists spark-shell ; then
-  alias spll='spark-shell'
-  alias spmit='spark-submit'
 fi
 
 if [ -d /usr/share/scala ]; then
