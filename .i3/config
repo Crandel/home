@@ -15,7 +15,7 @@ set $term tilix
 set $browser firefox
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack, FontAwesome 16
+font pango:Hack, FontAwesome 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -39,7 +39,8 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec albert toggle
-bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -l 5 -fn Hack:24" --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
+#bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -l 5 -fn Hack:24" --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
+bindsym $mod+d exec rofi -show combi
 bindsym $mod+Shift+d exec dmenu_custom
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -217,6 +218,7 @@ bindsym $mod+m exec xmenud
 
 # lock screen
 bindsym $mod+Control+z exec $lock
+bindsym $mod+Control+a exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+z workspace next
@@ -246,10 +248,11 @@ workspace_auto_back_and_forth yes
 
 exec --no-startup-id libinput-gestures
 exec --no-startup-id nm-applet
+exec --no-startup-id greenclip daemon
 # exec feh --bg-scale /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg
 exec_always --no-startup-id numlockx on
 exec --no-startup-id compton --config ~/.config/compton.conf -b
-exec clipit
+# exec clipit
 exec $term --quake
 # exec_always --no-startup-id xxkb
 # exec viber
