@@ -39,7 +39,7 @@ conky.config = {
 -- JSON for i3bar
 conky.text = [[
 [
-{ "full_text" : "\uF0E0 ${exec gmail}", "color" : "\#2E64FE"},
+${exec gmail},
 { "full_text" : "\uF07C /${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
 { "full_text": "\uF1DE ${cpubar}", "color" :
   ${if_match ${cpu}<90}
