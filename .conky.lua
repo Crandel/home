@@ -34,12 +34,19 @@ conky.config = {
     -- template0 = [[${exec pactl list sinks | grep 'Volume: front-left' -m 1 | awk '{print $5}'}]],
     -- Volume on/off
     -- template1 = [[${exec pactl list sinks | grep 'Mute:' -m 1 | awk '{print $2}'}]],
+    template0 = [[${exec gmail}]],
 };
 -- Stuff in text will be formatted on screen
 -- JSON for i3bar
 conky.text = [[
 [
-${exec gmail},
+{ "full_text" : "\uF0E0 $template0", "color" : 
+  ${if_match "$template0" == "C:0"}
+    "\#2E64FE"
+  ${else}
+    "\#D0FA58"
+  ${endif}
+},
 { "full_text" : "\uF07C /${fs_free /}|h${fs_free /home}|d${fs_free /media/data}", "color" : "\#FA5882" },
 { "full_text": "\uF1DE ${cpubar}", "color" :
   ${if_match ${cpu}<90}
