@@ -19,7 +19,7 @@ if test -t 1; then
     export TERM="xterm"
     force_color_prompt=yes
     color_prompt=yes
-    NORMAL="\[\e[0m\]"
+    NORMAL="$(tput sgr0)"
     BLACK="$(tput setaf 0)"
     RED="$(tput setaf 1)"
     LIGHT_RED="$(tput setaf 1)"
@@ -387,28 +387,11 @@ function parse_git_branch(){
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
   # Get the name of the branch.
-  branch=$(parse_git_branch)
-  BRANCH=''
+  BRANCH=""
+  branch="$(git_status bash)"
   if [ ! "${branch}" == "" ]; then
-    staged_files=''
-    unstaged_files=''
-    parse_git_dirty
-    if [ ! "${staged_files}" == "" ]; then
-      staged_files="|${GREEN}${staged_files}${NORMAL}"
-    fi
-    if [ ! "${unstaged_files}" == "" ]; then
-      unstaged_files="|${YELLOW}${unstaged_files}${NORMAL}"
-    fi
-    if [ ! "${ahead}" == "" ]; then
-      ahead="${LIGHT_GREEN}{>${ahead}}${NORMAL}"
-    fi
-    if [ ! "${behind}" == "" ]; then
-      behind="${LIGHT_RED}{<${behind}}${NORMAL}"
-    fi
-    # Set the final branch string.
-    BRANCH=" (${CYAN}${branch}${NORMAL}${ahead}${behind}${unstaged_files}${staged_files}) "
+    BRANCH=" ($branch)"
   fi
-
 }
 
 # Return the prompt symbol to use, colorized based on the return value of the
