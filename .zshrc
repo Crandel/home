@@ -370,71 +370,14 @@ if [ -f /etc/profile.d/vte.sh ]; then
 fi
 
 # PROMPT
-# determine git branch name
-function parse_git_branch(){
-  git branch 2> /dev/null | sed -n 's/^\* //p'
-}
 
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
-  # Get the name of the branch.
-  branch="$(parse_git_branch)"
+  # Get the final branch string.
+  branch="$(git_status zsh)"
   if [ -n "${branch}" ]; then
-    staged_files=''
-    unstaged_files=''
-    new_status=`git status --porcelain`
-    ahead=`git status -sb 2> /dev/null | grep -o "ahead [0-9]*" | grep -o "[0-9]*"`
-    behind=`git status -sb 2> /dev/null | grep -o "behind [0-9]*" | grep -o "[0-9]*"`
-    # staged files
-    X=`echo -n "${new_status}" 2> /dev/null | cut -c 1-1`
-    # unstaged files
-    Y=`echo -n "${new_status}" 2> /dev/null | cut -c 2-2`
-    modified_unstaged=`echo -n "${Y}" | grep "M" -c`
-    deleted_unstaged=`echo -n "${Y}" | grep "D" -c`
-    untracked_unstaged=`echo -n "${Y}" | grep "?" -c`
-    modified_staged=`echo -n "${X}" | grep "M" -c`
-    deleted_staged=`echo -n "${X}" | grep "D" -c`
-    renamed_staged=`echo -n "${X}" | grep "R" -c`
-    new_staged=`echo -n "${X}" | grep "A" -c`
-    # unstaged_files
-    if [ "${modified_unstaged}" != 0 ]; then
-      unstaged_files="%%${modified_unstaged}${unstaged_files}"
-    fi
-    if [ "${deleted_unstaged}" != 0 ]; then
-      unstaged_files="-${deleted_unstaged}${unstaged_files}"
-    fi
-    if [ "${untracked_unstaged}" != 0 ]; then
-      unstaged_files="*${untracked_unstaged}${unstaged_files}"
-    fi
-    # staged_files
-    if [ "${modified_staged}" != 0 ]; then
-      staged_files="%%${modified_staged}${staged_files}"
-    fi
-    if [ "${deleted_staged}" != 0 ]; then
-      staged_files="-${deleted_staged}${staged_files}"
-    fi
-    if [ "${renamed_staged}" != 0 ]; then
-      staged_files="^${renamed_staged}${staged_files}"
-    fi
-    if [ "${new_staged}" != 0 ]; then
-      staged_files="+${new_staged}${staged_files}"
-    fi
-    if [ ! -z "${staged_files}" ]; then
-      staged_files="|%F{green}${staged_files}%f"
-    fi
-    if [ ! -z "${unstaged_files}" ]; then
-      unstaged_files="|%F{yellow}${unstaged_files}%f"
-    fi
-    if [ ! -z "${ahead}" ]; then
-      ahead="%F{green}{>${ahead}}%f"
-    fi
-    if [ ! -z "${behind}" ]; then
-      behind="%F{red}{<${behind}}%f"
-    fi
-    # Set the final branch string.
-    echo " (%F{cyan}${branch}${ahead}${behind}${unstaged_files}${staged_files}%f)"
+    echo " ($branch)"
   fi
-
 }
 function set_prompt_symbol () {
   echo " %(?.%F{yellow}.%F{red}[%?])\n➤%f "
