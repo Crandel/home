@@ -195,7 +195,7 @@ if (( $+commands[pacman] )) ; then
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   if (( $+commands[yay] )) ; then
-    alias yay='yay --aur --builddir $PERS_DIR/bb'
+    alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
     alias upgy='yay -Syua'
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
