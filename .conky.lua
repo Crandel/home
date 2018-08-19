@@ -76,7 +76,7 @@ ${if_up enp9s0}
 { "full_text" : "\uF0E4 \u2193${downspeed enp9s0}", "color": "\#F6CECE"},
 ${endif}
 ${if_up wlp8s0}
-{ "full_text" : "\uF1EB \u2193${downspeed wlp8s0}|${wireless_link_qual_perc wlp8s0}|$wireless_essid", "color": "\#F6CECE"},
+{ "full_text" : "\uF1EB \u21CA${downspeed wlp8s0}|\u21C8${upspeed wlp8s0}|${wireless_link_qual_perc wlp8s0}|$wireless_essid", "color": "\#F6CECE"},
 ${endif}
 { "full_text" : "${time  %d/%m/%y %H:%M}", "color" : "\#00FF40"}],
 ]];
