@@ -73,7 +73,7 @@ ${endif}
 { "full_text" : "\uF205 $uptime_short", "color": "\#8B008B"},
 { "full_text" : "\uF241 $battery_short", "color" : "\#FE9A2E"},
 ${if_up enp9s0}
-{ "full_text" : "\uF0E4 \u2193${downspeed enp9s0}", "color": "\#F6CECE"},
+{ "full_text" : "\uF0E4 \u21CA${downspeed enp9s0}|\u21C8${upspeed enp9s0}", "color": "\#F6CECE"},
 ${endif}
 ${if_up wlp8s0}
 { "full_text" : "\uF1EB \u21CA${downspeed wlp8s0}|\u21C8${upspeed wlp8s0}|${wireless_link_qual_perc wlp8s0}|$wireless_essid", "color": "\#F6CECE"},

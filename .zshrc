@@ -114,7 +114,7 @@ function anti_init() {
   antigen bundle zsh-users/zsh-completions
   antigen bundle zsh-users/zsh-history-substring-search
   antigen bundle zsh-users/zsh-syntax-highlighting
-  # antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
+  antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
   antigen apply
 }
 
@@ -388,9 +388,6 @@ function set_prompt_symbol () {
 }
 # Determine active Python virtualenv details.
 function set_virtualenv () {
-  if [ -f .venv ] && (( $+commands[$virtual] )); then
-    workon "$(cat .venv)"
-  fi
   if [ ! -z "$VIRTUAL_ENV" ] ; then
     echo " %F{yellow}[`basename \"$VIRTUAL_ENV\"`]"
   fi
