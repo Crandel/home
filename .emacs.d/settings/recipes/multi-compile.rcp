@@ -23,9 +23,9 @@
                                             (multi-compile-locate-file-dir ".git"))))
                             (rust-mode . (("rw" "cargo build --release -q"
                                             (locate-dominating-file buffer-file-name ".git"))
-                                        ("rb" "cargo build --release --color always"
+                                        ("rb" "cargo build --release --color never"
                                             (locate-dominating-file buffer-file-name ".git"))
-                                        ("rbr" "cargo run --release --color always"
+                                        ("rbr" "cargo run --release --color never"
                                             (multi-compile-locate-file-dir ".git"))))
                             (java-mode . (("mpac" "mvn package"
                                             (locate-dominating-file buffer-file-name ".git"))

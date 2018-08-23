@@ -35,6 +35,7 @@
       smartparens
       smart-mode-line
       undo-tree
+      wanderlust
       web-mode
       xclip
       yaml-mode
