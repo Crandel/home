@@ -1,0 +1,66 @@
+(:name wanderlust
+       :description "Wanderlust bootstrap."
+       :depends semi
+       :type github
+       :pkgname "wanderlust/wanderlust"
+       :build (mapcar
+               (lambda (target-and-dirs)
+                 (list el-get-emacs
+                       (mapcar (lambda (pkg)
+                                 (mapcar (lambda (d) `("-L" ,d)) (el-get-load-path pkg)))
+                               (append
+                                '("apel" "flim" "semi")
+                                (when (el-get-package-exists-p "bbdb") (list "bbdb"))))
+                       "--eval" (el-get-print-to-string
+                                 '(progn (setq wl-install-utils t)
+                                         (setq wl-info-lang "en")
+                                         (setq wl-news-lang "en")))
+
+                       (split-string "-batch -q -no-site-file -l WL-MK -f")
+                       target-and-dirs))
+               '(("wl-texinfo-format" "doc")
+                 ("compile-wl-package"  "site-lisp" "icons")
+                 ("install-wl-package" "site-lisp" "icons")))
+       :info "doc/wl.info"
+       :load-path ("site-lisp/wl" "utils")
+       :post-init (progn
+                    (setq wl-icon-directory
+                          (expand-file-name "etc/icons" default-directory))
+                    (autoload 'wl "wl" "Wanderlust" t)
+                    (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
+                    (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
+                    (setq elmo-imap4-default-server "imap.gmail.com"
+                          elmo-imap4-default-user "<user>@gmail.com"
+                          elmo-imap4-default-authenticate-type 'clear
+                          elmo-imap4-default-port '993
+                          elmo-imap4-default-stream-type 'ssl
+                          elmo-imap4-use-modified-utf7 t)
+
+                    ;; SMTP
+                    (setq wl-smtp-connection-type 'starttls
+                          wl-smtp-posting-port 587
+                          wl-smtp-authenticate-type "plain"
+                          wl-smtp-posting-user "<user>"
+                          wl-smtp-posting-server "smtp.gmail.com"
+                          wl-local-domain "gmail.com")
+
+                    (setq wl-from "<User Name> <<user>@gmail.com>"
+                          wl-default-folder "%inbox"
+                          wl-default-spec "%"
+                          wl-draft-folder "%[Gmail]/Drafts" ; Gmail IMA
+                          wl-trash-folder "%[Gmail]/Trash"
+
+                          wl-folder-check-async t)
+
+
+                    (autoload 'wl-user-agent-compose "wl-draft" nil t)
+                    (if (boundp 'mail-user-agent)
+                        (setq mail-user-agent 'wl-user-agent))
+                    (if (fboundp 'define-mail-user-agent)
+                        (define-mail-user-agent
+                          'wl-user-agent
+                          'wl-user-agent-compose
+                          'wl-draft-send
+                          'wl-draft-kill
+                          'mail-send-hook))
+                    ))

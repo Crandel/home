@@ -25,15 +25,6 @@ if (( $+commands[$virtual] )); then
 fi
 export PERS_DIR='/opt/work'
 
-# ALIASES
-alias arch='uname -m'
-alias ll='ls -ahlF'
-alias la='ls -A'
-alias ~='cd $HOME'
-alias home_pr='cd $PERS_DIR/home'
-alias L='|less'
-alias G='|grep'
-
 # FUNCTIONS
 project_folders="$PERS_DIR/projects"
 function prj () {
@@ -133,6 +124,16 @@ HISTFILE=~/.hist_zsh
 HISTSIZE=5000000
 SAVEHIST=$HISTSIZE
 # History end
+
+
+# ALIASES
+alias arch='uname -m'
+alias ll='ls -ahlF'
+alias la='ls -A'
+alias ~='cd $HOME'
+alias home_pr='cd $PERS_DIR/home'
+alias L='|less'
+alias G='|grep'
 
 # End of lines configured by zsh-newuser-install
 # make less more friendly for non-text input files, see lesspipe(1)
