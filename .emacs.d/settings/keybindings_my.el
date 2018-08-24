@@ -161,6 +161,7 @@
 (global-unset-key [tab])
 (global-set-key [tab] 'tab-indent-or-complete)
 (global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
+(global-set-key (kbd "C-c b") 'revert-buffer)
 
 
 (provide 'keybindings_my)

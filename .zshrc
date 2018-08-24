@@ -125,7 +125,6 @@ HISTSIZE=5000000
 SAVEHIST=$HISTSIZE
 # History end
 
-
 # ALIASES
 alias arch='uname -m'
 alias ll='ls -ahlF'
