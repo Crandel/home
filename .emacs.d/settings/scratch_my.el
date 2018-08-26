@@ -1,5 +1,5 @@
 ;; Font settings
-(set-default-font "Hack 16")
+(set-default-font "Hack 14")
 ;; The full name of the user logged in
 ;; Full mailing address of user
 (setq-default user-full-name   "crandel"
