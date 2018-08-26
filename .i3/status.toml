@@ -1,0 +1,83 @@
+theme = "plain"
+icons = "awesome"
+
+[[block]]
+block = "custom"
+command = "gmail"
+interval = 5
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 20.0
+alert = 5.0
+
+[[block]]
+block = "disk_space"
+path = "/home"
+alias = "h"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 10.0
+alert = 5.0
+
+[[block]]
+block = "disk_space"
+path = "/media/data"
+alias = "d"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 10.0
+alert = 5.0
+
+[[block]]
+block = "cpu"
+interval = 1
+frequency = true
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mum}MB"
+format_swap = "{SUm}MB"
+
+[[block]]
+block = "battery"
+interval = 10
+show = "both"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "backlight"
+step_width = 5
+
+[[block]]
+block = "net"
+device = "enp9s0"
+ip = false
+speed_up = true
+graph_up = false
+interval = 2
+
+[[block]]
+block = "net"
+device = "wlp8s0"
+ssid = true
+ip = false
+speed_up = true
+graph_up = false
+interval = 2
+
+[[block]]
+block = "time"
+interval = 60
+format = "%Y-%m-%d %R"
+on_click = "gsimplecal"
