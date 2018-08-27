@@ -14,7 +14,7 @@
                     (key-chord-define-global "yp" 'duplicate-line)
                     (key-chord-define-global "yy" 'copy-line)
                     (key-chord-define-global "ww" 'copy-word)
-                    (key-chord-define-global "ii" 'open-next-line)
+                    (key-chord-define-global "uu" 'open-next-line)
                     (key-chord-define-global "xx" 'save-buffer)
                     (key-chord-define-global "qq" 'delete-other-windows)
                     (key-chord-define-global "vv" 'save-buffers-kill-terminal)
