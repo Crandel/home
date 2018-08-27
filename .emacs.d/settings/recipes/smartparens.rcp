@@ -7,5 +7,7 @@
                     (global-unset-key (kbd "C-c w"))
                     (global-set-key (kbd "C-c w") 'sp-rewrap-sexp)
                     (global-set-key (kbd "C-c r") 'sp-unwrap-sexp)
+                    (global-set-key (kbd "C-c d") 'sp-forward-sexp)
+                    (global-set-key (kbd "C-c f") 'sp-backward-sexp)
                     (add-hook 'after-init-hook #'smartparens-global-mode))
 )
