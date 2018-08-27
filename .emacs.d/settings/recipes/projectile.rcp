@@ -3,4 +3,7 @@
        :type github
        :pkgname "bbatsov/projectile"
        :depends (dash pkg-info ag)
-       :post-init (projectile-global-mode t))
+       :post-init (progn
+                    (projectile-mode +1)
+                    (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+                    ))
