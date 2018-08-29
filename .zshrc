@@ -96,6 +96,7 @@ function anti_init() {
   antigen bundle pip
   antigen bundle command-not-found
   antigen bundle shrink-path
+  antigen bundle kubectl
   antigen bundle mvn
   antigen bundle sbt
   antigen bundle scala
