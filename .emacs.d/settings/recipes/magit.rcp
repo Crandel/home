@@ -21,6 +21,7 @@
        :build/windows-nt (with-temp-file "lisp/magit-autoloads.el" nil)
        :post-init (progn
                     (global-unset-key (kbd "C-x C-z"))
-                    (local-unset-key (kbd "C-x g"))
+                    (with-eval-after-load 'magit
+                      (define-key magit-file-mode-map (kbd "C-x g") nil))
                     (global-set-key (kbd "C-x C-z") 'magit-status)
 ))

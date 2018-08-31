@@ -76,7 +76,14 @@
 ;; Js2 mode
 (add-hook 'js2-mode-hook (lambda ()
                            'prettier-js-mode
-                           (setq js2-basic-offset 2)))
+                           (setq js2-basic-offset 2)
+                           ))
+;; End Js2 mode
+;; Json mode
+(add-hook 'json-mode-hook (lambda ()
+                            (define-key json-mode-map (kbd "RET") 'newline-and-indent)
+                            (define-key json-mode-map (kbd "M-RET") 'newline)
+                            ))
 ;; End Js2 mode
 
 ;; Lisp mode
