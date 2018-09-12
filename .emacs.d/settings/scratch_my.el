@@ -57,7 +57,7 @@
 (setq backup-inhibited          t
       make-backup-files         nil
       auto-save-default         nil
-      auto-save-list-file-name nil)
+      auto-save-list-file-name  nil)
 
 ;; Coding-system settings
 (set-language-environment               'UTF-8)

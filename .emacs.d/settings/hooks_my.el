@@ -19,6 +19,14 @@
     (newline-and-indent)
     (insert "import ipdb; ipdb.set_trace()")))
 
+;; Before save hook
+(defun my-before-save-hook ()
+  (when (eq major-mode 'python-mode)
+    (progn
+       (delete-trailing-whitespace))))
+
+(add-hook 'before-save-hook #'my-before-save-hook)
+
 (add-hook 'python-mode-hook '(lambda()
                                (interactive)
                                (setenv "TERM" "ansi-term")
@@ -73,18 +81,11 @@
                             'po-find-file-coding-system)
 ;; End Po mode
 
-;; Js2 mode
-(add-hook 'js2-mode-hook (lambda ()
-                           'prettier-js-mode
-                           (setq js2-basic-offset 2)
-                           ))
-;; End Js2 mode
 ;; Json mode
 (add-hook 'json-mode-hook (lambda ()
                             (define-key json-mode-map (kbd "RET") 'newline-and-indent)
                             (define-key json-mode-map (kbd "M-RET") 'newline)
                             ))
-;; End Js2 mode
 
 ;; Lisp mode
 (add-hook 'lisp-interaction-mode-hook '(lambda()
@@ -98,105 +99,7 @@
 )))
 ;; End Lisp mode
 
-;; Go mode
-; go get -u github.com/alecthomas/gometalinter
-; gometalinter --install
-; go get -u github.com/rogpeppe/godef
-; go get -u github.com/nsf/gocode
-; go get -u github.com/kardianos/govendor
-(add-hook 'go-mode-hook '(lambda()
-                           (progn
-                             (setq gofmt-command    "goimports"
-                                   indent-tabs-mode t
-                                   tab-width        2)
-                             (add-hook 'before-save-hook #'gofmt-before-save)
-                             ;; Go mode keybindings
-                             (define-key go-mode-map (kbd "M-.") #'godef-jump)
-                             (define-key go-mode-map (kbd "RET") 'newline-and-indent)
-                             (define-key go-mode-map (kbd "M-RET") 'newline)
-                             ;; End keybindings
-                             (eval-after-load "company"
-                               '(progn
-                                  (my-change-company-backends 'company-go)
-                                  )))))
-;; End Go mode
-
-;; Smartparents hooks
-(add-hook 'smartparens-mode-hook '(lambda()
-                                    (sp-with-modes '(markdown-mode gfm-mode rst-mode)
-                                      (sp-local-pair "*" "*")
-                                      (sp-local-pair "**" "**")
-                                      (sp-local-pair "_" "_" ))
-                                    (sp-with-modes '(web-mode)
-                                      (sp-local-pair "%" "%")
-                                      (sp-local-pair "<" ">"))))
-;; End smartparens hooks
-
-;; Restclient hooks
-(add-hook 'restclient-mode-hook '(lambda()
-                                  (progn
-                                    (eval-after-load "company"
-                                      '(progn
-                                         (my-change-company-backends 'company-restclient)
-                                          )))))
-
 ;; End restclient hooks
-
-;; Web-mode hook
-(add-hook 'web-mode-hook '(lambda()
-                            (progn
-                              (define-key web-mode-map (kbd "RET") 'newline-and-indent)
-                              (define-key web-mode-map (kbd "M-RET") 'newline)
-                              )))
-
-;; End Web-mode hook
-
-;; Scala mode hook
-(add-hook 'scala-mode-hook '(lambda()
-                              (progn
-                                (ensime-mode)
-                                (local-unset-key (kbd "M-."))
-                                (local-unset-key (kbd "M-,"))
-                                (local-unset-key [tab])
-                                (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
-                                (define-key scala-mode-map (kbd "M-RET") 'newline)
-                                (define-key scala-mode-map (kbd "TAB") nil)
-                                (define-key scala-mode-map (kbd "TAB") nil)
-                                (define-key scala-mode-map (kbd "M-.") 'scala-syntax:beginning-of-definition)
-                                (define-key scala-mode-map (kbd "M-,") 'scala-syntax:end-of-definition)
-                                (define-key ensime-mode-map [tab] 'tab-indent-or-complete)
-                                (define-key scala-mode-map [tab] 'tab-indent-or-complete)
-                                )))
-(add-hook 'ensime-mode-hook '(lambda()
-                              (progn
-                                (local-unset-key (kbd "M-n"))
-                                (local-unset-key (kbd "M-m"))
-                                (local-unset-key (kbd "C-c v"))
-                                (local-unset-key (kbd "C-c C-m"))
-                                (local-unset-key [tab])
-                                (define-key scala-mode-map [tab] nil)
-                                (define-key scala-mode-map (kbd "TAB") nil)
-                                (define-key ensime-mode-map (kbd "M-n") 'mc/mark-next-like-this)
-                                (define-key ensime-mode-map (kbd "M-m") 'mc/mark-previous-like-this)
-                                (define-key ensime-mode-map (kbd "C-c e") 'ensime)
-                                (define-key ensime-mode-map (kbd "C-c v") 'ensime-refactor-diff-extract-local)
-                                (define-key ensime-mode-map (kbd "C-c C-m") 'ensime-refactor-diff-extract-method)
-                                (define-key ensime-mode-map [tab] 'tab-indent-or-complete)
-                                (define-key scala-mode-map (kbd "TAB") 'tab-indent-or-complete)
-                                )))
-;; End scala mode hook
-
-;; java-mode hooks
-(add-hook 'java-mode-hook '(lambda()
-                              (progn
-                                (local-unset-key (kbd "C-d"))
-                                (local-unset-key (kbd "C-c e"))
-                                (define-key java-mode-map (kbd "C-c e") 'meghanada-mode)
-                                (define-key java-mode-map (kbd "RET") 'newline-and-indent)
-                                (define-key java-mode-map (kbd "M-RET") 'newline)
-                                ;(meghanada-mode t)
-                                )))
-;; End java-mode
 ;; c-mode hooks
 (add-hook 'c-mode-hook '(lambda()
                               (progn
@@ -263,30 +166,8 @@
         ))
 
 (add-to-list 'auto-mode-alist '("\\.hql\\'" . sql-mode))
-(add-to-list 'auto-mode-alist '("\\.sc\\'" . scala-mode))
 (add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
-
-;; Javascript
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.edi\\'" . edi-mode))
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-
-;; Web-mode
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-
-;; Before save hook
-(defun my-before-save-hook ()
-  (when (eq major-mode 'python-mode)
-    (progn
-       (delete-trailing-whitespace))))
-
-(add-hook 'before-save-hook #'my-before-save-hook)
 
 
 (provide 'hooks_my)

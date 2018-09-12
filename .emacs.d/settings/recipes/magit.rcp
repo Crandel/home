@@ -23,5 +23,6 @@
                     (global-unset-key (kbd "C-x C-z"))
                     (with-eval-after-load 'magit
                       (define-key magit-file-mode-map (kbd "C-x g") nil))
+                    (local-unset-key (kbd "C-x g"))
                     (global-set-key (kbd "C-x C-z") 'magit-status)
 ))
