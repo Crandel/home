@@ -3,4 +3,9 @@
        :description "An improved JavaScript editing mode"
        :type github
        :pkgname "mooz/js2-mode"
-       :prepare (autoload 'js2-mode "js2-mode" nil t))
+       :prepare (autoload 'js2-mode "js2-mode" nil t)
+       :post-init (progn
+                    (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+                    'prettier-js-mode
+                    (setq js2-basic-offset 2)
+                    ))
