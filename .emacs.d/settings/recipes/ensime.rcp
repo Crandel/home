@@ -9,7 +9,7 @@
                  sbt-mode
                  company-mode
                  yasnippet)
-       :checkout "3.0"
+       :checkout "v2.0.2"
        :post-init (progn
                     (add-hook 'scala-mode-hook '(lambda()
                                                   (setq ensime-company-case-sensitive   t
