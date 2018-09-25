@@ -1,0 +1,18 @@
+(:name eglot
+       :type github
+       :pkgname "joaotavora/eglot"
+       :description "Python Language Server Protocol"
+       :minimum-emacs-version "26"
+       :depends (json-rpc)
+       :compile "eglot.el"
+       :post-init (progn
+                    (add-hook 'python-mode-hook '(lambda()
+                                                   (eglot-ensure)
+                                                   ;; (add-to-list 'eglot-server-programs
+                                                   ;;              `(python-mode . ("pyls" "-v" "--tcp" "--log-file" "/tmp/.pyls.log" "--host"
+                                                   ;;                               "localhost" "--port" :autoport)))
+                                                   (run-with-timer "2sec" nil (lambda () (flymake-mode -1)))
+                                                   )
+                              )
+                    )
+       )

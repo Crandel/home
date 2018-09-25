@@ -19,9 +19,9 @@
                           company-tooltip-align-annotations t
                           selection-coding-system           'utf-8
                           company-auto-complete-chars       '(32 40 41 119 46 34 36 47 124 33)
-                          company-backends '((company-yasnippet
+                          company-backends '((company-capf
+                                              company-yasnippet
                                               company-semantic
-                                              company-capf
                                               company-files
                                               company-etags
                                               company-keywords

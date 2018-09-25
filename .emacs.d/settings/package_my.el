@@ -70,8 +70,9 @@
 )
 
 (when (executable-find "python")
-    (add-to-list 'my-packages 'jedi-core)
-    (add-to-list 'my-packages 'company-jedi)
+    (add-to-list 'my-packages 'eglot)
+    ;; (add-to-list 'my-packages 'jedi-core)
+    ;; (add-to-list 'my-packages 'company-jedi)
     (add-to-list 'my-packages 'pip-requirements)
     (when (executable-find "autopep8")
       (add-to-list 'my-packages 'py-autopep8)
