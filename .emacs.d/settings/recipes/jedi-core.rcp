@@ -6,6 +6,13 @@
        :depends (epc python-environment cl-lib)
        :compile "jedi-core.el"
        :post-init (progn
-            (setq jedi:get-in-function-call-timeout 0
-                  jedi:get-in-function-call-delay   0
-                  jedi:goto-definition-config       '((nil definition nil)))))
+                    (setq jedi:get-in-function-call-timeout 0
+                          jedi:get-in-function-call-delay   0
+                          jedi:goto-definition-config       '((nil definition nil)))
+                    (add-hook 'python-mode-hook '(lambda()
+                                                   (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
+                                                   (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
+                                                   (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
+                                                   (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
+                                                   )
+)))

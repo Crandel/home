@@ -57,18 +57,15 @@
                                (setq imenu-create-index-function 'my-merge-imenu)
 
                                ;; pythom mode keybindings
-                               (define-key python-mode-map (kbd "M-.") 'jedi:goto-definition)
-                               (define-key python-mode-map (kbd "M-,") 'jedi:goto-definition-pop-marker)
                                (define-key python-mode-map (kbd "C-c C-b") 'insert_ipdb)
                                (define-key python-mode-map (kbd "RET") 'newline-and-indent)
                                (define-key python-mode-map (kbd "M-RET") 'newline)
-                               (define-key python-mode-map (kbd "M-/") 'jedi:show-doc)
-                               (define-key python-mode-map (kbd "M-?") 'helm-jedi-related-names)
                                ;; end python mode keybindings
 
                                (eval-after-load "company"
                                  '(progn
-                                    (my-change-company-backends 'company-jedi)))))
+                                    (my-change-company-backends 'company-capf)))
+))
 ;; End Python mode
 
 ;; Po mode
