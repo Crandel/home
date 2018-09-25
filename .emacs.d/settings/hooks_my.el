@@ -96,7 +96,6 @@
 )))
 ;; End Lisp mode
 
-;; End restclient hooks
 ;; c-mode hooks
 (add-hook 'c-mode-hook '(lambda()
                               (progn
