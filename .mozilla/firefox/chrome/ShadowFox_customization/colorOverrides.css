@@ -1,0 +1,18 @@
+--tone-1: var(--grey-20);
+--tone-2: var(--grey-30);
+--tone-3: var(--grey-40);
+--tone-4: var(--grey-50);
+--tone-5: var(--grey-60);
+--tone-6: var(--grey-70);
+--tone-7: var(--grey-80);
+--tone-8: var(--grey-90);
+--tone-9: black;
+--accent-1: var(--green-70);
+--accent-2: var(--green-80);
+--accent-3: var(--green-90);
+--in-content-page-color: var(--tone-2)!important;
+--in-content-page-background: var(--tone-8)!important;
+--in-content-text-color: var(--tone-1)!important;
+--in-content-link-color-visited: #7d004f;
+--in-content-table-border-dark-color: var(--tone-2)!important;
+
