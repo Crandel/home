@@ -358,7 +358,7 @@ function set_git_branch() {
   if command_exists pacman ; then
     branch="$(git_status bash)"
   else
-    branch="$(parse_git_branch)!"
+    branch="$(parse_git_branch)"
   fi
 
   if [ ! "${branch}" == "" ]; then
