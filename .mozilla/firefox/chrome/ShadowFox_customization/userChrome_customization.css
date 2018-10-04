@@ -15,77 +15,19 @@ popup > menu > menupopup {
   border: 1px solid!important;
   border-color: var(--in-content-box-border-color)!important
 }
+
 .popup-internal-box > autorepeatbutton {
   -moz-appearance: none!important;
   background-color: var(--in-content-page-background)!important;
   border: 1px solid!important;
   border-color: var(--in-content-box-border-color)!important
 }
-/*** Top-level "container" icons (otherwise would be Standard folder color) ***/
-/* Bookmarks Menu -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, OrganizerQuery_BookmarksMenu),
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, queryFolder_menu________),
-#editBMPanel_bmRootItem > .menu-iconic-left, 
-#editBMPanel_folderMenuList > .menulist-label-box > .menulist-icon {
-  fill: olive !important;
-  border: 1px solid!important;
-  border-color: var(--in-content-box-border-color)!important;
-}
-
-/* Bookmarks Toolbar -- on Menus */
-#BMB_bookmarksPopup #BMB_bookmarksToolbar > .menu-iconic-left > .menu-iconic-icon,
-#bookmarksMenuPopup #bookmarksToolbarFolderMenu  > .menu-iconic-left > .menu-iconic-icon,
-/* Bookmarks Toolbar -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, OrganizerQuery_BookmarksToolbar),
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, queryFolder_toolbar_____),
-#editBMPanel_toolbarFolderItem > .menu-iconic-left, 
-#editBMPanel_folderMenuList > .menulist-label-box > .menulist-icon {
-  fill: olive !important;
-  border: 1px solid!important;
-  border-color: var(--in-content-box-border-color)!important;
-}
-
-/* Other Bookmarks -- on Menus */
-#BMB_bookmarksPopup #BMB_unsortedBookmarks > .menu-iconic-left > .menu-iconic-icon,
-#bookmarksMenuPopup #menu_unsortedBookmarks  > .menu-iconic-left > .menu-iconic-icon,
-/* Other Bookmarks -- in Sidebar, Library, Add/Edit Bookmark dialog */
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, OrganizerQuery_UnfiledBookmarks),
-:-moz-any(
-#bookmarks-view, 
-#editBMPanel_folderTree, 
-#placesList, 
-#placeContent) treechildren::-moz-tree-image(container, queryFolder_unfiled_____),
-#editBMPanel_unfiledRootItem > .menu-iconic-left, 
-#editBMPanel_folderMenuList > .menulist-label-box > .menulist-icon {
-  fill: olive !important;
-  border: 1px solid!important;
-  border-color: var(--in-content-box-border-color)!important;
-}
 
 html input:not[type=button] {
   background-color: var(--tone-1) !important;
   color: var(--tone-8) !important;
 }
+
 html textarea {
   background-color: var(--tone-1) !important;
   color: var(--tone-8) !important;

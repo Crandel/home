@@ -1,0 +1,34 @@
+menupopup,
+menupopup > menu > menupopup,
+menupopup scrollbox,
+popup,
+popup > menu > menupopup {
+  -moz-appearance: none!important;
+  background: var(--in-content-box-background)!important;
+  border: 1px solid!important;
+  border-color: var(--in-content-box-border-color)!important;
+  padding: 1!important
+}
+
+#BMB_bookmarksPopup .popup-internal-box {
+  background-color: var(--in-content-box-background)!important;
+  border: 1px solid!important;
+  border-color: var(--in-content-box-border-color)!important
+}
+
+.popup-internal-box > autorepeatbutton {
+  -moz-appearance: none!important;
+  background-color: var(--in-content-page-background)!important;
+  border: 1px solid!important;
+  border-color: var(--in-content-box-border-color)!important
+}
+
+html input:not[type=button] {
+  background-color: var(--tone-1) !important;
+  color: var(--tone-8) !important;
+}
+
+html textarea {
+  background-color: var(--tone-1) !important;
+  color: var(--tone-8) !important;
+}

@@ -126,15 +126,6 @@ HISTSIZE=5000000
 SAVEHIST=$HISTSIZE
 # History end
 
-# ALIASES
-alias arch='uname -m'
-alias ll='ls -ahlF'
-alias la='ls -A'
-alias ~='cd $HOME'
-alias home_pr='cd $PERS_DIR/home'
-alias L='|less'
-alias G='|grep'
-
 # End of lines configured by zsh-newuser-install
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -145,12 +136,23 @@ if test -t 1; then
   export TERM="xterm-256color"
   # enable color support of ls and also add handy aliases
   alias ls='ls --color=auto'
+  alias less='less -R'
   alias dir='dir --color=auto'
   alias vdir='vdir --color=auto'
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
 fi
+
+# ALIASES
+alias arch='uname -m'
+alias ll='ls -ahlF'
+alias la='ls -A'
+alias ~='cd $HOME'
+alias home_pr='cd $PERS_DIR/home'
+alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+alias L='|less'
+alias G='|grep'
 
 # NAVIGATION
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
