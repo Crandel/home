@@ -1,5 +1,9 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+function command_exists () {
+  command -v "$1"  > /dev/null 2>&1;
+}
+
 # COLORS
 RED=""
 YELLOW=""
@@ -14,46 +18,75 @@ NORMAL=""
 # check if stdout is a terminal...
 if test -t 1; then
   # see if it supports colors...
-  ncolors=$(tput colors)
-  if test -n "$ncolors" && test $ncolors -ge 8; then
-    export TERM="xterm"
-    force_color_prompt=yes
-    color_prompt=yes
-    NORMAL="$(tput sgr0)"
-    BLACK="$(tput setaf 0)"
-    RED="$(tput setaf 1)"
-    LIGHT_RED="$(tput setaf 1)"
-    GREEN="$(tput setaf 2)"
-    LIGHT_GREEN="$(tput setaf 2)"
-    YELLOW="$(tput setaf 3)"
-    BLUE="$(tput setaf 4)"
-    MAGENTA="$(tput setaf 5)"
-    PURPLE="$(tput setaf 5)"
-    CYAN="$(tput setaf 6)"
-    WHITE="$(tput setaf 7)"
-    LIGHT_GRAY="$(tput setaf 7)"
-    # enable color support of ls and also add handy aliases
-    if [ -t 1 ]
-    then
-        bind 'set colored-completion-prefix on'
-        bind 'set colored-stats on'
+  colors=false
+  if command_exists tput ; then
+    colors=true
+    ncolors=$(tput colors)
+    if test -n "$ncolors"; then
+      export TERM="xterm"
+      force_color_prompt=yes
+      color_prompt=yes
+      NORMAL="$(tput sgr0)"
+      BLACK="$(tput setaf 0)"
+      RED="$(tput setaf 1)"
+      LIGHT_RED="$(tput setaf 1)"
+      GREEN="$(tput setaf 2)"
+      LIGHT_GREEN="$(tput setaf 2)"
+      YELLOW="$(tput setaf 3)"
+      BLUE="$(tput setaf 4)"
+      MAGENTA="$(tput setaf 5)"
+      PURPLE="$(tput setaf 5)"
+      CYAN="$(tput setaf 6)"
+      WHITE="$(tput setaf 7)"
+      LIGHT_GRAY="$(tput setaf 7)"
+      if test $ncolors -gt 8; then
+        export TERM="xterm-256color"
+        BLUE="$(tput setaf 12)"
+        PURPLE="$(tput setaf 53)"
+        LIGHT_RED="$(tput setaf 9)"
+        LIGHT_GREEN="$(tput setaf 10)"
+        LIGHT_GRAY="$(tput setaf 8)"
+      fi
     fi
+  else
+    colors=true
+    RED="\[\033[0;31m\]"
+    YELLOW="\[\033[1;33m\]"
+    GREEN="\[\033[0;32m\]"
+    BLUE="\[\033[1;34m\]"
+    PURPLE="\[\033[0;35m\]"
+    LIGHT_RED="\[\033[1;31m\]"
+    LIGHT_GREEN="\[\033[1;32m\]"
+    WHITE="\[\033[1;37m\]"
+    LIGHT_GRAY="\[\033[0;37m\]"
+    NORMAL="\[\e[0m\]"
+  fi
+  if [ "$colors" = true ] ; then
+    # enable color support of ls and also add handy aliases
+    bind 'set colored-completion-prefix on'
+    bind 'set colored-stats on'
     alias ls='ls --color=auto'
+    alias less='less -R'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
   fi
-  if test -n "$ncolors" && test $ncolors -gt 8; then
-    export TERM="xterm-256color"
-    BLUE="$(tput setaf 12)"
-    PURPLE="$(tput setaf 53)"
-    LIGHT_RED="$(tput setaf 9)"
-    LIGHT_GREEN="$(tput setaf 10)"
-    LIGHT_GRAY="$(tput setaf 8)"
-  fi
+  # NAVIGATION
+  bind '"\e[1;5C":forward-word'
+  bind '"\e[1;5D":backward-word'
+  # bind '"\eOD":backward-word'
+  # bind '"\eOC":forward-word'
+  # bind '"\eOA":history-search-backward'
+  # bind '"\eOB":history-search-forward'
+  bind '"\e[A":history-search-backward'
+  bind '"\e[B":history-search-forward'
+
+  bind 'set completion-ignore-case on'
+  bind 'set show-all-if-ambiguous on'
+  bind 'set completion-query-items 30'
+  bind 'set editing-mode emacs'
 fi
 
 # HISTORY
@@ -73,23 +106,6 @@ shopt -s globstar
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# NAVIGATION
-if [ -t 1 ]
-then
-    bind '"\e[1;5C":forward-word'
-    bind '"\e[1;5D":backward-word'
-    # bind '"\eOD":backward-word'
-    # bind '"\eOC":forward-word'
-    # bind '"\eOA":history-search-backward'
-    # bind '"\eOB":history-search-forward'
-    bind '"\e[A":history-search-backward'
-    bind '"\e[B":history-search-forward'
-
-    bind 'set completion-ignore-case on'
-    bind 'set show-all-if-ambiguous on'
-    bind 'set completion-query-items 30'
-    bind 'set editing-mode emacs'
-fi
 
 # ALIASES
 # some more ls aliases
@@ -104,15 +120,7 @@ if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
-if [ -f ~/clusterdock.sh ]; then
-  . ~/clusterdock.sh
-fi
-
-# FUNCTIONS
-function command_exists () {
-  command -v "$1"  > /dev/null 2>&1;
-}
-
+# CUSTOM FUNCTIONS
 project_folders="/opt/work/projects/"
 function prj () {
   cd $project_folders
@@ -253,6 +261,7 @@ if command_exists docker ; then
   alias dl='docker-compose logs --tail 15'
   alias run='docker-compose stop && docker-compose run --rm --service-ports app'
   alias dst='d stop $(d ps -q)'
+  alias drm='d rm $(d ps -aq)'
 fi
 
 if command_exists vagrant ; then
@@ -339,56 +348,19 @@ fi
 
 # PROMPT
 # get current status of git repo
-function parse_git_dirty {
-  new_status=`git status --porcelain`
-  ahead=`git status -sb 2> /dev/null | grep -o "ahead [0-9]*" | grep -o "[0-9]*"`
-  behind=`git status -sb 2> /dev/null | grep -o "behind [0-9]*" | grep -o "[0-9]*"`
-  # staged files
-  X=`echo -n "${new_status}" 2> /dev/null | cut -c 1-1`
-  # unstaged files
-  Y=`echo -n "${new_status}" 2> /dev/null | cut -c 2-2`
-  modified_unstaged=`echo -n "${Y}" | grep "M" -c`
-  deleted_unstaged=`echo -n "${Y}" | grep "D" -c`
-  untracked_unstaged=`echo -n "${Y}" | grep "?" -c`
-  modified_staged=`echo -n "${X}" | grep "M" -c`
-  deleted_staged=`echo -n "${X}" | grep "D" -c`
-  renamed_staged=`echo -n "${X}" | grep "R" -c`
-  new_staged=`echo -n "${X}" | grep "A" -c`
-  # unstaged_files
-  if [ "${modified_unstaged}" != "0" ]; then
-    unstaged_files="%${modified_unstaged}${unstaged_files}"
-  fi
-  if [ "${deleted_unstaged}" != "0" ]; then
-    unstaged_files="-${deleted_unstaged}${unstaged_files}"
-  fi
-  if [ "${untracked_unstaged}" != "0" ]; then
-    unstaged_files="*${untracked_unstaged}${unstaged_files}"
-  fi
-  # staged_files
-  if [ "${modified_staged}" != "0" ]; then
-    staged_files="%${modified_staged}${staged_files}"
-  fi
-  if [ "${deleted_staged}" != "0" ]; then
-    staged_files="-${deleted_staged}${staged_files}"
-  fi
-  if [ "${renamed_staged}" != "0" ]; then
-    staged_files="^${renamed_staged}${staged_files}"
-  fi
-  if [ "${new_staged}" != "0" ]; then
-    staged_files="+${new_staged}${staged_files}"
-  fi
-}
-
-# determine git branch name
 function parse_git_branch(){
   git branch 2> /dev/null | sed -n 's/^\* //p'
 }
-
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
   # Get the name of the branch.
   BRANCH=""
-  branch="$(git_status bash)"
+  if command_exists pacman ; then
+    branch="$(git_status bash)"
+  else
+    branch="$(parse_git_branch)"
+  fi
+
   if [ ! "${branch}" == "" ]; then
     BRANCH=" ($branch)"
   fi

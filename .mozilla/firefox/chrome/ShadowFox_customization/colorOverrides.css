@@ -1,3 +1,4 @@
+--code-green: #96EC5F!important;
 --tone-1: var(--grey-20);
 --tone-2: var(--grey-30);
 --tone-3: var(--grey-40);
@@ -10,9 +11,14 @@
 --accent-1: var(--green-70);
 --accent-2: var(--green-80);
 --accent-3: var(--green-90);
---in-content-page-color: var(--tone-2)!important;
---in-content-page-background: var(--tone-8)!important;
---in-content-text-color: var(--tone-1)!important;
+--in-content-box-background-odd: var(--code-green);
+--in-content-item-hover: rgb(65, 119, 31, 0.25);
 --in-content-link-color-visited: #7d004f;
+--in-content-category-outline-focus: 1px dotted var(--code-green);;
+--in-content-category-text-selected-active: var(--code-green);
+--in-content-page-background: var(--tone-8)!important;
+--in-content-page-color: var(--tone-2)!important;
+--in-content-selected-text: var(--tone-1)!important;
+--in-content-selected-text-background: var(--green-90)!important;
 --in-content-table-border-dark-color: var(--tone-2)!important;
-
+--in-content-text-color: var(--tone-1)!important;
