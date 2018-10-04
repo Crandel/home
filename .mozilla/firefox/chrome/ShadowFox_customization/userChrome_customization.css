@@ -22,13 +22,3 @@ popup > menu > menupopup {
   border: 1px solid!important;
   border-color: var(--in-content-box-border-color)!important
 }
-
-html input:not[type=button] {
-  background-color: var(--tone-8) !important;
-  color: var(--tone-1) !important;
-}
-
-html textarea {
-  background-color: var(--tone-8) !important;
-  color: var(--tone-1) !important;
-}
