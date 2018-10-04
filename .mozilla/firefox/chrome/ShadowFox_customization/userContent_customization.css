@@ -32,3 +32,8 @@ html textarea {
   background-color: var(--tone-8) !important;
   color: var(--tone-1) !important;
 }
+
+textarea.jsterm-input-node {
+  background-color: var(--tone-8) !important;
+  color: var(--tone-1) !important;
+}
