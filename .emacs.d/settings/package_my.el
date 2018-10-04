@@ -117,7 +117,7 @@
   (package-refresh-contents)
   (package-install 'el-get)
   (package-install 'async)
-	(package-install 'jsonrpc)
+  (package-install 'jsonrpc)
   (package-install 'memoize)
   (message "require is")
   (require 'el-get)
