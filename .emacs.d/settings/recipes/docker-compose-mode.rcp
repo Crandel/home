@@ -1,0 +1,8 @@
+(:name docker-compose-mode
+      :description "docker compose mode for emacs"
+      :type github
+      :pkgname "meqif/docker-compose-mode"
+      :depends (yaml-mode dash cl-lib)
+      :load-path (".")
+      :features docker-compose-mode
+      )
