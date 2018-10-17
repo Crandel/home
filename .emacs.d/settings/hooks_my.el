@@ -31,12 +31,13 @@
                                (interactive)
                                (setenv "TERM" "ansi-term")
 
-                               (setq python-shell-completion-native nil
-                                     indent-tabs-mode               t
-                                     tab-width                      4
-                                     python-indent                  4
-                                     python-shell-interpreter       "ipython"
-                                     python-shell-interpreter-args  "--profile=emacs"
+                               (setq python-shell-completion-native             nil
+                                     python-shell-prompt-detect-failure-warning nil
+                                     indent-tabs-mode                           t
+                                     tab-width                                  4
+                                     python-indent                              4
+                                     python-shell-interpreter                   "ipython"
+                                     python-shell-interpreter-args              "--profile=emacs"
                                      )
 
                                (defun python-startup-function (start end &optional send-main msg)
@@ -151,19 +152,19 @@
 
 (setq buffer-menu-buffer-font-lock-keywords
       '(("^....[*]Man .*Man.*"    . font-lock-variable-name-face) ; Man page
-        (".*.py"                  . font-lock-comment-face)         ; Python
-        (".*.el"                  . font-lock-doc-face)             ; Emacs Lisp
-        (".*Dired.*"              . font-lock-comment-face)         ; Dired
+        (".*.py"                  . font-lock-comment-face)       ; Python
+        (".*.el"                  . font-lock-doc-face)           ; Emacs Lisp
+        (".*Dired.*"              . font-lock-comment-face)       ; Dired
         ("^....[*]shell.*"        . font-lock-preprocessor-face)  ; shell buff
         (".*[*]scratch[*].*"      . font-lock-function-name-face) ; scratch buffer
         ("^....[*].*"             . font-lock-string-face)        ; "*" named buffers
         ("^..[*].*"               . font-lock-constant-face)      ; Modified
-        ("^.[%].*"                . font-lock-keyword-face)         ; Read only
+        ("^.[%].*"                . font-lock-keyword-face)       ; Read only
         ))
 
 (add-to-list 'auto-mode-alist '("\\.hql\\'" . sql-mode))
 (add-to-list 'auto-mode-alist '("\\.bashrc\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.fish\\'" . fish-mode))
-
+(add-to-list 'auto-mode-alist '("docker-compose[^/]*\\.yml\\'" . docker-compose-mode))
 
 (provide 'hooks_my)

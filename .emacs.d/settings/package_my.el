@@ -101,6 +101,7 @@
 
 (when (executable-find "docker")
     (add-to-list 'my-packages 'dockerfile-mode)
+    (add-to-list 'my-packages 'docker-compose-mode)
 )
 
 
