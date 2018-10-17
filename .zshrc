@@ -253,6 +253,7 @@ if (( $+commands[docker] )) ; then
   alias dl='docker-compose logs --tail 15'
   alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
+  alias drm='d rm $(d ps -aq)'
   d_exec(){
     docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
   }
@@ -377,11 +378,18 @@ if [ -f /etc/profile.d/vte.sh ]; then
 fi
 
 # PROMPT
-
+function parse_git_branch(){
+  git branch 2> /dev/null | sed -n 's/^\* //p'
+}
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
   # Get the final branch string.
-  branch="$(git_status zsh)"
+  if (( $+commands[git_status] )); then
+    branch="$(git_status zsh)"
+  else
+    branch="$(parse_git_branch)"
+  fi
+
   if [ -n "${branch}" ]; then
     echo " ($branch)"
   fi
