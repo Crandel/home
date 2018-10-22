@@ -3,4 +3,4 @@ Description=Run lock screen
 
 [Service]
 Type=forking
-ExecStart=/home/crandel/.sleep.fish
+ExecStart=/home/crandel/.sleep.sh
