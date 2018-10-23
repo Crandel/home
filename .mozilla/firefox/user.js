@@ -5,6 +5,7 @@ user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.library.activity-stream.enabled", false);
 user_pref("browser.newtabpage.activity-stream.feeds.places", true);
+user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.prerender", true);
 user_pref("browser.newtabpage.activity-stream.filterAdult", false);
