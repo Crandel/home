@@ -37,3 +37,168 @@ textarea.jsterm-input-node {
   background-color: var(--tone-8) !important;
   color: var(--tone-1) !important;
 }
+
+
+/*------ S3 TRANSLATOR ADDON SETTINGS PAGE ------*/
+@-moz-document url-prefix("moz-extension://s3google@translator/content/options.html") {
+  body, html, center {
+    background: var(--tone-8) !important;
+    color: var(--tone-3) !important
+  }
+
+  #tabsBox .tabsBox {
+    background: var(--tone-7) !important;
+    border: 1px solid var(--tone-5) !important
+  }
+
+  #tabs a:not(.selected) {
+    background-color: var(--tone-7) !important;
+    color: var(--tone-2) !important
+  }
+
+  #tabs a.selected, #translateTab, #translatePageTab, #translateTextTab,
+  #translateLearningTab, #translateContextMenuTab, #translateClipboardTab, #translateOthersTab,
+  .caption span {
+    background-color: var(--tone-6) !important;
+    color: var(--tone-3) !important
+  }
+
+  #translateTextTab a.selected, #translateTextTab--basicFunctions, #translateTextTab--selectedText,
+  #translateTextTab--singleWord {
+    background-color: var(--tone-5) !important;
+    color: var(--tone-3) !important;
+    border: none !important
+  }
+
+  #translateTextTab a:not(.selected){
+    background-color: var(--tone-5) !important;
+    color: var(--tone-2) !important
+  }
+
+  .groupbox {
+    border: 1px solid var(--tone-7) !important;
+    box-shadow: 0 0 10px var(--tone-9) !important
+  }
+  .groupbox:hover:not([disabled]) {
+    border: 1px solid #AF5CCB !important;
+    box-shadow: 0 0 10px #712a89 !important
+  }
+
+  .groupbox a:link, .groupbox a {
+    color: #09f !important
+  }
+  .groupbox a:visited {
+    color: #0070aa !important
+  }
+  .groupbox a:hover {
+    color: #0ff !important
+  }
+  .groupbox a:active {
+    color: #0050aa !important
+  }
+
+  input:not([type="number"]):not([type="checkbox"]):not([type="button"]):not([type="radio"]), textarea {
+    -moz-appearance: none !important;
+    background: var(--tone-7) !important;
+    color: var(--tone-2) !important;
+    border: 1px solid var(--tone-8) !important
+  }
+
+  button, input[type="button"] {
+    -moz-appearance: none !important;
+    border-radius: 3px !important;
+    background-color: var(--tone-8) !important;
+    color: var(--tone-3) !important;
+    border: none !important
+  }
+
+  button:hover, input[type="button"]:hover {
+    background-color: var(--tone-8) !important;
+    color: #fff !important;
+    box-shadow: none !important
+  }
+
+  #translateLearningTab input[type="color"]:hover {
+    border: 1px solid #fff !important
+  }
+
+  .caption > div:not(#hotkey_button_plus) {
+    background-color: var(--tone-6) !important; border-radius: 5px !important
+  }
+
+  #current_locale {
+    border: 1px solid var(--tone-8) !important
+  }
+
+  #save_settings, #copy_settings, #load_settings,
+  #reset_settings {
+    padding: 0.5em !important
+  }
+}
+
+/*------ S3 TRANSLATOR ADDON POPUP AND DONATE PAGE ------*/
+@-moz-document url-prefix("moz-extension://s3google@translator/content/statistics.html"),
+url-prefix("moz-extension://s3google@translator/content/popup.html") {
+  body, html {
+    background: var(--tone-7) !important;
+    color: var(--tone-3) !important
+  }
+
+  .s3gt_menu_action:not([is_inactive="true"]):hover {
+    background-color: var(--tone-7) !important
+  }
+
+  #statistics_accept {
+    background-color: var(--tone-3) !important
+  }
+
+  h4.header {
+    color: #fff !important
+  }
+}
+
+/*------ ONETAB ADDON ------*/
+@-moz-document url-prefix("moz-extension://extension@one-tab.com/"),
+               url-prefix("https://www.one-tab.com/page/") {
+  html, body {
+    background: var(--tone-6) !important
+  }
+
+  #settingsDiv {
+    background: var(--tone-6) !important;
+    border: 1px solid var(--tone-8) !important
+  }
+
+  div {
+    color: var(--tone-2) !important
+  }
+
+  #contentAreaDiv > div {
+    border-color: var(--tone-8) !important
+  }
+
+  a:link, a, a:visited, .clickable {
+    color: #09f !important
+  }
+  a:hover, .clickable:hover {
+    color: #0ff !important
+  }
+  a:active, .clickable:active {
+    color: #0050aa !important
+  }
+
+  img[src="images/cross.png"] {
+    filter: brightness(200%)
+  }
+
+  textarea {
+    -moz-appearance: none !important;
+    background-color: var(--tone-8) !important;
+    color: var(--tone-2) !important;
+    border: 1px solid var(--tone-5) !important
+  }
+
+  label::before {
+    filter: invert(81%) hue-rotate(170deg)
+  }
+}
