@@ -95,6 +95,7 @@ fi
 HISTCONTROL=ignoreboth
 HISTSIZE=
 HISTFILESIZE=
+HISTFILE=$HOME/.hist_bash
 HISTTIMEFORMAT="%F %T "
 
 # append to the history file, don't overwrite it
