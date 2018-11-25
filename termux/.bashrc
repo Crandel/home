@@ -240,11 +240,11 @@ function set_git_branch() {
   if command_exists git_status ; then
     branch="$(git_status bash)"
   else
-    branch="${CYAN}$(parse_git_branch)${NORMAL}"
+    branch="$(parse_git_branch)"
   fi
 
   if [ ! "${branch}" == "" ]; then
-    BRANCH=" ($branch)"
+    BRANCH=" (${CYAN}$branch${NORMAL})"
   fi
 }
 
