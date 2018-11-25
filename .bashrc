@@ -9,6 +9,7 @@ RED=""
 YELLOW=""
 GREEN=""
 BLUE=""
+CYAN=""
 PURPLE=""
 LIGHT_RED=""
 LIGHT_GREEN=""
@@ -18,61 +19,30 @@ NORMAL=""
 # check if stdout is a terminal...
 if test -t 1; then
   # see if it supports colors...
-  colors=false
-  if command_exists tput ; then
-    colors=true
-    ncolors=$(tput colors)
-    if test -n "$ncolors"; then
-      export TERM="xterm"
-      force_color_prompt=yes
-      color_prompt=yes
-      NORMAL="$(tput sgr0)"
-      BLACK="$(tput setaf 0)"
-      RED="$(tput setaf 1)"
-      LIGHT_RED="$(tput setaf 1)"
-      GREEN="$(tput setaf 2)"
-      LIGHT_GREEN="$(tput setaf 2)"
-      YELLOW="$(tput setaf 3)"
-      BLUE="$(tput setaf 4)"
-      MAGENTA="$(tput setaf 5)"
-      PURPLE="$(tput setaf 5)"
-      CYAN="$(tput setaf 6)"
-      WHITE="$(tput setaf 7)"
-      LIGHT_GRAY="$(tput setaf 7)"
-      if test $ncolors -gt 8; then
-        export TERM="xterm-256color"
-        BLUE="$(tput setaf 12)"
-        PURPLE="$(tput setaf 53)"
-        LIGHT_RED="$(tput setaf 9)"
-        LIGHT_GREEN="$(tput setaf 10)"
-        LIGHT_GRAY="$(tput setaf 8)"
-      fi
-    fi
-  else
-    colors=true
-    RED="\[\033[0;31m\]"
-    YELLOW="\[\033[1;33m\]"
-    GREEN="\[\033[0;32m\]"
-    BLUE="\[\033[1;34m\]"
-    PURPLE="\[\033[0;35m\]"
-    LIGHT_RED="\[\033[1;31m\]"
-    LIGHT_GREEN="\[\033[1;32m\]"
-    WHITE="\[\033[1;37m\]"
-    LIGHT_GRAY="\[\033[0;37m\]"
-    NORMAL="\[\e[0m\]"
-  fi
-  if [ "$colors" = true ] ; then
-    # enable color support of ls and also add handy aliases
-    bind 'set colored-completion-prefix on'
-    bind 'set colored-stats on'
-    alias ls='ls --color=auto'
-    alias less='less -R'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-  fi
+  force_color_prompt=yes
+  color_prompt=yes
+  export TERM="xterm-256color"
+  RED="\[\033[0;31m\]"
+  YELLOW="\[\033[1;33m\]"
+  GREEN="\[\033[0;32m\]"
+  BLUE="\[\033[1;34m\]"
+  PURPLE="\[\033[0;35m\]"
+  CYAN="\[\033[0;36m\]"
+  LIGHT_RED="\[\033[1;31m\]"
+  LIGHT_GREEN="\[\033[1;32m\]"
+  WHITE="\[\033[1;37m\]"
+  LIGHT_GRAY="\[\033[0;37m\]"
+  NORMAL="\[\e[0m\]"
+  # enable color support of ls and also add handy aliases
+  bind 'set colored-completion-prefix on'
+  bind 'set colored-stats on'
+  alias ls='ls --color=auto'
+  alias less='less -R'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
   # NAVIGATION
   bind '"\e[1;5C":forward-word'
   bind '"\e[1;5D":backward-word'
@@ -314,11 +284,8 @@ fi
 
 if command_exists emacs; then
   alias em='emacs -nw'
-  alias sem="$SUDO em"
+  alias sem="$SUDO emacs -nw"
   export EDITOR='emacs -nw'
-  if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
-    export TERM='ansi-term'
-  fi
 elif command_exists vim; then
   export EDITOR='vim'
 fi
@@ -359,7 +326,7 @@ function set_git_branch() {
   if command_exists git_status ; then
     branch="$(git_status bash)"
   else
-    branch="$(parse_git_branch)"
+    branch="${CYAN}$(parse_git_branch)${NORMAL}"
   fi
 
   if [ ! "${branch}" == "" ]; then
