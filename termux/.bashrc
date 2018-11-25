@@ -228,6 +228,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+LOCAL_BIN=$HOME/.local/bin
+if [ -d $LOCAL_BIN ]; then
+  export PATH=$PATH:$LOCAL_BIN
+fi
+
 # PROMPT
 # get current status of git repo
 function parse_git_branch(){
