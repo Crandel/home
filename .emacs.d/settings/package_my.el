@@ -48,7 +48,6 @@
     (add-to-list 'my-packages 'go-company)
     (add-to-list 'my-packages 'go-rename)
     (add-to-list 'my-packages 'go-scratch)
-    (add-to-list 'my-packages 'flycheck-gometalinter)
 )
 
 (when (executable-find "node")
