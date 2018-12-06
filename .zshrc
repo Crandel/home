@@ -151,8 +151,14 @@ alias la='ls -A'
 alias ~='cd $HOME'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
-alias L='|less'
+if (( $+commands[bat] )) ; then
+  alias cat='bat'
+fi
+if (( $+commands[rg] )) ; then
+  alias grep='rg'
+fi
 alias G='|grep'
+alias L='|less'
 
 # NAVIGATION
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search

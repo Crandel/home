@@ -86,6 +86,12 @@ alias la='ls -A'
 alias L='|less'
 alias G='|grep'
 alias ~='cd $HOME'
+if command_exists bat ; then
+  alias cat='bat'
+fi
+if command_exists rg ; then
+  alias grep='rg'
+fi
 
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
