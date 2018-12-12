@@ -81,7 +81,7 @@ user_pref("network.prefetch-next", true);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
 user_pref("network.trr.mode", 2);
-user_pref("network.trr.uri", "https://dns.cloudflare.com/.well-known/dns");
+user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("privacy.donottrackheader.enabled", true);
