@@ -2,8 +2,8 @@
 [ -f /etc/banner ] && cat /etc/banner
 
 export PATH=/bin:/sbin:/usr/bin:/usr/sbin
-export HOME=$(grep -e "^${USER:-root}:" /etc/passwd | cut -d ":" -f 6)
-export HOME=${HOME:-/root}
+# export HOME=$(grep -e "^${USER:-root}:" /etc/passwd | cut -d ":" -f 6)
+# export HOME=${HOME:-/root}
 export PS1='\[\033[0;31m\]\u\[\033[0;32m\]:\w \[\033[1;33m\]> \[\e[0m\]'
 alias ls='ls --color=yes'
 alias dir='dir --color=yes'
