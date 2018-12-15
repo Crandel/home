@@ -6,7 +6,9 @@ user_file="/storage/emulated/0/progs/termux/home/termux/user.js"
 cd $mozilla_profile_dir
 echo "$pwd"
 cp $user_file .
-echo "ls -la | grep user \n"
-chown `$(stat -c "%U:%G")` user.js
-echo "ls -la | grep user \n"
+usernme=$(stat -c "%U" .)
+grp=$(stat -c "%G" .)
+echo 'ls -la | grep user \n'
+chown "$usernme:$grp" user.js
+echo 'ls -la | grep user \n'
 
