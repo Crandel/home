@@ -8,7 +8,7 @@ echo "$pwd"
 cp $user_file .
 usernme=$(stat -c "%U" .)
 grp=$(stat -c "%G" .)
-echo 'ls -la | grep user \n'
+echo "$(ls -la | grep --color=auto user.js)"
 chown "$usernme:$grp" user.js
-echo 'ls -la | grep user \n'
+echo "$(ls -la | grep  --color=auto user.js)"
 
