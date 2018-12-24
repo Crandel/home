@@ -77,6 +77,8 @@ user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("privacy.donottrackheader.enabled", true);
+user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false);
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
