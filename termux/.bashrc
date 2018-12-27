@@ -81,7 +81,7 @@ shopt -s globstar
 # ALIASES
 # some more ls aliases
 alias arch='uname -m'
-alias ll='ls -ahlF --time-style=long-iso'
+alias ll='ls -ahlF'
 alias la='ls -A'
 alias L='|less'
 alias G='|grep'
