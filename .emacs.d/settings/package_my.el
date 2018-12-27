@@ -40,6 +40,7 @@
       xclip
       yaml-mode
       yasnippet
+      yasnippet-snippets
       )
 )
 (when (executable-find "go")
@@ -85,6 +86,11 @@
 
 (when (executable-find "livedown")
     (add-to-list 'my-packages 'livedown)
+)
+
+(when (executable-find "clang")
+    (add-to-list 'my-packages 'irony-mode)
+    (add-to-list 'my-packages 'company-irony)
 )
 
 (when (executable-find "scala")
