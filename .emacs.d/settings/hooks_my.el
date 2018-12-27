@@ -104,6 +104,12 @@
                                 (local-unset-key (kbd "C-d"))
                                 (define-key c-mode-map (kbd "RET") 'newline-and-indent)
                                 (define-key c-mode-map (kbd "M-RET") 'newline)
+                                (eval-after-load "company"
+                                  '(progn
+                                     (my-change-company-backends 'company-irony)
+                                     ))
+                                (ggtags-mode 1)
+                                (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
                                 )))
 ;; End c-mode
 
@@ -121,6 +127,12 @@
                                     (add-to-list
                                      'flycheck-clang-include-path
                                      (format "%sinclude" root))))
+                                (eval-after-load "company"
+                                  '(progn
+                                     (my-change-company-backends 'company-irony)
+                                     ))
+                                (ggtags-mode 1)
+                                (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
                                 )))
 ;; End c-mode
 
