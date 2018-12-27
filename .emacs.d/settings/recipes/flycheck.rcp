@@ -15,7 +15,7 @@
                     (add-hook 'scala-mode-hook                #'flycheck-mode)
                     (add-hook 'java-mode-hook                 #'flycheck-mode)
                     (add-hook 'c-mode-hook                    #'flycheck-mode)
-                    (add-hook 'c++-mode-hook                    #'flycheck-mode)
+                    (add-hook 'c++-mode-hook                  #'flycheck-mode)
                     (add-hook 'rust-mode-hook                 #'flycheck-mode)
                     (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change)
                           flycheck-highlighting-mode          'lines
