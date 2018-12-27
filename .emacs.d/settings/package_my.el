@@ -91,6 +91,12 @@
 (when (executable-find "clang")
     (add-to-list 'my-packages 'irony-mode)
     (add-to-list 'my-packages 'company-irony)
+    (add-to-list 'my-packages 'irony-eldoc)
+    (add-to-list 'my-packages 'flycheck-irony)
+)
+
+(when (executable-find "global")
+    (add-to-list 'my-packages 'ggtags)
 )
 
 (when (executable-find "scala")

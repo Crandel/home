@@ -40,5 +40,6 @@
                                          ("cclean" "make --no-print-directory -C build clean"
                                           (locate-dominating-file buffer-file-name ".git"))))
                             ))
+                      (setq multi-compile-completion-system 'helm)
                       (global-set-key [f8] #'multi-compile-run)
                       ))
