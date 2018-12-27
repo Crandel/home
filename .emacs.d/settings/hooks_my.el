@@ -100,9 +100,27 @@
 ;; c-mode hooks
 (add-hook 'c-mode-hook '(lambda()
                               (progn
+                                (irony-mode)
                                 (local-unset-key (kbd "C-d"))
                                 (define-key c-mode-map (kbd "RET") 'newline-and-indent)
                                 (define-key c-mode-map (kbd "M-RET") 'newline)
+                                )))
+;; End c-mode
+
+;; c++-mode hooks
+(add-hook 'c++-mode-hook '(lambda()
+                              (progn
+                                (irony-mode)
+                                (local-unset-key (kbd "C-d"))
+                                (define-key c++-mode-map (kbd "RET") 'newline-and-indent)
+                                (define-key c++-mode-map (kbd "M-RET") 'newline)
+                                (setq-default sp-escape-quotes-after-inser nil)
+
+                                (let ((root (ignore-errors (projectile-project-root))))
+                                  (when root
+                                    (add-to-list
+                                     'flycheck-clang-include-path
+                                     (format "%sinclude" root))))
                                 )))
 ;; End c-mode
 
