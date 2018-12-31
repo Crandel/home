@@ -1,7 +1,7 @@
 #!/bin/sh
 
 mozilla_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
-user_files="/storage/emulated/0/progs/termux/home/termux/"
+user_files="/storage/emulated/0/progs/termux/home/termux/*"
 
 cd $mozilla_profile_dir
 echo "$pwd"
