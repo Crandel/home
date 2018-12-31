@@ -1,0 +1,13 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#nav-bar { /* main toolbar containing address bar, search bar, add-on icons */
+  -moz-box-ordinal-group: 1 !important;
+}
+
+#PersonalToolbar { /* bookmarks toolbar */
+  -moz-box-ordinal-group: 2 !important;
+}
+
+#TabsToolbar { /* tab bar */
+  -moz-box-ordinal-group: 3 !important;
+}
