@@ -97,6 +97,7 @@
               java-basic-offset     4
               standart-indent       4
               lisp-body-indent      2
+              js-indent-level       2
               indent-line-function  'insert-tab)
 
 ;; Scrolling settings
