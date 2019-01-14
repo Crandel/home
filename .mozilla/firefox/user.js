@@ -106,6 +106,8 @@ user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.wifi.uri", "");
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.enabled", true);
+user_pref("webgl.msaa-force", true);
+user_pref("webgl.force-enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("intl.accept_languages", "en-us,en,uk,ru");

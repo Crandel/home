@@ -36,8 +36,7 @@
                                      indent-tabs-mode                           t
                                      tab-width                                  4
                                      python-indent                              4
-                                     python-shell-interpreter                   "ipython"
-                                     python-shell-interpreter-args              "--profile=emacs"
+                                     python-shell-interpreter                   "python"
                                      )
 
                                (defun python-startup-function (start end &optional send-main msg)
