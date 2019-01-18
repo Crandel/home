@@ -205,16 +205,17 @@ fi
 
 if command_exists apt ; then
   alias apt="$SUDO apt"
-  alias upgy='apt update'
-  alias upg='upgy && apt upgrade'
+  alias upd='apt update'
+  alias upgy='apt upgrade'
+  alias upg='upd && sleep 2 && upgy'
   alias pacs='apt search'
   alias paci='apt install'
   alias pacr='apt remove'
   alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
   if command_exists apt-fast ; then
-    alias upgy='apt-fast update'
-    alias upg='apt-fast update && apt-fast upgrade'
+    alias upgy='apt-fast upgrade'
+    alias upg='apt-fast update && sleep 2 && apt-fast upgrade'
     alias paci='apt-fast install'
   fi
 fi
