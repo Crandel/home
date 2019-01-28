@@ -5,13 +5,13 @@
 }
 
 /* Hide "Tree Style Tabs" sidebar header */
-#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-  display:none;
-}
+/* #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+   display:none;
+   }
 
-#editBMPanel_folderTree {
-  min-height: 40em !important;
-}
+   #editBMPanel_folderTree {
+   min-height: 40em !important;
+   } */
 
 menupopup,
 menupopup > menu > menupopup,
