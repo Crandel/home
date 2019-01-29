@@ -4,6 +4,15 @@
   visibility: collapse !important;
 }
 
+.tab.private-browsing .label:before {
+  content: "₱";
+}
+
+.tab.unread .label {
+  color: red !important;
+  font-style: italic !important;
+}
+
 /* Hide "Tree Style Tabs" sidebar header */
 /* #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
    display:none;
