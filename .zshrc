@@ -388,6 +388,7 @@ fi
 function parse_git_branch(){
   git branch 2> /dev/null | sed -n 's/^\* //p'
 }
+
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
   # Get the final branch string.
@@ -401,9 +402,11 @@ function set_git_branch() {
     echo " ($branch)"
   fi
 }
+
 function set_prompt_symbol () {
   echo " %(?.%F{yellow}.%F{red}[%?])\n➤%f "
 }
+
 # Determine active Python virtualenv details.
 function set_virtualenv () {
   if [ ! -z "$VIRTUAL_ENV" ] ; then
