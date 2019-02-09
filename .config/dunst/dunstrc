@@ -194,7 +194,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = True
+    # startup_notification = True
 
     ### Legacy
 
