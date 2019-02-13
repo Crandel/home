@@ -191,7 +191,9 @@ client.unfocused        #4B610B  #424242 #ECF6CE #292d2e
 client.urgent           #4B610B  #900000 #ffffff #900000
 # assings
 assign [class="(?i)Viber"] 2
+assign [class="(?i)Wire"] 2
 assign [class="(?i)Slack"] 2
+
 workspace_layout tabbed
 
 #workspace 1 output eDP1
@@ -258,6 +260,6 @@ exec --no-startup-id compton --config ~/.config/compton.conf -b
 # exec clipit
 exec $term --quake
 # exec_always --no-startup-id xxkb
-# exec viber
+# exec wire-desktop
 # exec skypeforlinux
 # exec radiotray-ng

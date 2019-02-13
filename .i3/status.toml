@@ -78,6 +78,6 @@ interval = 2
 
 [[block]]
 block = "time"
-interval = 60
-format = "%Y-%m-%d %R"
+interval = 15
+format = "%d.%m.%y %R"
 on_click = "gsimplecal"
