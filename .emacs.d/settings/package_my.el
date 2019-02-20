@@ -12,6 +12,7 @@
       company-mode
       company-flx
       company-restclient
+      eglot
       emmet-mode
       emacs-fish
       expand-region
@@ -69,7 +70,6 @@
 )
 
 (when (executable-find "python")
-    (add-to-list 'my-packages 'eglot)
     ;; (add-to-list 'my-packages 'jedi-core)
     ;; (add-to-list 'my-packages 'company-jedi)
     (add-to-list 'my-packages 'pip-requirements)
@@ -86,13 +86,6 @@
 
 (when (executable-find "livedown")
     (add-to-list 'my-packages 'livedown)
-)
-
-(when (executable-find "clang")
-    (add-to-list 'my-packages 'irony-mode)
-    (add-to-list 'my-packages 'company-irony)
-    (add-to-list 'my-packages 'irony-eldoc)
-    (add-to-list 'my-packages 'flycheck-irony)
 )
 
 (when (executable-find "global")

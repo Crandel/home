@@ -99,26 +99,19 @@
 ;; c-mode hooks
 (add-hook 'c-mode-hook '(lambda()
                               (progn
-                                (irony-mode)
                                 (local-unset-key (kbd "C-d"))
-                                (define-key c-mode-map (kbd "RET") 'newline-and-indent)
-                                (define-key c-mode-map (kbd "M-RET") 'newline)
-                                (eval-after-load "company"
-                                  '(progn
-                                     (my-change-company-backends 'company-irony)
-                                     ))
-                                (ggtags-mode 1)
-                                (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+                                ;; (define-key c-mode-map (kbd "RET") 'newline-and-indent)
+                                ;; (define-key c-mode-map (kbd "M-RET") 'newline)
+                                ;; (ggtags-mode 1)
                                 )))
 ;; End c-mode
 
 ;; c++-mode hooks
 (add-hook 'c++-mode-hook '(lambda()
                               (progn
-                                (irony-mode)
                                 (local-unset-key (kbd "C-d"))
-                                (define-key c++-mode-map (kbd "RET") 'newline-and-indent)
-                                (define-key c++-mode-map (kbd "M-RET") 'newline)
+                                ;; (define-key c++-mode-map (kbd "RET") 'newline-and-indent)
+                                ;; (define-key c++-mode-map (kbd "M-RET") 'newline)
                                 (setq-default sp-escape-quotes-after-inser nil)
 
                                 (let ((root (ignore-errors (projectile-project-root))))
@@ -126,14 +119,9 @@
                                     (add-to-list
                                      'flycheck-clang-include-path
                                      (format "%sinclude" root))))
-                                (eval-after-load "company"
-                                  '(progn
-                                     (my-change-company-backends 'company-irony)
-                                     ))
-                                (ggtags-mode 1)
-                                (eval-after-load 'flycheck '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+                                ;; (ggtags-mode 1)
                                 )))
-;; End c-mode
+;; End c++-mode
 
 ;; Buffer-menu-mode-hook
 (add-hook 'buffer-menu-mode-hook '(lambda()

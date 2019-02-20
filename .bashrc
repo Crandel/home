@@ -207,7 +207,8 @@ if command_exists apt ; then
   alias apt="$SUDO apt"
   alias upd='apt update'
   alias upgy='apt upgrade'
-  alias upg='upd && sleep 2 && upgy'
+  alias upl='apt list --upgradable'
+  alias upg='upd && sleep 2 && upl && sleep 2 && upgy'
   alias pacs='apt search'
   alias paci='apt install'
   alias pacr='apt remove'

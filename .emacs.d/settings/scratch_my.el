@@ -5,7 +5,7 @@
 (setq-default user-full-name   "crandel"
               user-mail-adress "cradlemann@gmail.com")
 
-;; Set bash as default shell
+;; Set zsh as default shell
 (setq shell-file-name           "/bin/zsh"
       explicit-shell-file-name  "/bin/zsh")
 (blink-cursor-mode 1)
@@ -69,12 +69,6 @@
 (set-terminal-coding-system             'utf-8)
 (prefer-coding-system                   'utf-8)
 
-;; Linum plugin
-;; (require 'linum)
-;; (line-number-mode       t)
-;; (global-linum-mode      t)
-;; (column-number-mode     t)
-;; (setq linum-format      "%d")
 (setq-default display-line-numbers t)
 
 ;; Display file size/time in mode-line
@@ -113,12 +107,13 @@
 
 (setq next-line-add-newlines nil)
 
-;; Highlight search resaults
+;; Highlight search resalts
 (setq search-highlight            t
       query-replace-highlight     t
       auto-window-vscroll         nil
       bidi-display-reordering     nil)
-;;; Whitespace
+
+;; Whitespace
 (require 'whitespace)
 (autoload 'global-whitespace-mode   "whitespace" "Toggle whitespace visualization." t)
 (setq whitespace-style
@@ -141,7 +136,7 @@
     (windmove-default-keybindings 'meta))
 
 (recentf-mode 1)
-(setq recentf-max-menu-items      550
+(setq recentf-max-menu-items      150
       recentf-max-saved-items     550)
 
 ;; Show paren

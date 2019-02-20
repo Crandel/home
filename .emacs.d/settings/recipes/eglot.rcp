@@ -12,5 +12,15 @@
                                                    (setq-default flymake-diagnostic-functions nil)
                                                    )
                               )
+                    (add-hook 'c++-mode-hook '(lambda()
+                                                (eglot-ensure)
+                                                )
+                              )
+                    (defun projectile-project-find-function (dir)
+                      (let* ((root (projectile-project-root dir)))
+                        (and root (cons 'transient root))))
+
+                    (with-eval-after-load 'project
+                      (add-to-list 'project-find-functions 'projectile-project-find-function))
                     )
        )
