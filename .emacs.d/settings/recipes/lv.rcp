@@ -1,0 +1,7 @@
+(:name lv
+    :website "https://github.com/abo-abo/hydra"
+    :description "It's Magit dependency."
+    :type github
+    :pkgname "abo-abo/hydra"
+    :load "lv.el"
+)
