@@ -13,8 +13,8 @@ alias = "/"
 info_type = "available"
 unit = "GB"
 interval = 20
-warning = 20.0
-alert = 5.0
+warning = 15.0
+alert = 10.0
 
 [[block]]
 block = "disk_space"
@@ -23,8 +23,8 @@ alias = "h"
 info_type = "available"
 unit = "GB"
 interval = 20
-warning = 10.0
-alert = 5.0
+warning = 15.0
+alert = 10.0
 
 [[block]]
 block = "disk_space"
@@ -33,8 +33,8 @@ alias = "d"
 info_type = "available"
 unit = "GB"
 interval = 20
-warning = 10.0
-alert = 5.0
+warning = 200.0
+alert = 100.0
 
 [[block]]
 block = "cpu"
@@ -44,7 +44,7 @@ frequency = true
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mum}MB"
+format_mem = "{Mug}GB"
 format_swap = "{SUm}MB"
 
 [[block]]
