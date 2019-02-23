@@ -216,7 +216,7 @@ bindsym $mod+p exec pavucontrol
 bindsym $mod+x exec emacs
 
 # Intellij
-bindsym $mod+b exec idea.sh
+bindsym $mod+b exec idea
 
 # xmenud
 bindsym $mod+m exec xmenud
