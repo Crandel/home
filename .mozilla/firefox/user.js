@@ -83,6 +83,7 @@ user_pref("extensions.ui.dictionary.hidden", false);
 user_pref("extensions.ui.experiment.hidden", false);
 user_pref("extensions.ui.locale.hidden", false);
 user_pref("extensions.webextensions.remote", false);
+// blacklist for webextensions
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com");
 user_pref("findbar.highlightAll", true);
 user_pref("font.internaluseonly.changed", true);
@@ -139,6 +140,7 @@ user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false);
+// enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.longPressBehavior", 2);
