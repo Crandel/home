@@ -151,6 +151,7 @@ alias la='ls -A'
 alias ~='cd $HOME'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 if (( $+commands[bat] )) ; then
   alias cat='bat'
 fi
@@ -262,6 +263,7 @@ if (( $+commands[docker] )) ; then
   alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
+  alias drmin='d rmi $(d images | rg -i "none" | awk "{print $3}")'
   d_exec(){
     docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
   }
