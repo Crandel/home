@@ -85,7 +85,9 @@ user_pref("extensions.ui.experiment.hidden", false);
 user_pref("extensions.ui.locale.hidden", false);
 user_pref("extensions.webextensions.remote", false);
 // blacklist for webextensions
-user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com");
+user_pref("extensions.webextensions.restrictedDomains",
+          "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com");
+user_pref("extensions.webextensions.userScripts.enabled", true);
 user_pref("findbar.highlightAll", true);
 user_pref("font.internaluseonly.changed", true);
 user_pref("font.minimum-size.x-western", 10);
@@ -102,7 +104,8 @@ user_pref("general.smoothScroll.pixels", false);
 user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
 user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.useragent.override.skype.com", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
+user_pref("general.useragent.override.skype.com",
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
 user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.wifi.uri", "");
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
@@ -118,8 +121,9 @@ user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.word_select.stop_at_punctuation", true);
 user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
-user_pref("media.autoplay.allow-muted", true);
-user_pref("media.autoplay.enabled", true);
+user_pref("media.autoplay.allow-muted", false);
+user_pref("media.autoplay.enabled", false);
+user_pref("media.autoplay.default", 1);
 user_pref("media.av1.enabled", true);
 user_pref("media.gpu-process-decoder", true);
 user_pref("media.videocontrols.picture-in-picture.enabled", true);
@@ -143,7 +147,7 @@ user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false);
 // enable webextensions on mozilla websites
-user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
+// user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 user_pref("privacy.userContext.enabled", true);
 user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
