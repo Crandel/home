@@ -145,7 +145,7 @@ user_pref("permissions.default.geo", 2);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.firstparty.isolate", true);
 user_pref("privacy.resistFingerprinting", true);
-user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false);
+user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", true);
 // enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true);
 user_pref("privacy.userContext.enabled", true);
