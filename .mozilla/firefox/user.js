@@ -60,6 +60,7 @@ user_pref("browser.search.region", "US");
 user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.drawInTitlebar", true);
 user_pref("browser.tabs.loadInBackground", false);
+user_pref("browser.tabs.remote.autostart", true);
 user_pref("browser.tabs.tabMinWidth", 30);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
