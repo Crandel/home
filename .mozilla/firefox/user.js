@@ -9,6 +9,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
 user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.filterAdult", false);
 user_pref("browser.newtabpage.activity-stream.prerender", true);
+user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
@@ -157,6 +158,7 @@ user_pref("reader.content_width", 12);
 user_pref("security.ssl.errorReporting.automatic", true);
 // exclude sync of addons status enabled/disabled
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true);
+user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("toolkit.identity.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", true);
 user_pref("toolkit.telemetry.bhrPing.enabled", true);
