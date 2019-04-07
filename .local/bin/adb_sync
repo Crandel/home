@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+adb-sync --reverse "/sdcard/DCIM/*" /media/data/backup/android/XiaomiA1/flash/DCIM/
+adb-sync --reverse "/sdcard/Books/*" /media/data/backup/android/XiaomiA1/flash/Books/
+adb-sync --reverse "/sdcard/Diaro/*" /media/data/backup/android/XiaomiA1/flash/Diaro/
+adb-sync --reverse "/sdcard/dictdata/*" /media/data/backup/android/XiaomiA1/flash/dictdata/
+adb-sync --reverse "/sdcard/docs_pdf/*" /media/data/backup/android/XiaomiA1/flash/docs_pdf/
+adb-sync --reverse "/sdcard/Download/*" /media/data/backup/android/XiaomiA1/flash/Download/
+adb-sync --reverse "/sdcard/Fonts/*" /media/data/backup/android/XiaomiA1/flash/Fonts/
+adb-sync --reverse "/sdcard/ivona/*" /media/data/backup/android/XiaomiA1/flash/ivona/
+adb-sync --reverse "/sdcard/MapsWithMe/*" /media/data/backup/android/XiaomiA1/flash/MapsWithMe/
+adb-sync --reverse "/sdcard/Music/*" /media/data/backup/android/XiaomiA1/flash/Music/
+adb-sync --reverse "/sdcard/Pictures/*" /media/data/backup/android/XiaomiA1/flash/Pictures/
+adb-sync --reverse "/sdcard/progs/*" /media/data/backup/android/XiaomiA1/flash/progs/
+adb-sync --reverse "/sdcard/SamLib-Info/*" /media/data/backup/android/XiaomiA1/flash/SamLib-Info/
+adb-sync --reverse "/sdcard/TitaniumBackup/*" /media/data/backup/android/XiaomiA1/flash/TitaniumBackup/
+adb-sync --reverse "/sdcard/TWRP/*" /media/data/backup/android/XiaomiA1/flash/TWRP/
+adb-sync --reverse "/sdcard/viber/*" /media/data/backup/android/XiaomiA1/flash/viber/
+adb-sync --reverse "/sdcard/VocalizerEx2/*" /media/data/backup/android/XiaomiA1/flash/VocalizerEx2/
+adb-sync --reverse "/sdcard/work/*" /media/data/backup/android/XiaomiA1/flash/work/
