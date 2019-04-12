@@ -1,6 +1,6 @@
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-#TabsToolbar {
+#toolbar-menubar[inactive="true"] + #TabsToolbar {
   visibility: collapse !important;
 }
 
