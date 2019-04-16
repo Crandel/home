@@ -43,7 +43,9 @@
      (nil . 40))))
  '(neo-window-fixed-size nil)
  '(neo-window-width 35)
- '(package-selected-packages (quote (docker-compose-mode jsonrpc csv-mode async el-get)))
+ '(package-selected-packages
+   (quote
+    (flymake docker-compose-mode jsonrpc csv-mode async el-get)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
  '(semantic-which-function-use-color t)
