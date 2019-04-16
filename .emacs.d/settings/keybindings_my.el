@@ -162,6 +162,6 @@
 (global-set-key [tab] 'tab-indent-or-complete)
 (global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
 (global-set-key (kbd "C-c b") 'revert-buffer)
-
+;; C-x r y for paste multiple cursors
 
 (provide 'keybindings_my)

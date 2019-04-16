@@ -70,7 +70,6 @@ user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.trimURLs", false);
 user_pref("datareporting.healthreport.uploadEnabled", true);
 user_pref("datareporting.policy.dataSubmissionEnabled", true);
-user_pref("datareporting.policy.firstRunURL", "");
 user_pref("device.sensors.enabled", false);
 user_pref("device.sensors.motion.enabled", false);
 user_pref("device.sensors.orientation.enabled", false);
