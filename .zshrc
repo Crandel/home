@@ -85,6 +85,13 @@ zipin () {
   done
 }
 
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
+
+clean_pyc (){
+  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+}
 # ANTIGEN
 
 antigen_source="$HOME/antigen.zsh"
@@ -152,11 +159,9 @@ alias ~='cd $HOME'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+
 if (( $+commands[bat] )) ; then
   alias cat='bat'
-fi
-if (( $+commands[rg] )) ; then
-  alias grep='rg'
 fi
 alias G='|grep'
 alias L='|less'
@@ -235,11 +240,6 @@ if (( $+commands[apt] )) ; then
   alias pacr='apt remove'
   alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
-  if (( $+commands[apt-fast] )) ; then
-    alias upgy='apt-fast upgrade'
-    alias upg='apt-fast update && sleep 2 && apt-fast upgrade'
-    alias paci='apt-fast install'
-  fi
 fi
 
 if (( $+commands[yum] )) ; then

@@ -167,6 +167,14 @@ zipin () {
   done
 }
 
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
+
+clean_pyc (){
+  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+}
+
 # BINS CONDITIONS
 SUDO=''
 if [[ $EUID -ne 0 ]] && command_exists sudo ; then
@@ -214,11 +222,6 @@ if command_exists apt ; then
   alias pacr='apt remove'
   alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
-  if command_exists apt-fast ; then
-    alias upgy='apt-fast upgrade'
-    alias upg='apt-fast update && sleep 2 && apt-fast upgrade'
-    alias paci='apt-fast install'
-  fi
 fi
 
 if command_exists yum ; then
