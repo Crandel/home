@@ -39,6 +39,7 @@
       wanderlust
       web-mode
       xclip
+      yafolding
       yaml-mode
       yasnippet
       yasnippet-snippets
