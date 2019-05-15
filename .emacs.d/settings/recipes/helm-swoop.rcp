@@ -1,7 +1,8 @@
 (:name helm-swoop
        :type github
        :description "Efficiently hopping squeezed lines powered by Emacs helm interface"
-       :pkgname "ShingoFukuyama/helm-swoop"
+       :pkgname "pkryger/helm-swoop"
+       :branch "patches"
        :depends (helm)
        :post-init(progn
                    (global-unset-key (kbd "C-s"))
