@@ -64,7 +64,7 @@ user_pref("browser.tabs.drawInTitlebar", true);
 user_pref("browser.tabs.loadInBackground", false);
 user_pref("browser.tabs.remote.autostart", true);
 user_pref("browser.tabs.tabMinWidth", 30);
-user_pref("browser.tabs.warnOnClose", true);
+user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.trimURLs", false);
