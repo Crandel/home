@@ -5,15 +5,13 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$HOME/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 # End of lines added by compinstall
 
 # ZSH SPECIFIC
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
 bindkey -e
-autoload -Uz promptinit
-promptinit
+autoload -Uz promptinit && promptinit
 
 
 virtual='virtualenvwrapper.sh'
@@ -296,6 +294,15 @@ if (( $+commands[go] )) ; then
       . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
     fi
   fi
+fi
+
+if (( $+commands[nnn] )) ; then
+  alias nnn='nnn -d'
+  export NNN_USE_EDITOR=1
+  export NNN_CONTEXT_COLORS='2745'
+  export NNN_COPIER=$(which xsel)
+  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_OPS_PROG=1
 fi
 
 if (( $+commands[hadoop] )) ; then

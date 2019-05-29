@@ -272,6 +272,15 @@ if command_exists go ; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if command_exists nnn ; then
+  alias nnn='nnn -d'
+  export NNN_USE_EDITOR=1
+  export NNN_CONTEXT_COLORS='2745'
+  export NNN_COPIER=$(which xsel)
+  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_OPS_PROG=1
+fi
+
 if [ -d /usr/share/scala ]; then
   export SCALA_HOME=/usr/share/scala
   export PATH=$PATH:$SCALA_HOME/bin
