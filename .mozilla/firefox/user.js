@@ -83,6 +83,8 @@ user_pref("experiments.activeExperiment", true);
 user_pref("experiments.enabled", true);
 user_pref("experiments.supported", false);
 user_pref("extensions.fxmonitor.enabled", false);
+user_pref("extensions.htmlaboutaddons.discover.enabled", false);
+user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.ui.dictionary.hidden", false);
 user_pref("extensions.ui.experiment.hidden", false);
