@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $lock /home/crandel/.sleep.sh
+set $lock .sleep.sh
 set $term tilix
 set $browser firefox
 # Font for window titles. Will also be used by the bar unless a different font
