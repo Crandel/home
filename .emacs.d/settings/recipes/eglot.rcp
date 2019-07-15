@@ -5,7 +5,7 @@
        :minimum-emacs-version "26"
        :compile "eglot.el"
        :post-init (progn
-                    (add-hook 'eglot--managed-mode-hook (lambda () 
+                    (add-hook 'eglot--managed-mode-hook (lambda ()
                                                          (flymake-mode -1)))
                     (add-hook 'python-mode-hook '(lambda()
                                                    (eglot-ensure)
