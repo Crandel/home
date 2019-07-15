@@ -49,7 +49,7 @@
     (add-to-list 'my-packages 'go-eldoc)
     (add-to-list 'my-packages 'go-mode)
     (add-to-list 'my-packages 'go-company)
-    (add-to-list 'my-packages 'go-rename)
+    ;; (add-to-list 'my-packages 'go-rename)
     (add-to-list 'my-packages 'go-scratch)
 )
 
@@ -94,7 +94,6 @@
 )
 
 (when (executable-find "scala")
-    (add-to-list 'my-packages 'ensime)
     (add-to-list 'my-packages 'sbt-mode)
     (add-to-list 'my-packages 'scala-mode)
 )
@@ -130,5 +129,11 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
 (el-get 'sync my-packages)
+
+(require 'el-get-elpa)
+;; Build the El-Get copy of the package.el packages if we have not
+;; built it before.  Will have to look into updating later ...
+(unless (file-directory-p el-get-recipe-path-elpa)
+  (el-get-elpa-build-local-recipes))
 
 (provide 'package_my)

@@ -33,7 +33,7 @@
 
                                (setq python-shell-completion-native             nil
                                      python-shell-prompt-detect-failure-warning nil
-                                     indent-tabs-mode                           t
+                                     indent-tabs-mode                           nil
                                      tab-width                                  4
                                      python-indent                              4
                                      python-shell-interpreter                   "python"
@@ -45,10 +45,10 @@
 
                                (add-function :before (symbol-function 'python-shell-send-region)  #'python-startup-function)
 
-                               (if (string-match-p "rita" (or (buffer-file-name) ""))
-                                   (setq indent-tabs-mode t)
-                                 (setq indent-tabs-mode nil)
-                                 )
+                               ;; (if (string-match-p "rita" (or (buffer-file-name) ""))
+                               ;;     (setq indent-tabs-mode t)
+                               ;;   (setq indent-tabs-mode nil)
+                               ;;   )
 
                                (add-to-list
                                 'imenu-generic-expression
