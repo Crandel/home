@@ -11,6 +11,7 @@
       avy
       company-mode
       company-flx
+      company-lsp
       company-restclient
       eglot
       emmet-mode
@@ -31,6 +32,8 @@
       multiple-cursors
       neotree
       less-css-mode
+      lsp-mode
+      lsp-ui
       projectile
       restclient
       smartparens

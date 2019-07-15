@@ -15,6 +15,5 @@
                                                 (define-key scala-mode-map (kbd "M-.") 'scala-syntax:beginning-of-definition)
                                                 (define-key scala-mode-map (kbd "M-,") 'scala-syntax:end-of-definition)
                                                 (define-key scala-mode-map [tab] 'tab-indent-or-complete)
-                                                lsp
-                                                ))
+                                                                                                ))
 )
