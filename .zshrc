@@ -5,6 +5,9 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$HOME/.zshrc'
 
+# custon zsh funcs
+fpath+=~/.zfunc
+
 autoload -Uz compinit && compinit
 # End of lines added by compinstall
 
@@ -13,6 +16,7 @@ setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS 
 bindkey -e
 autoload -Uz promptinit && promptinit
 
+export PERS_DIR='/opt/work'
 
 virtual='virtualenvwrapper.sh'
 if (( $+commands[$virtual] )); then
@@ -21,7 +25,6 @@ if (( $+commands[$virtual] )); then
   export AUTOSWITCH_SILENT=1
   source $virtual
 fi
-export PERS_DIR='/opt/work'
 
 # FUNCTIONS
 project_folders="$PERS_DIR/projects"
@@ -377,7 +380,7 @@ if (( $+commands[git] )); then
   alias psh="git push origin"
   alias gst="git status"
   alias gco="git checkout"
-  alias gadd="git add ."
+  alias gadd="git add"
   alias gcmt="git commit -m"
 fi
 
