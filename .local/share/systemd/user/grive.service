@@ -3,4 +3,4 @@ Description=Run google drive sync
 
 [Service]
 Type=forking
-ExecStart=/media/data/work/backup/drive/grive_sync.sh
+ExecStart=/opt/work/backup/drive/grive_sync.sh
