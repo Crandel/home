@@ -3,8 +3,24 @@
        :pkgname "joaotavora/eglot"
        :description "Python Language Server Protocol"
        :minimum-emacs-version "26"
-       :compile "eglot.el"
+       :compile (".")
+       :load-path (".")
        :post-init (progn
+                    (setq eglot-server-programs '(
+                            (scala-mode . ("metals-emacs"))
+                            (rust-mode . (eglot-rls "rls"))
+                            (python-mode . ("pyls"))
+                            ((js-mode
+                              typescript-mode)
+                             . ("javascript-typescript-stdio"))
+                            (sh-mode . ("bash-language-server" "start"))
+                            ((c++-mode c-mode) . ("ccls"))
+                            (haskell-mode . ("hie-wrapper"))
+                            (go-mode . ("go-langserver" "-mode=stdio"
+                                        "-gocodecompletion"))
+                            (java-mode . eglot--eclipse-jdt-contact)
+                    ))
+
                     (add-hook 'eglot--managed-mode-hook (lambda ()
                                                          (flymake-mode -1)))
                     (add-hook 'python-mode-hook '(lambda()

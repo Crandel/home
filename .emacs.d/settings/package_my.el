@@ -11,7 +11,6 @@
       avy
       company-mode
       company-flx
-      company-lsp
       company-restclient
       eglot
       emmet-mode
@@ -32,14 +31,11 @@
       multiple-cursors
       neotree
       less-css-mode
-      lsp-mode
-      lsp-ui
       projectile
       restclient
       smartparens
       smart-mode-line
       undo-tree
-      wanderlust
       web-mode
       xclip
       yafolding
@@ -52,8 +48,6 @@
     (add-to-list 'my-packages 'go-eldoc)
     (add-to-list 'my-packages 'go-mode)
     (add-to-list 'my-packages 'go-company)
-    ;; (add-to-list 'my-packages 'go-rename)
-    (add-to-list 'my-packages 'go-scratch)
 )
 
 (when (executable-find "node")
@@ -74,8 +68,6 @@
 )
 
 (when (executable-find "python")
-    ;; (add-to-list 'my-packages 'jedi-core)
-    ;; (add-to-list 'my-packages 'company-jedi)
     (add-to-list 'my-packages 'pip-requirements)
     (when (executable-find "autopep8")
       (add-to-list 'my-packages 'py-autopep8)
@@ -101,22 +93,24 @@
     (add-to-list 'my-packages 'scala-mode)
 )
 
-(when (executable-find "javac")
-    (add-to-list 'my-packages 'meghanada)
-)
+;(when (executable-find "javac")
+;    (add-to-list 'my-packages 'meghanada)
+;)
 
 (when (executable-find "docker")
     (add-to-list 'my-packages 'dockerfile-mode)
-    (add-to-list 'my-packages 'docker-compose-mode)
+    ;(add-to-list 'my-packages 'docker-compose-mode)
 )
 
 
 ;; for gnu repository
 (setq package-check-signature nil)
+;; bug fix for gnu
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
-(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
+(add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -126,11 +120,13 @@
   (package-install 'async)
   (package-install 'jsonrpc)
   (package-install 'memoize)
+  (package-install 'flymake)
   (message "require is")
   (require 'el-get)
   (el-get 'sync))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
+
 (el-get 'sync my-packages)
 
 (require 'el-get-elpa)
