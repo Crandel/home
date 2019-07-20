@@ -1,0 +1,8 @@
+(:name dash
+       :description "A modern list library for Emacs"
+       :website "https://github.com/magnars/dash.el"
+       :type github
+       :depends (markdown-mode)
+       :pkgname "magnars/dash.el"
+       :load ("dash.el"))
+ 

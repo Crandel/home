@@ -3,9 +3,9 @@
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 (require 'dark-mint-theme)
 (require 'scratch_my)
+(require 'keybindings_my)
 (require 'package_my)
 (require 'hooks_my)
-(require 'keybindings_my)
 
 ;; Paren face
 (set-face-background 'show-paren-match (face-background 'default))
@@ -43,9 +43,7 @@
      (nil . 40))))
  '(neo-window-fixed-size nil)
  '(neo-window-width 35)
- '(package-selected-packages
-   (quote
-    (flymake docker-compose-mode jsonrpc csv-mode async el-get)))
+ '(package-selected-packages (quote (flymake jsonrpc memoize async)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
  '(semantic-which-function-use-color t)

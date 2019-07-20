@@ -1,7 +1,0 @@
-(:name go-rename
-    :description "go-rename wrapper for Emacs"
-    :url "https://raw.githubusercontent.com/jmhodges/emacs/master/modes/go-mode/go-rename.el"
-    :type http
-    :depends (go-mode)
-    :build (("go" "get" "-u" "golang.org/x/tools/cmd/gorename"))
-    :compile "go-rename.el")
