@@ -1,0 +1,2 @@
+#!/bin/sh
+dmenu_path | dmenu -i -l 5 -fn Hack:24 "$@" | ${SHELL:-"/bin/zsh"} &
