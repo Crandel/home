@@ -1,6 +1,6 @@
 scalacOptions += "-Xlog-implicits"
 
-libraryDependencies += "org.scala-debugger" %% "scala-debugger-api" % "1.1.0-M3"
+// libraryDependencies += "org.scala-debugger" %% "scala-debugger-api" % "1.1.0-M3"
 
 shellPrompt := { state =>
   import scala.sys.process.Process
@@ -18,7 +18,7 @@ shellPrompt := { state =>
   val black  = 16
   val orange = 166
 
-  formatText(s"${Project.extract(state).currentProject.id}")(orange, black) +
+  formatText(s"${Project.extract(state).currentProject.id}")(white, black) +
   formatText(s" [${gitBranch}]")(green, black) +
   formatText(" >> ")(orange, black)
 }
