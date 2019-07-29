@@ -296,11 +296,11 @@ if [ -d /usr/src/rust ]; then
 fi
 # End Rust
 
-if [ -d /usr/lib/jvm/default ]; then
-  export JAVA_HOME=/usr/lib/jvm/default
-elif [ -d /usr/lib/jvm/default-java ]; then
-  export JAVA_HOME=/usr/lib/jvm/default-java
-fi
+#if [ -d /usr/lib/jvm/default ]; then
+#  export JAVA_HOME=/usr/lib/jvm/default
+#elif [ -d /usr/lib/jvm/default-java ]; then
+#  export JAVA_HOME=/usr/lib/jvm/default-java
+#fi
 
 if command_exists emacs; then
   alias em='emacs -nw'
