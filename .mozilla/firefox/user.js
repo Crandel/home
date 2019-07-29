@@ -163,6 +163,7 @@ user_pref("reader.content_width", 12);
 user_pref("security.ssl.errorReporting.automatic", true);
 // exclude sync of addons status enabled/disabled
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true);
+user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false);
 user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("toolkit.identity.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", true);
