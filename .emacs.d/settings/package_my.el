@@ -73,8 +73,8 @@
       (add-to-list 'my-packages 'py-autopep8)
       )
     (add-to-list 'my-packages 'py-isort)
-    (when (executable-find "virtualenv")
-      (add-to-list 'my-packages 'auto-virtualenv))
+    ;(when (executable-find "virtualenv")
+    ;  (add-to-list 'my-packages 'auto-virtualenv))
 
     ;; (when (executable-find "virtualenvwrapper")
     ;;   (add-to-list 'my-packages 'auto-virtualenvwrapper))
@@ -82,10 +82,6 @@
 
 (when (executable-find "livedown")
     (add-to-list 'my-packages 'livedown)
-)
-
-(when (executable-find "global")
-    (add-to-list 'my-packages 'ggtags)
 )
 
 (when (executable-find "scala")
@@ -97,10 +93,10 @@
 ;    (add-to-list 'my-packages 'meghanada)
 ;)
 
-(when (executable-find "docker")
-    (add-to-list 'my-packages 'dockerfile-mode)
-    ;(add-to-list 'my-packages 'docker-compose-mode)
-)
+;(when (executable-find "docker")
+;(add-to-list 'my-packages 'dockerfile-mode)
+;(add-to-list 'my-packages 'docker-compose-mode)
+;)
 
 
 ;; for gnu repository
@@ -119,6 +115,7 @@
   (package-install 'el-get)
   (package-install 'async)
   (package-install 'jsonrpc)
+  (package-install 'cl-lib)
   (package-install 'memoize)
   (package-install 'flymake)
   (message "require is")

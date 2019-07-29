@@ -348,18 +348,6 @@ if [ -d /usr/src/rust ]; then
 fi
 # End Rust
 
-# if (( $+commands[java] )) ; then
-#   JAVA10_HOME=/usr/lib/jvm/java-10-jdk
-#   if [ -d /usr/lib/jvm/default ]; then
-#     export JAVA_HOME=/usr/lib/jvm/default
-#   elif [ -d /usr/lib/jvm/default-java ]; then
-#     export JAVA_HOME=/usr/lib/jvm/default-java
-#   fi
-#   if [ -d $JAVA10_HOME ]; then
-#     export PATH=$PATH:$JAVA10_HOME/bin
-#   fi
-# fi
-
 if (( $+commands[emacs] )); then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
@@ -380,7 +368,7 @@ if (( $+commands[git] )); then
   alias psh="git push origin"
   alias gst="git status"
   alias gco="git checkout"
-  alias gadd="git add"
+  alias gadd="git add ."
   alias gcmt="git commit -m"
 fi
 
