@@ -93,10 +93,10 @@
 ;    (add-to-list 'my-packages 'meghanada)
 ;)
 
-;(when (executable-find "docker")
-;(add-to-list 'my-packages 'dockerfile-mode)
-;(add-to-list 'my-packages 'docker-compose-mode)
-;)
+(when (executable-find "docker")
+    (add-to-list 'my-packages 'dockerfile-mode)
+    ;(add-to-list 'my-packages 'docker-compose-mode)
+)
 
 
 ;; for gnu repository
