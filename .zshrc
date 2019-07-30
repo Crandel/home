@@ -368,7 +368,7 @@ if (( $+commands[git] )); then
   alias psh="git push origin"
   alias gst="git status"
   alias gco="git checkout"
-  alias gadd="git add ."
+  alias gadd="git add"
   alias gcmt="git commit -m"
 fi
 
