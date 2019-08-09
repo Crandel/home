@@ -9,4 +9,9 @@
                           scala-indent:align-parameters    t
                           max-lisp-eval-depth              50000
                           max-specpdl-size                 5000)
+                    (add-hook 'scala-mode-hook '(lambda()
+                                                  (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
+                                                  (define-key scala-mode-map (kbd "M-RET") 'newline)
+                                                  )
+                              )
                     ))

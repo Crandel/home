@@ -10,4 +10,8 @@
 
                     (global-set-key (kbd "C-c C-_") 'mc/mark-all-like-this)
                     (global-set-key (kbd "C-x M-m") 'back-to-indentation)
+                    (add-hook 'multiple-cursors-mode-hook '(lambda()
+                                                             (define-key mc/keymap (kbd "<return>") nil)
+                                                             )
+                              )
 ))
