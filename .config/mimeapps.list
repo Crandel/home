@@ -1,0 +1,47 @@
+[Default Applications]
+application/pdf=FoxitReader.desktop
+application/ppdf=FoxitReader.desktop
+application/x-bittorrent=qBittorrent.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+image/bmp=nomacs.desktop
+image/gif=nomacs.desktop
+image/jpeg=nomacs.desktop
+image/jpeg=nomacs.desktop
+image/png=nomacs.desktop
+image/png=nomacs.desktop
+image/x-eps=nomacs.desktop
+image/x-ico=nomacs.desktop
+image/x-portable-bitmap=nomacs.desktop
+image/x-portable-graymap=nomacs.desktop
+image/x-portable-pixmap=nomacs.desktop
+image/x-xbitmap=nomacs.desktop
+image/x-xpixmap=nomacs.desktop
+text/html=firefox.desktop
+text/plain=sublime_text_3.desktop
+x-scheme-handler/chrome=firefox.desktop
+x-scheme-handler/ftp=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/magnet=qBittorrent.desktop
+
+[Added Associations]
+x-scheme-handler/http=chromium.desktop;
+x-scheme-handler/https=chromium.desktop;
+x-scheme-handler/ftp=chromium.desktop;
+x-scheme-handler/chrome=chromium.desktop;
+text/html=chromium.desktop;
+application/x-extension-htm=chromium.desktop;
+application/x-extension-html=chromium.desktop;
+application/x-extension-shtml=chromium.desktop;
+application/xhtml+xml=chromium.desktop;
+application/x-extension-xhtml=chromium.desktop;
+application/x-extension-xht=chromium.desktop;
+
+[Removed Associations]
+application/pdf=com.github.babluboy.bookworm.desktop
+application/ppdf=com.github.babluboy.bookworm.desktop
