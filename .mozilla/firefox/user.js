@@ -230,6 +230,7 @@ user_pref("keyword.enabled", false);
 user_pref("layers.acceleration.force-enabled", true);
 user_pref("layers.amd-switchable-gfx.enabled", false);
 user_pref("layers.geometry.d3d11.enabled", false);
+user_pref("layers.gpu-process.enabled", true);
 user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.word_select.stop_at_punctuation", true);
@@ -285,6 +286,8 @@ user_pref("reader.content_width", 12);
 // http://kb.mozillazine.org/Disable_extension_install_delay_-_Firefox
 // http://www.squarefree.com/2004/07/01/race-conditions-in-security-dialogs/
 user_pref("security.dialog_enable_delay", 1000);
+// Return green lock for https (Firefox >= 70)
+user_pref("security.secure_connection_icon_color_gray", false);
 user_pref("security.ssl.errorReporting.automatic", true);
 // exclude sync of addons status enabled/disabled
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true);
