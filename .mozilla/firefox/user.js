@@ -18,6 +18,8 @@ user_pref("browser.download.panel.shown", true);
 // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
 // https://github.com/pyllyukko/user.js/issues/290#issuecomment-303560851
 user_pref("browser.fixup.hide_user_pass", true);
+// For macOS only
+user_pref("browser.history_swipe_animation.disabled", false);
 user_pref("browser.library.activity-stream.enabled", true);
 // PREF: Disable Extension recommendations (Firefox >= 65)
 // https://support.mozilla.org/en-US/kb/extension-recommendations
