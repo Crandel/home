@@ -37,7 +37,7 @@ set history=1000
 
 " Automatically resolve symbolic links on l or Enter.
 
-set nofollowlinks
+set followlinks
 
 " With this option turned on you can run partially entered commands with
 " unambiguous beginning using :! (e.g. :!Te instead of :!Terminal or :!Te<tab>).
@@ -110,13 +110,14 @@ endif
 
 " Set custom status line look
 
-set statusline="  Hint: %z%= %A %10u:%-7g %15s %20d  "
+" rights | user:group | size | date | file name | space left
+set statusline="%10A | %10u:%-7g | %10E | %15d | %-35f | Space left: %-5a "
 
 " ------------------------------------------------------------------------------
 
 " :mark mark /full/directory/path [filename]
 
-mark b ~/bin/
+mark b ~/.local/bin
 mark h ~/
 
 " ------------------------------------------------------------------------------
