@@ -36,6 +36,7 @@
       smartparens
       smart-mode-line
       undo-tree
+      vimrc-mode
       web-mode
       xclip
       yafolding
