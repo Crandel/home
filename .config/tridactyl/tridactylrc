@@ -1,7 +1,81 @@
 colourscheme quake
 
-bindurl habr.com --mode=normal x f
+" bindurl habr.com --mode=normal x <f>
 
 bind --mode=normal i mode ignore
 
 set smoothscroll true
+
+" Ukrainian keymap in normal mode
+keymap , ?
+keymap . /
+keymap / |
+keymap \
+keymap а f
+keymap А F
+keymap б ,
+keymap Б <
+keymap в d
+keymap В D
+keymap г u
+keymap Г U
+keymap д l
+keymap Д L
+keymap е t
+keymap Е T
+keymap є '
+keymap Є “
+keymap ж ;
+keymap Ж :
+keymap з p
+keymap З P
+keymap и b
+keymap И B
+keymap і s
+keymap І S
+keymap ї ]
+keymap Ї }
+keymap й q
+keymap Й Q
+keymap к r
+keymap К R
+keymap л k
+keymap Л K
+keymap м v
+keymap М V
+keymap н y
+keymap Н Y
+keymap о j
+keymap О J
+keymap п g
+keymap П G
+keymap р h
+keymap Р H
+keymap с c
+keymap С C
+keymap т n
+keymap Т N
+keymap у e
+keymap У E
+keymap ф a
+keymap Ф A
+keymap х [
+keymap Х {
+keymap ц w
+keymap Ц W
+keymap ч x
+keymap Ч X
+keymap ш i
+keymap Ш I
+keymap щ o
+keymap Щ O
+keymap ї ]
+keymap Ї }
+keymap і s
+keymap І S
+keymap ь m
+keymap Ь M
+keymap ю .
+keymap Ю >
+keymap я z
+keymap Я Z
