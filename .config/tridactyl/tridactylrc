@@ -1,0 +1,7 @@
+colourscheme quake
+
+bindurl habr.com --mode=normal x f
+
+bind --mode=normal i mode ignore
+
+set smoothscroll true
