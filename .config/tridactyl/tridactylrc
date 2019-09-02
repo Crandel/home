@@ -1,16 +1,17 @@
 colourscheme quake
 
-" bindurl habr.com --mode=normal x <f>
+set smoothscroll true
 
 bind --mode=normal i mode ignore
 
-set smoothscroll true
+" custom bind for some sites
+unbindurl habr.com --mode=normal f
+bindurl habr.com --mode=normal x hint
+
+unbindurl youtube.com --mode=normal f
+bindurl youtube.com --mode=normal x hint
 
 " Ukrainian keymap in normal mode
-keymap , ?
-keymap . /
-keymap / |
-keymap \
 keymap а f
 keymap А F
 keymap б ,
@@ -79,3 +80,6 @@ keymap ю .
 keymap Ю >
 keymap я z
 keymap Я Z
+keymap , ?
+keymap . /
+keymap / |
