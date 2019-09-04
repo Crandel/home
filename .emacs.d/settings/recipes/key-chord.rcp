@@ -3,6 +3,10 @@
        :type emacswiki
        :features "key-chord"
        :post-init (progn
+                    (defun my-kill-emacs-with-save ()
+                      (interactive)
+                      (save-buffers-kill-terminal "y")
+                      )
                     (key-chord-mode 1)
                     (key-chord-define-global "gg" 'mo-git-blame-current)
                     (key-chord-define-global "m/" 'helm-all-mark-rings)
@@ -17,7 +21,7 @@
                     (key-chord-define-global "uu" 'open-next-line)
                     (key-chord-define-global "xx" 'save-buffer)
                     (key-chord-define-global "qq" 'delete-other-windows)
-                    (key-chord-define-global "vv" 'save-buffers-kill-terminal)
+                    (key-chord-define-global "vv" 'my-kill-emacs-with-save)
                     (key-chord-define-global "zz" 'undo-tree-visualize)
                     (key-chord-define-global "zx" 'undo-tree-undo)
                     ))
