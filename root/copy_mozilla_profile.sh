@@ -4,7 +4,7 @@ set -e
 
 firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
 fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
-user_files="/storage/emulated/0/progs/termux/home/termux/firefox/*"
+user_files="termux/firefox/*"
 
 update_settings(){
   folder=$1
