@@ -5,13 +5,17 @@ set -e
 firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
 fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
 user_files="termux/firefox/*"
+
+BASEDIR=$(dirname "$0")
 echo "$pwd"
+echo "$BASEDIR"
+echo ""
 
 function update_settings () {
   folder=$1
   echo "$folder"
   cd $folder
-  echo "$(ls -la)"
+  echo "$(ls -la | grep -i user*)"
   echo ""
   # cp -R $user_files .
   # usernme=$(stat -c "%U" .)
