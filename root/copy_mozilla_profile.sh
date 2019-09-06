@@ -2,12 +2,12 @@
 
 firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
 fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
-user_files="../termux/firefox/*"
+user_files="termux/firefox/*"
 
+cd ..
 BASEDIR=$(dirname "$0")
 echo "$pwd"
 echo "$BASEDIR"
-echo "$(ls -la ..)"
 echo "$(ls -la $user_files)"
 
 function update_settings () {
