@@ -5,7 +5,7 @@ set -e
 firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
 fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
 user_files="termux/firefox/*"
-
+echo "$pwd"
 update_settings(){
   folder=$1
   echo "$folder"
