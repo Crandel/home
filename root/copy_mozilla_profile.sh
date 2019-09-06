@@ -4,10 +4,10 @@ firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
 fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
 
 cd ../termux/firefox
-BASEDIR=$(dirname ".")
+cwd=$(pwd)
 echo "PWD is $pwd"
-echo "BASEDIR is $BASEDIR"
-echo "$(ls -la $BASEDIR)"
+echo "BASEDIR is $cwd"
+echo "$(ls -la $cwd)"
 
 function update_settings () {
   folder=$1
@@ -15,11 +15,11 @@ function update_settings () {
   cd $folder
   echo "$(ls -la | grep -i user*)"
   echo ""
-  cp -R $BASEDIR/* .
-  usernme=$(stat -c "%U" .)
-  grp=$(stat -c "%G" .)
-  chown -R "$usernme:$grp" .
-  echo "$(ls -la)"
+  echo "$cwd/*"
+  # usernme=$(stat -c "%U" .)
+  # grp=$(stat -c "%G" .)
+  # chown -R "$usernme:$grp" .
+  # echo "$(ls -la)"
 }
 
 if [ -d $firefox_profile_dir ]; then
