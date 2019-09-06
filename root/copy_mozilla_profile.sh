@@ -15,11 +15,11 @@ function update_settings () {
   cd $folder
   echo "$(ls -la | grep -i user*)"
   echo ""
-  echo "$cwd/*"
-  # usernme=$(stat -c "%U" .)
-  # grp=$(stat -c "%G" .)
-  # chown -R "$usernme:$grp" .
-  # echo "$(ls -la)"
+  cp -r $cwd/* .
+  usernme=$(stat -c "%U" .)
+  grp=$(stat -c "%G" .)
+  chown -R "$usernme:$grp" .
+  echo "$(ls -la | grep -i user*)"
 }
 
 if [ -d $firefox_profile_dir ]; then
