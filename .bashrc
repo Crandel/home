@@ -87,10 +87,7 @@ alias L='|less'
 alias G='|grep'
 alias ~='cd $HOME'
 if command_exists bat ; then
-  alias cat='bat'
-fi
-if command_exists rg ; then
-  alias grep='rg'
+  alias ct='bat'
 fi
 
 if [ -f ~/.bash_aliases ]; then
@@ -244,6 +241,17 @@ if command_exists docker ; then
   alias run='docker-compose stop && docker-compose run --rm --service-ports app'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
+fi
+
+if command_exists kubectl ; then
+  # Kubernetes
+  alias kl='kubectl'
+  if command_exists kubectx ; then
+    alias ktx='kubectx'
+  fi
+  if command_exists kubens ; then
+    alias kns='kubens'
+  fi
 fi
 
 if command_exists vagrant ; then

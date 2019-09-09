@@ -162,7 +162,7 @@ alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --qu
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 
 if (( $+commands[bat] )) ; then
-  alias cat='bat'
+  alias ct='bat'
 fi
 alias G='|grep'
 alias L='|less'
@@ -271,6 +271,21 @@ if (( $+commands[docker] )) ; then
   export d_exec;
 fi
 
+if (( $+commands[kubectl] )) ; then
+  # Kubernetes
+  alias kl='kubectl'
+  compdef kl='kubectl'
+  if (( $+commands[kubectx] )) ; then
+    alias ktx='kubectx'
+    compdef ktx='kubectx'
+  fi
+  if (( $+commands[kubens] )) ; then
+    alias kns='kubens'
+    compdef kns='kubens'
+  fi
+fi
+
+
 if (( $+commands[vagrant] )) ; then
   # Vagrant
   alias vup='vagrant up'
@@ -370,6 +385,14 @@ if (( $+commands[git] )); then
   alias gco="git checkout"
   alias gadd="git add"
   alias gcmt="git commit -m"
+fi
+
+if (( $+commands[swipl] )); then
+  swi_path=/usr/lib/swipl
+  if [ -d $swi_path ]; then
+    export SWI_HOME_DIR=$swi_path
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SWI_HOME_DIR/lib/x86_64-linux
+  fi
 fi
 
 if [ -f ~/.zsh_aliases ]; then
