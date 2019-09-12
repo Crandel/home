@@ -1,99 +1,6 @@
 settings.showModeStatus = true;
 settings.defaultSearchEngine = "d";
 
-// Custom keymaps
-unmap('H');
-unmap('S');
-mapkey('H', '#4Go back in history', function() {
-	history.go(-1);
-}, {repeatIgnore: true});
-mapkey('S', '#8Open opened URL in current tab', function() {
-	Front.openOmnibar({type: "URLs", extra: "getTabURLs"});
-});
-
-map('F', 'af');
-unmap('gf');
-map('gf', 'f');
-unmap('f');
-
-// Domain specific settings
-// if ( document.domain === "habr.com" || document.domain === "www.youtube.com" ) {
-// }
-
-// Ace editor settings
-// settings.aceKeybindings = "emacs";
-aceVimMap('xx', ':wq', 'insert');
-
-// Ukrainian keyboard
-map('а', 'f');
-map('А', 'F');
-map('б', ',');
-map('Б', '<');
-map('в', 'd');
-map('В', 'D');
-map('г', 'u');
-map('Г', 'U');
-map('д', 'l');
-map('Д', 'L');
-map('е', 't');
-map('Е', 'T');
-map('ж', ';');
-map('Ж', ':');
-map('з', 'p');
-map('З', 'P');
-map('и', 'b');
-map('И', 'B');
-map('і', 's');
-map('І', 'S');
-map('ї', ']');
-map('Ї', '}');
-map('й', 'q');
-map('Й', 'Q');
-map('к', 'r');
-map('К', 'R');
-map('л', 'k');
-map('Л', 'K');
-map('м', 'v');
-map('М', 'V');
-map('н', 'y');
-map('Н', 'Y');
-map('о', 'j');
-map('О', 'J');
-map('п', 'g');
-map('П', 'G');
-map('р', 'h');
-map('Р', 'H');
-map('с', 'c');
-map('С', 'C');
-map('т', 'n');
-map('Т', 'N');
-map('у', 'e');
-map('У', 'E');
-map('ф', 'a');
-map('Ф', 'A');
-map('х', '[');
-map('Х', '{');
-map('ц', 'w');
-map('Ц', 'W');
-map('ч', 'x');
-map('Ч', 'X');
-map('ш', 'i');
-map('Ш', 'I');
-map('щ', 'o');
-map('Щ', 'O');
-map('ь', 'm');
-map('Ь', 'M');
-map('ю', '.');
-map('Ю', '>');
-map('я', 'z');
-map('Я', 'Z');
-map('па', 'gf');
-
-aceVimMap('ш', 'i', 'normal');
-aceVimMap('чч', ':wq', 'insert');
-
-map('<Ctrl-i>', '<Ctrl-ш>');
-
 // set theme
 settings.theme = `
 :root {
@@ -162,3 +69,105 @@ settings.theme = `
 	background: var(--theme-ace-select) !important;
 }
 `;
+
+// Custom keymaps
+unmap('H');
+unmap('S');
+mapkey('H', '#4Go back in history', function() {
+	history.go(-1);
+}, {repeatIgnore: true});
+mapkey('S', '#8Open opened URL in current tab', function() {
+	Front.openOmnibar({type: "URLs", extra: "getTabURLs"});
+});
+
+map('F', 'af');
+unmap('gf');
+map('gf', 'f');
+unmap('f');
+
+// Domain specific settings
+// if ( document.domain === "habr.com" || document.domain === "www.youtube.com" ) {
+// }
+
+// Ace editor settings
+// settings.aceKeybindings = "emacs";
+aceVimMap('xx', ':wq', 'insert');
+
+// Ukrainian keyboard
+// map('а', 'f');
+// map('А', 'F');
+// map('б', ',');
+// map('Б', '<');
+// map('в', 'd');
+// map('В', 'D');
+// map('г', 'u');
+// map('Г', 'U');
+// map('д', 'l');
+// map('Д', 'L');
+// map('е', 't');
+// map('Е', 'T');
+// map('ж', ';');
+// map('Ж', ':');
+// map('з', 'p');
+// map('З', 'P');
+// map('и', 'b');
+// map('И', 'B');
+// map('і', 's');
+// map('І', 'S');
+// map('ї', ']');
+// map('Ї', '}');
+// map('й', 'q');
+// map('Й', 'Q');
+// map('к', 'r');
+// map('К', 'R');
+// map('л', 'k');
+// map('Л', 'K');
+// map('м', 'v');
+// map('М', 'V');
+// map('н', 'y');
+// map('Н', 'Y');
+// map('о', 'j');
+// map('О', 'J');
+// map('п', 'g');
+// map('П', 'G');
+// map('р', 'h');
+// map('Р', 'H');
+// map('с', 'c');
+// map('С', 'C');
+// map('т', 'n');
+// map('Т', 'N');
+// map('у', 'e');
+// map('У', 'E');
+// map('ф', 'a');
+// map('Ф', 'A');
+// map('х', '[');
+// map('Х', '{');
+// map('ц', 'w');
+// map('Ц', 'W');
+// map('ч', 'x');
+// map('Ч', 'X');
+// map('ш', 'i');
+// map('Ш', 'I');
+// map('щ', 'o');
+// map('Щ', 'O');
+// map('ь', 'm');
+// map('Ь', 'M');
+// map('ю', '.');
+// map('Ю', '>');
+// map('я', 'z');
+// map('Я', 'Z');
+// map('па', 'gf');
+
+aceVimMap('ш', 'i', 'normal');
+aceVimMap('чч', ':wq', 'insert');
+
+imapkey('<Ctrl-ш>', '#15Open vim editor for current input', function() {
+	var element = getRealEdit();
+	element.blur();
+	Insert.exit();
+	Front.showEditor(element);
+});
+
+mapkey('А', '#1Open a link in new tab', function() {
+	Hints.create("", Hints.dispatchMouseClick, {tabbed: true});
+});

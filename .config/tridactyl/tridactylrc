@@ -1,15 +1,19 @@
 colourscheme quake
 
-set smoothscroll true
+set smoothscroll false
 
-bind --mode=normal i mode ignore
+set searchengine duckduckgo
+
+" bind --mode=normal i mode ignore
 
 " custom bind for some sites
-unbindurl habr.com --mode=normal f
-bindurl habr.com --mode=normal x hint
+unbind --mode=normal f
+bind --mode=normal gf hint
 
-unbindurl youtube.com --mode=normal f
-bindurl youtube.com --mode=normal x hint
+unbind --mode=normal d
+unbind --mode=normal x
+bind --mode=normal x tabclose
+bind --mode=normal d stop
 
 " Ukrainian keymap in normal mode
 keymap а f
