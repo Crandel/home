@@ -23,7 +23,8 @@ configuration {
 /*	drun-match-fields: "name,generic,exec,categories";*/
 /*	disable-history: false;*/
     sort: true;
-    levenshtein-sort: false;
+    sorting-method: "fzf";
+    levenshtein-sort: true;
     case-sensitive: false;
     cycle: true;
     sidebar-mode: false;
@@ -32,7 +33,7 @@ configuration {
 /*	parse-hosts: false;*/
 /*	parse-known-hosts: true;*/
     combi-modi: "drun,run,window,ssh";
-    matching: "fuzzy";
+    matching: "glob";
     tokenize: true;
 /*	m: "-5";*/
 /*	line-margin: 2;*/
