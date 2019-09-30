@@ -330,7 +330,23 @@ filetype * xdg-open
 "
 " 256-color terminal
 fileviewer *.[ch],*.[ch]pp highlight -O xterm256 -s dante --syntax c %c
+fileviewer *.cmake highlight -O xterm256 -s dante --syntax cmake %c
+fileviewer *.css highlight -O xterm256 -s dante --syntax css %c
+fileviewer *.html highlight -O xterm256 -s dante --syntax html %c
+fileviewer *.java highlight -O xterm256 -s dante --syntax java %c
+fileviewer *.js highlight -O xterm256 -s dante --syntax js %c
+fileviewer *.json highlight -O xterm256 -s dante --syntax json %c
 fileviewer Makefile,Makefile.* highlight -O xterm256 -s dante --syntax make %c
+fileviewer *.md highlight -O xterm256 -s dante --syntax markdown %c
+fileviewer *.py highlight -O xterm256 -s dante --syntax python %c
+fileviewer *.rs,*.rust highlight -O xterm256 -s dante --syntax rust %c
+fileviewer *.sc,*.scala highlight -O xterm256 -s dante --syntax scala %c
+fileviewer *.sh highlight -O xterm256 -s dante --syntax sh %c
+fileviewer *.sql highlight -O xterm256 -s dante --syntax sql %c
+fileviewer *.toml highlight -O xterm256 -s dante --syntax toml %c
+fileviewer *.yaml,*.yml highlight -O xterm256 -s dante --syntax yaml %c
+fileviewer *.vimrc highlight -O xterm256 -s dante --syntax vimscript %c
+fileviewer *.xml highlight -O xterm256 -s dante --syntax xml %c
 "
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
