@@ -177,7 +177,7 @@ command! reload :write | restart
 
 " Pdf
 filextype *.pdf foxitreader %c &
-fileviewer *.pdf evince %c &
+fileviewer *.pdf foxitreader %c &
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
