@@ -223,7 +223,7 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in nomacs}
-        \ nomacs %c &
+        \ feh %c &
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
          \ identify %f
 
@@ -461,3 +461,37 @@ nnoremap <f8> :delete<cr>
 "     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
 "
 " let $VIFM_SERVER_NAME = v:servername
+
+" From mc: <Ctrl-s> fuzzy search in current directory
+command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
+nnoremap <c-s> :FZFfind<cr>
+
+" From mc: <Atl-i> cd to the same path as inactive directory
+:nnoremap <a-i> :cd %D<cr>
+
+" file types
+set classify=' :dir:/, :exe:, :reg:, :link:'
+
+" code types
+set classify+=' ::*.sh::,::*.[hc]pp::,::*.[hc]::, ::.git/,,*.git/::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.less::, ::*.scala,,*.sbt::, ::*.java::, ::*.py::, ::*.js,,*.json::, ::*.rs::'
+
+" books formats
+set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
+
+" various file names
+set classify+=' ::../::, ::/^copying|license$/::'
+
+" archives
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+
+" images
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+
+" audio
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+
+" media
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+
+" office files
+set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
