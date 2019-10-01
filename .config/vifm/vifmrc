@@ -223,9 +223,9 @@ fileviewer *.[1-8] man ./%c | col -b
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in nomacs}
-        \ feh %c &
+        \ nomacs %c &
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ identify %f
+         \ feh %f
 
 " OpenRaster
 filextype *.ora
