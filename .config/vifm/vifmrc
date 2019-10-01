@@ -473,7 +473,7 @@ nnoremap <c-s> :FZFfind<cr>
 set classify=' :dir:/, :exe:, :reg:, :link:'
 
 " code types
-set classify+=' ::*.sh::,::*.[hc]pp::,::*.[hc]::, ::.git/,,*.git/::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.less::, ::*.scala,,*.sbt::, ::*.java::, ::*.py::, ::*.js,,*.json::, ::*.rs::'
+set classify+=' ::*.sh::,::*.[hc]pp::,::*.[hc]::, ::.git/,,*.git/::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.less::, ::*.scala,,*.sbt::, ::*.java::, ::*.py::, ::*.js,,*.json::, ::*.rs::, ::*.sql::'
 
 " books formats
 set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
@@ -482,7 +482,7 @@ set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
 set classify+=' ::../::, ::/^copying|license$/::'
 
 " archives
-set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 
 " images
 set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz,,*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
