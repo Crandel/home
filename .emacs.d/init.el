@@ -1,6 +1,7 @@
 (package-initialize)
 
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "themes" user-emacs-directory))
 (require 'dark-mint-theme)
 (require 'scratch_my)
 (require 'keybindings_my)
@@ -43,7 +44,7 @@
      (nil . 40))))
  '(neo-window-fixed-size nil)
  '(neo-window-width 35)
- '(package-selected-packages (quote (flymake jsonrpc memoize async)))
+ '(package-selected-packages (quote (reverse-im flymake jsonrpc memoize async)))
  '(powerline-default-separator (quote arrow))
  '(powerline-default-separator-dir (quote (right . left)))
  '(semantic-which-function-use-color t)

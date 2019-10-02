@@ -3,10 +3,6 @@
        :type emacswiki
        :features "key-chord"
        :post-init (progn
-                    (defun my-kill-emacs-with-save ()
-                      (interactive)
-                      (save-buffers-kill-terminal "y")
-                      )
                     (key-chord-mode 1)
                     (key-chord-define-global "gg" 'mo-git-blame-current)
                     (key-chord-define-global "m/" 'helm-all-mark-rings)

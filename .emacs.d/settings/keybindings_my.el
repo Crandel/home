@@ -158,10 +158,16 @@
             (company-complete-common)
           (indent-for-tab-command)))))
 
+(defun my-kill-emacs-with-save ()
+  (interactive)
+  (save-buffers-kill-terminal "y")
+)
+
 (global-unset-key [tab])
 (global-set-key [tab] 'tab-indent-or-complete)
 (global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
 (global-set-key (kbd "C-c b") 'revert-buffer)
+(global-set-key (kbd "C-x C-x") 'my-kill-emacs-with-save)
 ;; C-x r y for paste multiple cursors
 
 (provide 'keybindings_my)
