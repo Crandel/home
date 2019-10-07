@@ -6,33 +6,35 @@ user_pref("apz.allow_double_tap_zooming", true);
 user_pref("apz.allow_zooming", true);
 user_pref("apz.android.chrome_fling_physics.enabled", true);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
-user_pref("browser.bookmarks.restore_default_bookmarks", false);
-user_pref("browser.bookmarks.showMobileBookmarks", true);
-user_pref("browser.ctrlTab.previews", false);
+// user_pref("browser.bookmarks.restore_default_bookmarks", false);
+// user_pref("browser.bookmarks.showMobileBookmarks", true);
+// user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
-user_pref("browser.download.autohideButton", false);
-user_pref("browser.download.panel.shown", true);
+// user_pref("browser.download.autohideButton", false);
+// user_pref("browser.download.panel.shown", true);
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
-user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
-user_pref("browser.library.activity-stream.enabled", true); // For macOS only
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // PREF: Disable Extension recommendations (Firefox >= 65)
-user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // PREF: Disable Extension recommendations (Firefox >= 65)
-user_pref("browser.newtabpage.activity-stream.feeds.places", true);
-user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
-user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // PREF: Disable "Recommended by Pocket" in Firefox Quantum
-user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.filterAdult", false);
-user_pref("browser.newtabpage.activity-stream.prerender", true);
-user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("browser.newtabpage.activity-stream.showSponsored", false);
-user_pref("browser.newtabpage.activity-stream.telemetry", false);
-user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
-user_pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "");
-user_pref("browser.newtabpage.activity-stream.topSitesRows", 3);
-user_pref("browser.newtabpage.enhanced", true);
+// user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
+user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
+// user_pref("browser.library.activity-stream.enabled", true); // For macOS only
+// user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // PREF: Disable Extension recommendations (Firefox >= 65)
+// user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // PREF: Disable Extension recommendations (Firefox >= 65)
+// user_pref("browser.newtabpage.activity-stream.feeds.places", true);
+// user_pref("browser.newtabpage.activity-stream.feeds.section.highlights", false);
+// user_pref("browser.newtabpage.activity-stream.feeds.section.topstories", false); // PREF: Disable "Recommended by Pocket" in Firefox Quantum
+// user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
+// user_pref("browser.newtabpage.activity-stream.filterAdult", false);
+// user_pref("browser.newtabpage.activity-stream.prerender", true);
+// user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+// user_pref("browser.newtabpage.activity-stream.showSearch", false);
+// user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+// user_pref("browser.newtabpage.activity-stream.telemetry", false);
+// user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
+// user_pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "");
+// user_pref("browser.newtabpage.activity-stream.topSitesRows", 3);
+// user_pref("browser.newtabpage.enhanced", true);
 user_pref("browser.ping-centre.telemetry", true);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
-user_pref("browser.privatebrowsing.searchUI", false);
+// user_pref("browser.privatebrowsing.searchUI", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous", false);
@@ -73,17 +75,18 @@ user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.region", "US");
-user_pref("browser.search.update", "false");
+// user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
+user_pref("browser.search.update", true);
 user_pref("browser.send_pings", true); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
 user_pref("browser.send_pings.require_same_host", true); // PREF: When browser pings are enabled, only allow pinging the same host as the origin page
-user_pref("browser.sessionstore.interval", 1800000);
+// user_pref("browser.sessionstore.interval", 1800000);
 user_pref("browser.slowStartup.notificationDisabled", true);
-user_pref("browser.startup.page", 3);
-user_pref("browser.tabs.drawInTitlebar", true);
+// user_pref("browser.startup.page", 3);
+// user_pref("browser.tabs.drawInTitlebar", true);
 user_pref("browser.tabs.loadInBackground", false);
-user_pref("browser.tabs.remote.autostart", true);
-user_pref("browser.tabs.tabMinWidth", 30);
-user_pref("browser.tabs.warnOnClose", false);
+// user_pref("browser.tabs.remote.autostart", true);
+// user_pref("browser.tabs.tabMinWidth", 30);
+// user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
@@ -102,12 +105,12 @@ user_pref("device.sensors.orientation.enabled", false);
 // user_pref("devtools.toolbox.splitconsoleEnabled", false);
 user_pref("dom.enable_performance_observer", false);
 user_pref("dom.enable_resource_timing", false); // PREF: Disable resource timing API
-user_pref("dom.event.clipboardevents.enabled", true);
+// user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
 user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent USB device enumeration
 user_pref("dom.gamepad.extensions.enabled", false);
-user_pref("dom.ipc.processCount", 3);
-user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
+// user_pref("dom.ipc.processCount", 3);
+// user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
@@ -129,21 +132,21 @@ user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.moz
 user_pref("extensions.webextensions.userScripts.enabled", true);
 user_pref("findbar.highlightAll", true);
 user_pref("font.internaluseonly.changed", true);
-user_pref("font.minimum-size.x-western", 10);
-user_pref("font.name.monospace.x-western", "Hack");
-user_pref("font.name.sans-serif.x-western", "Hack");
-user_pref("font.name.serif.x-western", "Hack");
+// user_pref("font.minimum-size.x-western", 10);
+// user_pref("font.name.monospace.x-western", "Hack");
+// user_pref("font.name.sans-serif.x-western", "Hack");
+// user_pref("font.name.serif.x-western", "Hack");
 user_pref("full-screen-api.warning.timeout", 0);
-user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
-user_pref("general.smoothScroll.lines.durationMaxMS", 100);
-user_pref("general.smoothScroll.lines.durationMinMS", 100);
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 50);
-user_pref("general.smoothScroll.msdPhysics.enabled", true);
-user_pref("general.smoothScroll.other", false);
-user_pref("general.smoothScroll.pixels", false);
-user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
-user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
+// user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
+// user_pref("general.smoothScroll.lines.durationMaxMS", 100);
+// user_pref("general.smoothScroll.lines.durationMinMS", 100);
+// user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
+// user_pref("general.smoothScroll.mouseWheel.durationMinMS", 50);
+// user_pref("general.smoothScroll.msdPhysics.enabled", true);
+// user_pref("general.smoothScroll.other", false);
+// user_pref("general.smoothScroll.pixels", false);
+// user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
+// user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
 user_pref("general.useragent.override.skype.com", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
 user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
@@ -151,9 +154,9 @@ user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.gfx.webrender.all.qualified", false);
 user_pref("gfx.use_text_smoothing_setting", true);
-user_pref("gfx.webrender.all", false);
-user_pref("gfx.webrender.enabled", false);
-user_pref("gfx.webrender.highlight-painted-layers", false);
+// user_pref("gfx.webrender.all", false);
+// user_pref("gfx.webrender.enabled", false);
+// user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("intl.accept_languages", "en-us,en,uk,ru"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
@@ -161,27 +164,27 @@ user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
 user_pref("javascript.options.wasm", true); // PREF: Enable WebAssembly
 user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
-user_pref("layers.acceleration.force-enabled", true);
-user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
-user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
-user_pref("layers.gpu-process.enabled", true);
+// user_pref("layers.acceleration.force-enabled", true);
+// user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
+// user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
+// user_pref("layers.gpu-process.enabled", true);
 // user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.word_select.stop_at_punctuation", true);
 // user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("media.autoplay.allow-muted", false);
-user_pref("media.autoplay.default", 1);
+user_pref("media.autoplay.default", 0);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.av1.enabled", true);
 user_pref("media.gpu-process-decoder", true);
 user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your internal IP when WebRTC is enabled (Firefox >= 42)
-user_pref("media.videocontrols.picture-in-picture.enabled", true);
-user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
-user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
-user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
+// user_pref("media.videocontrols.picture-in-picture.enabled", true);
+// user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
+// user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
+// user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
 user_pref("media.webspeech.recognition.enable", false); // PREF: Disable speech recognition
 user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synthesis
-user_pref("mousewheel.min_line_scroll_amount", 36);
+// user_pref("mousewheel.min_line_scroll_amount", 36);
 user_pref("network.allow-experiments", true);
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.dns.disablePrefetch", false);
@@ -195,7 +198,7 @@ user_pref("network.tcp.tcp_fastopen_enable", true);
 user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.warnOnAboutNetworking", false);
-user_pref("nglayout.initialpaint.delay", 150);
+// user_pref("nglayout.initialpaint.delay", 150);
 // user_pref("pdfjs.enableWebGL", true);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
@@ -212,9 +215,9 @@ user_pref("reader.content_width", 12);
 user_pref("security.dialog_enable_delay", 1000); // PREF: Ensure you have a security delay when installing add-ons (milliseconds)
 user_pref("security.secure_connection_icon_color_gray", false); // Return green lock for https (Firefox >= 70)
 user_pref("security.ssl.errorReporting.automatic", true);
-user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
-user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
-user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
+// user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
+// user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+// user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("toolkit.identity.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", true);
@@ -228,8 +231,8 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
-user_pref("webgl.force-enabled", true);
-user_pref("webgl.msaa-force", true);
+// user_pref("webgl.force-enabled", true);
+// user_pref("webgl.msaa-force", true);
 // user_pref("widget.chrome.allow-gtk-dark-theme", true);
 // user_pref("widget.content.allow-gtk-dark-theme", true);
 // user_pref("widget.content.gtk-theme-override", "Adwaita:light");
