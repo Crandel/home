@@ -61,7 +61,7 @@ set runexec
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
-set timefmt=%m.%d.%y-%H:%M
+set timefmt=%d.%m.%y-%H:%M
 
 " Show list of matches on tab completion in command-line mode
 set wildmenu
