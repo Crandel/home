@@ -118,7 +118,7 @@ set vifminfo=dhistory,chistory,state,tui,shistory,
 
 " Examples of configuring both panels
 " Customize view columns a bit (enable ellipsis for truncated file names)
-set viewcolumns=-{name},22{uname},16{mtime},4{}
+set viewcolumns=-{name},20{uname},15{mtime},7{size}
 
 " Filter-out build and temporary files
 "
