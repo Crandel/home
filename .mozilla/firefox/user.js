@@ -14,6 +14,7 @@ user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
 user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
+user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 user_pref("browser.library.activity-stream.enabled", true); // For macOS only
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // PREF: Disable Extension recommendations (Firefox >= 65)
@@ -24,6 +25,7 @@ user_pref("browser.newtabpage.activity-stream.feeds.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.filterAdult", false);
 user_pref("browser.newtabpage.activity-stream.prerender", true);
 user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket", false);
+user_pref("browser.newtabpage.activity-stream.showSearch", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.telemetry", false);
 user_pref("browser.newtabpage.activity-stream.telemetry.ping.endpoint", "");
@@ -73,7 +75,8 @@ user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.region", "US");
-user_pref("browser.search.update", "false");
+user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
+user_pref("browser.search.update", true);
 user_pref("browser.send_pings", true); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
 user_pref("browser.send_pings.require_same_host", true); // PREF: When browser pings are enabled, only allow pinging the same host as the origin page
 user_pref("browser.sessionstore.interval", 1800000);
