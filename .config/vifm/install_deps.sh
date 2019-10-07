@@ -1,8 +1,25 @@
 #! /bin/bash
 
-pacman_packages=(fzf zathura zathura-djvu zathura-pdf-poppler highlight feh docx2txt catdoc curlftpfs sshfs fuseiso)
+pacman_packages=(
+catdoc
+curlftpfs
+docx2txt
+feh
+fuseiso
+fzf
+highlight
+mp3info
+pygmentize
+sshfs
+zathura
+zathura-djvu
+zathura-pdf-poppler
+)
 
-aur_packages=(rar2fs archivemount)
+aur_packages=(
+archivemount
+rar2fs
+)
 
 for package in ${pacman_packages[@]}; do
   sudo pacman -S --noconfirm $package
