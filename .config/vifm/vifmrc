@@ -112,7 +112,7 @@ mark h ~/
 " ------------------------------------------------------------------------------
 " What should be saved automatically between vifm sessions.  Drop "savedirs"
 " value if you don't want vifm to remember last visited directories for you.
-set vifminfo=dhistory,chistory,state,tui,shistory,
+set vifminfo=dhistory,chistory,state,shistory,
     \phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 
