@@ -314,13 +314,12 @@ if (( $+commands[go] )) ; then
   fi
 fi
 
-if (( $+commands[nnn] )) ; then
-  alias nnn='nnn -d'
-  export NNN_USE_EDITOR=1
-  export NNN_CONTEXT_COLORS='2745'
-  export NNN_COPIER=$(which xsel)
-  export NNN_NOTE=/opt/work/backup/notes
-  export NNN_OPS_PROG=1
+if (( $+commands[aws] )) ; then
+  alias aelogin='aws ecr get-login --region eu-central-1'
+  if (( $+commands[saml2aws] )) ; then
+    export SAML2AWS_SESSION_DURATION=36000
+    alias sl='saml2aws login -a default -p default --skip-prompt'
+  fi
 fi
 
 if (( $+commands[hadoop] )) ; then
@@ -338,11 +337,14 @@ if (( $+commands[hive] )) ; then
   alias bee='beeline --color=true -u jdbc:hive2://'
 fi
 
+if (( $+commands[mpv] )) ; then
+  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
+fi
+
 if [ -d /usr/share/scala ]; then
   export SCALA_HOME=/usr/share/scala
   export PATH=$PATH:$SCALA_HOME/bin
 fi
-
 
 # Rust
 if [ -d $HOME/.cargo/bin ]; then
@@ -367,9 +369,6 @@ if (( $+commands[emacs] )); then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
   export EDITOR='emacs -nw'
-  if [ "$TERM" = 'dumb' ] && [ "$INSIDE_EMACS" ]; then
-    export TERM='ansi-term'
-  fi
 elif (( $+commands[vim] )); then
   export EDITOR='vim'
 fi
@@ -395,8 +394,12 @@ if (( $+commands[swipl] )); then
   fi
 fi
 
-if [ -f ~/.zsh_aliases ]; then
-  . ~/.zsh_aliases
+if (( $+commands[qt5ct] )); then
+  export QT_QPA_PLATFORMTHEME="qt5ct"
+fi
+
+if [ -f ~/.aliases.zsh ]; then
+  . ~/.aliases.zsh
 fi
 
 LOCAL_BIN=$HOME/.local/bin

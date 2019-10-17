@@ -104,8 +104,8 @@ function prj () {
 }
 _prj()
 {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(ls $project_folders)" -- $cur) )
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$(ls $project_folders)" -- $cur) )
 }
 complete -F _prj prj
 
@@ -118,8 +118,8 @@ function backup () {
 }
 _backup()
 {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    COMPREPLY=( $(compgen -W "$(ls $backup_dir)" -- $cur) )
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$(ls $backup_dir)" -- $cur) )
 }
 complete -F _backup backup
 
@@ -132,29 +132,29 @@ function son {
 }
 
 extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar xjf $1        ;;
-            *.tar.gz)         tar xzf $1        ;;
-            *.bz2)            bunzip2 $1        ;;
-            *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar xf $1         ;;
-            *.tbz2)           tar xjf $1        ;;
-            *.tgz)            tar xzf $1        ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *.7z)             7zr e $1          ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 zipin () {
   for f in $(ls -A);
-    do
+  do
     if [ -f "$f" ]; then
       case $f in
         *.zip)       echo "$f already zipped"  ;;
@@ -188,7 +188,7 @@ if command_exists pacman ; then
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   if command_exists yay ; then
-    alias yay='yay --aur --builddir $PERS_DIR/bb'
+    alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
     alias upgy='yay -Syua'
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
@@ -199,13 +199,13 @@ if command_exists pacman ; then
 
   recovery-pacman() {
     sudo pacman "$@"  \
-    --log /dev/null   \
-    --noscriptlet     \
-    --dbonly          \
-    --force           \
-    --nodeps          \
-    --needed
-}
+         --log /dev/null   \
+         --noscriptlet     \
+         --dbonly          \
+         --force           \
+         --nodeps          \
+         --needed
+  }
 fi
 
 if command_exists apt ; then
@@ -238,9 +238,10 @@ if command_exists docker ; then
   alias d='docker'
   alias dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
-  alias run='docker-compose stop && docker-compose run --rm --service-ports app'
+  alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
+  alias drmin='d rmi $(d images | rg -i "none" | awk "{print $3}")'
 fi
 
 if command_exists kubectl ; then
@@ -280,13 +281,16 @@ if command_exists go ; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
-if command_exists nnn ; then
-  alias nnn='nnn -d'
-  export NNN_USE_EDITOR=1
-  export NNN_CONTEXT_COLORS='2745'
-  export NNN_COPIER=$(which xsel)
-  export NNN_NOTE=/opt/work/backup/notes
-  export NNN_OPS_PROG=1
+if command_exists aws ; then
+  alias aelogin='aws ecr get-login --region eu-central-1'
+  if command_exists saml2aws ; then
+    export SAML2AWS_SESSION_DURATION=36000
+    alias sl='saml2aws login -a default -p default --skip-prompt'
+  fi
+fi
+
+if command_exists mpv ; then
+  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
 fi
 
 if [ -d /usr/share/scala ]; then
@@ -296,19 +300,22 @@ fi
 
 # Rust
 if [ -d $HOME/.cargo/bin ]; then
-    export PATH=$PATH:$HOME/.cargo/bin
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
+
+if command_exists cargo ; then
+  if ! command_exists tldr ; then
+    cargo install tealdeer
+  fi
+  if ! command_exists rg ; then
+    cargo install ripgrep
+  fi
 fi
 
 if [ -d /usr/src/rust ]; then
-    export RUST_SRC_PATH=/usr/src/rust/src
+  export RUST_SRC_PATH=/usr/src/rust/src
 fi
 # End Rust
-
-#if [ -d /usr/lib/jvm/default ]; then
-#  export JAVA_HOME=/usr/lib/jvm/default
-#elif [ -d /usr/lib/jvm/default-java ]; then
-#  export JAVA_HOME=/usr/lib/jvm/default-java
-#fi
 
 if command_exists emacs; then
   alias em='emacs -nw'
@@ -327,8 +334,20 @@ if command_exists git; then
   alias psh="git push origin"
   alias gst="git status"
   alias gco="git checkout"
-  alias gadd="git add ."
+  alias gadd="git add"
   alias gcmt="git commit -m"
+fi
+
+if command_exists swipl ; then
+  swi_path=/usr/lib/swipl
+  if [ -d $swi_path ]; then
+    export SWI_HOME_DIR=$swi_path
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SWI_HOME_DIR/lib/x86_64-linux
+  fi
+fi
+
+if command_exists qt5ct ; then
+  export QT_QPA_PLATFORMTHEME="qt5ct"
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -340,6 +359,10 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+fi
+
+if [ -f ~/.aliases.bash ]; then
+  . ~/.aliases.bash
 fi
 
 LOCAL_BIN=$HOME/.local/bin
@@ -382,7 +405,7 @@ function set_prompt_symbol () {
 function set_virtualenv () {
   PYTHON_VIRTUALENV=""
   if ! [[ -z ${VIRTUAL_ENV_DISABLE_PROMPT} ]] && [ -f .venv ] ; then
-      workon `cat .venv`
+    workon `cat .venv`
   fi
 
   if ! test -z "$VIRTUAL_ENV" ; then
@@ -394,7 +417,7 @@ function new_line () {
   NEW_LINE=""
   echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
   if [[ ${CURPOS##*;} -gt 1 ]]; then
-      NEW_LINE="${RED}¬\n${NORMAL}"
+    NEW_LINE="${RED}¬\n${NORMAL}"
   fi
 }
 
