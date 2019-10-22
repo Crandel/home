@@ -76,7 +76,7 @@ search_path_filter = False
 
 # Default pager.
 # By default 'PAGER' environment variable is used
-# pager = less -SRXF
+pager = less -SRXF
 
 # Timing of sql statments and table rendering.
 timing = True
@@ -156,6 +156,45 @@ Token.Output.OddRow = ""
 Token.Output.EvenRow = ""
 # Named queries are queries you can execute by name.
 [named queries]
+settings = 'SELECT name, setting,unit,context FROM pg_settings;'
+conninfo = 'SELECT usename, count(*) FROM pg_stat_activity GROUP BY usename;'
+dbsize = 'SELECT datname, pg_size_pretty(pg_database_size(datname)) db_size FROM pg_database ORDER BY db_size;'
+
+uptime = '''SELECT now() - backend_start 
+ AS uptime 
+ FROM pg_stat_activity 
+ WHERE pid = pg_backend_pid();'''
+show_slow_queries = '''SELECT (total_time / 1000 / 60) 
+ AS total_minutes, (total_time/calls)
+ AS average_time, query
+ FROM pg_stat_statements
+ ORDER BY 1 DESC
+ LIMIT 100;'''
+activity = '''SELECT datname, pid, usename, application_name,client_addr, client_hostname, client_port, query, state
+ FROM pg_stat_activity;'''
+waits = '''SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.waiting, now() - pg_stat_activity.query_start
+ AS \"totaltime\", pg_stat_activity.backend_start
+ FROM pg_stat_activity
+ WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.waiting = true;'''
+tablesize = '''SELECT nspname || \'.\' || relname 
+ AS \"relation\", pg_size_pretty(pg_relation_size(C.oid))
+ AS "size"
+ FROM pg_class C
+ LEFT JOIN pg_namespace N ON (N.oid = C.relnamespace)
+ WHERE nspname NOT IN (\'pg_catalog\', \'information_schema\')
+ ORDER BY pg_relation_size(C.oid) DESC
+ LIMIT 40;'''
+uselesscol = '''SELECT nspname, relname, attname, typname, (stanullfrac*100)::int
+ AS null_percent, case when stadistinct >= 0 then stadistinct else abs(stadistinct)*reltuples end
+ AS \"distinct\", case 1 when stakind1 then stavalues1 when stakind2 then stavalues2 end
+ AS \"values\"
+ FROM pg_class c
+ JOIN pg_namespace ns ON (ns.oid=relnamespace)
+ JOIN pg_attribute ON (c.oid=attrelid)
+ JOIN pg_type t ON (t.oid=atttypid)
+ JOIN pg_statistic ON (c.oid=starelid AND staattnum=attnum)
+ WHERE nspname NOT LIKE E\'pg\\\\_%\' AND nspname != \'information_schema\' AND relkind=\'r\' AND NOT attisdropped AND attstattarget != 0 AND reltuples >= 100 AND stadistinct BETWEEN 0 AND 1
+ ORDER BY nspname, relname, attname;'''
 
 # DNS to call by -D option
 [alias_dsn]
