@@ -1,0 +1,49 @@
+k9s:
+  body:
+    fgColor: green
+    bgColor: black
+    logoColor: orange
+  info:
+    fgColor: white
+    sectionColor: green
+  frame:
+    border:
+      fgColor: green
+      focusColor: olive
+    menu:
+      fgColor: white
+      keyColor: green
+      numKeyColor: fuchsia
+    crumbs:
+      fgColor: black
+      bgColor: steelblue
+      activeColor: orange
+    status:
+      newColor: greenyellow
+      modifyColor: darkviolet
+      addColor: white
+      errorColor: orangered
+      highlightcolor: olive
+      killColor: mediumpurple
+      completedColor: gray
+    title:
+      fgColor: olive
+      highlightColor: fuchsia
+      counterColor: papayawhip
+      filterColor: greenyellow
+  table:
+    fgColor: blue
+    bgColor: black
+    cursorColor: olive
+    header:
+      fgColor: white
+      bgColor: black
+      sorterColor: orange
+  views:
+    yaml:
+      keyColor: greenyellow
+      colonColor: white
+      valueColor: papayawhip
+    logs:
+      fgColor: white
+      bgColor: black
