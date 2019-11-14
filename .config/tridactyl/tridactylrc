@@ -14,8 +14,7 @@ unbind --mode=normal d
 unbind --mode=normal x
 bind --mode=normal x tabclose
 bind --mode=normal d stop
-bind --mode=normal n tablast
-bind --mode=normal m tabfirst
+bind --mode=normal n tab #
 
 " Ukrainian keymap in normal mode
 keymap а f
