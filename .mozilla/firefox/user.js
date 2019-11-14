@@ -150,6 +150,7 @@ user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
 user_pref("general.useragent.override.skype.com", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
 user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
+user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", false);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.gfx.webrender.all.qualified", true);
@@ -158,7 +159,7 @@ user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
-user_pref("intl.accept_languages", "en-us,en,uk,ru"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
+user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
 user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
