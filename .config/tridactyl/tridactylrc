@@ -85,3 +85,4 @@ keymap ю .
 keymap Ю >
 keymap я z
 keymap Я Z
+keymap . /
