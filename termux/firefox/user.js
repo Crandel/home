@@ -154,6 +154,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 user_pref("general.useragent.override.skype.com", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
 user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
+user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.gfx.webrender.all.qualified", false);
