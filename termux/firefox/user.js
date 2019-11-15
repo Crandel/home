@@ -76,7 +76,8 @@ user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.region", "US");
 // user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
-user_pref("browser.search.update", true);
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.search.update", false);
 user_pref("browser.send_pings", true); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
 user_pref("browser.send_pings.require_same_host", true); // PREF: When browser pings are enabled, only allow pinging the same host as the origin page
 // user_pref("browser.sessionstore.interval", 1800000);
@@ -91,6 +92,9 @@ user_pref("browser.touchmode.auto", true);
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
+user_pref("browser.urlbar.suggest.bookmark", false);
+user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
 user_pref("datareporting.healthreport.uploadEnabled", true);
