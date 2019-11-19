@@ -13,6 +13,7 @@ set $mod Mod4
 set $lock .sleep.sh
 set $term tilix
 set $browser firefox
+set $email thunderbird
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:Hack, FontAwesome 12
@@ -193,6 +194,7 @@ client.urgent           #4B610B  #900000 #ffffff #900000
 assign [class="(?i)Viber"] 2
 assign [class="(?i)Wire"] 2
 assign [class="(?i)Slack"] 2
+assign [class="(?i)Thunderbird"] 2
 
 workspace_layout tabbed
 
@@ -251,13 +253,14 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 workspace_auto_back_and_forth yes
 
-exec --no-startup-id libinput-gestures
+exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id nm-applet
 # exec feh --bg-scale /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg
 exec_always --no-startup-id numlockx on
-exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id picom --config ~/.config/picom.conf -b
 # exec clipit
 exec $term --quake
-# exec wire-desktop
-# exec skypeforlinux
-# exec radiotray-ng
+exec wire-desktop-beta
+# exec viber
+exec radiotray-ng
+exec $email

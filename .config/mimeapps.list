@@ -26,6 +26,9 @@ x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/magnet=qBittorrent.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-6M956Z.desktop
+message/rfc822=userapp-Thunderbird-6M956Z.desktop
+x-scheme-handler/viber=viber.desktop
 
 [Added Associations]
 x-scheme-handler/http=chromium.desktop;
@@ -40,6 +43,8 @@ application/x-extension-shtml=chromium.desktop;
 application/xhtml+xml=chromium.desktop;
 application/x-extension-xhtml=chromium.desktop;
 application/x-extension-xht=chromium.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-6M956Z.desktop;
+message/rfc822=userapp-Thunderbird-6M956Z.desktop;
 
 [Removed Associations]
 application/pdf=com.github.babluboy.bookworm.desktop
