@@ -13,7 +13,8 @@ output "*" background /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg 
 output HDMI1-A-1 pos 0 0 res 1920x1080
 output eDP-1 pos 1920 0 res 1920x1080 
 
-
+input * xkb_layout "us,ua"
+input * xkb_options "grp:shift_caps_switch,compose:prsc"
 input "2:14:ETPS/2_Elantech_Touchpad" {
     tap enabled
     accel_profile adaptive
@@ -212,6 +213,7 @@ client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 # assings
 assign [class="(?i)Viber"] 2
 assign [class="(?i)Slack"] 2
+assign [class="(?i)wire"] 2
 workspace_layout tabbed
 
 workspace 1 output eDP-1
@@ -234,7 +236,7 @@ bindsym $mod+p exec pavucontrol
 bindsym $mod+x exec emacs
 
 # Intellij
-bindsym $mod+b exec idea.sh
+bindsym $mod+b exec idea
 
 # xmenud
 bindsym $mod+m exec xmenud
@@ -276,11 +278,8 @@ exec_always clipit
 exec_always xembedsniproxy
 exec_always --no-startup-id numlockx on
 # exec --no-startup-id compton --config ~/.config/compton.conf -b
-# exec clipit
 exec $term --quake
 # exec_always --no-startup-id xxkb
-exec viber
+exec wire-desktop
 # exec skypeforlinux
 # exec radiotray-ng
-
-
