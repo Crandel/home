@@ -1,6 +1,0 @@
-[Unit]
-Description=Run google drive sync
-
-[Service]
-Type=forking
-ExecStart=/opt/work/backup/drive/grive_sync.sh
