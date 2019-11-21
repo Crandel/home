@@ -1,0 +1,18 @@
+(:name evil
+       :website "https://github.com/emacs-evil/evil"
+       :description "Evil is an extensible vi layer for Emacs. It
+       emulates the main features of Vim, and provides facilities
+       for writing custom extensions."
+       :type github
+       :pkgname "emacs-evil/evil"
+       :features evil
+       :depends (undo-tree goto-chg)
+       :build (("make" "info" "all"))
+       :build/berkeley-unix (("gmake" "info" "all"))
+       :build/darwin `(("make" ,(format "EMACS=%s" el-get-emacs) "info" "all"))
+       :info "doc"
+       :post-init (progn
+                    (global-set-key (kbd "C-c e") 'evil-mode)
+                    (define-key evil-normal-state-map (kbd "C-p") nil)
+                    ))
+
