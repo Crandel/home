@@ -2,8 +2,8 @@ user_pref("accessibility.force_disabled", false);
 user_pref("app.normandy.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.update.checkInstallTime", false);
-user_pref("apz.allow_double_tap_zooming", false);
-user_pref("apz.allow_zooming", false);
+user_pref("apz.allow_double_tap_zooming", true);
+user_pref("apz.allow_zooming", true);
 user_pref("apz.android.chrome_fling_physics.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
