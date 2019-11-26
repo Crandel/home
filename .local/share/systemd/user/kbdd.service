@@ -1,5 +1,5 @@
 [Unit]
-Description=Run xxkb
+Description=Run kbdd
 
 [Install]
 WantedBy=default.target
@@ -9,4 +9,4 @@ Type=simple
 Restart=always
 RestartSec=30
 KillMode=process
-ExecStart=/usr/bin/xxkb
+ExecStart=/usr/bin/kbdd
