@@ -1,7 +1,7 @@
 # custom IntelliJ IDEA VM options
 
 -Xms128m
--Xmx750m
+-Xmx1965m
 -XX:ReservedCodeCacheSize=240m
 -XX:+UseConcMarkSweepGC
 -XX:SoftRefLRUPolicyMSPerMB=50
@@ -15,3 +15,7 @@
 -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine
 -Dsun.tools.attach.tmp.only=true
 -Dsun.java2d.uiScale.enabled=false
+-Dsun.java2d.uiScale=1.0
+-Dide.ui.scale=1.0
+-Dhidpi=false
+-Didea.is.internal=true

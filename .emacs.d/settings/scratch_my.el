@@ -8,15 +8,15 @@
 ;; Set zsh as default shell
 (setq shell-file-name           "/bin/zsh"
       explicit-shell-file-name  "/bin/zsh")
-(blink-cursor-mode 1)
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t
       inhibit-startup-message t)
 
 ;; Cursor
-(setq-default cursor-type 'hollow)
+(setq-default cursor-type 'bar)
 (set-cursor-color "#BE81F7")
+(blink-cursor-mode 1)
 
 ;; Imenu
 (require 'imenu)

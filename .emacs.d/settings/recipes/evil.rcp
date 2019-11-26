@@ -12,7 +12,13 @@
        :build/darwin `(("make" ,(format "EMACS=%s" el-get-emacs) "info" "all"))
        :info "doc"
        :post-init (progn
-                    (global-set-key (kbd "C-c e") 'evil-mode)
+                    (evil-mode)
+                    (global-set-key (kbd "C-c e") 'turn-off-evil-mode)
                     (define-key evil-normal-state-map (kbd "C-p") nil)
+                    (define-key evil-normal-state-map (kbd "M-.") nil)
+                    (define-key evil-normal-state-map (kbd "M-,") nil)
+                    (define-key evil-insert-state-map (kbd "C-v") nil)
+                    (define-key evil-insert-state-map (kbd "C-a") nil)
+                    (define-key evil-normal-state-map (kbd "q") nil)
                     ))
 
