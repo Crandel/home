@@ -77,11 +77,11 @@ graph_up = false
 interval = 2
 
 [[block]]
-block = "keyboard_layout"
-driver = "kbddbus"
-
-[[block]]
 block = "time"
 interval = 15
 format = "%d.%m.%y %R"
 on_click = "gsimplecal"
+
+[[block]]
+block = "keyboard_layout"
+driver = "kbddbus"
