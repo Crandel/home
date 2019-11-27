@@ -2,6 +2,7 @@
 
 firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
 fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
+fenix_profile_dir="/data/data/org.mozilla.fennec_fdroid/files/mozilla/*.default"
 
 cd termux/firefox
 cwd=$(pwd)
