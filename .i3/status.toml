@@ -39,7 +39,7 @@ alert = 100.0
 [[block]]
 block = "cpu"
 interval = 1
-frequency = true
+format = "{barchart} {utilization}% {frequency}GHz"
 
 [[block]]
 block = "memory"
@@ -70,7 +70,7 @@ interval = 2
 [[block]]
 block = "net"
 device = "wlp8s0"
-ssid = true
+ssid = false
 ip = false
 speed_up = true
 graph_up = false
