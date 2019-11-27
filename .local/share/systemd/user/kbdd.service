@@ -1,12 +1,14 @@
 [Unit]
-Description=Run kbdd
+Description=kbdd daemon
 
 [Install]
 WantedBy=default.target
 
 [Service]
-Type=simple
+Type=dbus
+BusName=ru.gentoo.KbddService
+ExecStart=/usr/bin/kbdd -n
+ExecStop=/usr/bin/pkill kbdd
+Environment=DISPLAY=:0
 Restart=always
-RestartSec=30
-KillMode=process
-ExecStart=/usr/bin/kbdd
+RestartSec=5
