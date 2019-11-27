@@ -8,7 +8,6 @@ WantedBy=default.target
 Type=dbus
 BusName=ru.gentoo.KbddService
 ExecStart=/usr/bin/kbdd -n
-ExecStop=/usr/bin/pkill kbdd
 Environment=DISPLAY=:0
 Restart=always
-RestartSec=5
+RestartSec=2

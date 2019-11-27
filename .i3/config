@@ -264,3 +264,4 @@ exec wire-desktop-beta
 # exec viber
 exec radiotray-ng
 exec $email
+exec ~/.local/bin/.kdbb.sh &
