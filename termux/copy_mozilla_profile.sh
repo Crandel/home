@@ -12,8 +12,8 @@ function update_settings () {
   folder=$1
   full_path=/data/data/$folder/files/mozilla/*.default
   if [ -d $full_path ]; then
-    echo "Current dir is $(pwd)"
     cd $full_path
+    echo "Current dir is $(pwd)"
     usernme=$(stat -c "%U" .)
     grp=$(stat -c "%G" .)
     cp -r $cwd/* .
