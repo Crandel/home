@@ -4,26 +4,26 @@ folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_fdroi
 
 cd termux/firefox
 cwd=$(pwd)
-echo "PWD is $pwd"
+echo "PWD is $(pwd)"
 echo "BASEDIR is $cwd"
 
 
 function update_settings () {
   folder=$1
-  echo "$folder"
-  cd /data/data/$folder/files/mozilla/*.default
-  pwd
-  echo "$(ls -la | grep -i user*)"
-  echo ""
-  cp -r $cwd/* .
-  usernme=$(stat -c "%U" .)
-  grp=$(stat -c "%G" .)
-  chown -R "$usernme:$grp" .
-  echo "$(ls -la | grep -i user*)"
+  full_path=/data/data/$folder/files/mozilla/*.default
+  if [ -d $full_path ]; then
+    cd $full_path
+    echo "Current dir is $pwd"
+    echo "$(ls -lA | grep -i user*)"
+    usernme=$(stat -c "%U" .)
+    grp=$(stat -c "%G" .)
+    cp -r $cwd/* .
+    chown -R "$usernme:$grp" .
+    echo "$(ls -lA | grep -i user*)"
+  fi
 }
 
 for folder in "${folder_list[@]}"; do
-  if [ -d $folder ]; then
-    update_settings $folder
-  fi
+  echo "$folder"
+  update_settings $folder
 done
