@@ -90,6 +90,7 @@ user_pref("browser.tabs.loadInBackground", false);
 // user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", true);
 user_pref("browser.uitour.enabled", false);
+user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.suggest.bookmark", false);

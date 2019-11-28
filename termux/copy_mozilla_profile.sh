@@ -1,19 +1,18 @@
 #!/bin/sh
 
-firefox_profile_dir="/data/data/org.mozilla.firefox/files/mozilla/*.default"
-fenix_profile_dir="/data/data/org.mozilla.fenix/files/mozilla/*.default"
-fenix_profile_dir="/data/data/org.mozilla.fennec_fdroid/files/mozilla/*.default"
+folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_fdroid")
 
 cd termux/firefox
 cwd=$(pwd)
 echo "PWD is $pwd"
 echo "BASEDIR is $cwd"
-echo "$(ls -la $cwd)"
+
 
 function update_settings () {
   folder=$1
   echo "$folder"
-  cd $folder
+  cd /data/data/$folder/files/mozilla/*.default
+  pwd
   echo "$(ls -la | grep -i user*)"
   echo ""
   cp -r $cwd/* .
@@ -23,12 +22,8 @@ function update_settings () {
   echo "$(ls -la | grep -i user*)"
 }
 
-if [ -d $firefox_profile_dir ]; then
-  update_settings $firefox_profile_dir
-fi
-
-if [ -d $fenix_profile_dir ]; then
-  update_settings $fenix_profile_dir
-fi
-
-
+for folder in "${folder_list[@]}"; do
+  if [ -d $folder]; then
+    update_settings $folder
+  fi
+done
