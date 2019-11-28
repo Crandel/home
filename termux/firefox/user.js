@@ -10,6 +10,7 @@ user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP 
 // user_pref("browser.bookmarks.showMobileBookmarks", true);
 // user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
+user_pref("browser.display.background_color", "2e2e31");
 // user_pref("browser.download.autohideButton", false);
 // user_pref("browser.download.panel.shown", true);
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
