@@ -3,7 +3,7 @@ user_pref("app.normandy.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.update.checkInstallTime", false);
 user_pref("apz.allow_double_tap_zooming", true);
-user_pref("apz.allow_zooming", true);
+user_pref("apz.allow_zooming", false);
 user_pref("apz.android.chrome_fling_physics.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
@@ -11,6 +11,7 @@ user_pref("browser.bookmarks.showMobileBookmarks", true);
 user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
+user_pref("browser.display.background_color", "2e2e31");
 user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
