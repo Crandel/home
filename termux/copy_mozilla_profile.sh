@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_fdroid")
 
@@ -23,7 +23,7 @@ function update_settings () {
 }
 
 for folder in "${folder_list[@]}"; do
-  if [ -d $folder]; then
+  if [ -d $folder ]; then
     update_settings $folder
   fi
 done
