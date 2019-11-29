@@ -1,6 +1,8 @@
 #!/bin/bash
 
-rclone sync --no-update-modtime <path/sync_folder> gdrive:sync_folder
+rclone sync --use-server-modtime \
+            -P <path/sync_folder> \
+            gdrive:sync_folder
 
 retVal=$?
 if [ $retVal -ne 0 ]; then
