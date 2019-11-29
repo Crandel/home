@@ -9,6 +9,7 @@ user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP 
 // user_pref("browser.bookmarks.restore_default_bookmarks", false);
 // user_pref("browser.bookmarks.showMobileBookmarks", true);
 // user_pref("browser.ctrlTab.previews", true);
+// user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
 user_pref("browser.display.background_color", "2e2e31");
 // user_pref("browser.download.autohideButton", false);
@@ -75,6 +76,7 @@ user_pref("browser.search.geoSpecificDefaults", false); // PREF: Don't use Mozil
 user_pref("browser.search.geoSpecificDefaults.url", "");
 user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
+user_pref("browser.search.openintab", true); // opens search results in new tab
 user_pref("browser.search.region", "US");
 // user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
 user_pref("browser.search.suggest.enabled", false);
@@ -82,6 +84,7 @@ user_pref("browser.search.update", false);
 user_pref("browser.send_pings", true); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
 user_pref("browser.send_pings.require_same_host", true); // PREF: When browser pings are enabled, only allow pinging the same host as the origin page
 // user_pref("browser.sessionstore.interval", 1800000);
+user_pref("browser.sessionhistory.max_total_viewers", 18); // affects how many pages Firefox stores in such a way that they load super fast
 user_pref("browser.slowStartup.notificationDisabled", true);
 // user_pref("browser.startup.page", 3);
 // user_pref("browser.tabs.drawInTitlebar", true);
@@ -117,6 +120,7 @@ user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent
 user_pref("dom.gamepad.extensions.enabled", false);
 // user_pref("dom.ipc.processCount", 3);
 // user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
+user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
@@ -178,6 +182,7 @@ user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the 
 // user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.word_select.stop_at_punctuation", true);
+user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 // user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("media.autoplay.allow-muted", false);
 user_pref("media.autoplay.default", 0);
@@ -238,6 +243,7 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
+user_pref("view_source.editor.external", true); // enable view source using external text editor
 // user_pref("webgl.force-enabled", true);
 // user_pref("webgl.msaa-force", true);
 // user_pref("widget.chrome.allow-gtk-dark-theme", true);
