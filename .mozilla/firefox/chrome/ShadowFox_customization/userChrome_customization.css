@@ -80,3 +80,13 @@ popup > menu > menupopup {
   border: 1px solid!important;
   border-color: var(--in-content-box-border-color)!important
 }
+
+#identity-popup-permissions-content {
+background-repeat: no-repeat !important;
+background-position: 2px 12px !important;
+}
+
+.identity-popup-security-content {
+background-repeat: no-repeat !important;
+background-position: 2px 12px !important;
+}
