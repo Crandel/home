@@ -109,6 +109,7 @@ user_pref("device.sensors.enabled", false); // PREF: Disable sensor API
 user_pref("device.sensors.motion.enabled", false);
 user_pref("device.sensors.orientation.enabled", false);
 user_pref("devtools.aboutdebugging.showSystemAddons", true);
+user_pref("devtools.netmonitor.features.webSockets", true);
 user_pref("devtools.onboarding.telemetry.logged", true);
 user_pref("devtools.theme", "dark");
 user_pref("devtools.toolbox.splitconsoleEnabled", false);
