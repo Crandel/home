@@ -119,6 +119,7 @@
 (setq whitespace-style
       '(face trailing spaces lines-tail empty indentation::tab indentation::space tabs newline space-mark tab-mark newline-mark))
 (global-whitespace-mode 1)
+(setq whitespace-global-modes '(not magit-diff-mode))
 (setq whitespace-display-mappings
       ;; all numbers are Unicode codepoint in decimal. ⁖ (insert-char 182 1)
       '(
