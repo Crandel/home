@@ -18,6 +18,7 @@ user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alt
 user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
 user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 user_pref("browser.library.activity-stream.enabled", true); // For macOS only
+user_pref("browser.urlbar.megabar", true); // Enable megabar
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 user_pref("browser.newtabpage.activity-stream.feeds.places", true);
@@ -160,6 +161,7 @@ user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
 user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
 user_pref("general.useragent.override.skype.com", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
 user_pref("general.warnOnAboutConfig", false);
+user_pref("browser.aboutConfig.showWarning", false);
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
 user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", false);
