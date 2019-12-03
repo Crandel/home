@@ -6,6 +6,7 @@ set nocompatible
 syntax on
 
 set background=dark
+colorscheme desert
 
 if &shell =~# 'fish$'
     set shell=bash
