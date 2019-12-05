@@ -87,10 +87,7 @@ alias L='|less'
 alias G='|grep'
 alias ~='cd $HOME'
 if command_exists bat ; then
-  alias cat='bat'
-fi
-if command_exists rg ; then
-  alias grep='rg'
+  alias ct='bat'
 fi
 
 if [ -f ~/.bash_aliases ]; then
@@ -98,29 +95,29 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 extract () {
-    if [ -f $1 ] ; then
-        case $1 in
-            *.tar.bz2)        tar xjf $1        ;;
-            *.tar.gz)         tar xzf $1        ;;
-            *.bz2)            bunzip2 $1        ;;
-            *.rar)            unrar x $1        ;;
-            *.gz)             gunzip $1         ;;
-            *.tar)            tar xf $1         ;;
-            *.tbz2)           tar xjf $1        ;;
-            *.tgz)            tar xzf $1        ;;
-            *.zip)            unzip $1          ;;
-            *.Z)              uncompress $1     ;;
-            *.7z)             7zr e $1          ;;
-            *)                echo "'$1' cannot be extracted via extract()" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
 }
 
 zipin () {
   for f in $(ls -A);
-    do
+  do
     if [ -f "$f" ]; then
       case $f in
         *.zip)       echo "$f already zipped"  ;;
@@ -128,6 +125,10 @@ zipin () {
       esac
     fi;
   done
+}
+
+clean_pyc (){
+  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 
 # BINS CONDITIONS
@@ -146,7 +147,7 @@ if command_exists pacman ; then
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   if command_exists yay ; then
-    alias yay='yay --aur --builddir $PERS_DIR/bb'
+    alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
     alias upgy='yay -Syua'
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
@@ -157,13 +158,13 @@ if command_exists pacman ; then
 
   recovery-pacman() {
     sudo pacman "$@"  \
-    --log /dev/null   \
-    --noscriptlet     \
-    --dbonly          \
-    --force           \
-    --nodeps          \
-    --needed
-}
+         --log /dev/null   \
+         --noscriptlet     \
+         --dbonly          \
+         --force           \
+         --nodeps          \
+         --needed
+  }
 fi
 
 if command_exists apt ; then
@@ -188,25 +189,24 @@ if command_exists go ; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
-if command_exists nnn ; then
-  alias nnn='nnn -d'
-  export NNN_USE_EDITOR=1
-  export NNN_CONTEXT_COLORS='2745'
-  export NNN_COPIER=$(which xsel)
-  export NNN_NOTE=/opt/work/backup/notes
-  export NNN_OPS_PROG=1
-fi
-
 # Rust
 if [ -d $HOME/.cargo/bin ]; then
-    export PATH=$PATH:$HOME/.cargo/bin
+  export PATH=$PATH:$HOME/.cargo/bin
+fi
+
+if command_exists cargo ; then
+  if ! command_exists tldr ; then
+    cargo install tealdeer
+  fi
+  if ! command_exists rg ; then
+    cargo install ripgrep
+  fi
 fi
 
 if [ -d /usr/src/rust ]; then
-    export RUST_SRC_PATH=/usr/src/rust/src
+  export RUST_SRC_PATH=/usr/src/rust/src
 fi
 # End Rust
-
 
 if command_exists emacs; then
   alias em='emacs -nw'
@@ -216,16 +216,32 @@ elif command_exists vim; then
   export EDITOR='vim'
 fi
 
+# file managers
 if command_exists mc; then
   alias smc="$SUDO mc"
 fi
+
+if command_exists vifm; then
+  alias svf="$SUDO vifm"
+  alias vf="vifm"
+fi
+
+if command_exists nnn ; then
+  alias nnn='nnn -d'
+  export NNN_USE_EDITOR=1
+  export NNN_CONTEXT_COLORS='2745'
+  export NNN_COPIER=$(which xsel)
+  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_OPS_PROG=1
+fi
+#end file managers
 
 if command_exists git; then
   alias pll="git pull origin"
   alias psh="git push origin"
   alias gst="git status"
   alias gco="git checkout"
-  alias gadd="git add ."
+  alias gadd="git add"
   alias gcmt="git commit -m"
 fi
 
@@ -238,6 +254,10 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+fi
+
+if [ -f ~/.aliases.bash ]; then
+  . ~/.aliases.bash
 fi
 
 LOCAL_BIN=$HOME/.local/bin
@@ -280,7 +300,7 @@ function new_line () {
   NEW_LINE=""
   echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
   if [[ ${CURPOS##*;} -gt 1 ]]; then
-      NEW_LINE="${RED}¬\n${NORMAL}"
+    NEW_LINE="${RED}¬\n${NORMAL}"
   fi
 }
 

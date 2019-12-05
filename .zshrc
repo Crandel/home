@@ -17,7 +17,7 @@ bindkey -e
 autoload -Uz promptinit && promptinit
 
 export PERS_DIR='/opt/work'
-
+export PAGER='less -SRXF'
 virtual='virtualenvwrapper.sh'
 if (( $+commands[$virtual] )); then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -373,9 +373,25 @@ elif (( $+commands[vim] )); then
   export EDITOR='vim'
 fi
 
+# file managers
 if (( $+commands[mc] )); then
   alias smc="$SUDO mc"
 fi
+
+if (( $+commands[vifm] )); then
+  alias vf="vifm"
+  alias svf="$SUDO vifm"
+fi
+
+if (( $+commands[nnn] )); then
+  alias nnn='nnn -d'
+  export NNN_USE_EDITOR=1
+  export NNN_CONTEXT_COLORS='2745'
+  export NNN_COPIER=$(which xsel)
+  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_OPS_PROG=1
+fi
+#end file mngers
 
 if (( $+commands[git] )); then
   alias pll="git pull origin"

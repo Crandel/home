@@ -325,9 +325,25 @@ elif command_exists vim; then
   export EDITOR='vim'
 fi
 
+# file managers
 if command_exists mc; then
   alias smc="$SUDO mc"
 fi
+
+if command_exists vifm; then
+  alias svf="$SUDO vifm"
+  alias vf="vifm"
+fi
+
+if command_exists nnn ; then
+  alias nnn='nnn -d'
+  export NNN_USE_EDITOR=1
+  export NNN_CONTEXT_COLORS='2745'
+  export NNN_COPIER=$(which xsel)
+  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_OPS_PROG=1
+fi
+#end file managers
 
 if command_exists git; then
   alias pll="git pull origin"
