@@ -1,0 +1,7 @@
+source ~/.vimrc
+imap jj <Esc>
+set timeoutlen=1000
+set surround
+set easymotion
+set multiple-cursors
+set commentary

@@ -391,7 +391,7 @@ if (( $+commands[nnn] )); then
   export NNN_NOTE=/opt/work/backup/notes
   export NNN_OPS_PROG=1
 fi
-#end file mngers
+#end file managers
 
 if (( $+commands[git] )); then
   alias pll="git pull origin"
