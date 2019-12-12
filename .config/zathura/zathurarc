@@ -52,7 +52,11 @@ set scroll-step 50
 
 map [ zoom in
 map ] zoom out
-map i recolor
+map r recolor
 map p print
 map g goto
+map i jumplist backward
+map o jumplist forward
 map I toggle_index
+map y scroll half-up
+map u scroll half-down
