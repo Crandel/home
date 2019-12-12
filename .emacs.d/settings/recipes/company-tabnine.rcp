@@ -1,0 +1,13 @@
+(:name company-tabnine
+       :description "Tabnine backend for company-mode."
+       :type github
+       :pkgname "TommyX12/company-tabnine"
+       :depends (dash company-mode s unicode-escape)
+       :post-init (eval-after-load 'company
+                    '(progn
+                       (require 'company-tabnine)
+                       (unless (member 'company-tabnine (car company-backends))
+                                      (setq comp-back (car company-backends))
+                                      (push 'company-tabnine comp-back)
+                                      (setq company-backends (list comp-back)))
+                       )))

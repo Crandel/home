@@ -61,10 +61,6 @@
                                (define-key python-mode-map (kbd "RET") 'newline-and-indent)
                                (define-key python-mode-map (kbd "M-RET") 'newline)
                                ;; end python mode keybindings
-
-                               (eval-after-load "company"
-                                 '(progn
-                                    (my-change-company-backends 'company-capf)))
 ))
 ;; End Python mode
 

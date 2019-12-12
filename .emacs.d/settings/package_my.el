@@ -12,6 +12,7 @@
       company-mode
       company-flx
       company-restclient
+      company-tabnine
       eglot
       emmet-mode
       emacs-fish
@@ -22,6 +23,7 @@
       helm
       helm-projectile
       helm-swoop
+      helm-company
       json-mode
       key-chord
       know-your-http-well
@@ -106,9 +108,9 @@
 ;; bug fix for gnu
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
