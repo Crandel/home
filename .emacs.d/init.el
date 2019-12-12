@@ -27,6 +27,8 @@
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
+ '(magit-log-margin-show-committer-date t)
+ '(magit-log-remove-graph-args (quote ("--follow" "--grep" "-G" "-S" "-L")))
  '(neo-vc-state-char-alist
    (quote
     ((up-to-date . 32)
