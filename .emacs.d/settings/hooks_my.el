@@ -75,59 +75,63 @@
 ;; End Po mode
 
 ;; Json mode
-(add-hook 'json-mode-hook (lambda ()
-                            (define-key json-mode-map (kbd "RET") 'newline-and-indent)
-                            (define-key json-mode-map (kbd "M-RET") 'newline)
-                            ))
+(add-hook 'json-mode-hook '(lambda()
+                             (progn
+                               (define-key json-mode-map (kbd "RET") 'newline-and-indent)
+                               (define-key json-mode-map (kbd "M-RET") 'newline)
+                               )))
 
 ;; Lisp mode
-(add-hook 'lisp-interaction-mode-hook '(lambda()
-                                         (progn
-                                           (define-key lisp-interaction-mode-map (kbd "RET") 'newline-and-indent)
-                                           (define-key lisp-interaction-mode-map (kbd "M-RET") 'newline)
-                                           (eval-after-load "company"
-                                             '(progn
-                                                (my-change-company-backends 'company-elisp)
-                                           ))
-)))
+(add-hook 'emacs-lisp-mode-hook '(lambda()
+                                   (progn
+                                     (define-key emacs-lisp-mode-map (kbd "RET") 'newline-and-indent)
+                                     (define-key lisp-interaction-mode-map (kbd "RET") 'newline-and-indent)
+                                     (define-key emacs-lisp-mode-map (kbd "M-RET") 'newline)
+                                     (define-key lisp-interaction-mode-map (kbd "M-RET") 'newline)
+                                     (eval-after-load "company"
+                                       '(progn
+                                          (my-change-company-backends 'company-elisp)
+                                          ))
+                                     )))
 ;; End Lisp mode
 
 ;; c-mode hooks
 (add-hook 'c-mode-hook '(lambda()
-                              (progn
-                                (local-unset-key (kbd "C-d"))
-                                ;; (define-key c-mode-map (kbd "RET") 'newline-and-indent)
-                                ;; (define-key c-mode-map (kbd "M-RET") 'newline)
-                                ;; (ggtags-mode 1)
-                                )))
+                          (progn
+                            (local-unset-key (kbd "C-d"))
+                            ;; (define-key c-mode-map (kbd "RET") 'newline-and-indent)
+                            ;; (define-key c-mode-map (kbd "M-RET") 'newline)
+                            ;; (ggtags-mode 1)
+                            )))
 ;; End c-mode
 
 ;; c++-mode hooks
 (add-hook 'c++-mode-hook '(lambda()
-                              (progn
-                                (local-unset-key (kbd "C-d"))
-                                ;; (define-key c++-mode-map (kbd "RET") 'newline-and-indent)
-                                ;; (define-key c++-mode-map (kbd "M-RET") 'newline)
-                                (setq-default sp-escape-quotes-after-inser nil)
+                            (progn
+                              (local-unset-key (kbd "C-d"))
+                              ;; (define-key c++-mode-map (kbd "RET") 'newline-and-indent)
+                              ;; (define-key c++-mode-map (kbd "M-RET") 'newline)
+                              (setq-default sp-escape-quotes-after-inser nil)
 
-                                (let ((root (ignore-errors (projectile-project-root))))
-                                  (when root
-                                    (add-to-list
-                                     'flycheck-clang-include-path
-                                     (format "%sinclude" root))))
-                                ;; (ggtags-mode 1)
-                                )))
+                              (let ((root (ignore-errors (projectile-project-root))))
+                                (when root
+                                  (add-to-list
+                                   'flycheck-clang-include-path
+                                   (format "%sinclude" root))))
+                              ;; (ggtags-mode 1)
+                              )))
 ;; End c++-mode
 
 ;; Buffer-menu-mode-hook
 (add-hook 'buffer-menu-mode-hook '(lambda()
-                                    (let ((font-lock-unfontify-region-function
-                                           (lambda (start end)
-                                             (remove-text-properties start end '(font-lock-face nil)))))
-                                      (font-lock-unfontify-buffer)
-                                      (set (make-local-variable 'font-lock-defaults)
-                                           '(buffer-menu-buffer-font-lock-keywords t))
-                                      (font-lock-fontify-buffer))))
+                                    (progn
+                                      (let ((font-lock-unfontify-region-function
+                                             (lambda (start end)
+                                               (remove-text-properties start end '(font-lock-face nil)))))
+                                        (font-lock-unfontify-buffer)
+                                        (set (make-local-variable 'font-lock-defaults)
+                                             '(buffer-menu-buffer-font-lock-keywords t))
+                                        (font-lock-fontify-buffer)))))
 ;; End buffer-menu-mode-hook
 
 ;; Compilation hook

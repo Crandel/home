@@ -1,0 +1,6 @@
+(:name unicode-escape
+       :website "https://github.com/kosh04/unicode-escape.el"
+       :description "Escape/Unescape unicode notations for Emacs"
+       :type github
+       :pkgname "kosh04/unicode-escape.el"
+       :depends (dash names))
