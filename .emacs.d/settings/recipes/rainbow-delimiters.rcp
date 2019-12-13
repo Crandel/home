@@ -1,0 +1,13 @@
+(:name rainbow-delimiters
+       :website "https://github.com/Fanael/rainbow-delimiters#readme"
+       :description "Color nested parentheses, brackets, and braces according to their depth."
+       :type github
+       :pkgname "Fanael/rainbow-delimiters"
+       :post-init (progn
+                      (add-hook 'js2-mode-hook              #'rainbow-delimiters-mode)
+                      (add-hook 'json-mode-hook             #'rainbow-delimiters-mode)
+                      (add-hook 'emacs-lisp-mode-hook       #'rainbow-delimiters-mode)
+                      (add-hook 'scala-mode-hook            #'rainbow-delimiters-mode)
+                      (add-hook 'sh-mode-hook               #'rainbow-delimiters-mode)
+                      (add-hook 'web-mode-hook              #'rainbow-delimiters-mode)
+))

@@ -35,6 +35,8 @@
       neotree
       less-css-mode
       projectile
+      rainbow-mode
+      rainbow-delimiters
       restclient
       smartparens
       smart-mode-line
