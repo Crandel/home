@@ -12,7 +12,6 @@
       company-mode
       company-flx
       company-restclient
-      company-tabnine
       eglot
       emmet-mode
       emacs-fish
