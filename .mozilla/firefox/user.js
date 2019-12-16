@@ -154,7 +154,7 @@ user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.ui.dictionary.hidden", false);
 user_pref("extensions.ui.experiment.hidden", false);
 user_pref("extensions.ui.locale.hidden", false);
-user_pref("extensions.webextensions.remote", false);
+user_pref("extensions.webextensions.remote", true);
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com"); // blacklist for webextensions
 user_pref("extensions.webextensions.userScripts.enabled", true);
 user_pref("findbar.highlightAll", true);
