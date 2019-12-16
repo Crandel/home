@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync google drive every hour
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1h
+Unit=drive.service
+
+[Install]
+WantedBy=default.target
