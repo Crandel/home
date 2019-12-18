@@ -1,5 +1,4 @@
-colourscheme quake
-
+set storageloc sync
 set smoothscroll false
 
 set searchengine duckduckgo
@@ -87,3 +86,5 @@ keymap Ю >
 keymap я z
 keymap Я Z
 keymap . /
+
+colourscheme quake
