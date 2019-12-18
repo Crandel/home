@@ -180,9 +180,9 @@ user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabl
 user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", false);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
-user_pref("gfx.gfx.webrender.all.qualified", true);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.all.qualified", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
@@ -256,6 +256,7 @@ user_pref("security.ssl.errorReporting.url", "");
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
 user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
+user_pref("svg.context-properties.content.enabled", true); // apply theme color to the toolbar button
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("toolkit.identity.enabled", false);
 user_pref("toolkit.telemetry.archive.enabled", true);
