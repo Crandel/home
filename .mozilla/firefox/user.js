@@ -105,7 +105,8 @@ user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", false);
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
-user_pref("browser.urlbar.autocomplete.enabled", false);
+user_pref("browser.urlbar.autocomplete.enabled", true);
+user_pref("browser.urlbar.autoFill", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.megabar", true); // Enable megabar
