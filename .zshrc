@@ -341,6 +341,10 @@ if (( $+commands[mpv] )) ; then
   alias mpv='mpv --hwdec=vaapi --vo=vaapi'
 fi
 
+if (( $+commands[youtube-dl] )) ; then
+  alias ytb='youtube-dl -f best'
+fi
+
 if [ -d /usr/share/scala ]; then
   export SCALA_HOME=/usr/share/scala
   export PATH=$PATH:$SCALA_HOME/bin
