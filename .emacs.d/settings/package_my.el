@@ -16,7 +16,6 @@
       emmet-mode
       emacs-fish
       expand-region
-      evil
       flycheck
       git-gutter
       helm
