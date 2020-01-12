@@ -232,7 +232,7 @@ user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
 user_pref("network.trr.mode", 2);
-user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
+user_pref("network.trr.uri", "https://dns11.quad9.net/dns-query");
 user_pref("network.warnOnAboutNetworking", false);
 user_pref("nglayout.initialpaint.delay", 150);
 user_pref("pdfjs.enableWebGL", true);

@@ -21,7 +21,6 @@
       helm
       helm-projectile
       helm-swoop
-      helm-company
       json-mode
       key-chord
       know-your-http-well
