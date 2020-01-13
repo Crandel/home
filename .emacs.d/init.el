@@ -95,7 +95,7 @@
  '(sr-passive-path-face ((t (:foreground "lightgray" :underline "white" :weight bold :height 120))))
  '(whitespace-empty ((t (:foreground "sienna"))))
  '(whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
- '(whitespace-indentation ((t (:foreground "dim gray"))))
+ '(whitespace-indentation ((t (:foreground "grey10"))))
  '(whitespace-line ((t (:underline (:color foreground-color :style wave)))))
  '(whitespace-newline ((t (:foreground "dark green" :weight normal))))
  '(whitespace-space ((t (:foreground "DarkOrchid4"))))

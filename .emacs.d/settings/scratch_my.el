@@ -13,11 +13,6 @@
 (setq inhibit-splash-screen   t
       inhibit-startup-message t)
 
-;; Cursor
-(setq-default cursor-type 'bar)
-(set-cursor-color "#BE81F7")
-(blink-cursor-mode 1)
-
 ;; Imenu
 (require 'imenu)
 (setq imenu-auto-rescan      t
@@ -35,14 +30,18 @@
 ;; Delete selection
 (delete-selection-mode t)
 
-;; Disable GUI components
+;; Emacs GUI settings
 (when (display-graphic-p)
   (tool-bar-mode    -1)
   (scroll-bar-mode  -1)
   ;; Fringe settings
   (fringe-mode '(8 . 0))
   (setq-default indicate-buffer-boundaries 'left)
-  )
+  ;; Cursor
+  (setq-default cursor-type 'bar)
+  (set-cursor-color "#BE81F7")
+  (blink-cursor-mode 1)
+)
 
 (tooltip-mode     -1)
 (menu-bar-mode    -1)

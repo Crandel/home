@@ -21,6 +21,7 @@
       helm
       helm-projectile
       helm-swoop
+      highlight-indentation
       json-mode
       key-chord
       know-your-http-well

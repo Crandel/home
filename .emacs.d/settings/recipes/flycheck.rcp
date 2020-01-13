@@ -9,6 +9,7 @@
                     (add-hook 'js-mode-hook                   #'flycheck-mode)
                     (add-hook 'web-mode-hook                  #'flycheck-mode)
                     (add-hook 'lisp-interaction-mode-hook     #'flycheck-mode)
+                    (add-hook 'emacs-lisp-mode-hook           #'flycheck-mode)
                     (add-hook 'fish-mode-hook                 #'flycheck-mode)
                     (add-hook 'markdown-mode-hook             #'flycheck-mode)
                     (add-hook 'go-mode-hook                   #'flycheck-mode)
