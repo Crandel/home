@@ -1,0 +1,20 @@
+(:name highlight-indentation
+       :description "Function for highlighting indentation"
+       :type git
+       :url "https://github.com/antonj/Highlight-Indentation-for-Emacs"
+       :features "highlight-indentation"
+       :post-init (progn
+                    (set-face-foreground 'highlight-indentation-face "IndianRed")
+                    (add-hook 'python-mode-hook               #'highlight-indentation-mode)
+                    (add-hook 'js-mode-hook                   #'highlight-indentation-mode)
+                    (add-hook 'web-mode-hook                  #'highlight-indentation-mode)
+                    (add-hook 'lisp-interaction-mode-hook     #'highlight-indentation-mode)
+                    (add-hook 'emacs-lisp-mode-hook           #'highlight-indentation-mode)
+                    (add-hook 'fish-mode-hook                 #'highlight-indentation-mode)
+                    (add-hook 'markdown-mode-hook             #'highlight-indentation-mode)
+                    (add-hook 'scala-mode-hook                #'highlight-indentation-mode)
+                    (add-hook 'java-mode-hook                 #'highlight-indentation-mode)
+                    (add-hook 'c-mode-hook                    #'highlight-indentation-mode)
+                    (add-hook 'c++-mode-hook                  #'highlight-indentation-mode)
+                    (add-hook 'rust-mode-hook                 #'highlight-indentation-mode)
+                    ))

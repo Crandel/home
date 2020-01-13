@@ -16,6 +16,7 @@
               (add-hook 'js-mode-hook                   #'yas-minor-mode)
               (add-hook 'web-mode-hook                  #'yas-minor-mode)
               (add-hook 'lisp-interaction-mode-hook     #'yas-minor-mode)
+              (add-hook 'emacs-lisp-mode-hook           #'yas-minor-mode)
               (add-hook 'fish-mode-hook                 #'yas-minor-mode)
               (add-hook 'markdown-mode-hook             #'yas-minor-mode)
               (add-hook 'go-mode-hook                   #'yas-minor-mode)

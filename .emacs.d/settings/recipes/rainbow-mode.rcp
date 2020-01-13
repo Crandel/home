@@ -9,4 +9,5 @@
                     (add-hook 'conf-mode-hook             #'rainbow-mode)
                     (add-hook 'javascript2-mode-hook      #'rainbow-mode)
                     (add-hook 'lisp-interaction-mode-hook #'rainbow-mode)
+                    (add-hook 'emacs-lisp-mode-hook       #'rainbow-mode)
 ))
