@@ -12,6 +12,7 @@
                     (add-hook 'emacs-lisp-mode-hook           #'highlight-indentation-mode)
                     (add-hook 'fish-mode-hook                 #'highlight-indentation-mode)
                     (add-hook 'markdown-mode-hook             #'highlight-indentation-mode)
+                    (add-hook 'yaml-mode-hook                 #'highlight-indentation-mode)
                     (add-hook 'scala-mode-hook                #'highlight-indentation-mode)
                     (add-hook 'java-mode-hook                 #'highlight-indentation-mode)
                     (add-hook 'c-mode-hook                    #'highlight-indentation-mode)
