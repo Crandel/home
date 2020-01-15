@@ -180,6 +180,17 @@ if command_exists apt ; then
   alias aar="$SUDO add-apt-repository"
 fi
 
+if command_exists git; then
+  alias g='git'
+  alias pla="g pull"
+  alias pll="pla origin"
+  alias psh="g push origin"
+  alias gst="g status"
+  alias gco="g checkout"
+  alias gadd="g add"
+  alias gcmt="g commit -m"
+fi
+
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
@@ -235,15 +246,6 @@ if command_exists nnn ; then
   export NNN_OPS_PROG=1
 fi
 #end file managers
-
-if command_exists git; then
-  alias pll="git pull origin"
-  alias psh="git push origin"
-  alias gst="git status"
-  alias gco="git checkout"
-  alias gadd="git add"
-  alias gcmt="git commit -m"
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
