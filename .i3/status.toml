@@ -15,6 +15,7 @@ unit = "GB"
 interval = 20
 warning = 15.0
 alert = 10.0
+show_percentage = false
 
 [[block]]
 block = "disk_space"
@@ -25,6 +26,7 @@ unit = "GB"
 interval = 20
 warning = 15.0
 alert = 10.0
+show_percentage = false
 
 [[block]]
 block = "disk_space"
@@ -35,6 +37,7 @@ unit = "GB"
 interval = 20
 warning = 200.0
 alert = 100.0
+show_percentage = false
 
 [[block]]
 block = "cpu"
@@ -46,14 +49,21 @@ block = "memory"
 display_type = "memory"
 format_mem = "{Mug}GB"
 format_swap = "{SUm}MB"
+icons = true
+clickable = true
+warning_mem = 80
+warning_swap = 80
+critical_mem = 95
+critical_swap = 95
 
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage}% {time}"
+format = "{percentage}% {time} {power}"
 
 [[block]]
 block = "sound"
+driver = "pulseaudio"
 show_volume_when_muted = true
 
 [[block]]
@@ -70,6 +80,7 @@ interval = 2
 ip = false
 speed_down = false
 speed_up = true
+ssid = false
 
 [[block]]
 block = "net"
@@ -81,7 +92,7 @@ interval = 2
 ip = false
 speed_down = false
 speed_up = true
-ssid = false
+ssid = true
 
 [[block]]
 block = "time"
