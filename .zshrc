@@ -251,6 +251,18 @@ if (( $+commands[yum] )) ; then
   alias pacr='yum remove'
 fi
 
+if (( $+commands[git] )); then
+  alias g='git'
+  compdef g=git
+  alias pla='g pull'
+  alias pll='pla origin'
+  alias psh='g push origin'
+  alias gst='g status'
+  alias gco='g checkout'
+  alias gadd='g add'
+  alias gcmt='g commit -m'
+fi
+
 if (( $+commands[tmux] )) ; then
   alias tm='tmux attach || tmux new'
 fi
@@ -396,15 +408,6 @@ if (( $+commands[nnn] )); then
   export NNN_OPS_PROG=1
 fi
 #end file managers
-
-if (( $+commands[git] )); then
-  alias pll="git pull origin"
-  alias psh="git push origin"
-  alias gst="git status"
-  alias gco="git checkout"
-  alias gadd="git add"
-  alias gcmt="git commit -m"
-fi
 
 if (( $+commands[swipl] )); then
   swi_path=/usr/lib/swipl
