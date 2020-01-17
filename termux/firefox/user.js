@@ -94,12 +94,12 @@ user_pref("browser.tabs.loadInBackground", false);
 // user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", true);
 user_pref("browser.uitour.enabled", false);
-user_pref("browser.urlbar.autocomplete.enabled", true);
+user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.autoFill", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
-user_pref("browser.urlbar.suggest.bookmark", false);
-user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.suggest.bookmark", true);
+user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
