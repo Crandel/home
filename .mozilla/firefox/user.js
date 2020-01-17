@@ -105,12 +105,12 @@ user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", false);
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
-user_pref("browser.urlbar.autocomplete.enabled", true);
+user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.autoFill", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.megabar", true); // Enable megabar
-user_pref("browser.urlbar.speculativeConnect.enabled", false);
+user_pref("browser.urlbar.speculativeConnect.enabled", false); // PREF: Disable preloading of autocomplete URLs
 user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
@@ -244,6 +244,11 @@ user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // Add dialog for canvas API
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.letterboxing", false);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true);
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
+user_pref("privacy.trackingprotection.pbmode.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.userContext.enabled", true); // Multicontainer enables
 user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
