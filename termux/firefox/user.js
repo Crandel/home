@@ -44,6 +44,7 @@ user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host", false);
 user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
 user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 user_pref("browser.safebrowsing.downloads.remote.enabled", false);
+user_pref("browser.safebrowsing.downloads.remote.url", "");
 user_pref("browser.safebrowsing.enabled", false);
 user_pref("browser.safebrowsing.malware.enabled", false);
 user_pref("browser.safebrowsing.phishing.enabled", false);
@@ -81,10 +82,13 @@ user_pref("browser.search.region", "US");
 // user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.update", false);
-user_pref("browser.send_pings", true); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
+user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
+user_pref("browser.send_pings", false); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
 user_pref("browser.send_pings.require_same_host", true); // PREF: When browser pings are enabled, only allow pinging the same host as the origin page
 // user_pref("browser.sessionstore.interval", 1800000);
 user_pref("browser.sessionhistory.max_total_viewers", 18); // affects how many pages Firefox stores in such a way that they load super fast
+user_pref("browser.sessionstore.interval", 1800000);
+user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.slowStartup.notificationDisabled", true);
 // user_pref("browser.startup.page", 3);
 // user_pref("browser.tabs.drawInTitlebar", true);
@@ -94,16 +98,19 @@ user_pref("browser.tabs.loadInBackground", false);
 // user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", true);
 user_pref("browser.uitour.enabled", false);
-user_pref("browser.urlbar.autocomplete.enabled", true);
+user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.autoFill", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
-user_pref("browser.urlbar.suggest.bookmark", false);
-user_pref("browser.urlbar.suggest.history", false);
+user_pref("browser.urlbar.megabar", true); // Enable megabar
+user_pref("browser.urlbar.speculativeConnect.enabled", false); // PREF: Disable preloading of autocomplete URLs
+user_pref("browser.urlbar.suggest.bookmark", true);
+user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
+user_pref("browser.zoom.siteSpecific", true);
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
-user_pref("datareporting.healthreport.uploadEnabled", true);
+user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", true);
 user_pref("datareporting.policy.firstRunURL", "");
 user_pref("device.sensors.enabled", false); // PREF: Disable sensor API
@@ -128,6 +135,7 @@ user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
 user_pref("experiments.enabled", false);
+user_pref("experiments.manifest.uri", "");
 user_pref("experiments.supported", false);
 user_pref("extensions.fxmonitor.enabled", false);
 user_pref("extensions.getAddons.cache.enabled", false);
@@ -175,6 +183,7 @@ user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determi
 user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
 user_pref("javascript.options.wasm", true); // PREF: Enable WebAssembly
+user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
 // user_pref("layers.acceleration.force-enabled", true);
 // user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
@@ -182,6 +191,7 @@ user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the 
 // user_pref("layers.gpu-process.enabled", true);
 // user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
+user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 // user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
@@ -202,9 +212,13 @@ user_pref("network.allow-experiments", true);
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.dns.disablePrefetch", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
+user_pref("network.http.altsvc.oe", false);
+user_pref("network.http.redirection-limit", 10);
 user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.prefetch-next", false); // After the browser is finished loading the page, it begins silently prefetching specified documents and stores them in its cache
+user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
@@ -220,6 +234,12 @@ user_pref("privacy.firstparty.isolate", false); // for jira
 user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // Add dialog for canvas API
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // enable webextensions on mozilla websites
+user_pref("privacy.resistFingerprinting.letterboxing", false);
+user_pref("privacy.trackingprotection.cryptomining.enabled", true);
+user_pref("privacy.trackingprotection.enabled", true);
+user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
+user_pref("privacy.trackingprotection.pbmode.enabled", true);
+user_pref("privacy.trackingprotection.socialtracking.enabled", true);
 user_pref("privacy.userContext.enabled", true); // Multicontainer enables
 user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
