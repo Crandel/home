@@ -50,8 +50,8 @@ set recolor-keephue "true"
 set render-loading "false"
 set scroll-step 50
 
-map [ zoom in
-map ] zoom out
+map ] zoom in
+map [ zoom out
 map r recolor
 map p print
 map g goto
