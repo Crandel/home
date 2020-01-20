@@ -18,6 +18,8 @@ zathura-pdf-poppler
 
 aur_packages=(
 archivemount
+epub2txt
+python-pdftotext
 rar2fs
 )
 
