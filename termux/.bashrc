@@ -90,10 +90,6 @@ if command_exists bat ; then
   alias ct='bat'
 fi
 
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
 extract () {
   if [ -f $1 ] ; then
     case $1 in
@@ -206,9 +202,6 @@ if [ -d $HOME/.cargo/bin ]; then
 fi
 
 if command_exists cargo ; then
-  if ! command_exists tldr ; then
-    cargo install tealdeer
-  fi
   if ! command_exists rg ; then
     cargo install ripgrep
   fi
