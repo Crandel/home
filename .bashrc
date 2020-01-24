@@ -90,10 +90,6 @@ if command_exists bat ; then
   alias ct='bat'
 fi
 
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
-fi
-
 # CUSTOM FUNCTIONS
 project_folders="/opt/work/projects/"
 function prj () {
