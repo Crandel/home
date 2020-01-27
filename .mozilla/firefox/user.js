@@ -185,6 +185,7 @@ user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.all.qualified", true);
 user_pref("gfx.webrender.enabled", true);
+user_pref("gfx.webrender.compositor", false);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
