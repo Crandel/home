@@ -14,17 +14,17 @@ user_pref("browser.bookmarks.showMobileBookmarks", true);
 user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
 user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
-user_pref("browser.display.use_document_fonts", 0);
 user_pref("browser.display.background_color", "2e2e31");
+user_pref("browser.display.use_document_fonts", 0);
 user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
 user_pref("browser.helperApps.deleteTempFileOnExit", true); // remove temp files opened with an external application
-user_pref("browser.link.open_newwindow", 3); // open links targeting new windows in a new tab instead
-user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
 user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 user_pref("browser.library.activity-stream.enabled", true); // For macOS only
+user_pref("browser.link.open_newwindow", 3); // open links targeting new windows in a new tab instead
+user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 user_pref("browser.newtabpage.activity-stream.feeds.places", true);
@@ -105,8 +105,8 @@ user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", false);
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
-user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.autoFill", false);
+user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.megabar", true); // Enable megabar
@@ -126,9 +126,9 @@ user_pref("device.sensors.orientation.enabled", false);
 user_pref("devtools.aboutdebugging.showSystemAddons", true);
 user_pref("devtools.netmonitor.features.webSockets", true);
 user_pref("devtools.onboarding.telemetry.logged", true);
-user_pref("devtools.webide.enabled", false); // [DEFAULT: false FF70+]
 user_pref("devtools.theme", "dark");
 user_pref("devtools.toolbox.splitconsoleEnabled", false);
+user_pref("devtools.webide.enabled", false); // [DEFAULT: false FF70+]
 user_pref("dom.enable_performance_observer", false);
 user_pref("dom.enable_resource_timing", false); // PREF: Disable resource timing API
 user_pref("dom.event.clipboardevents.enabled", true);
@@ -184,8 +184,8 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.all.qualified", true);
-user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.compositor", false);
+user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
@@ -208,7 +208,10 @@ user_pref("media.autoplay.allow-muted", false);
 user_pref("media.autoplay.default", 0);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.av1.enabled", true);
+user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
+user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.gpu-process-decoder", true);
+user_pref("media.navigator.enabled", false); // Websites can track the microphone and camera status of your device.
 user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your internal IP when WebRTC is enabled (Firefox >= 42)
 user_pref("media.videocontrols.picture-in-picture.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
@@ -218,6 +221,7 @@ user_pref("media.webspeech.recognition.enable", false); // PREF: Disable speech 
 user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synthesis
 user_pref("middlemouse.paste", true);
 user_pref("mousewheel.min_line_scroll_amount", 36);
+user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Punycode equivalent leaves you open to phishing attacks
 user_pref("network.allow-experiments", false);
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.dns.disablePrefetch", false);
