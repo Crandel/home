@@ -59,7 +59,7 @@ critical_swap = 95
 [[block]]
 block = "battery"
 interval = 10
-format = "{percentage}% {time} {power}"
+format = "{percentage}% {time}"
 
 [[block]]
 block = "sound"
@@ -78,8 +78,8 @@ hide_inactive = true
 hide_missing = true
 interval = 2
 ip = false
-speed_down = false
-speed_up = true
+speed_down = true
+speed_up = false
 ssid = false
 
 [[block]]
@@ -90,8 +90,8 @@ hide_inactive = true
 hide_missing = true
 interval = 2
 ip = false
-speed_down = false
-speed_up = true
+speed_down = true
+speed_up = false
 ssid = true
 
 [[block]]
