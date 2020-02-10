@@ -1,6 +1,6 @@
 [Default Applications]
-application/pdf=FoxitReader.desktop
-application/ppdf=FoxitReader.desktop
+application/pdf=org.gnome.Evince.desktop
+application/ppdf=org.gnome.Evince.desktop
 application/x-bittorrent=qBittorrent.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
