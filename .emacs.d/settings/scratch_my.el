@@ -87,9 +87,10 @@
               sh-basic-offset       2
               sh-indentation        2
               scala-basic-offset    2
-              java-basic-offset     4
-              standart-indent       4
+              java-basic-offset     2
+              standart-indent       2
               lisp-body-indent      2
+              rust-indent-offset    2
               js-indent-level       2
               indent-line-function  'insert-tab)
 
