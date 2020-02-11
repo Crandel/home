@@ -82,13 +82,11 @@ user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.openintab", true); // opens search results in new tab
 user_pref("browser.search.region", "US");
-// user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.update", false);
 user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
 user_pref("browser.send_pings", false); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
 user_pref("browser.send_pings.require_same_host", true); // PREF: When browser pings are enabled, only allow pinging the same host as the origin page
-// user_pref("browser.sessionstore.interval", 1800000);
 user_pref("browser.sessionhistory.max_total_viewers", 18); // affects how many pages Firefox stores in such a way that they load super fast
 user_pref("browser.sessionstore.interval", 1800000);
 user_pref("browser.shell.checkDefaultBrowser", false);
@@ -151,7 +149,7 @@ user_pref("extensions.pocket.enabled", false);
 user_pref("extensions.ui.dictionary.hidden", false);
 user_pref("extensions.ui.experiment.hidden", false);
 user_pref("extensions.ui.locale.hidden", false);
-user_pref("extensions.webextensions.remote", false);
+user_pref("extensions.webextensions.remote", true);
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com"); // blacklist for webextensions
 user_pref("extensions.webextensions.userScripts.enabled", true);
 user_pref("findbar.highlightAll", true);
@@ -220,6 +218,7 @@ user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Pun
 user_pref("network.allow-experiments", false);
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
 user_pref("network.http.altsvc.oe", false);
 user_pref("network.http.redirection-limit", 10);
@@ -231,12 +230,14 @@ user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.mode", 3);
+user_pref("network.trr.bootstrapAddress", "9.9.9.11");
+user_pref("network.trr.custom_uri", "https://dns11.quad9.net/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
+user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://dns11.quad9.net/dns-query");
-user_pref("network.trr.bootstrapAddress", "1.1.1.1");
+user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 // user_pref("nglayout.initialpaint.delay", 150);
 // user_pref("pdfjs.enableWebGL", true);
