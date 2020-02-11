@@ -236,6 +236,7 @@ user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
 user_pref("network.trr.uri", "https://dns11.quad9.net/dns-query");
+user_pref("network.trr.bootstrapAddress", "1.1.1.1");
 user_pref("network.warnOnAboutNetworking", false);
 // user_pref("nglayout.initialpaint.delay", 150);
 // user_pref("pdfjs.enableWebGL", true);
