@@ -225,6 +225,7 @@ user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Pun
 user_pref("network.allow-experiments", false);
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
 user_pref("network.http.altsvc.oe", false);
 user_pref("network.http.redirection-limit", 10);
@@ -236,12 +237,14 @@ user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.mode", 3);
+user_pref("network.trr.bootstrapAddress", "9.9.9.11");
+user_pref("network.trr.custom_uri", "https://dns11.quad9.net/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
+user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://dns11.quad9.net/dns-query");
-user_pref("network.trr.bootstrapAddress", "1.1.1.1");
+user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 user_pref("nglayout.initialpaint.delay", 150);
 user_pref("pdfjs.enableWebGL", true);
