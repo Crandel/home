@@ -178,9 +178,11 @@ user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
-// user_pref("gfx.webrender.all", false);
-// user_pref("gfx.webrender.enabled", false);
-// user_pref("gfx.webrender.highlight-painted-layers", false);
+user_pref("gfx.webrender.all", true);
+user_pref("gfx.webrender.all.qualified", true);
+user_pref("gfx.webrender.compositor", false);
+user_pref("gfx.webrender.enabled", true);
+user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
@@ -229,8 +231,11 @@ user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.mode", 2);
-user_pref("network.trr.uri", "https://dns11.quad9.net/dns-query");
+user_pref("network.trr.mode", 3);
+user_pref("network.trr.enable_when_nrpt_detected", true);
+user_pref("network.trr.enable_when_proxy_detected", true);
+user_pref("network.trr.enable_when_vpn_detected", true);
+user_pref("network.trr.uri", "https://dns.quad9.net/dns-query");
 user_pref("network.warnOnAboutNetworking", false);
 // user_pref("nglayout.initialpaint.delay", 150);
 // user_pref("pdfjs.enableWebGL", true);
@@ -254,7 +259,9 @@ user_pref("reader.color_scheme", "dark");
 user_pref("reader.content_width", 12);
 user_pref("security.dialog_enable_delay", 1000); // PREF: Ensure you have a security delay when installing add-ons (milliseconds)
 user_pref("security.secure_connection_icon_color_gray", false); // Return green lock for https (Firefox >= 70)
-user_pref("security.ssl.errorReporting.automatic", true);
+user_pref("security.ssl.errorReporting.automatic", false);
+user_pref("security.ssl.errorReporting.enabled", false);
+user_pref("security.ssl.errorReporting.url", "");
 // user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
 // user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 // user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
