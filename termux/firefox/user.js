@@ -169,7 +169,6 @@ user_pref("full-screen-api.warning.timeout", 0);
 // user_pref("general.smoothScroll.pixels", false);
 // user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
 // user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
-user_pref("general.useragent.override.skype.com", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Safari/537.36");
 user_pref("general.warnOnAboutConfig", false);
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
 user_pref("geo.wifi.uri", "");
@@ -188,7 +187,7 @@ user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
 user_pref("javascript.options.wasm", true); // PREF: Enable WebAssembly
 user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
-user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
+user_pref("keyword.enabled", false); // PREF: Submit invalid URIs entered in the address bar to the default search engine
 // user_pref("layers.acceleration.force-enabled", true);
 // user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 // user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
