@@ -14,8 +14,10 @@
   </action>
   <action id="$Undo">
     <keyboard-shortcut first-keystroke="shift ctrl minus" />
-    <keyboard-shortcut first-keystroke="ctrl slash" />
     <keyboard-shortcut first-keystroke="ctrl z" />
+  </action>
+  <action id="AceAction">
+    <keyboard-shortcut first-keystroke="ctrl slash" />
   </action>
   <action id="ActivateProjectToolWindow">
     <keyboard-shortcut first-keystroke="alt 1" />
@@ -27,6 +29,9 @@
   </action>
   <action id="Arrangement.Rule.Remove">
     <keyboard-shortcut first-keystroke="delete" />
+  </action>
+  <action id="AutoIndentLines">
+    <keyboard-shortcut first-keystroke="ctrl alt q" />
   </action>
   <action id="Back">
     <keyboard-shortcut first-keystroke="ctrl alt left" />
@@ -50,6 +55,12 @@
   </action>
   <action id="Editor Undo">
     <keyboard-shortcut first-keystroke="ctrl z" />
+  </action>
+  <action id="EditorCloneCaretAbove">
+    <keyboard-shortcut first-keystroke="alt m" />
+  </action>
+  <action id="EditorCloneCaretBelow">
+    <keyboard-shortcut first-keystroke="alt n" />
   </action>
   <action id="EditorCopy">
     <keyboard-shortcut first-keystroke="ctrl c" />
@@ -83,6 +94,10 @@
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="ctrl b" />
     <keyboard-shortcut first-keystroke="alt j" />
+  </action>
+  <action id="EditorLineStart">
+    <keyboard-shortcut first-keystroke="home" />
+    <keyboard-shortcut first-keystroke="ctrl a" />
   </action>
   <action id="EditorNextWord">
     <keyboard-shortcut first-keystroke="ctrl right" />
@@ -141,6 +156,9 @@
   <action id="GuiDesigner.QuickJavadoc">
     <mouse-shortcut keystroke="alt button2" />
   </action>
+  <action id="Images.Editor.ActualSize">
+    <keyboard-shortcut first-keystroke="ctrl divide" />
+  </action>
   <action id="IntroduceVariable" />
   <action id="NextDiff" />
   <action id="NextSplitter" />
@@ -163,9 +181,7 @@
     <keyboard-shortcut first-keystroke="shift ctrl alt equals" />
     <keyboard-shortcut first-keystroke="shift ctrl alt add" />
   </action>
-  <action id="SelectNextOccurrence">
-    <keyboard-shortcut first-keystroke="alt n" />
-  </action>
+  <action id="SelectNextOccurrence" />
   <action id="SendEOF" />
   <action id="ShelvedChanges.Diff" />
   <action id="ShowContent">
@@ -214,5 +230,8 @@
   <action id="openAssertEqualsDiff" />
   <action id="org.intellij.ideaplugins.tabswitch.action.NextTabAction">
     <keyboard-shortcut first-keystroke="alt tab" />
+  </action>
+  <action id="osmedile.intellij.stringmanip.PopupChoiceAction">
+    <keyboard-shortcut first-keystroke="shift alt m" />
   </action>
 </keymap>

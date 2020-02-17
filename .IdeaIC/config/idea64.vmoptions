@@ -10,11 +10,13 @@
 -Djdk.http.auth.tunneling.disabledSchemes=""
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
+-Djdk.attach.allowAttachSelf=true
+-Djdk.module.illegalAccess.silent=true
 -Dawt.useSystemAAFontSettings=on
 -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine
 -Dsun.tools.attach.tmp.only=true
 -Dsun.java2d.uiScale.enabled=false
 -Dsun.java2d.uiScale=1.0
 -Dide.ui.scale=1.0
--Dhidpi=false
+-Dhidpi=true
 -Didea.is.internal=true
