@@ -303,4 +303,3 @@ user_pref("webgl.force-enabled", true);
 user_pref("webgl.msaa-force", true);
 user_pref("widget.chrome.allow-gtk-dark-theme", true);
 user_pref("widget.content.allow-gtk-dark-theme", true);
-// user_pref("widget.content.gtk-theme-override", "Adwaita:light");
