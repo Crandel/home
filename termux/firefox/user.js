@@ -1,4 +1,5 @@
 user_pref("accessibility.force_disabled", true);
+user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
 user_pref("app.normandy.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
@@ -83,6 +84,7 @@ user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.openintab", true); // opens search results in new tab
 user_pref("browser.search.region", "US");
 user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.search.update", false);
 user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
 user_pref("browser.send_pings", false); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
@@ -136,6 +138,7 @@ user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browse
 user_pref("dom.push.enabled", false);
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
+user_pref("dom.webnotifications.requireuserinteraction", true);
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
@@ -279,6 +282,7 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
+user_pref("ui.systemUsesDarkTheme", true);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 // user_pref("webgl.force-enabled", true);
 // user_pref("webgl.msaa-force", true);

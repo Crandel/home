@@ -1,4 +1,5 @@
 user_pref("accessibility.force_disabled", true);
+user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
 user_pref("app.normandy.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
@@ -9,6 +10,7 @@ user_pref("apz.allow_zooming", false);
 user_pref("apz.android.chrome_fling_physics.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version [FF71+]
+user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
 user_pref("browser.bookmarks.showMobileBookmarks", true);
 user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
@@ -18,6 +20,7 @@ user_pref("browser.display.background_color", "2e2e31");
 user_pref("browser.display.use_document_fonts", 0);
 user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
+user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
 user_pref("browser.helperApps.deleteTempFileOnExit", true); // remove temp files opened with an external application
 user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
@@ -87,6 +90,7 @@ user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.openintab", true); // opens search results in new tab
 user_pref("browser.search.region", "US");
 user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.search.update", false);
 user_pref("browser.search.widget.inNavBar", true); // Add search widget to navbar
 user_pref("browser.send_pings", false); // PREF: Enable pinging URIs specified in HTML <a> ping= attributes
@@ -97,12 +101,14 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.slowStartup.notificationDisabled", true);
 user_pref("browser.startup.blankWindow", false);
 user_pref("browser.startup.page", 3);
+user_pref("browser.tabs.closeWindowWithLastTab", false); // The last tab does not close the browser
 user_pref("browser.tabs.drawInTitlebar", true);
 user_pref("browser.tabs.loadInBackground", false);
 user_pref("browser.tabs.remote.autostart", true);
 user_pref("browser.tabs.tabMinWidth", 30);
 user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", false);
+user_pref("browser.uidensity", 1); // Use small density in toolbar
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
 user_pref("browser.urlbar.autoFill", false);
@@ -135,6 +141,7 @@ user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
 user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent USB device enumeration
 user_pref("dom.gamepad.extensions.enabled", false);
+user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("dom.ipc.processCount", 3);
 user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
@@ -142,6 +149,7 @@ user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browse
 user_pref("dom.push.enabled", false);
 user_pref("dom.vibrator.enabled", false); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
+user_pref("dom.webnotifications.requireuserinteraction", true);
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
@@ -287,6 +295,7 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
+user_pref("ui.systemUsesDarkTheme", true);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 user_pref("view_source.editor.path", "/usr/bin/emacs");
 user_pref("webgl.force-enabled", true);
