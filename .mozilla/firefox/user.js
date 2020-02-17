@@ -295,6 +295,7 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // Turn on userChrome.css and userContent.css support
 user_pref("ui.systemUsesDarkTheme", true);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 user_pref("view_source.editor.path", "/usr/bin/emacs");
