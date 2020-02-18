@@ -113,7 +113,7 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
-user_pref("browser.zoom.siteSpecific", true);
+user_pref("browser.zoom.siteSpecific", false);
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", true);
@@ -190,7 +190,7 @@ user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
 user_pref("javascript.options.wasm", true); // PREF: Enable WebAssembly
 user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
-user_pref("keyword.enabled", false); // PREF: Submit invalid URIs entered in the address bar to the default search engine
+user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
 // user_pref("layers.acceleration.force-enabled", true);
 // user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 // user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
@@ -232,13 +232,13 @@ user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.bootstrapAddress", "9.9.9.11");
-user_pref("network.trr.custom_uri", "https://dns11.quad9.net/dns-query");
+user_pref("network.trr.bootstrapAddress", "1.1.1.1");
+user_pref("network.trr.custom_uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
 user_pref("network.trr.mode", 3);
-user_pref("network.trr.uri", "https://dns11.quad9.net/dns-query");
+user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 // user_pref("nglayout.initialpaint.delay", 150);
