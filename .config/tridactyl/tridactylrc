@@ -3,20 +3,14 @@ set smoothscroll false
 
 set searchengine duckduckgo
 
-" bind --mode=normal i mode ignore
 
-" custom bind for some sites
 unbind --mode=normal f
 bind --mode=normal gf hint
 
-unbind --mode=normal d
-unbind --mode=normal x
-unbind --mode=normal <C-b>
 bind --mode=normal x tabclose
-bind --mode=normal d stop
 bind --mode=normal n tab #
+unbind --mode=normal <C-b>
 
-" Ukrainian keymap in normal mode
 keymap а f
 keymap А F
 keymap б ,
@@ -29,9 +23,9 @@ keymap д l
 keymap Д L
 keymap е t
 keymap Е T
-keymap є '
-keymap Є “
-keymap ж ;
+" keymap є '
+" keymap Є “
+" keymap ж ;
 keymap Ж :
 keymap з p
 keymap З P
