@@ -115,6 +115,7 @@ user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
 user_pref("browser.zoom.siteSpecific", false);
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
+user_pref("captivedetect.canonicalURL", "");
 user_pref("datareporting.healthreport.uploadEnabled", false);
 user_pref("datareporting.policy.dataSubmissionEnabled", true);
 user_pref("datareporting.policy.firstRunURL", "");
@@ -218,6 +219,7 @@ user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synth
 // user_pref("mousewheel.min_line_scroll_amount", 36);
 user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Punycode equivalent leaves you open to phishing attacks
 user_pref("network.allow-experiments", false);
+user_pref("network.captive-portal-service.enabled", false); // check if network is public wifi
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.dns.disablePrefetch", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
@@ -271,6 +273,7 @@ user_pref("security.ssl.errorReporting.url", "");
 // user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("toolkit.identity.enabled", false);
+user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // Turn on userChrome.css and userContent.css support
 user_pref("toolkit.telemetry.archive.enabled", true);
 user_pref("toolkit.telemetry.bhrPing.enabled", true);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
