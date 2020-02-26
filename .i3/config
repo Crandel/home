@@ -209,7 +209,7 @@ bindsym --release Mod2+button2 kill
 bindsym --release button2 kill
 
 # browser
-bindsym $mod+c exec $browser
+bindsym $mod+c exec env MOZ_USE_XINPUT2=1 $browser
 
 # tilix
 bindsym F1 exec $term --quake
