@@ -5,16 +5,18 @@
 
 (setq my-packages
     '(
-      el-get
+      ;; eglot
+      ;; neotree
       all-the-icons
       apib-mode
       avy
-      company-mode
       company-flx
+      company-mode
       company-restclient
-      eglot
-      emmet-mode
+      dap-mode
+      el-get
       emacs-fish
+      emmet-mode
       expand-region
       flycheck
       git-gutter
@@ -25,22 +27,28 @@
       json-mode
       key-chord
       know-your-http-well
+      less-css-mode
+      lsp-mode
+      lsp-ui
       magit
       markdown-mode
       mo-git-blame
       multi-compile
       multiple-cursors
-      neotree
-      less-css-mode
       projectile
-      rainbow-mode
       rainbow-delimiters
+      rainbow-mode
       restclient
-      smartparens
       smart-mode-line
+      smartparens
+      treemacs
+      treemacs-icons-dired
+      treemacs-magit
+      treemacs-projectile
       undo-tree
       vimrc-mode
       web-mode
+      which-key
       xclip
       yafolding
       yaml-mode
@@ -111,6 +119,12 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+;; Higher values are searched first.
+(setq package-archive-priorities
+      '(("org"          . 100)
+        ("melpa"        . 200)
+        ("elpa"         . 75)
+        ("gnu"          .  50)))
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
@@ -126,7 +140,7 @@
   (require 'el-get)
   (el-get 'sync))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/settings/recipes")
+(add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
 
 (el-get 'sync my-packages)
 
