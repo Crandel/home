@@ -24,6 +24,11 @@
                                                    )
                              )
 
+                    (add-hook 'rust-mode-hook '(lambda()
+                                                   (lsp)
+                                                   )
+                             )
+
                     (add-hook 'c++-mode-hook '(lambda()
                                                 (lsp)
                                                 )
