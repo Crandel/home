@@ -1,0 +1,32 @@
+(:name lsp-mode
+       :website "https://github.com/emacs-lsp/lsp-mode"
+       :description "Emacs client/library for the Language Server Protocol"
+       :depends (dash f ht hydra spinner markdown-mode)
+       :type github
+       :pkgname "emacs-lsp/lsp-mode"
+       :post-init (progn
+                    (setq lsp-enable-completion-at-point     t
+                          lsp-enable-imenu                   t
+                          lsp-enable-semantic-highlighting   t
+                          lsp-enable-text-document-color     t
+                          lsp-enable-xref                    t
+                          lsp-idle-delay                     0.500
+                          lsp-imenu-container-name-separator t
+                          lsp-imenu-show-container-name      t
+                          lsp-prefer-capf                    t
+                          )
+                    (with-eval-after-load 'lsp-mode
+                      (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+                    (add-hook 'python-mode-hook '(lambda()
+                                                   (lsp)
+                                                   (setq-default flymake-diagnostic-functions nil)
+                                                   )
+                    (add-hook 'c++-mode-hook '(lambda()
+                                                (lsp)
+                                                )
+                              )
+                    (add-hook 'scala-mode-hook '(lambda()
+                                                  (lsp)
+                                                  )
+                              )
+                    )))
