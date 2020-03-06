@@ -17,16 +17,25 @@
                           )
                     (with-eval-after-load 'lsp-mode
                       (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+
                     (add-hook 'python-mode-hook '(lambda()
                                                    (lsp)
                                                    (setq-default flymake-diagnostic-functions nil)
                                                    )
+                             )
+
                     (add-hook 'c++-mode-hook '(lambda()
                                                 (lsp)
                                                 )
-                              )
+                             )
+
+                    (add-hook 'java-mode-hook '(lambda()
+                                                (lsp)
+                                                )
+                             )
+
                     (add-hook 'scala-mode-hook '(lambda()
                                                   (lsp)
                                                   )
-                              )
-                    )))
+                             )
+                    ))

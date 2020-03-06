@@ -5,8 +5,6 @@
 
 (setq my-packages
     '(
-      ;; eglot
-      ;; neotree
       all-the-icons
       apib-mode
       avy
@@ -21,6 +19,7 @@
       flycheck
       git-gutter
       helm
+      helm-lsp
       helm-projectile
       helm-swoop
       highlight-indentation
@@ -28,7 +27,9 @@
       key-chord
       know-your-http-well
       less-css-mode
+      lsp-java
       lsp-mode
+      lsp-treemacs
       lsp-ui
       magit
       markdown-mode
