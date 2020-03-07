@@ -387,18 +387,73 @@ fi
 # PROMPT
 # get current status of git repo
 function parse_git_branch(){
-  git branch 2> /dev/null | sed -n 's/^\* //p'
+  branch=`git branch 2> /dev/null | sed -n 's/^\* //p'`
+  if [ ! "${branch}" == "" ]; then
+    staged_files=''
+    unstaged_files=''
+    new_status=`git status --porcelain`
+    ahead=`git status -sb 2> /dev/null | grep -o "ahead [0-9]*" | grep -o "[0-9]*"`
+    behind=`git status -sb 2> /dev/null | grep -o "behind [0-9]*" | grep -o "[0-9]*"`
+    # staged files
+    X=`echo -n "${new_status}" 2> /dev/null | cut -c 1-1`
+    # unstaged files
+    Y=`echo -n "${new_status}" 2> /dev/null | cut -c 2-2`
+    modified_unstaged=`echo -n "${Y}" | grep "M" -c`
+    deleted_unstaged=`echo -n "${Y}" | grep "D" -c`
+    untracked_unstaged=`echo -n "${Y}" | grep "?" -c`
+    modified_staged=`echo -n "${X}" | grep "M" -c`
+    deleted_staged=`echo -n "${X}" | grep "D" -c`
+    renamed_staged=`echo -n "${X}" | grep "R" -c`
+    new_staged=`echo -n "${X}" | grep "A" -c`
+    # unstaged_files
+    if [ "${modified_unstaged}" != "0" ]; then
+      unstaged_files="%${modified_unstaged}${unstaged_files}"
+    fi
+    if [ "${deleted_unstaged}" != "0" ]; then
+      unstaged_files="-${deleted_unstaged}${unstaged_files}"
+    fi
+    if [ "${untracked_unstaged}" != "0" ]; then
+      unstaged_files="*${untracked_unstaged}${unstaged_files}"
+    fi
+    # staged_files
+    if [ "${modified_staged}" != "0" ]; then
+      staged_files="%${modified_staged}${staged_files}"
+    fi
+    if [ "${deleted_staged}" != "0" ]; then
+      staged_files="-${deleted_staged}${staged_files}"
+    fi
+    if [ "${renamed_staged}" != "0" ]; then
+      staged_files="^${renamed_staged}${staged_files}"
+    fi
+    if [ "${new_staged}" != "0" ]; then
+      staged_files="+${new_staged}${staged_files}"
+    fi
+    if [ ! "${staged_files}" == "" ]; then
+      staged_files="|${GREEN}${staged_files}${NORMAL}"
+    fi
+    if [ ! "${unstaged_files}" == "" ]; then
+      unstaged_files="|${YELLOW}${unstaged_files}${NORMAL}"
+    fi
+    if [ ! "${ahead}" == "" ]; then
+      ahead="${LIGHT_GREEN}{>${ahead}}${NORMAL}"
+    fi
+    if [ ! "${behind}" == "" ]; then
+      behind="${LIGHT_RED}{<${behind}}${NORMAL}"
+    fi
+    # Set the final branch string.
+    echo "${branch}${ahead}${behind}${unstaged_files}${staged_files}"
+  fi
 }
+
 # Determine the branch/state information for this git repository.
 function set_git_branch() {
+  BRANCH=''
   # Get the name of the branch.
-  BRANCH=""
   if command_exists git_status ; then
     branch="$(git_status bash)"
   else
     branch="$(parse_git_branch)"
   fi
-
   if [ ! "${branch}" == "" ]; then
     BRANCH=" (${CYAN}$branch${NORMAL})"
   fi
