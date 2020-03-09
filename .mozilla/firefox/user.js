@@ -251,7 +251,7 @@ user_pref("network.trr.custom_uri", "https://mozilla.cloudflare-dns.com/dns-quer
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
-user_pref("network.trr.mode", 3);
+user_pref("network.trr.mode", 2);
 user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
@@ -298,7 +298,7 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
-user_pref("ui.systemUsesDarkTheme", true);
+user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 user_pref("view_source.editor.path", "/usr/bin/emacs");
 user_pref("webgl.force-enabled", true);
