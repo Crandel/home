@@ -75,9 +75,9 @@
 
 (when (executable-find "cargo")
     (add-to-list 'my-packages 'rust-mode)
-    (add-to-list 'my-packages 'rust-racer)
+    ;; (add-to-list 'my-packages 'rust-racer)
     (add-to-list 'my-packages 'flycheck-rust)
-    (add-to-list 'my-packages 'emacs-racer)
+    ;; (add-to-list 'my-packages 'emacs-racer)
 )
 
 (when (executable-find "python")

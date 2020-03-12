@@ -14,6 +14,7 @@
                           lsp-imenu-container-name-separator t
                           lsp-imenu-show-container-name      t
                           lsp-prefer-capf                    t
+                          lsp-keymap-prefix                  "C-l"
                           )
                     (with-eval-after-load 'lsp-mode
                       (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))

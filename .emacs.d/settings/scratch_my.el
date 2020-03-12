@@ -90,7 +90,7 @@
               java-basic-offset     2
               standart-indent       2
               lisp-body-indent      2
-              rust-indent-offset    2
+              rust-indent-offset    4
               js-indent-level       2
               indent-line-function  'insert-tab)
 
