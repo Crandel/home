@@ -14,6 +14,7 @@ user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark m
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
 user_pref("browser.bookmarks.showMobileBookmarks", true);
 user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
+user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
 user_pref("browser.display.background_color", "2e2e31");
@@ -237,7 +238,9 @@ user_pref("network.dns.disablePrefetch", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
 user_pref("network.http.altsvc.oe", false);
+user_pref("network.http.http3.enabled", true);
 user_pref("network.http.redirection-limit", 10);
+user_pref("network.http.spdy.enabled.http2", true);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.predictor.enabled", false);
@@ -256,7 +259,7 @@ user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 user_pref("nglayout.initialpaint.delay", 150);
-user_pref("pdfjs.enableWebGL", true);
+user_pref("pdfjs.disabled", true);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("privacy.donottrackheader.enabled", true);
