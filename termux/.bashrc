@@ -196,6 +196,18 @@ if command_exists go ; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+if command_exists scala ; then
+  alias s='scala'
+  alias sc='scalac'
+  srun() {
+    name=$@
+    echo "Start compilation for $name"
+    scalac "$name.scala"
+    echo "Compilation done"
+    scala $name
+  }
+fi
+
 # Rust
 if [ -d $HOME/.cargo/bin ]; then
   export PATH=$PATH:$HOME/.cargo/bin
