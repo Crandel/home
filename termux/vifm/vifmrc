@@ -61,7 +61,7 @@ set runexec
 " Format for displaying time in file list. For example:
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
-set timefmt=%d.%m.%y-%H
+set timefmt=%d.%m
 
 " Show list of matches on tab completion in command-line mode
 set wildmenu
@@ -97,8 +97,8 @@ if !has('win')
 endif
 
 " Set custom status line look
-"             rights | user:group | size | date | file name | space left
-set statusline="%10A | %10u:%-7g  | %10E | %15d | %-35f     | Space left: %-5a "
+"             rights | size | date | file name
+set statusline="%10A | %10E | %15d | %-35f"
 
 " Always show tabs
 set showtabline=always
@@ -118,7 +118,7 @@ set vifminfo=dhistory,chistory,state,shistory,
 
 " Examples of configuring both panels
 " Customize view columns a bit (enable ellipsis for truncated file names)
-set viewcolumns=-{name}..,-4{ext},-8{uname}.,12{mtime},-6{size}
+set viewcolumns=-{name}..,-4{ext},12{mtime},-6{size}
 
 " Filter-out build and temporary files
 "
