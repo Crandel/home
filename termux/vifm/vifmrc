@@ -175,38 +175,7 @@ command! reload :write | restart
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
-" Pdf
-filextype *.pdf zathura %f &
-" epub
-filextype *.epub zathura %f &
-" PostScript
-filextype *.ps,*.eps,*.ps.gz
-        \ {View in zathura}
-        \ zathura %f &
-" Djvu
-filextype *.djvu
-        \ {View in zathura}
-        \ zathura %f &
-" Video
-filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-         \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-         \*.as[fx]
-         \ {View using mpv}
-         \ mpv %f &
-" Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-        \ {View in feh}
-        \ feh %c &
-
-" Audio
-filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
-       \ {Play using ffplay}
-       \ ffplay -nodisp -autoexit %c,
-       \ {Play using MPlayer}
-       \ mplayer %f &
-
 " Web
-filextype *.html,*.htm firefox %f -new-tab &
 filetype *.html,*.htm links %c
 
 " Object
@@ -214,16 +183,6 @@ filetype *.o nm %f | less
 
 " Man page
 filetype *.[1-8] man ./%c
-
-" OpenRaster
-filextype *.ora
-        \ {Edit in MyPaint}
-        \ mypaint %f
-
-" Mindmap
-filextype *.vym
-        \ {Open with VYM}
-        \ vym %f &
 
 " MD5
 filetype *.md5
@@ -249,9 +208,6 @@ filetype *.sha512
 filetype *.asc
        \ {Check signature}
        \ !!gpg --verify %c
-
-" Torrent
-filextype *.torrent qbittorent %f &
 
 " FuseZipMount
 filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
@@ -292,15 +248,12 @@ filetype *.7z
        \ {Mount with fuse-7z}
        \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
 
-" Office files
-filextype *.odt,*.doc,*.docx,*.xls,*.xlsx,*.odp,*.pptx libreoffice %f &
-
 " Directories
 filetype */
-        \ {View in emacs}
+        \ {View in vim}
         \ vim %c
 
-filetype * xdg-open
+filetype * vim %c
 
 " Syntax highlighting in preview
 " Explicitly set highlight type for some extensions
@@ -330,13 +283,6 @@ fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make %c
 fileviewer *.7z 7z l %c
 fileviewer *.[1-8] man ./%c | col -b
 fileviewer *.html links %c
-
-fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx]
-          \ ffprobe -pretty %c 2>&1
-fileviewer *.png,*.jpeg,*.jpg
-           \ img2txt %c
 
 fileviewer *.mp3 mp3info
 fileviewer *.rar unrar v %c
