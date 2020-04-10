@@ -5,7 +5,7 @@ user_pref("app.normandy.enabled", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("app.update.auto", false);
 user_pref("app.update.checkInstallTime", false);
-user_pref("apz.allow_double_tap_zooming", true);
+user_pref("apz.allow_double_tap_zooming", false);
 user_pref("apz.allow_zooming", false);
 user_pref("apz.android.chrome_fling_physics.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
