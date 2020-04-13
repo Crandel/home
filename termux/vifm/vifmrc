@@ -333,7 +333,7 @@ fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
 fileviewer *.tar.txz,*.txz xz --list %c
 fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.zip,*.[jwe]ar,*.oxt zip -sf %c
-"fileviewer *.pdf pdftotext %c 
+fileviewer *.pdf pdftotext -f 1 %c -
 fileviewer *.epub epub2txt %c
 
 " Displaying pictures in terminal
