@@ -186,103 +186,145 @@ filetype *.[1-8] man ./%c
 
 " MD5
 filetype *.md5
-       \ {Check MD5 hash sum}
-       \ md5sum -c %f %S
+  \ {Check MD5 hash sum}
+  \ md5sum -c %f %S
 
 " SHA1
 filetype *.sha1
-       \ {Check SHA1 hash sum}
-       \ sha1sum -c %f %S
+  \ {Check SHA1 hash sum}
+  \ sha1sum -c %f %S
 
 " SHA256
 filetype *.sha256
-       \ {Check SHA256 hash sum}
-       \ sha256sum -c %f %S
+  \ {Check SHA256 hash sum}
+  \ sha256sum -c %f %S
 
 " SHA512
 filetype *.sha512
-       \ {Check SHA512 hash sum}
-       \ sha512sum -c %f %S
+  \ {Check SHA512 hash sum}
+  \ sha512sum -c %f %S
 
 " GPG signature
 filetype *.asc
-       \ {Check signature}
-       \ !!gpg --verify %c
+  \ {Check signature}
+  \ gpg --verify %c
 
 " FuseZipMount
 filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
-       \ {Mount with fuse-zip}
-       \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
-       \ {View contents}
-       \ zip -sf %c | less,
-       \ {Extract here}
-       \ tar -xf %c
+  \ {Mount with fuse-zip}
+  \ FUSE_MOUNT|fuse-zip %SOURCE_FILE %DESTINATION_DIR,
+  \ {View contents}
+  \ zip -sf %c | less,
+  \ {Extract here}
+  \ tar -xf %c
 
 " ArchiveMount
 filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
-       \ {Mount with archivemount}
-       \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
+  \ {Mount with archivemount}
+  \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
 
 " Rar2FsMount and rar archives
 filetype *.rar
-       \ {Mount with rar2fs}
-       \ FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR
+  \ {Mount with rar2fs}
+  \ FUSE_MOUNT|rar2fs %SOURCE_FILE %DESTINATION_DIR
 
 " IsoMount
 filetype *.iso
-       \ {Mount with fuseiso}
-       \ FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR
+  \ {Mount with fuseiso}
+  \ FUSE_MOUNT|fuseiso %SOURCE_FILE %DESTINATION_DIR
 
 " SshMount
 filetype *.ssh
-       \ {Mount with sshfs}
-       \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND
+  \ {Mount with sshfs}
+  \ FUSE_MOUNT2|sshfs %PARAM %DESTINATION_DIR %FOREGROUND
 
 " FtpMount
 filetype *.ftp
-       \ {Mount with curlftpfs}
-       \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR %FOREGROUND
+  \ {Mount with curlftpfs}
+  \ FUSE_MOUNT2|curlftpfs -o ftp_port=-,,disable_eprt %PARAM %DESTINATION_DIR %FOREGROUND
 
 " Fuse7z and 7z archives
 filetype *.7z
-       \ {Mount with fuse-7z}
-       \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
+  \ {Mount with fuse-7z}
+  \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
+
+" Audio
+filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
+  \ {Play using ffplay}
+  \ ffplay -nodisp -autoexit %c,
+  \ {Play using MPlayer}
+  \ mplayer %f &
 
 " Directories
 filetype */
-        \ {View in vim}
-        \ vim %c
+  \ {View in vim}
+  \ vim %c
 
-filetype * vim %c
+filetype * vim
 
 " Syntax highlighting in preview
 " Explicitly set highlight type for some extensions
 " 256-color terminal
-fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c %c
-fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake %c
-fileviewer *.css                highlight -O xterm256 -s dante --syntax css %c
-fileviewer *.java               highlight -O xterm256 -s dante --syntax java %c
-fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp %c
-fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js   %c
-fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json %c
-fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown %c
-fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua %c
-fileviewer *.py                 highlight -O xterm256 -s dante --syntax python %c
-fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust %c
-fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala %c
-fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh %c
-fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh %c
-fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql %c
-fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml %c
-fileviewer .vimrc,vifmrc        highlight -O xterm256 -s dante --syntax vimscript %c
-fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml %c
-fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml %c
-fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make %c
-
+if executable('highlight')
+    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c %c
+    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake %c
+    fileviewer *.css                highlight -O xterm256 -s dante --syntax css %c
+    fileviewer *.java               highlight -O xterm256 -s dante --syntax java %c
+    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp %c
+    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js   %c
+    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json %c
+    fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown %c
+    fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua %c
+    fileviewer *.py                 highlight -O xterm256 -s dante --syntax python %c
+    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust %c
+    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala %c
+    fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh %c
+    fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh %c
+    fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql %c
+    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml %c
+    fileviewer .vimrc,vifmrc        highlight -O xterm256 -s dante --syntax vimscript %c
+    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml %c
+    fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml %c
+    fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make %c
+" 16-color terminal
+" fileviewer *.c,*.h highlight -O ansi -s dante %c
+"
+" Or leave it for automatic detection
+"
+" fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
+elseif executable('pygmentize')
+    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f console256 -S=lovelace -l c %c
+    fileviewer *.cmake              pygmentize -O -f console256 -S=lovelace -l cmake %c
+    fileviewer *.css                pygmentize -O -f console256 -S=lovelace -l css %c
+    fileviewer *.java               pygmentize -O -f console256 -S=lovelace -l java %c
+    fileviewer *.el,*.cl            pygmentize -O -f console256 -S=lovelace -l lisp %c
+    fileviewer ?*.js                pygmentize -O -f console256 -S=lovelace -l js   %c
+    fileviewer ?*.json              pygmentize -O -f console256 -S=lovelace -l json %c
+    fileviewer *.md                 pygmentize -O -f console256 -S=lovelace -l markdown %c
+    fileviewer *.lua,?*.lua         pygmentize -O -f console256 -S=lovelace -l lua %c
+    fileviewer *.py                 pygmentize -O -f console256 -S=lovelace -l python %c
+    fileviewer *.rs,*.rust          pygmentize -O -f console256 -S=lovelace -l rust %c
+    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f console256 -S=lovelace -l scala %c
+    fileviewer ?*.sh,?*.zsh,?*.bash pygmentize -O -f console256 -S=lovelace -l sh %c
+    fileviewer .zshrc,.bashrc       pygmentize -O -f console256 -S=lovelace -l sh %c
+    fileviewer *.sql                pygmentize -O -f console256 -S=lovelace -l sql %c
+    fileviewer *.toml               pygmentize -O -f console256 -S=lovelace -l toml %c
+    fileviewer .vimrc,vifmrc        pygmentize -O -f console256 -S=lovelace -l vimscript %c
+    fileviewer *.xml                pygmentize -O -f console256 -S=lovelace -l xml %c
+    fileviewer ?*.yml,?*.yaml       pygmentize -O -f console256 -S=lovelace -l yaml %c
+    fileviewer Makefile,Makefile.*  pygmentize -O -f console256 -S=lovelace -l make %c
+endif
 " Other fileviewers
 fileviewer *.7z 7z l %c
 fileviewer *.[1-8] man ./%c | col -b
 fileviewer *.html links %c
+
+fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
+          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
+          \*.as[fx]
+          \ ffprobe -pretty %c 2>&1
+fileviewer *.png,*.jpeg,*.jpg
+           \ identify %c
 
 fileviewer *.mp3 mp3info
 fileviewer *.rar unrar v %c
@@ -291,15 +333,8 @@ fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
 fileviewer *.tar.txz,*.txz xz --list %c
 fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.zip,*.[jwe]ar,*.oxt zip -sf %c
-fileviewer *.pdf pdftotext %c
+"fileviewer *.pdf pdftotext %c 
 fileviewer *.epub epub2txt %c
-"
-" 16-color terminal
-" fileviewer *.c,*.h highlight -O ansi -s dante %c
-"
-" Or leave it for automatic detection
-"
-" fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 
 " Displaying pictures in terminal
 "
