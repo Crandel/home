@@ -260,7 +260,7 @@ filetype *.sha512
 " GPG signature
 filetype *.asc
   \ {Check signature}
-  \ !!gpg --verify %c
+  \ gpg --verify %c
 
 " FuseZipMount
 filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
@@ -346,26 +346,26 @@ if executable('highlight')
 "
 " fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
 elseif executable('pygmentize')
-    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f console256 -S=lovelace -l c %c
-    fileviewer *.cmake              pygmentize -O -f console256 -S=lovelace -l cmake %c
-    fileviewer *.css                pygmentize -O -f console256 -S=lovelace -l css %c
-    fileviewer *.java               pygmentize -O -f console256 -S=lovelace -l java %c
-    fileviewer *.el,*.cl            pygmentize -O -f console256 -S=lovelace -l lisp %c
-    fileviewer ?*.js                pygmentize -O -f console256 -S=lovelace -l js   %c
-    fileviewer ?*.json              pygmentize -O -f console256 -S=lovelace -l json %c
-    fileviewer *.md                 pygmentize -O -f console256 -S=lovelace -l markdown %c
-    fileviewer *.lua,?*.lua         pygmentize -O -f console256 -S=lovelace -l lua %c
-    fileviewer *.py                 pygmentize -O -f console256 -S=lovelace -l python %c
-    fileviewer *.rs,*.rust          pygmentize -O -f console256 -S=lovelace -l rust %c
-    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f console256 -S=lovelace -l scala %c
-    fileviewer ?*.sh,?*.zsh,?*.bash pygmentize -O -f console256 -S=lovelace -l sh %c
-    fileviewer .zshrc,.bashrc       pygmentize -O -f console256 -S=lovelace -l sh %c
-    fileviewer *.sql                pygmentize -O -f console256 -S=lovelace -l sql %c
-    fileviewer *.toml               pygmentize -O -f console256 -S=lovelace -l toml %c
-    fileviewer .vimrc,vifmrc        pygmentize -O -f console256 -S=lovelace -l vimscript %c
-    fileviewer *.xml                pygmentize -O -f console256 -S=lovelace -l xml %c
-    fileviewer ?*.yml,?*.yaml       pygmentize -O -f console256 -S=lovelace -l yaml %c
-    fileviewer Makefile,Makefile.*  pygmentize -O -f console256 -S=lovelace -l make %c
+    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f=console256 -l c         %c
+    fileviewer *.cmake              pygmentize -O -f=console256 -l cmake     %c
+    fileviewer *.css                pygmentize -O -f=console256 -l css       %c
+    fileviewer *.java               pygmentize -O -f=console256 -l java      %c
+    fileviewer *.el,*.cl            pygmentize -O -f=console256 -l lisp      %c
+    fileviewer ?*.js                pygmentize -O -f=console256 -l js        %c
+    fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
+    fileviewer *.md                 pygmentize -O -f=console256 -l markdown  %c
+    fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
+    fileviewer *.py                 pygmentize -O -f=console256 -l python    %c
+    fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
+    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
+    fileviewer ?*.sh,?*.zsh,?*.bash pygmentize -O -f=console256 -l sh        %c
+    fileviewer .zshrc,.bashrc       pygmentize -O -f=console256 -l sh        %c
+    fileviewer *.sql                pygmentize -O -f=console256 -l sql       %c
+    fileviewer *.toml               pygmentize -O -f=console256 -l toml      %c
+    fileviewer .vimrc,vifmrc        pygmentize -O -f=console256 -l vimscript %c
+    fileviewer *.xml                pygmentize -O -f=console256 -l xml       %c
+    fileviewer ?*.yml,?*.yaml       pygmentize -O -f=console256 -l yaml      %c
+    fileviewer Makefile,Makefile.*  pygmentize -O -f=console256 -l make      %c
 endif
 " Other fileviewers
 fileviewer *.7z 7z l %c
@@ -388,7 +388,6 @@ fileviewer *.tgz,*.tar.gz tar -tzf %c
 fileviewer *.zip,*.[jwe]ar,*.oxt zip -sf %c
 fileviewer *.pdf pdftotext -f 1 %c -
 fileviewer *.epub epub2txt %c
-
 
 " Displaying pictures in terminal
 "
