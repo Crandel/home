@@ -1,6 +1,6 @@
 #!/bin/bash
 
-folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fenix.nightly" "org.mozilla.fennec_fdroid")
+folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_aurora" "org.mozilla.fennec_fdroid")
 
 cd termux/firefox
 cwd=$(pwd)
