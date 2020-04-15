@@ -90,6 +90,8 @@ user_pref("browser.search.geoip.url", "");
 user_pref("browser.search.hiddenOneOffs", "Bing,Amazon.com,Twitter");
 user_pref("browser.search.openintab", true); // opens search results in new tab
 user_pref("browser.search.region", "US");
+user_pref("browser.search.separatePrivateDefault", true);
+user_pref("browser.search.separatePrivateDefault.ui.enabled", true);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.search.suggest.enabled.private", false);
 user_pref("browser.search.update", false);
@@ -115,6 +117,7 @@ user_pref("browser.uitour.url", "");
 user_pref("browser.urlbar.autoFill", false);
 user_pref("browser.urlbar.autocomplete.enabled", false);
 user_pref("browser.urlbar.clickSelectsAll", true);
+user_pref("browser.urlbar.decodeURLsOnCopy", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.megabar", true); // Enable megabar
 user_pref("browser.urlbar.speculativeConnect.enabled", false); // PREF: Disable preloading of autocomplete URLs
@@ -174,6 +177,8 @@ user_pref("font.minimum-size.x-western", 10);
 user_pref("font.name.monospace.x-western", "Hack");
 user_pref("font.name.sans-serif.x-western", "Hack");
 user_pref("font.name.serif.x-western", "Hack");
+user_pref("full-screen-api.transition-duration.enter", "0 0");
+user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
 user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
 user_pref("general.smoothScroll.lines.durationMaxMS", 100);
@@ -234,6 +239,7 @@ user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Pun
 user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // check if network is public wifi
 user_pref("network.cookie.prefsMigrated", true);
+user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.dns.disablePrefetch", false);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
@@ -242,6 +248,7 @@ user_pref("network.http.http3.enabled", true);
 user_pref("network.http.redirection-limit", 10);
 user_pref("network.http.spdy.enabled.http2", true);
 user_pref("network.http.speculative-parallel-limit", 0);
+user_pref("network.manage-offline-status", false);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.prefetch-next", false); // After the browser is finished loading the page, it begins silently prefetching specified documents and stores them in its cache
@@ -249,16 +256,16 @@ user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.bootstrapAddress", "1.1.1.1");
-user_pref("network.trr.custom_uri", "https://mozilla.cloudflare-dns.com/dns-query");
+user_pref("network.trr.bootstrapAddress", "176.103.130.130");
+user_pref("network.trr.custom_uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
 user_pref("network.trr.mode", 2);
-user_pref("network.trr.uri", "https://mozilla.cloudflare-dns.com/dns-query");
+user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
-user_pref("nglayout.initialpaint.delay", 150);
+user_pref("nglayout.initialpaint.delay", 0);
 user_pref("pdfjs.disabled", true);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
@@ -283,6 +290,7 @@ user_pref("security.secure_connection_icon_color_gray", false); // Return green 
 user_pref("security.ssl.errorReporting.automatic", false);
 user_pref("security.ssl.errorReporting.enabled", false);
 user_pref("security.ssl.errorReporting.url", "");
+user_pref("security.tls.version.enable-deprecated", false);
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
 user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
