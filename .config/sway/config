@@ -9,9 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # SWAY SPECIFIC
-output "*" background /usr/share/themes/Nature-Hd-Wallpaper-1920x1080-88648.jpg fill
-output HDMI1-A-1 pos 0 0 res 1920x1080
-output eDP-1 pos 1920 0 res 1920x1080 
+output "*" background /usr/share/themes/Schloss_Lichtenstein_dark.jpg fill
+output HDMI1-A-1 pos 1920 0 res 1920x1080
+output eDP-1 pos 0 0 res 1920x1080 
 
 input * xkb_layout "us,ua"
 input * xkb_options "grp:shift_caps_switch,compose:prsc"
@@ -60,7 +60,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec j4-dmenu-desktop --dmenu="dmenu -i -l 5 -fn Hack:24" --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
 # bindsym $mod+d exec rofi -show drun
 # bindsym $mod+Shift+d exec rofi -show combi
-bindsym $mod+Control+d exec dmenu_custom
+bindsym $mod+Control+d exec bemenu-run -l -b --fn 'Hack 22'
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -156,26 +156,26 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym j resize shrink width 10 px or 10 ppt
+    bindsym k resize grow height 10 px or 10 ppt
+    bindsym l resize shrink height 10 px or 10 ppt
+    bindsym semicolon resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
@@ -201,6 +201,7 @@ bar {
     # bindcode button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
     # bindcode button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% #decrease sound volume
     # bindcode button2 exec gsimplecal
+    font pango:Hack, FontAwesome 16
     status_command i3status-rs $HOME/.i3/status.toml
 }
 
@@ -212,8 +213,10 @@ client.unfocused        #4B610B  #424242 #ECF6CE #292d2e    #4B610B
 client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 # assings
 assign [class="(?i)Viber"] 2
+assign [class="(?i)Wire"] 2
 assign [class="(?i)Slack"] 2
-assign [class="(?i)wire"] 2
+assign [class="(?i)Thunderbird"] 2
+
 workspace_layout tabbed
 
 workspace 1 output eDP-1
@@ -236,7 +239,7 @@ bindsym $mod+p exec pavucontrol
 bindsym $mod+x exec emacs
 
 # Intellij
-bindsym $mod+b exec idea
+bindsym $mod+b exec idea-ce-eap
 
 # xmenud
 bindsym $mod+m exec xmenud
@@ -244,6 +247,7 @@ bindsym $mod+m exec xmenud
 # lock screen
 bindsym $mod+Control+z exec $lock
 # bindsym $mod+Control+a exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+bindsym $mod+Control+a exec clipman pick
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+z workspace next
@@ -271,15 +275,18 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightne
 
 # workspace_auto_back_and_forth yes
 
-exec --no-startup-id libinput-gestures
+exec wl-paste -t text --watch clipman store
+exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id nm-applet
 # exec --no-startup-id greenclip daemon
-exec_always clipit
-exec_always xembedsniproxy
+# exec_always clipit
+# exec_always xembedsniproxy
 exec_always --no-startup-id numlockx on
-# exec --no-startup-id compton --config ~/.config/compton.conf -b
+exec --no-startup-id picom --config ~/.config/picom.conf -b
+# exec clipit
 exec $term --quake
-# exec_always --no-startup-id xxkb
-exec wire-desktop
+exec wire-desktop-beta
+exec $email
+# exec ~/.local/bin/.kdbb.sh &
 # exec skypeforlinux
 # exec radiotray-ng
