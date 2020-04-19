@@ -26,27 +26,13 @@ x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/magnet=qBittorrent.desktop
-x-scheme-handler/mailto=userapp-Thunderbird-6M956Z.desktop
-message/rfc822=userapp-Thunderbird-6M956Z.desktop
+x-scheme-handler/mailto=org.gnome.Evolution.desktop
+message/rfc822=org.gnome.Evolution.desktop
 x-scheme-handler/viber=viber.desktop
 
-[Added Associations]
-x-scheme-handler/http=chromium.desktop;
-x-scheme-handler/https=chromium.desktop;
-x-scheme-handler/ftp=chromium.desktop;
-x-scheme-handler/chrome=chromium.desktop;
-text/html=chromium.desktop;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
-application/x-extension-htm=chromium.desktop;
-application/x-extension-html=chromium.desktop;
-application/x-extension-shtml=chromium.desktop;
-application/xhtml+xml=chromium.desktop;
-application/x-extension-xhtml=chromium.desktop;
-application/x-extension-xht=chromium.desktop;
-x-scheme-handler/mailto=userapp-Thunderbird-6M956Z.desktop;
-message/rfc822=userapp-Thunderbird-6M956Z.desktop;
-
 [Removed Associations]
+application/pdf=libreoffice-draw.desktop
+application/ppdf=libreoffice-draw.desktop
 application/pdf=com.github.babluboy.bookworm.desktop
 application/ppdf=com.github.babluboy.bookworm.desktop
 application/x-bittorrent=popkorntime.desktop
