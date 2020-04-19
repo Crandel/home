@@ -2,7 +2,7 @@
 
 folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_aurora" "org.mozilla.fennec_fdroid")
 
-cd termux/firefox
+cd ~/home/termux/firefox
 cwd=$(pwd)
 echo "PWD is $(pwd)"
 echo "BASEDIR is $cwd"
@@ -27,3 +27,5 @@ for folder in "${folder_list[@]}"; do
   echo "$folder"
   update_settings $folder
 done
+
+cd $cwd
