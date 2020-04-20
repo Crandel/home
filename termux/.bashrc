@@ -81,7 +81,7 @@ shopt -s globstar
 # ALIASES
 # some more ls aliases
 alias arch='uname -m'
-alias ll='ls -ahlF'
+alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
 alias L='|less'
 alias G='|grep'

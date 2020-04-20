@@ -154,7 +154,7 @@ fi
 
 # ALIASES
 alias arch='uname -m'
-alias ll='ls -ahlF --time-style=long-iso'
+alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
 alias ~='cd $HOME'
 alias home_pr='cd $PERS_DIR/home'
