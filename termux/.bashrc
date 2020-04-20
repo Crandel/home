@@ -127,6 +127,10 @@ zipin () {
   done
 }
 
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
+
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
