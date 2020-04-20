@@ -86,6 +86,10 @@ alias la='ls -A'
 alias L='|less'
 alias G='|grep'
 alias ~='cd $HOME'
+
+# fix for git
+alias meld='vimdiff'
+
 if command_exists bat ; then
   alias ct='bat'
 fi
