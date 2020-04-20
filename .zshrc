@@ -196,6 +196,7 @@ if [[ $EUID -ne 0 ]] && (( $+commands[sudo] )) ; then
   SUDO='sudo'
 fi
 
+# Package managers
 if (( $+commands[pacman] )) ; then
   paclist() {
   # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
@@ -250,7 +251,9 @@ if (( $+commands[yum] )) ; then
   alias paci='yum install'
   alias pacr='yum remove'
 fi
+# End Package managers
 
+# Program langs
 if (( $+commands[git] )); then
   alias g='git'
   compdef g=git
@@ -267,8 +270,18 @@ if (( $+commands[tmux] )) ; then
   alias tm='tmux attach || tmux new'
 fi
 
+  # VMs
+    # Vagrant
+if (( $+commands[vagrant] )) ; then
+  alias vup='vagrant up'
+  alias vh='vagrant halt'
+  alias vsus='vagrant suspend'
+  alias vre='vagrant reload'
+  alias vs='vagrant ssh'
+fi
+
+    # Docker
 if (( $+commands[docker] )) ; then
-  # Docker
   alias d='docker'
   compdef d='docker'
   alias dc='docker-compose'
@@ -283,8 +296,8 @@ if (( $+commands[docker] )) ; then
   export d_exec;
 fi
 
+    # Kubernetes
 if (( $+commands[kubectl] )) ; then
-  # Kubernetes
   alias kl='kubectl'
   compdef kl='kubectl'
   if (( $+commands[kubectx] )) ; then
@@ -296,21 +309,13 @@ if (( $+commands[kubectl] )) ; then
     compdef kns='kubens'
   fi
 fi
-
-
-if (( $+commands[vagrant] )) ; then
-  # Vagrant
-  alias vup='vagrant up'
-  alias vh='vagrant halt'
-  alias vsus='vagrant suspend'
-  alias vre='vagrant reload'
-  alias vs='vagrant ssh'
-fi
+  # End VMs
 
 if (( $+commands[systemctl] )) ; then
   alias ssystemctl="$SUDO systemctl"
 fi
 
+  # Go
 if (( $+commands[go] )) ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
@@ -325,48 +330,38 @@ if (( $+commands[go] )) ; then
     fi
   fi
 fi
+  # End go
 
-if (( $+commands[aws] )) ; then
-  alias aelogin='aws ecr get-login --region eu-central-1'
-  if (( $+commands[saml2aws] )) ; then
-    export SAML2AWS_SESSION_DURATION=36000
-    alias sl='saml2aws login -a default -p default --skip-prompt'
-  fi
-fi
-
-if (( $+commands[hadoop] )) ; then
-  alias hdp='hdfs dfs'
-fi
-
-if (( $+commands[hive] )) ; then
-  function hive_home {
-    grep hive /etc/passwd | awk -F: '{print $6}'
-  }
-  h_home=$(hive_home)
-  if [ ! -z $h_home ]; then
-    export HIVE_HOME=$h_home
-  fi
-  alias bee='beeline --color=true -u jdbc:hive2://'
-fi
-
-if (( $+commands[mpv] )) ; then
-  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
-fi
-
-if (( $+commands[youtube-dl] )) ; then
-  alias ytb='youtube-dl -f bestvideo+bestaudio'
-fi
-
-if (( $+commands[ffplay] )) ; then
-  alias play='ffplay -nodisp -autoexit'
-fi
-
+  # Scala
 if [ -d /usr/share/scala ]; then
   export SCALA_HOME=/usr/share/scala
   export PATH=$PATH:$SCALA_HOME/bin
 fi
 
-# Rust
+if (( $+commands[scala] )); then
+  alias s='scala'
+  alias sc='scalac'
+  srun() {
+    name=$@
+    echo "Start compilation for $name"
+    scalac "$name.scala"
+    echo "Compilation done"
+    scala $name
+  }
+fi
+  # End Scala
+
+  # Prolog
+if (( $+commands[swipl] )); then
+  swi_path=/usr/lib/swipl
+  if [ -d $swi_path ]; then
+    export SWI_HOME_DIR=$swi_path
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SWI_HOME_DIR/lib/x86_64-linux
+  fi
+fi
+  # End Prolog
+
+  # Rust
 if [ -d $HOME/.cargo/bin ]; then
   export PATH=$PATH:$HOME/.cargo/bin
 fi
@@ -383,8 +378,24 @@ fi
 if [ -d /usr/src/rust ]; then
   export RUST_SRC_PATH=/usr/src/rust/src
 fi
-# End Rust
+  # End Rust
+# End Program langs
 
+# Media
+if (( $+commands[mpv] )) ; then
+  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
+fi
+
+if (( $+commands[youtube-dl] )) ; then
+  alias ytb='youtube-dl -f bestvideo+bestaudio'
+fi
+
+if (( $+commands[ffplay] )) ; then
+  alias play='ffplay -nodisp -autoexit'
+fi
+# End Media
+
+# Editors
 if (( $+commands[emacs] )); then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
@@ -392,6 +403,7 @@ if (( $+commands[emacs] )); then
 elif (( $+commands[vim] )); then
   export EDITOR='vim'
 fi
+# End Editors
 
 # file managers
 if (( $+commands[mc] )); then
@@ -412,14 +424,6 @@ if (( $+commands[nnn] )); then
   export NNN_OPS_PROG=1
 fi
 #end file managers
-
-if (( $+commands[swipl] )); then
-  swi_path=/usr/lib/swipl
-  if [ -d $swi_path ]; then
-    export SWI_HOME_DIR=$swi_path
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SWI_HOME_DIR/lib/x86_64-linux
-  fi
-fi
 
 if (( $+commands[qt5ct] )); then
   export QT_QPA_PLATFORMTHEME="qt5ct"

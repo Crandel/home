@@ -296,13 +296,21 @@ if command_exists aws ; then
   fi
 fi
 
-if command_exists mpv ; then
-  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
-fi
-
 if [ -d /usr/share/scala ]; then
   export SCALA_HOME=/usr/share/scala
   export PATH=$PATH:$SCALA_HOME/bin
+fi
+
+if command_exists scala ; then
+  alias s='scala'
+  alias sc='scalac'
+  srun() {
+    name=$@
+    echo "Start compilation for $name"
+    scalac "$name.scala"
+    echo "Compilation done"
+    scala $name
+  }
 fi
 
 # Rust
@@ -351,6 +359,19 @@ if command_exists nnn ; then
   export NNN_OPS_PROG=1
 fi
 #end file managers
+
+
+if command_exists mpv ; then
+  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
+fi
+
+if command_exists youtube-dl ; then
+  alias ytb='youtube-dl -f bestvideo+bestaudio'
+fi
+
+if command_exists ffplay ; then
+  alias play='ffplay -nodisp -autoexit'
+fi
 
 if command_exists swipl ; then
   swi_path=/usr/lib/swipl
