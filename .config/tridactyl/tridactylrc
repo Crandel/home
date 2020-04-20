@@ -7,10 +7,14 @@ set searchengine duckduckgo
 unbind --mode=normal f
 bind --mode=normal gf hint
 
-bind --mode=normal x tabclose
-bind --mode=normal n tab #
+unbind --mode=normal d
+unbind --mode=normal x
 unbind --mode=normal <C-b>
+bind --mode=normal x tabclose
+bind --mode=normal d stop
+bind --mode=normal n tab #
 
+" Ukrainian keymap in normal mode
 keymap а f
 keymap А F
 keymap б ,
