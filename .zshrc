@@ -354,7 +354,11 @@ if (( $+commands[mpv] )) ; then
 fi
 
 if (( $+commands[youtube-dl] )) ; then
-  alias ytb='youtube-dl -f best'
+  alias ytb='youtube-dl -f bestvideo+bestaudio'
+fi
+
+if (( $+commands[ffplay] )) ; then
+  alias play='ffplay -nodisp -autoexit'
 fi
 
 if [ -d /usr/share/scala ]; then
