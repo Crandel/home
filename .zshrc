@@ -309,6 +309,14 @@ if (( $+commands[kubectl] )) ; then
     compdef kns='kubens'
   fi
 fi
+
+if (( $+commands[aws] )) ; then
+  alias aelogin='aws ecr get-login --region eu-central-1'
+  if (( $+commands[saml2aws] )) ; then
+    export SAML2AWS_SESSION_DURATION=36000
+    alias sl='saml2aws login -a default -p default --skip-prompt'
+  fi
+fi
   # End VMs
 
 if (( $+commands[systemctl] )) ; then
