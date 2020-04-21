@@ -6,7 +6,11 @@ set nocompatible
 syntax on
 
 set background=dark
-colorscheme desert
+
+" Gruvbox settings
+set termguicolors
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 if &shell =~# 'fish$'
     set shell=bash
@@ -28,7 +32,7 @@ set hlsearch        " highlighting search word
 set infercase       " Register help
 set hidden          " Hide buffers when they are abandoned
 " turn off bell
-set novisualbell
+" set novisualbell
 " Source a global configuration file if available
 set wrap
 set ai
@@ -74,6 +78,8 @@ set statusline+=%#Cursor#       " colour
 set statusline+=\ %3p%%\                " percentage
 
 set cursorline
+autocmd InsertEnter * highlight CursorLine guibg=#000050 guifg=fg
+autocmd InsertLeave * highlight CursorLine guibg=#004000 guifg=fg
 
 set clipboard=unnamedplus
 
@@ -114,9 +120,9 @@ nnoremap <space>/ :Grep<Space>
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
 " The Silver Searcher
-if executable('ag')
+if executable('rg')
   " Use ag over grep
-  set grepprg=ag\ --hidden\ --vimgrep
+  set grepprg=rg\ --color\ auto\ --vimgrep
   set grepformat=%f:%l:%c:%m
   nnoremap <leader>gg :grep <cword><CR>:cwindow<CR>
 endif
@@ -204,3 +210,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " change coursor shape in different modes
 let &t_SI = "\<Esc>[6 q"
 let &t_EI = "\<Esc>[2 q"
+if &diff
+  map ] ]c
+  map [ [c
+endif
