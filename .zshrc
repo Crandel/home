@@ -383,7 +383,7 @@ fi
 
 # Media
 if (( $+commands[mpv] )) ; then
-  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
+  alias mpv='mpv --hwdec=vaapi --vo=gpu'
 fi
 
 if (( $+commands[youtube-dl] )) ; then
