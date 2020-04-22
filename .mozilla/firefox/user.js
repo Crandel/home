@@ -83,6 +83,7 @@ user_pref("browser.safebrowsing.provider.mozilla.gethashURL", "");
 user_pref("browser.safebrowsing.provider.mozilla.lists", "");
 user_pref("browser.safebrowsing.provider.mozilla.pver", "");
 user_pref("browser.safebrowsing.provider.mozilla.updateURL", "");
+user_pref("browser.safebrowsing.reportPhishURL", "");
 user_pref("browser.search.countryCode", "US"); // PREF: Disable GeoIP lookup on your address to set default search engine region
 user_pref("browser.search.geoSpecificDefaults", false); // PREF: Don't use Mozilla-provided location-specific search engines
 user_pref("browser.search.geoSpecificDefaults.url", "");
@@ -294,6 +295,7 @@ user_pref("security.tls.version.enable-deprecated", false);
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
 user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
+user_pref("signon.management.page.mobileAndroidURL", "");
 user_pref("svg.context-properties.content.enabled", true); // apply theme color to the toolbar button
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("toolkit.identity.enabled", false);
