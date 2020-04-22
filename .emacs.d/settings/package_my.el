@@ -12,6 +12,7 @@
       company-mode
       company-restclient
       dap-mode
+      dired-hacks
       el-get
       emacs-fish
       emmet-mode
@@ -108,7 +109,7 @@
 
 (when (executable-find "docker")
     (add-to-list 'my-packages 'dockerfile-mode)
-    ;(add-to-list 'my-packages 'docker-compose-mode)
+    (add-to-list 'my-packages 'docker-compose-mode)
 )
 
 

@@ -177,4 +177,6 @@
 (setq max-mini-window-height      0.5
       compilation-always-kill     t)
 
+(setq dired-listing-switches "-ahlF --time-style=long-iso --group-directories-first")
+
 (provide 'scratch_my)
