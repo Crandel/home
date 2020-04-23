@@ -32,7 +32,7 @@ set hlsearch        " highlighting search word
 set infercase       " Register help
 set hidden          " Hide buffers when they are abandoned
 " turn off bell
-" set novisualbell
+set novisualbell
 " Source a global configuration file if available
 set wrap
 set ai
@@ -210,6 +210,7 @@ nnoremap <C-n> :call NumberToggle()<cr>
 " change coursor shape in different modes
 let &t_SI = "\<Esc>[6 q"
 let &t_EI = "\<Esc>[2 q"
+
 if &diff
   map ] ]c
   map [ [c
