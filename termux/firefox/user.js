@@ -14,7 +14,8 @@ user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP 
 // user_pref("browser.ctrlTab.previews", true);
 // user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
-user_pref("browser.display.background_color", "2e2e31");
+user_pref("browser.display.background_color", "#2e2e31");
+user_pref("browser.display.foreground_color", "#f9f9fa");
 //user_pref("browser.display.use_document_fonts", 0);
 //user_pref("browser.download.autohideButton", false);
 //user_pref("browser.download.panel.shown", true);
@@ -42,6 +43,7 @@ user_pref("browser.ping-centre.telemetry", true);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
 // user_pref("browser.privatebrowsing.searchUI", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
+user_pref("browser.safebrowsing.allowOverride", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host", false);
@@ -144,6 +146,7 @@ user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browse
 user_pref("dom.push.enabled", false);
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
+user_pref("dom.webgpu.enabled", true);
 user_pref("dom.webnotifications.requireuserinteraction", true);
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
 user_pref("experiments.enabled", false);
