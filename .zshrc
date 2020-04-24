@@ -407,7 +407,7 @@ fi
 if (( $+commands[emacs] )); then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
-  export EDITOR='emacs -nw'
+  export EDITOR='emacs'
 elif (( $+commands[vim] )); then
   export EDITOR='vim'
 fi
@@ -495,6 +495,11 @@ function set_zsh_prompt () {
 # Tell zsh to execute this function just before displaying its prompt.
 set_zsh_prompt
 
-#if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-#  exec startx
-#fi
+if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
+  #export QT_QPA_PLATFORM=wayland
+  #export GDK_BACKEND=wayland
+  #export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
+  #export _JAVA_AWT_WM_NONREPARENTING=1
+  #exec sway
+  exec startx
+fi
