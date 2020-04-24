@@ -1,0 +1,74 @@
+theme = "plain"
+icons = "awesome"
+
+[[block]]
+block = "custom"
+command = "gmail"
+interval = 5
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 15.0
+alert = 10.0
+show_percentage = true
+
+[[block]]
+block = "cpu"
+interval = 1
+format = "{barchart} {utilization}% {frequency}GHz"
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mug}GB"
+format_swap = "{SUm}MB"
+icons = true
+clickable = true
+warning_mem = 80
+warning_swap = 80
+critical_mem = 95
+critical_swap = 95
+
+[[block]]
+block = "battery"
+interval = 10
+format = "{percentage}% {time}"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+show_volume_when_muted = true
+
+[[block]]
+block = "net"
+device = "enp0s31f6"
+graph_up = false
+hide_inactive = true
+hide_missing = true
+interval = 2
+ip = false
+speed_down = true
+speed_up = false
+ssid = false
+
+[[block]]
+block = "net"
+device = "wlan0"
+graph_up = false
+hide_inactive = true
+hide_missing = true
+interval = 2
+ip = false
+speed_down = true
+speed_up = false
+ssid = true
+
+[[block]]
+block = "time"
+interval = 15
+format = "%d.%m.%y %R"
