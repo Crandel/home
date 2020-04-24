@@ -35,6 +35,7 @@ exec_always {
     gsettings set $gnome-schema gtk-theme 'Adapta-Black-Nokto-Eta-Maia'
     gsettings set $gnome-schema icon-theme 'deepin-dark'
     gsettings set $gnome-schema font-name 'Hack'
+    gsettings set $gnome-schema text-scaling-factor 1.2
     gsettings set $gnome-schema cursor-theme 'Numix-Cursor-Maia'
 }
 ## END SWAY SPECIFIC
@@ -232,6 +233,7 @@ assign [class="(?i)Slack"] 2
 assign [class="(?i)Thunderbird"] 2
 assign [class="(?i)Evolution"] 2
 assign [class="(?i)Quiterss"] 3
+for_window [class="Quiterss"] move to workspace 3
 
 workspace_layout tabbed
 
@@ -260,7 +262,7 @@ bindsym $mod+b exec idea-ce
 
 # lock screen
 bindsym $mod+Control+z exec $lock
-bindsym $mod+Control+a exec clipman pick -t bemenu -T"-i -l 10 --fn 'Hack 22'"
+bindsym $mod+Control+a exec clipman pick -t bemenu -T"-i --fn 'Hack 22'"
 
 # switch workspaces by mod+ctrl+left/right
 bindsym $mod+z workspace next
