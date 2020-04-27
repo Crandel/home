@@ -437,6 +437,10 @@ if (( $+commands[qt5ct] )); then
   export QT_QPA_PLATFORMTHEME="qt5ct"
 fi
 
+if (( $+commands[bemenu] )); then
+  export BEMENU__BACKEND=x11
+fi
+
 if [ -f ~/.aliases.zsh ]; then
   . ~/.aliases.zsh
 fi
@@ -496,10 +500,10 @@ function set_zsh_prompt () {
 set_zsh_prompt
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  #export QT_QPA_PLATFORM=wayland
-  #export GDK_BACKEND=wayland
-  #export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
-  #export _JAVA_AWT_WM_NONREPARENTING=1
-  #exec sway
+  # export QT_QPA_PLATFORM=wayland
+  # export GDK_BACKEND=wayland
+  # export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
+  # export _JAVA_AWT_WM_NONREPARENTING=1
+  # exec sway
   exec startx
 fi
