@@ -1,0 +1,31 @@
+markup=1
+actions=1
+
+# Format
+font=Hack 16
+border-color=#5B8234
+border-size=2
+background-color=#191311AA
+text-color=#fdf6e3
+format=<b>%s</b> <span color="#5B8234">(%a)</span>\n%b
+
+# icons
+icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/deepin
+
+[urgency=low]
+text-color=#fdf6e3
+border-color=#3B7C87
+border-size=2
+background-color=#191311AA
+format=<b>%s</b> <span color="#3B7C87">(%a)</span>\n%b
+
+[urgency=high]
+text-color=#fdf6e3
+border-color=#B7472A
+border-size=2
+background-color=#191311AA
+format=<b>%s</b> <span color="#B7472A">(%a)</span>\n%b
+
+# Hidden format
+[hidden]
+format=Hidden: %h [%t]
