@@ -286,6 +286,7 @@ exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id nm-applet
 # exec --no-startup-id greenclip daemon
 # exec --no-startup-id picom --config ~/.config/picom.conf -b
+# exec clipit
 exec $term --quake
 exec wire-desktop-beta
 exec $email
