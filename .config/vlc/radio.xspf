@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<playlist xmlns="http://xspf.org/ns/0/" xmlns:vlc="http://www.videolan.org/vlc/playlist/ns/0/" version="1">
+	<title>Playlist</title>
+	<trackList>
+		<track>
+			<location>http://uk1.internet-radio.com:8294/live</location>
+			<title>Radio Bloodstream</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://69.46.88.26:80/</location>
+			<title>Idoby Howl</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>1</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<location>http://198.100.145.185:8900/listen.pls?sid=1</location>
+			<title>Metal Nation Radio</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>2</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>3</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>Epic Rock Radio</title>
+			<location>http://192.99.62.212:9968/listen.pls?sid=1</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>4</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>.977 Classic Rock</title>
+			<location>http://www.977music.com/tunein/web/classicrock.asx</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>5</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>80s Sky.FM</title>
+			<location>http://listen.sky.fm/public3/the80s.pls</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>6</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>Covers</title>
+			<location>http://somafm.com/covers.pls</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>7</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>KDFC</title>
+			<location>http://provisioning.streamtheworld.com/pls/KDFCFM.pls</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>8</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>Classic FM</title>
+			<location>http://media-ice.musicradio.com/ClassicFMMP3.m3u</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>9</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>WCPE</title>
+			<location>http://www.ibiblio.org/wcpe/wcpe.pls</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>10</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>CINEMIX</title>
+			<location>http://cinemix.us/cine.asx</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>11</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>SKY.fm Soundtracks</title>
+			<location>http://listen.sky.fm/public1/soundtracks.pls</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>12</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>SKY.fm Mostly Classical</title>
+			<location>http://listen.sky.fm/public1/classical.pls</location>
+		</track>
+		<track>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>13</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+			<title>181.FM Classic Hits</title>
+			<location>http://sc-rly.181.fm:80/stream/1094</location>
+		</track>
+	</trackList>
+	<extension application="http://www.videolan.org/vlc/playlist/0">
+		<vlc:item tid="0"/>
+	</extension>
+</playlist>
