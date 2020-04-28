@@ -1,13 +1,27 @@
 markup=1
 actions=1
+anchor=top-center
+width=500
+height=500
 
 # Format
 font=Hack 16
 border-color=#5B8234
 border-size=2
-background-color=#191311AA
+background-color=#5B8234AA
 text-color=#fdf6e3
-format=<b>%s</b> <span color="#5B8234">(%a)</span>\n%b
+# The format of the message.  Possible variables are:
+#   %a  appname
+#   %s  summary
+#   %b  body
+#   %g  Number of notifications in the current group
+#   %h  Number of hidden notifications
+#   %t  Total number of notifications
+#   %%  Literal %
+#   \n  New Line
+#   \\\  Literal "\\"
+# Markup is allowed
+format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span> (%g)
 
 # icons
 icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/deepin
@@ -16,16 +30,12 @@ icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/deepin
 text-color=#fdf6e3
 border-color=#3B7C87
 border-size=2
-background-color=#191311AA
-format=<b>%s</b> <span color="#3B7C87">(%a)</span>\n%b
+background-color=#3B7C87AA
+format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span> (%g)
 
 [urgency=high]
 text-color=#fdf6e3
 border-color=#B7472A
 border-size=2
-background-color=#191311AA
-format=<b>%s</b> <span color="#B7472A">(%a)</span>\n%b
-
-# Hidden format
-[hidden]
-format=Hidden: %h [%t]
+background-color=#B7472AAA
+format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span> (%g)
