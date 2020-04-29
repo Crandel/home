@@ -8,7 +8,7 @@ height=500
 font=Hack 16
 border-color=#5B8234
 border-size=2
-background-color=#5B8234AA
+background-color=#5B8234
 text-color=#fdf6e3
 # The format of the message.  Possible variables are:
 #   %a  appname
@@ -21,7 +21,7 @@ text-color=#fdf6e3
 #   \n  New Line
 #   \\\  Literal "\\"
 # Markup is allowed
-format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span> (%g)
+format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
 
 # icons
 icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/deepin
@@ -30,12 +30,12 @@ icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/deepin
 text-color=#fdf6e3
 border-color=#3B7C87
 border-size=2
-background-color=#3B7C87AA
-format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span> (%g)
+background-color=#3B7C87
+format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
 
 [urgency=high]
 text-color=#fdf6e3
 border-color=#B7472A
 border-size=2
-background-color=#B7472AAA
-format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span> (%g)
+background-color=#B7472A
+format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
