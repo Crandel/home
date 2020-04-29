@@ -496,16 +496,13 @@ function set_zsh_prompt () {
 set_zsh_prompt
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  export QT_QPA_PLATFORM=wayland
-  export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-
-  export GDK_BACKEND=wayland
-  export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
-
-  export MOZ_ENABLE_WAYLAND=1
-  export MOZ_DBUS_REMOTE=1
-
-  export _JAVA_AWT_WM_NONREPARENTING=1
-  exec sway
-  # exec startx
+  # export QT_QPA_PLATFORM=wayland
+  # export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+  # export GDK_BACKEND=wayland
+  # export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
+  # export MOZ_ENABLE_WAYLAND=1
+  # export MOZ_DBUS_REMOTE=1
+  # export _JAVA_AWT_WM_NONREPARENTING=1
+  # exec sway
+  exec startx
 fi

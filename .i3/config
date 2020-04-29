@@ -25,176 +25,170 @@ font pango:Hack 12, pango:FontAwesome 12
 floating_modifier $mod
 
 mode "resize" {
-    # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
+  # These bindings trigger as soon as you enter the resize mode
     bindsym j resize shrink width 10 px or 10 ppt
     bindsym k resize grow height 10 px or 10 ppt
     bindsym l resize shrink height 10 px or 10 ppt
     bindsym semicolon resize grow width 10 px or 10 ppt
 
-    # same bindings, but for the arrow keys
+  # same bindings, but for the arrow keys
+  # Pressing left will shrink the window’s width.
     bindsym Left resize shrink width 10 px or 10 ppt
+  # Pressing down will grow the window’s height.
     bindsym Down resize grow height 10 px or 10 ppt
+  # Pressing up will shrink the window’s height.
     bindsym Up resize shrink height 10 px or 10 ppt
+  # Pressing right will grow the window’s width.
     bindsym Right resize grow width 10 px or 10 ppt
 
-    # back to normal: Enter or Escape
+  # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-bindsym {
-  # start a terminal
-  $mod+Return exec $term
+# start a terminal
+bindsym $mod+Return exec $term
 
-  # kill focused window
-  $mod+q kill
+# kill focused window
+bindsym $mod+q kill
 
-  # start dmenu (a program launcher)
-  $mod+d exec rofi -show drun
-  $mod+Shift+d exec j4-dmenu-desktop --dmenu='bemenu -l 15 -I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"' --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
-  #  $mod+d exec albert toggle
-  #  $mod+Shift+d exec rofi -show combi
-  $mod+Control+d exec bemenu-run -l 15 -I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"
+# start dmenu (a program launcher)
+bindsym $mod+d exec rofi -show drun
+bindsym $mod+Shift+d exec j4-dmenu-desktop --dmenu='bemenu -l 15 -I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"' --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
+bindsym $mod+Control+d exec bemenu-run -l 15 -I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"
 
-  # change focus
-  $mod+j focus left
-  $mod+k focus down
-  $mod+i focus up
-  $mod+l focus right
+# change focus
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+i focus up
+bindsym $mod+l focus right
 
-  # alternatively, you can use the cursor keys:
-  $mod+Left focus left
-  $mod+Down focus down
-  $mod+Up focus up
-  $mod+Right focus right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-  # change focused container
-  $mod+Tab focus right
-  $mod+Shift+Tab focus left
+# change focused container
+bindsym $mod+Tab focus right
+bindsym $mod+Shift+Tab focus left
 
-  # move focused window
-  $mod+Shift+j move left
-  $mod+Shift+k move down
-  $mod+Shift+l move up
-  $mod+Shift+colon move right
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+colon move right
 
-  # alternatively, you can use the cursor keys:
-  $mod+Shift+Left move left
-  $mod+Shift+Down move down
-  $mod+Shift+Up move up
-  $mod+Shift+Right move right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
 
-  # split in horizontal orientation
-  $mod+h split h
+# split in horizontal orientation
+bindsym $mod+h split h
 
-  # split in vertical orientation
-  $mod+v split v
+# split in vertical orientation
+bindsym $mod+v split v
 
-  # enter fullscreen mode for the focused container
-  $mod+f fullscreen toggle
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
 
-  # change container layout (stacked, tabbed, toggle split)
-  $mod+s layout stacking
-  $mod+w layout tabbed
-  $mod+e layout toggle split
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
 
-  # toggle tiling / floating
-  $mod+Shift+space floating toggle
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
 
-  # change focus between tiling / floating windows
-  $mod+space focus mode_toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
 
-  # focus the parent container
-  $mod+a focus parent
+# focus the parent container
+bindsym $mod+a focus parent
 
-  # switch to workspace
-  $mod+1 workspace 1
-  $mod+2 workspace 2
-  $mod+3 workspace 3
-  $mod+4 workspace 4
-  $mod+5 workspace 5
-  $mod+6 workspace 6
-  $mod+7 workspace 7
-  $mod+8 workspace 8
-  $mod+9 workspace 9
-  $mod+0 workspace 10
+# switch to workspace
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
 
-  # move focused container to workspace
-  $mod+Shift+1 move container to workspace 1
-  $mod+Shift+2 move container to workspace 2
-  $mod+Shift+3 move container to workspace 3
-  $mod+Shift+4 move container to workspace 4
-  $mod+Shift+5 move container to workspace 5
-  $mod+Shift+6 move container to workspace 6
-  $mod+Shift+7 move container to workspace 7
-  $mod+Shift+8 move container to workspace 8
-  $mod+Shift+9 move container to workspace 9
-  $mod+Shift+0 move container to workspace 10
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
 
-  # reload the configuration file
-  $mod+Shift+c reload
+# reload the configuration file
+bindsym $mod+Shift+c reload
 
-  # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-  $mod+Shift+r restart
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
-  # exit i3 (logs you out of your X session)
-  $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-  # browser
-  $mod+c exec $browser
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# browser
+bindsym $mod+c exec $browser
 
-  # tilix
-  F1 exec $term --quake
+# tilix
+bindsym F1 exec $term --quake
 
-  # pulseaudio
-  $mod+p exec pavucontrol
+# pulseaudio
+bindsym $mod+p exec pavucontrol
 
-  # emacs
-  $mod+x exec emacs
+# emacs
+bindsym $mod+x exec emacs
 
-  # Intellij
-  $mod+b exec idea-ce
+# Intellij
+bindsym $mod+b exec idea-ce
 
-  # lock screen
-  $mod+Control+z exec $lock
-  $mod+Control+a exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+# lock screen
+bindsym $mod+Control+z exec $lock
+bindsym $mod+Control+a exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
-  # switch workspaces by mod+ctrl+left/right
-  $mod+z workspace next
-  # reboot and shutdown
-  $mod+Control+Shift+q exec systemctl poweroff
-  $mod+Control+Shift+p exec systemctl reboot
+# switch workspaces by mod+ctrl+left/right
+bindsym $mod+z workspace next
+# reboot and shutdown
+bindsym $mod+Control+Shift+q exec systemctl poweroff
+bindsym $mod+Control+Shift+p exec systemctl reboot
 
-  # toggle HDMI sound
-  $mod+Control+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
-  $mod+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
+# toggle HDMI sound
+bindsym $mod+Control+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
+bindsym $mod+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 
-  # toggle HDMI output
-  $mod+Control+Shift+v exec xrandr --output eDP1 --dpi 157 --mode 1920x1080 --primary --output DP2-1 --mode 1920x1080 --dpi 130 --left-of eDP1 --set "Broadcast RGB" "Full"
-  $mod+Shift+v exec xrandr --output eDP1 --auto --primary --output DP2-1 --off
+# toggle HDMI output
+bindsym $mod+Control+Shift+v exec xrandr --output eDP1 --dpi 157 --mode 1920x1080 --primary --output DP2-1 --mode 1920x1080 --dpi 130 --left-of eDP1 --set "Broadcast RGB" "Full"
+bindsym $mod+Shift+v exec xrandr --output eDP1 --auto --primary --output DP2-1 --off
 
-  # Pulse Audio controls
-  XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-  XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
-  XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
-  # Sreen brightness controls
-  XF86MonBrightnessUp exec light -A 20 # increase screen brightness
-  XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
-  # resize window (you can also use the mouse for that)
-  $mod+r mode "resize"
-}
+# resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
 
 # The middle button over a titlebar kills the window
-bindsym --release {
-  Mod2+button2 kill
-  button2 kill
-}
+bindsym --release Mod2+button2 kill
+bindsym --release button2 kill
+
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -213,7 +207,7 @@ bar {
     bindsym button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
     bindsym button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% #decrease sound volume
     bindsym button2 exec gsimplecal
-    font pango:Hack 11, pango:FontAwesome 11
+    font pango:Hack 10, pango:FontAwesome 10
     status_command i3status-rs $HOME/.i3/status.toml
 }
 
@@ -236,8 +230,7 @@ workspace_layout tabbed
 
 workspace 1 output eDP1
 workspace 2 output eDP1
-workspace 3 output DP2-2
-workspace 4 output DP2-1
+# workspace 3 output HDMI1
 
 workspace_auto_back_and_forth yes
 
