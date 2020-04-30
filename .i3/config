@@ -225,4 +225,4 @@ exec wire-desktop-beta
 exec radiotray-ng
 exec $email
 exec $feed
-exec ~/.local/bin/.kdbb.sh &
+# exec ~/.local/bin/.kdbb.sh &
