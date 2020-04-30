@@ -93,6 +93,15 @@ con_jpg_pdf (){
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
+
+# toggle HDMI sound
+hdmi_sound_on (){
+  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
+}
+hdmi_sound_off (){
+  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
+}
+
 # ANTIGEN
 
 antigen_source="$HOME/antigen.zsh"
@@ -496,13 +505,6 @@ function set_zsh_prompt () {
 set_zsh_prompt
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  # export QT_QPA_PLATFORM=wayland
-  # export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-  # export GDK_BACKEND=wayland
-  # export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
-  # export MOZ_ENABLE_WAYLAND=1
-  # export MOZ_DBUS_REMOTE=1
-  # export _JAVA_AWT_WM_NONREPARENTING=1
-  # exec sway
+  # exec $HOME/.swayinitrc
   exec startx
 fi
