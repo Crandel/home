@@ -433,15 +433,15 @@ if has('win')
     nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
-elseif executable('wl-copy')
-    " Yank current directory path into primary and selection clipboards
-    nnoremap yd :!echo -n %d | wl-copy %i<cr>
-    " Yank current file path into into primary and selection clipboards
-    nnoremap yf :!echo -n %c:p | wl-copy %i<cr>
-    " yank current filename without path into primary and selection clipboards
-    nnoremap yn :!echo -n %c | wl-copy %i<cr>
-    " yank root of current file's name into primary and selection clipboards
-    nnoremap yr :!echo -n %c:r | wl-copy %i<cr>
+" elseif executable('wl-copy')
+"     " Yank current directory path into primary and selection clipboards
+"     nnoremap yd :!echo -n %d | wl-copy %i<cr>
+"     " Yank current file path into into primary and selection clipboards
+"     nnoremap yf :!echo -n %c:p | wl-copy %i<cr>
+"     " yank current filename without path into primary and selection clipboards
+"     nnoremap yn :!echo -n %c | wl-copy %i<cr>
+"     " yank root of current file's name into primary and selection clipboards
+"     nnoremap yr :!echo -n %c:r | wl-copy %i<cr>
 elseif executable('xclip')
     " Yank current directory path into the clipboard
     nnoremap yd :!echo %d | xclip %i<cr>
