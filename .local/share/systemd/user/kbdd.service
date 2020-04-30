@@ -1,5 +1,6 @@
 [Unit]
 Description=kbdd daemon
+After=getty@tty1.service
 
 [Install]
 WantedBy=default.target
