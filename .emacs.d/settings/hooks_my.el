@@ -185,4 +185,39 @@
 (add-to-list 'auto-mode-alist '("Pipfile" . conf-toml-mode))
 (add-to-list 'auto-mode-alist '("docker-compose[^/]*\\.yml\\'" . docker-compose-mode))
 
+;; SQL settings
+(add-to-list 'same-window-buffer-names "*SQL*")
+(defun my-sql-save-history-hook ()
+  
+    (let ((lval 'sql-input-ring-file-name)
+          (rval 'sql-product))
+      (if (symbol-value rval)
+          (let ((filename 
+                 (concat "~/.emacs.d/sql/"
+                         (symbol-name (symbol-value rval))
+                         "-history.sql")))
+            (set (make-local-variable lval) filename))
+        (error
+         (format "SQL history will not be saved because %s is nil"
+                 (symbol-name rval))))))
+(setq sql-connection-alist
+      '((test1 (sql-product 'postgres)
+                  (sql-port 5432)
+                  (sql-server "localhost")
+                  (sql-user "test1")
+                  (sql-password "test")
+                  (sql-database "test1"))
+        '((test2 (sql-product 'postgres)
+                  (sql-port 5432)
+                  (sql-server "localhost")
+                  (sql-user "test2")
+                  (sql-password "test")
+                  (sql-database "test2"))))
+
+(add-hook 'sql-interactive-mode-hook
+          (lambda()
+            (toggle-truncate-lines t)
+            (my-sql-save-history-hook)
+            ))
+
 (provide 'hooks_my)
