@@ -206,6 +206,7 @@ user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
+user_pref("image.avif.enabled", true);
 user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
 user_pref("intl.locale.requested", "en-US");
