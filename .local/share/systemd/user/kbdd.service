@@ -1,6 +1,7 @@
 [Unit]
 Description=kbdd daemon
 After=startx.service
+Requires=startx.service
 
 [Install]
 WantedBy=default.target
