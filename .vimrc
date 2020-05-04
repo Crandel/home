@@ -11,29 +11,28 @@ set nocompatible
 set background=dark
 set termguicolors
 
-set showcmd         " Show (partial) command in status line.
-set showmode        " Show mode
-set showmatch       " Show matching brackets.
-set matchpairs+=<:> " Highlight html brackets
-set matchtime=3     " Always highlight 
-set ignorecase      " Do case insensitive matching
-set smartcase       " Do smart case matching
-set incsearch       " Incremental search
-set hlsearch        " highlighting search word
-set infercase       " Register help
-set hidden          " Hide buffers when they are abandoned
-set novisualbell    " turn off bell
+set showcmd          " Show (partial) command in status line.
+set showmode         " Show mode
+set showmatch        " Show matching brackets.
+set matchpairs+=<:>  " Highlight html brackets
+set matchtime=3      " Always highlight brackets
+set ignorecase       " Do case insensitive matching
+set smartcase        " Do smart case matching
+set incsearch        " Incremental search
+set hlsearch         " highlighting search word
+set infercase        " Register help
+set hidden           " Hide buffers when they are abandoned
+set novisualbell     " turn off bell
 set wrap
-set autoindent      " Copy indent from current line when starting a new line
-set cindent         " auto indent for c programming files
-set lazyredraw      " screen will not be redrawn while executing macros, registers and other commands
+set autoindent       " Copy indent from current line when starting a new line
+set cindent          " auto indent for c programming files
+set lazyredraw       " screen will not be redrawn while executing macros, registers and other commands
 set listchars=eol:$,tab:>-,trail:~,extends:#,precedes:<,nbsp:%
-set list            " Show tabs as CTRL-I is displayed
+set list             " Show tabs as CTRL-I is displayed
 set linebreak
-set ruler
+set ruler            " position of cursor
 set confirm
-set ttyfast
-set title
+set title            " '-' file can't change, '+' modified file, '=' readonly
 set autoread         " check if file not changed by another editor
 set smartindent      " set auto indent into new row
 set smarttab         " set indent if cursor in begin of row and press tab
@@ -75,9 +74,9 @@ set nowritebackup
 set noswapfile
 
 set pastetoggle=<F3>
-set wildmenu
+set wildmenu                    " command line completion
 set wildmode=list:full
-set enc=utf-8
+set encoding=utf-8
 set fileformat=unix             " forman file ending
 
 set history=700
@@ -90,7 +89,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.pyc,**/bower_components/**,**/node_modules/
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
-vnoremap <C-c> "+y
+vnoremap <C-c> "+y            " copy selected text Ctrl+c
 
 " previous buffer
 map <F5> :bp<CR>
@@ -145,18 +144,18 @@ let s:comment_map = {
     \ }
 
 function! CommentToggle()
-    if has_key(s:comment_map, &filetype)
-        let comment_leader = s:comment_map[&filetype]
-        if getline('.') =~ "^" . comment_leader
-            " Uncomment the line
-            execute "silent s/^" . comment_leader . "//"
-        else
-            " Comment the line
-            execute "silent s/^/" . comment_leader . "/"
-        endif
-    else
-        echo "No comment leader found for filetype"
-    end
+  if has_key(s:comment_map, &filetype)
+    let comment_leader = s:comment_map[&filetype]
+      if getline('.') =~ "^" . comment_leader
+        " Uncomment the line
+        execute "silent s/^" . comment_leader . "//"
+      else
+        " Comment the line
+        execute "silent s/^/" . comment_leader . "/"
+      endif
+  else
+    echo "No comment leader found for filetype"
+  end
 endfunction
 
 execute "set <M-;>=\e;"
@@ -210,6 +209,8 @@ if &diff
 endif
 
 " wailand section
-" xnoremap "+y y:call system("wl-copy", @")<cr>
-" nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-" nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+" if executable('wl-copy')
+"   xnoremap "+y y:call system("wl-copy", @")<cr>
+"   nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+"   nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+" endif

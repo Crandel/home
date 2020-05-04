@@ -1,0 +1,10 @@
+(:name dired+
+       :description "Extensions to Dired"
+       :type emacswiki
+       :features dired+
+       :post-init (progn
+                    (message "inside dired+")
+                    (add-hook 'dired-mode '(lambda()
+                                             (message "inside dired+ hook")
+))
+                    ))

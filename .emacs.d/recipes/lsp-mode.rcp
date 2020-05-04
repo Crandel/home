@@ -51,10 +51,10 @@
                                                )
                               )
 
-                    (add-hook 'yaml-mode-hook '(lambda()
-                                               (lsp)
-                                               )
-                              )
+                    ;; (add-hook 'yaml-mode-hook '(lambda()
+                    ;;                            (lsp)
+                    ;;                            )
+                    ;;           )
 
                     (add-hook 'vimrc-mode-hook '(lambda()
                                                (lsp)
