@@ -20,6 +20,8 @@ set vicmd=vim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
 
+set confirm=permdelete " avoid confirmation dialog
+
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
 " solution, it's also much slower when processing large amounts of files and
@@ -408,7 +410,8 @@ fileviewer *.epub epub2txt %c
 " ------------------------------------------------------------------------------
 
 " Sample mappings
-nmap ; :
+" nmap ; :
+nnoremap t tj " tag file and move down
 " Start shell in current directory
 nnoremap s :shell<cr>
 
@@ -497,7 +500,7 @@ nnoremap <f8> :delete<cr>
 
 " Use ag (the silver searcher) instead of grep
 "
-" set grepprg='ag --line-numbers %i %a %s'
+set grepprg='rg --vimgrep %i %a %s'
 
 " Add additional place to look for executables
 "
