@@ -446,6 +446,11 @@ if (( $+commands[qt5ct] )); then
   export QT_QPA_PLATFORMTHEME="qt5ct"
 fi
 
+if (( $+commands[clipmenud] )); then
+  export CM_LAUNCHER=bemenu
+  export CM_DIR=$HOME/.cache/.clipmenud
+fi
+
 if [ -f ~/.aliases.zsh ]; then
   . ~/.aliases.zsh
 fi
