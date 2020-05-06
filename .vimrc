@@ -158,7 +158,6 @@ function! CommentToggle()
   end
 endfunction
 
-execute "set <M-;>=\e;"
 noremap <M-;> :call CommentToggle()<cr>
 
 " tab section

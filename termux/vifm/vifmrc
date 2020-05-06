@@ -357,8 +357,8 @@ fileviewer *.epub epub2txt %c
 " ------------------------------------------------------------------------------
 
 " Sample mappings
-" nmap ; :
-nnoremap t tj " tag file and move down
+nnoremap t tj
+
 " Start shell in current directory
 nnoremap s :shell<cr>
 
