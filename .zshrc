@@ -94,6 +94,19 @@ clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 
+# disable X11 services for wayland
+disable_x11 (){
+  systemctl --user disable clipmenud.service
+  systemctl --user disable kbdd.service
+  systemctl --user disable dunst.service
+}
+
+enable_x11 (){
+  systemctl --user enable clipmenud.service
+  systemctl --user enable kbdd.service
+  systemctl --user enable dunst.service
+}
+
 # toggle HDMI sound
 hdmi_sound_on (){
   pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo

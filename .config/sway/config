@@ -199,7 +199,7 @@ bindsym --to-code {
   $mod+Control+z exec $lock
 
   # get clipboard history
-  $mod+Control+a exec clipman pick -t bemenu -T'bemenu -l 15 -I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
+  $mod+Control+a exec clipman pick --max-items=100 -t bemenu -T'bemenu -l 10 -I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
 
   # switch workspaces by mod+z
   $mod+z workspace next
@@ -276,7 +276,7 @@ workspace 1 output eDP-1
 workspace 2 output eDP-1
 # workspace 3 output HDMI-A-1
 
-exec --no-startup-id wl-paste -t text --watch clipman store 1>> $HOME/.local/log/clipman.log 2>&1 &
+exec --no-startup-id wl-paste -t text --watch clipman store --max-items=100 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures-setup start
 exec $term --quake
 exec env GDK_BACKEND=x11 wire-desktop-beta
