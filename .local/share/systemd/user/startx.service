@@ -7,4 +7,4 @@ WantedBy=default.target
 [Service]
 Type=oneshot
 RemainAfterExit=yes
-ExecStart=/usr/bin/bash -c echo "Start X"
+ExecStart=/home/crandel/.local/bin/startx.sh

@@ -9,20 +9,27 @@ user_pref("apz.allow_double_tap_zooming", true);
 user_pref("apz.allow_zooming", true);
 user_pref("apz.android.chrome_fling_physics.enabled", true);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
+user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version [FF71+]
+// user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 // user_pref("browser.bookmarks.restore_default_bookmarks", false);
 // user_pref("browser.bookmarks.showMobileBookmarks", true);
-// user_pref("browser.ctrlTab.previews", true);
 // user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
+// user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
+// user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
 user_pref("browser.display.background_color", "#2e2e31");
 user_pref("browser.display.foreground_color", "#f9f9fa");
 //user_pref("browser.display.use_document_fonts", 0);
 //user_pref("browser.download.autohideButton", false);
 //user_pref("browser.download.panel.shown", true);
+user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
+user_pref("browser.helperApps.deleteTempFileOnExit", true); // remove temp files opened with an external application
 // user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
 user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 // user_pref("browser.library.activity-stream.enabled", true); // For macOS only
+// user_pref("browser.link.open_newwindow", 3); // open links targeting new windows in a new tab instead
+// user_pref("browser.link.open_newwindow.restriction", 0);
 // user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 // user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", false); // PREF: Disable Extension recommendations (Firefox >= 65)
 // user_pref("browser.newtabpage.activity-stream.feeds.places", true);
@@ -39,9 +46,9 @@ user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 // user_pref("browser.newtabpage.activity-stream.tippyTop.service.endpoint", "");
 // user_pref("browser.newtabpage.activity-stream.topSitesRows", 3);
 // user_pref("browser.newtabpage.enhanced", true);
-user_pref("browser.ping-centre.telemetry", true);
+user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
-// user_pref("browser.privatebrowsing.searchUI", false);
+user_pref("browser.privatebrowsing.searchUI", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.allowOverride", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
@@ -100,12 +107,14 @@ user_pref("browser.shell.checkDefaultBrowser", false);
 user_pref("browser.slowStartup.notificationDisabled", true);
 user_pref("browser.startup.blankWindow", false);
 // user_pref("browser.startup.page", 3);
+// user_pref("browser.tabs.closeWindowWithLastTab", false); // The last tab does not close the browser
 // user_pref("browser.tabs.drawInTitlebar", true);
 user_pref("browser.tabs.loadInBackground", false);
 // user_pref("browser.tabs.remote.autostart", true);
 // user_pref("browser.tabs.tabMinWidth", 30);
 // user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", true);
+// user_pref("browser.uidensity", 1); // Use small density in toolbar
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
 user_pref("browser.urlbar.autoFill", false);
@@ -129,9 +138,11 @@ user_pref("device.sensors.enabled", false); // PREF: Disable sensor API
 user_pref("device.sensors.motion.enabled", false);
 user_pref("device.sensors.orientation.enabled", false);
 // user_pref("devtools.aboutdebugging.showSystemAddons", true);
+// user_pref("devtools.netmonitor.features.webSockets", true);
 // user_pref("devtools.onboarding.telemetry.logged", true);
 // user_pref("devtools.theme", "dark");
 // user_pref("devtools.toolbox.splitconsoleEnabled", false);
+// user_pref("devtools.webide.enabled", false); // [DEFAULT: false FF70+]
 user_pref("dom.enable_performance_observer", false);
 user_pref("dom.enable_resource_timing", false); // PREF: Disable resource timing API
 // user_pref("dom.event.clipboardevents.enabled", true);
@@ -144,6 +155,7 @@ user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
+user_pref("dom.security.https_only_mode", true);  // Force to open https
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
 user_pref("dom.webgpu.enabled", true);
@@ -191,10 +203,11 @@ user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.all.qualified", true);
-user_pref("gfx.webrender.compositor", false);
+user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
+user_pref("image.avif.enabled", true);
 user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
 user_pref("intl.locale.requested", "en-US");
@@ -212,7 +225,8 @@ user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text box
 user_pref("layout.word_select.stop_at_punctuation", true);
 // user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("media.autoplay.allow-muted", false);
-user_pref("media.autoplay.default", 0);
+user_pref("media.autoplay.default", 5);
+user_pref("media.autoplay.enabled.user-gestures-needed", false);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.av1.enabled", true);
 user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
@@ -226,6 +240,7 @@ user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your 
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
 user_pref("media.webspeech.recognition.enable", false); // PREF: Disable speech recognition
 user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synthesis
+// user_pref("middlemouse.paste", true);
 // user_pref("mousewheel.min_line_scroll_amount", 36);
 user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Punycode equivalent leaves you open to phishing attacks
 user_pref("network.allow-experiments", false);
@@ -258,7 +273,7 @@ user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 user_pref("nglayout.initialpaint.delay", 0);
-// user_pref("pdfjs.disabled", true);
+user_pref("pdfjs.disabled", true);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("privacy.donottrackheader.enabled", true);
@@ -303,9 +318,9 @@ user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
 user_pref("ui.systemUsesDarkTheme", 1);
-user_pref("view_source.editor.external", true); // enable view source using external text editor
+// user_pref("view_source.editor.external", true); // enable view source using external text editor
+// user_pref("view_source.editor.path", "/usr/bin/emacs");
 user_pref("webgl.force-enabled", true);
 user_pref("webgl.msaa-force", true);
 // user_pref("widget.chrome.allow-gtk-dark-theme", true);
 // user_pref("widget.content.allow-gtk-dark-theme", true);
-// user_pref("widget.content.gtk-theme-override", "Adwaita:light");
