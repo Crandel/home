@@ -2,4 +2,4 @@
 Description=Run lock screen
 
 [Service]
-ExecStart=/home/crandel/.local/bin/.sleep.sh
+ExecStart=/home/crandel/.local/bin/sleep.sh
