@@ -22,6 +22,8 @@ if test -t 1; then
   force_color_prompt=yes
   color_prompt=yes
   export TERM="xterm-256color"
+  export LS_COLORS=$LS_COLORS:"di=01;35"
+
   RED="\[\033[0;31m\]"
   YELLOW="\[\033[1;33m\]"
   GREEN="\[\033[0;32m\]"
