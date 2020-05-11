@@ -138,14 +138,7 @@ clean_pyc (){
 }
 
 # BINS CONDITIONS
-SUDO=''
-if [[ $EUID -ne 0 ]] && command_exists sudo ; then
-  complete -cf sudo
-  SUDO='sudo'
-fi
-
 if command_exists pacman ; then
-  alias pacman="$SUDO pacman"
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
@@ -159,11 +152,11 @@ if command_exists pacman ; then
     alias yaci='yay -Sa'
   fi
   if command_exists powerpill ; then
-    alias upg="$SUDO powerpill -Syu"
+    alias upg="powerpill -Syu"
   fi
 
   recovery-pacman() {
-    sudo pacman "$@"  \
+    pacman "$@"  \
          --log /dev/null   \
          --noscriptlet     \
          --dbonly          \
@@ -174,7 +167,6 @@ if command_exists pacman ; then
 fi
 
 if command_exists apt ; then
-  alias apt="$SUDO apt"
   alias upd='apt update'
   alias upgy='apt upgrade'
   alias upl='apt list --upgradable'
@@ -183,7 +175,7 @@ if command_exists apt ; then
   alias paci='apt install'
   alias pacr='apt remove'
   alias pql="dpkg-query -L"
-  alias aar="$SUDO add-apt-repository"
+  alias aar="add-apt-repository"
 fi
 
 if command_exists git; then
