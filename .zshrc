@@ -464,6 +464,10 @@ if (( $+commands[clipmenud] )); then
   export CM_DIR=$HOME/.cache/.clipmenud
 fi
 
+if (( $+commands[bemenu] )); then
+  export BEMENU_OPTS='-I 0 -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
+fi
+
 if [ -f ~/.aliases.zsh ]; then
   . ~/.aliases.zsh
 fi
