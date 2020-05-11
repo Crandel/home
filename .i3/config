@@ -1,6 +1,6 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 set $mod Mod4
-set $lock .sleep.sh
+set $lock sleep.sh
 set $term tilix
 set $browser firefox
 set $feed quiterss
