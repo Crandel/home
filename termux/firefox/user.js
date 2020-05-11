@@ -155,7 +155,7 @@ user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
-user_pref("dom.security.https_only_mode", true);  // Force to open https
+user_pref("dom.security.https_only_mode", false);  // Force to open https
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
 user_pref("dom.webgpu.enabled", true);
