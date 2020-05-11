@@ -7,19 +7,19 @@
 -- show execution times
 \timing
 -- limit paging
-\pset pager off
+\set pager on
+\set pager_min_lines=15
+
 -- replace nulls
-\pset null ¤
+\pset null '(null)'
 \pset linestyle unicode
 \pset border 2
 \pset expanded off
 
 -- colorize
---\set PROMPT1 '%[%033[33;1m%]%x%[%033[0m%]%[%033[1m%]%/%[%033[0m%]%R%# '
-\set PROMPT1 '%[%033[1m%]%M %n@%/%R%[%033[0m%]%# '
---harolds
---\set PROMPT1 '%[%033[1m%]%M/%/%R%[%033[0m%]%# '
-\set PROMPT2 '[more] %R > '
+\set PROMPT1 '%[%033[0;30;36m%]%m%[%033[0m%] %[%033[1;30;32m%]%n%[%033[0m%]@%[%033[1;30;36m%]%/%[%033[0m%][%R]%x%# '
+\set PROMPT2 '%[%033[1;30;32m%]%l%[%033[0m%] %R >> '
+\set PROMPT3 '%l >>> '
 
 
 
