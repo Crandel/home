@@ -2,7 +2,7 @@
 
 folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_aurora" "org.mozilla.fennec_fdroid")
 
-cd ~/home/termux/firefox
+cd termux/firefox
 cwd=$(pwd)
 echo "PWD is $(pwd)"
 echo "BASEDIR is $cwd"
