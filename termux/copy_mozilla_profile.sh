@@ -4,8 +4,7 @@ folder_list=("org.mozilla.firefox" "org.mozilla.fenix" "org.mozilla.fennec_auror
 
 cd termux/firefox
 cwd=$(pwd)
-echo "BASEDIR is $cwd"
-
+ls -lA $cwd
 
 function update_settings () {
   folder=$1
@@ -13,13 +12,12 @@ function update_settings () {
   if [ -d $full_path ]; then
     cd $full_path
     echo "Current dir is $(pwd)"
-    echo "BASEDIR is $(cwd)"
     usernme=$(stat -c "%U" .)
     grp=$(stat -c "%G" .)
     cp -r $cwd/* .
-    echo "$(ls -lA | grep -i root)"
+    echo "Before chown $(ls -lA | grep -i user)"
     chown -R "$usernme:$grp" .
-    echo "$(ls -lA | grep -i user*)"
+    echo "After chown $(ls -lA | grep -i user)"
   fi
 }
 
