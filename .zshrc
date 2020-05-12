@@ -422,6 +422,11 @@ if (( $+commands[youtube-dl] )) ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
 fi
 
+
+if (( $+commands[aria2c] )); then
+  alias a2c='aria2c -x 10 -s 10'
+fi
+
 if (( $+commands[ffplay] )) ; then
   alias play='ffplay -nodisp -autoexit'
 fi
