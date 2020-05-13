@@ -68,6 +68,7 @@
 (prefer-coding-system                   'utf-8)
 
 (setq-default display-line-numbers t)
+(column-number-mode 1)
 
 ;; Display file size/time in mode-line
 (setq display-time-24hr-format  t)
