@@ -254,6 +254,18 @@ if command_exists nnn ; then
 fi
 #end file managers
 
+if command_exists youtube-dl ; then
+  alias ytb='youtube-dl -f bestvideo+bestaudio'
+fi
+
+if command_exists aria2c ; then
+  alias a2c='aria2c -x 10 -s 10'
+fi
+
+if command_exists ffplay ; then
+  alias play='ffplay -nodisp -autoexit'
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
