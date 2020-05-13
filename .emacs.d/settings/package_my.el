@@ -6,7 +6,7 @@
 (setq my-packages
     '(
       all-the-icons
-      apib-mode
+      ;; apib-mode
       avy
       company-flx
       company-mode
@@ -72,13 +72,12 @@
 
 (when (executable-find "rg")
     (add-to-list 'my-packages 'helm-ag)
+    (add-to-list 'my-packages 'ripgrep)
 )
 
 (when (executable-find "cargo")
     (add-to-list 'my-packages 'rust-mode)
-    ;; (add-to-list 'my-packages 'rust-racer)
     (add-to-list 'my-packages 'flycheck-rust)
-    ;; (add-to-list 'my-packages 'emacs-racer)
 )
 
 (when (executable-find "python")
@@ -87,11 +86,11 @@
       (add-to-list 'my-packages 'py-autopep8)
       )
     (add-to-list 'my-packages 'py-isort)
-    ;(when (executable-find "virtualenv")
-    ;  (add-to-list 'my-packages 'auto-virtualenv))
+    (when (executable-find "virtualenv")
+      (add-to-list 'my-packages 'auto-virtualenv))
 
-    ;; (when (executable-find "virtualenvwrapper")
-    ;;   (add-to-list 'my-packages 'auto-virtualenvwrapper))
+    (when (executable-find "virtualenvwrapper")
+      (add-to-list 'my-packages 'auto-virtualenvwrapper))
 )
 
 (when (executable-find "livedown")
@@ -102,10 +101,6 @@
     (add-to-list 'my-packages 'sbt-mode)
     (add-to-list 'my-packages 'scala-mode)
 )
-
-;(when (executable-find "javac")
-;    (add-to-list 'my-packages 'meghanada)
-;)
 
 (when (executable-find "docker")
     (add-to-list 'my-packages 'dockerfile-mode)
@@ -123,10 +118,11 @@
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 ;; Higher values are searched first.
 (setq package-archive-priorities
-      '(("org"          . 100)
+      '(
         ("melpa"        . 200)
+        ("org"          . 100)
         ("elpa"         . 75)
-        ("gnu"          .  50)))
+        ("gnu"          . 50)))
 (package-initialize)
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
