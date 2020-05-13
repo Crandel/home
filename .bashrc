@@ -371,6 +371,10 @@ if command_exists youtube-dl ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
 fi
 
+if command_exists aria2c ; then
+  alias a2c='aria2c -x 10 -s 10'
+fi
+
 if command_exists ffplay ; then
   alias play='ffplay -nodisp -autoexit'
 fi
