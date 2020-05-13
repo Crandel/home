@@ -6,6 +6,8 @@
        :pkgname "Malabarba/smart-mode-line"
        :post-init (progn
                       (setq sml/theme 'dark)
+                      (setq sml/shorten-modes t)
+                      (setq sml/shorten-directory t)
                       (setq sml/no-confirm-load-theme t)
                       (sml/setup)
                       (smart-mode-line-enable))

@@ -19,9 +19,6 @@
  ;; If there is more than one, they won't work right.
  '(compilation-disable-input t)
  '(compilation-window-height 10)
- '(custom-safe-themes
-   (quote
-    ("4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" "b9e9ba5aeedcc5ba8be99f1cc9301f6679912910ff92fdf7980929c2fc83ab4d" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
  '(lsp-ui-doc-delay 2)
  '(lsp-ui-doc-max-height 10)
  '(lsp-ui-doc-max-width 100)
@@ -64,14 +61,6 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; '(company-preview-common ((t (:inherit company-preview :foreground "brightcyan"))))
- ;; '(company-preview-search ((t (:inherit company-preview :background "black"))))
- ;; '(company-scrollbar-bg ((t (:background "dark green"))))
- ;; '(company-scrollbar-fg ((t (:background "red"))))
- ;; '(company-template-field ((t (:background "black" :foreground "chartreuse"))))
- ;; '(company-tooltip ((t (:background "black" :foreground "yellow green"))))
- ;; '(company-tooltip-search ((t (:background "dark khaki" :underline "blue"))))
- ;; '(company-tooltip-selection ((t (:background "honeydew" :foreground "dark green"))))
  '(helm-buffer-modified ((t (:inherit font-lock-comment-face :foreground "coral"))))
  '(magit-diff-added ((t (:background "dark slate gray" :foreground "chocolate"))))
  '(magit-diff-added-highlight ((t (:background "dark olive green" :foreground "gold"))))
@@ -97,7 +86,6 @@
  '(whitespace-empty ((t (:foreground "sienna"))))
  '(whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
  '(whitespace-indentation ((t (:foreground "grey10"))))
- '(whitespace-line ((t (:underline (:color foreground-color :style wave)))))
  '(whitespace-newline ((t (:foreground "dark green" :weight normal))))
  '(whitespace-space ((t (:foreground "DarkOrchid4"))))
  '(whitespace-space-after-tab ((t (:foreground "firebrick"))))
