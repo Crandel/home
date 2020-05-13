@@ -38,7 +38,7 @@
 (unless (>= emacs-major-version 24)
   (error "Requires Emacs 24 or later"))
 
-(defcustom gruvbox-contrast 'medium
+(defcustom gruvbox-contrast 'hard
   "Contrast level for the theme background."
   :options '(soft medium hard))
 

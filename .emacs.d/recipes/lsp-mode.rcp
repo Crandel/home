@@ -46,10 +46,10 @@
                                                   )
                               )
 
-                    (add-hook 'sh-mode-hook '(lambda()
-                                               (lsp)
-                                               )
-                              )
+                    ;; (add-hook 'sh-mode-hook '(lambda()
+                    ;;                            (lsp)
+                    ;;                            )
+                    ;;           )
 
                     ;; (add-hook 'yaml-mode-hook '(lambda()
                     ;;                            (lsp)

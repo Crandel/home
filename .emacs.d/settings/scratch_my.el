@@ -1,13 +1,13 @@
 ;; Font settings
-(set-default-font "Hack 12")
+(set-frame-font "Hack 12")
 ;; The full name of the user logged in
 ;; Full mailing address of user
 (setq-default user-full-name   "crandel"
               user-mail-adress "cradlemann@gmail.com")
 
 ;; Set zsh as default shell
-(setq shell-file-name           "/bin/zsh"
-      explicit-shell-file-name  "/bin/zsh")
+(setq shell-file-name           "/bin/zsh")
+;;      explicit-shell-file-name  "/bin/zsh")
 
 ;; Inhibit startup/splash screen
 (setq inhibit-splash-screen   t
@@ -46,7 +46,6 @@
 (tooltip-mode     -1)
 (menu-bar-mode    -1)
 (setq use-dialog-box        nil
-      redisplay-dont-pause  t
       ring-bell-function    'ignore)
 
 ;; Display the name of the current buffer in the title bar
@@ -103,7 +102,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Clipboard settings
-(setq x-select-enable-clipboard t)
+(setq select-enable-clipboard t)
 
 (setq next-line-add-newlines nil)
 
