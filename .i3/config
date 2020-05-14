@@ -14,20 +14,20 @@ floating_modifier $mod
 
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
-  bindsym semicolon resize grow width 10 px or 10 ppt
+  bindsym j resize shrink width 30 px or 30 ppt
+  bindsym k resize grow height 30 px or 30 ppt
+  bindsym l resize shrink height 30 px or 30 ppt
+  bindsym semicolon resize grow width 30 px or 30 ppt
 
   # same bindings, but for the arrow keys
   # Pressing left will shrink the window’s width.
-  bindsym Left resize shrink width 10 px or 10 ppt
+  bindsym Left resize shrink width 30 px or 30 ppt
   # Pressing down will grow the window’s height.
-  bindsym Down resize grow height 10 px or 10 ppt
+  bindsym Down resize grow height 30 px or 30 ppt
   # Pressing up will shrink the window’s height.
-  bindsym Up resize shrink height 10 px or 10 ppt
+  bindsym Up resize shrink height 30 px or 30 ppt
   # Pressing right will grow the window’s width.
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Right resize grow width 30 px or 30 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"

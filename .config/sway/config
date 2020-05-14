@@ -67,16 +67,16 @@ mode "resize" {
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
   bindsym --to-code {
-    j resize shrink width 10 px or 10 ppt
-    k resize grow height 10 px or 10 ppt
-    l resize shrink height 10 px or 10 ppt
-    semicolon resize grow width 10 px or 10 ppt
+    j resize shrink width 30 px or 30 ppt
+    k resize grow height 30 px or 30 ppt
+    l resize shrink height 30 px or 30 ppt
+    semicolon resize grow width 30 px or 30 ppt
 
   # same bindings, but for the arrow keys
-    Left resize shrink width 10 px or 10 ppt
-    Down resize grow height 10 px or 10 ppt
-    Up resize shrink height 10 px or 10 ppt
-    Right resize grow width 10 px or 10 ppt
+    Left resize shrink width 30 px or 30 ppt
+    Down resize grow height 30 px or 30 ppt
+    Up resize shrink height 30 px or 30 ppt
+    Right resize grow width 30 px or 30 ppt
 
   # back to normal: Enter or Escape
     Return mode "default"
