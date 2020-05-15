@@ -212,7 +212,7 @@
                   (sql-server "localhost")
                   (sql-user "test2")
                   (sql-password "test")
-                  (sql-database "test2"))))
+                  (sql-database "test2")))))
 
 (add-hook 'sql-interactive-mode-hook
           (lambda()
