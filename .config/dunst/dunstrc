@@ -243,8 +243,8 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    frame_color = "#3B7C87"
-    foreground = "#3B7C87"
+    frame_color = "#c4c78d"
+    foreground = "#c4c78d"
     background = "#191311"
     timeout = 4
 

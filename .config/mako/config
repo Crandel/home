@@ -8,8 +8,8 @@ height=500
 font=Hack 16
 border-color=#5B8234
 border-size=2
-background-color=#5B8234
-text-color=#fdf6e3
+background-color=#191311
+text-color=#5B8234
 # The format of the message.  Possible variables are:
 #   %a  appname
 #   %s  summary
@@ -27,15 +27,15 @@ format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
 icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/deepin
 
 [urgency=low]
-text-color=#fdf6e3
-border-color=#3B7C87
+text-color=#c4c78d
+border-color=#c4c78d
 border-size=2
-background-color=#3B7C87
+background-color=#191311
 format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
 
 [urgency=high]
-text-color=#fdf6e3
+text-color=#B7472A
 border-color=#B7472A
 border-size=2
-background-color=#B7472A
+background-color=#191311
 format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
