@@ -28,9 +28,8 @@
     tool = meld
     conflictstyle = diff3
 [diff]
-	tool = meld
-
+    tool = meld
 [difftool]
-	prompt = false
+    prompt = false
 [credential]
-	helper = /usr/lib/git-core/git-credential-gnome-keyring
+    helper = /usr/lib/git-core/git-credential-gnome-keyring
