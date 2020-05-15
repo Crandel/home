@@ -2,7 +2,7 @@
 
 declare -a arr=("DCIM" "Books" "Diaro" "dictdata" "docs" "Download"
                 "Fonts" "ivona" "MapsWithMe" "Music" "Pictures" "progs"
-                "SamLib-Info" "TitaniumBackup" "TWRP" "viber"
+                "SamLib-Info" "TitaniumBackup" "TWRP" "viber" "termux"
                 "VocalizerEx2" "work")
 
 
