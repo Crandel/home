@@ -268,7 +268,7 @@ assign [class="Viber"] 2
 assign [class="Wire"] 2
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
-for_window [app_id="quiterss"] move to workspace 3
+# for_window [app_id="quiterss"] move to workspace 3
 
 workspace_layout tabbed
 

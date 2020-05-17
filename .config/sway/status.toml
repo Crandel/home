@@ -1,5 +1,5 @@
 theme = "plain"
-icons = "awesome"
+icons = "awesome5"
 
 [[block]]
 block = "custom"
@@ -12,7 +12,7 @@ path = "/"
 alias = "/"
 info_type = "available"
 unit = "GB"
-interval = 20
+interval = 60
 warning = 15.0
 alert = 10.0
 show_percentage = true
