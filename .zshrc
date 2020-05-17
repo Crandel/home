@@ -5,19 +5,17 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$HOME/.zshrc'
 
-# custon zsh funcs
-fpath+=~/.zfunc
-
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit
 # End of lines added by compinstall
 
 # ZSH SPECIFIC
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
 bindkey -e
-autoload -Uz promptinit && promptinit
+autoload -Uz promptinit
+promptinit
 
-export PERS_DIR='/opt/work'
-export PAGER='less -SRXF'
+
 virtual='virtualenvwrapper.sh'
 if (( $+commands[$virtual] )); then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -25,6 +23,16 @@ if (( $+commands[$virtual] )); then
   export AUTOSWITCH_SILENT=1
   source $virtual
 fi
+export PERS_DIR='/opt/work'
+
+# ALIASES
+alias arch='uname -m'
+alias ll='ls -ahlF'
+alias la='ls -A'
+alias ~='cd $HOME'
+alias home_pr='cd $PERS_DIR/home'
+alias L='|less'
+alias G='|grep'
 
 # FUNCTIONS
 project_folders="$PERS_DIR/projects"
@@ -436,7 +444,7 @@ fi
 if (( $+commands[emacs] )); then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
-  export EDITOR='emacs'
+  export EDITOR='GDK_BACKEND=x11 emacs'
 elif (( $+commands[vim] )); then
   export EDITOR='vim'
 fi
@@ -534,6 +542,6 @@ function set_zsh_prompt () {
 set_zsh_prompt
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  # exec $HOME/.local/bin/swayinitrc
-  exec startx
+  exec $HOME/swayinitrc
+  # exec startx
 fi

@@ -8,6 +8,7 @@ user_pref("app.update.checkInstallTime", false);
 user_pref("apz.allow_double_tap_zooming", false);
 user_pref("apz.allow_zooming", false);
 user_pref("apz.android.chrome_fling_physics.enabled", false);
+user_pref("apz.gtk.kinetic_scroll.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version [FF71+]
 user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab

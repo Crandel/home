@@ -1,0 +1,1 @@
+KERNEL=="card0", SUBSYSTEM=="drm", ACTION=="change", RUN+="/usr/bin/systemctl start hdmi_toggle.service"
