@@ -58,6 +58,20 @@ font "pango:Hack 18", "pango:FontAwesome 18"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod normal
 
+workspace_layout tabbed
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output DP-4
+workspace 4 output DP-3
+
+# assings
+assign [class="Viber"] 2
+assign [class="Wire"] 2
+assign [app_id="evolution"] 2
+assign [app_id="quiterss"] 3
+
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
@@ -72,13 +86,13 @@ mode "resize" {
     l resize shrink height 30 px or 30 ppt
     semicolon resize grow width 30 px or 30 ppt
 
-  # same bindings, but for the arrow keys
+    # same bindings, but for the arrow keys
     Left resize shrink width 30 px or 30 ppt
     Down resize grow height 30 px or 30 ppt
     Up resize shrink height 30 px or 30 ppt
     Right resize grow width 30 px or 30 ppt
 
-  # back to normal: Enter or Escape
+    # back to normal: Enter or Escape
     Return mode "default"
     Escape mode "default"
   }
@@ -194,7 +208,6 @@ bindsym --to-code {
   # Intellij
   $mod+b exec idea-ce
 
-
   # lock screen
   $mod+Control+z exec $lock
 
@@ -250,9 +263,11 @@ bar {
     urgent_workspace   #2f343a #900000 #ffffff
     binding_mode       #2f343a #900000 #ffffff
   }
-  # bindcode button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
-  # bindcode button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% #decrease sound volume
-  # bindcode button2 exec gsimplecal
+  bindsym --release {
+    button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # increase sound volume
+    button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% # decrease sound volume
+    button2 exec gsimplecal
+  }
   font "pango:Hack 18", FontAwesome 18
   status_command i3status-rs $HOME/.config/sway/status.toml
 }
@@ -263,18 +278,6 @@ client.focused          #4B610B  #999900 #e6ffff #00DA8E    #4B610B
 client.focused_inactive #4B610B  #000000 #FFFFFF #484e50    #4B610B
 client.unfocused        #4B610B  #424242 #ECF6CE #292d2e    #4B610B
 client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
-# assings
-assign [class="Viber"] 2
-assign [class="Wire"] 2
-assign [app_id="evolution"] 2
-assign [app_id="quiterss"] 3
-# for_window [app_id="quiterss"] move to workspace 3
-
-workspace_layout tabbed
-
-workspace 1 output eDP-1
-workspace 2 output eDP-1
-# workspace 3 output HDMI-A-1
 
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=100 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures-setup start
