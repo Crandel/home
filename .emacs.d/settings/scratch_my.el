@@ -1,5 +1,5 @@
 ;; Font settings
-(set-frame-font "Hack 12")
+(set-frame-font "Hack 18")
 ;; The full name of the user logged in
 ;; Full mailing address of user
 (setq-default user-full-name   "crandel"
@@ -138,7 +138,7 @@
 
 (recentf-mode 1)
 (setq recentf-max-menu-items      150
-      recentf-max-saved-items     550)
+      recentf-max-saved-items     1550)
 
 ;; Show paren
 (setq show-paren-delay 0
