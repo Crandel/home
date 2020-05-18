@@ -5,6 +5,9 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$HOME/.zshrc'
 
+# custon zsh funcs
+fpath+=~/.zfunc
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
@@ -15,7 +18,8 @@ bindkey -e
 autoload -Uz promptinit
 promptinit
 
-
+export PERS_DIR='/opt/work'
+export PAGER='less -SRXF'
 virtual='virtualenvwrapper.sh'
 if (( $+commands[$virtual] )); then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
@@ -23,16 +27,6 @@ if (( $+commands[$virtual] )); then
   export AUTOSWITCH_SILENT=1
   source $virtual
 fi
-export PERS_DIR='/opt/work'
-
-# ALIASES
-alias arch='uname -m'
-alias ll='ls -ahlF'
-alias la='ls -A'
-alias ~='cd $HOME'
-alias home_pr='cd $PERS_DIR/home'
-alias L='|less'
-alias G='|grep'
 
 # FUNCTIONS
 project_folders="$PERS_DIR/projects"
@@ -542,6 +536,6 @@ function set_zsh_prompt () {
 set_zsh_prompt
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec $HOME/swayinitrc
+  exec $HOME/.local/bin/swayinitrc
   # exec startx
 fi

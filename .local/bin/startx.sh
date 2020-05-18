@@ -4,7 +4,7 @@ while [ 1 ]
 do
   # Check whether or not Xorg exists
   if pgrep Xorg; then
-    sleep 0.5
+    sleep 1
     break;
   fi
   echo -n "."
