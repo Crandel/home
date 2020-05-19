@@ -280,7 +280,7 @@ client.unfocused        #4B610B  #424242 #ECF6CE #292d2e    #4B610B
 client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=100 1>> $HOME/.local/log/clipman.log 2>&1 &
-exec --no-startup-id libinput-gestures-setup start
+exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term --quake
 exec env GDK_BACKEND=x11 wire-desktop-beta
 exec $email
