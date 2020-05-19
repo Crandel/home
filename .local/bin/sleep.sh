@@ -9,6 +9,7 @@ if ! pgrep "sway" ; then
   fi
 else
   if hash swaylock >/dev/null 2>&1 && ! pgrep "swaylock" > /dev/null ; then
+    swaymsg input type:keyboard xkb_switch_layout 0
     echo "Succesfully block screen using swaylock"
     swaylock -c 000000 -n
     echo "swaylock was closed"

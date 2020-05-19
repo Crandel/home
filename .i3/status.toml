@@ -18,28 +18,6 @@ alert = 10.0
 show_percentage = false
 
 [[block]]
-block = "disk_space"
-path = "/home"
-alias = "h"
-info_type = "available"
-unit = "GB"
-interval = 60
-warning = 15.0
-alert = 10.0
-show_percentage = false
-
-[[block]]
-block = "disk_space"
-path = "/media/data"
-alias = "d"
-info_type = "available"
-unit = "GB"
-interval = 60
-warning = 200.0
-alert = 100.0
-show_percentage = false
-
-[[block]]
 block = "cpu"
 interval = 1
 format = "{barchart} {utilization}% {frequency}GHz"
