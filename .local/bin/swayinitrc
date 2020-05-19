@@ -1,7 +1,6 @@
 #!/bin/bash
 
 source /etc/profile
-export SSH_AUTH_SOCK
 
 export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
@@ -15,4 +14,4 @@ export MOZ_DBUS_REMOTE=1
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-exec sway --verbose
+exec sway --verbose > ~/.local/log/sway.log

@@ -8,6 +8,7 @@ user_pref("app.update.checkInstallTime", false);
 user_pref("apz.allow_double_tap_zooming", true);
 user_pref("apz.allow_zooming", true);
 user_pref("apz.android.chrome_fling_physics.enabled", true);
+user_pref("apz.gtk.kinetic_scroll.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version [FF71+]
 // user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
@@ -158,8 +159,9 @@ user_pref("dom.push.enabled", false);
 user_pref("dom.security.https_only_mode", false);  // Force to open https
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
-user_pref("dom.webgpu.enabled", true);
+// F 77 user_pref("dom.webgpu.enabled", true);
 user_pref("dom.webnotifications.requireuserinteraction", true);
+// F 77 user_pref("editor.truncate_user_pastes", false); // prevents that the server receives a longer than expected password or string.
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
@@ -202,8 +204,7 @@ user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.all.qualified", true);
-user_pref("gfx.webrender.compositor", true);
+user_pref("gfx.webrender.compositor", false);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
@@ -215,10 +216,10 @@ user_pref("javascript.options.shared_memory", true);
 user_pref("javascript.options.wasm", true); // PREF: Enable WebAssembly
 user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
-user_pref("layers.acceleration.force-enabled", true);
-// user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
-// user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
-user_pref("layers.gpu-process.enabled", true);
+user_pref("layers.acceleration.force-enabled", false);
+user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
+user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
+user_pref("layers.gpu-process.enabled", false);
 // user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
@@ -320,7 +321,7 @@ user_pref("toolkit.telemetry.updatePing.enabled", true);
 user_pref("ui.systemUsesDarkTheme", 1);
 // user_pref("view_source.editor.external", true); // enable view source using external text editor
 // user_pref("view_source.editor.path", "/usr/bin/emacs");
-user_pref("webgl.force-enabled", true);
-user_pref("webgl.msaa-force", true);
+user_pref("webgl.force-enabled", false);
+user_pref("webgl.msaa-force", false);
 // user_pref("widget.chrome.allow-gtk-dark-theme", true);
 // user_pref("widget.content.allow-gtk-dark-theme", true);
