@@ -401,6 +401,10 @@ if [ -d $HOME/.cargo/bin ]; then
 fi
 
 if (( $+commands[cargo] )) ; then
+  alias crn='cargo run'
+  alias cup='cargo update'
+  alias cbd='cargo build'
+  alias cbr='cargo build --release'
   if (( !$+commands[tldr] )) ; then
     cargo install tealdeer
   fi
