@@ -33,11 +33,12 @@ input type:touchpad {
 
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-  gsettings set $gnome-schema gtk-theme 'Adapta-Black-Nokto-Eta-Maia'
-  gsettings set $gnome-schema icon-theme 'deepin-dark'
-  gsettings set $gnome-schema font-name 'Hack'
-  gsettings set $gnome-schema text-scaling-factor 1.2
-  gsettings set $gnome-schema cursor-theme 'Numix-Cursor-Maia'
+  gsettings set $gnome-schema gtk-theme 'gruvbox-dark-gtk'
+  gsettings set $gnome-schema icon-theme 'gruvbox-dark-icons-gtk'
+  gsettings set $gnome-schema font-name 'Hack 18'
+  gsettings set $gnome-schema document-font-name 'Hack 18'
+  gsettings set $gnome-schema text-scaling-factor 1.0
+  gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
 ## END SWAY SPECIFIC
 
