@@ -6,7 +6,7 @@ export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 
 export GDK_BACKEND=wayland
-export GTK_THEME=Adapta-Black-Nokto-Eta-Maia
+export GTK_THEME=gruvbox-dark-gtk
 export GNOME_DESKTOP_SESSION_ID=1
 
 export MOZ_ENABLE_WAYLAND=1
