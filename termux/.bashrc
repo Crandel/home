@@ -286,6 +286,11 @@ if [ -d $LOCAL_BIN ]; then
   export PATH=$PATH:$LOCAL_BIN
 fi
 
+install_from_file(){
+  local file=$1
+  cat $file | xargs pkg install
+}
+
 # PROMPT
 # get current status of git repo
 function parse_git_branch(){

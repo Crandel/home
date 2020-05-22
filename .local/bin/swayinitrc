@@ -14,4 +14,4 @@ export MOZ_DBUS_REMOTE=1
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-exec sway --verbose > ~/.local/log/sway.log
+exec sway --verbose >> ~/.local/log/sway.log
