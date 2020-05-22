@@ -11,7 +11,7 @@ else
   if hash swaylock >/dev/null 2>&1 && ! pgrep "swaylock" > /dev/null ; then
     swaymsg input type:keyboard xkb_switch_layout 0
     echo "Succesfully block screen using swaylock"
-    swaylock -c 000000 -F -e -k -l --font Hack --font-size 22
+    swaylock -c 000000 -F -e -k -l --font Hack --font-size 22 -i ~/Pictures/wallpaper.jpg
     echo "swaylock was closed"
   fi
 fi

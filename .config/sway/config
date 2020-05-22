@@ -9,7 +9,7 @@
 #
 # SWAY SPECIFIC
 output {
-  eDP-1 background /usr/share/themes/Schloss_Lichtenstein_dark.jpg fill
+  eDP-1 background ~/Pictures/wallpaper.jpg fill
   # HDMI1-A-1 pos 1920 0 res 1920x1080
   eDP-1 pos 0 0 res 1920x1080
 }
