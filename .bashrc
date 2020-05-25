@@ -362,7 +362,6 @@ if command_exists nnn ; then
 fi
 #end file managers
 
-
 if command_exists youtube-dl ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
 fi
