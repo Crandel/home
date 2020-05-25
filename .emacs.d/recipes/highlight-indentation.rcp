@@ -5,7 +5,7 @@
        :features "highlight-indentation"
        :post-init (progn
                     (set-face-foreground 'highlight-indentation-face "IndianRed")
-                    (set-face-background 'highlight-indentation-face "color-234")
+                    (set-face-background 'highlight-indentation-face "#1d2021")
                     (add-hook 'python-mode-hook               #'highlight-indentation-mode)
                     (add-hook 'js-mode-hook                   #'highlight-indentation-mode)
                     (add-hook 'web-mode-hook                  #'highlight-indentation-mode)

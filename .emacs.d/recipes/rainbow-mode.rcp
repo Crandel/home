@@ -3,11 +3,11 @@
        :type elpa
        :prepare (autoload 'rainbow-turn-on "rainbow-mode")
        :post-init (progn
-                    (add-hook 'css-mode-hook              #'rainbow-mode)
-                    (add-hook 'web-mode-hook              #'rainbow-mode)
-                    (add-hook 'sh-mode-hook               #'rainbow-mode)
                     (add-hook 'conf-mode-hook             #'rainbow-mode)
-                    (add-hook 'javascript2-mode-hook      #'rainbow-mode)
+                    (add-hook 'css-mode-hook              #'rainbow-mode)
                     (add-hook 'emacs-lisp-mode-hook       #'rainbow-mode)
+                    (add-hook 'javascript2-mode-hook      #'rainbow-mode)
                     (add-hook 'lisp-interaction-mode-hook #'rainbow-mode)
+                    (add-hook 'sh-mode-hook               #'rainbow-mode)
+                    (add-hook 'web-mode-hook              #'rainbow-mode)
 ))

@@ -420,10 +420,6 @@ fi
 # End Program langs
 
 # Media
-if (( $+commands[mpv] )) ; then
-  alias mpv='mpv --hwdec=vaapi --vo=gpu'
-fi
-
 if (( $+commands[youtube-dl] )) ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
 fi

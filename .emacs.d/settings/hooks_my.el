@@ -188,7 +188,6 @@
 ;; SQL settings
 (add-to-list 'same-window-buffer-names "*SQL*")
 (defun my-sql-save-history-hook ()
-  
     (let ((lval 'sql-input-ring-file-name)
           (rval 'sql-product))
       (if (symbol-value rval)
@@ -218,6 +217,11 @@
           (lambda()
             (toggle-truncate-lines t)
             (my-sql-save-history-hook)
+            ))
+
+(add-hook 'sql-mode-hook
+          (lambda()
+            (sql-highlight-postgres-keywords)
             ))
 
 (provide 'hooks_my)
