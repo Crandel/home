@@ -363,10 +363,6 @@ fi
 #end file managers
 
 
-if command_exists mpv ; then
-  alias mpv='mpv --hwdec=vaapi --vo=vaapi'
-fi
-
 if command_exists youtube-dl ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
 fi
