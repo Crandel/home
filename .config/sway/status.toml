@@ -73,6 +73,11 @@ speed_up = false
 ssid = true
 
 [[block]]
+block = "custom"
+command = "~/.local/bin/keyboard-layout-print.sh"
+interval = 2
+
+[[block]]
 block = "time"
 interval = 15
 format = "%d.%m.%y %R"
