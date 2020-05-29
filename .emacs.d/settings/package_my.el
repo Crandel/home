@@ -51,7 +51,7 @@
       vimrc-mode
       web-mode
       which-key
-      xclip
+      ; xclip
       yafolding
       yaml-mode
       yasnippet
