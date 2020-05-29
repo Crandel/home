@@ -80,4 +80,4 @@ interval = 2
 [[block]]
 block = "time"
 interval = 15
-format = "%d.%m.%y %R"
+format = "%d.%m %R"

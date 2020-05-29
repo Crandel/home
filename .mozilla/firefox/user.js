@@ -269,7 +269,7 @@ user_pref("network.trr.custom_uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
-user_pref("network.trr.mode", 2);
+user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
