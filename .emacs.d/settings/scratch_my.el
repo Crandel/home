@@ -10,8 +10,7 @@
 ;;      explicit-shell-file-name  "/bin/zsh")
 
 ;; Inhibit startup/splash screen
-(setq inhibit-splash-screen   t
-      inhibit-startup-message t)
+(setq inhibit-startup-screen t)
 
 ;; Imenu
 (require 'imenu)
