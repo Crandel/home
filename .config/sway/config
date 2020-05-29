@@ -244,9 +244,7 @@ bindsym --release {
 # Start swaybar to display a workspace bar (plus the system information swaystatus
 # finds out, if available)
 bar {
-  # status_command swaystatus -c $HOME/.config/sway/swaystatus.conf
   position top
-  # strip_workspace_numbers yes
   workspace_buttons yes
   tray_output $o_center
   colors {
