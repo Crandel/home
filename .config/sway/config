@@ -3,6 +3,7 @@ set {
   $lock sleep.sh
   $term tilix
   $editor env GDK_BACKEND=x11 emacs
+#  $editor alacritty -e emacs -nw
   $browser firefox
   $feed quiterss
   $email evolution
