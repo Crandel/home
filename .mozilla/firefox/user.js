@@ -159,9 +159,9 @@ user_pref("dom.push.enabled", false);
 user_pref("dom.security.https_only_mode", false);  // Force to open https
 user_pref("dom.vibrator.enabled", false); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
-// F 77 user_pref("dom.webgpu.enabled", true);
+user_pref("dom.webgpu.enabled", true);
 user_pref("dom.webnotifications.requireuserinteraction", true);
-// F 77 user_pref("editor.truncate_user_pastes", false); // prevents that the server receives a longer than expected password or string.
+user_pref("editor.truncate_user_pastes", false); // prevents that the server receives a longer than expected password or string.
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
 user_pref("experiments.enabled", false);
 user_pref("experiments.manifest.uri", "");
@@ -226,9 +226,10 @@ user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text box
 user_pref("layout.word_select.stop_at_punctuation", true);
 user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("media.autoplay.allow-muted", false);
+user_pref("media.autoplay.block-event.enabled", true);
 user_pref("media.autoplay.default", 5);
-user_pref("media.autoplay.enabled.user-gestures-needed", false);
 user_pref("media.autoplay.enabled", false);
+user_pref("media.autoplay.enabled.user-gestures-needed", false);
 user_pref("media.av1.enabled", true);
 user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
@@ -325,3 +326,6 @@ user_pref("webgl.force-enabled", false);
 user_pref("webgl.msaa-force", false);
 user_pref("widget.chrome.allow-gtk-dark-theme", true);
 user_pref("widget.content.allow-gtk-dark-theme", true);
+user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
+user_pref("widget.wayland-smooth-rendering", true);
+user_pref("widget.wayland_vsync.enabled", true);

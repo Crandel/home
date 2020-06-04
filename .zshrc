@@ -382,6 +382,9 @@ if (( $+commands[scala] )); then
     echo "Compilation done"
     scala $name
   }
+  if (( $+commands[coursier] )); then
+    alias openapi-generator-cli="coursier launch org.openapitools:openapi-generator-cli:latest.release --"
+  fi
 fi
   # End Scala
 
@@ -422,6 +425,7 @@ fi
 # Media
 if (( $+commands[youtube-dl] )) ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
+  alias ytm='youtube-dl -x'
 fi
 
 
