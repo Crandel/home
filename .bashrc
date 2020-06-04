@@ -364,6 +364,7 @@ fi
 
 if command_exists youtube-dl ; then
   alias ytb='youtube-dl -f bestvideo+bestaudio'
+  alias ytm='youtube-dl -x'
 fi
 
 if command_exists aria2c ; then
