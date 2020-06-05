@@ -20,8 +20,8 @@
  '(compilation-disable-input t)
  '(compilation-window-height 10)
  '(lsp-ui-doc-delay 2)
- '(lsp-ui-doc-max-height 10)
- '(lsp-ui-doc-max-width 100)
+ '(lsp-ui-doc-max-height 3)
+ '(lsp-ui-doc-max-width 30)
  '(magit-log-arguments
    (quote
     ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
