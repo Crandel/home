@@ -1,8 +1,7 @@
 (:name helm-swoop
        :type github
        :description "Efficiently hopping squeezed lines powered by Emacs helm interface"
-       :pkgname "pkryger/helm-swoop"
-       :branch "patches"
+       :pkgname "emacsorphanage/helm-swoop"
        :depends (helm)
        :post-init(progn
                    (global-unset-key (kbd "C-c s"))
@@ -12,6 +11,6 @@
 
                    (setq helm-multi-swoop-edit-save               nil
                          helm-swoop-split-with-multiple-windows   t
-                         helm-swoop-split-direction               'split-window-vertically
+                         helm-swoop-split-direction               'split-window-horizontally
                          helm-swoop-move-to-line-cycle            t
                          helm-swoop-use-fuzzy-match               t)))

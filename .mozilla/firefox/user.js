@@ -328,4 +328,4 @@ user_pref("widget.chrome.allow-gtk-dark-theme", true);
 user_pref("widget.content.allow-gtk-dark-theme", true);
 user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
 user_pref("widget.wayland-smooth-rendering", true);
-user_pref("widget.wayland_vsync.enabled", true);
+user_pref("widget.wayland_vsync.enabled", false);

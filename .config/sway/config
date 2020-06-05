@@ -66,7 +66,7 @@ assign [class="Viber"] 3
 assign [class="Wire"] 2
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
-
+for_window [app_id="quiterss"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

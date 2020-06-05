@@ -102,8 +102,9 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 ;; Clipboard settings
-(setq select-enable-clipboard t)
-(setq wl-copy-process nil)
+(setq select-enable-clipboard             t
+      save-interprogram-paste-before-kill t
+      wl-copy-process                     nil)
 (defun wl-copy (text)
   (setq wl-copy-process (make-process :name "wl-copy"
                                       :buffer nil
