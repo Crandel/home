@@ -319,6 +319,7 @@ user_pref("toolkit.telemetry.reportingpolicy.firstRun", true);
 user_pref("toolkit.telemetry.shutdownPingSender.enabled", true);
 user_pref("toolkit.telemetry.unified", true);
 user_pref("toolkit.telemetry.updatePing.enabled", true);
+user_pref("ui.prefersReducedMotion", 1); // Disable animation
 user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 user_pref("view_source.editor.path", "$HOME/.local/bin/editor-run");
