@@ -1,3 +1,123 @@
+/*** Megabar Styler General - version 2020-04-19 ***/
+
+/*** General Preferences ***/
+:root {
+  /* Number of pixels of enlargement when URL bar is focused */
+  --mbarstyler-popout-pixels: 1px; /* [0px - 7px] */
+
+  /* Top Bar Display or Not */
+  --mbarstyler-top-bar-display: block; /* [block,none] */
+
+  /* Font sizes (default: 13.8px for title, 10.2px for URL) */
+  --mbarstyler-title-font-size: 18px; /* [13px - 18px] */
+  --mbarstyler-url-font-size: 16px; /* [12px - 16px] */
+
+  /* Rows to show without scrolling */
+  --mbarstyler-max-rows-without-scrolling: 10;
+
+  /* Bottom border for each result row */
+  --mbarstyler-bottom-border-width: 1px; /* [0px or 1px] */
+
+  /* Match display style */
+  --mbarstyler-match-weight: 700; /* [400,700] */
+  --mbarstyler-match-background-opacity: 0.05; /* [0.0,0.05,0.1] */
+}
+
+/*** URL bar enlargement or lack thereof ***/
+
+/* Compute new position, width, and padding */
+#urlbar[breakout][breakout-extend] {
+  top: calc(5px - var(--mbarstyler-popout-pixels)) !important;
+  left: calc(0px - var(--mbarstyler-popout-pixels)) !important;
+  width: calc(100% + (2 * var(--mbarstyler-popout-pixels))) !important;
+  padding: var(--mbarstyler-popout-pixels) !important;
+}
+
+[uidensity="compact"] #urlbar[breakout][breakout-extend] {
+  top: calc(3px - var(--mbarstyler-popout-pixels)) !important;
+}
+
+[uidensity="touch"] #urlbar[breakout][breakout-extend] {
+  top: calc(4px - var(--mbarstyler-popout-pixels)) !important;
+}
+
+/* Prevent shift of URL bar contents */
+#urlbar[breakout][breakout-extend] > #urlbar-input-container {
+  height: var(--urlbar-height) !important;
+  padding: 0 !important;
+}
+
+/* Do not animate */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  animation: none !important;;
+}
+
+/* Remove shadows */
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+  box-shadow: none !important;
+}
+
+/*** Top "Blue Bar" Display ***/
+
+.urlbarView-row:first-of-type {
+  display: var(--mbarstyler-top-bar-display) !important;
+}
+
+/*** Font Sizes and Scrolling ***/
+
+/* Title font-size */
+.urlbarView-row .urlbarView-title {
+  font-size: var(--mbarstyler-title-font-size) !important;
+}
+
+/* URL / action font-size */
+.urlbarView-row .urlbarView-secondary,
+.urlbarView-row .urlbarView-url,
+.urlbarView-row .urlbarView-action {
+  font-size: var(--mbarstyler-url-font-size) !important;
+  font-size: var(--mbarstyler-url-font-size) !important;
+}
+
+/* Set max-height for items visible without scrolling */
+#urlbarView-results, #urlbar-results {
+  height: unset !important;
+  max-height: calc(2.5 * (var(--mbarstyler-title-font-size) + var(--mbarstyler-bottom-border-width)) * var(--mbarstyler-max-rows-without-scrolling)) !important;
+}
+
+#urlbar-results {
+  overflow-y: auto !important; 
+}
+
+/* Clean up extra spacing at the top and bottom */  
+#urlbar-results {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Subtle border between results */
+.urlbarView-row:not(:last-of-type) {
+  border-bottom: var(--mbarstyler-bottom-border-width) solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Match Styling Like Fx43-47 */
+[lwt-popup-darktext] .urlbarView-row:not([selected]) .urlbarView-title strong,
+[lwt-popup-darktext] .urlbarView-row:not([selected]) .urlbarView-url strong {
+  font-weight: var(--mbarstyler-match-weight) !important;
+  box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, calc(var(--mbarstyler-match-background-opacity) * 2));
+  background-color: rgba(0, 0, 0, var(--mbarstyler-match-background-opacity));
+  border-radius: 2px;
+}
+
+[lwt-popup-brighttext] .urlbarView-row:not([selected]) .urlbarView-title strong,
+[lwt-popup-brighttext] .urlbarView-row:not([selected]) .urlbarView-url strong {
+  font-weight: var(--mbarstyler-match-weight) !important;
+  box-shadow: inset 0 0 1px 1px rgba(255, 255, 255, calc(var(--mbarstyler-match-background-opacity) * 2));
+  background-color: rgba(255, 234, 128, var(--mbarstyler-match-background-opacity));
+  border-radius: 2px;
+}
+/*** End of: Megabar Styler General ***/
+
+
 #PersonalToolbar{
   --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
   --uc-bm-padding: 2px; /* Vertical padding to be applied to bookmarks */
@@ -34,15 +154,6 @@
 #toolbar-menubar[inactive="true"] + #TabsToolbar {
   visibility: collapse !important;
 }
-
-/* Hide "Tree Style Tabs" sidebar header */
-/* #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
-   display:none;
-   }
-
-   #editBMPanel_folderTree {
-   min-height: 40em !important;
-   } */
 
 /* Tree Style Tab inline styles
 .tab.private-browsing .label:before {

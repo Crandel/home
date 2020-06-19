@@ -23,17 +23,4 @@ popup > menu > menupopup {
   border-color: var(--in-content-box-border-color)!important
 }
 
-html input:not[type=button] {
-  background-color: var(--tone-8) !important;
-  color: var(--tone-1) !important;
-}
-
-html textarea {
-  background-color: var(--tone-8);
-  color: var(--tone-1);
-}
-
-textarea.jsterm-input-node {
-  background-color: var(--tone-8) !important;
-  color: var(--tone-1) !important;
-}
+--in-content-deemphasized-text: var(--in-content-page-color)!important;
