@@ -49,9 +49,10 @@ user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 // user_pref("browser.newtabpage.enhanced", true);
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true); // [FF75+] disable media cache from writing to disk in Private Browsing
 user_pref("browser.privatebrowsing.searchUI", false);
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.allowOverride", false);
+user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host", false);
@@ -159,7 +160,7 @@ user_pref("dom.push.enabled", false);
 user_pref("dom.security.https_only_mode", false);  // Force to open https
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
-// F 77 user_pref("dom.webgpu.enabled", true);
+user_pref("dom.webgpu.enabled", true);
 user_pref("dom.webnotifications.requireuserinteraction", true);
 user_pref("editor.truncate_user_pastes", false); // prevents that the server receives a longer than expected password or string.
 user_pref("experiments.activeExperiment", false); // PREF: Disable Mozilla experiments
@@ -197,7 +198,7 @@ user_pref("full-screen-api.warning.timeout", 0);
 // user_pref("general.smoothScroll.pixels", false);
 // user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
 // user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
-user_pref("general.warnOnAboutConfig", false);
+user_pref("general.warnOnAboutConfig", false); // XUL/XHTML version
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
 user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", true);
@@ -220,7 +221,6 @@ user_pref("layers.acceleration.force-enabled", false);
 user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-// user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
@@ -249,7 +249,9 @@ user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // check if network is public wifi
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.disableIPv6", false);
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
 user_pref("network.http.altsvc.oe", false);

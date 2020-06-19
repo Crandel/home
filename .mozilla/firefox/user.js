@@ -1,3 +1,8 @@
+// START: internal custom pref to test for syntax errors
+user_pref("_user.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
+// user_pref("layout.css.devPixelsPerPx", "1.25");
+
+
 user_pref("accessibility.force_disabled", true);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
@@ -49,9 +54,10 @@ user_pref("browser.newtabpage.activity-stream.topSitesRows", 3);
 user_pref("browser.newtabpage.enhanced", true);
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
+user_pref("browser.privatebrowsing.forceMediaMemoryCache", true); // [FF75+] disable media cache from writing to disk in Private Browsing
 user_pref("browser.privatebrowsing.searchUI", false);
-user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.allowOverride", false);
+user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous", false);
 user_pref("browser.safebrowsing.downloads.remote.block_dangerous_host", false);
@@ -197,14 +203,14 @@ user_pref("general.smoothScroll.other", false);
 user_pref("general.smoothScroll.pixels", false);
 user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
 user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
-user_pref("general.warnOnAboutConfig", false);
+user_pref("general.warnOnAboutConfig", false); // XUL/XHTML version
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
 user_pref("geo.wifi.uri", "");
 user_pref("gestures.enable_single_finger_input", false);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.compositor", false);
+user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
@@ -220,7 +226,6 @@ user_pref("layers.acceleration.force-enabled", false);
 user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-// user_pref("layout.css.devPixelsPerPx", "1.25");
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
@@ -249,7 +254,9 @@ user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // check if network is public wifi
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.dns.disablePrefetch", false);
+user_pref("network.dns.disableIPv6", true);
+user_pref("network.dns.disablePrefetch", true);
+user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
 user_pref("network.http.altsvc.oe", false);
