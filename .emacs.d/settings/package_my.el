@@ -14,7 +14,7 @@
       dap-mode
       dired-hacks
       el-get
-      emacs-fish
+      ;; emacs-fish
       emmet-mode
       expand-region
       flycheck
@@ -27,7 +27,7 @@
       json-mode
       key-chord
       know-your-http-well
-      less-css-mode
+      ;; less-css-mode
       lsp-java
       lsp-mode
       lsp-treemacs
@@ -58,17 +58,17 @@
       yasnippet-snippets
       )
 )
-(when (executable-find "go")
-    (add-to-list 'my-packages 'go-eldoc)
-    (add-to-list 'my-packages 'go-mode)
-    (add-to-list 'my-packages 'go-company)
-)
+;; (when (executable-find "go")
+;;     (add-to-list 'my-packages 'go-eldoc)
+;;     (add-to-list 'my-packages 'go-mode)
+;;     (add-to-list 'my-packages 'go-company)
+;; )
 
-(when (executable-find "node")
-    (add-to-list 'my-packages 'js2-mode)
-    (add-to-list 'my-packages 'js2-refactor)
-    (add-to-list 'my-packages 'prettier-js)
-)
+;; (when (executable-find "node")
+;;     (add-to-list 'my-packages 'js2-mode)
+;;     (add-to-list 'my-packages 'js2-refactor)
+;;     (add-to-list 'my-packages 'prettier-js)
+;; )
 
 (when (executable-find "rg")
     (add-to-list 'my-packages 'helm-ag)
