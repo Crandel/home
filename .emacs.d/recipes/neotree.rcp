@@ -13,6 +13,21 @@
                           neo-hidden-regexp-list              '("\\.pyc$" "\\.elc$" "\\.git$" "__pycache__$")
                           neo-vc-integration                  '(face)
                           neo-cwd-line-style                  'text
+                          neo-vc-state-char-alist             '((up-to-date . 32)
+                                                                (edited . 69)
+                                                                (added . 43)
+                                                                (removed . 45)
+                                                                (missing . 33)
+                                                                (needs-merge . 77)
+                                                                (conflict . 33)
+                                                                (unlocked-changes . 33)
+                                                                (needs-update . 85)
+                                                                (ignored . 38)
+                                                                (user . 85)
+                                                                (unregistered . 40)
+                                                                (nil . 40))
+                          neo-window-fixed-size               nil
+                          neo-window-width                    35
                           neo-create-file-auto-open           t
                           neo-smart-open                      nil
                           projectile-switch-project-action    'neotree-projectile-action))

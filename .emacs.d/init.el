@@ -17,45 +17,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(compilation-disable-input t)
- '(compilation-window-height 10)
- '(lsp-ui-doc-delay 2)
- '(lsp-ui-doc-max-height 3)
- '(lsp-ui-doc-max-width 30)
- '(magit-log-arguments
-   (quote
-    ("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")))
- '(magit-log-margin-show-committer-date t)
- '(magit-log-remove-graph-args (quote ("--follow" "--grep" "-G" "-S" "-L")))
- '(neo-vc-state-char-alist
-   (quote
-    ((up-to-date . 32)
-     (edited . 69)
-     (added . 43)
-     (removed . 45)
-     (missing . 33)
-     (needs-merge . 77)
-     (conflict . 33)
-     (unlocked-changes . 33)
-     (needs-update . 85)
-     (ignored . 38)
-     (user . 85)
-     (unregistered . 40)
-     (nil . 40))))
- '(neo-window-fixed-size nil)
- '(neo-window-width 35)
  '(package-selected-packages (quote (ripgrep reverse-im flymake jsonrpc memoize async)))
- '(powerline-default-separator (quote arrow))
- '(powerline-default-separator-dir (quote (right . left)))
- '(semantic-which-function-use-color t)
- '(sml/pos-id-separator "> ")
- '(sml/pos-minor-modes-separator "|")
- '(sml/pre-id-separator "<")
- '(sml/pre-minor-modes-separator " ")
- '(sml/pre-modes-separator " ")
- '(sr-show-hidden-files t)
- '(sr-tree-explosion-ratio 5)
- '(sr-tree-isearch-always-sticky t))
+ ;; '(powerline-default-separator (quote arrow))
+ ;; '(powerline-default-separator-dir (quote (right . left)))
+)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
