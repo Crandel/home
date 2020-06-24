@@ -5,10 +5,17 @@
        :load-path "."
        :pkgname "Malabarba/smart-mode-line"
        :post-init (progn
-                      (setq sml/theme 'dark)
-                      (setq sml/shorten-modes t)
-                      (setq sml/shorten-directory t)
-                      (setq sml/no-confirm-load-theme t)
+                      (setq sml/no-confirm-load-theme     t
+                            sml/pos-id-separator          "}"
+                            sml/pos-minor-modes-separator "|"
+                            sml/pre-id-separator          "{"
+                            sml/pre-minor-modes-separator " "
+                            sml/pre-modes-separator       "/"
+                            sml/shorten-directory         t
+                            sml/shorten-modes             t
+                            sml/use-projectile-p          'before-prefixes
+                            sml/vc-mode-show-backend      t
+                            sml/theme                     'dark)
                       (sml/setup)
                       (smart-mode-line-enable))
                       )
