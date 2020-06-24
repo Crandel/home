@@ -14,7 +14,7 @@
                             sml/shorten-directory         t
                             sml/shorten-modes             t
                             sml/use-projectile-p          'before-prefixes
-                            sml/vc-mode-show-backend      t
+                            sml/vc-mode-show-backend      nil
                             sml/theme                     'dark)
                       (sml/setup)
                       (smart-mode-line-enable))
