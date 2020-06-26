@@ -62,7 +62,7 @@ workspace 2 output $o_center
 # workspace 4 output $o_left
 
 # assings
-assign [class="Viber"] 3
+assign [class="Viber"] 2
 assign [class="Wire"] 2
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
@@ -186,6 +186,8 @@ bindsym --to-code {
   # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
   $mod+Shift+r restart
 
+  $mod+r mode "resize"
+
   # exit sway (logs you out of your X session)
   $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -b 'Yes, exit sway' 'swaymsg exit'"
 
@@ -198,6 +200,9 @@ bindsym --to-code {
   # pulseaudio
   $mod+p exec pavucontrol
 
+  # radio
+  $mod+Shift+p exec alacritty -e nvlc ~/.config/vlc/radio.xspf
+
   # default editor
   $mod+x exec $editor
 
@@ -208,7 +213,7 @@ bindsym --to-code {
   $mod+Control+z exec $lock
 
   # get clipboard history
-  $mod+Control+a exec clipman pick --max-items=100 -t bemenu -T'bemenu -l 10 -p clipman'
+  $mod+Control+a exec clipman pick --max-items=1000 -t bemenu -T'bemenu -l 10 -p clipman'
 
   # switch workspaces by mod+z
   $mod+z workspace next
@@ -229,8 +234,6 @@ bindsym --to-code {
   # Sreen brightness controls
   XF86MonBrightnessUp exec light -A 20 # increase screen brightness
   XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
-
-  $mod+r mode "resize"
 }
 
 
@@ -273,7 +276,7 @@ client.focused_inactive #4B610B  #000000 #FFFFFF #484e50    #4B610B
 client.unfocused        #4B610B  #424242 #ECF6CE #292d2e    #4B610B
 client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 
-exec --no-startup-id wl-paste -t text --watch clipman store --max-items=100 1>> $HOME/.local/log/clipman.log 2>&1 &
+exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term --quake
 exec env GDK_BACKEND=x11 wire-desktop-beta
