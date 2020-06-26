@@ -5,7 +5,7 @@
 
 (setq my-packages
     '(
-      all-the-icons
+      ;; all-the-icons
       ;; apib-mode
       avy
       company-flx

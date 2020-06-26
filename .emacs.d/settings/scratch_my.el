@@ -17,6 +17,7 @@
 (setq imenu-auto-rescan      t
       imenu-use-popup-menu   nil)
 (semantic-mode 1)
+(setq semantic-which-function-use-color t)
 
 ;; SavePlace
 (save-place-mode 1)
@@ -190,7 +191,11 @@
     ad-do-it))
 
 (setq max-mini-window-height      0.5
-      compilation-always-kill     t)
+      compilation-always-kill     t
+      compilation-disable-input   t
+      compilation-window-height   10
+      )
+
 
 (setq dired-listing-switches "-ahlF --time-style=long-iso --group-directories-first")
 

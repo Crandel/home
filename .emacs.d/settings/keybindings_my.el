@@ -1,8 +1,4 @@
 ;; Custom keybindings
-
-;; Plugin keybindings
-
-;; Custom keybindings
 ;; Moving
 ;;UP
 (global-unset-key (kbd "M-i"))
