@@ -6,23 +6,23 @@
               user-mail-adress "cradlemann@gmail.com")
 
 ;; Set zsh as default shell
-(setq shell-file-name           "/bin/zsh")
+(setq-default shell-file-name           "/bin/zsh")
 ;;      explicit-shell-file-name  "/bin/zsh")
 
 ;; Inhibit startup/splash screen
-(setq inhibit-startup-screen t)
+(setq-default inhibit-startup-screen t)
 
 ;; Imenu
 (require 'imenu)
 (setq imenu-auto-rescan      t
       imenu-use-popup-menu   nil)
 (semantic-mode 1)
-(setq semantic-which-function-use-color t)
+(setq-default semantic-which-function-use-color t)
 
 ;; SavePlace
 (save-place-mode 1)
-(setq save-place-file                       "~/.emacs.d/saved-places"
-      save-place-forget-unreadable-files    t)
+(setq-default save-place-file                       "~/.emacs.d/saved-places"
+              save-place-forget-unreadable-files    t)
 
 ;; Electric-modes settings
 (electric-pair-mode     -1)
@@ -45,17 +45,32 @@
 
 (tooltip-mode     -1)
 (menu-bar-mode    -1)
-(setq use-dialog-box        nil
-      ring-bell-function    'ignore)
+(setq-default use-dialog-box        nil
+              ring-bell-function    'ignore)
 
 ;; Display the name of the current buffer in the title bar
 (setq frame-title-format "%b")
 
-;; Disable backup/autosave files
-(setq backup-inhibited          t
-      make-backup-files         nil
-      auto-save-default         nil
-      auto-save-list-file-name  nil)
+;; Enable backup/autosave files
+;; Save all tempfiles in $TMPDIR/emacs$UID/
+(defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
+(setq
+      auto-save-default              t
+      auto-save-interval             0
+      auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t))
+      auto-save-list-file-name       nil
+      auto-save-list-file-prefix     emacs-tmp-dir
+      auto-save-timeout              3
+      backup-directory-alist         `((".*" . ,emacs-tmp-dir))
+      backup-inhibited               t
+      create-lockfiles               nil ;; Disable lockfiles .#filename
+      delete-old-versions            t   ;; Don't ask to delete excess backup versions.
+      make-backup-files              t
+      version-control                t   ;; Use version numbers for backups.
+      vc-make-backup-files           t   ;; Emacs never backs up versioned files
+      kept-new-versions              5   ;; Number of newest versions to keep.
+      kept-old-versions              0   ;; Number of oldest versions to keep.
+)
 
 ;; Coding-system settings
 (set-language-environment               'UTF-8)
