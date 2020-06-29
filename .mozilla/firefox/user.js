@@ -30,6 +30,8 @@ user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
+user_pref("browser.fixup.domainwhitelist.gateway.test", true);
+user_pref("browser.fixup.domainwhitelist.gateway.localhost", true);
 user_pref("browser.helperApps.deleteTempFileOnExit", true); // remove temp files opened with an external application
 user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
 user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
@@ -330,6 +332,7 @@ user_pref("ui.prefersReducedMotion", 1); // Disable animation
 user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 user_pref("view_source.editor.path", "$HOME/.local/bin/editor-run");
+user_pref("webgl.enable-debug-renderer-info", false);
 user_pref("webgl.force-enabled", false);
 user_pref("webgl.msaa-force", false);
 user_pref("widget.chrome.allow-gtk-dark-theme", true);

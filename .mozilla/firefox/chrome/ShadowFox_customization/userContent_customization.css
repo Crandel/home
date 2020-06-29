@@ -24,3 +24,9 @@ popup > menu > menupopup {
 }
 
 --in-content-deemphasized-text: var(--in-content-page-color)!important;
+
+@-moz-document domain(habr.com) {
+  .layout__row_navbar {
+    position: static !important;
+  }
+}
