@@ -265,7 +265,7 @@ bar {
     button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% # decrease sound volume
     button2 exec gsimplecal
   }
-  font "pango:Hack 18", FontAwesome 18
+  font "pango:Hack 16", FontAwesome 16
   status_command i3status-rs $HOME/.config/sway/status.toml
 }
 
