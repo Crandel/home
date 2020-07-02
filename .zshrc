@@ -52,33 +52,32 @@ function command_exists () {
 }
 
 # ANTIGEN
-function anti_init() {
-  . $antigen_source
-  antigen use oh-my-zsh
-  antigen bundle git
-  antigen bundle pip
-  antigen bundle command-not-found
-  antigen bundle shrink-path
-  antigen bundle kubectl
-  antigen bundle mvn
-  antigen bundle sbt
-  antigen bundle scala
-  antigen bundle cargo
-  antigen bundle docker-compose
-  antigen bundle zsh-users/zsh-autosuggestions
-  antigen bundle zsh-users/zsh-completions
-  antigen bundle zsh-users/zsh-history-substring-search
-  antigen bundle zsh-users/zsh-syntax-highlighting
-  antigen bundle MichaelAquilina/zsh-autoswitch-virtualenv
-  antigen apply
+zpug_source="/usr/share/zsh/scripts/zplug/init.zsh"
+function zplug_init() {
+  source $zpug_source
+  zplug "plugins/aws", from:oh-my-zsh
+  zplug "plugins/command-not-found", from:oh-my-zsh
+  zplug "plugins/git", from:oh-my-zsh
+  zplug "plugins/pip", from:oh-my-zsh
+  zplug "plugins/shrink-path", from:oh-my-zsh
+  zplug "plugins/kubectl", from:oh-my-zsh
+  zplug "plugins/mvn", from:oh-my-zsh
+  zplug "plugins/sbt", from:oh-my-zsh
+  zplug "plugins/scala", from:oh-my-zsh
+  zplug "plugins/cargo", from:oh-my-zsh
+  zplug "plugins/docker-compose", from:oh-my-zsh
+  zplug "zsh-users/zsh-autosuggestions"
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "zsh-users/zsh-syntax-highlighting"
+  zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+  zplug load
 }
 
-antigen_source="$HOME/antigen.zsh"
-if [ ! -f $antigen_source ]; then
-  curl -L https://raw.githubusercontent.com/zsh-users/antigen/master/bin/antigen.zsh > $antigen_source
+if [ -f $zplug_source ]; then
+  zplug_init
 fi
-anti_init
-unfunction anti_init
+unfunction zplug_init
 
 if test -t 1; then
   # see if it supports colors...
@@ -101,7 +100,7 @@ fi
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
-alias ~='cd $HOME'
+export PERS_DIR='/opt/work'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
@@ -414,7 +413,6 @@ function set_virtualenv () {
 # END PROGRAMM LANGUAGES
 
 # CUSTOM FUNCTIONS
-export PERS_DIR='/opt/work'
 project_folders="$PERS_DIR/projects"
 function prj () {
   cd $project_folders
