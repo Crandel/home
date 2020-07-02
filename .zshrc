@@ -142,7 +142,7 @@ if command_exists pacman ; then
   fi
 
   recovery-pacman() {
-    $SUDO pacman "$@"  \
+    pacman "$@"  \
          --log /dev/null   \
          --noscriptlet     \
          --dbonly          \
