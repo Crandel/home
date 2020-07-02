@@ -306,8 +306,8 @@ if command_exists go ; then
 
   if ! command_exists fzf ; then
     go get -u github.com/junegunn/fzf
-    if [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh ]; then
-      . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
+    if [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.bash ]; then
+      . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.bash
     fi
   fi
 fi
