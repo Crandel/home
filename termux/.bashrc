@@ -1,5 +1,37 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
+# HISTORY
+# don't put duplicate lines or lines starting with space in the history.
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTCONTROL=ignoreboth
+HISTFILE=$HOME/.hist_bash
+HISTFILESIZE=
+HISTSIZE=
+HISTTIMEFORMAT="%F %T "
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+shopt -s checkwinsize
+shopt -s cdspell
+shopt -s globstar
+# END HISTORY
+
+# NAVIGATION
+bind '"\e[1;5C":forward-word'
+bind '"\e[1;5D":backward-word'
+# bind '"\eOD":backward-word'
+# bind '"\eOC":forward-word'
+# bind '"\eOA":history-search-backward'
+# bind '"\eOB":history-search-forward'
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+bind 'set completion-query-items 30'
+bind 'set editing-mode emacs'
+# NAVIGATION END
+
+# LOCAL FUNCTIONS
 function command_exists () {
   command -v "$1"  > /dev/null 2>&1;
 }
@@ -45,100 +77,26 @@ if test -t 1; then
   alias grep='grep --color=auto'
   alias fgrep='fgrep --color=auto'
   alias egrep='egrep --color=auto'
-  # NAVIGATION
-  bind '"\e[1;5C":forward-word'
-  bind '"\e[1;5D":backward-word'
-  # bind '"\eOD":backward-word'
-  # bind '"\eOC":forward-word'
-  # bind '"\eOA":history-search-backward'
-  # bind '"\eOB":history-search-forward'
-  bind '"\e[A":history-search-backward'
-  bind '"\e[B":history-search-forward'
-
-  bind 'set completion-ignore-case on'
-  bind 'set show-all-if-ambiguous on'
-  bind 'set completion-query-items 30'
-  bind 'set editing-mode emacs'
 fi
 
-# HISTORY
-# don't put duplicate lines or lines starting with space in the history.
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTCONTROL=ignoreboth
-HISTSIZE=
-HISTFILESIZE=
-HISTFILE=$HOME/.hist_bash
-HISTTIMEFORMAT="%F %T "
-
-# append to the history file, don't overwrite it
-shopt -s histappend
-shopt -s checkwinsize
-shopt -s cdspell
-shopt -s globstar
-
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-
 # ALIASES
-# some more ls aliases
 alias arch='uname -m'
 alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
-alias L='|less'
-alias G='|grep'
-alias ~='cd $HOME'
+alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias ct='bat'
+export PAGER='less -SRXF'
 
-# fix for git
-alias meld='vimdiff'
 
-if command_exists bat ; then
-  alias ct='bat'
-fi
-
-extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)        tar xjf $1        ;;
-      *.tar.gz)         tar xzf $1        ;;
-      *.bz2)            bunzip2 $1        ;;
-      *.rar)            unrar x $1        ;;
-      *.gz)             gunzip $1         ;;
-      *.tar)            tar xf $1         ;;
-      *.tbz2)           tar xjf $1        ;;
-      *.tgz)            tar xzf $1        ;;
-      *.zip)            unzip $1          ;;
-      *.Z)              uncompress $1     ;;
-      *.7z)             7zr e $1          ;;
-      *)                echo "'$1' cannot be extracted via extract()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-zipin () {
-  for f in $(ls -A);
-  do
-    if [ -f "$f" ]; then
-      case $f in
-        *.zip)       echo "$f already zipped"  ;;
-        *)           zip -9 $f.zip $f && rm $f ;;
-      esac
-    fi;
-  done
-}
-
-con_jpg_pdf (){
-  convert *.jpg $@.pdf
-}
-
-clean_pyc (){
-  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
-}
-
-# BINS CONDITIONS
+# PACKAGE MANAGERS
 if command_exists pacman ; then
+  paclist() {
+    # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
+    LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
+      awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
+  }
+
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
@@ -178,24 +136,89 @@ if command_exists apt ; then
   alias aar="add-apt-repository"
 fi
 
-if command_exists git; then
+if command_exists yum ; then
+  alias apt="yum"
+  alias upg='yum upgrade'
+  alias pacs='yum search'
+  alias paci='yum install'
+  alias pacr='yum remove'
+fi
+# END PACKAGE MANAGERS
+
+# SYSTEM TOOLS
+## MEDIA TOOLS
+if command_exists youtube-dl ; then
+  alias ytb='youtube-dl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+  alias ytm='youtube-dl -f bestaudio -x'
+fi
+
+if command_exists aria2c ; then
+  alias a2c='aria2c -x 10 -s 10'
+fi
+
+if command_exists ffplay ; then
+  alias play='ffplay -nodisp -autoexit'
+fi
+## END MEDIA TOOLS
+
+## EDITORS
+if command_exists emacs ; then
+  alias em='emacs -nw'
+  alias sem="$SUDO emacs -nw"
+  export EDITOR='GDK_BACKEND=x11 emacs'
+elif command_exists vim; then
+  export EDITOR='vim'
+fi
+## END EDITORS
+
+## FILE MANAGERS
+if command_exists mc ; then
+  alias smc="$SUDO mc"
+fi
+
+if command_exists vifm ; then
+  alias vf="vifm"
+  alias svf="$SUDO vifm"
+fi
+
+if command_exists nnn ; then
+  alias nnn='nnn -d'
+  export NNN_USE_EDITOR=1
+  export NNN_CONTEXT_COLORS='2745'
+  export NNN_COPIER=$(which xsel)
+  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_OPS_PROG=1
+fi
+## END FILE MANAGERS
+
+if command_exists git ; then
   alias g='git'
-  alias pla="g pull"
-  alias pll="pla origin"
-  alias psh="g push origin"
-  alias gst="g status"
-  alias gco="g checkout"
-  alias gadd="g add"
-  alias gcmt="g commit -m"
+  alias pla='g pull'
+  alias pll='pla origin'
+  alias psh='g push origin'
+  alias gst='g status'
+  alias gco='g checkout'
+  alias gadd='g add'
+  alias gcmt='g commit -m'
 fi
 
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
+# END SYSTEM TOOLS
 
+# PROGRAMM LANGUAGES
+## GO
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+fi
+## END GO
+
+## SCALA
+if [ -d /usr/share/scala ]; then
+  export SCALA_HOME=/usr/share/scala
+  export PATH=$PATH:$SCALA_HOME/bin
 fi
 
 if command_exists scala ; then
@@ -208,14 +231,22 @@ if command_exists scala ; then
     echo "Compilation done"
     scala $name
   }
+  if command_exists coursier; then
+    alias openapi-generator-cli="coursier launch org.openapitools:openapi-generator-cli:latest.release --"
+  fi
 fi
+## END SCALA
 
-# Rust
+## RUST
 if [ -d $HOME/.cargo/bin ]; then
   export PATH=$PATH:$HOME/.cargo/bin
 fi
 
 if command_exists cargo ; then
+  alias crn='cargo run'
+  alias cup='cargo update'
+  alias cbd='cargo build'
+  alias cbr='cargo build --release'
   if ! command_exists rg ; then
     cargo install ripgrep
   fi
@@ -224,75 +255,91 @@ fi
 if [ -d /usr/src/rust ]; then
   export RUST_SRC_PATH=/usr/src/rust/src
 fi
-# End Rust
+## END RUST
 
-if command_exists emacs; then
-  alias em='emacs -nw'
-  alias sem="$SUDO emacs -nw"
-  export EDITOR='emacs -nw'
-elif command_exists vim; then
-  export EDITOR='vim'
+## PYTHON
+virtual='virtualenvwrapper.sh'
+if command_exists $virtual; then
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  export WORKON_HOME=~/.virtualenvs/
+  export AUTOSWITCH_SILENT=1
+  source $virtual
 fi
 
-# file managers
-if command_exists mc; then
-  alias smc="$SUDO mc"
-fi
+clean_pyc (){
+  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+}
+## END PYTHON
+# END PROGRAMM LANGUAGES
 
-if command_exists vifm; then
-  alias svf="$SUDO vifm"
-  alias vf="vifm"
-fi
-
-if command_exists nnn ; then
-  alias nnn='nnn -d'
-  export NNN_USE_EDITOR=1
-  export NNN_CONTEXT_COLORS='2745'
-  export NNN_COPIER=$(which xsel)
-  export NNN_NOTE=/opt/work/backup/notes
-  export NNN_OPS_PROG=1
-fi
-#end file managers
-
-if command_exists youtube-dl ; then
-  alias ytb='youtube-dl -f bestvideo+bestaudio'
-fi
-
-if command_exists aria2c ; then
-  alias a2c='aria2c -x 10 -s 10'
-fi
-
-if command_exists ffplay ; then
-  alias play='ffplay -nodisp -autoexit'
-fi
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+# CUSTOM FUNCTIONS
+## ARCHIVES
+function extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
   fi
-fi
+}
 
-if [ -f ~/.aliases.bash ]; then
-  . ~/.aliases.bash
-fi
+zipin () {
+  for f in $(ls -A);
+    do
+    if [ -f "$f" ]; then
+      case $f in
+        *.zip)       echo "$f already zipped"  ;;
+        *)           zip -9 $f.zip $f && rm $f ;;
+      esac
+    fi;
+  done
+}
+## END ARCHIVES
 
-LOCAL_BIN=$HOME/.local/bin
-if [ -d $LOCAL_BIN ]; then
-  export PATH=$PATH:$LOCAL_BIN
-fi
+# convert jpg files to single pdf
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
 
 install_from_file(){
   local file=$1
   cat $file | xargs pkg install
 }
+# END CUSTOM FUNCTIONS
+
+# IMPORT ADDITIONAL FILES
+## CUSTOM BASH FUNCS
+fpath+=~/.bfunc.bash
+
+## CUSTOM ALIASES AND EXPORTS
+if [ -f ~/.aliases.bash ]; then
+  . ~/.aliases.bash
+fi
+
+## USER SPECIFIC BINARIES
+LOCAL_BIN=$HOME/.local/bin
+if [ -d $LOCAL_BIN ]; then
+  export PATH=$PATH:$LOCAL_BIN
+fi
+
+if [ -f /etc/profile.d/vte.sh ]; then
+  . /etc/profile.d/vte.sh
+fi
+# END IMPORT
 
 # PROMPT
-# get current status of git repo
 function parse_git_branch(){
   branch=`git branch 2> /dev/null | sed -n 's/^\* //p'`
   if [ ! "${branch}" == "" ]; then
@@ -352,22 +399,21 @@ function parse_git_branch(){
   fi
 }
 
-# Determine the branch/state information for this git repository.
+## Determine the branch/state information for this git repository.
 function set_git_branch() {
   BRANCH=''
-  # Get the name of the branch.
+  # Get the final branch string.
   if command_exists git_status ; then
     branch="$(git_status bash)"
   else
     branch="$(parse_git_branch)"
   fi
+
   if [ ! "${branch}" == "" ]; then
     BRANCH=" (${CYAN}$branch${NORMAL})"
   fi
 }
 
-# Return the prompt symbol to use, colorized based on the return value of the
-# previous command.
 function set_prompt_symbol () {
   if test $1 -eq 0 ; then
     P_SYMBOL="${BLUE}\n➤${NORMAL} "
@@ -376,23 +422,13 @@ function set_prompt_symbol () {
   fi
 }
 
-
-function new_line () {
-  NEW_LINE=""
-  echo -en "\033[6n" > /dev/tty && read -sdR CURPOS
-  if [[ ${CURPOS##*;} -gt 1 ]]; then
-    NEW_LINE="${RED}¬\n${NORMAL}"
-  fi
-}
-
-# Set the full bash prompt.
+# Set the prompt.
 function set_bash_prompt () {
   local EXIT_CODE="$?"
   local USERCOLOR="${GREEN}"
+
   # Set the P_SYMBOL variable. We do this first so we don't lose the
   # return value of the last command.
-  new_line
-
   set_prompt_symbol $EXIT_CODE
 
   # Set the BRANCH variable.
@@ -406,7 +442,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="${NEW_LINE} ${BLUE}\A${NORMAL} ${USERCOLOR}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
+  PS1="${BLUE}\A${NORMAL} ${USERCOLOR}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.
