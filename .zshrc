@@ -67,6 +67,8 @@ zle -N down-line-or-beginning-search
 # should be binded after zsh-users/zsh-history-substring-search loading
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
 # NAVIGATION END
 
 if test -t 1; then
