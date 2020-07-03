@@ -72,13 +72,30 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
-[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+# ^[[A arrow up
+# ^[[B arrow down
+# ^[[C arrow right
+# ^[[D arrow left
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
+# ^[[1;5A Ctrl + arrow up
+# ^[[1;5B Ctrl + arrow down
+# ^[[1;5C Ctrl + arrow right
+# ^[[1;5D Ctrl + arrow left
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+# ^[[1;2A Shift + arrow up
+# ^[[1;2B Shift + arrow down
+# ^[[1;2C Shift + arrow right
+# ^[[1;2D Shift + arrow left
 # should be binded after zsh-users/zsh-history-substring-search loading
-bindkey "^[[A" history-substring-search-up
-bindkey "^[[B" history-substring-search-down
-bindkey ";5C" forward-word
-bindkey ";5D" backward-word
+bindkey "^[[1;2A" history-substring-search-up
+bindkey "^[[1;2B" history-substring-search-down
+bindkey "^[[1;2C" history-incremental-search-forward
+bindkey "^[[1;2D" history-incremental-search-backward # Ctrl+r
+
 # NAVIGATION END
 
 if test -t 1; then
