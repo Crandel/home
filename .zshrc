@@ -43,10 +43,13 @@ function plugin_init() {
   # zinit bundle mvn
   zinit wait lucid light-mode for \
           OMZP::colored-man-pages \
+        has'git' \
           OMZP::git \
+        has'kubectl' \
           OMZP::kubectl \
+        has'pip' \
           OMZP::pip \
-          OMZP::pip \
+        has'sbt' \
           OMZP::sbt \
           OMZP::shrink-path \
           djui/alias-tips \
