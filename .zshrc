@@ -1,3 +1,4 @@
+start=`date +%s.%N`
 # THE FOLLOWING LINES WERE ADDED BY COMPINSTALL
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
@@ -41,7 +42,6 @@ function plugin_init() {
   # zinit bundle mvn
   zinit wait lucid light-mode for \
           OMZP::colored-man-pages \
-          OMZP::command-not-found \
           OMZP::git \
           OMZP::kubectl \
           OMZP::pip \
@@ -561,6 +561,10 @@ function fish_pwd() {
 function set_zsh_prompt () {
   PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch)$(set_prompt_symbol)'
 }
+end=`date +%s.%N`
+
+starttime=$((end-start))
+echo "$starttime"
 # Tell zsh to execute this function just before displaying its prompt.
 set_zsh_prompt
 
