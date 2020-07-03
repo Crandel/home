@@ -30,32 +30,42 @@ function command_exists () {
   (( $+commands[$1] ))
 }
 
-# ANTIGEN
-zpug_source="/usr/share/zsh/scripts/zplug/init.zsh"
-function zplug_init() {
-  source $zpug_source
-  # zplug "plugins/aws", from:oh-my-zsh
-  # zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
-  # zplug "plugins/mvn", from:oh-my-zsh
-  # zplug "plugins/docker-compose", from:oh-my-zsh
-  zplug "plugins/cargo", from:oh-my-zsh
-  zplug "plugins/git", from:oh-my-zsh
-  zplug "plugins/kubectl", from:oh-my-zsh
-  zplug "plugins/pip", from:oh-my-zsh
-  zplug "plugins/sbt", from:oh-my-zsh
-  zplug "plugins/scala", from:oh-my-zsh
-  zplug "plugins/shrink-path", from:oh-my-zsh
-  zplug "zsh-users/zsh-autosuggestions"
-  zplug "zsh-users/zsh-completions"
-  zplug "zsh-users/zsh-history-substring-search"
-  zplug "zsh-users/zsh-syntax-highlighting"
-  zplug load
+# PLUGIN MANAGMENT
+function plugin_init() {
+  source $zinit_source
+  autoload -Uz _zinit
+  (( ${+_comps} )) && _comps[zinit]=_zinit
+
+  # zinit bundle docker-compose
+  # zinit bundle MichaelAquilina/zsh-autoswitch-virtualenv
+  # zinit bundle mvn
+  zinit wait lucid light-mode for \
+          OMZP::colored-man-pages \
+          OMZP::command-not-found \
+          OMZP::git \
+          OMZP::kubectl \
+          OMZP::pip \
+          OMZP::pip \
+          OMZP::sbt \
+          OMZP::shrink-path \
+          djui/alias-tips \
+          zsh-users/zsh-autosuggestions \
+          zsh-users/zsh-history-substring-search \
+          zsh-users/zsh-completions \
+        as"completion" \
+          OMZP::cargo/_cargo \
+          OMZP::docker/_docker \
+        atinit"zicompinit; zicdreplay"  \
+          zdharma/fast-syntax-highlighting
 }
 
-if [ -f $zplug_source ]; then
-  zplug_init
+zinit_source="$HOME/.zinit/bin/zinit.zsh"
+if [ ! -f $zinit_source ]; then
+  mkdir ~/.zinit
+  git clone https://github.com/zdharma/zinit.git ~/.zinit/bin
 fi
-unfunction zplug_init
+plugin_init
+unfunction plugin_init
 
 # NAVIGATION
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
