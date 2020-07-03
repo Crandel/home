@@ -23,30 +23,9 @@ HISTSIZE=5000000
 SAVEHIST=$HISTSIZE
 # END HISTORY
 
-# NAVIGATION
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
-[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
-bindkey "^[[1;5A" history-substring-search-up
-bindkey "^[[1;5B" history-substring-search-down
-
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
-
-# bindkey "\eOC" forward-word
-# bindkey "\eOD" backward-word
-
-# bindkey "\e[A" history-search-backward
-# bindkey "\e[B" history-search-forward
-
-# bindkey "\eOA" history-search-backward
-# bindkey "\eOB" history-search-forward
-# NAVIGATION END
-
 # LOCAL FUNCTIONS
+# Arch Linux command-not-found support, you must have package pkgfile installed
+[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 function command_exists () {
   (( $+commands[$1] ))
 }
@@ -55,22 +34,21 @@ function command_exists () {
 zpug_source="/usr/share/zsh/scripts/zplug/init.zsh"
 function zplug_init() {
   source $zpug_source
-  zplug "plugins/aws", from:oh-my-zsh
-  zplug "plugins/command-not-found", from:oh-my-zsh
+  # zplug "plugins/aws", from:oh-my-zsh
+  # zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
+  # zplug "plugins/mvn", from:oh-my-zsh
+  # zplug "plugins/docker-compose", from:oh-my-zsh
+  zplug "plugins/cargo", from:oh-my-zsh
   zplug "plugins/git", from:oh-my-zsh
-  zplug "plugins/pip", from:oh-my-zsh
-  zplug "plugins/shrink-path", from:oh-my-zsh
   zplug "plugins/kubectl", from:oh-my-zsh
-  zplug "plugins/mvn", from:oh-my-zsh
+  zplug "plugins/pip", from:oh-my-zsh
   zplug "plugins/sbt", from:oh-my-zsh
   zplug "plugins/scala", from:oh-my-zsh
-  zplug "plugins/cargo", from:oh-my-zsh
-  zplug "plugins/docker-compose", from:oh-my-zsh
+  zplug "plugins/shrink-path", from:oh-my-zsh
   zplug "zsh-users/zsh-autosuggestions"
   zplug "zsh-users/zsh-completions"
   zplug "zsh-users/zsh-history-substring-search"
   zplug "zsh-users/zsh-syntax-highlighting"
-  zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
   zplug load
 }
 
@@ -78,6 +56,18 @@ if [ -f $zplug_source ]; then
   zplug_init
 fi
 unfunction zplug_init
+
+# NAVIGATION
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+[[ -n "$key[Up]"   ]] && bindkey -- "$key[Up]"   up-line-or-beginning-search
+[[ -n "$key[Down]" ]] && bindkey -- "$key[Down]" down-line-or-beginning-search
+# should be binded after zsh-users/zsh-history-substring-search loading
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+# NAVIGATION END
 
 if test -t 1; then
   # see if it supports colors...
