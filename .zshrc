@@ -1,3 +1,4 @@
+# zmodload zsh/zprof
 start=`date +%s.%N`
 # THE FOLLOWING LINES WERE ADDED BY COMPINSTALL
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
@@ -49,9 +50,10 @@ function plugin_init() {
           OMZP::sbt \
           OMZP::shrink-path \
           djui/alias-tips \
-          zsh-users/zsh-autosuggestions \
           zsh-users/zsh-history-substring-search \
           zsh-users/zsh-completions \
+        atload"_zsh_autosuggest_start" \
+          zsh-users/zsh-autosuggestions \
         as"completion" \
           OMZP::cargo/_cargo \
           OMZP::docker/_docker \
@@ -96,6 +98,11 @@ bindkey "^[[1;2B" history-substring-search-down
 bindkey "^[[1;2C" history-incremental-search-forward
 bindkey "^[[1;2D" history-incremental-search-backward # Ctrl+r
 
+# fix of delete key
+bindkey "^[[3~" delete-char
+bindkey "^[[3;5~" delete-word
+# fix for separating text on slashes
+export WORDCHARS=${WORDCHARS/\/}
 # NAVIGATION END
 
 if test -t 1; then
@@ -411,13 +418,13 @@ fi
 ## END RUST
 
 ## PYTHON
-virtual='virtualenvwrapper.sh'
-if command_exists $virtual; then
-  export VIRTUAL_ENV_DISABLE_PROMPT=1
-  export WORKON_HOME=~/.virtualenvs/
-  export AUTOSWITCH_SILENT=1
-  source $virtual
-fi
+# virtual='virtualenvwrapper.sh'
+# if command_exists $virtual; then
+#   export VIRTUAL_ENV_DISABLE_PROMPT=1
+#   export WORKON_HOME=~/.virtualenvs/
+#   export AUTOSWITCH_SILENT=1
+#   source $virtual
+# fi
 
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
