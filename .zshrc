@@ -61,7 +61,9 @@ function plugin_init() {
           OMZP::cargo/_cargo \
           OMZP::docker/_docker \
         atinit"zicompinit; zicdreplay"  \
-          zdharma/fast-syntax-highlighting
+          zdharma/fast-syntax-highlighting \
+        pick"z.sh" \
+          rupa/z
 }
 
 zinit_source="$HOME/.zinit/bin/zinit.zsh"
