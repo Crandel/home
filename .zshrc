@@ -592,8 +592,7 @@ function set_zsh_prompt () {
 }
 end=`date +%s.%N`
 
-starttime=$((end-start))
-echo "$starttime"
+printf "%.2f" $((end-start))
 # Tell zsh to execute this function just before displaying its prompt.
 set_zsh_prompt
 
