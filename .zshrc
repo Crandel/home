@@ -537,7 +537,10 @@ hdmi_sound_off (){
 
 # IMPORT ADDITIONAL FILES
 ## CUSTOM ZSH FUNCS
-fpath+=~/.zfunc.zsh
+if [ -f ~/.zfunc.zsh ]; then
+  fpath+=~/.zfunc.zsh
+  . ~/.zfunc.zsh
+fi
 
 ## CUSTOM ALIASES AND EXPORTS
 if [ -f ~/.aliases.zsh ]; then
