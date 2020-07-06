@@ -1,6 +1,6 @@
 # ZSH SPECIFIC
 # zmodload zsh/zprof
-start=`date +%s.%N`
+# start=`date +%s.%N`
 # THE FOLLOWING LINES WERE ADDED BY COMPINSTALL
 zstyle ':completion:*' completer _expand _complete _ignored _approximate
 zstyle ':completion:*' matcher-list '' '' 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]} r:|[._-]=** r:|=** l:|=*'
@@ -14,7 +14,8 @@ bindkey -e
 # END ZSH SPECIFIC
 
 # HISTORY
-setopt HIST_IGNORE_ALL_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY HIST_IGNORE_SPACE HIST_FIND_NO_DUPS HIST_SAVE_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS SHARE_HISTORY INC_APPEND_HISTORY EXTENDED_HISTORY
+setopt HIST_IGNORE_SPACE HIST_FIND_NO_DUPS HIST_SAVE_NO_DUPS
 HISTFILE=$HOME/.hist_zsh
 HISTSIZE=5000000
 SAVEHIST=$HISTSIZE
@@ -55,11 +56,10 @@ function plugin_init() {
         as"completion" \
           OMZP::cargo/_cargo \
           OMZP::docker/_docker \
-        pick"z.sh" \
-          rupa/z
   zinit wait lucid light-mode for \
         atinit"zicompinit; zicdreplay"  \
           zdharma/fast-syntax-highlighting
+  eval "$(zoxide init --cmd j zsh)"
   compinit
 }
 
@@ -590,9 +590,9 @@ function fish_pwd() {
 function set_zsh_prompt () {
   PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch)$(set_prompt_symbol)'
 }
-end=`date +%s.%N`
 
-printf "%.2f" $((end-start))
+# end=`date +%s.%N`
+# printf "%.2f" $((end-start))
 # Tell zsh to execute this function just before displaying its prompt.
 set_zsh_prompt
 
