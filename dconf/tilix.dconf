@@ -1,5 +1,5 @@
 [/]
-app-title='${sessionNumber}: ${title}'
+app-title='${sessionNumber}: ${directory} ${appName}'
 auto-hide-mouse=true
 background-image-mode='stretch'
 control-click-titlebar=true
@@ -15,6 +15,7 @@ quake-hide-headerbar=true
 quake-show-on-all-workspaces=false
 quake-specific-monitor=0
 quake-width-percent=100
+session-name='${terminalNumber}/${terminalCount}: ${activeTerminalTitle}'
 sidebar-on-right=true
 terminal-title-show-when-single=false
 terminal-title-style='small'
@@ -54,7 +55,7 @@ win-switch-to-next-session='<Ctrl>Tab'
 win-switch-to-previous-session='<Ctrl><Shift>Tab'
 
 [profiles/2b7c4080-0ddd-46c5-8f23-563fd3ba789d]
-background-transparency-percent=13
+background-transparency-percent=10
 badge-position='southeast'
 cursor-blink-mode='on'
 cursor-colors-set=false
@@ -70,7 +71,7 @@ palette=['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#059
 scroll-on-output=true
 scrollback-lines=98192
 terminal-bell='none'
-terminal-title='${id}: ${title}${directory}'
+terminal-title='${id}:${directory} ${title} [${rows}:${columns}]'
 use-system-font=false
 use-theme-colors=true
-visible-name='Default'
+visible-name='Profile'
