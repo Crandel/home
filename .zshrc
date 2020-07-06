@@ -1,3 +1,4 @@
+# ZSH SPECIFIC
 # zmodload zsh/zprof
 start=`date +%s.%N`
 # THE FOLLOWING LINES WERE ADDED BY COMPINSTALL
@@ -7,15 +8,9 @@ zstyle ':completion:*' menu select=2
 zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$HOME/.zshrc'
 
-autoload -Uz compinit
-compinit
 # END OF LINES ADDED BY COMPINSTALL
-
-# ZSH SPECIFIC
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
 bindkey -e
-autoload -Uz promptinit
-promptinit
 # END ZSH SPECIFIC
 
 # HISTORY
@@ -35,7 +30,7 @@ function command_exists () {
 # PLUGIN MANAGMENT
 function plugin_init() {
   source $zinit_source
-  autoload -Uz _zinit
+  autoload -Uz _zinit compinit
   (( ${+_comps} )) && _comps[zinit]=_zinit
 
   # zinit bundle docker-compose
@@ -60,10 +55,12 @@ function plugin_init() {
         as"completion" \
           OMZP::cargo/_cargo \
           OMZP::docker/_docker \
-        atinit"zicompinit; zicdreplay"  \
-          zdharma/fast-syntax-highlighting \
         pick"z.sh" \
           rupa/z
+  zinit wait lucid light-mode for \
+        atinit"zicompinit; zicdreplay"  \
+          zdharma/fast-syntax-highlighting
+  compinit
 }
 
 zinit_source="$HOME/.zinit/bin/zinit.zsh"
@@ -578,7 +575,7 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  echo " %(?.%F{yellow}.%F{red}[%?])\n➤%f "
+  echo " %(?.%F{yellow}.%F{red}[%?])\n╰─➤%f "
 }
 
 function fish_pwd() {
@@ -591,7 +588,7 @@ function fish_pwd() {
 
 # Set the prompt.
 function set_zsh_prompt () {
-  PROMPT=' %F{yellow}%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch)$(set_prompt_symbol)'
+  PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch)$(set_prompt_symbol)'
 }
 end=`date +%s.%N`
 
