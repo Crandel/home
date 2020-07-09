@@ -437,9 +437,9 @@ function set_git_branch() {
 
 function set_prompt_symbol () {
   if test $1 -eq 0 ; then
-    P_SYMBOL="${BLUE}╰─➤${NORMAL} "
+    P_SYMBOL="${BLUE}\n╰─➤${NORMAL} "
   else
-    P_SYMBOL="${LIGHT_RED}[$1]╰─➤${NORMAL} "
+    P_SYMBOL="${LIGHT_RED}[$1]\n╰─➤${NORMAL} "
   fi
 }
 
