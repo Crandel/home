@@ -1,40 +1,51 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 # HISTORY
+# append to the history file, don't overwrite it
+shopt -s autocd checkhash checkwinsize cmdhist globstar histappend
 # don't put duplicate lines or lines starting with space in the history.
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTCONTROL=ignoreboth
 HISTFILE=$HOME/.hist_bash
 HISTFILESIZE=
 HISTSIZE=
 HISTTIMEFORMAT="%F %T "
 
-# append to the history file, don't overwrite it
-shopt -s histappend
-shopt -s checkwinsize
-shopt -s cdspell
-shopt -s globstar
 # END HISTORY
-
-# NAVIGATION
-bind '"\e[1;5C":forward-word'
-bind '"\e[1;5D":backward-word'
-# bind '"\eOD":backward-word'
-# bind '"\eOC":forward-word'
-# bind '"\eOA":history-search-backward'
-# bind '"\eOB":history-search-forward'
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
-bind 'set completion-ignore-case on'
-bind 'set show-all-if-ambiguous on'
-bind 'set completion-query-items 30'
-bind 'set editing-mode emacs'
-# NAVIGATION END
 
 # LOCAL FUNCTIONS
 function command_exists () {
   command -v "$1"  > /dev/null 2>&1;
 }
+
+# NAVIGATION
+# ^[[A arrow up
+# ^[[B arrow down
+# ^[[C arrow right
+# ^[[D arrow left
+bind '"^[[A":history-search-backward'
+bind '"^[[B":history-search-forward'
+
+# ^[[1;5A Ctrl + arrow up
+# ^[[1;5B Ctrl + arrow down
+# ^[[1;5C Ctrl + arrow right
+# ^[[1;5D Ctrl + arrow left
+bind '"^[[1;5A":history-substring-search-forward'
+bind '"^[[1;5B":history-substring-search-backward'
+bind '"\e[1;5A":history-substring-search-forward'
+bind '"\e[1;5B":history-substring-search-backward'
+bind '"^[[1;5C":forward-word'
+bind '"^[[1;5D":backward-word'
+
+# ^[[1;2A Shift + arrow up
+# ^[[1;2B Shift + arrow down
+# ^[[1;2C Shift + arrow right
+# ^[[1;2D Shift + arrow left
+
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set completion-query-items 30
+set editing-mode emacs
+# NAVIGATION END
 
 # COLORS
 RED=""
@@ -337,6 +348,16 @@ fi
 if [ -f /etc/profile.d/vte.sh ]; then
   . /etc/profile.d/vte.sh
 fi
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
 # END IMPORT
 
 # PROMPT
@@ -416,9 +437,9 @@ function set_git_branch() {
 
 function set_prompt_symbol () {
   if test $1 -eq 0 ; then
-    P_SYMBOL="${BLUE}\n➤${NORMAL} "
+    P_SYMBOL="${BLUE}╰─➤${NORMAL} "
   else
-    P_SYMBOL="${LIGHT_RED}[$1]\n➤${NORMAL} "
+    P_SYMBOL="${LIGHT_RED}[$1]╰─➤${NORMAL} "
   fi
 }
 
@@ -442,7 +463,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="${BLUE}\A${NORMAL} ${USERCOLOR}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
+  PS1="${BLUE}╭─\A${NORMAL} ${USERCOLOR}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.
