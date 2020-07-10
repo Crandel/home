@@ -18,28 +18,28 @@ function command_exists () {
 }
 
 # NAVIGATION
-# ^[[A arrow up
-# ^[[B arrow down
-# ^[[C arrow right
-# ^[[D arrow left
-bind '"^[[A":history-search-backward'
-bind '"^[[B":history-search-forward'
+# \e[A arrow up
+# \e[B arrow down
+# \e[C arrow right
+# \e[D arrow left
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
 
-# ^[[1;5A Ctrl + arrow up
-# ^[[1;5B Ctrl + arrow down
-# ^[[1;5C Ctrl + arrow right
-# ^[[1;5D Ctrl + arrow left
-bind '"^[[1;5A":history-substring-search-forward'
-bind '"^[[1;5B":history-substring-search-backward'
+# \e[1;5A Ctrl + arrow up
+# \e[1;5B Ctrl + arrow down
+# \e[1;5C Ctrl + arrow right
+# \e[1;5D Ctrl + arrow left
 bind '"\e[1;5A":history-substring-search-forward'
 bind '"\e[1;5B":history-substring-search-backward'
-bind '"^[[1;5C":forward-word'
-bind '"^[[1;5D":backward-word'
+bind '"\e[1;5C":forward-word'
+bind '"\e[1;5D":backward-word'
 
-# ^[[1;2A Shift + arrow up
-# ^[[1;2B Shift + arrow down
-# ^[[1;2C Shift + arrow right
-# ^[[1;2D Shift + arrow left
+# \e[1;2A Shift + arrow up
+# \e[1;2B Shift + arrow down
+# \e[1;2C Shift + arrow right
+# \e[1;2D Shift + arrow left
+bind '"\e[1;2A":forward-search-history' # Ctrl+s
+bind '"\e[1;2B":reverse-search-history' # Ctrl+r
 
 set completion-ignore-case on
 set show-all-if-ambiguous on

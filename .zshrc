@@ -55,7 +55,7 @@ function plugin_init() {
           zsh-users/zsh-autosuggestions \
         as"completion" \
           OMZP::cargo/_cargo \
-          OMZP::docker/_docker \
+          OMZP::docker/_docker
   zinit wait lucid light-mode for \
         atinit"zicompinit; zicdreplay"  \
           zdharma/fast-syntax-highlighting
@@ -76,33 +76,33 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-# ^[[A arrow up
-# ^[[B arrow down
-# ^[[C arrow right
-# ^[[D arrow left
-bindkey "^[[A" up-line-or-beginning-search
-bindkey "^[[B" down-line-or-beginning-search
+# \e[A arrow up
+# \e[B arrow down
+# \e[C arrow right
+# \e[D arrow left
+bindkey "\e[A" up-line-or-beginning-search
+bindkey "\e[B" down-line-or-beginning-search
 
-# ^[[1;5A Ctrl + arrow up
-# ^[[1;5B Ctrl + arrow down
-# ^[[1;5C Ctrl + arrow right
-# ^[[1;5D Ctrl + arrow left
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-
-# ^[[1;2A Shift + arrow up
-# ^[[1;2B Shift + arrow down
-# ^[[1;2C Shift + arrow right
-# ^[[1;2D Shift + arrow left
+# \e[1;5A Ctrl + arrow up
+# \e[1;5B Ctrl + arrow down
+# \e[1;5C Ctrl + arrow right
+# \e[1;5D Ctrl + arrow left
 # should be binded after zsh-users/zsh-history-substring-search loading
-bindkey "^[[1;2A" history-substring-search-up
-bindkey "^[[1;2B" history-substring-search-down
-bindkey "^[[1;2C" history-incremental-search-forward
-bindkey "^[[1;2D" history-incremental-search-backward # Ctrl+r
+bindkey "\e[1;5A" history-substring-search-up
+bindkey "\e[1;5B" history-substring-search-down
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+# \e[1;2A Shift + arrow up
+# \e[1;2B Shift + arrow down
+# \e[1;2C Shift + arrow right
+# \e[1;2D Shift + arrow left
+bindkey "\e[1;2A" history-incremental-search-forward
+bindkey "\e[1;2B" history-incremental-search-backward # Ctrl+r
 
 # fix of delete key
-bindkey "^[[3~" delete-char
-bindkey "^[[3;5~" delete-word
+bindkey "\e[3~" delete-char
+bindkey "\e[3;5~" delete-word
 # fix for separating text on slashes
 export WORDCHARS=${WORDCHARS/\/}
 # NAVIGATION END
