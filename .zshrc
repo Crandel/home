@@ -28,6 +28,29 @@ function command_exists () {
   (( $+commands[$1] ))
 }
 
+# IMPORT ADDITIONAL FILES
+## CUSTOM ZSH FUNCS
+if [ -f ~/.zfunc.zsh ]; then
+  fpath+=~/.zfunc.zsh
+  . ~/.zfunc.zsh
+fi
+
+## CUSTOM ALIASES AND EXPORTS
+if [ -f ~/.aliases.zsh ]; then
+  . ~/.aliases.zsh
+fi
+
+## USER SPECIFIC BINARIES
+LOCAL_BIN=$HOME/.local/bin
+if [ -d $LOCAL_BIN ]; then
+  export PATH=$PATH:$LOCAL_BIN
+fi
+
+if [ -f /etc/profile.d/vte.sh ]; then
+  . /etc/profile.d/vte.sh
+fi
+# END IMPORT
+
 # PLUGIN MANAGMENT
 function plugin_init() {
   source $zinit_source
@@ -529,29 +552,6 @@ hdmi_sound_off (){
   pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 }
 # END CUSTOM FUNCTIONS
-
-# IMPORT ADDITIONAL FILES
-## CUSTOM ZSH FUNCS
-if [ -f ~/.zfunc.zsh ]; then
-  fpath+=~/.zfunc.zsh
-  . ~/.zfunc.zsh
-fi
-
-## CUSTOM ALIASES AND EXPORTS
-if [ -f ~/.aliases.zsh ]; then
-  . ~/.aliases.zsh
-fi
-
-## USER SPECIFIC BINARIES
-LOCAL_BIN=$HOME/.local/bin
-if [ -d $LOCAL_BIN ]; then
-  export PATH=$PATH:$LOCAL_BIN
-fi
-
-if [ -f /etc/profile.d/vte.sh ]; then
-  . /etc/profile.d/vte.sh
-fi
-# END IMPORT
 
 # PROMPT
 function parse_git_branch(){
