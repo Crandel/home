@@ -112,9 +112,7 @@ fi
 # PACKAGE MANAGERS
 if command_exists pacman ; then
   paclist() {
-    # Source: https://bbs.archlinux.org/viewtopic.php?id=93683
-    LC_ALL=C pacman -Qei $(pacman -Qu | cut -d " " -f 1) | \
-      awk 'BEGIN {FS=":"} /^Name/{printf("\033[1;36m%s\033[1;37m", $2)} /^Description/{print $2}'
+    pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
   }
 
   alias pacman="$SUDO pacman"
@@ -199,7 +197,7 @@ fi
 
 ### KUBERNETES
 if command_exists kubectl ; then
-  alias kl='kubectl'
+  alias k='kubectl'
   if command_exists kubectx ; then
     alias ktx='kubectx'
   fi

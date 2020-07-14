@@ -118,6 +118,7 @@ user_pref("browser.startup.blankWindow", false);
 user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.closeWindowWithLastTab", false); // The last tab does not close the browser
 user_pref("browser.tabs.drawInTitlebar", true);
+user_pref("browser.tabs.loadDivertedInBackground", true); // Do not open browser immediately after open link
 user_pref("browser.tabs.loadInBackground", false);
 user_pref("browser.tabs.remote.autostart", true);
 user_pref("browser.tabs.tabMinWidth", 30);
