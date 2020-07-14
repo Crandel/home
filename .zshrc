@@ -256,8 +256,8 @@ fi
 
 ### KUBERNETES
 if command_exists kubectl ; then
-  alias kl='kubectl'
-  compdef kl='kubectl'
+  alias k='kubectl'
+  compdef k='kubectl'
   if command_exists kubectx ; then
     alias ktx='kubectx'
     compdef ktx='kubectx'
