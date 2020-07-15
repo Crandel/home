@@ -23,6 +23,7 @@ input type:keyboard {
   xkb_layout "us,ua"
   xkb_options "grp:shift_caps_switch,compose:prsc"
   xkb_numlock enable
+  xkb_capslock disabled
 }
 
 input type:touchpad {
@@ -66,7 +67,6 @@ assign [class="Viber"] 2
 assign [class="Wire"] 2
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
-for_window [app_id="quiterss"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -263,13 +263,10 @@ bar {
     urgent_workspace   #2f343a #900000 #ffffff
     binding_mode       #2f343a #900000 #ffffff
   }
-  bindsym --release {
-    button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # increase sound volume
-    button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% # decrease sound volume
-    button2 exec gsimplecal
-  }
-  font "pango:Hack 16", FontAwesome 16
-  status_command i3status-rs $HOME/.config/sway/status.toml
+  pango_markup enabled
+  font "pango:Hack 18", FontAwesome 18
+  icon_theme Gruvbox
+  status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2>> ~/.local/log/i3status.log
 }
 
 # my settings
