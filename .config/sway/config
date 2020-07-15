@@ -203,6 +203,9 @@ bindsym --to-code {
   # radio
   $mod+Shift+p exec alacritty -e nvlc ~/.config/vlc/radio.xspf
 
+  # screenshot
+  $mod+Shift+s exec alacritty -e grimshot save area
+
   # default editor
   $mod+x exec $editor
 
@@ -251,7 +254,7 @@ bar {
   workspace_buttons yes
   tray_output $o_center
   colors {
-    background #000000
+    background #282828
     statusline #E1F5A9
     focused_workspace  #688A08 #688A08 #ffffff
     focused_statusline #688A08
