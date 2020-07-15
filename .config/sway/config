@@ -22,20 +22,21 @@ output {
 input type:keyboard {
   xkb_layout "us,ua"
   xkb_options "grp:shift_caps_switch,compose:prsc"
-  xkb_numlock enable
   xkb_capslock disabled
+  xkb_numlock enable
 }
 
 input type:touchpad {
-  tap enabled
   accel_profile adaptive
   click_method button_areas
   click_method clickfinger
+  drag enabled
   dwt enabled
   events disabled_on_external_mouse
   middle_emulation enable
   pointer_accel 0.5
   scroll_method two_finger
+  tap enabled
 }
 
 exec_always {
@@ -263,11 +264,22 @@ bar {
     urgent_workspace   #2f343a #900000 #ffffff
     binding_mode       #2f343a #900000 #ffffff
   }
+  # The middle button over a titlebar kills the window
+  bindsym {
+    button2 exec alacritty -e nmtui
+  }
   pango_markup enabled
   font "pango:Hack 16", FontAwesome 16
   icon_theme Gruvbox
   status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2>> ~/.local/log/i3status.log
 }
+
+# gaps
+default_border none
+smart_borders off
+smart_gaps on
+gaps inner 6
+gaps outer 6
 
 # my settings
 # class                 border   backgr. text    indicator
