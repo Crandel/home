@@ -1,11 +1,14 @@
 [icons]
 name = "awesome5"
 [icons.overrides]
-disk_drive = "  "
-backlight_empty = " 🌑 "
-backlight_full = " 🌕 "
-backlight_partial1 = " 🌒 "
-backlight_partial3 = " 🌔 "
+disk_drive = " "
+backlight_empty = "🌑"
+backlight_full = "🌕"
+backlight_partial1 = "🌒"
+backlight_partial3 = "🌔"
+net_down = "🠇"
+memory_mem = ""
+time = "⏳"
 
 [theme]
 name = "gruvbox-dark"
@@ -60,12 +63,24 @@ block = "backlight"
 step_width = 5
 
 [[block]]
-block = "networkmanager"
-on_click = "swaymsg exec 'alacritty -e nmtui'"
-primary_only = true
-max_ssid_width = 10
-ap_format = "{ssid}"
-device_format = "{icon}{ap}"
+block = "net"
+device = "enp0s31f6"
+format = "{speed_down}"
+interval = 5
+speed_min_unit = "M"
+use_bits = false
+hide_missing = true
+hide_inactive = true
+
+[[block]]
+block = "net"
+device = "wlan0"
+format = "{ssid}{speed_down}"
+interval = 5
+speed_min_unit = "M"
+use_bits = false
+hide_missing = true
+hide_inactive = true
 
 [[block]]
 block = "keyboard_layout"
@@ -77,4 +92,4 @@ format = "{layout}"
 block = "time"
 interval = 15
 format = "%d.%m %R"
-on_click = "swaymsg exec 'gsimplecal'"
+on_click = "swaymsg -q exec 'gsimplecal'"
