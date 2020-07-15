@@ -60,35 +60,21 @@ block = "backlight"
 step_width = 5
 
 [[block]]
-block = "net"
-device = "enp0"
-graph_up = false
-hide_inactive = true
-hide_missing = true
-interval = 2
-ip = false
-speed_down = true
-speed_up = false
-ssid = false
+block = "networkmanager"
+on_click = "swaymsg exec 'alacritty -e nmtui'"
+primary_only = true
+max_ssid_width = 10
+ap_format = "{ssid}"
+device_format = "{icon}{ap}"
 
 [[block]]
-block = "net"
-device = "wlan0"
-graph_up = false
-hide_inactive = true
-hide_missing = true
-interval = 2
-ip = false
-speed_down = true
-speed_up = false
-ssid = true
-
-[[block]]
-block = "custom"
-command = "~/.local/bin/keyboard-layout-print.sh"
-interval = 2
+block = "keyboard_layout"
+driver = "sway"
+sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
+format = "{layout}"
 
 [[block]]
 block = "time"
 interval = 15
 format = "%d.%m %R"
+on_click = "swaymsg exec 'gsimplecal'"
