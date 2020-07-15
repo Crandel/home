@@ -1,5 +1,16 @@
-theme = "plain"
-icons = "awesome5"
+[icons]
+name = "awesome5"
+[icons.overrides]
+disk_drive = "  "
+backlight_empty = " 🌑 "
+backlight_full = " 🌕 "
+backlight_partial1 = " 🌒 "
+backlight_partial3 = " 🌔 "
+
+[theme]
+name = "gruvbox-dark"
+[theme.overrides]
+separator = ""
 
 [[block]]
 block = "custom"
@@ -11,11 +22,11 @@ block = "disk_space"
 path = "/"
 alias = "/"
 info_type = "available"
-unit = "GB"
+unit = "GiB"
 interval = 60
 warning = 15.0
 alert = 10.0
-show_percentage = true
+format = "{icon}{alias}{available}({percentage}){unit}"
 
 [[block]]
 block = "cpu"
