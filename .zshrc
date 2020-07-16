@@ -11,6 +11,7 @@ zstyle :compinstall filename '$HOME/.zshrc'
 # END OF LINES ADDED BY COMPINSTALL
 setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
 bindkey -e
+unsetopt nomatch # escape string fixing zsh: no matches found error
 # END ZSH SPECIFIC
 
 # HISTORY

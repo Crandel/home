@@ -227,8 +227,8 @@ bindsym --to-code {
   $mod+Control+Shift+p exec systemctl reboot
 
   # toggle HDMI sound
-  $mod+Control+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
-  $mod+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
+  # $mod+Control+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
+  # $mod+Shift+s exec pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 
   # Pulse Audio controls
   XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # increase sound volume
@@ -269,7 +269,7 @@ bar {
     button2 exec alacritty -e nmtui
   }
   pango_markup enabled
-  font "pango:Hack 16", FontAwesome 16
+  font "Font Awesome 16", Hack 16
   icon_theme Gruvbox
   status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2>> ~/.local/log/i3status.log
 }
