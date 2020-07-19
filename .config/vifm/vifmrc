@@ -321,26 +321,27 @@ filetype * xdg-open
 " Explicitly set highlight type for some extensions
 " 256-color terminal
 if executable('highlight')
-    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c %c
-    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake %c
-    fileviewer *.css                highlight -O xterm256 -s dante --syntax css %c
-    fileviewer *.java               highlight -O xterm256 -s dante --syntax java %c
-    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp %c
-    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js   %c
-    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json %c
-    fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown %c
-    fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua %c
-    fileviewer *.py                 highlight -O xterm256 -s dante --syntax python %c
-    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust %c
-    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala %c
-    fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh %c
-    fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh %c
-    fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql %c
-    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml %c
+    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c         %c
+    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake     %c
+    fileviewer *.css                highlight -O xterm256 -s dante --syntax css       %c
+    fileviewer *.java               highlight -O xterm256 -s dante --syntax java      %c
+    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp      %c
+    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js        %c
+    fileviewer ?*.go                highlight -O xterm256 -s dante --syntax go        %c
+    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json      %c
+    fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown  %c
+    fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua       %c
+    fileviewer *.py                 highlight -O xterm256 -s dante --syntax python    %c
+    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust      %c
+    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala     %c
+    fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh        %c
+    fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh        %c
+    fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql       %c
+    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml      %c
     fileviewer .vimrc,vifmrc        highlight -O xterm256 -s dante --syntax vimscript %c
-    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml %c
-    fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml %c
-    fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make %c
+    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml       %c
+    fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml      %c
+    fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make      %c
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
 "
@@ -357,6 +358,7 @@ elseif executable('pygmentize')
     fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
     fileviewer *.md                 pygmentize -O -f=console256 -l markdown  %c
     fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
+    fileviewer *.go                 pygmentize -O -f=console256 -l go        %c
     fileviewer *.py                 pygmentize -O -f=console256 -l python    %c
     fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
     fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
