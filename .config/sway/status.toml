@@ -67,21 +67,21 @@ step_width = 5
 block = "net"
 device = "enp0s31f6"
 format = "{speed_down}"
+hide_missing = true
+hide_inactive = true
 interval = 5
 speed_min_unit = "M"
 use_bits = false
-hide_missing = true
-hide_inactive = true
 
 [[block]]
 block = "net"
 device = "wlan0"
 format = "{ssid}{speed_down}"
+hide_inactive = true
+hide_missing = true
 interval = 5
 speed_min_unit = "M"
 use_bits = false
-hide_missing = true
-hide_inactive = true
 
 [[block]]
 block = "keyboard_layout"
