@@ -436,15 +436,15 @@ if has('win')
     nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
     nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
-" elseif executable('wl-copy')
-"     " Yank current directory path into primary and selection clipboards
-"     nnoremap yd :!echo -n %d | wl-copy %i<cr>
-"     " Yank current file path into into primary and selection clipboards
-"     nnoremap yf :!echo -n %c:p | wl-copy %i<cr>
-"     " yank current filename without path into primary and selection clipboards
-"     nnoremap yn :!echo -n %c | wl-copy %i<cr>
-"     " yank root of current file's name into primary and selection clipboards
-"     nnoremap yr :!echo -n %c:r | wl-copy %i<cr>
+elseif executable('wl-copy')
+    " Yank current directory path into primary and selection clipboards
+    nnoremap yd :!echo -n %d | wl-copy %i<cr>
+    " Yank current file path into into primary and selection clipboards
+    nnoremap yf :!echo -n %c:p | wl-copy %i<cr>
+    " yank current filename without path into primary and selection clipboards
+    nnoremap yn :!echo -n %c | wl-copy %i<cr>
+    " yank root of current file's name into primary and selection clipboards
+    nnoremap yr :!echo -n %c:r | wl-copy %i<cr>
 elseif executable('xclip')
     " Yank current directory path into the clipboard
     nnoremap yd :!echo %d | xclip %i<cr>
@@ -527,32 +527,32 @@ nnoremap <c-s> :FZFfind<cr>
 :nnoremap <a-i> :cd %D<cr>
 
 " file types
-set classify=' :dir:/, :exe:, :reg:, :link:'
+set classify=' :dir:/, :exe:, :reg:, :link:'
 
 " code types
-set classify+=' ::*.sh::,::*.[hc]pp::,::*.[hc]::, ::.git/,,*.git/::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
-set classify+=' ::*.less::, ::*.scala,,*.sbt::, ::*.java::, ::*.py::, ::*.js,,*.json::, ::*.rs::, ::*.sql::'
+set classify+=' ::*.sh::,::*.[hc]pp,,*.[hc]::,::.git/,,*.git/::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+=' ::*.less::, ::*.scala,,*.sbt::, ::*.java::, ::*.py::, ::*.js,,*.json::, ::*.rs::, ::*.sql::'
 
 " books formats
-set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
+set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
 
 " various file names
 set classify+=' ::../::, ::/^copying|license$/::'
 
 " archives
-set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar::'
-set classify+=' ::*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.xz,,*.z,,*.zip,,*.zoo::'
-set classify+=' ::*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2::'
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar::'
+set classify+=' ::*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.xz,,*.z,,*.zip,,*.zoo::'
+set classify+=' ::*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2::'
 
 " images
-set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz::'
-set classify+=' ::*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz::'
+set classify+=' ::*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
 
 " audio
-set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 
 " media
-set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 
 " office files
-set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
+set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
