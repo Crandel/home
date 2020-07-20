@@ -1,6 +1,11 @@
 #!/usr/bin/bash
 
-pacman -S noto-fonts \
+pacman -S awesome-terminal-fonts \
+          capitaine-cursors \
+          gruvbox-dark-gtk \
+          gruvbox-dark-icons-gtk \
+          gruvbox-icon-theme \
+          noto-fonts \
           noto-fonts-extra \
           perl-font-ttf \
           terminus-font \

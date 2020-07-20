@@ -1,6 +1,12 @@
 #!/usr/bin/bash
 
-pacman -S emacs \
+pacman -S bash-language-server \
+          code \
+          emacs \
+          libreoffice-still \
+          meld \
+          metals \
+          nano \
           rust-analyzer \
           vim \
           vim-language-server \

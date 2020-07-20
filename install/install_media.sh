@@ -1,6 +1,7 @@
 #!/usr/bin/bash
 
 pacman -S dav1d \
+          deadbeef \
           fbv \
           ffmpeg \
           ffmpegthumbnailer \
@@ -10,6 +11,7 @@ pacman -S dav1d \
           lame \
           leptonica \
           libjpeg-turbo \
+          libva-intel-driver \
           mp3info \
           mpv \
           nomacs \
