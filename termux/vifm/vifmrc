@@ -268,26 +268,27 @@ filetype * vim
 " Explicitly set highlight type for some extensions
 " 256-color terminal
 if executable('highlight')
-    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c %c
-    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake %c
-    fileviewer *.css                highlight -O xterm256 -s dante --syntax css %c
-    fileviewer *.java               highlight -O xterm256 -s dante --syntax java %c
-    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp %c
-    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js   %c
-    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json %c
-    fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown %c
-    fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua %c
-    fileviewer *.py                 highlight -O xterm256 -s dante --syntax python %c
-    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust %c
-    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala %c
-    fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh %c
-    fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh %c
-    fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql %c
-    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml %c
+    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c         %c
+    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake     %c
+    fileviewer *.css                highlight -O xterm256 -s dante --syntax css       %c
+    fileviewer *.java               highlight -O xterm256 -s dante --syntax java      %c
+    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp      %c
+    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js        %c
+    fileviewer ?*.go                highlight -O xterm256 -s dante --syntax go        %c
+    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json      %c
+    fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown  %c
+    fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua       %c
+    fileviewer *.py                 highlight -O xterm256 -s dante --syntax python    %c
+    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust      %c
+    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala     %c
+    fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh        %c
+    fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh        %c
+    fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql       %c
+    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml      %c
     fileviewer .vimrc,vifmrc        highlight -O xterm256 -s dante --syntax vimscript %c
-    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml %c
-    fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml %c
-    fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make %c
+    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml       %c
+    fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml      %c
+    fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make      %c
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
 "
@@ -304,6 +305,7 @@ elseif executable('pygmentize')
     fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
     fileviewer *.md                 pygmentize -O -f=console256 -l markdown  %c
     fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
+    fileviewer *.go                 pygmentize -O -f=console256 -l go        %c
     fileviewer *.py                 pygmentize -O -f=console256 -l python    %c
     fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
     fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
@@ -428,10 +430,47 @@ set grepprg='rg --vimgrep %i %a %s'
 " let $VIFM_SERVER_NAME = v:servername
 
 " From mc: <Ctrl-s> fuzzy search in current directory
+command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
+nnoremap <c-s> :FZFfind<cr>
 
 " From mc: <Atl-i> cd to the same path as inactive directory
 :nnoremap <a-i> :cd %D<cr>
 
+" file types
+set classify=' :dir:/, :exe:, :reg:, :link:'
+
+" code types
+set classify+=' ::*.*sh,,.*.*sh,,.*sh*rc::, ::*.[hc]pp::, ::*.[hc]::, ::*.el*,,.*.el*::'
+set classify+='::.gitignore,,.git/::, ::**.lua,,.*lua::, ::*.rb::, ::*.ym*l,,.*.ym*l::'
+set classify+=' ::*.hs,,*.lhs::,  ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.go::'
+set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.rs::, ::*.sql::'
+set classify+=' ::*.less::,::*.scala,,*.sbt::, ::*.java::, ::*.py*,,.*.py*::, ::*.js,,.*.js,,*.json::'
+
+" books formats
+set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
+
+" various file names
+set classify+=' ::../::, ::/^copying|license$/::'
+
+" archives
+set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar::'
+set classify+=' ::*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.xz,,*.z,,*.zip,,*.zoo::'
+set classify+=' ::*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2::'
+
+" images
+set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.svgz::'
+set classify+=' ::*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
+
+" audio
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi::'
+set classify+=' ::*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+
+" media
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv::'
+set classify+=' ::*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+
+" office files
+set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 " Termux specific settings
 " Split panes horizontally
 split
