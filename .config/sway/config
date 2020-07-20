@@ -271,7 +271,7 @@ bar {
   pango_markup enabled
   font FontAwesome, Hack 16
   icon_theme Gruvbox
-  status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2>> ~/.local/log/i3status.log
+  status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
 }
 
 # gaps
