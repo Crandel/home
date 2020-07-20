@@ -1,15 +1,15 @@
 [icons]
 name = "awesome5"
 [icons.overrides]
-disk_drive = " "
 backlight_empty = "🌑"
 backlight_full = "🌕"
 backlight_partial1 = "🌒"
 backlight_partial3 = "🌔"
-net_down = "⇊"
-memory_mem = ""
-time = "⏳"
 cpu = ""
+disk_drive = " "
+memory_mem = ""
+net_down = "⇊"
+time = "⏳"
 
 [theme]
 name = "gruvbox-dark"
@@ -23,36 +23,36 @@ interval = 5
 
 [[block]]
 block = "disk_space"
-path = "/"
-alias = "/"
-info_type = "available"
-unit = "GiB"
-interval = 60
-warning = 15.0
 alert = 10.0
+alias = "/"
 format = "{icon}{alias}{available}({percentage}){unit}"
+info_type = "available"
+interval = 60
+path = "/"
+unit = "GiB"
+warning = 15.0
 
 [[block]]
 block = "cpu"
-interval = 1
 format = "{barchart} {utilization}% {frequency}GHz"
+interval = 1
 
 [[block]]
 block = "memory"
+clickable = true
+critical_mem = 95
+critical_swap = 95
 display_type = "memory"
 format_mem = "{Mug}GB"
 format_swap = "{SUm}MB"
 icons = true
-clickable = true
 warning_mem = 80
 warning_swap = 80
-critical_mem = 95
-critical_swap = 95
 
 [[block]]
 block = "battery"
-interval = 10
 format = "{percentage}% {time}"
+interval = 10
 
 [[block]]
 block = "sound"
@@ -65,10 +65,10 @@ step_width = 5
 
 [[block]]
 block = "net"
-device = "enp0s31f6"
+device = "enp0"
 format = "{speed_down}"
-hide_missing = true
 hide_inactive = true
+hide_missing = true
 interval = 5
 speed_min_unit = "M"
 use_bits = false
@@ -86,11 +86,11 @@ use_bits = false
 [[block]]
 block = "keyboard_layout"
 driver = "sway"
-sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 format = "{layout}"
+sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 
 [[block]]
 block = "time"
-interval = 15
 format = "%d.%m %R"
+interval = 15
 on_click = "swaymsg -q exec 'gsimplecal'"
