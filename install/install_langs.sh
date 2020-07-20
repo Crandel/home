@@ -1,17 +1,21 @@
 #!/usr/bin/bash
 
-pacman -S bpython \
-          coursier \
+source export_vars.sh
+
+$pacman -S bpython \
           helm \
           jre11-openjdk \
           kubectl \
           kubectx \
-          litecli \
           openjdk11-doc \
           openjdk11-src \
-          pgcli \
           rustup \
           sbt \
           scala \
           scala-docs \
           scala-sources
+
+$yay -S coursier \
+        k9s \
+        litecli \
+        pgcli
