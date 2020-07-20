@@ -534,9 +534,9 @@ set classify=' :dir:/, :exe:, :reg:, :link:'
 " code types
 set classify+=' ::*.*sh,,.*.*sh,,.*sh*rc::, ::*.[hc]pp::, ::*.[hc]::, ::*.el*,,.*.el*::'
 set classify+='::.gitignore,,.git/::, ::**.lua,,.*lua::, ::*.rb::, ::*.ym*l,,.*.ym*l::'
-set classify+=' ::*.hs,,*.lhs::,  ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.go::'
-set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.rs::, ::*.sql::'
-set classify+=' ::*.less::,::*.scala,,*.sbt::, ::*.java::, ::*.py*,,.*.py*::, ::*.js,,.*.js,,*.json::'
+set classify+=' ::*.hs,,*.lhs::, ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.go::'
+set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.rs::, ::*.sql::'
+set classify+=' ::*.less::,::*.scala,,*.sbt::, ::*.java::, ::*.py*,,.*.py*::, ::*.js,,.*.js,,*.json::'
 
 " books formats
 set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
