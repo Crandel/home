@@ -529,11 +529,14 @@ nnoremap <c-s> :FZFfind<cr>
 :nnoremap <a-i> :cd %D<cr>
 
 " file types
-set classify=' :dir:/, :exe:, :reg:, :link:'
+set classify=' :dir:/, :exe:, :reg:, :link:'
 
 " code types
-set classify+=' ::*.sh::,::*.[hc]pp,,*.[hc]::,::.git/,,*.git/::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
-set classify+=' ::*.less::, ::*.scala,,*.sbt::, ::*.java::, ::*.py::, ::*.js,,*.json::, ::*.rs::, ::*.sql::'
+set classify+=' ::*.*sh,,.*.*sh,,.*sh*rc::, ::*.[hc]pp::, ::*.[hc]::, ::*.el*,,.*.el*::'
+set classify+='::.gitignore,,.git/::, ::**.lua,,.*lua::, ::*.rb::, ::*.ym*l,,.*.ym*l::'
+set classify+=' ::*.hs,,*.lhs::,  ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.go::'
+set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.rs::, ::*.sql::'
+set classify+=' ::*.less::,::*.scala,,*.sbt::, ::*.java::, ::*.py*,,.*.py*::, ::*.js,,.*.js,,*.json::'
 
 " books formats
 set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
@@ -551,10 +554,12 @@ set classify+=' ::*.bmp,,*.gif,,*.jpeg,,*.jpg,,*.ico,,*.png,,*.ppm,,*.svg,,*.
 set classify+=' ::*.tga,,*.tif,,*.tiff,,*.xbm,,*.xcf,,*.xpm,,*.xspf,,*.xwd::'
 
 " audio
-set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi,,*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
+set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.mid,,*.midi::'
+set classify+=' ::*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 
 " media
-set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv::'
+set classify+=' ::*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
 
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
