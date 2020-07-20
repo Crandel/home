@@ -1,14 +1,18 @@
 #!/usr/bin/bash
 
-pacman -S bash-language-server \
-          code \
-          emacs \
-          libreoffice-still \
-          meld \
-          metals \
-          nano \
-          rust-analyzer \
-          vim \
-          vim-language-server \
-          vscode-html-languageserver-bin \
-          yaml-language-server-bin \
+source export_vars.sh
+
+$pacman -S bash-language-server \
+           code \
+           emacs \
+           libreoffice-still \
+           meld \
+           nano \
+           rust-analyzer \
+           vim
+
+$yay -S metals \
+        intellij-idea-community-edition-no-jre \
+        vim-language-server \
+        vscode-html-languageserver-bin \
+        yaml-language-server-bin
