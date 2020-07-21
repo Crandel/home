@@ -111,7 +111,8 @@ nnoremap <space>/ :Grep<Space>
 autocmd InsertEnter * highlight CursorLine guibg=#768a31
 autocmd InsertLeave * highlight CursorLine guibg=bg
 
-autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufRead,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufRead,BufReadPost vifm* set filetype=vifm
 " jump to the last position when reopening a file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -140,6 +141,7 @@ let s:comment_map = {
     \   "vim": '" ',
     \   "bash": '# ',
     \   "sh": '# ',
+    \   "scala": '// ',
     \   "el": '; ',
     \ }
 
@@ -199,7 +201,7 @@ let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
 map <F7> :Texplore<CR>
 
-nnoremap <NUL> :%s/\s\+$//e
+" nnoremap <NUL> :%s/\s\+$//e
 
 
 if &diff
@@ -207,9 +209,9 @@ if &diff
   map [ [c
 endif
 
-" wailand section
-" if executable('wl-copy')
-"   xnoremap "+y y:call system("wl-copy", @")<cr>
-"   nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
-"   nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
-" endif
+" wayland section
+if executable('wl-copy')
+   xnoremap "+y y:call system("wl-copy", @")<cr>
+   nnoremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+   nnoremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
+endif
