@@ -324,53 +324,64 @@ if executable('highlight')
     fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c         %c
     fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake     %c
     fileviewer *.css                highlight -O xterm256 -s dante --syntax css       %c
-    fileviewer *.java               highlight -O xterm256 -s dante --syntax java      %c
     fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp      %c
-    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js        %c
-    fileviewer ?*.go                highlight -O xterm256 -s dante --syntax go        %c
-    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json      %c
-    fileviewer *.md                 highlight -O xterm256 -s dante --syntax markdown  %c
-    fileviewer *.lua,?*.lua         highlight -O xterm256 -s dante --syntax lua       %c
-    fileviewer *.py                 highlight -O xterm256 -s dante --syntax python    %c
+    fileviewer *.html               highlight -O xterm256 -s dante --syntax html      %c
+    fileviewer *.java               highlight -O xterm256 -s dante --syntax java      %c
+    fileviewer *.kt,*.kts           highlight -O xterm256 -s dante --syntax kotlin    %c
+    fileviewer *.md,*.markdown      highlight -O xterm256 -s dante --syntax markdown  %c
     fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust      %c
     fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala     %c
-    fileviewer ?*.sh,?*.zsh,?*.bash highlight -O xterm256 -s dante --syntax sh        %c
-    fileviewer .zshrc,.bashrc       highlight -O xterm256 -s dante --syntax sh        %c
-    fileviewer *.sql                highlight -O xterm256 -s dante --syntax sql       %c
+    fileviewer *.sql,*.psql         highlight -O xterm256 -s dante --syntax sql       %c
     fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml      %c
-    fileviewer .vimrc,vifmrc        highlight -O xterm256 -s dante --syntax vimscript %c
     fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml       %c
-    fileviewer ?*.yml,?*.yaml       highlight -O xterm256 -s dante --syntax yaml      %c
-    fileviewer Makefile,Makefile.*  highlight -O xterm256 -s dante --syntax make      %c
+    fileviewer ?*.conf              highlight -O xterm256 -s dante --syntax conf      %c
+    fileviewer ?*.go                highlight -O xterm256 -s dante --syntax go        %c
+    fileviewer ?*.ini               highlight -O xterm256 -s dante --syntax ini       %c
+    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js        %c
+    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json      %c
+    fileviewer ?*.lua               highlight -O xterm256 -s dante --syntax lua       %c
+    fileviewer ?*.py                highlight -O xterm256 -s dante --syntax python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  highlight -O xterm256 -s dante --syntax sh        %c
+    fileviewer ?*.vue               highlight -O xterm256 -s dante --syntax vue       %c
+    fileviewer ?*.y*ml,             highlight -O xterm256 -s dante --syntax yaml      %c
+    fileviewer ?vi*rc               highlight -O xterm256 -s dante --syntax vimscript %c
+    fileviewer Makefile*            highlight -O xterm256 -s dante --syntax make      %c
+    fileviewer [Dd]ocker*           highlight -O xterm256 -s dante --syntax docker    %c
+elseif executable('pygmentize')
+    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f=console257 -l c         %c
+    fileviewer *.cmake              pygmentize -O -f=console256 -l cmake     %c
+    fileviewer *.css                pygmentize -O -f=console256 -l css       %c
+    fileviewer *.el,*.cl            pygmentize -O -f=console256 -l lisp      %c
+    fileviewer *.hs,lhs             pygmentize -O -f=console256 -l haskell   %c
+    fileviewer *.html               pygmentize -O -f=console256 -l html      %c
+    fileviewer *.java               pygmentize -O -f=console256 -l java      %c
+    fileviewer *.kt,*.kts           pygmentize -O -f=console256 -l kotlin    %c
+    fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
+    fileviewer *.md,*.markdown      pygmentize -O -f=console256 -l markdown  %c
+    fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
+    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
+    fileviewer *.sql,*.psql         pygmentize -O -f=console256 -l sql       %c
+    fileviewer *.toml               pygmentize -O -f=console256 -l toml      %c
+    fileviewer *.xml                pygmentize -O -f=console256 -l xml       %c
+    fileviewer ?vi*rc               pygmentize -O -f=console256 -l vimscript %c
+    fileviewer ?*.go                pygmentize -O -f=console256 -l go        %c
+    fileviewer ?*.ini               pygmentize -O -f=console256 -l ini       %c
+    fileviewer ?*.js                pygmentize -O -f=console256 -l js        %c
+    fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
+    fileviewer ?*.lua               pygmentize -O -f=console256 -l lua       %c
+    fileviewer ?*.py                pygmentize -O -f=console256 -l python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O -f=console256 -l sh        %c
+    fileviewer ?*.y*ml              pygmentize -O -f=console256 -l yaml      %c
+    fileviewer Makefile*            pygmentize -O -f=console256 -l make      %c
+    fileviewer [Dd]ocker*           pygmentize -O -f=console256 -l docker    %c
+endif
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
 "
 " Or leave it for automatic detection
 "
 " fileviewer *[^/] pygmentize -O style=monokai -f console256 -g
-elseif executable('pygmentize')
-    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f=console256 -l c         %c
-    fileviewer *.cmake              pygmentize -O -f=console256 -l cmake     %c
-    fileviewer *.css                pygmentize -O -f=console256 -l css       %c
-    fileviewer *.java               pygmentize -O -f=console256 -l java      %c
-    fileviewer *.el,*.cl            pygmentize -O -f=console256 -l lisp      %c
-    fileviewer ?*.js                pygmentize -O -f=console256 -l js        %c
-    fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
-    fileviewer *.md                 pygmentize -O -f=console256 -l markdown  %c
-    fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
-    fileviewer *.go                 pygmentize -O -f=console256 -l go        %c
-    fileviewer *.py                 pygmentize -O -f=console256 -l python    %c
-    fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
-    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
-    fileviewer ?*.sh,?*.zsh,?*.bash pygmentize -O -f=console256 -l sh        %c
-    fileviewer .zshrc,.bashrc       pygmentize -O -f=console256 -l sh        %c
-    fileviewer *.sql                pygmentize -O -f=console256 -l sql       %c
-    fileviewer *.toml               pygmentize -O -f=console256 -l toml      %c
-    fileviewer .vimrc,vifmrc        pygmentize -O -f=console256 -l vimscript %c
-    fileviewer *.xml                pygmentize -O -f=console256 -l xml       %c
-    fileviewer ?*.yml,?*.yaml       pygmentize -O -f=console256 -l yaml      %c
-    fileviewer Makefile,Makefile.*  pygmentize -O -f=console256 -l make      %c
-endif
+
 " Other fileviewers
 fileviewer *.7z 7z l %c
 fileviewer *.[1-8] man ./%c | col -b
@@ -532,11 +543,16 @@ nnoremap <c-s> :FZFfind<cr>
 set classify=' :dir:/, :exe:, :reg:, :link:'
 
 " code types
-set classify+=' ::*.*sh,,.*.*sh,,.*sh*rc::, ::*.[hc]pp::, ::*.[hc]::, ::*.el*,,.*.el*::'
-set classify+='::.gitignore,,.git/::, ::**.lua,,.*lua::, ::*.rb::, ::*.ym*l,,.*.ym*l::'
-set classify+=' ::*.hs,,*.lhs::, ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::, ::*.go::'
-set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.rs::, ::*.sql::'
-set classify+=' ::*.less::,::*.scala,,*.sbt::, ::*.java::, ::*.py*,,.*.py*::, ::*.js,,.*.js,,*.json::'
+set classify+=' ::?*.sh,,?*.*sh,,.*shrc::'
+set classify+=' ::?*.el*,,?*.cl*::'
+set classify+=' ::*.[ch]::, ::*.[ch]pp::'
+set classify+='::*.scala,,*.sbt,,*.sc::, ::*.java::'
+set classify+=' ::*.rs,,*.rust::, ::*.go::, ::*.hs,,*.lhs::, ::?*.lua::, ::?*.rb::'
+set classify+=' ::?*.py,,?*.py*::, ::*.js,,.*.js,,*.json,,.*.json::, ::*.vue::'
+set classify+=' ::?*.css::, ::?*.less::'
+set classify+='::.gitignore,,.git/::, ::*.ym*l,,.*.ym*l::, ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+=' ::?.conf,,?.ini::, ::?.toml::'
+set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.sql::, ::?*psql*::'
 
 " books formats
 set classify+=' ::*.epub,,*.fb2,,*.djvu::, ::*.pdf::'
