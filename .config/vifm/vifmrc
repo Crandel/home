@@ -551,7 +551,7 @@ set classify+=' ::*.rs,,*.rust::, ::*.go::, ::*.hs,,*.lhs::, ::?*.lu
 set classify+=' ::?*.py,,?*.py*::, ::*.js,,.*.js,,*.json,,.*.json::, ::*.vue::'
 set classify+=' ::?*.css::, ::?*.less::'
 set classify+='::.gitignore,,.git/::, ::*.ym*l,,.*.ym*l::, ::*.md::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
-set classify+=' ::?.conf,,?.ini::, ::?.toml::'
+set classify+=' ::?.conf,,?.ini::, ::?.toml::, ::[Dd]ocker*::'
 set classify+=' ::*.vi*,,*vi*rc,,.*vi*rc,,vifm*::, ::*.sql::, ::?*psql*::'
 
 " books formats
