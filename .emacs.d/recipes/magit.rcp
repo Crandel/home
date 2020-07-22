@@ -21,6 +21,7 @@
                     (with-eval-after-load 'magit
                       (setq magit-log-arguments '("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256")
                             magit-log-margin-show-committer-date t
+                            magit-ediff-dwim-show-on-hunks       t
                             magit-log-remove-graph-args '("--follow" "--grep" "-G" "-S" "-L")
                             )
                       (define-key magit-file-mode-map (kbd "C-x g") nil))

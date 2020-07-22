@@ -98,6 +98,7 @@
 )
 
 (when (executable-find "scala")
+    (add-to-list 'my-packages 'lsp-metals)
     (add-to-list 'my-packages 'sbt-mode)
     (add-to-list 'my-packages 'scala-mode)
 )
