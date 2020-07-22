@@ -211,6 +211,7 @@
       compilation-window-height   10
       )
 
+(setq ediff-merge-split-window-function 'split-window-vertically)
 
 (setq dired-listing-switches "-ahlF --time-style=long-iso --group-directories-first")
 

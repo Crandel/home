@@ -62,8 +62,12 @@
                     ;;           )
 
                     (add-hook 'vimrc-mode-hook '(lambda()
-                                               (lsp)
-                                               )
+                                                  (lsp)
+                                                  )
                               )
 
+                    (add-hook 'js2-mode-hook '(lambda()
+                                                  (lsp)
+                                                  )
+                              )
                     ))
