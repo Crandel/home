@@ -5,8 +5,8 @@
   :custom
   (undo-tree-visualizer-diff t)
   :bind (
-  ("C-z" . 'undo-tree-visualize)
-  ("C-c C-z" . 'undo-tree-redo)
+  ("C-z" . undo-tree-visualize)
+  ("C-c C-z" . undo-tree-redo)
   (:map undo-tree-map
         ("C-_" . nil)
         ("C-?" . nil)
@@ -15,8 +15,8 @@
         )
   )
   :chords (
-  ("zz" . 'undo-tree-visualize)
-  ("zx" . 'undo-tree-undo))
+  ("zz" . undo-tree-visualize)
+  ("zx" . undo-tree-undo))
 )
 
 (provide 'undo-tree-rcp)
