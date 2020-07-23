@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dl
+# key: dl
+# --
+Debug.Println($0)

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: tr
+# key: tr
+# --
+<tr>
+    <td>$0</td>
+</tr>

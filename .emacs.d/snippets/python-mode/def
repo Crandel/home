@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: def
+# key: d
+# --
+def $1($2):
+    $0
