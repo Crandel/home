@@ -1,73 +1,50 @@
-(:name lsp-mode
-       :website "https://github.com/emacs-lsp/lsp-mode"
-       :description "Emacs client/library for the Language Server Protocol"
-       :depends (dash f ht hydra spinner markdown-mode)
-       :type github
-       :pkgname "emacs-lsp/lsp-mode"
-       :post-init (progn
-                    (setq
-                          lsp-enable-completion-at-point     t
-                          lsp-enable-imenu                   t
-                          lsp-enable-semantic-highlighting   t
-                          lsp-enable-text-document-color     t
-                          lsp-enable-xref                    t
-                          lsp-idle-delay                     0.500
-                          lsp-imenu-container-name-separator t
-                          lsp-imenu-show-container-name      t
-                          lsp-keymap-prefix                  "C-l"
-                          lsp-prefer-capf                    t
-                          lsp-signature-auto-activate        nil
-                          lsp-ui-doc-delay                   2
-                          lsp-ui-doc-max-height              3
-                          lsp-ui-doc-max-width               30
-                          )
-                    (with-eval-after-load 'lsp-mode
-                      (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration))
+(use-package lsp-mode
+  :ensure t
+  :custom
+  (lsp-enable-completion-at-point     t)
+  (lsp-enable-imenu                   t)
+  (lsp-enable-semantic-highlighting   t)
+  (lsp-enable-text-document-color     t)
+  (lsp-enable-xref                    t)
+  (lsp-idle-delay                     0.500)
+  (lsp-imenu-container-name-separator t)
+  (lsp-imenu-show-container-name      t)
+  (lsp-keymap-prefix                  "C-l")
+  (lsp-prefer-capf                    t)
+  (lsp-signature-auto-activate        nil)
+  (lsp-rust-server                   'rust-analyzer)
+  (lsp-enable-which-key-integration  t)
+  :config
+  (setq flymake-diagnostic-functions nil)
+  :hook ((python-mode . lsp)
+         (rust-mode . lsp)
+         (c++-mode . lsp)
+         (java-mode . lsp)
+         (scala-mode . lsp)
+         (vimrc-mode . lsp)
+         (js2-mode . lsp)
+         ;; (sh-mode . lsp)
 
-                    (add-hook 'python-mode-hook '(lambda()
-                                                   (lsp)
-                                                   (setq-default flymake-diagnostic-functions nil)
-                                                   )
-                              )
+         ;; (yaml-mode . lsp)
+         )
+)
 
-                    (add-hook 'rust-mode-hook '(lambda()
-                                                 (setq lsp-rust-server 'rust-analyzer)
-                                                 (lsp)
-                                                 )
-                              )
+(use-package lsp-ui
+  :custom
+  (lsp-ui-doc-delay                   2)
+  (lsp-ui-doc-max-height              3)
+  (lsp-ui-doc-max-width               30)
+  :bind
+  (:map lsp-ui-mode-map
+        ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
+        ([remap xref-find-references] . lsp-ui-peek-find-references)
+        )
+)
 
-                    (add-hook 'c++-mode-hook '(lambda()
-                                                (lsp)
-                                                )
-                              )
+(use-package lsp-treemacs
+  :ensure t
+  :config
+  (lsp-treemacs-sync-mode 1)
+)
 
-                    (add-hook 'java-mode-hook '(lambda()
-                                                 (lsp)
-                                                 )
-                              )
-
-                    (add-hook 'scala-mode-hook '(lambda()
-                                                  (lsp)
-                                                  )
-                              )
-
-                    ;; (add-hook 'sh-mode-hook '(lambda()
-                    ;;                            (lsp)
-                    ;;                            )
-                    ;;           )
-
-                    ;; (add-hook 'yaml-mode-hook '(lambda()
-                    ;;                            (lsp)
-                    ;;                            )
-                    ;;           )
-
-                    (add-hook 'vimrc-mode-hook '(lambda()
-                                                  (lsp)
-                                                  )
-                              )
-
-                    (add-hook 'js2-mode-hook '(lambda()
-                                                  (lsp)
-                                                  )
-                              )
-                    ))
+(provide 'lsp-mode-rcp)

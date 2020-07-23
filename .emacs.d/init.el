@@ -55,10 +55,12 @@
 (require 'company-box-rcp)
 (require 'fnhh-rcp)
 (require 'helm-rcp)
+(require 'lsp-mode-rcp)
 (require 'magit-rcp)
 (require 'multiple-cursors-rcp)
 (require 'smart-mode-line-rcp)
 (require 'smartparens-rcp)
+(require 'treemacs-rcp)
 (require 'undo-tree-rcp)
 (require 'which-key-rcp)
 
