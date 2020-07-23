@@ -1,0 +1,11 @@
+:content = application/json
+:token1 = 02ff106f7bea87aab423a38598398ca1875c367e
+:token2 = 8f17342a3a282bba626173467c2a5806d3fc58bd
+GET http://bandy.steel.kiwi/api/v1/matches/
+Authorization: Token :token2
+Content-Type: :content
+
+# Next request
+GET http://bandy.steel.kiwi/api/v1/categories
+Authorization: Token :token2
+Content-Type: :content

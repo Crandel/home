@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ln
+# key: ln
+# --
+log.Println($0)
