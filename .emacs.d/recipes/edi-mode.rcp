@@ -1,7 +1,0 @@
-(:name edi-mode
-       :description "EdiFact mode"
-       :url "https://raw.githubusercontent.com/emacsmirror/emacswiki.org/master/edi-mode.el"
-       :type http
-       :compile "edi-mode.el"
-       :load "edi-mode.el"
-       :post-init (add-to-list 'auto-mode-alist '("\\.edi\\'" . edi-mode)))

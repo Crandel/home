@@ -1,6 +1,0 @@
-(:name lsp-java
-       :website "https://github.com/emacs-lsp/lsp-mode"
-       :description "Emacs client/library for the Language Server Protocol"
-       :depends (dash dash-functional f ht lsp-mode markdown-mode request treemacs)
-       :type github
-       :pkgname "emacs-lsp/lsp-java")

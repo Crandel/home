@@ -1,5 +1,0 @@
-(:name dash-functional
-       :description "Collection of useful combinators for Emacs Lisp"
-       :type github
-       :files "dash-functional.el"
-       :pkgname "magnars/dash.el")

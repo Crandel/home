@@ -1,5 +1,0 @@
-(:name go-scratch
-       :description "Go Playground"
-       :type github
-       :pkgname "shosti/go-scratch.el"
-       :depends (go-mode))

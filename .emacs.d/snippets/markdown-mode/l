@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: l
-# key: l
-# --
-[$1]($0)
