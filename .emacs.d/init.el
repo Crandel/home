@@ -45,10 +45,10 @@
 (defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
 
 (require 'base-rcp) ; emacs default settings
-(require 'bind-key) ; if you use any :bind variant
-(require 'bind-chord) ; if you use any :chords variant
 (require 'use-package-chords-rcp)
 (require 'quelpa-rcp) ; install from different sourses
+(require 'bind-key) ; if you use any :bind variant
+(require 'bind-chord) ; if you use any :chords variant
 
 (require 'avy-rcp)
 (require 'company-rcp)
