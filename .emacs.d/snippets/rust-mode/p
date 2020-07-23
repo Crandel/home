@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: p
-# key: p
-# --
-println!("{}", $0);

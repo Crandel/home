@@ -1,34 +1,5 @@
 ;; Custom keybindings
 ;; Moving
-;;UP
-(global-unset-key (kbd "M-i"))
-(global-set-key (kbd "M-i") 'previous-line)
-;; LEFT
-(global-unset-key (kbd "M-j"))
-(global-set-key (kbd "M-j") 'backward-char)
-;; DOWN
-(global-unset-key (kbd "M-k"))
-(global-set-key (kbd "M-k") 'next-line)
-(global-set-key (kbd "C-c k") 'kill-sentence)
-;; RIGHT
-(global-unset-key (kbd "M-l"))
-(global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "C-c l") 'downcase-word)
-;; RIGHT WORD
-(global-unset-key (kbd "M-o"))
-(global-set-key (kbd "M-o") 'forward-word)
-;; LEFT WORD
-(global-unset-key (kbd "M-u"))
-(global-set-key (kbd "M-u") 'backward-word)
-(global-set-key (kbd "C-c u") 'upcase-word)
-
-;; Yank
-(global-unset-key (kbd "C-v"))
-(global-unset-key (kbd "C-y"))
-(global-set-key (kbd "C-v") 'yank)
-(global-set-key (kbd "C-y") 'scroll-up-command)
-
-(global-set-key (kbd "C-x C-b") 'electric-buffer-list)
 
 ;; move line up
 (defun move-line-up ()
@@ -105,8 +76,6 @@
 (global-unset-key (kbd "C-d"))
 (global-set-key (kbd "C-d") 'my-delete-line)
 
-(global-set-key (kbd "RET") 'newline)
-(global-set-key (kbd "M-RET") 'newline-and-indent)
 
 (defvar newline-and-indent t)
 ;; open new line (vi's o command)
@@ -159,11 +128,8 @@
   (save-buffers-kill-terminal "y")
 )
 
-(global-unset-key [tab])
-(global-set-key [tab] 'tab-indent-or-complete)
-(global-set-key (kbd "<backtab>") 'tab-indent-or-complete)
-(global-set-key (kbd "C-c b") 'revert-buffer)
-(global-set-key (kbd "C-x C-x") 'my-kill-emacs-with-save)
+;; (global-unset-key [tab])
+;; (global-set-key [tab] 'tab-indent-or-complete)
 ;; C-x r y for paste multiple cursors
 
 (provide 'keybindings_my)

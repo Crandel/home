@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: df
-# key: df
-# --
-Debug.Printf("%#v\n", $0)

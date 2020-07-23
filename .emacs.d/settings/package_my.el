@@ -2,115 +2,8 @@
 ;; Initialise package and add Melpa repository
 
 (require 'package)
-
-(setq my-packages
-    '(
-      ;; all-the-icons
-      ;; apib-mode
-      avy
-      company-flx
-      company-mode
-      company-restclient
-      dap-mode
-      dired-hacks
-      el-get
-      ;; emacs-fish
-      emmet-mode
-      expand-region
-      flycheck
-      git-gutter
-      helm
-      helm-lsp
-      helm-projectile
-      helm-swoop
-      highlight-indentation
-      json-mode
-      key-chord
-      know-your-http-well
-      ;; less-css-mode
-      lsp-java
-      lsp-mode
-      lsp-treemacs
-      lsp-ui
-      magit
-      markdown-mode
-      mo-git-blame
-      multi-compile
-      multiple-cursors
-      projectile
-      rainbow-delimiters
-      rainbow-mode
-      restclient
-      smart-mode-line
-      smartparens
-      treemacs
-      treemacs-icons-dired
-      treemacs-magit
-      treemacs-projectile
-      undo-tree
-      vimrc-mode
-      web-mode
-      which-key
-      ; xclip
-      yafolding
-      yaml-mode
-      yasnippet
-      yasnippet-snippets
-      )
-)
-;; (when (executable-find "go")
-;;     (add-to-list 'my-packages 'go-eldoc)
-;;     (add-to-list 'my-packages 'go-mode)
-;;     (add-to-list 'my-packages 'go-company)
-;; )
-
-;; (when (executable-find "node")
-;;     (add-to-list 'my-packages 'js2-mode)
-;;     (add-to-list 'my-packages 'js2-refactor)
-;;     (add-to-list 'my-packages 'prettier-js)
-;; )
-
-(when (executable-find "rg")
-    (add-to-list 'my-packages 'helm-ag)
-    (add-to-list 'my-packages 'ripgrep)
-)
-
-(when (executable-find "cargo")
-    (add-to-list 'my-packages 'rust-mode)
-    (add-to-list 'my-packages 'flycheck-rust)
-)
-
-(when (executable-find "python")
-    (add-to-list 'my-packages 'pip-requirements)
-    (when (executable-find "autopep8")
-      (add-to-list 'my-packages 'py-autopep8)
-      )
-    (add-to-list 'my-packages 'py-isort)
-    (when (executable-find "virtualenv")
-      (add-to-list 'my-packages 'auto-virtualenv))
-
-    (when (executable-find "virtualenvwrapper")
-      (add-to-list 'my-packages 'auto-virtualenvwrapper))
-)
-
-(when (executable-find "livedown")
-    (add-to-list 'my-packages 'livedown)
-)
-
-(when (executable-find "scala")
-    (add-to-list 'my-packages 'lsp-metals)
-    (add-to-list 'my-packages 'sbt-mode)
-    (add-to-list 'my-packages 'scala-mode)
-)
-
-(when (executable-find "docker")
-    (add-to-list 'my-packages 'dockerfile-mode)
-    (add-to-list 'my-packages 'docker-compose-mode)
-)
-
-
 ;; for gnu repository
-(setq package-check-signature nil)
+;(setq package-check-signature nil)
 ;; bug fix for gnu
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
@@ -124,29 +17,162 @@
         ("org"          . 100)
         ("elpa"         . 75)
         ("gnu"          . 50)))
+(customize-set-variable 'package-enable-at-startup nil)
+
 (package-initialize)
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil t)
+(unless (package-installed-p 'use-package)
   (package-refresh-contents)
-  (package-install 'el-get)
-  (package-install 'async)
-  (package-install 'jsonrpc)
-  (package-install 'cl-lib)
-  (package-install 'memoize)
-  (package-install 'flymake)
-  (message "require is")
-  (require 'el-get)
-  (el-get 'sync))
+  (package-install 'use-package))
 
-(add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
+(eval-when-compile
+  (require 'use-package))
 
-(el-get 'sync my-packages)
+(put 'use-package 'lisp-indent-function 1)
 
-(require 'el-get-elpa)
-;; Build the El-Get copy of the package.el packages if we have not
-;; built it before.  Will have to look into updating later ...
-(unless (file-directory-p el-get-recipe-path-elpa)
-  (el-get-elpa-build-local-recipes))
+(use-package use-package-core
+  :custom
+  (use-package-verbose t)
+  (use-package-minimum-reported-time 0.005)
+  (use-package-enable-imenu-support t))
+
+(add-to-list 'load-path "~/.emacs.d/recipes")
+
+(require 'bind-key) ; if you use any :bind variant
+(require 'company-rcp)
+(require 'use-package-chords-rcp)
+(require 'multiple-cursors-rcp)
+(require 'smart-mode-line-rcp)
+(require 'helm-rcp)
+
+;; el-get settings
+;; (setq my-packages
+;;     '(
+;;       ;; all-the-icons
+;;       ;; apib-mode
+;;       avy
+;;       company-flx
+;;       company-mode
+;;       company-restclient
+;;       dap-mode
+;;       dired-hacks
+;;       el-get
+;;       ;; emacs-fish
+;;       emmet-mode
+;;       expand-region
+;;       flycheck
+;;       git-gutter
+;;       helm
+;;       helm-lsp
+;;       helm-projectile
+;;       helm-swoop
+;;       highlight-indentation
+;;       json-mode
+;;       key-chord
+;;       know-your-http-well
+;;       ;; less-css-mode
+;;       lsp-java
+;;       lsp-mode
+;;       lsp-treemacs
+;;       lsp-ui
+;;       magit
+;;       markdown-mode
+;;       mo-git-blame
+;;       multi-compile
+;;       multiple-cursors
+;;       projectile
+;;       rainbow-delimiters
+;;       rainbow-mode
+;;       restclient
+;;       smart-mode-line
+;;       smartparens
+;;       treemacs
+;;       treemacs-icons-dired
+;;       treemacs-magit
+;;       treemacs-projectile
+;;       undo-tree
+;;       vimrc-mode
+;;       web-mode
+;;       which-key
+;;       ; xclip
+;;       yafolding
+;;       yaml-mode
+;;       yasnippet
+;;       yasnippet-snippets
+;;       )
+;; )
+;; (when (executable-find "go")
+;;     (add-to-list 'my-packages 'go-eldoc)
+;;     (add-to-list 'my-packages 'go-mode)
+;;     (add-to-list 'my-packages 'go-company)
+;; )
+
+;; (when (executable-find "node")
+;;     (add-to-list 'my-packages 'js2-mode)
+;;     (add-to-list 'my-packages 'js2-refactor)
+;;     (add-to-list 'my-packages 'prettier-js)
+;; )
+
+;; (when (executable-find "rg")
+;;     (add-to-list 'my-packages 'helm-ag)
+;;     (add-to-list 'my-packages 'ripgrep)
+;; )
+
+;; (when (executable-find "cargo")
+;;     (add-to-list 'my-packages 'rust-mode)
+;;     (add-to-list 'my-packages 'flycheck-rust)
+;; )
+
+;; (when (executable-find "python")
+;;     (add-to-list 'my-packages 'pip-requirements)
+;;     (when (executable-find "autopep8")
+;;       (add-to-list 'my-packages 'py-autopep8)
+;;       )
+;;     (add-to-list 'my-packages 'py-isort)
+;;     (when (executable-find "virtualenv")
+;;       (add-to-list 'my-packages 'auto-virtualenv))
+
+;;     (when (executable-find "virtualenvwrapper")
+;;       (add-to-list 'my-packages 'auto-virtualenvwrapper))
+;; )
+
+;; (when (executable-find "livedown")
+;;     (add-to-list 'my-packages 'livedown)
+;; )
+
+;; (when (executable-find "scala")
+;;     (add-to-list 'my-packages 'lsp-metals)
+;;     (add-to-list 'my-packages 'sbt-mode)
+;;     (add-to-list 'my-packages 'scala-mode)
+;; )
+
+;; (when (executable-find "docker")
+;;     (add-to-list 'my-packages 'dockerfile-mode)
+;;     (add-to-list 'my-packages 'docker-compose-mode)
+;; )
+
+
+;; (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+;; (unless (require 'el-get nil t)
+;;   (package-refresh-contents)
+;;   (package-install 'el-get)
+;;   (package-install 'async)
+;;   (package-install 'jsonrpc)
+;;   (package-install 'cl-lib)
+;;   (package-install 'memoize)
+;;   (package-install 'flymake)
+;;   (message "require is")
+;;   (require 'el-get)
+;;   (el-get 'sync))
+
+;; (add-to-list 'el-get-recipe-path "~/.emacs.d/recipes")
+
+;; (el-get 'sync my-packages)
+
+;; (require 'el-get-elpa)
+;; ;; Build the El-Get copy of the package.el packages if we have not
+;; ;; built it before.  Will have to look into updating later ...
+;; (unless (file-directory-p el-get-recipe-path-elpa)
+;;   (el-get-elpa-build-local-recipes))
 
 (provide 'package_my)

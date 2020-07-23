@@ -1,4 +1,0 @@
-(:name emacs-fish
-       :type github
-       :description "Emacs major mode for fish shell scripts."
-       :pkgname "wwwjfy/emacs-fish")

@@ -200,18 +200,18 @@
          (format "SQL history will not be saved because %s is nil"
                  (symbol-name rval))))))
 (setq sql-connection-alist
-      '((test1 (sql-product 'postgres)
+      '((anno_dev (sql-product 'postgres)
                   (sql-port 5432)
                   (sql-server "localhost")
-                  (sql-user "test1")
-                  (sql-password "test")
-                  (sql-database "test1"))
-        '((test2 (sql-product 'postgres)
+                  (sql-user "textversteher_annotation_test")
+                  (sql-password "nohJoh0EekieYoopooje")
+                  (sql-database "textversteher_annotation_test"))
+        (anno_prod (sql-product 'postgres)
                   (sql-port 5432)
                   (sql-server "localhost")
-                  (sql-user "test2")
-                  (sql-password "test")
-                  (sql-database "test2")))))
+                  (sql-user "textversteher_annotation")
+                  (sql-password "s2KK9QjIwSNn%5#t")
+                  (sql-database "textversteher_annotation"))))
 
 (add-hook 'sql-interactive-mode-hook
           (lambda()
