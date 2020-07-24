@@ -43,6 +43,7 @@
 )
 
 (use-package company-restclient
+  :after restclient
   :ensure t
 )
 

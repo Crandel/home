@@ -1,28 +1,56 @@
-(:name yasnippet
-  :website "https://github.com/capitaomorte/yasnippet.git"
-  :description "YASnippet is a template system for Emacs."
-  :type github
-  :pkgname "capitaomorte/yasnippet"
-  :compile "yasnippet.el"
-  ;; only fetch the `snippets' submodule, others have funny
-  ;; file names that can cause problems
-  ;; see https://github.com/dimitri/el-get/issues/1511
-  :submodule nil
-  ;:build (("git" "submodule" "update" "--init" "--" "snippets"))
-  :features (yasnippet)
-  :post-init (progn
-              (yas-reload-all)
-              (add-hook 'python-mode-hook               #'yas-minor-mode)
-              (add-hook 'js-mode-hook                   #'yas-minor-mode)
-              (add-hook 'web-mode-hook                  #'yas-minor-mode)
-              (add-hook 'lisp-interaction-mode-hook     #'yas-minor-mode)
-              (add-hook 'emacs-lisp-mode-hook           #'yas-minor-mode)
-              (add-hook 'fish-mode-hook                 #'yas-minor-mode)
-              (add-hook 'markdown-mode-hook             #'yas-minor-mode)
-              (add-hook 'go-mode-hook                   #'yas-minor-mode)
-              (add-hook 'scala-mode-hook                #'yas-minor-mode)
-              (add-hook 'java-mode-hook                 #'yas-minor-mode)
-              (add-hook 'rust-mode-hook                 #'yas-minor-mode)
-              (add-hook 'c-mode-hook                    #'yas-minor-mode)
-              (add-hook 'c++-mode-hook                  #'yas-minor-mode)
-              ))
+;;; yasnippet-rcp.el --- Yet another snippet extension for Emacs
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-reload-all)
+  ;; (defun check-expansion ()
+  ;;   (save-excursion
+  ;;     (if (looking-at "\\_>") t
+  ;;       (backward-char 1)
+  ;;       (if (looking-at "\\.") t
+  ;;         (backward-char 1)
+  ;;         (if (looking-at "->") t nil)))))
+  ;; (defun do-yas-expand ()
+  ;;   (let ((yas/fallback-behavior 'return-nil))
+  ;;     (yas/expand)))
+  ;; (defun tab-indent-or-complete ()
+  ;;   (interactive)
+  ;;   (message (minibufferp))
+  ;;   (if (minibufferp)
+  ;;       (minibuffer-complete)
+  ;;     (if (or (not yas/minor-mode)
+  ;;             (null (do-yas-expand)))
+  ;;         (if (check-expansion)
+  ;;             (company-complete-common)
+  ;;           (indent-for-tab-command)))))
+  ;; :bind
+  ;; ([tab] . tab-indent-or-complete)
+  :hook
+  (c++-mode              . yas-minor-mode)
+  (c-mode                . yas-minor-mode)
+  (emacs-lisp-mode       . yas-minor-mode)
+  (fish-mode             . yas-minor-mode)
+  (go-mode               . yas-minor-mode)
+  (java-mode             . yas-minor-mode)
+  (js-mode               . yas-minor-mode)
+  (lisp-interaction-mode . yas-minor-mode)
+  (markdown-mode         . yas-minor-mode)
+  (python-mode           . yas-minor-mode)
+  (rust-mode             . yas-minor-mode)
+  (scala-mode            . yas-minor-mode)
+  (web-mode              . yas-minor-mode)
+  )
+
+(use-package yafolding :ensure t)
+
+(use-package yasnippet-snippets :ensure t)
+
+(provide 'yasnippet-rcp)
+
+;;; yasnippet-rcp.el ends here

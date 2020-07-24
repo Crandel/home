@@ -1,8 +1,12 @@
-(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+;;; init.el --- Main init
+;;; Code:
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'gruvbox t)
 
-(require 'keybindings_my)
+
+;;; Commentary:
+;; 
 
 (require 'package)
 ;; for gnu repository
@@ -40,6 +44,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/recipes")
 
+(require 'functions_my)
 
 ;; require for backup
 (defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
@@ -74,6 +79,43 @@
 (require 'undo-tree-rcp)
 (require 'vimrc-mode-rcp)
 (require 'which-key-rcp)
+(require 'yasnippet-rcp)
+
+(when (executable-find "rg")
+  (require 'ripgrep-rcp)
+)
+
+(when (executable-find "cargo")
+  (provide 'rust-rcp)
+)
+
+(when (executable-find "python")
+  (require 'python-rcp)
+
+  (when (executable-find "autopep8")
+    (use-package py-autopep8 :ensure t)
+    )
+
+  (when (executable-find "virtualenv")
+    (use-package auto-virtualenv :ensure t)
+    )
+
+  (when (executable-find "virtualenvwrapper")
+    (use-package auto-virtualenvwrapper :ensure t)
+    )
+)
+
+
+(when (executable-find "scala")
+  (require 'scala-rcp)
+)
+
+;; (when (executable-find "docker")
+;;     (add-to-list 'my-packages 'dockerfile-mode)
+;;     (add-to-list 'my-packages 'docker-compose-mode)
+;; )
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+;;; init.el ends here
