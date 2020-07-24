@@ -1,26 +1,25 @@
-(:name flycheck
-       :type github
-       :pkgname "flycheck/flycheck"
-       :minimum-emacs-version "24.3"
-       :description "On-the-fly syntax checking extension"
-       :depends (dash pkg-info let-alist seq)
-       :post-init (progn
-                    (add-hook 'python-mode-hook               #'flycheck-mode)
-                    (add-hook 'js-mode-hook                   #'flycheck-mode)
-                    (add-hook 'web-mode-hook                  #'flycheck-mode)
-                    (add-hook 'lisp-interaction-mode-hook     #'flycheck-mode)
-                    (add-hook 'emacs-lisp-mode-hook           #'flycheck-mode)
-                    (add-hook 'fish-mode-hook                 #'flycheck-mode)
-                    (add-hook 'markdown-mode-hook             #'flycheck-mode)
-                    (add-hook 'go-mode-hook                   #'flycheck-mode)
-                    (add-hook 'scala-mode-hook                #'flycheck-mode)
-                    (add-hook 'java-mode-hook                 #'flycheck-mode)
-                    (add-hook 'c-mode-hook                    #'flycheck-mode)
-                    (add-hook 'c++-mode-hook                  #'flycheck-mode)
-                    (add-hook 'rust-mode-hook                 #'flycheck-mode)
-                    (setq flycheck-check-syntax-automatically '(mode-enabled save idle-change)
-                          flycheck-highlighting-mode          'lines
-                          flycheck-indication-mode            'left-fringe
-                          flycheck-scalastylerc               "~/scalastyle_config.xml"
-                          flycheck-checker-error-threshold    2000)
-                    ))
+(use-package flycheck
+  :ensure t
+  :custom
+  (flycheck-check-syntax-automatically '(mode-enabled save idle-change))
+  (flycheck-highlighting-mode          'lines)
+  (flycheck-indication-mode            'left-fringe)
+  (flycheck-scalastylerc               "~/scalastyle_config.xml")
+  (flycheck-checker-error-threshold    2000)
+  :hook
+  (python-mode           . flycheck-mode)
+  (js-mode               . flycheck-mode)
+  (web-mode              . flycheck-mode)
+  (lisp-interaction-mode . flycheck-mode)
+  (emacs-lisp-mode       . flycheck-mode)
+  (fish-mode             . flycheck-mode)
+  (markdown-mode         . flycheck-mode)
+  (go-mode               . flycheck-mode)
+  (scala-mode            . flycheck-mode)
+  (java-mode             . flycheck-mode)
+  (c-mode                . flycheck-mode)
+  (c++-mode              . flycheck-mode)
+  (rust-mode             . flycheck-mode)
+)
+
+(provide 'flycheck-rcp)

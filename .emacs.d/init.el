@@ -20,7 +20,7 @@
         ("org"          . 100)
         ("elpa"         . 75)
         ("gnu"          . 50)))
-(customize-set-variable 'package-enable-at-startup nil)
+(setq package-enable-at-startup nil)
 
 (package-initialize)
 (unless (package-installed-p 'use-package)
@@ -45,18 +45,28 @@
 (defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
 
 (require 'base-rcp) ; emacs default settings
-(require 'use-package-chords-rcp)
+(require 'use-package-chords-rcp) ; provide :chords for use-package
 ;; (require 'quelpa-rcp) ; install from different sourses
-(require 'bind-key) ; if you use any :bind variant
-(require 'bind-chord) ; if you use any :chords variant
 
+;; (require 'fnhh-rcp)
 (require 'avy-rcp)
 (require 'company-rcp)
-;; (require 'fnhh-rcp)
+(require 'dired-subtree-rcp)
+(require 'emmet-mode-rcp)
+(require 'expand-region-rcp)
+(require 'flycheck-rcp)
+(require 'git-gutter-rcp)
 (require 'helm-rcp)
+(require 'highlight-indentation-rcp)
+(require 'json-mode-rcp)
 (require 'lsp-mode-rcp)
 (require 'magit-rcp)
+(require 'markdown-mode-rcp)
+(require 'mo-git-blame-rcp)
+(require 'multi-compile-rcp)
 (require 'multiple-cursors-rcp)
+(require 'projectile-rcp)
+(require 'rainbow-rcp)
 (require 'smart-mode-line-rcp)
 (require 'smartparens-rcp)
 (require 'treemacs-rcp)

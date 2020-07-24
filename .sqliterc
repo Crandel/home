@@ -1,0 +1,4 @@
+.mode column
+.headers on
+.nullvalue <null>
+.prompt "\033[0;32m>>> \033[1;32m" "-->"

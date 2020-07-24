@@ -1,8 +1,0 @@
-(:name treemacs-magit
-       :description "Magit integration for treemacs"
-       :type github
-       :pkgname "Alexander-Miller/treemacs"
-       :build (("cp" "src/extra/treemacs-magit.el" ".")
-           ("rm" "-rf" "src"))
-       :compile "treemacs-magit.el"
-       :depends (treemacs magit))
