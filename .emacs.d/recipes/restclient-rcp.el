@@ -1,13 +1,15 @@
-(:name restclient
-      :description "HTTP REST client tool for emacs"
-      :type github
-      :pkgname "pashky/restclient.el"
-      :post-init (progn
-                   (add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))
-                   (add-hook 'restclient-mode-hook '(lambda()
-                                                      (eval-after-load "company"
-                                                        '(progn
-                                                           (my-change-company-backends 'company-restclient)
-                                                           ))
-                                                      ))
-                   ))
+;;; restclient-rcp.el --- This is a tool to manually explore and test HTTP REST
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
+(use-package restclient
+  :ensure t
+  :mode "\\.rest\\'"
+)
+
+(provide 'restclient-rcp)
+
+;;; restclient-rcp.el ends here

@@ -1,3 +1,10 @@
+;;; rainbow-rcp.el --- Colorize color names and delimeters in buffers
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package rainbow-delimiters
   :ensure t
   :hook
@@ -25,3 +32,5 @@
 )
 
 (provide 'rainbow-rcp)
+
+;;; rainbow-rcp.el ends here

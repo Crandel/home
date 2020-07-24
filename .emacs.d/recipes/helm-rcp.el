@@ -1,3 +1,10 @@
+;;; helm-rcp.el --- Helm is an Emacs incremental and narrowing framework
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package helm
   :ensure t
   :preface (require 'helm-config)
@@ -22,8 +29,8 @@
   (helm-ff-skip-boring-files             nil)
   (helm-boring-file-regexp-list '("\\.o$" "~$" "\\.bin$" "\\.lbin$" "\\.so$" "\\.a$" "\\.ln$"
                                   "\\.blg$" "\\.bbl$" "\\.elc$" "\\.lof$" "\\.glo$" "\\.idx$"
-                                  "\\.lot$" "\\.svn\\(/\\|$\\)" "\\.hg\\(/\\|$\\)" "\\.git\\(/\\|$\\)" 
-                                  "\\.bzr\\(/\\|$\\)" "_darcs\\(/\\|$\\)" "_MTN\\(/\\|$\\)" "\\.fmt$" 
+                                  "\\.lot$" "\\.svn\\(/\\|$\\)" "\\.hg\\(/\\|$\\)" "\\.git\\(/\\|$\\)"
+                                  "\\.bzr\\(/\\|$\\)" "_darcs\\(/\\|$\\)" "_MTN\\(/\\|$\\)" "\\.fmt$"
                                   "\\.tfm$" "\\.class$" "\\.fas$" "\\.lib$" "\\.mem$" "\\.x86f$" "\\.sparcf$"
                                   "\\.dfsl$" "\\.pfsl$" "\\.d64fsl$" "\\.p64fsl$" "\\.lx64fsl$" "\\.lx32fsl$"
                                   "\\.dx64fsl$" "\\.dx32fsl$" "\\.fx64fsl$" "\\.fx32fsl$" "\\.sx64fsl$" "\\.sx32fsl$"
@@ -37,7 +44,7 @@
   (helm-autoresize-max-height            50)
   (helm-autoresize-min-height            10)
   (helm-recentf-fuzzy-match              t)
-  :bind 
+  :bind
   ("M-x" . 'helm-M-x)
   ("C-x x" . 'execute-extended-command)
   ("C-x C-f" . 'helm-find-files)
@@ -101,3 +108,5 @@
 )
 
 (provide 'helm-rcp)
+
+;;; helm-rcp.el ends here

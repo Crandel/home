@@ -1,3 +1,10 @@
+;;; git-gutter-rcp.el --- Show git changes in buffer
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package git-gutter
   :ensure t
   :config
@@ -9,3 +16,5 @@
 )
 
 (provide 'git-gutter-rcp)
+
+;;; git-gutter-rcp.el ends here
