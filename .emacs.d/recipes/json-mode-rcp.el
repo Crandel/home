@@ -5,8 +5,9 @@
 
 ;;; Code:
 
-(use-package json-mode
-  :ensure t)
+(use-package json-mode :ensure t)
+
+(use-package yaml-mode :ensure t)
 
 (provide 'json-mode-rcp)
 

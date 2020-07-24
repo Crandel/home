@@ -19,12 +19,19 @@
   (lsp-keymap-prefix                  "C-l")
   (lsp-prefer-capf                    t)
   (lsp-signature-auto-activate        nil)
-  (lsp-rust-server                   'rust-analyzer)
-  (lsp-enable-which-key-integration  t)
-  :config
-  (setq flymake-diagnostic-functions nil)
-  :hook ((python-mode . lsp)
-         (rust-mode . lsp)
+  (lsp-enable-which-key-integration   t)
+  (gc-cons-threshold                  100000000)
+  (read-process-output-max            (* 1024 1024)) ;; 1mb
+  :init
+  (defun python-fun-hook() '(progn
+                            (lsp)
+                            (setq-default flymake-diagnostic-functions nil)))
+  (defun rust-fun-hook() '(progn
+                          (lsp)
+                          (setq lsp-rust-server 'rust-analyzer)))
+  :hook ((lsp-mode . lsp-lens-mode)
+         (python-mode . python-fun-hook)
+         (rust-mode . rust-fun-hook)
          (c++-mode . lsp)
          (java-mode . lsp)
          (scala-mode . lsp)
@@ -37,6 +44,7 @@
 )
 
 (use-package lsp-ui
+  :ensure t
   :custom
   (lsp-ui-doc-delay                   2)
   (lsp-ui-doc-max-height              3)
