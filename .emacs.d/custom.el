@@ -9,12 +9,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(helm-advice-push-mark nil)
- '(nxml-attribute-indent 2)
- '(package-enable-at-startup nil)
- '(package-selected-packages
-   (quote
-    (magit helm posframe mmm-mode edit-indirect ssass-mode vue-html-mode ripgrep reverse-im flymake jsonrpc memoize async))))
+ '(package-selected-packages (quote (use-package-chords use-package)))
+ '(quote (nxml-attribute-indent 2)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

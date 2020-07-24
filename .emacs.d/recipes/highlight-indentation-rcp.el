@@ -1,23 +1,23 @@
-(:name highlight-indentation
-       :description "Function for highlighting indentation"
-       :type git
-       :url "https://github.com/antonj/Highlight-Indentation-for-Emacs"
-       :features "highlight-indentation"
-       :post-init (progn
-                    (set-face-foreground 'highlight-indentation-face "IndianRed")
-                    (set-face-background 'highlight-indentation-face "#1d2021")
-                    (add-hook 'c++-mode-hook                  #'highlight-indentation-mode)
-                    (add-hook 'c-mode-hook                    #'highlight-indentation-mode)
-                    (add-hook 'emacs-lisp-mode-hook           #'highlight-indentation-mode)
-                    (add-hook 'fish-mode-hook                 #'highlight-indentation-mode)
-                    (add-hook 'java-mode-hook                 #'highlight-indentation-mode)
-                    (add-hook 'js-mode-hook                   #'highlight-indentation-mode)
-                    (add-hook 'lisp-interaction-mode-hook     #'highlight-indentation-mode)
-                    (add-hook 'markdown-mode-hook             #'highlight-indentation-mode)
-                    (add-hook 'python-mode-hook               #'highlight-indentation-mode)
-                    (add-hook 'rust-mode-hook                 #'highlight-indentation-mode)
-                    (add-hook 'scala-mode-hook                #'highlight-indentation-mode)
-                    (add-hook 'sh-mode-hook                   #'highlight-indentation-mode)
-                    (add-hook 'web-mode-hook                  #'highlight-indentation-mode)
-                    (add-hook 'yaml-mode-hook                 #'highlight-indentation-mode)
-                    ))
+(use-package highlight-indentation
+  :ensure t
+  :custom-face
+  (highlight-indentation-face ((t (:foreground "IndianRed")
+                                  (:background "#1d2021"))))
+  :hook
+  (c++-mode              . highlight-indentation-mode)
+  (c-mode                . highlight-indentation-mode)
+  (emacs-lisp-mode       . highlight-indentation-mode)
+  (fish-mode             . highlight-indentation-mode)
+  (java-mode             . highlight-indentation-mode)
+  (js-mode               . highlight-indentation-mode)
+  (lisp-interaction-mode . highlight-indentation-mode)
+  (markdown-mode         . highlight-indentation-mode)
+  (python-mode           . highlight-indentation-mode)
+  (rust-mode             . highlight-indentation-mode)
+  (scala-mode            . highlight-indentation-mode)
+  (sh-mode               . highlight-indentation-mode)
+  (web-mode              . highlight-indentation-mode)
+  (yaml-mode             . highlight-indentation-mode)
+)
+
+(provide 'highlight-indentation-rcp)

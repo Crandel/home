@@ -69,22 +69,23 @@
   (ad-redefinition-action    'accept)
   (max-mini-window-height    0.5)
   :bind
-  ("M-i" . 'previous-line)
-  ("M-j" . 'backward-char)
-  ("M-k" . 'next-line)
-  ("C-c k" . 'kill-sentence)
-  ("M-l" . 'forward-char)
-  ("C-c l" . 'downcase-word)
-  ("M-o" . 'forward-word)
-  ("M-u" . 'backward-word)
-  ("C-c u" . 'upcase-word)
-  ("C-v" . 'yank)
-  ("C-y" . 'scroll-up-command)
-  ("RET" . 'newline)
-  ("M-RET" . 'newline-and-indent)
-  ("<backtab>" . 'tab-indent-or-complete)
-  ("C-c b" . 'revert-buffer)
-  ("C-x C-x" . 'my-kill-emacs-with-save)
+  ("M-i" . previous-line)
+  ("M-j" . backward-char)
+  ("M-k" . next-line)
+  ("C-c k" . kill-sentence)
+  ("M-l" . forward-char)
+  ("C-c l" . downcase-word)
+  ("M-o" . forward-word)
+  ("M-u" . backward-word)
+  ("C-c u" . upcase-word)
+  ("C-v" . yank)
+  ("C-y" . scroll-up-command)
+  ("RET" . newline)
+  ("M-RET" . newline-and-indent)
+  ("<backtab>" . tab-indent-or-complete)
+  ("C-c b" . revert-buffer)
+  ("C-x C-x" . my-kill-emacs-with-save)
+  ("C-x a s" . sort-lines)
 )
 
 (use-package recentf
@@ -279,6 +280,12 @@
 (use-package ediff-util
   :custom
   (ediff-merge-split-window-function 'split-window-vertically)
+)
+
+(use-package windmove
+  :defer t
+  :init
+  (windmove-default-keybindings)
 )
 
 (provide 'base-rcp)
