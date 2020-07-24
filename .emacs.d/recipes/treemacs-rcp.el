@@ -46,4 +46,10 @@
   :hook (dired-mode . treemacs-icons-dired-mode)
 )
 
+(use-package treemacs-projectile
+ :ensure t)
+
+(use-package treemacs-magit
+  :ensure t)
+
 (provide 'treemacs-rcp)
