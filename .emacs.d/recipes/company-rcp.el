@@ -25,4 +25,18 @@
                          company-dabbrev-code
                          company-dabbrev))))
 
+(use-package company-box
+  :ensure t
+  :hook (company-mode . company-box-mode)
+)
+
+(use-package company-flx
+  :ensure t
+  :hook (company-mode . company-flx-mode)
+)
+
+(use-package company-restclient
+  :ensure t
+)
+
 (provide 'company-rcp)

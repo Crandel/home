@@ -46,14 +46,13 @@
 
 (require 'base-rcp) ; emacs default settings
 (require 'use-package-chords-rcp)
-(require 'quelpa-rcp) ; install from different sourses
+;; (require 'quelpa-rcp) ; install from different sourses
 (require 'bind-key) ; if you use any :bind variant
 (require 'bind-chord) ; if you use any :chords variant
 
 (require 'avy-rcp)
 (require 'company-rcp)
-(require 'company-box-rcp)
-(require 'fnhh-rcp)
+;; (require 'fnhh-rcp)
 (require 'helm-rcp)
 (require 'lsp-mode-rcp)
 (require 'magit-rcp)
