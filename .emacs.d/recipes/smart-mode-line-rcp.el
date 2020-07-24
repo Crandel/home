@@ -9,6 +9,7 @@
   :ensure t
   :demand t
   :custom-face
+  (mode-line-buffer-id-inactive ((t (:inherit mode-line-buffer-id :foreground "dark goldenrod"))))
   (sml/read-only ((t (:inherit sml/not-modified :foreground "deep sky blue"))))
   :config
   (sml/setup)

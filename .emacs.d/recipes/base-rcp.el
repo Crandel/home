@@ -75,6 +75,8 @@
   (next-line-add-newlines    nil)
   (ad-redefinition-action    'accept)
   (max-mini-window-height    0.5)
+  (checkdoc-spellcheck-documentation-flag t)
+  (nxml-attribute-indent 2)
   :bind
   ("M-i" . previous-line)
   ("M-j" . backward-char)
