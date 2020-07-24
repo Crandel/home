@@ -1,3 +1,10 @@
+;;; projectile-rcp.el --- Project manager for emacs
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package projectile
   :ensure t
   :defines projectile-globally-ignored-directories
@@ -10,3 +17,5 @@
 )
 
 (provide 'projectile-rcp)
+
+;;; projectile-rcp.el ends here

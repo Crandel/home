@@ -1,3 +1,10 @@
+;;; base-rcp.el --- Emacs default configuration
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package emacs
   :defer t
   :init
@@ -216,6 +223,15 @@
   :custom-face
   (whitespace-style-face '(trailing spaces lines-tail empty indentation::tab
                            indentation::space tabs newline space-mark tab-mark newline-mark))
+  (whitespace-empty ((t (:foreground "sienna"))))
+  (whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
+  (whitespace-indentation ((t (:foreground "DarkOrchid4"))))
+  (whitespace-newline ((t (:foreground "dark green" :weight normal))))
+  (whitespace-space ((t (:foreground "DarkOrchid4"))))
+  (whitespace-space-after-tab ((t (:foreground "firebrick"))))
+  (whitespace-space-before-tab ((t (:foreground "firebrick"))))
+  (whitespace-tab ((t (:foreground "magenta"))))
+  (whitespace-trailing ((t (:foreground "yellow" :weight bold))))
   :custom
   (whitespace-global-modes '(not magit-diff-mode))
   (whitespace-line-column 130)
@@ -243,6 +259,8 @@
   :defer t
   :init
   (show-paren-mode 2)
+  :custom-face
+  (show-paren-match ((t (:background "#1d2021" :foreground "#def" :weight extra-bold))))
   :custom
   (show-paren-delay 0.2)
   (show-paren-style 'expression)
@@ -289,3 +307,5 @@
 )
 
 (provide 'base-rcp)
+
+;;; base-rcp.el ends here

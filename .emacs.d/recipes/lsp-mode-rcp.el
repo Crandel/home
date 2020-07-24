@@ -1,3 +1,10 @@
+;;; lsp-mode-rcp.el --- Emacs client/library for the Language Server Protocol
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package lsp-mode
   :ensure t
   :custom
@@ -48,3 +55,5 @@
 )
 
 (provide 'lsp-mode-rcp)
+
+;;; lsp-mode-rcp.el ends here

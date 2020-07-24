@@ -1,33 +1,36 @@
-(:name web-mode
-       :description "emacs major mode for editing PHP/JSP/ASP HTML templates (with embedded CSS and JS blocks)"
-       :type github
-       :pkgname "fxbois/web-mode"
-       :post-init (progn
-                    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-                    (add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
-                    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-                    (add-to-list 'auto-mode-alist '("\\.gotmpl\\'" . web-mode))
-                    (add-to-list 'auto-mode-alist '("\\.gtpl\\'" . web-mode))
-                    (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-                    (add-to-list 'auto-mode-alist '("\\german_lang/index.html\\'" . html-mode))
-                    (setq web-mode-engines-alist '(
-                                                   ("django" . "\\.html\\'")
-                                                   ("razor" . "\\.scala.html\\'")
-                                                   ("go" . "\\.gotmpl\\'")
-                                                   ("jsx" . "\\.js\\'"))
-                          web-mode-enable-current-element-highlight   t
-                          web-mode-enable-block-face                  t
-                          web-mode-markup-indent-offset               2   ;; HTML
-                          web-mode-css-indent-offset                  2   ;; CSS
-                          web-mode-code-indent-offset                 2   ;; JavaScript
-                          web-mode-enable-part-face                   t
-                          web-mode-enable-comment-keywords            t
-                          web-mode-enable-css-colorization            t
-                          web-mode-enable-auto-pairing                nil
-                          web-mode-enable-current-column-highlight    t)
+;;; web-mode-rcp.el --- major mode for editing web templates
 
-                    (add-hook 'web-mode-hook '(lambda()
-                                                (define-key web-mode-map (kbd "RET") 'newline-and-indent)
-                                                (define-key web-mode-map (kbd "M-RET") 'newline)
-                                                ))
-                    ))
+;;; Commentary:
+;; 
+
+;;; Code:
+
+(use-package web-mode
+  :mode (("\\.html\\'" "\\.css\\'" "\\.djhtml\\'" "\\.gotmpl\\'" "\\.gtpl\\'" "\\.vue\\'" . web-mode)
+         ("\\german_lang/index.html\\'" . html-mode))
+  :custom
+  (web-mode-engines-alist '(
+                            ("django" . "\\.html\\'")
+                            ("razor" . "\\.scala.html\\'")
+                            ("go" . "\\.gotmpl\\'")
+                            ("jsx" . "\\.js\\'")))
+  (web-mode-enable-current-element-highlight   t)
+  (web-mode-enable-block-face                  t)
+  (web-mode-markup-indent-offset               2)   ;; HTML
+  (web-mode-css-indent-offset                  2)   ;; CSS
+  (web-mode-code-indent-offset                 2)   ;; JavaScript
+  (web-mode-enable-part-face                   t)
+  (web-mode-enable-comment-keywords            t)
+  (web-mode-enable-css-colorization            t)
+  (web-mode-enable-auto-pairing                nil)
+  (web-mode-enable-current-column-highlight    t)
+  :bind
+  (:map web-mode-map
+        (kbd "RET" . newline-and-indent)
+        (kbd "M-RET" . newline)
+                                                )
+)
+
+(provide 'web-mode-rcp)
+
+;;; web-mode-rcp.el ends here

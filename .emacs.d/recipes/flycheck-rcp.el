@@ -1,3 +1,10 @@
+;;; flycheck-rcp.el --- On-the-fly syntax checking
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package flycheck
   :ensure t
   :custom
@@ -23,3 +30,5 @@
 )
 
 (provide 'flycheck-rcp)
+
+;;; flycheck-rcp.el ends here

@@ -1,3 +1,10 @@
+;;; company-rcp.el --- Company autocomplete
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package company
     :ensure t
     :demand t
@@ -40,3 +47,5 @@
 )
 
 (provide 'company-rcp)
+
+;;; company-rcp.el ends here

@@ -67,10 +67,12 @@
 (require 'multiple-cursors-rcp)
 (require 'projectile-rcp)
 (require 'rainbow-rcp)
+(require 'restclient-rcp)
 (require 'smart-mode-line-rcp)
 (require 'smartparens-rcp)
 (require 'treemacs-rcp)
 (require 'undo-tree-rcp)
+(require 'vimrc-mode-rcp)
 (require 'which-key-rcp)
 
 (setq custom-file "~/.emacs.d/custom.el")

@@ -1,3 +1,10 @@
+;;; emmet-mode-rcp.el --- Emmet's support for emacs
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package emmet-mode
   :ensure t
   :hook
@@ -8,3 +15,5 @@
 )
 
 (provide 'emmet-mode-rcp)
+
+;;; emmet-mode-rcp.el ends here

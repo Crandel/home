@@ -1,6 +1,15 @@
+;;; smart-mode-line-rcp.el --- A color coded smart mode-line.
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package smart-mode-line
   :ensure t
   :demand t
+  :custom-face
+  (sml/read-only ((t (:inherit sml/not-modified :foreground "deep sky blue"))))
   :config
   (sml/setup)
   :custom (
@@ -18,3 +27,5 @@
 )
 
 (provide 'smart-mode-line-rcp)
+
+;;; smart-mode-line-rcp.el ends here

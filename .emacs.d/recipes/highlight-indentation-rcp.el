@@ -1,8 +1,14 @@
+;;; highlight-indentation-rcp.el --- Minor modes for highlighting indentation
+
+;;; Commentary:
+
+;;; Code:
+
 (use-package highlight-indentation
   :ensure t
   :custom-face
-  (highlight-indentation-face ((t (:foreground "IndianRed")
-                                  (:background "#1d2021"))))
+  (highlight-indentation-face ((t (:background "#1d2021"
+                                   :foreground "IndianRed"))))
   :hook
   (c++-mode              . highlight-indentation-mode)
   (c-mode                . highlight-indentation-mode)
@@ -21,3 +27,5 @@
 )
 
 (provide 'highlight-indentation-rcp)
+
+;;; highlight-indentation-rcp.el ends here

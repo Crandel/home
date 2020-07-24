@@ -1,3 +1,10 @@
+;;; markdown-mode-rcp.el --- Markdown mode
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package markdown-mode
   :ensure t
   :mode "\\.\\(md\\|mdown\\|markdown\\)\\'"
@@ -7,3 +14,5 @@
 )
 
 (provide 'markdown-mode-rcp)
+
+;;; markdown-mode-rcp.el ends here
