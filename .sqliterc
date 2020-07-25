@@ -1,4 +1,7 @@
-.mode column
 .headers on
+.mode tabs
+.separator ,
+.timer on
+.eqp on
 .nullvalue <null>
 .prompt "\033[0;32m>>> \033[1;32m" "-->"
