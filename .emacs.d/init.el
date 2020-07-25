@@ -110,10 +110,9 @@
   (require 'scala-rcp)
 )
 
-;; (when (executable-find "docker")
-;;     (add-to-list 'my-packages 'dockerfile-mode)
-;;     (add-to-list 'my-packages 'docker-compose-mode)
-;; )
+(when (executable-find "docker")
+  (require 'docker-rcp)
+)
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
