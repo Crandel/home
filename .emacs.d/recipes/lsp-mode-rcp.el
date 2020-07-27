@@ -25,7 +25,6 @@
   :hook ((lsp-mode . lsp-lens-mode)
          (python-mode .  (lambda()
                               (lsp)
-                              (message "inside python-fun-hook")
                               (setq-default flymake-diagnostic-functions nil)))
          (rust-mode . (lambda()
                             (setq lsp-rust-server 'rust-analyzer)
