@@ -30,8 +30,6 @@
   ("C-x x" . 'execute-extended-command)
   ("C-x C-f" . 'helm-find-files)
   ("C-p" . 'helm-multi-files)
-  ([f10] . 'helm-semantic-or-imenu)
-  ("M-p" . 'helm-projectile-ag)
   ("M-y" . 'helm-show-kill-ring)
   ("C-c m" . 'helm-all-mark-rings)
   (:map helm-map
@@ -64,7 +62,7 @@
   (helm-adaptive-history-file nil)
 )
 
-(use-package helm-imenu :after helm-mode)
+(use-package helm-imenu :bind ([f10] . 'helm-semantic-or-imenu))
 
 (use-package helm-buffers
   :after helm-mode
@@ -144,7 +142,9 @@
   :after helm-mode
   :bind ("C-j" . helm-lsp-code-actions))
 
-(use-package helm-projectile :ensure t)
+(use-package helm-projectile
+  :ensure t
+  :bind ("M-p" . 'helm-projectile-ag))
 
 (use-package helm-swoop
   :ensure t

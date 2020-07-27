@@ -65,6 +65,7 @@
 (require 'vimrc-mode-rcp)
 (require 'which-key-rcp)
 (require 'yasnippet-rcp)
+(require 'ytdl-rcp)
 
 (when (executable-find "rg")
   (require 'ripgrep-rcp)
