@@ -49,6 +49,7 @@
                                   ((assq 'flex completion-styles-alist)
                                    '(flex)))))) ;; emacs-27+.
   :diminish (helm-mode " ")
+  :after helm
   :config
   (helm-mode 1)
   (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
@@ -56,15 +57,17 @@
 )
 
 (use-package helm-adaptive
+  :after helm-mode
   :config
   (helm-adaptive-mode 1)
   :custom
   (helm-adaptive-history-file nil)
 )
 
-(use-package helm-imenu)
+(use-package helm-imenu :after helm-mode)
 
 (use-package helm-buffers
+  :after helm-mode
   :custom
   (helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(picture-mode artist-mode)))
   (helm-buffers-fuzzy-matching       t)
@@ -74,9 +77,13 @@
   (helm-buffers-maybe-switch-to-tab  t)
   (helm-mini-default-sources '(helm-source-buffers-list
                               helm-source-buffer-not-found))
+  :bind
+  (:map helm-buffer-map
+        ("C-v" . 'yank))
 )
 
 (use-package helm-utils
+  :after helm-mode
   :config
   ;; Popup buffer-name or filename in grep/moccur/imenu-all etc...
   (helm-popup-tip-mode 1)
@@ -86,6 +93,7 @@
 )
 
 (use-package helm-sys
+  :after helm-mode
   :commands (helm-top)
   :config (helm-top-poll-mode 1)
 )
@@ -131,15 +139,12 @@
   (helm-descbinds-mode 1)
 )
 
-(use-package helm-lsp :ensure t)
+(use-package helm-lsp
+  :ensure t
+  :after helm-mode
+  :bind ("C-j" . helm-lsp-code-actions))
 
 (use-package helm-projectile :ensure t)
-
-(use-package helm-buffers
-  :bind
-  (:map helm-buffer-map
-        ("C-v" . 'yank))
-)
 
 (use-package helm-swoop
   :ensure t
