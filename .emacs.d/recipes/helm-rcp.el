@@ -71,8 +71,11 @@
   (helm-mini-default-sources '(helm-source-buffers-list
                               helm-source-buffer-not-found))
   :bind
+  ("C-x C-b" . helm-buffers-list)
   (:map helm-buffer-map
         ("C-v" . 'yank))
+  :chords
+  ("bb" . helm-buffers-list)
 )
 
 (use-package helm-imenu :bind ([f10] . 'helm-semantic-or-imenu))
