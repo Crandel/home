@@ -22,16 +22,15 @@
   (lsp-enable-which-key-integration   t)
   (gc-cons-threshold                  100000000)
   (read-process-output-max            (* 1024 1024)) ;; 1mb
-  :init
-  (defun python-fun-hook() '(progn
-                            (lsp)
-                            (setq-default flymake-diagnostic-functions nil)))
-  (defun rust-fun-hook() '(progn
-                          (lsp)
-                          (setq lsp-rust-server 'rust-analyzer)))
   :hook ((lsp-mode . lsp-lens-mode)
-         (python-mode . python-fun-hook)
-         (rust-mode . rust-fun-hook)
+         (python-mode .  (lambda()
+                              (lsp)
+                              (message "inside python-fun-hook")
+                              (setq-default flymake-diagnostic-functions nil)))
+         (rust-mode . (lambda()
+                            (setq lsp-rust-server 'rust-analyzer)
+                            (lsp)
+                            ))
          (c++-mode . lsp)
          (java-mode . lsp)
          (scala-mode . lsp)

@@ -1,27 +1,24 @@
 ;;; base-rcp.el --- Emacs default configuration
 
 ;;; Commentary:
-;; 
+;; Configuration for base Emacs without packages
 
 ;;; Code:
 
 (use-package emacs
-  :defer t
   :init
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (when (display-graphic-p)
     (tool-bar-mode    -1)
-    (scroll-bar-mode  -1)
+    (tooltip-mode  -1)
+    (scroll-bar-mode  1)
     ;; Fringe settings
-    (fringe-mode '(8 . 0))
-    (setq-default indicate-buffer-boundaries 'left)
     ;; Cursor
     (setq-default cursor-type 'bar)
     (set-cursor-color "#BE81F7")
     (blink-cursor-mode 1)
     )
-  (tooltip-mode  -1)
   (menu-bar-mode -1)
   (cl-loop
    for from across "йцукенгшщзхїфівапролджєячсмитьбюЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖ\ЄЯЧСМИТЬБЮ№"
@@ -41,17 +38,18 @@
             (kbd ,(string from))
             (kbd ,(string to)))))
   :config
-  (set-frame-font "Hack 18" "Font settings")
-  (delete-selection-mode t)
-  (column-number-mode    t)
-  (defalias 'yes-or-no-p 'y-or-n-p)
-  (global-font-lock-mode 1)
+  (set-frame-font            "Hack 18" "Font settings")
+  (column-number-mode        t)
+  (defalias 'yes-or-no-p     'y-or-n-p)
+  (global-font-lock-mode     1)
   :custom
-  (shell-file-name        "/bin/zsh" "Set zsh as default shell")
-  (inhibit-startup-screen t "Don't show splash screen")
-  (use-dialog-box         nil)
-  (ring-bell-function     'ignore)
-  (frame-title-format     "%b" "Display the name of the current buffer in the title bar")
+  (split-height-threshold    nil "Minimum height for splitting windows vertically.")
+  (split-width-threshold     0   "Minimum height for splitting windows horizontally.")
+  (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
+  (inhibit-startup-screen    t   "Don't show splash screen")
+  (use-dialog-box            nil "Non-nil means mouse commands use dialog boxes to ask questions.")
+  (ring-bell-function        'ignore)
+  (frame-title-format        "%b %I %P %l" "Display the name of the current buffer in the title bar")
   (display-line-numbers      t)
   (display-time-24hr-format  t)
   (display-time-mode         t)
@@ -60,13 +58,9 @@
   (tab-width                 4)
   (tab-always-indent         nil)
   (c-basic-offset            2)
-  (sh-basic-offset           2)
-  (sh-indentation            2)
-  (scala-basic-offset        2)
   (java-basic-offset         2)
   (standart-indent           2)
   (lisp-body-indent          2)
-  (rust-indent-offset        4)
   (js-indent-level           2)
   (indent-line-function      'insert-tab "End Indent settings")
   (scroll-step               1 "Scrolling settings")
@@ -90,31 +84,40 @@
   ("C-y" . scroll-up-command)
   ("RET" . newline)
   ("M-RET" . newline-and-indent)
-  ("<backtab>" . tab-indent-or-complete)
   ("C-c b" . revert-buffer)
-  ("C-x C-x" . my-kill-emacs-with-save)
   ("C-x a s" . sort-lines)
+  ;; keybindings from functions_my.el file
+  ([M-S-up] . move-line-up)
+  ([M-S-down] . move-line-down)
+  ("C-x C-d" . duplicate-line)
+  ("C-c C-k" . copy-line)
+  ("C-c C-w" . copy-word)
+  ("C-d" . my-delete-line)
+  ("C-o" . open-next-line)
+  ("<tab>" . tab-indent-or-complete)
+  ("C-x C-x" . my-kill-emacs-with-save)
+  ("C-c o" . open-previous-line)
 )
 
 (use-package recentf
-  :defer t
+  :demand t
   :custom
-  (recentf-max-saved-items 1500
-   recentf-max-menu-items  150
-   recentf-save-file (concat user-emacs-directory ".recentf"))
+  (recentf-max-saved-items 1500)
+  (recentf-max-menu-items  150)
+  (recentf-save-file       (concat user-emacs-directory ".my-recentf"))
   :config
   (recentf-mode t)
   :diminish nil)
 
 (use-package imenu
-  :defer t
+  :demand t
   :custom
   (imenu-auto-rescan      t)
   (imenu-use-popup-menu   nil)
 )
 
 (use-package semantic
-  :defer t
+  :demand t
   :config
   (semantic-mode 1)
   :custom
@@ -122,16 +125,15 @@
 )
 
 (use-package saveplace
-  :defer t
+  :demand t
   :init
   (save-place-mode 1)
   :custom
-  (save-place-file "~/.emacs.d/saved-places")
+  (save-place-file (concat user-emacs-directory ".my-saved-places"))
   (save-place-forget-unreadable-files t)
 )
 
 (use-package electric
-  :defer t
   :config
   (electric-pair-mode     -1)
   (electric-indent-mode   -1)
@@ -140,15 +142,18 @@
 )
 
 (use-package files
-  :defer t
+  :demand t
+  :functions emacs-tmp-dir
+  :init
+  (defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
+  (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t))
+        backup-directory-alist         `((".*" . ,emacs-tmp-dir))
+        auto-save-list-file-prefix     emacs-tmp-dir)
   :custom
   (auto-save-default              t)
   (auto-save-interval             0)
-  (auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t)))
   (auto-save-list-file-name       nil)
-  (auto-save-list-file-prefix     emacs-tmp-dir)
   (auto-save-timeout              3)
-  (backup-directory-alist         `((".*" . ,emacs-tmp-dir)))
   (backup-inhibited               t)
   (create-lockfiles               nil "Disable lockfiles .#filename")
   (delete-old-versions            t   "Don't ask to delete excess backup versions.")
@@ -168,23 +173,31 @@
   (set-selection-coding-system 'utf-8)
   (set-terminal-coding-system  'utf-8)
   :custom
-  (buffer-file-coding-system 'utf-8)
-  (file-name-coding-system   'utf-8)
-  (coding-system-for-read    'utf-8)
+  (buffer-file-coding-system   'utf-8)
+  (file-name-coding-system     'utf-8)
+  (coding-system-for-read      'utf-8)
 )
 
 (use-package shell
-  :defer t
   :functions add-mode-line-dirtrack
   :config
   (defun add-mode-line-dirtrack ()
     (add-to-list 'mode-line-buffer-identification
                  '(:propertize (" " default-directory " ") face dired-directory)))
-  (add-hook 'shell-mode-hook 'add-mode-line-dirtrack)
+  :hook
+  (shell-mode-hook . add-mode-line-dirtrack)
+  :custom
+  (shell-file-name "/bin/zsh" "Set zsh as default shell")
+)
+
+(use-package sh-script
+  :custom
+  (sh-basic-offset 2)
+  (sh-indentation  2)
 )
 
 (use-package select
-  :defer t
+  :demand t
   :custom
   (save-interprogram-paste-before-kill t)
   (select-enable-clipboard             t)
@@ -209,16 +222,15 @@
 )
 
 (use-package isearch
-  :defer t
+  :demand t
   :custom
   (search-highlight          t "Highlight search results")
   (query-replace-highlight   t)
   (auto-window-vscroll       nil)
-  (bidi-display-reordering   nil)
 )
 
 (use-package whitespace
-  :defer t
+  :demand t
   :init
   (global-whitespace-mode t)
   :custom-face
@@ -246,18 +258,8 @@
      ))
 )
 
-(use-package window
-  :defer t
-  :custom
-  (split-height-threshold  nil)
-  (split-width-threshold   0)
-  :config
-  (if (equal nil (equal major-mode 'org-mode))
-      (windmove-default-keybindings 'meta))
-)
-
 (use-package paren
-  :defer t
+  :demand t
   :init
   (show-paren-mode 2)
   :custom-face
@@ -268,7 +270,7 @@
 )
 
 (use-package ispell
-  :defer t
+  :demand t
   :custom
   (ispell-local-dictionary-alist
    '(("russian"
@@ -302,9 +304,22 @@
 )
 
 (use-package windmove
-  :defer t
+  :demand t
   :init
-  (windmove-default-keybindings)
+  (windmove-default-keybindings 'meta)
+)
+
+(use-package delsel
+  :demand t
+  :config
+  (delete-selection-mode t)
+)
+
+(use-package fringe
+  :config
+  (fringe-mode '(8 . 0))
+  :custom
+  (indicate-buffer-boundaries 'right)
 )
 
 (provide 'base-rcp)

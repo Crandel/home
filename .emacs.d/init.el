@@ -4,50 +4,35 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'gruvbox t)
 
-
-;;; Commentary:
-;; 
-
-(require 'package)
-;; for gnu repository
-;(setq package-check-signature nil)
-;; bug fix for gnu
-(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
-
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-;; Higher values are searched first.
-(setq package-archive-priorities
-      '(
-        ("melpa"        . 200)
-        ("org"          . 100)
-        ("elpa"         . 75)
-        ("gnu"          . 50)))
-(setq package-enable-at-startup nil)
-
-(package-initialize)
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
 (eval-when-compile
-  (require 'use-package))
+  (require 'package)
+  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+  (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
+        package-enable-at-startup nil
+        package-archive-priorities '(("melpa"        . 200)
+                                     ("org"          . 100)
+                                     ("elpa"         . 75)
+                                     ("gnu"          . 50)))  ;; Higher values are searched first.
+;(setq package-check-signature nil) ;; for gnu repository
+  (package-initialize t)
+  (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
+    (package-install 'use-package))
+  (require 'use-package)
+  (put 'use-package 'lisp-indent-function 1)
 
-(put 'use-package 'lisp-indent-function 1)
-
-(use-package use-package-core
-  :custom
-  ; (use-package-verbose t)
-  (use-package-minimum-reported-time 0.005)
-  (use-package-enable-imenu-support t))
+  (use-package use-package-core
+    :custom
+    ; (use-package-verbose t)
+    (use-package-minimum-reported-time 0.005)
+    (use-package-enable-imenu-support t))
+)
 
 (add-to-list 'load-path "~/.emacs.d/recipes")
 
 (require 'functions_my)
-
-;; require for backup
-(defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
 
 (require 'base-rcp) ; emacs default settings
 (require 'use-package-chords-rcp) ; provide :chords for use-package
@@ -86,7 +71,7 @@
 )
 
 (when (executable-find "cargo")
-  (provide 'rust-rcp)
+  (require 'rust-rcp)
 )
 
 (when (executable-find "python")
@@ -116,5 +101,9 @@
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+
+;;; Commentary:
+;; Main init file
 
 ;;; init.el ends here

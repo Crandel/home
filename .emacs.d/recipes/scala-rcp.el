@@ -1,7 +1,6 @@
 ;;; scala-rcp.el --- Scala support
 
 ;;; Commentary:
-;; 
 
 ;;; Code:
 
@@ -17,6 +16,7 @@
   :ensure t
   :mode ("\\.sc\\'" "\\.scala\\'")
   :custom
+  (scala-basic-offset               2)
   (scala-indent:use-javadoc-style   t)
   (scala-indent:align-parameters    t)
   (max-lisp-eval-depth              50000)
