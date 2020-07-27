@@ -13,29 +13,24 @@
   :config
   (helm-autoresize-mode 1)
   :custom
-  (helm-advice-push-mark                 nil)
-  (helm-mode-fuzzy-match                 t)
   (helm-split-window-in-side-p           t) ; open helm buffer inside current window, not occupy whole other window
   (helm-split-window-default-side        'below)
   (helm-completion-in-region-fuzzy-match t)
   (helm-candidate-number-limit           100)
   (helm-move-to-line-cycle-in-source     t) ; move to end/beginning of source when reaching top or bottom of source.
-  (helm-scroll-amount                    8) ; scroll 8 lines other window using M-<next>/M-<prior>
   (helm-case-fold-search                 nil)
   (helm-autoresize-max-height            50)
   (helm-autoresize-min-height            10)
   (helm-recentf-fuzzy-match              t)
   :bind
-  ("M-x" . 'helm-M-x)
-  ("C-x x" . 'execute-extended-command)
-  ("C-x C-f" . 'helm-find-files)
-  ("C-p" . 'helm-multi-files)
-  ("M-y" . 'helm-show-kill-ring)
-  ("C-c m" . 'helm-all-mark-rings)
+  ("M-x" . helm-M-x)
+  ("C-x x" . execute-extended-command)
+  ("M-y" . helm-show-kill-ring)
+  ("C-c m" . helm-all-mark-rings)
   (:map helm-map
-        ("C-v" . 'yank)
-        ("<right>" . 'helm-next-source)
-        ("<left>" . 'helm-previous-source))
+        ("C-v" . yank)
+        ("<right>" . helm-next-source)
+        ("<left>" . helm-previous-source))
 )
 
 (use-package helm-mode
@@ -48,6 +43,8 @@
                                    '(flex)))))) ;; emacs-27+.
   :diminish (helm-mode " ")
   :after helm
+  :custom
+  (helm-mode-fuzzy-match t)
   :config
   (helm-mode 1)
   (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
@@ -61,8 +58,6 @@
   :custom
   (helm-adaptive-history-file nil)
 )
-
-(use-package helm-imenu :bind ([f10] . 'helm-semantic-or-imenu))
 
 (use-package helm-buffers
   :after helm-mode
@@ -80,21 +75,7 @@
         ("C-v" . 'yank))
 )
 
-(use-package helm-utils
-  :after helm-mode
-  :config
-  ;; Popup buffer-name or filename in grep/moccur/imenu-all etc...
-  (helm-popup-tip-mode 1)
-  :custom
-  (helm-highlight-matches-around-point-max-lines   30)
-  (helm-window-show-buffers-function #'helm-window-mosaic-fn)
-)
-
-(use-package helm-sys
-  :after helm-mode
-  :commands (helm-top)
-  :config (helm-top-poll-mode 1)
-)
+(use-package helm-imenu :bind ([f10] . 'helm-semantic-or-imenu))
 
 (use-package helm-info
   :bind ("C-h r" . helm-info-emacs))
@@ -123,12 +104,49 @@
                                   "\\.pg$" "\\.tp$" "\\.vr$" "\\.cps$" "\\.fns$" "\\.kys$" "\\.pgs$"
                                   "\\.tps$" "\\.vrs$" "\\.pyc$" "\\.pyo$"))
   :bind (
+  ("C-p" . helm-multi-files)
+  ("C-x C-f" . helm-find-files)
   (:map helm-read-file-map
-        ("RET" . helm-ff-RET)
-        ("C-i" . nil)
         ("C-/" . helm-ff-run-find-sh-command)
         ("C-d" . helm-ff-persistent-delete)
+        ("C-i" . nil)
+        ("RET" . helm-ff-RET)
         ))
+)
+
+(use-package helm-lib
+  :custom
+  (helm-scroll-amount                    8) ; scroll 8 lines other window using M-<next>/M-<prior>
+  (helm-advice-push-mark                 nil)
+)
+
+(use-package helm-utils
+  :after helm-mode
+  :config
+  ;; Popup buffer-name or filename in grep/moccur/imenu-all etc...
+  (helm-popup-tip-mode 1)
+  :custom
+  (helm-highlight-matches-around-point-max-lines   30)
+  (helm-window-show-buffers-function #'helm-window-mosaic-fn)
+)
+
+(use-package helm-sys
+  :after helm-mode
+  :commands (helm-top)
+  :config (helm-top-poll-mode 1)
+)
+
+
+;; 3-d party packages
+
+(use-package helm-company
+  :ensure t
+  :after (company)
+  :bind (
+  (:map company-mode-map
+        ("C-:" . helm-company))
+  (:map company-active-map
+        ("C-:" . helm-company)))
 )
 
 (use-package helm-descbinds
@@ -157,16 +175,6 @@
   :bind
   ("C-c s" . helm-swoop)
   ;("C-c p r" . helm-multi-swoop-projectile)
-)
-
-(use-package helm-company
-  :ensure t
-  :after (company)
-  :bind (
-  (:map company-mode-map
-        ("C-:" . helm-company))
-  (:map company-active-map
-        ("C-:" . helm-company)))
 )
 
 (provide 'helm-rcp)
