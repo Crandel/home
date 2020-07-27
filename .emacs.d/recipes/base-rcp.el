@@ -139,8 +139,6 @@
   :config
   (electric-pair-mode     -1)
   (electric-indent-mode   -1)
-  :bind
-  ("C-x C-b" . 'electric-buffer-list)
 )
 
 (use-package files
