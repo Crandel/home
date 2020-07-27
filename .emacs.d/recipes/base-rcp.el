@@ -7,6 +7,8 @@
 
 (use-package emacs
   :init
+  (add-to-list 'default-frame-alist
+               '(font . "Hack-18"))
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (when (display-graphic-p)
@@ -94,7 +96,7 @@
   ("C-c C-w" . copy-word)
   ("C-d" . my-delete-line)
   ("C-o" . open-next-line)
-  ("<tab>" . tab-indent-or-complete)
+  ;; ("<tab>" . tab-indent-or-complete)
   ("C-x C-x" . my-kill-emacs-with-save)
   ("C-c o" . open-previous-line)
 )

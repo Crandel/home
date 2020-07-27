@@ -41,14 +41,13 @@
 )
 
 (use-package helm-mode
-  :init
-  (add-hook 'helm-mode-hook
-            (lambda ()
-              (setq completion-styles
-                    (cond ((assq 'helm-flex completion-styles-alist)
-                           '(helm-flex)) ;; emacs-26.
-                          ((assq 'flex completion-styles-alist)
-                           '(flex)))))) ;; emacs-27+.
+  :hook
+  (helm-mode . (lambda ()
+                      (setq completion-styles
+                            (cond ((assq 'helm-flex completion-styles-alist)
+                                   '(helm-flex)) ;; emacs-26.
+                                  ((assq 'flex completion-styles-alist)
+                                   '(flex)))))) ;; emacs-27+.
   :diminish (helm-mode " ")
   :config
   (helm-mode 1)
@@ -62,6 +61,8 @@
   :custom
   (helm-adaptive-history-file nil)
 )
+
+(use-package helm-imenu)
 
 (use-package helm-buffers
   :custom
@@ -83,7 +84,6 @@
   (helm-highlight-matches-around-point-max-lines   30)
   (helm-window-show-buffers-function #'helm-window-mosaic-fn)
 )
-
 
 (use-package helm-sys
   :commands (helm-top)
@@ -124,13 +124,16 @@
         ("C-d" . helm-ff-persistent-delete)
         ))
 )
-(use-package helm-lsp
- :ensure t
+
+(use-package helm-descbinds
+  :ensure t
+  :config
+  (helm-descbinds-mode 1)
 )
 
-(use-package helm-projectile
- :ensure t
-)
+(use-package helm-lsp :ensure t)
+
+(use-package helm-projectile :ensure t)
 
 (use-package helm-buffers
   :bind
