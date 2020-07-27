@@ -9,6 +9,7 @@
   :ensure t
   :mode "\\.rs\\'"
   :custom
+  (rust-indent-offset  2)
   (rust-format-on-save t)
 )
 
