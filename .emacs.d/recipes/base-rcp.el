@@ -5,6 +5,8 @@
   :init
   (add-to-list 'default-frame-alist
                '(font . "Hack-18"))
+  (add-to-list 'default-frame-alist
+               '(alpha 80 80))
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
   (when (display-graphic-p)
@@ -158,7 +160,7 @@
 
 (use-package fringe
   :config
-  (fringe-mode '(8 . 0))
+  (fringe-mode '(8 . 1))
   :custom
   (indicate-buffer-boundaries 'right)
 )

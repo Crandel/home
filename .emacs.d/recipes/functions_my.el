@@ -120,6 +120,12 @@
   (save-buffers-kill-terminal "y")
 )
 
+(defun my-change-company-backends (backend)
+  (unless (member backend (car company-backends))
+    (setq comp-back (car company-backends))
+    (push backend comp-back)
+    (setq company-backends (list comp-back)))
+)
 ;; C-x r y for paste multiple cursors
 
 (provide 'functions_my)

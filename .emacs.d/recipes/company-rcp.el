@@ -42,11 +42,6 @@
   :hook (company-mode . company-flx-mode)
 )
 
-(use-package company-restclient
-  :after restclient
-  :ensure t
-)
-
 (provide 'company-rcp)
 
 ;;; company-rcp.el ends here
