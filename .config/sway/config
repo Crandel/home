@@ -68,6 +68,7 @@ assign [class="Viber"] 2
 assign [class="Wire"] 2
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
+for_window [shell="xwayland"] title_format "%title [XWayland]"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
