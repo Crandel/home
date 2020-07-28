@@ -1,20 +1,16 @@
 ;;; python-rcp.el --- Python support
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package python
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
   :config
-  (defun insert_ipdb ()
+  (defun insert_pdb ()
     (interactive)
     (progn
       (move-end-of-line nil)
       (newline-and-indent)
-      (insert "import ipdb; ipdb.set_trace()")))
+      (insert "import pdb; pdb.set_trace()")))
   (defun my-merge-imenu ()
     (interactive)
     (let ((mode-imenu (imenu-default-create-index-function))
@@ -31,12 +27,15 @@
   (:map python-mode-map
         ("RET" . newline-and-indent)
         ("M-RET" . newline)
-        ("C-c C-b" . insert_ipdb))
+        ("C-c C-b" . insert_pdb))
   )
 (use-package pip-requirements :ensure t)
 
 (use-package py-isort :ensure t)
 
 (provide 'python-rcp)
+
+;;; Commentary:
+;;
 
 ;;; python-rcp.el ends here
