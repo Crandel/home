@@ -1,10 +1,6 @@
 ;;; base-rcp.el --- Emacs default configuration
 
-;;; Commentary:
-;; Configuration for base Emacs without packages
-
 ;;; Code:
-
 (use-package emacs
   :init
   (add-to-list 'default-frame-alist
@@ -101,38 +97,34 @@
   ("C-c o" . open-previous-line)
 )
 
-(use-package recentf
-  :demand t
-  :custom
-  (recentf-max-saved-items 1500)
-  (recentf-max-menu-items  150)
-  (recentf-save-file       (concat user-emacs-directory ".my-recentf"))
-  :config
-  (recentf-mode t)
-  :diminish nil)
-
-(use-package imenu
-  :demand t
-  :custom
-  (imenu-auto-rescan      t)
-  (imenu-use-popup-menu   nil)
-)
-
-(use-package semantic
+(use-package autorevert
   :demand t
   :config
-  (semantic-mode 1)
-  :custom
-  (semantic-which-function-use-color t)
+  (auto-revert-mode t)
 )
 
-(use-package saveplace
-  :demand t
-  :init
-  (save-place-mode 1)
+(use-package compile
   :custom
-  (save-place-file (concat user-emacs-directory ".my-saved-places"))
-  (save-place-forget-unreadable-files t)
+  (compilation-always-kill     t)
+  (compilation-disable-input   t)
+  (compilation-window-height   10)
+)
+
+(use-package delsel
+  :demand t
+  :config
+  (delete-selection-mode t)
+)
+
+(use-package dired
+  :custom
+  (dired-dwim-target t "guess a target directory")
+  (dired-listing-switches "-ahlF --time-style=long-iso --group-directories-first")
+)
+
+(use-package ediff-util
+  :custom
+  (ediff-merge-split-window-function 'split-window-vertically)
 )
 
 (use-package electric
@@ -148,12 +140,12 @@
   (defconst emacs-tmp-dir (expand-file-name (format "emacs%d/" (user-uid)) temporary-file-directory))
   (setq auto-save-file-name-transforms `((".*" ,emacs-tmp-dir t))
         backup-directory-alist         `((".*" . ,emacs-tmp-dir))
+        auto-save-timeout              3
+        auto-save-list-file-name       nil
+        auto-save-interval             0
+        auto-save-default              t
         auto-save-list-file-prefix     emacs-tmp-dir)
   :custom
-  (auto-save-default              t)
-  (auto-save-interval             0)
-  (auto-save-list-file-name       nil)
-  (auto-save-timeout              3)
   (backup-inhibited               t)
   (create-lockfiles               nil "Disable lockfiles .#filename")
   (delete-old-versions            t   "Don't ask to delete excess backup versions.")
@@ -162,6 +154,44 @@
   (vc-make-backup-files           t   "Emacs never backs up versioned files")
   (kept-new-versions              5   "Number of newest versions to keep.")
   (kept-old-versions              0   "Number of oldest versions to keep.")
+)
+
+(use-package fringe
+  :config
+  (fringe-mode '(8 . 0))
+  :custom
+  (indicate-buffer-boundaries 'right)
+)
+
+(use-package imenu
+  :demand t
+  :custom
+  (imenu-auto-rescan      t)
+  (imenu-use-popup-menu   nil)
+)
+
+(use-package isearch
+  :demand t
+  :custom
+  (search-highlight          t "Highlight search results")
+  (query-replace-highlight   t)
+  (auto-window-vscroll       nil)
+)
+
+(use-package ispell
+  :demand t
+  :custom
+  (ispell-local-dictionary-alist
+   '(("russian"
+      "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
+      "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
+      "[-']"  nil ("-d" "uk_UA,ru_RU,en_US") nil utf-8)))
+  (ispell-program-name "hunspell")
+  ;(ispell-dictionary "russian")
+  (ispell-really-aspell nil)
+  (ispell-really-hunspell t)
+  (ispell-encoding8-command t)
+  (ispell-silently-savep t)
 )
 
 (use-package mule
@@ -178,22 +208,37 @@
   (coding-system-for-read      'utf-8)
 )
 
-(use-package shell
-  :functions add-mode-line-dirtrack
-  :config
-  (defun add-mode-line-dirtrack ()
-    (add-to-list 'mode-line-buffer-identification
-                 '(:propertize (" " default-directory " ") face dired-directory)))
-  :hook
-  (shell-mode-hook . add-mode-line-dirtrack)
+(use-package paren
+  :demand t
+  :init
+  (show-paren-mode 2)
+  :custom-face
+  (show-paren-match ((t (:background "#1d2021" :foreground "#def" :weight extra-bold))))
   :custom
-  (shell-file-name "/bin/zsh" "Set zsh as default shell")
+  (show-paren-delay 0.2)
+  (show-paren-style 'expression)
 )
 
-(use-package sh-script
+(use-package recentf
+  :demand t
   :custom
-  (sh-basic-offset 2)
-  (sh-indentation  2)
+  (recentf-max-saved-items 1500)
+  (recentf-max-menu-items  150)
+  (recentf-exclude         '("recentf" "elpa" "custom.el"))
+  (recentf-save-file       (concat user-emacs-directory ".my-recentf"))
+  :config
+  (recentf-mode t)
+  :diminish nil)
+
+(use-package saveplace
+  :demand t
+  :init
+  (save-place-mode 1)
+  :custom
+  (save-place-ignore-files-regexp
+   "\\(?:COMMIT_EDITMSG\\|hg-editor-[[:alnum:]]+\\.txt\\|elpa\\|svn-commit\\.tmp\\|bzr_log\\.[[:alnum:]]+\\)$")
+  (save-place-file (concat user-emacs-directory ".my-saved-places"))
+  (save-place-forget-unreadable-files t)
 )
 
 (use-package select
@@ -221,12 +266,36 @@
   (interprogram-paste-function 'wl-paste)
 )
 
-(use-package isearch
+(use-package semantic
   :demand t
+  :config
+  (semantic-mode 1)
   :custom
-  (search-highlight          t "Highlight search results")
-  (query-replace-highlight   t)
-  (auto-window-vscroll       nil)
+  (semantic-which-function-use-color t)
+)
+
+(use-package sh-script
+  :custom
+  (sh-basic-offset 2)
+  (sh-indentation  2)
+)
+
+(use-package shell
+  :functions add-mode-line-dirtrack
+  :config
+  (defun add-mode-line-dirtrack ()
+    (add-to-list 'mode-line-buffer-identification
+                 '(:propertize (" " default-directory " ") face dired-directory)))
+  :hook
+  (shell-mode-hook . add-mode-line-dirtrack)
+  :custom
+  (shell-file-name "/bin/zsh" "Set zsh as default shell")
+)
+
+(use-package windmove
+  :demand t
+  :init
+  (windmove-default-keybindings 'meta)
 )
 
 (use-package whitespace
@@ -258,70 +327,9 @@
      ))
 )
 
-(use-package paren
-  :demand t
-  :init
-  (show-paren-mode 2)
-  :custom-face
-  (show-paren-match ((t (:background "#1d2021" :foreground "#def" :weight extra-bold))))
-  :custom
-  (show-paren-delay 0.2)
-  (show-paren-style 'expression)
-)
-
-(use-package ispell
-  :demand t
-  :custom
-  (ispell-local-dictionary-alist
-   '(("russian"
-      "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
-      "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
-      "[-']"  nil ("-d" "uk_UA,ru_RU,en_US") nil utf-8)))
-  (ispell-program-name "hunspell")
-  ;(ispell-dictionary "russian")
-  (ispell-really-aspell nil)
-  (ispell-really-hunspell t)
-  (ispell-encoding8-command t)
-  (ispell-silently-savep t)
-)
-
-(use-package compile
-  :custom
-  (compilation-always-kill     t)
-  (compilation-disable-input   t)
-  (compilation-window-height   10)
-)
-
-(use-package dired
-  :custom
-  (dired-dwim-target t "guess a target directory")
-  (dired-listing-switches "-ahlF --time-style=long-iso --group-directories-first")
-)
-
-(use-package ediff-util
-  :custom
-  (ediff-merge-split-window-function 'split-window-vertically)
-)
-
-(use-package windmove
-  :demand t
-  :init
-  (windmove-default-keybindings 'meta)
-)
-
-(use-package delsel
-  :demand t
-  :config
-  (delete-selection-mode t)
-)
-
-(use-package fringe
-  :config
-  (fringe-mode '(8 . 0))
-  :custom
-  (indicate-buffer-boundaries 'right)
-)
-
 (provide 'base-rcp)
+
+;;; Commentary:
+;; Configuration for base Emacs without packages
 
 ;;; base-rcp.el ends here

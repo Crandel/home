@@ -9,7 +9,8 @@ zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$HOME/.zshrc'
 
 # END OF LINES ADDED BY COMPINSTALL
-setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST MAGIC_EQUAL_SUBST AUTO_NAME_DIRS CORRECTALL
+setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST
+setopt AUTO_NAME_DIRS CORRECTALL MAGIC_EQUAL_SUBST
 bindkey -e
 unsetopt nomatch # escape string fixing zsh: no matches found error
 # END ZSH SPECIFIC

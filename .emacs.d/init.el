@@ -3,6 +3,8 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'gruvbox t)
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file :noerror)
 
 (eval-when-compile
   (require 'package)
@@ -99,10 +101,6 @@
 (when (executable-find "docker")
   (require 'docker-rcp)
 )
-
-(setq custom-file "~/.emacs.d/custom.el")
-(load custom-file)
-
 
 ;;; Commentary:
 ;; Main init file
