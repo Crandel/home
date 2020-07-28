@@ -1,16 +1,18 @@
+;;; smartparens-rcp.el --- Smart paren support
+
+;;; Commentary:
+;; 
+
+;;; Code:
+
 (use-package smartparens
   :ensure t
-  :config
+  :demand t
+  :init
   (smartparens-global-mode)
-  (sp-with-modes '(markdown-mode gfm-mode rst-mode)
-                 (sp-local-pair "*" "*")
-                 (sp-local-pair "**" "**")
-                 (sp-local-pair "_" "_" ))
-  (sp-with-modes '(web-mode)
-                 (sp-local-pair "%" "%")
-                 (sp-local-pair "<" ">"))
+  (show-smartparens-global-mode)
+  (require 'smartparens-config)
   :bind (
-  ("C-c w" . nil)
   ("C-c w" . sp-rewrap-sexp)
   ("C-c r" . sp-unwrap-sexp)
   ("C-c f" . sp-forward-sexp)
@@ -20,3 +22,5 @@
 )
 
 (provide 'smartparens-rcp)
+
+;;; smartparens-rcp.el ends here
