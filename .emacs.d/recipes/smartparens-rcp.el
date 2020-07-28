@@ -11,12 +11,12 @@
                  (sp-local-pair "<" ">"))
   :bind (
   ("C-c w" . nil)
-  ("C-c w" . 'sp-rewrap-sexp)
-  ("C-c r" . 'sp-unwrap-sexp)
-  ("C-c f" . 'sp-forward-sexp)
-  ("C-c d" . 'sp-backward-sexp))
+  ("C-c w" . sp-rewrap-sexp)
+  ("C-c r" . sp-unwrap-sexp)
+  ("C-c f" . sp-forward-sexp)
+  ("C-c d" . sp-backward-sexp))
   :chords (
-  ("''" . 'sp-rewrap-sexp))
+  ("''" . sp-rewrap-sexp))
 )
 
 (provide 'smartparens-rcp)
