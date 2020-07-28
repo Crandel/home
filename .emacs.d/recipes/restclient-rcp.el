@@ -14,7 +14,8 @@
                              (eval-after-load "company"
                                '(progn
                                   (my-change-company-backends 'company-restclient)
-                                  ))))
+                                  ))
+                             ))
 )
 
 (provide 'restclient-rcp)

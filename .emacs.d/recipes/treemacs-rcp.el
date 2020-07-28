@@ -1,3 +1,6 @@
+;;; treemacs-rcp.el --- Treemacs support
+
+;;; Code:
 (use-package treemacs
   :ensure t
   :bind
@@ -53,3 +56,7 @@
   :ensure t)
 
 (provide 'treemacs-rcp)
+;;; Commentary:
+;;
+
+;;; treemacs-rcp.el ends here

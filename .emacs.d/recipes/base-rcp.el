@@ -3,23 +3,31 @@
 ;;; Code:
 (use-package emacs
   :init
-  (add-to-list 'default-frame-alist
-               '(font . "Hack-18"))
-  (add-to-list 'default-frame-alist
-               '(alpha 80 80))
+  (setq initial-frame-alist
+        '(
+          (alpha 80 80)
+          (cursor-color . "#BE81F7")
+          (cursor-type . 'bar)
+          (font . "Hack-18")
+          (tool-bar-lines . 0)
+          (vertical-scroll-bars . right)
+          ))
+  (setq default-frame-alist
+        '(
+          (alpha 80 80)
+          (cursor-type . 'bar)
+          (cursor-color . "#BE81F7")
+          (font . "Hack-18")
+          (tool-bar-lines . 0)
+          (vertical-scroll-bars . right)
+          ))
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
-  (when (display-graphic-p)
-    (tool-bar-mode    -1)
-    (tooltip-mode  -1)
-    (scroll-bar-mode  1)
-    ;; Fringe settings
-    ;; Cursor
-    (setq-default cursor-type 'bar)
-    (set-cursor-color "#BE81F7")
-    (blink-cursor-mode 1)
-    )
+  (tool-bar-mode    -1)
+  (tooltip-mode  -1)
   (menu-bar-mode -1)
+  (scroll-bar-mode  1)
+  (blink-cursor-mode 1)
   (cl-loop
    for from across "йцукенгшщзхїфівапролджєячсмитьбюЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖ\ЄЯЧСМИТЬБЮ№"
    for to   across "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>#"
@@ -120,8 +128,9 @@
 
 (use-package dired
   :custom
-  (dired-dwim-target t "guess a target directory")
-  (dired-listing-switches "-ahlF --time-style=long-iso --group-directories-first")
+  (dired-dwim-target t      "guess a target directory")
+  (dired-auto-revert-buffer t)
+  (dired-listing-switches   "-ahlF --time-style=long-iso --group-directories-first")
 )
 
 (use-package ediff-util
@@ -161,8 +170,6 @@
 (use-package fringe
   :config
   (fringe-mode '(8 . 1))
-  :custom
-  (indicate-buffer-boundaries 'right)
 )
 
 (use-package imenu
