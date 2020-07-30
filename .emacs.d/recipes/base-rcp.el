@@ -94,6 +94,7 @@
   ("M-RET" . newline-and-indent)
   ("C-c b" . revert-buffer)
   ("C-x a s" . sort-lines)
+  ("C-x a d" . delete-trailing-whitespace)
   ;; keybindings from functions_my.el file
   ([M-S-up] . move-line-up)
   ([M-S-down] . move-line-down)
@@ -232,7 +233,7 @@
   :custom
   (recentf-max-saved-items 1500)
   (recentf-max-menu-items  150)
-  (recentf-exclude         '("recentf" "elpa" "custom.el"))
+  (recentf-exclude         '("recentf" "elpa" "custom.el" ".cache"))
   (recentf-save-file       (concat user-emacs-directory ".my-recentf"))
   :config
   (recentf-mode t)

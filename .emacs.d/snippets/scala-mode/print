@@ -2,4 +2,4 @@
 # name: print
 # key: p
 # --
-println($0)
+print(s"\n\$$0\n")
