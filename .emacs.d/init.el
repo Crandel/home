@@ -103,6 +103,9 @@
   (require 'docker-rcp)
 )
 
+(when (executable-find "go")
+  (require 'go-rcp)
+)
 ;;; Commentary:
 ;; Main init file
 
