@@ -104,8 +104,8 @@ bindsym --to-code {
   $mod+q kill
 
   # start j4-dmenu-desktop or bemenu (a program launcher)
-  $mod+d exec j4-dmenu-desktop --dmenu='bemenu -I 0 -l 15 -p drun' --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
-  $mod+Shift+d exec bemenu-run -l 15 -p run -I
+  $mod+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
+  $mod+Shift+d exec bemenu-run -l 20 -p run
 
   # change focus
   $mod+j focus left
@@ -218,7 +218,7 @@ bindsym --to-code {
   $mod+Control+z exec $lock
 
   # get clipboard history
-  $mod+Control+a exec clipman pick --max-items=1000 -t bemenu -T'bemenu -l 10 -I -p clipman'
+  $mod+Control+a exec clipman pick --max-items=1000 -t bemenu -T'bemenu -l 30 -p clipman'
 
   # switch workspaces by mod+z
   $mod+z workspace next
@@ -292,7 +292,8 @@ client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term --quake
-exec env GDK_BACKEND=x11 wire-desktop-beta
+exec sleep 2
+exec env GDK_BACKEND=x11 wire-desktop
 exec $email
 exec $feed
 exec keyboard-layout-sway.py
