@@ -4,12 +4,13 @@
 (use-package go-mode
   :ensure t
   :mode "\\.go\\'"
-  :custom
-  (gofmt-command    "goimports")
-  (indent-tabs-mode t)
-  (tab-width        2)
   :hook
-  (before-save-hook . gofmt-before-save)
+  (go-mode . (lambda()
+               (add-hook 'before-save-hook #'gofmt-before-save)
+               (setq gofmt-command    "goimports"
+                     tab-width        2
+                     indent-tabs-mode t)
+               ))
   :bind
   (:map go-mode-map
         ("M-." . godef-jump)

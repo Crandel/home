@@ -1,13 +1,17 @@
 ;;; web-mode-rcp.el --- major mode for editing web templates
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package web-mode
-  :mode (("\\.html\\'" "\\.css\\'" "\\.djhtml\\'" "\\.gotmpl\\'" "\\.gtpl\\'" "\\.vue\\'" . web-mode)
-         ("\\german_lang/index.html\\'" . html-mode))
+  :ensure t
+  :mode
+  ("\\.js\\'"  . web-mode)
+  ("\\.html\\'" . web-mode)
+  ("\\.css\\'" . web-mode)
+  ("\\.djhtml\\'" . web-mode)
+  ("\\.gotmpl\\'" . web-mode)
+  ("\\.gtpl\\'" . web-mode)
+  ("\\.vue\\'" . web-mode)
+  ("\\german_lang/index.html\\'" . html-mode)
   :custom
   (web-mode-engines-alist '(
                             ("django" . "\\.html\\'")
@@ -26,11 +30,13 @@
   (web-mode-enable-current-column-highlight    t)
   :bind
   (:map web-mode-map
-        (kbd "RET" . newline-and-indent)
-        (kbd "M-RET" . newline)
-                                                )
+        ("RET" . newline-and-indent)
+        ("M-RET" . newline)
+        )
 )
 
 (provide 'web-mode-rcp)
+;;; Commentary:
+;;
 
 ;;; web-mode-rcp.el ends here

@@ -309,7 +309,7 @@ fi
 if command_exists emacs ; then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
-  export EDITOR='GDK_BACKEND=x11 emacs'
+  export EDITOR='editor-run'
 elif command_exists vim; then
   export EDITOR='vim'
 fi

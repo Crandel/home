@@ -5,7 +5,8 @@
 (load-theme 'gruvbox t)
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file :noerror)
-
+(eval-after-load 'gnutls
+  '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
