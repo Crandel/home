@@ -67,6 +67,7 @@
 (require 'treemacs-rcp)
 (require 'undo-tree-rcp)
 (require 'vimrc-mode-rcp)
+(require 'web-mode-rcp)
 (require 'which-key-rcp)
 (require 'yasnippet-rcp)
 (require 'ytdl-rcp)

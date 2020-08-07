@@ -136,7 +136,10 @@
 
 (use-package ediff-util
   :custom
-  (ediff-merge-split-window-function 'split-window-vertically)
+  (ediff-forward-word-function       forward-char)
+  (ediff-highlight-all-diffs         t)
+  (ediff-merge-split-window-function split-window-vertically)
+  (ediff-window-setup-function       ediff-setup-windows-plain)
 )
 
 (use-package electric
@@ -281,6 +284,10 @@
   (semantic-mode 1)
   :custom
   (semantic-which-function-use-color t)
+)
+
+(use-package sendmail
+  :mode ("^/tmp/evo.*" . mail-mode)
 )
 
 (use-package sh-script
