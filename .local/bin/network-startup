@@ -1,0 +1,32 @@
+#! /bin/bash
+
+function command_exists () {
+  command -v "$1"  > /dev/null 2>&1;
+}
+
+local='lo'
+connection=0
+while [ $connection == 0 ] ; do
+  for interface in /sys/class/net/* ; do
+    if [[ ! "$interface" == *"$local"* ]]; then
+      connection=$(cat $interface/carrier)
+    fi
+  done
+  sleep 1
+done
+
+
+if command_exists quiterss ; then
+  echo "run quiterss"
+  quiterss &
+fi
+
+if command_exists evolution ; then
+  echo "run evolution"
+  evolution &
+fi
+
+if command_exists wire-desktop ; then
+  echo "run wire-desktop"
+  GDK_BACKEND=x11 wire-desktop &
+fi

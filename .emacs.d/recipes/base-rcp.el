@@ -136,10 +136,10 @@
 
 (use-package ediff-util
   :custom
-  (ediff-forward-word-function       forward-char)
+  (ediff-forward-word-function       'forward-char)
   (ediff-highlight-all-diffs         t)
-  (ediff-merge-split-window-function split-window-vertically)
-  (ediff-window-setup-function       ediff-setup-windows-plain)
+  (ediff-merge-split-window-function 'split-window-vertically)
+  (ediff-window-setup-function       'ediff-setup-windows-plain)
 )
 
 (use-package electric
