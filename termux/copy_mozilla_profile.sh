@@ -2,6 +2,7 @@
 
 folder_list=(
   "org.mozilla.fenix"
+  "org.mozilla.firefox"
   "org.mozilla.fennec_fdroid"
   "org.mozilla.firefox_beta"
 )
