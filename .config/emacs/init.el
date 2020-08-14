@@ -1,9 +1,9 @@
 ;;; init.el --- Main init
 ;;; Code:
-
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
+;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 (load-theme 'gruvbox t)
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.config/emacs/custom.el")
 (load custom-file :noerror)
 (eval-after-load 'gnutls
   '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
@@ -32,8 +32,8 @@
     (use-package-minimum-reported-time 0.005)
     (use-package-enable-imenu-support t))
 )
-
-(add-to-list 'load-path "~/.emacs.d/recipes")
+(add-to-list 'load-path (expand-file-name "recipes/" (file-name-directory load-file-name)))
+;(add-to-list 'load-path "~/.emacs.d/recipes")
 
 (require 'functions_my)
 
