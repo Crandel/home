@@ -27,7 +27,7 @@ separator = ""
 [[block]]
 block = "custom"
 command = "gmail"
-interval = 5
+interval = 60
 
 [[block]]
 block = "disk_space"
@@ -35,7 +35,7 @@ alert = 10.0
 alias = "/"
 format = "{icon}{alias}{available}({percentage}){unit}"
 info_type = "available"
-interval = 60
+interval = 300
 path = "/"
 unit = "GiB"
 warning = 15.0
@@ -43,7 +43,7 @@ warning = 15.0
 [[block]]
 block = "cpu"
 format = "{barchart} {utilization}% {frequency}GHz"
-interval = 1
+interval = 60
 
 [[block]]
 block = "memory"
@@ -54,13 +54,14 @@ display_type = "memory"
 format_mem = "{Mug}GB"
 format_swap = "{SUm}MB"
 icons = true
+interval = 60
 warning_mem = 80
 warning_swap = 80
 
 [[block]]
 block = "battery"
+driver = "upower"
 format = "{percentage}% {time}"
-interval = 10
 
 [[block]]
 block = "sound"
@@ -98,7 +99,12 @@ format = "{layout}"
 sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 
 [[block]]
+block = "bluetooth"
+mac = ""
+label = "J"
+
+[[block]]
 block = "time"
 format = "%d.%m %R"
-interval = 15
+interval = 45
 on_click = "swaymsg -q exec 'gsimplecal'"

@@ -124,10 +124,10 @@ bindsym --to-code {
   $mod+Shift+Tab focus left
 
   # move focused window
-  $mod+Shift+j move left
-  $mod+Shift+k move down
-  $mod+Shift+l move up
-  $mod+Shift+colon move right
+  $mod+Shift+h move left
+  $mod+Shift+j move down
+  $mod+Shift+k move up
+  $mod+Shift+l move right
 
   # alternatively, you can use the cursor keys:
   $mod+Shift+Left move left
@@ -276,7 +276,7 @@ bar {
 }
 
 # gaps
-default_border none
+default_border normal
 smart_borders off
 smart_gaps on
 gaps inner 6
@@ -292,8 +292,5 @@ client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term --quake
-exec sleep 2
-exec env GDK_BACKEND=x11 wire-desktop
-exec $email
-exec $feed
 exec keyboard-layout-sway.py
+exec network-startup
