@@ -48,7 +48,6 @@ $pacman -S alacritty \
            traceroute \
            tree \
            vifm \
-           vulkan-intel \
            wget \
            wpa_supplicant \
            youtube-dl \
