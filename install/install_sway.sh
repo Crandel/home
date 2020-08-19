@@ -16,7 +16,8 @@ $pacman -S bemenu \
            wayland-protocols \
            wl-clipboard \
            wlroots \
-           xorg-server-xwayland
+           xorg-server-xwayland \
+           python-i3ipc
 
 $yay -S clipman \
         grimshot
