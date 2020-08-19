@@ -1,8 +1,3 @@
-// START: internal custom pref to test for syntax errors
-user_pref("_user.js.parrot", "START: Oh yes, the Norwegian Blue... what's wrong with it?");
-// user_pref("layout.css.devPixelsPerPx", "1.25");
-
-
 user_pref("accessibility.force_disabled", true);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
@@ -294,6 +289,7 @@ user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // Add dialog for canvas API
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.letterboxing", false);
+user_pref("privacy.resistFingerprinting.target_video_res", 760);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
