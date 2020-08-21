@@ -24,9 +24,9 @@ user_pref("browser.display.use_document_fonts", 0);
 user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
-user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
-user_pref("browser.fixup.domainwhitelist.gateway.test", true);
 user_pref("browser.fixup.domainwhitelist.gateway.localhost", true);
+user_pref("browser.fixup.domainwhitelist.gateway.test", true);
+user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
 user_pref("browser.helperApps.deleteTempFileOnExit", true); // remove temp files opened with an external application
 user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
 user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
@@ -224,7 +224,9 @@ user_pref("layers.acceleration.force-enabled", false);
 user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
+user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
+user_pref("layout.frame_rate", 144);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
 user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");

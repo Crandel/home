@@ -13,6 +13,7 @@ $pacman -S bemenu \
            sway \
            swaybg \
            swaylock \
+           light \
            wayland-protocols \
            wl-clipboard \
            wlroots \
@@ -20,4 +21,5 @@ $pacman -S bemenu \
            python-i3ipc
 
 $yay -S clipman \
-        grimshot
+        grimshot \
+        j4-dmenu-desktop
