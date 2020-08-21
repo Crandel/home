@@ -201,6 +201,7 @@ let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
 map <F7> :Texplore<CR>
 
+nnoremap :Q :quit
 " nnoremap <NUL> :%s/\s\+$//e
 
 

@@ -507,6 +507,7 @@ nnoremap <c-l> :rename<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
 
+nnoremap :Q :quit
 " ------------------------------------------------------------------------------
 
 " Various customization examples
