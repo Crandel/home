@@ -9,6 +9,7 @@ $pacman -S bash-language-server \
            meld \
            nano \
            rust-analyzer \
+           python-language-server \
            vim
 
 $yay -S metals \
