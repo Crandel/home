@@ -147,7 +147,7 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
-
+command! ln ln -s %f:p %D
 " ------------------------------------------------------------------------------
 
 " The file type is for the default programs to be used with
