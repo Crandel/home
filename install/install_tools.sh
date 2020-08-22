@@ -15,6 +15,8 @@ $pacman -S alacritty \
            cups-pdf \
            curlftpfs \
            dconf-editor \
+           docker \
+           docker-compose \
            gscan2pdf \
            gucharmap \
            gvfs \
