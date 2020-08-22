@@ -5,7 +5,7 @@ backlight_empty = "🌑"
 backlight_full = "🌕"
 backlight_partial1 = "🌒"
 backlight_partial3 = "🌔"
-bat_charging = " "
+bat_charging = "  "
 bat_discharging = " "
 bat_empty = " "
 bat_full = " "
@@ -33,7 +33,7 @@ interval = 60
 block = "disk_space"
 alert = 10.0
 alias = "/"
-format = "{icon}{alias}{available}({percentage}){unit}"
+format = "{icon}{alias}{available}{unit}"
 info_type = "available"
 interval = 300
 path = "/"
@@ -43,7 +43,7 @@ warning = 15.0
 [[block]]
 block = "cpu"
 format = "{barchart} {utilization}% {frequency}GHz"
-interval = 60
+interval = 10
 
 [[block]]
 block = "memory"

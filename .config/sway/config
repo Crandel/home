@@ -14,7 +14,7 @@ set {
 }
 
 output {
-  $o_center background ~/Pictures/wallpaper.jpg fill
+  $o_center background ~/Pictures/wallpaper.png fill
   # $o_left pos 1920 0 res 1920x1080
   $o_center pos 0 0 res 1920x1080
 }
@@ -30,11 +30,12 @@ input type:touchpad {
   accel_profile adaptive
   click_method button_areas
   click_method clickfinger
-  drag enabled
+  drag disabled
+  drag_lock disabled
   dwt enabled
   events disabled_on_external_mouse
   middle_emulation enable
-  pointer_accel 0.5
+  pointer_accel 0.2
   scroll_method two_finger
   tap enabled
 }
@@ -42,8 +43,8 @@ input type:touchpad {
 exec_always {
   gsettings set $gnome-schema gtk-theme 'gruvbox-dark-gtk'
   gsettings set $gnome-schema icon-theme 'gruvbox-dark-icons-gtk'
-  gsettings set $gnome-schema font-name 'Hack 16'
-  gsettings set $gnome-schema document-font-name 'Hack 16'
+  gsettings set $gnome-schema font-name 'Hack Nerd Font 16'
+  gsettings set $gnome-schema document-font-name 'Hack Nerd Font 16'
   gsettings set $gnome-schema text-scaling-factor 1.0
   gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
 }
@@ -51,7 +52,7 @@ exec_always {
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:DejaVu Sans Mono 8
-font pango:Hack, Source Code Pro 16
+font pango:Hack Nerd Font, Source Code Pro 16
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod normal
@@ -239,6 +240,8 @@ bindsym --to-code {
   # Sreen brightness controls
   XF86MonBrightnessUp exec light -A 20 # increase screen brightness
   XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+
+  XF86ScreenSaver swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
 }
 
 
@@ -270,7 +273,7 @@ bar {
     button2 exec alacritty -e nmtui
   }
   pango_markup enabled
-  font FontAwesome, Hack 16
+  font FontAwesome, Hack Nerd Font 16
   icon_theme Gruvbox
   status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
 }
