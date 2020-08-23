@@ -59,6 +59,7 @@ warning_mem = 80
 warning_swap = 80
 
 [[block]]
+device = "DisplayDevice"
 block = "battery"
 driver = "upower"
 format = "{percentage}% {time}"

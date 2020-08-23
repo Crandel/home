@@ -64,6 +64,21 @@ function plugin_init() {
   # zinit bundle mvn
   zinit wait lucid light-mode for \
           OMZP::colored-man-pages \
+          OMZP::shrink-path \
+          OMZP::docker-compose \
+          djui/alias-tips \
+          MichaelAquilina/zsh-autoswitch-virtualenv \
+          zsh-users/zsh-history-substring-search \
+          zsh-users/zsh-completions \
+        atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+          zdharma/fast-syntax-highlighting \
+        blockf \
+          zsh-users/zsh-completions \
+        atload"!_zsh_autosuggest_start" \
+          zsh-users/zsh-autosuggestions        as"completion" \
+          OMZP::cargo/_cargo \
+          OMZP::docker/_docker \
+          OMZP::docker-compose/_docker-compose \
         has'git' \
           OMZP::git \
         has'kubectl' \
@@ -71,19 +86,7 @@ function plugin_init() {
         has'pip' \
           OMZP::pip \
         has'sbt' \
-          OMZP::sbt \
-          OMZP::shrink-path \
-          djui/alias-tips \
-          zsh-users/zsh-history-substring-search \
-          zsh-users/zsh-completions \
-        atload"_zsh_autosuggest_start" \
-          zsh-users/zsh-autosuggestions \
-        as"completion" \
-          OMZP::cargo/_cargo \
-          OMZP::docker/_docker
-  zinit wait lucid light-mode for \
-        atinit"zicompinit; zicdreplay"  \
-          zdharma/fast-syntax-highlighting
+          OMZP::sbt
   eval "$(zoxide init --cmd j zsh)"
   compinit
 }
@@ -245,6 +248,7 @@ if command_exists docker ; then
   alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
+  alias dvrm='d volume rm $(d volume ls -q)'
   drmin () {
     for img in $(d images | rg -i 'none' | awk '{print $3}'); do
       docker rmi $img
@@ -443,13 +447,13 @@ fi
 ## END RUST
 
 ## PYTHON
-# virtual='virtualenvwrapper.sh'
-# if command_exists $virtual; then
-#   export VIRTUAL_ENV_DISABLE_PROMPT=1
-#   export WORKON_HOME=~/.virtualenvs/
-#   export AUTOSWITCH_SILENT=1
-#   source $virtual
-# fi
+virtual='virtualenvwrapper.sh'
+if command_exists $virtual; then
+  export VIRTUAL_ENV_DISABLE_PROMPT=1
+  export WORKON_HOME=~/.virtualenvs/
+  export AUTOSWITCH_SILENT=1
+  source $virtual
+fi
 
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf

@@ -80,20 +80,7 @@
 
 (when (executable-find "python")
   (require 'python-rcp)
-
-  (when (executable-find "autopep8")
-    (use-package py-autopep8 :ensure t)
-    )
-
-  (when (executable-find "virtualenv")
-    (use-package auto-virtualenv :ensure t)
-    )
-
-  (when (executable-find "virtualenvwrapper")
-    (use-package auto-virtualenvwrapper :ensure t)
-    )
 )
-
 
 (when (executable-find "scala")
   (require 'scala-rcp)
