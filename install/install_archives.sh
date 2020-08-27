@@ -7,6 +7,7 @@ $pacman -S bzip2 \
            i7z \
            p7zip \
            tar \
+           zip \
            unrar
 
 $yay -S archivemount \
