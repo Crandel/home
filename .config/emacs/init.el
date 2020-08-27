@@ -2,10 +2,13 @@
 ;;; Code:
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
+
 (setq custom-file (expand-file-name "custom.el" (file-name-directory load-file-name)))
 (load custom-file :noerror)
+
 (eval-after-load 'gnutls
   '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
+
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)

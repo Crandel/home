@@ -5,7 +5,7 @@
   :init
   (setq initial-frame-alist
         '(
-          (alpha 80 80)
+          (alpha 100 100)
           (cursor-color . "#BE81F7")
           (cursor-type . 'bar)
           (font . "Hack Nerd Font-16")
@@ -192,13 +192,43 @@
 )
 
 (use-package ispell
-  :demand t
-  :custom
-  (ispell-local-dictionary-alist
-   '(("russian"
-      "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
-      "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
-      "[-']"  nil ("-d" "uk_UA,ru_RU,en_US") nil utf-8)))
+  :custom t
+  (add-to-list 'ispell-local-dictionary-alist
+               '("english-hunspell"
+                 "[[:alpha:]]"
+                 "[^[:alpha:]]"
+                 "[']"
+                 t
+                 ("-d" "en_US")
+                 nil
+                 utf-8))
+  (add-to-list 'ispell-local-dictionary-alist
+               '("deutsch-hunspell"
+                 "[[:alpha:]]"
+                 "[^[:alpha:]]"
+                 "[']"
+                 t
+                 ("-d" "de_DE"); Dictionary file name
+                 nil
+                 utf-8))
+  (add-to-list 'ispell-local-dictionary-alist
+               '("russian"
+                 "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
+                 "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
+                 "[-']"
+                 nil
+                 ("-d" "ru_RU")
+                 nil
+                 utf-8))
+  (add-to-list 'ispell-local-dictionary-alist
+               '("ukrainian"
+                 "[АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
+                 "[^АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
+                 "[-']"
+                 nil
+                 ("-d" "uk_UA")
+                 nil
+                 utf-8))
   (ispell-program-name "hunspell")
   ;(ispell-dictionary "russian")
   (ispell-really-aspell nil)
@@ -208,7 +238,7 @@
 )
 
 (use-package mule
-  :defer t
+  :demand t
   :config
   (prefer-coding-system        'utf-8)
   (set-keyboard-coding-system  'utf-8-unix)
