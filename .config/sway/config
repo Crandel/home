@@ -30,12 +30,11 @@ input type:touchpad {
   accel_profile adaptive
   click_method button_areas
   click_method clickfinger
-  drag disabled
-  drag_lock disabled
+  drag enabled
   dwt enabled
   events disabled_on_external_mouse
   middle_emulation enable
-  pointer_accel 0.2
+  pointer_accel 0.5
   scroll_method two_finger
   tap enabled
 }
