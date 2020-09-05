@@ -94,7 +94,7 @@ fi
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
-export PERS_DIR='/opt/work'
+export PERS_DIR='/data/work'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"

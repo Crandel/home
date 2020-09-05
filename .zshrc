@@ -132,7 +132,8 @@ bindkey "\e[1;2B" history-incremental-search-backward # Ctrl+r
 bindkey "\e[3~" delete-char
 bindkey "\e[3;5~" delete-word
 # fix for separating text on slashes
-export WORDCHARS=${WORDCHARS/\/}
+export WORDCHARS='*?.[]~=&;!#$%^(){}<>'
+
 # NAVIGATION END
 
 if test -t 1; then
@@ -156,7 +157,7 @@ fi
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
-export PERS_DIR='/opt/work'
+export PERS_DIR='/data/work'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
