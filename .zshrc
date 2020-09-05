@@ -558,6 +558,10 @@ hdmi_sound_on (){
 hdmi_sound_off (){
   pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 }
+
+return_root (){
+  xhost si:localuser:root
+}
 # END CUSTOM FUNCTIONS
 
 # PROMPT

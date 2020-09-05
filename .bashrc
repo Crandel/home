@@ -22,24 +22,24 @@ function command_exists () {
 # \e[B arrow down
 # \e[C arrow right
 # \e[D arrow left
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+bind '"\e[A":history-search-backward' 2>/dev/null # suppress interactive shell warnings
+bind '"\e[B":history-search-forward' 2>/dev/null
 
 # \e[1;5A Ctrl + arrow up
 # \e[1;5B Ctrl + arrow down
 # \e[1;5C Ctrl + arrow right
 # \e[1;5D Ctrl + arrow left
-bind '"\e[1;5A":history-substring-search-forward'
-bind '"\e[1;5B":history-substring-search-backward'
-bind '"\e[1;5C":forward-word'
-bind '"\e[1;5D":backward-word'
+bind '"\e[1;5A":history-substring-search-forward' 2>/dev/null
+bind '"\e[1;5B":history-substring-search-backward' 2>/dev/null
+bind '"\e[1;5C":forward-word' 2>/dev/null
+bind '"\e[1;5D":backward-word' 2>/dev/null
 
 # \e[1;2A Shift + arrow up
 # \e[1;2B Shift + arrow down
 # \e[1;2C Shift + arrow right
 # \e[1;2D Shift + arrow left
-bind '"\e[1;2A":forward-search-history' # Ctrl+s
-bind '"\e[1;2B":reverse-search-history' # Ctrl+r
+bind '"\e[1;2A":forward-search-history' 2>/dev/null # Ctrl+s 
+bind '"\e[1;2B":reverse-search-history' 2>/dev/null # Ctrl+r
 
 set completion-ignore-case on
 set show-all-if-ambiguous on
@@ -498,12 +498,13 @@ hdmi_sound_on (){
 hdmi_sound_off (){
   pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 }
+
+return_root (){
+  xhost si:localuser:root
+}
 # END CUSTOM FUNCTIONS
 
 # IMPORT ADDITIONAL FILES
-## CUSTOM BASH FUNCS
-fpath+=~/.bfunc.bash
-
 ## CUSTOM ALIASES AND EXPORTS
 if [ -f ~/.aliases.bash ]; then
   . ~/.aliases.bash
