@@ -192,49 +192,51 @@
 )
 
 (use-package ispell
-  :custom t
-  (add-to-list 'ispell-local-dictionary-alist
-               '("english-hunspell"
-                 "[[:alpha:]]"
-                 "[^[:alpha:]]"
-                 "[']"
-                 t
-                 ("-d" "en_US")
-                 nil
-                 utf-8))
-  (add-to-list 'ispell-local-dictionary-alist
-               '("deutsch-hunspell"
-                 "[[:alpha:]]"
-                 "[^[:alpha:]]"
-                 "[']"
-                 t
-                 ("-d" "de_DE"); Dictionary file name
-                 nil
-                 utf-8))
-  (add-to-list 'ispell-local-dictionary-alist
-               '("russian"
-                 "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
-                 "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
-                 "[-']"
-                 nil
-                 ("-d" "ru_RU")
-                 nil
-                 utf-8))
-  (add-to-list 'ispell-local-dictionary-alist
-               '("ukrainian"
-                 "[АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
-                 "[^АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
-                 "[-']"
-                 nil
-                 ("-d" "uk_UA")
-                 nil
-                 utf-8))
-  (ispell-program-name "hunspell")
-  ;(ispell-dictionary "russian")
-  (ispell-really-aspell nil)
-  (ispell-really-hunspell t)
-  (ispell-encoding8-command t)
-  (ispell-silently-savep t)
+  :demand t
+  :config
+  (add-to-list 'ispell-dicts-name2locale-equivs-alist
+               '("american" "en_DK"))
+  :custom
+  (ispell-local-dictionary-alist
+               '(("en_US"
+                  "[[:alpha:]]"
+                  "[^[:alpha:]]"
+                  "[']"
+                  t
+                  ("-d" "en_US")
+                  nil
+                  utf-8)
+                 ("de_DE"
+                  "[[:alpha:]]"
+                  "[^[:alpha:]]"
+                  "[']"
+                  t
+                  ("-d" "de_DE"); Dictionary file name
+                  nil
+                  utf-8)
+                 ("ru_RU"
+                  "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
+                  "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
+                  "[-']"
+                  nil
+                  ("-d" "ru_RU")
+                  nil
+                  utf-8)
+                 ("uk_UA"
+                  "[АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
+                  "[^АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
+                  "[-']"
+                  nil
+                  ("-d" "uk_UA")
+                  nil
+                  utf-8)))
+  (ispell-local-dictionary    "en_US")
+  (ispell-personal-dictionary "~/.config/emacs/.ispell.dic")
+  (ispell-program-name        "aspell")
+  (ispell-really-aspell       nil)
+  (ispell-really-hunspell     t)
+  (ispell-encoding8-command   t)
+  (ispell-silently-savep      t)
 )
 
 (use-package mule

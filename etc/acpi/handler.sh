@@ -24,20 +24,20 @@ case "$1" in
         ;;
     ac_adapter)
         case "$2" in
-            AC|ACAD|ADP0)
+            AC|ACAD|ADP0|ACPI0003:00)
                 case "$4" in
                     00000000)
-                        tee /sys/class/backlight/intel_backlight/brightness <<< 200
+                        echo "50" > /sys/class/backlight/amdgpu_bl*/brightness
                         logger 'AC unpluged'
                         ;;
                     00000001)
-                        tee /sys/class/backlight/intel_backlight/brightness <<< 937
+                        echo "255" > /sys/class/backlight/amdgpu_bl*/brightness
                         logger 'AC pluged'
                         ;;
                 esac
                 ;;
             *)
-                logger "ACPI action undefined: $2"
+                logger "ACPI ac_adapter action $2 undefined with parameter $4"
                 ;;
         esac
         ;;

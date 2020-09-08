@@ -17,6 +17,7 @@ output {
   $o_center background ~/Pictures/wallpaper.png fill
   # $o_left pos 1920 0 res 1920x1080
   $o_center pos 0 0 res 1920x1080
+  $o_center adaptive_sync on
 }
 
 input type:keyboard {
@@ -33,7 +34,7 @@ input type:touchpad {
   drag enabled
   dwt enabled
   events disabled_on_external_mouse
-  middle_emulation enable
+  middle_emulation enabled
   pointer_accel 0.5
   scroll_method two_finger
   tap enabled
@@ -240,7 +241,7 @@ bindsym --to-code {
   XF86MonBrightnessUp exec light -A 20 # increase screen brightness
   XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
-  XF86ScreenSaver swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
+  XF86ScreenSaver exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
 }
 
 

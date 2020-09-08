@@ -264,6 +264,7 @@ fi
 ### KUBERNETES
 if command_exists kubectl ; then
   alias k='kubectl'
+  alias kapr='kubectl api-resources'
   compdef k='kubectl'
   if command_exists kubectx ; then
     alias ktx='kubectx'

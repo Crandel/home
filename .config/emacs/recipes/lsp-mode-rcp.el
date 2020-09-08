@@ -23,9 +23,6 @@
   (gc-cons-threshold                  100000000)
   (read-process-output-max            (* 1024 1024)) ;; 1mb
   :hook ((lsp-mode . lsp-lens-mode)
-         (python-mode .  (lambda()
-                              (lsp)
-                              (setq-default flymake-diagnostic-functions nil)))
          (rust-mode . (lambda()
                             (setq lsp-rust-server 'rust-analyzer)
                             (lsp)

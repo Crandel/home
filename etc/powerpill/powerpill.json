@@ -7,10 +7,11 @@
       "--check-integrity=true",
       "--conditional-get=true",
       "--continue=true",
+      "--split=10",
       "--file-allocation=none",
       "--console-log-level=error",
       "--max-concurrent-downloads=100",
-      "--max-connection-per-server=5",
+      "--max-connection-per-server=10",
       "--min-split-size=5M",
       "--remote-time=true",
       "--show-console-readout=true"
@@ -40,22 +41,24 @@
   },
   "rsync": {
     "args": [
+      "-q",
+      "--compress",
       "--no-motd",
       "--progress"
     ],
     "db only": true,
     "path": "/usr/bin/rsync",
     "servers": [
-        "rsync://mirror.f4st.host/archlinux/$repo/os/$arch",
-        "rsync://ftp.sh.cvut.cz/arch/$repo/os/$arch",
-        "rsync://ftp.halifax.rwth-aachen.de/archlinux/$repo/os/$arch",
-        "rsync://rsync.osbeck.com/archlinux/$repo/os/$arch",
-        "rsync://mirrors.atviras.lt/archlinux/$repo/os/$arch",
-        "rsync://arch.mirror.square-r00t.net/arch/$repo/os/$arch",
-        "rsync://mex.mirror.pkgbuild.com/packages/$repo/os/$arch",
-        "rsync://ind.mirror.pkgbuild.com/packages/$repo/os/$arch",
-        "rsync://jpn.mirror.pkgbuild.com/packages/$repo/os/$arch",
-        "rsync://mirrors.neusoft.edu.cn/archlinux/$repo/os/$arch"
+      "rsync://ftp.hosteurope.de/archlinux/$repo/os/$arch",
+      "rsync://mirrors.rit.edu/archlinux/$repo/os/$arch",
+      "rsync://ftp.nluug.nl/archlinux/$repo/os/$arch",
+      "rsync://ftp.gwdg.de/pub/linux/archlinux/$repo/os/$arch",
+      "rsync://mirror.puzzle.ch/archlinux/$repo/os/$arch",
+      "rsync://rsync.gtlib.gatech.edu/archlinux/$repo/os/$arch",
+      "rsync://mirrors.uk2.net/archlinux/$repo/os/$arch",
+      "rsync://mirror.csclub.uwaterloo.ca/archlinux/$repo/os/$arch",
+      "rsync://mirror.umd.edu/archlinux/$repo/os/$arch",
+      "rsync://ftp.iinet.net.au/archlinux/$repo/os/$arch"
     ]
   }
 }
