@@ -12,34 +12,81 @@ HISTTIMEFORMAT="%F %T "
 
 # END HISTORY
 
-# LOCAL FUNCTIONS
+# CUSTOM FUNCTIONS
 function command_exists () {
   command -v "$1"  > /dev/null 2>&1;
 }
+
+# CUSTOM FUNCTIONS
+## ARCHIVES
+function extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+zipin () {
+  for f in $(ls -A);
+    do
+    if [ -f "$f" ]; then
+      case $f in
+        *.zip)       echo "$f already zipped"  ;;
+        *)           zip -9 $f.zip $f && rm $f ;;
+      esac
+    fi;
+  done
+}
+## END ARCHIVES
+
+# convert jpg files to single pdf
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
+
+install_from_file(){
+  local file=$1
+  cat $file | xargs pkg install
+}
+# END CUSTOM FUNCTIONS
 
 # NAVIGATION
 # \e[A arrow up
 # \e[B arrow down
 # \e[C arrow right
 # \e[D arrow left
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
+bind '"\e[A":history-search-backward' 2>/dev/null # suppress interactive shell warnings
+bind '"\e[B":history-search-forward' 2>/dev/null
 
 # \e[1;5A Ctrl + arrow up
 # \e[1;5B Ctrl + arrow down
 # \e[1;5C Ctrl + arrow right
 # \e[1;5D Ctrl + arrow left
-bind '"\e[1;5A":history-substring-search-forward'
-bind '"\e[1;5B":history-substring-search-backward'
-bind '"\e[1;5C":forward-word'
-bind '"\e[1;5D":backward-word'
+bind '"\e[1;5A":history-substring-search-forward' 2>/dev/null
+bind '"\e[1;5B":history-substring-search-backward' 2>/dev/null
+bind '"\e[1;5C":forward-word' 2>/dev/null
+bind '"\e[1;5D":backward-word' 2>/dev/null
 
 # \e[1;2A Shift + arrow up
 # \e[1;2B Shift + arrow down
 # \e[1;2C Shift + arrow right
 # \e[1;2D Shift + arrow left
-bind '"\e[1;2A":forward-search-history' # Ctrl+s
-bind '"\e[1;2B":reverse-search-history' # Ctrl+r
+bind '"\e[1;2A":forward-search-history' 2>/dev/null # Ctrl+s 
+bind '"\e[1;2B":reverse-search-history' 2>/dev/null # Ctrl+r
 
 set completion-ignore-case on
 set show-all-if-ambiguous on
@@ -280,53 +327,6 @@ clean_pyc (){
 }
 ## END PYTHON
 # END PROGRAMM LANGUAGES
-
-# CUSTOM FUNCTIONS
-## ARCHIVES
-function extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)        tar xjf $1        ;;
-      *.tar.gz)         tar xzf $1        ;;
-      *.bz2)            bunzip2 $1        ;;
-      *.rar)            unrar x $1        ;;
-      *.gz)             gunzip $1         ;;
-      *.tar)            tar xf $1         ;;
-      *.tbz2)           tar xjf $1        ;;
-      *.tgz)            tar xzf $1        ;;
-      *.zip)            unzip $1          ;;
-      *.Z)              uncompress $1     ;;
-      *.7z)             7zr e $1          ;;
-      *)                echo "'$1' cannot be extracted via extract()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-zipin () {
-  for f in $(ls -A);
-    do
-    if [ -f "$f" ]; then
-      case $f in
-        *.zip)       echo "$f already zipped"  ;;
-        *)           zip -9 $f.zip $f && rm $f ;;
-      esac
-    fi;
-  done
-}
-## END ARCHIVES
-
-# convert jpg files to single pdf
-con_jpg_pdf (){
-  convert *.jpg $@.pdf
-}
-
-install_from_file(){
-  local file=$1
-  cat $file | xargs pkg install
-}
-# END CUSTOM FUNCTIONS
 
 # IMPORT ADDITIONAL FILES
 ## CUSTOM BASH FUNCS
