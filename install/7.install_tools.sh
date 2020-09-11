@@ -55,6 +55,5 @@ $pacman -S alacritty \
            youtube-dl \
            yq
 
-yay -S android-bash-completion \
-       openjpeg \
-       tealdeer
+$yay -S openjpeg \
+        tealdeer
