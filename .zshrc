@@ -281,7 +281,8 @@ if command_exists pacman ; then
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
-  alias pql='pacman -Ql $1'
+  alias pql='pacman -Ql'
+  alias pqi='pacman -Sii'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   if command_exists yay ; then

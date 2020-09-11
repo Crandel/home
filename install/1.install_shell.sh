@@ -4,10 +4,12 @@ source export_vars.sh
 
 $pacman -S fzf \
            mc \
-           vifm \
+           ripgrep \
            the_silver_searcher \
+           vifm \
            zsh \
            zsh-completions \
            zsh-doc
 
-$yay -S zoxide
+$yay -S tealdeer \
+        zoxide
