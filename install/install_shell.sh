@@ -2,9 +2,12 @@
 
 source export_vars.sh
 
-$pacman -S the_silver_searcher \
-          zsh \
-          zsh-completions \
-          zsh-doc \
+$pacman -S fzf \
+           mc \
+           vifm \
+           the_silver_searcher \
+           zsh \
+           zsh-completions \
+           zsh-doc
 
 $yay -S zoxide
