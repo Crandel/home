@@ -2,10 +2,12 @@
 
 source export_vars.sh
 
-$pacman -S git
-git clone https://aur.archlinux.org/yay.git /tmp/yay
-cd /tmp/yay
-makepkg -si
+if ! command_exists yay ; then
+  $pacman -S git
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  cd /tmp/yay
+  makepkg -si
+fi
 
 $yay -S adb-sync-git \
         grive-git \
