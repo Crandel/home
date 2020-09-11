@@ -9,7 +9,7 @@ $pacman -S bpython \
            kubectx \
            openjdk11-doc \
            openjdk11-src \
-           rustup \
+           rust \
            sbt \
            scala \
            scala-docs \
