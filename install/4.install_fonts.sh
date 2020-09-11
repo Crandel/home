@@ -17,10 +17,8 @@ $pacman -S awesome-terminal-fonts \
 $yay -S gruvbox-dark-gtk \
         gruvbox-dark-icons-gtk \
         gruvbox-icon-theme \
-        otf-nerd-fonts-fira-code \
-        nerd-fonts-source-code-pro \
-        ttf-nerd-fonts-hack-complete-git \
-        nerd-fonts-source-code-pro \
-        nerd-fonts-dejavu-complete \
+        nerd-fonts-anonymous-pro \
         nerd-fonts-complete-mono-glyphs \
-        nerd-fonts-anonymous-pro
+        nerd-fonts-dejavu-complete \
+        otf-nerd-fonts-fira-code \
+        ttf-nerd-fonts-hack-complete-git
