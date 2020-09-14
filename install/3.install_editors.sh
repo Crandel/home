@@ -3,7 +3,6 @@
 source export_vars.sh
 
 $pacman -S bash-language-server \
-           # code \
            emacs \
            libreoffice-still \
            meld \
