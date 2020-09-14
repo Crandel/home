@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /opt/work/backup/drive/
+cd /data/backup/drive
 
 grive -s <sync> \
       --id <id> \ 

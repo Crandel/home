@@ -2,4 +2,4 @@
 Description=Run google drive sync
 
 [Service]
-ExecStart=/opt/work/backup/drive/drive_sync.sh
+ExecStart=/data/backup/drive/drive_sync.sh

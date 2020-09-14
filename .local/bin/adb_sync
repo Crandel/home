@@ -27,6 +27,6 @@ declare -a arr=(
 for FolderStr in "${arr[@]}"
 do
     echo "$FolderStr"
-    adb-sync --reverse /sdcard/$FolderStr/ /media/data/backup/android/XiaomiA1/flash/$FolderStr/
+    adb-sync --reverse /sdcard/$FolderStr/ /data/backup/android/xiaomi_mi_a1/$FolderStr/
     sleep 2
 done
