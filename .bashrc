@@ -203,7 +203,6 @@ export PERS_DIR='/data/work'
 alias home_pr='cd $PERS_DIR/home'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-alias ct='bat'
 export PAGER='less -SRXF'
 
 # SUDO
@@ -375,6 +374,11 @@ if command_exists nnn ; then
   export NNN_OPS_PROG=1
 fi
 ## END FILE MANAGERS
+
+if command_exists bat ; then
+  alias ct='bat'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
 
 if command_exists systemctl ; then
   alias ssystemctl="$SUDO systemctl"
