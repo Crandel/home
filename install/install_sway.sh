@@ -6,20 +6,22 @@ $pacman -S bemenu \
            bemenu-wlroots \
            kwayland \
            kwayland-integration \
+           light \
            mako \
            plasma-wayland-protocols \
+           python-i3ipc \
            qt5-wayland \
            slurp \
            sway \
            swaybg \
+           swayidle \
            swaylock \
-           light \
            wayland-protocols \
            wl-clipboard \
            wlroots \
-           xorg-server-xwayland \
-           python-i3ipc
+           xorg-server-xwayland
 
 $yay -S clipman \
         grimshot \
-        j4-dmenu-desktop
+        j4-dmenu-desktop \
+        wev
