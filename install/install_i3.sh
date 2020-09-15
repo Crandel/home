@@ -9,7 +9,7 @@ $pacman -S bemenu \
            feh \
            i3-wm \
            i3lock \
-           nm-applet \
+           network-manager-applet \
            numlockx \
            picom
 
