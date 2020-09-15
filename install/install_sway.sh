@@ -24,4 +24,5 @@ $pacman -S bemenu \
 $yay -S clipman \
         grimshot \
         j4-dmenu-desktop \
+        swaykbdd \
         wev

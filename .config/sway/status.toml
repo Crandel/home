@@ -102,7 +102,7 @@ sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 [[block]]
 block = "bluetooth"
 mac = ""
-label = "J"
+label = "B"
 
 [[block]]
 block = "time"
