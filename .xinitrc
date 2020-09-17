@@ -16,6 +16,12 @@ export GNOME_DESKTOP_SESSION_ID=1
 # exec startkde
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
-exec i3 --shmlog-size=26214400
-start-pulseaudio-x11
+session=${1:-xfce}
+case $session in
+    i3|i3wm           ) exec i3 --shmlog-size=26214400;;
+    sway|swaywm       ) exec swayinitrc;;
+    xfce|xfce4        ) exec startxfce4;;
+    *                 ) exec $1;;
+esac
+# start-pulseaudio-x11
 # ...or the Window Manager of your choice
