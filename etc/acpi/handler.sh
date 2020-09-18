@@ -8,7 +8,7 @@ case "$1" in
                 logger 'PowerButton pressed'
                 ;;
             *)
-                logger "ACPI action undefined: $2"
+                logger "ACPI action $1 with undefined case: $2"
                 ;;
         esac
         ;;
@@ -18,7 +18,7 @@ case "$1" in
                 logger 'SleepButton pressed'
                 ;;
             *)
-                logger "ACPI action undefined: $2"
+                logger "ACPI action $1 with undefined case: $2"
                 ;;
         esac
         ;;
@@ -72,7 +72,7 @@ case "$1" in
     esac
     ;;
     *)
-        logger "ACPI group/action undefined: $1 / $2"
+        logger "ACPI group/action undefined: $1 / $2 with params #3 $3 and #4 $4"
         ;;
 esac
 
