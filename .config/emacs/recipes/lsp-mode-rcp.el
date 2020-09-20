@@ -24,7 +24,8 @@
   (read-process-output-max            (* 1024 1024)) ;; 1mb
   :hook ((lsp-mode . lsp-lens-mode)
          (rust-mode . (lambda()
-                            (setq lsp-rust-server 'rust-analyzer)
+                            (setq lsp-rust-server 'rust-analyzer
+                                  lsp-enable-semantic-highlighting nil)
                             (lsp)
                             ))
          (c++-mode . lsp)

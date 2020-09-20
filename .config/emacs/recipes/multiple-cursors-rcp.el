@@ -1,10 +1,6 @@
 ;;; multiple-cursors-rcp.el --- Multiple cursors for Emacs.
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package multiple-cursors
   :ensure t
   :bind (
@@ -20,5 +16,8 @@
 )
 
 (provide 'multiple-cursors-rcp)
+
+;;; Commentary:
+;;
 
 ;;; multiple-cursors-rcp.el ends here
