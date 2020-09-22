@@ -293,21 +293,20 @@
   (selection-coding-system             'utf-8)
   (wl-copy-process                     nil)
   :init
-  (defun wl-copy (text)
-    (setq wl-copy-process (make-process :name "wl-copy"
-                                        :buffer nil
-                                        :command '("wl-copy" "-f" "-n")
-                                        :connection-type 'pipe))
-    (process-send-string wl-copy-process text)
-    (process-send-eof wl-copy-process))
-  (defun wl-paste ()
-    (if (and wl-copy-process (process-live-p wl-copy-process))
-        nil ; should return nil if we're the current paste owner
-      (shell-command-to-string "wl-paste -n | tr -d \r")))
-  :functions (wl-copy wl-paste)
-  :custom
-  (interprogram-cut-function 'wl-copy)
-  (interprogram-paste-function 'wl-paste)
+  (when (string-prefix-p "wayland" (getenv "WAYLAND_DISPLAY"))
+    (defun wl-copy (text)
+      (setq wl-copy-process (make-process :name "wl-copy"
+                                          :buffer nil
+                                          :command '("wl-copy" "-f" "-n")
+                                          :connection-type 'pipe))
+      (process-send-string wl-copy-process text)
+      (process-send-eof wl-copy-process))
+    (defun wl-paste ()
+      (if (and wl-copy-process (process-live-p wl-copy-process))
+          nil ; should return nil if we're the current paste owner
+        (shell-command-to-string "wl-paste -n | tr -d \r")))
+    (setq interprogram-cut-function 'wl-copy
+          interprogram-paste-function 'wl-paste))
 )
 
 (use-package semantic
