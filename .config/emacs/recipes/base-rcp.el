@@ -47,6 +47,7 @@
             (kbd ,(string to)))))
   :config
   (set-frame-font            "Hack Nerd Font-16" "Font settings")
+  (set-fontset-font          "fontset-default" 'unicode "FontAwesome")
   (column-number-mode        t)
   (defalias 'yes-or-no-p     'y-or-n-p)
   (global-font-lock-mode     1)
