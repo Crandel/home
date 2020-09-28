@@ -56,7 +56,6 @@
 (require 'lsp-mode-rcp)
 (require 'magit-rcp)
 (require 'markdown-mode-rcp)
-;; (require 'mo-git-blame-rcp)
 (require 'multi-compile-rcp)
 (require 'multiple-cursors-rcp)
 (require 'pkgbuild-rcp)

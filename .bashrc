@@ -399,6 +399,11 @@ if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
 
+
+if command_exists jira ; then
+  eval "$(jira --completion-script-bash)"
+fi
+
 if command_exists qt5ct ; then
   export QT_QPA_PLATFORMTHEME="qt5ct"
 fi

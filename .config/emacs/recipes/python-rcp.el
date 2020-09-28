@@ -22,7 +22,9 @@
   (indent-tabs-mode                           nil)
   (tab-width                                  4)
   (python-indent                              4)
-  (imenu-create-index-function 'my-merge-imenu)
+  :hook
+  (python-mode . (lambda()
+                   (imenu-create-index-function 'my-merge-imenu)))
   :bind
   (:map python-mode-map
         ("RET" . newline-and-indent)
