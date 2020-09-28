@@ -156,7 +156,7 @@ user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent
 user_pref("dom.gamepad.extensions.enabled", false);
 user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("dom.ipc.processCount", 8);
-user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
+user_pref("dom.maxHardwareConcurrency", 8); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
@@ -217,7 +217,7 @@ user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("image.avif.enabled", true);
-user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
+user_pref("intl.accept_languages", "en-us,en,ru,uk,de"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
 user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
