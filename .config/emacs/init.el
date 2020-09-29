@@ -48,6 +48,7 @@
 (require 'dired-subtree-rcp)
 (require 'emmet-mode-rcp)
 (require 'expand-region-rcp)
+(require 'evil-rcp)
 (require 'flycheck-rcp)
 (require 'git-gutter-rcp)
 (require 'helm-rcp)
