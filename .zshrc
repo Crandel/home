@@ -151,6 +151,13 @@ if [ -f /etc/profile.d/vte.sh ]; then
 fi
 # END IMPORT
 
+# Bash completions
+if command_exists jira
+then
+  eval "$(jira --completion-script-zsh)"
+fi
+# END Bash completions
+
 # PLUGIN MANAGMENT
 function plugin_init() {
   source $zinit_source
@@ -188,10 +195,6 @@ function plugin_init() {
     eval "$(zoxide init --cmd j zsh)"
   else
     echo "Please install zoxide"
-  fi
-  if command_exists jira
-  then
-   eval "$(jira --completion-script-zsh)"
   fi
   compinit
 }
