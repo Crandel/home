@@ -157,9 +157,6 @@ function plugin_init() {
   autoload -Uz _zinit
   (( ${+_comps} )) && _comps[zinit]=_zinit
 
-  # zinit bundle docker-compose
-  # zinit bundle MichaelAquilina/zsh-autoswitch-virtualenv
-  # zinit bundle mvn
   zinit wait lucid light-mode for \
           OMZP::colored-man-pages \
           OMZP::shrink-path \
@@ -185,7 +182,17 @@ function plugin_init() {
           OMZP::pip \
         has'sbt' \
           OMZP::sbt
-  eval "$(zoxide init --cmd j zsh)"
+
+  if command_exists zoxide
+  then
+    eval "$(zoxide init --cmd j zsh)"
+  else
+    echo "Please install zoxide"
+  fi
+  if command_exists jira
+  then
+   eval "$(jira --completion-script-zsh)"
+  fi
   compinit
 }
 
@@ -462,10 +469,6 @@ fi
 
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
-fi
-
-if command_exists jira ; then
-  eval "$(jira --completion-script-zsh)"
 fi
 
 if command_exists qt5ct ; then

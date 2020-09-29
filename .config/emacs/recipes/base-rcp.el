@@ -107,6 +107,8 @@
   ;; ("<tab>" . tab-indent-or-complete)
   ("C-x C-x" . my-kill-emacs-with-save)
   ("C-c o" . open-previous-line)
+  ("<backspace>" . backward-delete-char-untabify)
+  ("<delete>" . delete-char)
 )
 
 (use-package autorevert
