@@ -392,9 +392,9 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.as[fx]
   \ ffprobe -pretty %c 2>&1
 fileviewer *.png,*.jpeg,*.jpg
-  \ identify %c
+  \ env -u COLORTERM viu -w %pw -h %ph -s %c
 
-fileviewer *.mp3 mp3info
+fileviewer *.mp3 mp3info %c
 fileviewer *.rar unrar v %c
 fileviewer *.tar tar -tf %c
 fileviewer *.tar.bz2,*.tbz2 tar -tjf %c

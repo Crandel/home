@@ -21,6 +21,7 @@ archivemount
 epub2txt
 python-pdftotext
 rar2fs
+viu
 )
 
 for package in ${pacman_packages[@]}; do
@@ -29,6 +30,6 @@ for package in ${pacman_packages[@]}; do
 done
 
 for apackage in ${aur_packages[@]}; do
-  yay -S --noconfirm $apackage
+  yay -S --noconfirm --aur --editmenu --builddir /data/work/bb $apackage
   sleep 1
 done
