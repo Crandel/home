@@ -24,6 +24,8 @@ user_pref("browser.display.foreground_color", "#f9f9fa");
 //user_pref("browser.download.autohideButton", false);
 //user_pref("browser.download.panel.shown", true);
 user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
+user_pref("browser.fixup.domainwhitelist.gateway.localhost", true);
+user_pref("browser.fixup.domainwhitelist.gateway.test", true);
 user_pref("browser.fixup.hide_user_pass", true); // PREF: When browser.fixup.alternate.enabled is enabled, strip password from 'user:password@...' URLs
 user_pref("browser.helperApps.deleteTempFileOnExit", true); // remove temp files opened with an external application
 // user_pref("browser.history_swipe_animation.disabled", false); // For macOS only
@@ -111,12 +113,13 @@ user_pref("browser.startup.blankWindow", false);
 // user_pref("browser.startup.page", 3);
 // user_pref("browser.tabs.closeWindowWithLastTab", false); // The last tab does not close the browser
 // user_pref("browser.tabs.drawInTitlebar", true);
+user_pref("browser.tabs.loadDivertedInBackground", true); // Open browser immediately after open link
 user_pref("browser.tabs.loadInBackground", false);
 // user_pref("browser.tabs.remote.autostart", true);
 // user_pref("browser.tabs.tabMinWidth", 30);
 // user_pref("browser.tabs.warnOnClose", false);
 user_pref("browser.touchmode.auto", true);
-// user_pref("browser.uidensity", 1); // Use small density in toolbar
+user_pref("browser.uidensity", 1); // Use small density in toolbar
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
 user_pref("browser.urlbar.autoFill", false);
@@ -152,8 +155,8 @@ user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LA
 user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent USB device enumeration
 user_pref("dom.gamepad.extensions.enabled", false);
 user_pref("dom.image-lazy-loading.enabled", false);
-// user_pref("dom.ipc.processCount", 3);
-// user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
+user_pref("dom.ipc.processCount", 3);
+user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
@@ -181,10 +184,14 @@ user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.moz
 user_pref("extensions.webextensions.userScripts.enabled", true);
 user_pref("findbar.highlightAll", true);
 user_pref("font.internaluseonly.changed", true);
-// user_pref("font.minimum-size.x-western", 10);
-// user_pref("font.name.monospace.x-western", "Hack");
-// user_pref("font.name.sans-serif.x-western", "Hack");
-// user_pref("font.name.serif.x-western", "Hack");
+//user_pref("font.minimum-size.x-cyrillic", 10);
+//user_pref("font.minimum-size.x-western", 10);
+//user_pref("font.name.monospace.x-cyrillic", "Hack Nerd Font Mono");
+//user_pref("font.name.monospace.x-western", "Hack Nerd Font Mono");
+//user_pref("font.name.sans-serif.x-cyrillic", "Fira Sans");
+//user_pref("font.name.sans-serif.x-western", "Fira Sans");
+//user_pref("font.name.serif.x-cyrillic", "Liberation Serif");
+//user_pref("font.name.serif.x-western", "Liberation Serif");
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
@@ -205,12 +212,12 @@ user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.compositor", false);
+user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("image.avif.enabled", true);
-user_pref("intl.accept_languages", "en-us,en"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
+user_pref("intl.accept_languages", "en-us,en,ru,uk,de"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
 user_pref("intl.locale.requested", "en-US");
 user_pref("javascript.options.shared_memory", true);
@@ -221,7 +228,9 @@ user_pref("layers.acceleration.force-enabled", false);
 user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
+// user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
+// user_pref("layout.frame_rate", 144);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
 // user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
@@ -286,6 +295,7 @@ user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // Add dialog for canvas API
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.letterboxing", false);
+user_pref("privacy.resistFingerprinting.target_video_res", 760);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
@@ -296,6 +306,10 @@ user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
 user_pref("reader.color_scheme", "dark");
 user_pref("reader.content_width", 12);
+user_pref("reader.font_type", "sans-serif");
+user_pref("reader.parse-on-load.enabled", true);
+user_pref("reader.parse-on-load.force-enabled", true);
+user_pref("reader.toolbar.vertical", true);
 user_pref("security.dialog_enable_delay", 1000); // PREF: Ensure you have a security delay when installing add-ons (milliseconds)
 user_pref("security.secure_connection_icon_color_gray", false); // Return green lock for https (Firefox >= 70)
 user_pref("security.ssl.errorReporting.automatic", false);
@@ -324,11 +338,13 @@ user_pref("toolkit.telemetry.updatePing.enabled", true);
 user_pref("ui.prefersReducedMotion", 1); // Disable animation
 user_pref("ui.systemUsesDarkTheme", 1);
 // user_pref("view_source.editor.external", true); // enable view source using external text editor
-// user_pref("view_source.editor.path", "/usr/bin/emacs");
+// user_pref("view_source.editor.path", "$HOME/.local/bin/editor-run");
+user_pref("webgl.enable-debug-renderer-info", false);
 user_pref("webgl.force-enabled", false);
 user_pref("webgl.msaa-force", false);
 // user_pref("widget.chrome.allow-gtk-dark-theme", true);
 // user_pref("widget.content.allow-gtk-dark-theme", true);
 // user_pref("widget.wayland-dmabuf-vaapi.enabled", true);
+// user_pref("widget.wayland-dmabuf-video-textures.enabled", true);
 // user_pref("widget.wayland-smooth-rendering", true);
 // user_pref("widget.wayland_vsync.enabled", false);

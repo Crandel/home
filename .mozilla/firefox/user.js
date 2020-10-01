@@ -306,6 +306,10 @@ user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
 user_pref("reader.color_scheme", "dark");
 user_pref("reader.content_width", 12);
+user_pref("reader.font_type", "sans-serif");
+user_pref("reader.parse-on-load.enabled", true);
+user_pref("reader.parse-on-load.force-enabled", true);
+user_pref("reader.toolbar.vertical", true);
 user_pref("security.dialog_enable_delay", 1000); // PREF: Ensure you have a security delay when installing add-ons (milliseconds)
 user_pref("security.secure_connection_icon_color_gray", false); // Return green lock for https (Firefox >= 70)
 user_pref("security.ssl.errorReporting.automatic", false);

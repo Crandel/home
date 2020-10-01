@@ -5,6 +5,7 @@ folder_list=(
   "org.mozilla.firefox"
   "org.mozilla.fennec_fdroid"
   "org.mozilla.firefox_beta"
+  "io.github.forkmaintainers.iceraven"
 )
 
 cd termux/firefox
