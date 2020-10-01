@@ -143,7 +143,6 @@ alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-alias ct='bat'
 export PAGER='less -SRXF'
 
 
@@ -247,6 +246,11 @@ if command_exists nnn ; then
 fi
 ## END FILE MANAGERS
 
+if command_exists bat ; then
+  alias ct='bat'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
 if command_exists git ; then
   alias g='git'
   alias pla='g pull'
@@ -329,9 +333,6 @@ clean_pyc (){
 # END PROGRAMM LANGUAGES
 
 # IMPORT ADDITIONAL FILES
-## CUSTOM BASH FUNCS
-fpath+=~/.bfunc.bash
-
 ## CUSTOM ALIASES AND EXPORTS
 if [ -f ~/.aliases.bash ]; then
   . ~/.aliases.bash
