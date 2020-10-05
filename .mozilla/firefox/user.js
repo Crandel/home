@@ -228,7 +228,7 @@ user_pref("layers.acceleration.force-enabled", false);
 user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-user_pref("layout.css.devPixelsPerPx", 1.25);
+//user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.frame_rate", 144);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
@@ -241,6 +241,8 @@ user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
 user_pref("media.av1.enabled", true);
 user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
+user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.ffvpx.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.gpu-process-decoder", true);
 user_pref("media.navigator.enabled", false); // Websites can track the microphone and camera status of your device.
@@ -305,7 +307,7 @@ user_pref("privacy.userContext.enabled", true); // Multicontainer enables
 user_pref("privacy.userContext.longPressBehavior", 2);
 user_pref("privacy.userContext.ui.enabled", true);
 user_pref("reader.color_scheme", "dark");
-user_pref("reader.content_width", 12);
+user_pref("reader.content_width", 9);
 user_pref("reader.font_type", "sans-serif");
 user_pref("reader.parse-on-load.enabled", true);
 user_pref("reader.parse-on-load.force-enabled", true);
