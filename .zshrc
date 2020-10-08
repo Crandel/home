@@ -33,6 +33,86 @@ function command_exists () {
   (( $+commands[$1] ))
 }
 
+# NAVIGATION
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# \e[A arrow up
+# \e[B arrow down
+# \e[C arrow right
+# \e[D arrow left
+bindkey "\e[A" up-line-or-beginning-search
+bindkey "\e[B" down-line-or-beginning-search
+
+# \e[1;5A Ctrl + arrow up
+# \e[1;5B Ctrl + arrow down
+# \e[1;5C Ctrl + arrow right
+# \e[1;5D Ctrl + arrow left
+# should be binded after zsh-users/zsh-history-substring-search loading
+bindkey "\e[1;5A" history-substring-search-up
+bindkey "\e[1;5B" history-substring-search-down
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+# \e[1;2A Shift + arrow up
+# \e[1;2B Shift + arrow down
+# \e[1;2C Shift + arrow right
+# \e[1;2D Shift + arrow left
+bindkey "\e[1;2A" history-incremental-search-forward
+bindkey "\e[1;2B" history-incremental-search-backward # Ctrl+r
+
+# fix of delete key
+bindkey "\e[3~" delete-char
+bindkey "\e[3;5~" delete-word
+# fix for separating text on slashes
+export WORDCHARS='*?[]~&;!#$%^(){}<>'
+
+# NAVIGATION END
+
+if test -t 1; then
+  # see if it supports colors...
+  force_color_prompt=yes
+  color_prompt=yes
+  export TERM="xterm-256color"
+  export LS_COLORS=$LS_COLORS:"di=01;35"
+
+  # enable color support of ls and also add handy aliases
+  alias ls='ls --color=auto'
+  alias less='less -R'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# ALIASES
+alias arch='uname -m'
+alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
+alias la='ls -A'
+alias home_pr='cd $PERS_DIR/home'
+alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias -g G='|grep'
+alias -g L='|less'
+export PAGER='less -SRXF'
+export PERS_DIR='/data/work'
+
+# SUDO
+SUDO=''
+if [[ $EUID -ne 0 ]] && command_exists sudo ; then
+  SUDO='sudo'
+fi
+# END SUDO
+
+# Bash completions
+if command_exists jira
+then
+  eval "$(jira --completion-script-zsh)"
+fi
+# END Bash completions
+
 project_folders="$PERS_DIR/projects"
 function prj () {
   cd $project_folders
@@ -151,13 +231,6 @@ if [ -f /etc/profile.d/vte.sh ]; then
 fi
 # END IMPORT
 
-# Bash completions
-if command_exists jira
-then
-  eval "$(jira --completion-script-zsh)"
-fi
-# END Bash completions
-
 # PLUGIN MANAGMENT
 function plugin_init() {
   source $zinit_source
@@ -206,79 +279,6 @@ if [ ! -f $zinit_source ]; then
 fi
 plugin_init
 unfunction plugin_init
-
-# NAVIGATION
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-# \e[A arrow up
-# \e[B arrow down
-# \e[C arrow right
-# \e[D arrow left
-bindkey "\e[A" up-line-or-beginning-search
-bindkey "\e[B" down-line-or-beginning-search
-
-# \e[1;5A Ctrl + arrow up
-# \e[1;5B Ctrl + arrow down
-# \e[1;5C Ctrl + arrow right
-# \e[1;5D Ctrl + arrow left
-# should be binded after zsh-users/zsh-history-substring-search loading
-bindkey "\e[1;5A" history-substring-search-up
-bindkey "\e[1;5B" history-substring-search-down
-bindkey "\e[1;5C" forward-word
-bindkey "\e[1;5D" backward-word
-
-# \e[1;2A Shift + arrow up
-# \e[1;2B Shift + arrow down
-# \e[1;2C Shift + arrow right
-# \e[1;2D Shift + arrow left
-bindkey "\e[1;2A" history-incremental-search-forward
-bindkey "\e[1;2B" history-incremental-search-backward # Ctrl+r
-
-# fix of delete key
-bindkey "\e[3~" delete-char
-bindkey "\e[3;5~" delete-word
-# fix for separating text on slashes
-export WORDCHARS='*?[]~&;!#$%^(){}<>'
-
-# NAVIGATION END
-
-if test -t 1; then
-  # see if it supports colors...
-  force_color_prompt=yes
-  color_prompt=yes
-  export TERM="xterm-256color"
-  export LS_COLORS=$LS_COLORS:"di=01;35"
-
-  # enable color support of ls and also add handy aliases
-  alias ls='ls --color=auto'
-  alias less='less -R'
-  alias dir='dir --color=auto'
-  alias vdir='vdir --color=auto'
-  alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
-fi
-
-# ALIASES
-alias arch='uname -m'
-alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
-alias la='ls -A'
-export PERS_DIR='/data/work'
-alias home_pr='cd $PERS_DIR/home'
-alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
-alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-alias -g G='|grep'
-alias -g L='|less'
-export PAGER='less -SRXF'
-
-# SUDO
-SUDO=''
-if [[ $EUID -ne 0 ]] && command_exists sudo ; then
-  SUDO='sudo'
-fi
-# END SUDO
 
 # PACKAGE MANAGERS
 if command_exists pacman ; then

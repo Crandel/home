@@ -1,5 +1,5 @@
 -Xms128m
--Xmx1962m
+-Xmx1958m
 -XX:ReservedCodeCacheSize=240m
 -XX:+UseConcMarkSweepGC
 -XX:SoftRefLRUPolicyMSPerMB=50
@@ -11,6 +11,7 @@
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:-OmitStackTraceInFastThrow
 -Djdk.attach.allowAttachSelf=true
+-Dkotlinx.coroutines.debug=off
 -Djdk.module.illegalAccess.silent=true
 -Dawt.useSystemAAFontSettings=on
 -Dsun.java2d.renderer=sun.java2d.marlin.MarlinRenderingEngine

@@ -8,6 +8,7 @@ set {
   $feed quiterss
   $email evolution
   $gnome-schema org.gnome.desktop.interface
+  $ide pycharm
 
   $o_center eDP-1
   # $o_left "HDMI model"
@@ -199,6 +200,7 @@ bindsym --to-code {
 
   # tilix
   F1 exec $term --quake
+  $mod+F1 exec env GDK_BACKEND=x11 $term --quake
 
   # pulseaudio
   $mod+p exec pavucontrol
@@ -211,9 +213,10 @@ bindsym --to-code {
 
   # default editor
   $mod+x exec $editor
+  $mod+Control+x exec env GDK_BACKEND=x11 $editor
 
-  # Intellij
-  $mod+b exec idea-ce
+  # IDE
+  $mod+b exec $ide
 
   # lock screen
   $mod+Control+z exec $lock
@@ -257,7 +260,7 @@ bindsym --release {
 bar {
   position top
   workspace_buttons yes
-  tray_output $o_center
+  tray_output *
   colors {
     background #282828
     statusline #E1F5A9

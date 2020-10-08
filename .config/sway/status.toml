@@ -86,7 +86,7 @@ use_bits = false
 [[block]]
 block = "net"
 device = "wlan0"
-format = "{ssid}{speed_down}"
+format = "{signal_strength} {ssid}{speed_down}"
 hide_inactive = true
 hide_missing = true
 interval = 5

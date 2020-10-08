@@ -14,7 +14,7 @@ user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version
 user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
 user_pref("browser.bookmarks.showMobileBookmarks", true);
-user_pref("browser.cache.disk.parent_directory", "/tmp/firefox");
+user_pref("browser.cache.disk.parent_directory", "/run/user/1000/firefox");
 user_pref("browser.contentblocking.customBlockList.preferences.ui.enabled", true);
 user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
