@@ -73,20 +73,9 @@
 (require 'yasnippet-rcp)
 (require 'ytdl-rcp)
 
-(when (executable-find "rg")
-  (require 'ripgrep-rcp)
-)
 
 (when (executable-find "cargo")
   (require 'rust-rcp)
-)
-
-(when (executable-find "python")
-  (require 'python-rcp)
-)
-
-(when (executable-find "scala")
-  (require 'scala-rcp)
 )
 
 (when (executable-find "docker")
@@ -96,6 +85,23 @@
 (when (executable-find "go")
   (require 'go-rcp)
 )
+
+(when (executable-find "python")
+  (require 'python-rcp)
+)
+
+(when (executable-find "rg")
+  (require 'ripgrep-rcp)
+)
+
+(when (executable-find "scala")
+  (require 'scala-rcp)
+)
+
+(when (executable-find "terraform")
+  (require 'terraform-rcp)
+)
+
 ;;; Commentary:
 ;; Main init file
 
