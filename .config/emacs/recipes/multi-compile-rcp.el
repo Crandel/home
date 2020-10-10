@@ -1,13 +1,9 @@
 ;;; multi-compile-rcp.el --- "Multi-compile" is multi target interface to "compile" command.
 
-
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package multi-compile
   :ensure t
+  :defer t
   :custom
   (multi-compile-alist '((go-mode . (("gr" "go run -v"
                                       (buffer-file-name))
@@ -49,5 +45,6 @@
 )
 
 (provide 'multi-compile-rcp)
-
+;;; Commentary:
+;;
 ;;; multi-compile-rcp.el ends here

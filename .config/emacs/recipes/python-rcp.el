@@ -51,22 +51,10 @@
     )
   )
 
-(when (executable-find "virtualenv")
-  (use-package auto-virtualenv
-    :ensure t
-    :defer t
-    :after (python-mode)
-    :hook
-    (python-mode . auto-virtualenv-set-virtualenv)
-    )
-  )
-
 (when (executable-find "virtualenvwrapper.sh")
-  (message "virtualenvwrapper")
   (use-package auto-virtualenvwrapper
     :ensure t
     :defer t
-    :after (python-mode)
     :hook
     (python-mode . auto-virtualenvwrapper-activate))
   )
@@ -74,7 +62,7 @@
 (when (executable-find "pyright")
   (use-package lsp-pyright
     :ensure t
-    :after (python-mode)
+    :defer t
     :hook
     (python-mode . (lambda ()
                            (require 'lsp-pyright)

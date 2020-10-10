@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package multiple-cursors
   :ensure t
+  :defer t
   :bind (
   ("C-c C-<right>" . 'mc/mark-next-like-this-word) ; choose same word next
   ("C-c C-<left>" . 'mc/mark-previous-word-like-this) ; choose same word previous
@@ -16,8 +17,6 @@
 )
 
 (provide 'multiple-cursors-rcp)
-
 ;;; Commentary:
 ;;
-
 ;;; multiple-cursors-rcp.el ends here

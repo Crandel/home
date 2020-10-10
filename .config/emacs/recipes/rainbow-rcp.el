@@ -1,12 +1,9 @@
 ;;; rainbow-rcp.el --- Colorize color names and delimeters in buffers
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package rainbow-delimiters
   :ensure t
+  :defer t
   :hook
   (emacs-lisp-mode       . rainbow-delimiters-mode)
   (js2-mode              . rainbow-delimiters-mode)
@@ -22,6 +19,7 @@
 
 (use-package rainbow-mode
   :ensure t
+  :defer t
   :hook
   (conf-mode             . rainbow-mode)
   (css-mode              . rainbow-mode)
@@ -34,4 +32,6 @@
 
 (provide 'rainbow-rcp)
 
+;;; Commentary:
+;;
 ;;; rainbow-rcp.el ends here

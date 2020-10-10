@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package restclient
   :ensure t
+  :defer t
   :mode ("\\.rest\\'" . restclient-mode)
 )
 
@@ -10,6 +11,7 @@
 
 (use-package company-restclient
   :ensure t
+  :defer t
   :hook (restclient-mode . (lambda()
                              (eval-after-load "company"
                                '(progn
@@ -19,8 +21,6 @@
 )
 
 (provide 'restclient-rcp)
-
 ;;; Commentary:
 ;;
-
 ;;; restclient-rcp.el ends here
