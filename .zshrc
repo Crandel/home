@@ -265,7 +265,10 @@ function plugin_init() {
 
   if command_exists zoxide
   then
-    eval "$(zoxide init --cmd j zsh)"
+    eval "$(zoxide init --cmd j --no-aliases zsh)"
+    ji () {
+      _zoxide_result="$(zoxide query -i -- "$@")"  && _z_cd "$_zoxide_result"
+    }
   else
     echo "Please install zoxide"
   fi

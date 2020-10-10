@@ -2,9 +2,11 @@
 
 ;;; Code:
 (use-package python
+  :defer t
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
-  :config
+  :commands (my-merge-imenu imenu-create-index-function)
+  :init
   (defun insert_pdb ()
     (interactive)
     (progn
@@ -22,45 +24,62 @@
   (indent-tabs-mode                           nil)
   (tab-width                                  4)
   (python-indent                              4)
-  :hook
-  (python-mode . (lambda()
-                   (imenu-create-index-function 'my-merge-imenu)))
+  (imenu-create-index-function                'my-merge-imenu)
   :bind
   (:map python-mode-map
         ("RET" . newline-and-indent)
         ("M-RET" . newline)
         ("C-c C-b" . insert_pdb))
   )
-(use-package pip-requirements :ensure t)
+(use-package pip-requirements
+  :ensure t
+  :defer t
+)
 
-(use-package py-isort :ensure t)
+(use-package py-isort
+  :ensure t
+  :after (python-mode)
+  :defer t
+)
 
 
 (when (executable-find "autopep8")
-  (use-package py-autopep8 :ensure t)
+  (use-package py-autopep8
+    :ensure t
+    :after (python-mode)
+    :defer t
+    )
   )
 
 (when (executable-find "virtualenv")
   (use-package auto-virtualenv
     :ensure t
-    :hook (python-mode . auto-virtualenv-set-virtualenv)
+    :defer t
+    :after (python-mode)
+    :hook
+    (python-mode . auto-virtualenv-set-virtualenv)
     )
   )
 
-(when (executable-find "virtualenvwrapper")
+(when (executable-find "virtualenvwrapper.sh")
+  (message "virtualenvwrapper")
   (use-package auto-virtualenvwrapper
     :ensure t
-    :hook (python-mode . auto-virtualenvwrapper-activate))
+    :defer t
+    :after (python-mode)
+    :hook
+    (python-mode . auto-virtualenvwrapper-activate))
   )
 
 (when (executable-find "pyright")
   (use-package lsp-pyright
     :ensure t
-    :hook (python-mode . (lambda ()
+    :after (python-mode)
+    :hook
+    (python-mode . (lambda ()
                            (require 'lsp-pyright)
                            (lsp))))  ; or lsp-deferred
 )
-
 
 (provide 'python-rcp)
 
