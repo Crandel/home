@@ -1,12 +1,9 @@
 ;;; lsp-mode-rcp.el --- Emacs client/library for the Language Server Protocol
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package lsp-mode
   :ensure t
+  :defer t
   :custom
   (lsp-enable-completion-at-point     t)
   (lsp-enable-imenu                   t)
@@ -22,8 +19,7 @@
   (lsp-enable-which-key-integration   t)
   (gc-cons-threshold                  100000000)
   (read-process-output-max            (* 1024 1024)) ;; 1mb
-  :hook ((lsp-mode . lsp-lens-mode)
-         (rust-mode . (lambda()
+  :hook ((rust-mode . (lambda()
                             (setq lsp-rust-server 'rust-analyzer
                                   lsp-enable-semantic-highlighting nil)
                             (lsp)
@@ -39,8 +35,14 @@
          )
 )
 
+(use-package lsp-lens
+  :defer t
+  :hook
+  (lsp-mode . lsp-lens-mode))
+
 (use-package lsp-ui
   :ensure t
+  :defer t
   :custom
   (lsp-ui-doc-delay                   2)
   (lsp-ui-doc-max-height              3)
@@ -54,10 +56,13 @@
 
 (use-package lsp-treemacs
   :ensure t
-  :config
-  (lsp-treemacs-sync-mode 1)
+  :defer t
+  :after treemacs
+  :hook
+  (treemacs-mode . lsp-treemacs-sync-mode)
 )
 
 (provide 'lsp-mode-rcp)
-
+;;; Commentary:
+;;
 ;;; lsp-mode-rcp.el ends here

@@ -1,12 +1,9 @@
 ;;; flycheck-rcp.el --- On-the-fly syntax checking
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package flycheck
   :ensure t
+  :defer t
   :custom
   (flycheck-check-syntax-automatically '(mode-enabled save idle-change))
   (flycheck-highlighting-mode          'lines)
@@ -30,5 +27,6 @@
 )
 
 (provide 'flycheck-rcp)
-
+;;; Commentary:
+;;
 ;;; flycheck-rcp.el ends here

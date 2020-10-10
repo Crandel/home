@@ -1,13 +1,9 @@
 ;;; company-rcp.el --- Company autocomplete
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package company
     :ensure t
-    :demand t
+    :defer 1
     :config (global-company-mode t)
     :custom
     (company-idle-delay                0)
@@ -44,4 +40,6 @@
 
 (provide 'company-rcp)
 
+;;; Commentary:
+;;
 ;;; company-rcp.el ends here

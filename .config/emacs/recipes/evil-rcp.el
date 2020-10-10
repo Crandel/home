@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package evil
   :ensure t
+  :defer t
   :custom
   (evil-normal-state-tag   (propertize " <N> " 'face '((:background "DarkGoldenrod2" :foreground "black"))))
   (evil-emacs-state-tag    (propertize " <E> " 'face '((:background "SkyBlue2"       :foreground "black"))))
@@ -17,12 +18,12 @@
 
 (use-package evil-mc
   :ensure t
+  :defer t
   :hook
   (evil-mode . evil-mc-mode)
 )
 
 (provide 'evil-rcp)
-
 ;;; Commentary:
 ;;
 ;;; evil-rcp.el ends here

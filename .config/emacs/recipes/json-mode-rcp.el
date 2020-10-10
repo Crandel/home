@@ -1,14 +1,15 @@
 ;;; json-mode-rcp.el --- Json mode
 
-;;; Commentary:
-;; 
-
 ;;; Code:
+(use-package json-mode
+  :defer t
+  :ensure t)
 
-(use-package json-mode :ensure t)
-
-(use-package yaml-mode :ensure t)
+(use-package yaml-mode
+  :defer t
+  :ensure t)
 
 (provide 'json-mode-rcp)
-
+;;; Commentary:
+;;
 ;;; json-mode-rcp.el ends here

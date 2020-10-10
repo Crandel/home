@@ -1,12 +1,9 @@
 ;;; emmet-mode-rcp.el --- Emmet's support for emacs
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package emmet-mode
   :ensure t
+  :defer t
   :hook
   (sgml-mode)
   (html-mode)
@@ -15,5 +12,6 @@
 )
 
 (provide 'emmet-mode-rcp)
-
+;;; Commentary:
+;;
 ;;; emmet-mode-rcp.el ends here

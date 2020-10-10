@@ -7,6 +7,7 @@
 
 (use-package avy
   :ensure t
+  :defer t
   :bind
   ("C-_" . 'avy-goto-char)
   ("C-/" . 'avy-goto-char)

@@ -11,7 +11,7 @@
   (treemacs-display-in-side-window        t)
   (treemacs-eldoc-display                 t)
   (treemacs-file-event-delay              5000)
-  (treemacs-file-extension-regex          treemacs-last-period-regex-value)
+  (treemacs-file-extension-regex          'treemacs-last-period-regex-value)
   (treemacs-file-follow-delay             0.2)
   (treemacs-file-name-transformer         #'identity)
   (treemacs-follow-after-init             t)
@@ -46,14 +46,19 @@
 
 (use-package treemacs-icons-dired
   :ensure t
+  :defer t
   :hook (dired-mode . treemacs-icons-dired-mode)
 )
 
 (use-package treemacs-projectile
- :ensure t)
+  :ensure t
+  :defer t
+)
 
 (use-package treemacs-magit
-  :ensure t)
+  :ensure t
+  :defer t
+)
 
 (provide 'treemacs-rcp)
 ;;; Commentary:

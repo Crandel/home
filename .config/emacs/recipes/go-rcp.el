@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package go-mode
   :ensure t
+  :defer t
   :mode "\\.go\\'"
   :hook
   (go-mode . (lambda()
@@ -21,6 +22,7 @@
 
 (use-package company-go
   :ensure t
+  :defer t
   :config
   (eval-after-load "company"
     '(progn
@@ -41,7 +43,6 @@
 
 
 (provide 'go-rcp)
-
 ;;; Commentary:
 ;; go get -u github.com/alecthomas/gometalinter
 ;; gometalinter --install

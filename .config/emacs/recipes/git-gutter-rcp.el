@@ -1,12 +1,9 @@
 ;;; git-gutter-rcp.el --- Show git changes in buffer
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package git-gutter
   :ensure t
+  :defer t
   :config
   (global-git-gutter-mode)
   (git-gutter:linum-setup)
@@ -16,5 +13,6 @@
 )
 
 (provide 'git-gutter-rcp)
-
+;;; Commentary:
+;;
 ;;; git-gutter-rcp.el ends here

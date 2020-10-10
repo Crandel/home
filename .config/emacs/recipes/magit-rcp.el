@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package magit
   :ensure t
+  :defer t
   :custom-face
   (magit-diff-added ((t (:background "dark slate gray" :foreground "chocolate"))))
   (magit-diff-added-highlight ((t (:background "dark olive green" :foreground "gold"))))
@@ -20,8 +21,6 @@
 )
 
 (provide 'magit-rcp)
-
 ;;; Commentary:
 ;;
-
 ;;; magit-rcp.el ends here

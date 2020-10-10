@@ -1,14 +1,9 @@
 ;;; functions_my.el --- File for custom code and functions
-;; Custom keybindings
-;; Moving
-
-;; move line up
-
-;;; Commentary:
-;; 
 
 ;;; Code:
 
+;; Moving
+;; move line up
 (defun move-line-up ()
   (interactive)
   (transpose-lines 1)
@@ -92,28 +87,28 @@
     (indent-according-to-mode)))
 
 ;; ;; tab indent or complete
-;; (defun check-expansion ()
-;;   (save-excursion
-;;     (if (looking-at "\\_>") t
-;;       (backward-char 1)
-;;       (if (looking-at "\\.") t
-;;         (backward-char 1)
-;;         (if (looking-at "->") t nil)))))
+(defun check-expansion ()
+  (save-excursion
+    (if (looking-at "\\_>") t
+      (backward-char 1)
+      (if (looking-at "\\.") t
+        (backward-char 1)
+        (if (looking-at "->") t nil)))))
 
-;; (defun do-yas-expand ()
-;;   (let ((yas/fallback-behavior 'return-nil))
-;;     (yas/expand)))
+(defun do-yas-expand ()
+  (let ((yas/fallback-behavior 'return-nil))
+    (yas/expand)))
 
-;; (defun tab-indent-or-complete ()
-;;   (interactive)
-;;   (message (minibufferp))
-;;   (if (minibufferp)
-;;       (minibuffer-complete)
-;;     (if (or (not yas/minor-mode)
-;;             (null (do-yas-expand)))
-;;         (if (check-expansion)
-;;             (company-complete-common)
-;;           (indent-for-tab-command)))))
+(defun tab-indent-or-complete ()
+  (interactive)
+  (message (minibufferp))
+  (if (minibufferp)
+      (minibuffer-complete)
+    (if (or (not yas/minor-mode)
+            (null (do-yas-expand)))
+        (if (check-expansion)
+            (company-complete-common)
+          (indent-for-tab-command)))))
 
 (defun my-kill-emacs-with-save ()
   (interactive)
@@ -129,5 +124,6 @@
 ;; C-x r y for paste multiple cursors
 
 (provide 'functions_my)
-
+;;; Commentary:
+;;
 ;;; functions_my.el ends here
