@@ -118,6 +118,7 @@
 )
 
 (use-package compile
+  :defer t
   :custom
   (compilation-always-kill     t)
   (compilation-disable-input   t)
@@ -131,6 +132,7 @@
 )
 
 (use-package dired
+  :defer t
   :custom
   (dired-dwim-target t      "guess a target directory")
   (dired-auto-revert-buffer t)
@@ -138,6 +140,7 @@
 )
 
 (use-package ediff-util
+  :defer t
   :custom
   (ediff-forward-word-function       'forward-char)
   (ediff-highlight-all-diffs         t)
@@ -146,6 +149,7 @@
 )
 
 (use-package electric
+  :defer t
   :config
   (electric-pair-mode     -1)
   (electric-indent-mode   -1)
@@ -180,14 +184,14 @@
 )
 
 (use-package imenu
-  :demand t
+  :defer t
   :custom
   (imenu-auto-rescan      t)
   (imenu-use-popup-menu   nil)
 )
 
 (use-package isearch
-  :demand t
+  :defer t
   :custom
   (search-highlight          t "Highlight search results")
   (query-replace-highlight   t)
@@ -195,7 +199,7 @@
 )
 
 (use-package ispell
-  :demand t
+  :defer t
   :config
   (add-to-list 'ispell-dicts-name2locale-equivs-alist
                '("american" "en_DK"))
@@ -321,16 +325,19 @@
 )
 
 (use-package sendmail
+  :defer t
   :mode ("^/tmp/evo.*" . mail-mode)
 )
 
 (use-package sh-script
+  :defer t
   :custom
   (sh-basic-offset 2)
   (sh-indentation  2)
 )
 
 (use-package shell
+  :defer t
   :functions add-mode-line-dirtrack
   :config
   (defun add-mode-line-dirtrack ()
@@ -343,7 +350,7 @@
 )
 
 (use-package windmove
-  :demand t
+  :defer t
   :init
   (windmove-default-keybindings 'meta)
 )
@@ -378,8 +385,6 @@
 )
 
 (provide 'base-rcp)
-
 ;;; Commentary:
 ;; Configuration for base Emacs without packages
-
 ;;; base-rcp.el ends here
