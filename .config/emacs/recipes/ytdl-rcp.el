@@ -8,9 +8,8 @@
   (ytdl-video-folder "/data/backup/youtube")
   (ytdl-music-folder "/data/backup/youtube/music")
   (ytdl-always-query-default-filename 'yes)
-  :config
-  (setq ytdl-video-extra-args '("bestvideo[height<=1080]" "bestaudio")
-        ytdl-music-extra-args '("-x" "bestaudio"))
+  (ytdl-video-extra-args '("-f bestvideo[height<=1080]+bestaudio"))
+  (ytdl-music-extra-args '("-x bestaudio"))
 )
 
 (provide 'ytdl-rcp)
