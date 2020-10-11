@@ -74,6 +74,10 @@
 (require 'ytdl-rcp)
 
 
+(when (executable-find "ansible")
+  (require 'ansible-rcp)
+)
+
 (when (executable-find "cargo")
   (require 'rust-rcp)
 )

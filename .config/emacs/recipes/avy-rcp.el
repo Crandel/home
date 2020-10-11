@@ -1,10 +1,6 @@
 ;;; avy-rcp.el --- Jump to arbitrary positions in visible text and select text quickly.
 
-;;; Commentary:
-;;
-
 ;;; Code:
-
 (use-package avy
   :ensure t
   :defer t
@@ -17,5 +13,6 @@
 )
 
 (provide 'avy-rcp)
-
+;;; Commentary:
+;;
 ;;; avy-rcp.el ends here
