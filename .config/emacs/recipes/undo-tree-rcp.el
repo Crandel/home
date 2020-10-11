@@ -1,3 +1,6 @@
+;;; undo-tree-rcp.el --- Undo tree mode
+
+;;; Code:
 (use-package undo-tree
   :ensure t
   :config
@@ -20,3 +23,6 @@
 )
 
 (provide 'undo-tree-rcp)
+;;; Commentary:
+;;
+;;; undo-tree-rcp.el ends here

@@ -1,13 +1,9 @@
 ;;; smartparens-rcp.el --- Smart paren support
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package smartparens
   :ensure t
-  :demand t
+  :defer 1
   :init
   (smartparens-global-mode)
   (show-smartparens-global-mode)
@@ -22,5 +18,6 @@
 )
 
 (provide 'smartparens-rcp)
-
+;;; Commentary:
+;;
 ;;; smartparens-rcp.el ends here

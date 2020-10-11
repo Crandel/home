@@ -1,11 +1,9 @@
 ;;; scala-rcp.el --- Scala support
 
-;;; Commentary:
-
 ;;; Code:
-
 (use-package sbt-mode
   :ensure t
+  :defer t
   :config
   (substitute-key-definition 'minibuffer-complete-word
                              'self-insert-command
@@ -14,6 +12,7 @@
 
 (use-package scala-mode
   :ensure t
+  :defer t
   :mode ("\\.sc\\'" "\\.scala\\'")
   :custom
   (scala-basic-offset               2)
@@ -27,8 +26,12 @@
          ("M-RET" . newline))
 )
 
-(use-package lsp-metals :ensure t)
+(use-package lsp-metals
+  :ensure t
+  :defer t
+)
 
 (provide 'scala-rcp)
 
+;;; Commentary:
 ;;; scala-rcp.el ends here

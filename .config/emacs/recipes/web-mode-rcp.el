@@ -3,21 +3,22 @@
 ;;; Code:
 (use-package web-mode
   :ensure t
+  :defer t
   :mode
-  ("\\.js\\'"  . web-mode)
-  ("\\.html\\'" . web-mode)
-  ("\\.css\\'" . web-mode)
+  ("\\.js\\'"     . web-mode)
+  ("\\.html\\'"   . web-mode)
+  ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)
   ("\\.gotmpl\\'" . web-mode)
-  ("\\.gtpl\\'" . web-mode)
-  ("\\.vue\\'" . web-mode)
+  ("\\.gtpl\\'"   . web-mode)
+  ("\\.vue\\'"    . web-mode)
   ("\\german_lang/index.html\\'" . html-mode)
   :custom
   (web-mode-engines-alist '(
                             ("django" . "\\.html\\'")
-                            ("razor" . "\\.scala.html\\'")
-                            ("go" . "\\.gotmpl\\'")
-                            ("jsx" . "\\.js\\'")))
+                            ("razor"  . "\\.scala.html\\'")
+                            ("go"     . "\\.gotmpl\\'")
+                            ("jsx"    . "\\.js\\'")))
   (web-mode-enable-current-element-highlight   t)
   (web-mode-enable-block-face                  t)
   (web-mode-markup-indent-offset               2)   ;; HTML
@@ -38,5 +39,4 @@
 (provide 'web-mode-rcp)
 ;;; Commentary:
 ;;
-
 ;;; web-mode-rcp.el ends here

@@ -1,15 +1,12 @@
 ;;; ytdl-rcp.el --- Youtube-dl interface
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package ytdl
   :ensure t
+  :defer t
   :custom
-  (ytdl-music-folder "/opt/work/backup/music")
-  (ytdl-video-folder "/opt/work/backup/youtube")
+  (ytdl-video-folder "/data/backup/youtube")
+  (ytdl-music-folder "/data/backup/youtube/music")
   (ytdl-always-query-default-filename 'yes)
   :config
   (setq ytdl-video-extra-args '("bestvideo[height<=1080]" "bestaudio")
@@ -17,5 +14,6 @@
 )
 
 (provide 'ytdl-rcp)
-
+;;; Commentary:
+;;
 ;;; ytdl-rcp.el ends here

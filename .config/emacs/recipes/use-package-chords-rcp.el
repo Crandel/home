@@ -1,3 +1,6 @@
+;;; use-package-chords-rcp.el --- Add chord support
+
+;;; Code:
 (use-package use-package-chords
   :ensure t
   :config
@@ -8,3 +11,6 @@
 )
 
 (provide 'use-package-chords-rcp)
+;;; Commentary:
+;;
+;;; use-package-chords-rcp.el ends here

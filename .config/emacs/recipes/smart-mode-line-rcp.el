@@ -1,10 +1,6 @@
 ;;; smart-mode-line-rcp.el --- A color coded smart mode-line.
 
-;;; Commentary:
-;; 
-
 ;;; Code:
-
 (use-package smart-mode-line
   :ensure t
   :demand t
@@ -28,5 +24,6 @@
 )
 
 (provide 'smart-mode-line-rcp)
-
+;;; Commentary:
+;;
 ;;; smart-mode-line-rcp.el ends here
