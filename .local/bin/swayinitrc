@@ -1,17 +1,15 @@
 #!/usr/bin/zsh
 
-source /etc/profile
-
 export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export QT_ENABLE_HIGHDPI_SCALING=0
 
 export GDK_BACKEND=wayland
 export GTK_THEME=gruvbox-dark-gtk
-export GNOME_DESKTOP_SESSION_ID=1
 
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1
+export XDG_CURRENT_DESKTOP=sway
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 

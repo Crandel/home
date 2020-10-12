@@ -632,6 +632,6 @@ function set_zsh_prompt () {
 set_zsh_prompt
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
-  exec $HOME/.local/bin/swayinitrc
-  # exec startx ~/.xinitrc i3
+  # Possible arguments sway|i3|xfce
+  exec ~/.local/bin/initrc sway
 fi

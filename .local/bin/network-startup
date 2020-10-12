@@ -12,7 +12,7 @@ while [ $connection == 0 ] ; do
       connection=$(cat $interface/carrier)
     fi
   done
-  sleep 1
+  sleep 0.5
 done
 
 
@@ -26,7 +26,20 @@ if command_exists evolution ; then
   evolution &
 fi
 
+if command_exists discord ; then
+  sleep 0.5
+  echo "run discord"
+  GDK_BACKEND=x11 discord &
+fi
+
 if command_exists wire-desktop ; then
+  sleep 0.5
   echo "run wire-desktop"
   GDK_BACKEND=x11 wire-desktop &
+fi
+
+if command_exists slack ; then
+  sleep 0.5
+  echo "run slack"
+  GDK_BACKEND=x11 slack &
 fi
