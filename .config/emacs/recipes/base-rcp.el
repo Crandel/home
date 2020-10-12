@@ -2,7 +2,10 @@
 
 ;;; Code:
 (use-package emacs
+  :demand t
   :init
+  (set-frame-font            "Hack Nerd Font-16" "Font settings")
+  (set-fontset-font          "fontset-default" 'unicode "Source Code Pro")
   (setq initial-frame-alist
         '(
           (alpha 100 100)
@@ -14,20 +17,23 @@
           ))
   (setq default-frame-alist
         '(
-          (alpha 80 80)
+          (alpha 100 100)
           (cursor-type . 'bar)
           (cursor-color . "#BE81F7")
           (font . "Hack Nerd Font-16")
           (tool-bar-lines . 0)
           (vertical-scroll-bars . right)
           ))
+  (blink-cursor-mode              1)
+  (column-number-mode             t)
+  (global-font-lock-mode          1)
+  (menu-bar-mode                  -1)
+  (scroll-bar-mode                1)
+  (tool-bar-mode                  -1)
+  (tooltip-mode                   -1)
   (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled nil)
-  (tool-bar-mode    -1)
-  (tooltip-mode  -1)
-  (menu-bar-mode -1)
-  (scroll-bar-mode  1)
-  (blink-cursor-mode 1)
+  (put 'upcase-region 'disabled   nil)
+  :config
   (cl-loop
    for from across "йцукенгшщзхїфівапролджєячсмитьбюЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖ\ЄЯЧСМИТЬБЮ№"
    for to   across "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>#"
@@ -45,12 +51,7 @@
    (eval `(define-key local-function-key-map
             (kbd ,(string from))
             (kbd ,(string to)))))
-  :config
-  (set-frame-font            "Hack Nerd Font-16" "Font settings")
-  (set-fontset-font          "fontset-default" 'unicode "FontAwesome")
-  (column-number-mode        t)
   (defalias 'yes-or-no-p     'y-or-n-p)
-  (global-font-lock-mode     1)
   :custom
   (ad-redefinition-action    'accept)
   (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
