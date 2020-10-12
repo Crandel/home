@@ -46,6 +46,7 @@
 (require 'avy-rcp)
 (require 'company-rcp)
 (require 'dired-subtree-rcp)
+;(require 'editorconfig-rcp)
 (require 'emmet-mode-rcp)
 (require 'expand-region-rcp)
 (require 'evil-rcp)
@@ -72,7 +73,6 @@
 (require 'which-key-rcp)
 (require 'yasnippet-rcp)
 (require 'ytdl-rcp)
-
 
 (when (executable-find "ansible")
   (require 'ansible-rcp)

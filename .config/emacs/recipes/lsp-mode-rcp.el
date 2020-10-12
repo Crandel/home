@@ -9,15 +9,15 @@
   (lsp-enable-imenu                   t)
   (lsp-enable-semantic-highlighting   t)
   (lsp-enable-text-document-color     t)
+  (lsp-enable-which-key-integration   t)
   (lsp-enable-xref                    t)
+  (lsp-file-watch-threshold           10000)
   (lsp-idle-delay                     0.500)
   (lsp-imenu-container-name-separator t)
   (lsp-imenu-show-container-name      t)
   (lsp-keymap-prefix                  "C-l")
   (lsp-prefer-capf                    t)
   (lsp-signature-auto-activate        nil)
-  (lsp-enable-which-key-integration   t)
-  (gc-cons-threshold                  100000000)
   (read-process-output-max            (* 1024 1024)) ;; 1mb
   :hook ((rust-mode . (lambda()
                             (setq lsp-rust-server 'rust-analyzer
