@@ -53,6 +53,12 @@ zipin () {
 }
 ## END ARCHIVES
 
+function file_replace() {
+  for file in $(find . -type f -name "$1*"); do
+    mv $file $(echo "$file" | sed "s/$1/$2/");
+  done
+}
+
 # convert jpg files to single pdf
 con_jpg_pdf (){
   convert *.jpg $@.pdf
