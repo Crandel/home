@@ -212,7 +212,7 @@ user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.compositor", true);
+user_pref("gfx.webrender.compositor", false);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.work-around-driver-bugs", false);
