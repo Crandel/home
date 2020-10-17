@@ -13,4 +13,6 @@ export XDG_CURRENT_DESKTOP=sway
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
-exec sway # -d 2>> ~/.local/log/sway.log
+export LP_NUM_THREADS=1
+
+exec sway #-d 2>> ~/.local/log/sway.log

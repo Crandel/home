@@ -9,6 +9,7 @@ declare -a arr=(
   "Fonts"
   "MapsWithMe"
   "Music"
+  "OABX"
   "Pictures"
   "SamLib-Info"
   "TWRP"
@@ -18,6 +19,7 @@ declare -a arr=(
   "ivona"
   "progs"
   "termux"
+  "valtGallery"
   "viber"
   "work"
 )
