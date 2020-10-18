@@ -1,43 +1,72 @@
-theme = "plain"
-icons = "awesome"
+[icons]
+name = "awesome5"
+[icons.overrides]
+backlight_empty = "🌑"
+backlight_full = "🌕"
+backlight_partial1 = "🌒"
+backlight_partial3 = "🌔"
+bat_charging = "  "
+bat_discharging = " "
+bat_empty = " "
+bat_full = " "
+bat_half = " "
+bat_quarter = " "
+bat_three_quarters = " "
+cpu = ""
+disk_drive = " "
+memory_mem = " "
+net_down = "⇊"
+time = "⏳"
+volume_muted = " "
+
+[theme]
+name = "gruvbox-dark"
+[theme.overrides]
+separator = ""
 
 [[block]]
 block = "custom"
 command = "gmail"
-interval = 5
+interval = 60
 
 [[block]]
 block = "disk_space"
-path = "/"
-alias = "/"
-info_type = "available"
-unit = "GB"
-interval = 60
-warning = 15.0
 alert = 10.0
-show_percentage = false
+alias = "/"
+format = "{icon}{alias}{available}{unit}"
+info_type = "available"
+interval = 300
+path = "/"
+unit = "GiB"
+warning = 15.0
 
 [[block]]
 block = "cpu"
-interval = 1
-format = "{barchart} {utilization}% {frequency}GHz"
+format = "{utilization}% {frequency}GHz"
+interval = 10
 
 [[block]]
 block = "memory"
+clickable = true
+critical_mem = 95
+critical_swap = 95
 display_type = "memory"
 format_mem = "{Mug}GB"
 format_swap = "{SUm}MB"
 icons = true
-clickable = true
+interval = 60
 warning_mem = 80
 warning_swap = 80
 critical_mem = 95
 critical_swap = 95
 
 [[block]]
+#device = "BAT1"
+device = "DisplayDevice"
 block = "battery"
-interval = 10
+driver = "upower"
 format = "{percentage}% {time}"
+#interval = 60
 
 [[block]]
 block = "sound"
@@ -51,31 +80,27 @@ step_width = 5
 [[block]]
 block = "net"
 device = "enp0"
-graph_up = false
+format = "{speed_down}"
 hide_inactive = true
 hide_missing = true
-interval = 2
-ip = false
-speed_down = true
-speed_up = false
-ssid = false
+interval = 5
+speed_min_unit = "M"
+use_bits = false
 
 [[block]]
 block = "net"
 device = "wlan0"
-graph_up = false
+format = "{ssid}{speed_down}"
 hide_inactive = true
 hide_missing = true
-interval = 2
-ip = false
-speed_down = true
-speed_up = false
-ssid = true
+interval = 5
+speed_min_unit = "M"
+use_bits = false
 
 [[block]]
 block = "time"
-interval = 15
-format = "%d.%m.%y %R"
+format = "%d.%m %R"
+interval = 45
 on_click = "gsimplecal"
 
 [[block]]
