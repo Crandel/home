@@ -6,6 +6,7 @@
   :defer t
   :mode
   ("\\.js\\'"     . web-mode)
+  ("\\.j2\\'"     . web-mode)
   ("\\.html\\'"   . web-mode)
   ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)
@@ -16,6 +17,7 @@
   :custom
   (web-mode-engines-alist '(
                             ("django" . "\\.html\\'")
+                            ("django" . "\\.j2\\'")
                             ("razor"  . "\\.scala.html\\'")
                             ("go"     . "\\.gotmpl\\'")
                             ("jsx"    . "\\.js\\'")))
