@@ -32,9 +32,10 @@ interval = 60
 [[block]]
 block = "disk_space"
 alert = 10.0
+alert_absolute = true
 alias = "/"
-format = "{icon}{alias}{available}{unit}"
-info_type = "available"
+format = "{icon}{alias}{free}{unit}"
+info_type = "free"
 interval = 300
 path = "/"
 unit = "GiB"
@@ -59,10 +60,12 @@ warning_mem = 80
 warning_swap = 80
 
 [[block]]
+#device = "BAT1"
 device = "DisplayDevice"
 block = "battery"
 driver = "upower"
 format = "{percentage}% {time}"
+#interval = 60
 
 [[block]]
 block = "sound"
