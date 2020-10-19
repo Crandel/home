@@ -54,6 +54,7 @@
 (require 'git-gutter-rcp)
 (require 'helm-rcp)
 (require 'highlight-indentation-rcp)
+(require 'i3wm-config-rcp)
 (require 'json-mode-rcp)
 (require 'lsp-mode-rcp)
 (require 'magit-rcp)
@@ -73,6 +74,7 @@
 (require 'which-key-rcp)
 (require 'yasnippet-rcp)
 (require 'ytdl-rcp)
+(require 'ztree-rcp)
 
 (when (executable-find "ansible")
   (require 'ansible-rcp)
