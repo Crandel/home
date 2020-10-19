@@ -208,7 +208,7 @@ bar {
     bindsym button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@  -5% #decrease sound volume
     bindsym button2 exec gsimplecal
     font pango:FontAwesome, Hack Nerd Font 16
-    status_command i3status-rs $HOME/.i3/status.toml
+    status_command i3status-rs --exit-on-error $HOME/.i3/status.toml 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
 }
 
 # my settings
@@ -219,7 +219,6 @@ client.placeholder:     #4B610B  #1E272B #ECF6CE #292d2e #292d2e
 client.unfocused        #4B610B  #424242 #ECF6CE #484e50 #484e50
 client.urgent           #4B610B  #900000 #ffffff #900000 #900000
 
-
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/i3.conf &
 exec --no-startup-id nm-applet
 exec feh --bg-scale ~/Pictures/wallpaper.png
@@ -229,4 +228,6 @@ exec $term --quake
 exec network-startup
 # start simple systemd service to notify dep services X11 started
 exec systemctl --user start startx.service
-exec kdbb.sh
+exec systemctl --user start clipmenud.service
+exec systemctl --user start kbdd.service
+exec systemctl --user start dunst.service

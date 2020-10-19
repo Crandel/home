@@ -98,11 +98,16 @@ speed_min_unit = "M"
 use_bits = false
 
 [[block]]
+block = "keyboard_layout"
+driver = "kbddbus"
+
+# [[block]]
+# block = "bluetooth"
+# mac = ""
+# label = "B"
+
+[[block]]
 block = "time"
 format = "%d.%m %R"
 interval = 45
 on_click = "gsimplecal"
-
-[[block]]
-block = "keyboard_layout"
-driver = "kbddbus"
