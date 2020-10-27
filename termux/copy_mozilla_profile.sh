@@ -24,6 +24,8 @@ function update_settings () {
     echo "Before chown $(ls -lA | grep -i user)\n"
     chown -R "$usernme:$grp" .
     echo "After chown $(ls -lA | grep -i user)\n"
+  else
+    echo "Path $full_path doesn't exists"
   fi
 }
 
