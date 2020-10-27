@@ -2,4 +2,4 @@
 
 args=$@
 echo "here is $args" > /tmp/edit.log
-env GDK_BACKEND=x11 /usr/bin/emacs "$args"
+/usr/bin/emacs "$args"

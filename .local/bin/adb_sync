@@ -7,13 +7,11 @@ declare -a arr=(
   "Documents"
   "Download"
   "Fonts"
-  "MapsWithMe"
   "Music"
   "OABX"
   "Pictures"
   "SamLib-Info"
   "TWRP"
-  "TitaniumBackup"
   "VocalizerEx2"
   "dictdata"
   "ivona"
@@ -24,11 +22,19 @@ declare -a arr=(
   "work"
 )
 
-
-
 for FolderStr in "${arr[@]}"
 do
-    echo "$FolderStr"
-    adb-sync --reverse /sdcard/$FolderStr/ /data/backup/android/xiaomi_mi_a1/$FolderStr/
-    sleep 2
+  echo "Download from /sdcard/$FolderStr"
+  log_fol=/tmp/adb/$FolderStr
+  mkdir -p $log_fol
+  adb-sync --reverse \
+           --delete \
+           --times \
+           "/sdcard/$FolderStr/" \
+           /data/backup/android/realme_x2_pro/$FolderStr \
+           1> $log_fol/out.log \
+           2> $log_fol/err.log
+  # push to smart
+  # adb-sync /data/backup/android/realme_x2_pro/$FolderStr/ /sdcard/$FolderStr/
+  sleep 2
 done
