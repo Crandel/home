@@ -5,6 +5,7 @@ catdoc
 curlftpfs
 docx2txt
 feh
+fuse-zip
 fuseiso
 fzf
 highlight
