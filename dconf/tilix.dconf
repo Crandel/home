@@ -27,6 +27,7 @@ window-state=161
 window-style='normal'
 
 [keybindings]
+app-new-session='<Primary>t'
 session-add-down='<Primary><Shift>z'
 session-add-right='<Primary><Shift>x'
 session-close='<Primary><Shift>w'
@@ -68,7 +69,7 @@ highlight-colors-set=false
 login-shell=true
 notify-silence-enabled=true
 palette=['#000000', '#CC0000', '#4D9A05', '#C3A000', '#3464A3', '#754F7B', '#05979A', '#D3D6CF', '#88888A8A8585', '#EF2828', '#89E234', '#FBE84F', '#729ECF', '#AC7EA8', '#34E2E2', '#EDEDEB']
-scroll-on-output=true
+scroll-on-output=false
 scrollback-lines=98192
 terminal-bell='none'
 terminal-title='${id}:${directory} ${title} [${rows}:${columns}]'
