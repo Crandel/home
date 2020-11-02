@@ -325,7 +325,7 @@ if [ -d /usr/src/rust ]; then
 fi
 
 if command_exists zoxide; then
-  eval "$(zoxide init --no-aliases zsh)"
+  eval "$(zoxide init --no-aliases bash)"
   alias j='__zoxide_z' # cd to highest ranked directory matching path
   alias ja='__zoxide_za' # add path to the database
   alias ji='__zoxide_zi' # cd with interactive selection using fzf
