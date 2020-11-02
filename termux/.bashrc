@@ -272,17 +272,6 @@ fi
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
-if command_exists zoxide
-then
-  eval "$(zoxide init --no-aliases zsh)"
-  alias j='__zoxide_z' # cd to highest ranked directory matching path
-  alias ja='__zoxide_za' # add path to the database
-  alias ji='__zoxide_zi' # cd with interactive selection using fzf
-  alias jr='__zoxide_zr' # remove path from the database
-else
-  echo "Please install zoxide"
-fi
-
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES
@@ -316,11 +305,12 @@ fi
 ## END SCALA
 
 ## RUST
-if [ -d $HOME/.cargo/bin ]; then
-  export PATH=$PATH:$HOME/.cargo/bin
-fi
 
 if command_exists cargo ; then
+  if [ ! -d $HOME/.cargo/bin ]; then
+    mkdir -p $HOME/.cargo/bin
+  fi
+  export PATH=$PATH:$HOME/.cargo/bin
   alias crn='cargo run'
   alias cup='cargo update'
   alias cbd='cargo build'
@@ -333,6 +323,18 @@ fi
 if [ -d /usr/src/rust ]; then
   export RUST_SRC_PATH=/usr/src/rust/src
 fi
+
+if command_exists zoxide; then
+  eval "$(zoxide init --no-aliases zsh)"
+  alias j='__zoxide_z' # cd to highest ranked directory matching path
+  alias ja='__zoxide_za' # add path to the database
+  alias ji='__zoxide_zi' # cd with interactive selection using fzf
+  alias jr='__zoxide_zr' # remove path from the database
+else
+  echo "Please install zoxide"
+fi
+
+
 ## END RUST
 
 ## PYTHON
