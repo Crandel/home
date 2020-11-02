@@ -408,20 +408,8 @@ if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
 
-
 if command_exists jira ; then
   eval "$(jira --completion-script-bash)"
-fi
-
-if command_exists zoxide
-then
-  eval "$(zoxide init --no-aliases zsh)"
-  alias j='__zoxide_z' # cd to highest ranked directory matching path
-  alias ja='__zoxide_za' # add path to the database
-  alias ji='__zoxide_zi' # cd with interactive selection using fzf
-  alias jr='__zoxide_zr' # remove path from the database
-else
-  echo "Please install zoxide"
 fi
 
 if command_exists qt5ct ; then
