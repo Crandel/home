@@ -271,15 +271,11 @@ function plugin_init() {
 
   if command_exists zoxide
   then
-    eval "$(zoxide init --cmd j --no-aliases zsh)"
-    __zoxide_unset 'j'
-    j() {
-      __zoxide_z "$@"
-    }
-    __zoxide_unset 'ji'
-    ji () {
-      _zoxide_result="$(zoxide query -i -- "$@")"  && _z_cd "$_zoxide_result"
-    }
+    eval "$(zoxide init --no-aliases zsh)"
+    alias j='__zoxide_z' # cd to highest ranked directory matching path
+    alias ja='__zoxide_za' # add path to the database
+    alias ji='__zoxide_zi' # cd with interactive selection using fzf
+    alias jr='__zoxide_zr' # remove path from the database
   else
     echo "Please install zoxide"
   fi
