@@ -272,6 +272,11 @@ function plugin_init() {
   if command_exists zoxide
   then
     eval "$(zoxide init --cmd j --no-aliases zsh)"
+    __zoxide_unset 'j'
+    j() {
+      __zoxide_z "$@"
+    }
+    __zoxide_unset 'ji'
     ji () {
       _zoxide_result="$(zoxide query -i -- "$@")"  && _z_cd "$_zoxide_result"
     }
@@ -493,7 +498,7 @@ if command_exists clipmenud ; then
 fi
 
 if command_exists bemenu ; then
-  export BEMENU_OPTS='-I 0 -i -m all --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
+  export BEMENU_OPTS='-I 0 -i -m 0 --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
 fi
 
 if command_exists reflector ; then
