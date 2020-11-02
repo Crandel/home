@@ -161,7 +161,8 @@ if command_exists pacman ; then
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
-  alias pql='pacman -Ql $1'
+  alias pql='pacman -Ql'
+  alias pqi='pacman -Sii'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   if command_exists yay ; then
@@ -226,7 +227,7 @@ fi
 if command_exists emacs ; then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
-  export EDITOR='GDK_BACKEND=x11 emacs'
+  export EDITOR='editor-run'
 elif command_exists vim; then
   export EDITOR='vim'
 fi
@@ -271,6 +272,17 @@ fi
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
+if command_exists zoxide
+then
+  eval "$(zoxide init --no-aliases zsh)"
+  alias j='__zoxide_z' # cd to highest ranked directory matching path
+  alias ja='__zoxide_za' # add path to the database
+  alias ji='__zoxide_zi' # cd with interactive selection using fzf
+  alias jr='__zoxide_zr' # remove path from the database
+else
+  echo "Please install zoxide"
+fi
+
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES

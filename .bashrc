@@ -229,7 +229,8 @@ if command_exists pacman ; then
   alias upg='pacman -Syu'
   alias pacs='pacman -Ss'
   alias pqs='pacman -Qs'
-  alias pql='pacman -Ql $1'
+  alias pql='pacman -Ql'
+  alias pqi='pacman -Sii'
   alias paci='pacman -S --needed'
   alias pacr='pacman -Rs'
   if command_exists yay ; then
@@ -294,6 +295,7 @@ if command_exists docker ; then
   alias run='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
+  alias dvrm='d volume rm $(d volume ls -q)'
   drmin () {
     for img in $(d images | rg -i 'none' | awk '{print $3}'); do
       docker rmi $img
@@ -308,6 +310,7 @@ fi
 ### KUBERNETES
 if command_exists kubectl ; then
   alias k='kubectl'
+  alias kapr='kubectl api-resources'
   if command_exists kubectx ; then
     alias ktx='kubectx'
   fi
@@ -355,7 +358,7 @@ fi
 if command_exists emacs ; then
   alias em='emacs -nw'
   alias sem="$SUDO emacs -nw"
-  export EDITOR='GDK_BACKEND=x11 emacs'
+  export EDITOR='editor-run'
 elif command_exists vim; then
   export EDITOR='vim'
 fi
@@ -410,6 +413,17 @@ if command_exists jira ; then
   eval "$(jira --completion-script-bash)"
 fi
 
+if command_exists zoxide
+then
+  eval "$(zoxide init --no-aliases zsh)"
+  alias j='__zoxide_z' # cd to highest ranked directory matching path
+  alias ja='__zoxide_za' # add path to the database
+  alias ji='__zoxide_zi' # cd with interactive selection using fzf
+  alias jr='__zoxide_zr' # remove path from the database
+else
+  echo "Please install zoxide"
+fi
+
 if command_exists qt5ct ; then
   export QT_QPA_PLATFORMTHEME="qt5ct"
 fi
@@ -420,7 +434,12 @@ if command_exists clipmenud ; then
 fi
 
 if command_exists bemenu ; then
-  export BEMENU_OPTS='-I 0 -m all -i --fn "Hack:24" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
+  export BEMENU_OPTS='-I 0 -i -m 0 --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
+fi
+
+if command_exists reflector ; then
+  alias gen_mirror='reflector --ipv4 -p https -f 10 --sort rate --save /tmp/mirror'
+  alias gen_rsync='reflector --ipv4 -p rsync -f 10 --sort rate --save /tmp/powerpill'
 fi
 # END SYSTEM TOOLS
 
