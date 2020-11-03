@@ -1,0 +1,10 @@
+:content = application/json
+POST http://localhost
+Accept: :content
+Content-Type: :content
+
+{
+    "name": "username"
+}
+# File upload
+< register-mysql.json

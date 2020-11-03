@@ -19,6 +19,7 @@
   (python-mode           . yas-minor-mode)
   (rust-mode             . yas-minor-mode)
   (scala-mode            . yas-minor-mode)
+  (terraform-mode        . yas-minor-mode)
   (web-mode              . yas-minor-mode)
 )
 
