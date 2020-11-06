@@ -57,6 +57,7 @@
 (require 'highlight-indentation-rcp)
 (require 'i3wm-config-rcp)
 (require 'json-mode-rcp)
+(require 'k8s-mode-rcp)
 (require 'lsp-mode-rcp)
 (require 'magit-rcp)
 (require 'markdown-mode-rcp)

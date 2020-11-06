@@ -30,9 +30,8 @@
          (scala-mode     . lsp)
          (terraform-mode . lsp)
          (vimrc-mode     . lsp)
-         ;; (sh-mode . lsp)
-
          ;; (yaml-mode . lsp)
+         ;; (sh-mode . lsp)
          )
 )
 

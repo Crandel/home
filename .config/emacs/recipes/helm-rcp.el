@@ -170,6 +170,7 @@
   :ensure t
   :defer t
   :after helm-mode
+  :commands helm-lsp-workspace-symbol
   :bind ("C-j" . helm-lsp-code-actions))
 
 (use-package helm-projectile
