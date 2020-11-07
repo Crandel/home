@@ -34,7 +34,6 @@ declare -a list=(
   "com.google.android.inputmethod.latin"
   "com.google.android.marvin.talkback"
   "com.google.android.onetimeinitializer"
-  "com.google.android.partnersetup"
   "com.google.android.printservice.recommendation"
   "com.google.android.projection.gearhead"
   "com.google.android.youtube"
