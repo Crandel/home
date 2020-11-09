@@ -244,30 +244,38 @@ function plugin_init() {
   (( ${+_comps} )) && _comps[zinit]=_zinit
 
   zinit wait lucid light-mode for \
+          MichaelAquilina/zsh-autoswitch-virtualenv \
+          OMZL::clipboard.zsh \
           OMZP::colored-man-pages \
           OMZP::shrink-path \
-          OMZP::docker-compose \
           djui/alias-tips \
-          MichaelAquilina/zsh-autoswitch-virtualenv \
-          zsh-users/zsh-history-substring-search \
           zsh-users/zsh-completions \
+          zsh-users/zsh-history-substring-search \
         atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
           zdharma/fast-syntax-highlighting \
         blockf \
           zsh-users/zsh-completions \
         atload"!_zsh_autosuggest_start" \
-          zsh-users/zsh-autosuggestions        as"completion" \
+          zsh-users/zsh-autosuggestions as"completion" \
+        has'cargo' \
           OMZP::cargo/_cargo \
+        has'docker' \
           OMZP::docker/_docker \
-          OMZP::docker-compose/_docker-compose \
+        has'docker-compose' \
+          OMZP::docker-compose \
         has'git' \
           OMZP::git \
+        has'helm' \
+          OMZP::helm \
         has'kubectl' \
+          OMZP::kube-ps1 \
           OMZP::kubectl \
         has'pip' \
           OMZP::pip \
         has'sbt' \
-          OMZP::sbt
+          OMZP::sbt \
+        has'terraform' \
+          OMZP::terraform
   compinit
 }
 
@@ -616,7 +624,8 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  echo " %(?.%F{yellow}.%F{red}[%?])\n╰─➤%f "
+  echo "%(?.%F{yellow}.%F{red}[%?])"
+  echo "╰─➤%f"
 }
 
 function fish_pwd() {
@@ -629,7 +638,7 @@ function fish_pwd() {
 
 # Set the prompt.
 function set_zsh_prompt () {
-  PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch)$(set_prompt_symbol)'
+  PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
 }
 
 # end=`date +%s.%N`
