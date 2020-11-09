@@ -247,7 +247,6 @@ function plugin_init() {
           MichaelAquilina/zsh-autoswitch-virtualenv \
           OMZL::clipboard.zsh \
           OMZP::colored-man-pages \
-          OMZP::shrink-path \
           djui/alias-tips \
           zsh-users/zsh-completions \
           zsh-users/zsh-history-substring-search \
@@ -268,7 +267,6 @@ function plugin_init() {
         has'helm' \
           OMZP::helm \
         has'kubectl' \
-          OMZP::kube-ps1 \
           OMZP::kubectl \
         has'pip' \
           OMZP::pip \
@@ -276,6 +274,10 @@ function plugin_init() {
           OMZP::sbt \
         has'terraform' \
           OMZP::terraform
+  zinit lucid light-mode for \
+        OMZP::shrink-path \
+        has'kubectl' \
+          OMZP::kube-ps1
   compinit
 }
 
@@ -624,7 +626,7 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  echo "%(?.%F{yellow}.%F{red}[%?])"
+  echo "$(kube_ps1) %(?.%F{yellow}.%F{red}[%?])"
   echo "╰─➤%f"
 }
 
