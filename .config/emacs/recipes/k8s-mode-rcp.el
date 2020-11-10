@@ -8,6 +8,7 @@
          "Chart.yaml"
          "configmap.yaml"
          "deployment.yaml"
+         "\\*kubernetes pod\\*"
          "ingress.yaml"
          "pvc.yaml"
          "service.yaml"

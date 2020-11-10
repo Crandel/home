@@ -169,7 +169,7 @@
 
     ;; Highlight indentation mode
     `(highlight-indentation-current-column-face ((t (:background ,gruvbox-dark2 ))))
-    `(highlight-indentation-face                ((t (:background ,gruvbox-dark1 ))))
+    `(highlight-indentation-face                ((t (:background ,gruvbox-dark0_hard ))))
 
     ;; Smartparens
     `(sp-pair-overlay-face              ((t (:background ,gruvbox-dark2))))

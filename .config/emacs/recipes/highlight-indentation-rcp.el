@@ -5,8 +5,7 @@
   :ensure t
   :defer t
   :custom-face
-  (highlight-indentation-face ((t (:background "#1d2021"
-                                   :foreground "IndianRed"))))
+  (highlight-indentation-face ((t (:foreground "IndianRed"))))
   :hook
   ((c++-mode
     c-mode
