@@ -72,6 +72,9 @@ assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 
+# terminal
+for_window [app_id="tilix"] move scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
@@ -199,7 +202,8 @@ bindsym --to-code {
   $mod+c exec $browser
 
   # tilix
-  F1 exec $term --quake
+  F1 exec swaymsg [app_id="tilix"] scratchpad show || exec $term, resize set width 100 ppt height 100 ppt
+  # F1 exec $term --quake
   $mod+F1 exec env GDK_BACKEND=x11 $term --quake
 
   # pulseaudio
