@@ -95,7 +95,9 @@
   ("C-y" . scroll-up-command)
   ("RET" . newline)
   ("M-RET" . newline-and-indent)
-  ("C-c b" . revert-buffer)
+  ("C-c b" . (lambda()
+               (interactive)
+               (revert-buffer t t)))
   ("C-x a s" . sort-lines)
   ("C-x a d" . delete-trailing-whitespace)
   ;; keybindings from functions_my.el file
