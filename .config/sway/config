@@ -140,6 +140,12 @@ bindsym --to-code {
   $mod+Shift+Up move up
   $mod+Shift+Right move right
 
+  # move cursor using keys:
+  $mod+Control+Left seat - cursor move -10 0
+  $mod+Control+Down seat - cursor move 0 10
+  $mod+Control+Up seat - cursor move 0 -10
+  $mod+Control+Right seat - cursor move 10 0
+
   # split in horizontal orientation
   $mod+h split h
 
