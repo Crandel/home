@@ -69,7 +69,7 @@ format = "{percentage}% {time}"
 
 [[block]]
 block = "sound"
-driver = "pulseaudio"
+driver = "auto"
 show_volume_when_muted = true
 
 [[block]]

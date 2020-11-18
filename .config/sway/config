@@ -15,10 +15,10 @@ set {
 }
 
 output {
-  $o_center background ~/Pictures/wallpaper.png fill
+  $o_center background ~/Pictures/wallpaper.jpg fill
   # $o_left pos 1920 0 res 1920x1080
-  $o_center pos 0 0 res 1920x1080
-  $o_center adaptive_sync on
+  $o_center pos 0 0 res --custom 1920x1080@120Hz
+  $o_center adaptive_sync off
 }
 
 input type:keyboard {
@@ -307,6 +307,6 @@ client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
 
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
-exec $term --quake
+exec $term
 exec swaykbdd
 exec network-startup
