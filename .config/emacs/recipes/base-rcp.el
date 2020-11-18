@@ -388,6 +388,12 @@
      ))
 )
 
+(use-package comp
+  :init
+  (add-to-list 'comp-bootstrap-black-list "smartparens")
+  (add-to-list 'comp-deferred-compilation-black-list "smartparens")
+)
+
 (provide 'base-rcp)
 ;;; Commentary:
 ;; Configuration for base Emacs without packages

@@ -31,7 +31,6 @@
 )
 
 (use-package helm-mode
-  :defer t
   :hook
   (helm-mode . (lambda ()
                       (setq completion-styles
@@ -50,7 +49,6 @@
 )
 
 (use-package helm-adaptive
-  :defer t
   :after helm-mode
   :config
   (helm-adaptive-mode 1)
@@ -59,7 +57,6 @@
 )
 
 (use-package helm-buffers
-  :defer t
   :after helm-mode
   :custom
   (helm-buffers-favorite-modes (append helm-buffers-favorite-modes '(picture-mode artist-mode)))
@@ -79,15 +76,12 @@
 )
 
 (use-package helm-imenu
-  :defer t
   :bind ([f10] . 'helm-semantic-or-imenu))
 
 (use-package helm-info
-  :defer t
   :bind ("C-h r" . helm-info-emacs))
 
 (use-package helm-files
-  :defer t
   :custom
   (helm-ff-auto-update-initial-value        t)
   (helm-ff-allow-non-existing-file-at-point t)
@@ -122,14 +116,12 @@
 )
 
 (use-package helm-lib
-  :defer t
   :custom
   (helm-scroll-amount                    8) ; scroll 8 lines other window using M-<next>/M-<prior>
   (helm-advice-push-mark                 nil)
 )
 
 (use-package helm-utils
-  :defer t
   :after helm-mode
   :config
   ;; Popup buffer-name or filename in grep/moccur/imenu-all etc...
@@ -140,7 +132,6 @@
 )
 
 (use-package helm-sys
-  :defer t
   :after helm-mode
   :commands (helm-top)
   :config (helm-top-poll-mode 1)
@@ -150,7 +141,6 @@
 ;; 3-d party packages
 (use-package helm-company
   :ensure t
-  :defer t
   :after (company)
   :bind (
   (:map company-mode-map
@@ -168,19 +158,16 @@
 
 (use-package helm-lsp
   :ensure t
-  :defer t
   :after helm-mode
   :commands helm-lsp-workspace-symbol
   :bind ("C-j" . helm-lsp-code-actions))
 
 (use-package helm-projectile
   :ensure t
-  :defer t
   :bind ("M-p" . 'helm-projectile-ag))
 
 (use-package helm-swoop
   :ensure t
-  :defer t
   :custom
   (helm-multi-swoop-edit-save               nil)
   (helm-swoop-split-with-multiple-windows   t)

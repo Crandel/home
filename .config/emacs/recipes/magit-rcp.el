@@ -17,8 +17,6 @@
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
   :bind
   ("C-x C-z" . 'magit-status)
-  (:map magit-file-mode-map
-        ("C-x g" . nil))
 )
 
 (provide 'magit-rcp)
