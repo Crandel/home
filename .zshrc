@@ -264,20 +264,25 @@ function plugin_init() {
           OMZP::docker-compose \
         has'git' \
           OMZP::git \
-        has'helm' \
-          OMZP::helm \
         has'kubectl' \
           OMZP::kubectl \
         has'pip' \
           OMZP::pip \
         has'sbt' \
-          OMZP::sbt \
-        has'terraform' \
-          OMZP::terraform
+          OMZP::sbt
+
   zinit lucid light-mode for \
         OMZP::shrink-path \
+        load'[[ $PWD = */inf* ]]' unload'[[ $PWD != */inf* ]]'  \
         has'kubectl' \
-          OMZP::kube-ps1
+          OMZP::kube-ps1 \
+        load'[[ $PWD = */terraform* ]]' unload'[[ $PWD != */terraform* ]]' \
+        has'terraform' \
+          OMZP::terraform \
+        load'[[ $PWD = */helm* ]]' unload'[[ $PWD != */helm* ]]' \
+        has'helm' \
+          OMZP::helm
+
   compinit
 }
 
@@ -626,7 +631,11 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  echo "$(kube_ps1) %(?.%F{yellow}.%F{red}[%?])"
+  kps=""
+  if typeset -f kube_ps1 > /dev/null; then
+    kps=$(kube_ps1)
+  fi
+  echo "$kps %(?.%F{yellow}.%F{red}[%?])"
   echo "╰─➤%f"
 }
 
