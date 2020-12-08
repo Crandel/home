@@ -324,6 +324,8 @@ user_pref("security.tls.version.enable-deprecated", false);
 user_pref("services.sync.addons.ignoreUserEnabledChanges", true); // exclude sync of addons status enabled/disabled
 user_pref("services.sync.prefs.sync.browser.newtabpage.activity-stream.section.highlights.includePocket", false);
 user_pref("services.sync.prefs.sync.browser.newtabpage.enabled", false); // exclude sync newtabpage icons
+user_pref("signon.generation.available", false);
+user_pref("signon.generation.enabled", false);
 user_pref("signon.management.page.mobileAndroidURL", "");
 user_pref("svg.context-properties.content.enabled", true); // apply theme color to the toolbar button
 user_pref("toolkit.cosmeticAnimations.enabled", false);

@@ -202,7 +202,13 @@ bindsym --to-code {
   $mod+r mode "resize"
 
   # exit sway (logs you out of your X session)
-  $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your X session.' -b 'Yes, exit sway' 'swaymsg exit'"
+  $mod+Shift+e exec swaynag -t warning -m 'Hello. Do you really want to exit sway? This will end your Wayland session.' \
+    -b '🌚️Suspend' 'systemctl suspend' \
+    -b '⚡️Shutdown' 'systemctl -i poweroff' \
+    -b '🌀️Reboot' 'systemctl -i reboot' \
+    -b '🚪️Yes, exit sway' 'swaymsg exit' \
+    --button-background=ff9100 \
+    --button-border-size=3px --border=fcc99d --text=092e47 --font=Hack Nerd Font 16 --background=#282828
 
   # browser
   $mod+c exec $browser
