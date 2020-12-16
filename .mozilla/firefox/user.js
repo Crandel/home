@@ -160,7 +160,7 @@ user_pref("dom.maxHardwareConcurrency", 8); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
-user_pref("dom.security.https_only_mode", true);  // Force to open https
+user_pref("dom.security.https_only_mode", false);  // Force to open https
 user_pref("dom.security.https_only_mode.upgrade_local", false);  // ignore localhost
 user_pref("dom.vibrator.enabled", false); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
@@ -216,6 +216,7 @@ user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
+user_pref("gfx.webrender.software", false);
 user_pref("gfx.work-around-driver-bugs", false);
 user_pref("image.avif.enabled", true);
 user_pref("intl.accept_languages", "en-us,en,ru,uk,de"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization

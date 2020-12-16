@@ -142,7 +142,7 @@ function son {
 ## END SWAP
 
 ## ARCHIVES
-function extract () {
+extract () {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)        tar xjf $1        ;;
@@ -176,7 +176,7 @@ zipin () {
 }
 ## END ARCHIVES
 
-function file_replace() {
+file_replace() {
   for file in $(find . -type f -name "$1*"); do
     mv $file $(echo "$file" | sed "s/$1/$2/");
   done
@@ -272,17 +272,8 @@ function plugin_init() {
           OMZP::sbt
 
   zinit lucid light-mode for \
-        OMZP::shrink-path \
-        load'[[ $PWD = */inf* ]]' unload'[[ $PWD != */inf* ]]'  \
-        has'kubectl' \
-          OMZP::kube-ps1 \
-        load'[[ $PWD = */terraform* ]]' unload'[[ $PWD != */terraform* ]]' \
-        has'terraform' \
-          OMZP::terraform \
-        load'[[ $PWD = */helm* ]]' unload'[[ $PWD != */helm* ]]' \
-        has'helm' \
-          OMZP::helm
-
+        OMZP::shrink-path
+ 
   compinit
 }
 
@@ -313,6 +304,7 @@ if command_exists pacman ; then
     alias upgy='yay -Syua'
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
+    alias yaqi='yay -Sii'
   fi
   if command_exists powerpill ; then
     alias upg="$SUDO powerpill -Syu"
@@ -631,11 +623,7 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  kps=""
-  if typeset -f kube_ps1 > /dev/null; then
-    kps=$(kube_ps1)
-  fi
-  echo "$kps %(?.%F{yellow}.%F{red}[%?])"
+  echo "%(?.%F{yellow}.%F{red}[%?])"
   echo "╰─➤%f"
 }
 
