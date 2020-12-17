@@ -273,7 +273,12 @@ function plugin_init() {
 
   zinit lucid light-mode for \
         OMZP::shrink-path
- 
+
+  zinit lucid load for \
+        has'poetry' \
+        load'[[ $(ls) = *pyproject.toml* ]]' \
+          darvid/zsh-poetry
+
   compinit
 }
 
