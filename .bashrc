@@ -671,7 +671,8 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  PS1="${BLUE}╭─\A${NORMAL}${PYTHON_VIRTUALENV} ${USERCOLOR}\u${NORMAL} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
+  [[ $SSH_CONNECTION ]] && local uath='${WHITE}@\h${NORMAL}'
+  PS1="${BLUE}╭─\A${NORMAL}${PYTHON_VIRTUALENV} ${USERCOLOR}\u${NORMAL}${uath} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.

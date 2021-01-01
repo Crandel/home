@@ -642,7 +642,8 @@ function fish_pwd() {
 
 # Set the prompt.
 function set_zsh_prompt () {
-  PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
+  [[ $SSH_CONNECTION ]] && local uath='%F{white}@%M%f'
+  PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f${uath} %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
 }
 
 # end=`date +%s.%N`
