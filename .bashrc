@@ -532,7 +532,7 @@ clean_pyc (){
 ### Determine active Python virtualenv details.
 function set_virtualenv () {
   if [ ! -z "$VIRTUAL_ENV" ] ; then
-    echo " %F{yellow}[`basename \"$VIRTUAL_ENV\"`]"
+    PYTHON_VIRTUALENV=" %YELLOW[`basename \"$VIRTUAL_ENV\"`]%NORMAL"
   fi
 }
 ## END PYTHON
