@@ -196,16 +196,31 @@ user_pref("font.name.serif.x-western", "Droid Serif");
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
-user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
-user_pref("general.smoothScroll.lines.durationMaxMS", 100);
-user_pref("general.smoothScroll.lines.durationMinMS", 100);
-user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 400);
-user_pref("general.smoothScroll.mouseWheel.durationMinMS", 200);
+user_pref("general.smoothScroll.currentVelocityWeighting", "0");
+user_pref("general.smoothScroll.durationToIntervalRatio", 2000);
+user_pref("general.smoothScroll.lines.durationMaxMS", 150);
+user_pref("general.smoothScroll.lines.durationMinMS", 0);
+user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
+user_pref("general.smoothScroll.mouseWheel.durationMinMS", 0);
+user_pref("general.smoothScroll.mouseWheel.migrationPercent", 0);
+user_pref("general.smoothScroll.msdPhysics.continuousMotionMaxDeltaMS", 250);
 user_pref("general.smoothScroll.msdPhysics.enabled", true);
+user_pref("general.smoothScroll.msdPhysics.motionBeginSpringConstant", 450);
+user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 450);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 50);
+user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio;0", 4);
+user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
 user_pref("general.smoothScroll.other", false);
 user_pref("general.smoothScroll.pixels", false);
-user_pref("general.smoothScroll.scrollbars.durationMaxMS", 100);
-user_pref("general.smoothScroll.scrollbars.durationMinMS", 100);
+user_pref("general.smoothScroll.other.durationMaxMS", 150);
+user_pref("general.smoothScroll.other.durationMinMS", 0);
+user_pref("general.smoothScroll.pages.durationMaxMS", 150);
+user_pref("general.smoothScroll.pages.durationMinMS", 0);
+user_pref("general.smoothScroll.pixels.durationMaxMS", 150);
+user_pref("general.smoothScroll.pixels.durationMinMS", 0);
+user_pref("general.smoothScroll.scrollbars.durationMaxMS", 600);
+user_pref("general.smoothScroll.scrollbars.durationMinMS", 0);
+user_pref("general.smoothScroll.stopDecelerationWeighting", "0.2");
 user_pref("general.warnOnAboutConfig", false); // XUL/XHTML version
 user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
 user_pref("geo.wifi.uri", "");
@@ -228,6 +243,7 @@ user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
 user_pref("layers.acceleration.force-enabled", false);
 user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
+user_pref("layers.async-pan-zoom.enabled", true);
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
 //user_pref("layout.css.devPixelsPerPx", 1.25);
@@ -256,7 +272,14 @@ user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", 
 user_pref("media.webspeech.recognition.enable", false); // PREF: Disable speech recognition
 user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synthesis
 user_pref("middlemouse.paste", true);
+user_pref("mousewheel.acceleration.factor", 10);
+user_pref("mousewheel.acceleration.start", 0);
+user_pref("mousewheel.default.delta_multiplier_x", 100);
+user_pref("mousewheel.default.delta_multiplier_y", 100);
+user_pref("mousewheel.default.delta_multiplier_z", 100);
 user_pref("mousewheel.min_line_scroll_amount", 36);
+user_pref("mousewheel.system_scroll_override_on_root_content.enabled", false);
+user_pref("mousewheel.transaction.timeout", 2000);
 user_pref("network.IDN_show_punycode", true); // Not rendering IDNs as their Punycode equivalent leaves you open to phishing attacks
 user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // check if network is public wifi
@@ -332,6 +355,8 @@ user_pref("svg.context-properties.content.enabled", true); // apply theme color 
 user_pref("toolkit.cosmeticAnimations.enabled", false);
 user_pref("toolkit.identity.enabled", false);
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true); // Turn on userChrome.css and userContent.css support
+user_pref("toolkit.scrollbox.horizontalScrollDistance", 6);
+user_pref("toolkit.scrollbox.verticalScrollDistance", 6);
 user_pref("toolkit.telemetry.archive.enabled", true);
 user_pref("toolkit.telemetry.bhrPing.enabled", true);
 user_pref("toolkit.telemetry.coverage.opt-out", true);
