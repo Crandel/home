@@ -8,6 +8,7 @@ user_pref("app.update.checkInstallTime", false);
 user_pref("apz.allow_double_tap_zooming", false);
 user_pref("apz.allow_zooming", false);
 user_pref("apz.android.chrome_fling_physics.enabled", false);
+user_pref("apz.frame_delay.enabled", false);
 user_pref("apz.gtk.kinetic_scroll.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version [FF71+]
@@ -197,7 +198,7 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
 user_pref("general.smoothScroll.currentVelocityWeighting", "0");
-user_pref("general.smoothScroll.durationToIntervalRatio", 2000);
+user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
 user_pref("general.smoothScroll.lines.durationMaxMS", 150);
 user_pref("general.smoothScroll.lines.durationMinMS", 0);
 user_pref("general.smoothScroll.mouseWheel.durationMaxMS", 150);
@@ -210,8 +211,8 @@ user_pref("general.smoothScroll.msdPhysics.regularSpringConstant", 450);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 50);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio;0", 4);
 user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
-user_pref("general.smoothScroll.other", false);
-user_pref("general.smoothScroll.pixels", false);
+user_pref("general.smoothScroll.other", true);
+user_pref("general.smoothScroll.pixels", true);
 user_pref("general.smoothScroll.other.durationMaxMS", 150);
 user_pref("general.smoothScroll.other.durationMinMS", 0);
 user_pref("general.smoothScroll.pages.durationMaxMS", 150);
@@ -273,7 +274,7 @@ user_pref("media.webspeech.recognition.enable", false); // PREF: Disable speech 
 user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synthesis
 user_pref("middlemouse.paste", true);
 user_pref("mousewheel.acceleration.factor", 10);
-user_pref("mousewheel.acceleration.start", 0);
+user_pref("mousewheel.acceleration.start", -1);
 user_pref("mousewheel.default.delta_multiplier_x", 100);
 user_pref("mousewheel.default.delta_multiplier_y", 100);
 user_pref("mousewheel.default.delta_multiplier_z", 100);
