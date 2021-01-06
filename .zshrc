@@ -417,8 +417,10 @@ fi
 
 ## MEDIA TOOLS
 if command_exists youtube-dl ; then
-  alias ytb='youtube-dl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-  alias ytm='youtube-dl -f bestaudio -x'
+  alias ytdl='youtube-dl'
+  alias ytb='ytdl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+  alias ytm='ytdl -f bestaudio -x'
+  alias ytlf='ytdl --list-formats'
 fi
 
 if command_exists aria2c ; then

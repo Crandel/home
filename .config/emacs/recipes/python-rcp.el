@@ -60,9 +60,15 @@
   )
 
 (when (executable-find "pyright")
+  (use-package lsp-sonarlint
+    :ensure t
+    :custom
+    (lsp-sonarlint-python-enabled t))
+
   (use-package lsp-pyright
     :ensure t
     :defer t
+    :after lsp-sonarlint
     :hook
     (python-mode . (lambda ()
                            (require 'lsp-pyright)
