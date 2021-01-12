@@ -289,7 +289,9 @@ user_pref("network.cookie.thirdparty.sessionOnly", true);
 user_pref("network.dns.disableIPv6", true);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
+user_pref("network.dns.echconfig.enabled", true);
 user_pref("network.dns.skipTRR-when-parental-control-enabled", false);
+user_pref("network.dns.use_https_rr_as_altsvc", true);
 user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/conference/woot19/presentation/tiwari
 user_pref("network.http.altsvc.oe", false);
 user_pref("network.http.http3.enabled", true);
