@@ -20,10 +20,11 @@
   (helm-autoresize-min-height            10)
   (helm-recentf-fuzzy-match              t)
   :bind
-  ("M-x" . helm-M-x)
+  ("M-x"   . helm-M-x)
   ("C-x x" . execute-extended-command)
-  ("M-y" . helm-show-kill-ring)
+  ("M-y"   . helm-show-kill-ring)
   ("C-c m" . helm-all-mark-rings)
+  ("C-s"   . helm-occur)
   (:map helm-map
         ("C-v" . yank)
         ("<right>" . helm-next-source)

@@ -194,14 +194,6 @@
   (imenu-use-popup-menu   nil)
 )
 
-(use-package isearch
-  :defer t
-  :custom
-  (search-highlight          t "Highlight search results")
-  (query-replace-highlight   t)
-  (auto-window-vscroll       nil)
-)
-
 (use-package ispell
   :defer t
   :config
@@ -302,8 +294,8 @@
   (save-interprogram-paste-before-kill t)
   (select-enable-clipboard             t)
   (selection-coding-system             'utf-8)
-  (wl-copy-process                     nil)
   :init
+  (setq wl-copy-process nil)
   (when (string-prefix-p "wayland" (getenv "WAYLAND_DISPLAY"))
     (defun wl-copy (text)
       (setq wl-copy-process (make-process :name "wl-copy"
