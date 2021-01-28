@@ -337,7 +337,7 @@ user_pref("privacy.userContext.ui.enabled", true);
 user_pref("privacy.webrtc.hideGlobalIndicator", true);
 user_pref("privacy.webrtc.legacyGlobalIndicator", false);
 user_pref("reader.color_scheme", "dark");
-user_pref("reader.content_width", 9);
+user_pref("reader.content_width", 12);
 user_pref("reader.font_type", "sans-serif");
 user_pref("reader.parse-on-load.enabled", true);
 user_pref("reader.parse-on-load.force-enabled", true);
