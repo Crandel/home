@@ -12,7 +12,7 @@
   ("\\.gotmpl\\'" . web-mode)
   ("\\.gtpl\\'"   . web-mode)
   ("\\.vue\\'"    . web-mode)
-  ("\\german_lang/index.html\\'" . html-mode)
+  ("\\german_lang/index.html\\'" . mhtml-mode)
   :custom
   (web-mode-engines-alist '(
                             ("django" . "\\.html\\'")

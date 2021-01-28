@@ -75,6 +75,8 @@
   (scroll-margin             10)
   (scroll-step               1 "Scrolling settings")
   (size-indication-mode      t)
+  (skeleton-end-newline      nil)
+  (skeleton-end-hook         nil)
   (split-height-threshold    nil "Minimum height for splitting windows vertically.")
   (split-width-threshold     0   "Minimum height for splitting windows horizontally.")
   (standart-indent           2)
