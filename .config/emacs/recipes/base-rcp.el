@@ -242,6 +242,12 @@
   (ispell-silently-savep      t)
 )
 
+(use-package make-mode
+  :bind (
+  (:map makefile-mode-map
+        ("M-n" . nil)))
+)
+
 (use-package mule
   :demand t
   :config

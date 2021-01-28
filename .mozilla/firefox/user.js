@@ -129,6 +129,7 @@ user_pref("browser.urlbar.clickSelectsAll", true);
 user_pref("browser.urlbar.decodeURLsOnCopy", true);
 user_pref("browser.urlbar.maxRichResults", 15);
 user_pref("browser.urlbar.megabar", true); // Enable megabar
+user_pref("browser.urlbar.richSuggestions.tail", false);
 user_pref("browser.urlbar.speculativeConnect.enabled", false); // PREF: Disable preloading of autocomplete URLs
 user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.history", true);
@@ -212,11 +213,11 @@ user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaMS", 50);
 user_pref("general.smoothScroll.msdPhysics.slowdownMinDeltaRatio;0", 4);
 user_pref("general.smoothScroll.msdPhysics.slowdownSpringConstant", 5000);
 user_pref("general.smoothScroll.other", true);
-user_pref("general.smoothScroll.pixels", true);
 user_pref("general.smoothScroll.other.durationMaxMS", 150);
 user_pref("general.smoothScroll.other.durationMinMS", 0);
 user_pref("general.smoothScroll.pages.durationMaxMS", 150);
 user_pref("general.smoothScroll.pages.durationMinMS", 0);
+user_pref("general.smoothScroll.pixels", true);
 user_pref("general.smoothScroll.pixels.durationMaxMS", 150);
 user_pref("general.smoothScroll.pixels.durationMinMS", 0);
 user_pref("general.smoothScroll.scrollbars.durationMaxMS", 600);
@@ -303,7 +304,6 @@ user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.prefetch-next", false); // After the browser is finished loading the page, it begins silently prefetching specified documents and stores them in its cache
 user_pref("network.proxy.socks_remote_dns", false);
-user_pref("network.security.esni.enabled", true);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
 user_pref("network.trr.bootstrapAddress", "176.103.130.130");
@@ -375,6 +375,7 @@ user_pref("ui.prefersReducedMotion", 1); // Disable animation
 user_pref("ui.systemUsesDarkTheme", 1);
 user_pref("view_source.editor.external", true); // enable view source using external text editor
 user_pref("view_source.editor.path", "$HOME/.local/bin/editor-run");
+user_pref("webextensions.storage.sync.kinto", false);
 user_pref("webgl.enable-debug-renderer-info", false);
 user_pref("webgl.force-enabled", false);
 user_pref("webgl.msaa-force", false);
