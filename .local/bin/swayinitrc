@@ -10,9 +10,12 @@ export GTK_THEME=gruvbox-dark-gtk
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1
 export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_TYPE=wayland
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 export LP_NUM_THREADS=1
+
+systemctl --user import-environment
 
 exec sway #-d 2>> ~/.local/log/sway.log

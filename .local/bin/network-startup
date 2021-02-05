@@ -35,11 +35,17 @@ fi
 if command_exists wire-desktop ; then
   sleep 0.5
   echo "run wire-desktop"
-  GDK_BACKEND=x11 wire-desktop &
+  wire-ozone &
 fi
 
-if command_exists slack ; then
-  sleep 0.5
-  echo "run slack"
-  GDK_BACKEND=x11 slack &
-fi
+# if command_exists signal-desktop ; then
+#   sleep 0.5
+#   echo "run signal-desktop"
+#   GDK_BACKEND=x11 signal-desktop &
+# fi
+
+# if command_exists slack ; then
+#   sleep 0.5
+#   echo "run slack"
+#   GDK_BACKEND=x11 slack &
+# fi
