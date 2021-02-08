@@ -266,6 +266,8 @@ function plugin_init() {
           OMZP::git \
         has'kubectl' \
           OMZP::kubectl \
+        has'minikube' \
+          OMZP::minikube \
         has'pip' \
           OMZP::pip \
         has'sbt' \

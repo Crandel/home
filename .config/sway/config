@@ -66,15 +66,20 @@ workspace 2 output $o_center
 # workspace 4 output $o_left
 
 # assings
-assign [class="Viber"] 2
-assign [class="Wire"] 2
+assign [instance="viber"] 2
+assign [instance="wire"] 2
+assign [app_id="Wire"] 2
+assign [instance="signal"] 2
+assign [instance="slack"] 2
+assign [app_id="discord"] 4
+assign [class="discord"] 4
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 
 # terminal
 for_window [app_id="tilix"] move scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
-
+for_window [class="discord"] move workspace 4
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
@@ -255,7 +260,7 @@ bindsym --to-code {
   XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # increase sound volume
   XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% # decrease sound volume
   XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
-
+  Control+F8 exec --no-startup-id pactl set-source-mute @DEFAULT_SINK@ toggle # mute sound
   # Sreen brightness controls
   XF86MonBrightnessUp exec light -A 20 # increase screen brightness
   XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
