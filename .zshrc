@@ -96,6 +96,8 @@ alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --qu
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias -g G='|grep'
 alias -g L='|less'
+alias check_adb='adb devices -l'
+
 export PAGER='less -SRXF'
 export PERS_DIR='/data/work'
 
