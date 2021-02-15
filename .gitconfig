@@ -4,6 +4,7 @@
 [core]
     autocrlf = false
     safecrlf = true
+    excludesFile = ~/.gitignore
 [color]
     ui = true
 [color "branch"]
