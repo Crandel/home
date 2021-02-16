@@ -43,7 +43,7 @@ warning = 15.0
 
 [[block]]
 block = "cpu"
-format = "{barchart} {utilization}% {frequency}GHz"
+format = "{barchart} {utilization} {frequency}"
 interval = 10
 
 [[block]]
@@ -101,6 +101,9 @@ block = "keyboard_layout"
 driver = "sway"
 format = "{layout}"
 sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
+[block.mappings]
+"English (US)" = "EN"
+"Ukrainian" = "UKR"
 
 [[block]]
 block = "bluetooth"
