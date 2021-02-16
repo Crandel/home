@@ -103,7 +103,7 @@ format = "{layout}"
 sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 [block.mappings]
 "English (US)" = "EN"
-"Ukrainian" = "UKR"
+"Ukrainian (N/A)" = "UK"
 
 [[block]]
 block = "bluetooth"
