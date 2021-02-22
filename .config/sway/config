@@ -71,6 +71,7 @@ assign [instance="wire"] 2
 assign [app_id="Wire"] 2
 assign [instance="signal"] 2
 assign [instance="slack"] 2
+assign [app_id="telegramdesktop"] 2
 assign [app_id="discord"] 4
 assign [class="discord"] 4
 assign [app_id="evolution"] 2
