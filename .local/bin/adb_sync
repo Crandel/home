@@ -28,7 +28,6 @@ do
   log_fol=/tmp/adb/$FolderStr
   mkdir -p $log_fol
   adb-sync --reverse \
-           --delete \
            --times \
            "/sdcard/$FolderStr/" \
            /data/backup/android/realme_x2_pro/$FolderStr \

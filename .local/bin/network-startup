@@ -29,7 +29,8 @@ fi
 if command_exists discord ; then
   sleep 0.5
   echo "run discord"
-  GDK_BACKEND=x11 discord &
+  # GDK_BACKEND=x11 discord &
+  discord-ozone &
 fi
 
 if command_exists wire-desktop ; then
@@ -38,6 +39,11 @@ if command_exists wire-desktop ; then
   wire-ozone &
 fi
 
+if command_exists telegram-desktop ; then
+  sleep 0.5
+  echo "run telegram-desktop"
+  telegram-desktop &
+fi
 # if command_exists signal-desktop ; then
 #   sleep 0.5
 #   echo "run signal-desktop"
