@@ -15,28 +15,16 @@ while [ $connection == 0 ] ; do
   sleep 0.5
 done
 
-
 if command_exists quiterss ; then
+  sleep 0.5
   echo "run quiterss"
   quiterss &
 fi
 
 if command_exists evolution ; then
+  sleep 0.5
   echo "run evolution"
   evolution &
-fi
-
-if command_exists discord ; then
-  sleep 0.5
-  echo "run discord"
-  # GDK_BACKEND=x11 discord &
-  discord-ozone &
-fi
-
-if command_exists wire-desktop ; then
-  sleep 0.5
-  echo "run wire-desktop"
-  wire-ozone &
 fi
 
 if command_exists telegram-desktop ; then
@@ -44,6 +32,14 @@ if command_exists telegram-desktop ; then
   echo "run telegram-desktop"
   telegram-desktop &
 fi
+
+#if command_exists discord ; then
+#  sleep 0.5
+#  echo "run discord"
+#  # GDK_BACKEND=x11 discord &
+#  discord-ozone &
+#fi
+
 # if command_exists signal-desktop ; then
 #   sleep 0.5
 #   echo "run signal-desktop"

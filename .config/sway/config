@@ -76,6 +76,7 @@ assign [app_id="discord"] 4
 assign [class="discord"] 4
 assign [app_id="evolution"] 2
 assign [app_id="quiterss"] 3
+assign [app_id="liferea"] 3
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 
 # terminal

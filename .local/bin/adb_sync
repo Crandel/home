@@ -27,6 +27,7 @@ do
   echo "Download from /sdcard/$FolderStr"
   log_fol=/tmp/adb/$FolderStr
   mkdir -p $log_fol
+  # --delete \
   adb-sync --reverse \
            --times \
            "/sdcard/$FolderStr/" \
