@@ -652,6 +652,8 @@ function set_zsh_prompt () {
   PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f${uath} %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
 }
 
+systemctl --user import-environment
+
 # end=`date +%s.%N`
 # printf "%.2f" $((end-start))
 # Tell zsh to execute this function just before displaying its prompt.

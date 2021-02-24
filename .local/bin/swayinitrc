@@ -16,6 +16,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export LP_NUM_THREADS=1
 
-systemctl --user import-environment
-
 exec sway #-d 2>> ~/.local/log/sway.log

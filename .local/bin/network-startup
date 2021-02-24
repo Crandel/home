@@ -15,10 +15,10 @@ while [ $connection == 0 ] ; do
   sleep 0.5
 done
 
-if command_exists quiterss ; then
+if command_exists rssguard ; then
   sleep 0.5
-  echo "run quiterss"
-  quiterss &
+  echo "run rssguard"
+  rssguard &
 fi
 
 if command_exists evolution ; then
