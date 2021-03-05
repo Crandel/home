@@ -383,7 +383,8 @@ if command_exists docker ; then
     docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
   }
   export d_exec;
-  export DOCKER_HOST_IP=$(ip a show docker0 | grep inet | awk '{split($2, a, "/"); print a[1]}')
+  d_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
+  export DOCKER_HOST_IP=$d_ip
 fi
 
 ### KUBERNETES
