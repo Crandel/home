@@ -1,3 +1,4 @@
+//user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("accessibility.force_disabled", true);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
@@ -135,6 +136,7 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
+user_pref("browser.urlbar.update2.oneOffsRefresh", false); // PREF: Disable tab to complete.
 user_pref("browser.zoom.siteSpecific", false);
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
 user_pref("captivedetect.canonicalURL", "");
@@ -156,7 +158,7 @@ user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
 user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent USB device enumeration
 user_pref("dom.gamepad.extensions.enabled", false);
-user_pref("dom.image-lazy-loading.enabled", true);
+user_pref("dom.image-lazy-loading.enabled", false);
 user_pref("dom.ipc.processCount", 8);
 user_pref("dom.maxHardwareConcurrency", 8); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
@@ -248,7 +250,6 @@ user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.async-pan-zoom.enabled", true);
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-//user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.frame_rate", 144);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes

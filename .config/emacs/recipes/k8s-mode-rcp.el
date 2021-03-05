@@ -6,6 +6,7 @@
   :mode (
          ".config.yaml"
          "Chart.yaml"
+         "_helpers.tpl"
          "configmap.yaml"
          "deployment.yaml"
          "\\*kubernetes pod\\*"

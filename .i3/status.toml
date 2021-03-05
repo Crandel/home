@@ -6,12 +6,12 @@ backlight_full = "🌕"
 backlight_partial1 = "🌒"
 backlight_partial3 = "🌔"
 bat_charging = "  "
-bat_discharging = " "
+bat_discharging = "  "
 bat_empty = " "
-bat_full = " "
-bat_half = " "
-bat_quarter = " "
-bat_three_quarters = " "
+bat_full = "  "
+bat_half = "  "
+bat_quarter = "  "
+bat_three_quarters = "  "
 cpu = ""
 disk_drive = " "
 memory_mem = " "
@@ -32,17 +32,18 @@ interval = 60
 [[block]]
 block = "disk_space"
 alert = 10.0
+alert_absolute = true
 alias = "/"
-format = "{icon}{alias}{available}{unit}"
-info_type = "available"
+format = "{icon}{alias}{free}{unit}"
+info_type = "free"
 interval = 300
 path = "/"
-unit = "GiB"
+unit = "GB"
 warning = 15.0
 
 [[block]]
 block = "cpu"
-format = "{utilization}% {frequency}GHz"
+format = "{barchart} {utilization} {frequency}"
 interval = 10
 
 [[block]]
@@ -70,7 +71,7 @@ format = "{percentage}% {time}"
 
 [[block]]
 block = "sound"
-driver = "pulseaudio"
+driver = "auto"
 show_volume_when_muted = true
 
 [[block]]
@@ -99,6 +100,7 @@ use_bits = false
 
 [[block]]
 block = "keyboard_layout"
+format = "{layout}"
 driver = "kbddbus"
 
 # [[block]]

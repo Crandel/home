@@ -495,6 +495,7 @@ fi
 
 if command_exists qt5ct ; then
   export QT_QPA_PLATFORMTHEME="qt5ct"
+  export QT_PLATFORM_PLUGIN="qt5ct"
 fi
 
 if command_exists clipmenud ; then
