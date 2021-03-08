@@ -14,7 +14,8 @@ $pacman -S awesome-terminal-fonts \
            ttf-liberation \
            ttf-ubuntu-font-family
 
-$yay -S gruvbox-dark-gtk \
+$yay -S ant-dracula-kvantum-theme-git \
+        gruvbox-dark-gtk \
         gruvbox-dark-icons-gtk \
         gruvbox-icon-theme \
         nerd-fonts-complete-mono-glyphs \
