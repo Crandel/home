@@ -18,6 +18,7 @@
   (lsp-keymap-prefix                  "C-l")
   (lsp-prefer-capf                    t)
   (lsp-signature-auto-activate        nil)
+  (lsp-yaml-schemas                   '((~/\.taskfile_v3\.json . ["/.Taskfile*ml"])))
   (read-process-output-max            (* 1024 1024)) ;; 1mb
   :hook ((rust-mode . (lambda()
                             (setq lsp-rust-server 'rust-analyzer

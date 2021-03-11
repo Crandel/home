@@ -61,7 +61,7 @@
 
 ;; delete line
 (defun my-delete-line ()
-  "Delete text from current position to end of line char."
+  "Delete text from begin to end of line char."
   (interactive)
   (kill-region
    (move-beginning-of-line 1)
