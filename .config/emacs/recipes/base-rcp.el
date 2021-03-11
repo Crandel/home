@@ -52,6 +52,8 @@
             (kbd ,(string from))
             (kbd ,(string to)))))
   (defalias 'yes-or-no-p     'y-or-n-p)
+  (with-current-buffer "*scratch*"
+    (emacs-lock-mode 'kill))
   :custom
   (ad-redefinition-action    'accept)
   (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
@@ -108,7 +110,6 @@
   ("C-c C-w" . copy-word)
   ("C-d" . my-delete-line)
   ("C-o" . open-next-line)
-  ;; ("<tab>" . tab-indent-or-complete)
   ("C-x C-x" . my-kill-emacs-with-save)
   ("C-c o" . open-previous-line)
   ("<backspace>" . backward-delete-char-untabify)
