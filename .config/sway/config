@@ -328,7 +328,7 @@ exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf 
 exec $term
 exec swaykbdd
 exec network-startup
-exec swayidle -w \
+exec swayidle \
          timeout 60 'swaymsg "output * dpms off"' \
-         timeout 300 'sleep.sh' \
-              resume 'swaymsg "output * dpms on"'
+              resume 'swaymsg "output * dpms on"' \
+         timeout 300 'sleep.sh'
