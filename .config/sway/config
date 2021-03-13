@@ -330,5 +330,4 @@ exec swaykbdd
 exec network-startup
 exec swayidle \
          timeout 60 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         timeout 300 'sleep.sh'
+              resume 'swaymsg "output * dpms on"'
