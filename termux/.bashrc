@@ -482,7 +482,7 @@ function set_bash_prompt () {
   fi
 
   # Set the bash prompt variable.
-  [[ $SSH_CONNECTION ]] && local uath='${WHITE}@\h${NORMAL}'
+  [[ $SSH_CONNECTION ]] && local uath="${YELLOW}@\h${NORMAL}"
   PS1="${BLUE}╭─\A${NORMAL} ${USERCOLOR}\u${NORMAL}${uath} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
