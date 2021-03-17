@@ -326,7 +326,7 @@ user_pref("privacy.resistFingerprinting", true);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // Add dialog for canvas API
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.letterboxing", false);
-user_pref("privacy.resistFingerprinting.target_video_res", 760);
+user_pref("privacy.resistFingerprinting.target_video_res", 1080);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);
