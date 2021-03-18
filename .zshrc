@@ -139,7 +139,7 @@ function soff {
 }
 
 function son {
-  eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
+  eval "$SUDO swapon /swapfile"
 }
 ## END SWAP
 
@@ -457,6 +457,9 @@ fi
 if command_exists vifm ; then
   alias vf="vifm"
   alias svf="$SUDO vifm"
+  if [ -n "$INSIDE_VIFM" ]; then
+    INSIDE_VIFM="[V]"
+  fi
 fi
 
 if command_exists nnn ; then
@@ -638,7 +641,7 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  echo "%(?.%F{yellow}.%F{red}[%?])"
+  echo "%(?.%F{yellow}.%F{red}[%?])$INSIDE_VIFM"
   echo "╰─➤%f"
 }
 

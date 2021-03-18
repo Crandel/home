@@ -372,6 +372,9 @@ fi
 if command_exists vifm ; then
   alias vf="vifm"
   alias svf="$SUDO vifm"
+  if [ -n "$INSIDE_VIFM" ]; then
+    INSIDE_VIFM="[V]"
+  fi
 fi
 
 if command_exists nnn ; then
@@ -644,7 +647,7 @@ function set_prompt_symbol () {
   if test $1 -eq 0 ; then
     P_SYMBOL="${BLUE}\n╰─➤${NORMAL} "
   else
-    P_SYMBOL="${LIGHT_RED}[$1]\n╰─➤${NORMAL} "
+    P_SYMBOL="${LIGHT_RED}[$1]$INSIDE_VIFM\n╰─➤${NORMAL} "
   fi
 }
 
