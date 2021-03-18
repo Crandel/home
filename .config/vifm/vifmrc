@@ -150,6 +150,7 @@ command! reload :write | restart
 command! ln ln -s %f:p %D
 " ------------------------------------------------------------------------------
 
+let $INSIDE_VIFM = 'true'
 " The file type is for the default programs to be used with
 " a file extension.
 " :filetype pattern1,pattern2 defaultprogram,program2
