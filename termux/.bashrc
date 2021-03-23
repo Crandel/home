@@ -64,6 +64,11 @@ con_jpg_pdf (){
   convert *.jpg $@.pdf
 }
 
+mkcd() {
+  folder=$@
+  mkdir -p $folder
+  cd $folder
+}
 install_from_file(){
   local file=$1
   cat $file | xargs pkg install

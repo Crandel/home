@@ -214,6 +214,12 @@ hdmi_sound_off (){
 return_root (){
   xhost si:localuser:root
 }
+
+mkcd() {
+  folder=$@
+  mkdir -p $folder
+  cd $folder
+}
 # END CUSTOM FUNCTIONS
 
 # IMPORT ADDITIONAL FILES
