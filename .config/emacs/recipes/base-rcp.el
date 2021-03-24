@@ -302,7 +302,7 @@
   (select-enable-clipboard             t)
   (selection-coding-system             'utf-8)
   :init
-  (setq wl-copy-process nil)
+  (setq-default wl-copy-process nil)
   (when (string-prefix-p "wayland" (getenv "WAYLAND_DISPLAY"))
     (defun wl-copy (text)
       (setq wl-copy-process (make-process :name "wl-copy"

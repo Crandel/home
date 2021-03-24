@@ -14,11 +14,11 @@
     (company-echo-delay                0)
     (company-show-numbers              t)
     (company-dabbrev-code-everywhere   t)
-    (company-dabbrev-code-ignore-case  t)
+    (company-dabbrev-code-ignore-case  nil)
     (company-selection-wrap-around     t)
     (company-tooltip-align-annotations t)
     (selection-coding-system           'utf-8)
-    (company-auto-complete-chars       '(32 40 41 119 46 34 36 47 124 33))
+    (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
     (company-backends '((company-capf
                          company-yasnippet
                          company-semantic

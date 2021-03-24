@@ -51,14 +51,6 @@
     )
   )
 
-(when (executable-find "virtualenvwrapper.sh")
-  (use-package auto-virtualenvwrapper
-    :ensure t
-    :defer t
-    :hook
-    (python-mode . auto-virtualenvwrapper-activate))
-  )
-
 (when (executable-find "pyright")
   (use-package lsp-pyright
     :ensure t
