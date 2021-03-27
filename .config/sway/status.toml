@@ -1,10 +1,6 @@
 [icons]
 name = "awesome5"
 [icons.overrides]
-backlight_empty = "🌑"
-backlight_full = "🌕"
-backlight_partial1 = "🌒"
-backlight_partial3 = "🌔"
 bat_charging = ""
 bat_discharging = ""
 bat_empty = ""
@@ -82,7 +78,7 @@ invert_icons = true
 block = "net"
 device = "enp0"
 format = "{speed_down;M}"
-format_alt = "{ssid}{speed_up;K}{speed_down;K}"
+format_alt = "{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
@@ -91,7 +87,7 @@ interval = 5
 block = "net"
 device = "wlan0"
 format = "{signal_strength}{speed_down;M}"
-format_alt = "{ssid}{speed_up;K}{speed_down;K}"
+format_alt = "{ssid}{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
