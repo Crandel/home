@@ -49,7 +49,6 @@
 (require 'company-rcp)
 (require 'dired-subtree-rcp)
 ;; (require 'editorconfig-rcp)
-(require 'emacs-dashboard-rcp)
 (require 'emmet-mode-rcp)
 (require 'expand-region-rcp)
 (require 'evil-rcp)
