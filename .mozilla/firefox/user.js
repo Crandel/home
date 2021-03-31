@@ -22,7 +22,7 @@ user_pref("browser.ctrlTab.previews", true);
 user_pref("browser.discovery.enabled", false); // "Allow Firefox to make personalized extension recommendations"
 user_pref("browser.display.background_color", "#2e2e31");
 user_pref("browser.display.foreground_color", "#f9f9fa");
-user_pref("browser.display.use_document_fonts", 0);
+user_pref("browser.display.use_document_fonts", 1);
 user_pref("browser.download.autohideButton", false);
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
@@ -264,11 +264,12 @@ user_pref("media.av1.enabled", true);
 user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.ffvpx.enabled", false);
-user_pref("media.rdd-vpx.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.gpu-process-decoder", true);
 user_pref("media.navigator.enabled", false); // Websites can track the microphone and camera status of your device.
 user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your internal IP when WebRTC is enabled (Firefox >= 42)
+user_pref("media.rdd-process.enabled", false);
+user_pref("media.rdd-vpx.enabled", false);
 user_pref("media.videocontrols.picture-in-picture.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
