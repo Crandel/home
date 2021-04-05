@@ -376,7 +376,7 @@ if command_exists docker ; then
   alias dc='docker-compose'
   compdef dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
-  alias run='docker-compose stop && docker-compose run --service-ports'
+  alias drun='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
   alias dvrm='d volume rm $(d volume ls -q)'
@@ -664,8 +664,6 @@ function set_zsh_prompt () {
   [[ $SSH_CONNECTION ]] && local uath='%F{white}@%M%f'
   PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f${uath} %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
 }
-
-systemctl --user import-environment
 
 # end=`date +%s.%N`
 # printf "%.2f" $((end-start))

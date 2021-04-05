@@ -12,7 +12,7 @@ else
     echo "Swaylock with -s $SWAYSOCK beginning " >> /tmp/swaylock.log
     swaymsg -s $SWAYSOCK input type:keyboard xkb_switch_layout 0 >> /tmp/swaylock.log
     echo "exit code of swaymsg: $?" >> /tmp/swaylock.log
-    swaylock -f -c 000000 -F -e -k -l --font Hack --font-size 22
+    swaylock -c 000000 -F -e -k -l --font Hack --font-size 22
     echo "Succesfully block screen using swaylock" >> /tmp/swaylock.log
     echo "swaylock was closed" >> /tmp/swaylock.log
   fi
