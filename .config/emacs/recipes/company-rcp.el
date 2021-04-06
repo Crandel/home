@@ -18,6 +18,7 @@
     (company-selection-wrap-around     t)
     (company-tooltip-align-annotations t)
     (selection-coding-system           'utf-8)
+    (company-format-margin-function    #'company-text-icons-margin)
     (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
     (company-backends '((company-capf
                          company-yasnippet
@@ -27,11 +28,6 @@
                          company-keywords
                          company-dabbrev-code
                          company-dabbrev))))
-
-(use-package company-box
-  :ensure t
-  :hook (company-mode . company-box-mode)
-)
 
 (use-package company-flx
   :ensure t
