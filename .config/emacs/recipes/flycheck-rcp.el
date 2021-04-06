@@ -24,6 +24,7 @@
   (c-mode                . flycheck-mode)
   (c++-mode              . flycheck-mode)
   (rust-mode             . flycheck-mode)
+  :bind ("C-c n" . flycheck-next-error)
 )
 
 (provide 'flycheck-rcp)

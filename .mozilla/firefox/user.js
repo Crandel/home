@@ -199,6 +199,7 @@ user_pref("font.name.serif.x-western", "Droid Serif");
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
+user_pref("full-screen-api.ignore-widgets", true);
 user_pref("general.smoothScroll.currentVelocityWeighting", "0");
 user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
 user_pref("general.smoothScroll.lines.durationMaxMS", 150);
