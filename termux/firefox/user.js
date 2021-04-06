@@ -1,3 +1,4 @@
+//user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("accessibility.force_disabled", true);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
@@ -162,7 +163,7 @@ user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
-user_pref("dom.security.https_only_mode", false);  // Force to open https
+user_pref("dom.security.https_only_mode", true);  // Force to open https
 user_pref("dom.security.https_only_mode.upgrade_local", false);  // ignore localhost
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
@@ -248,7 +249,6 @@ user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
 user_pref("layers.async-pan-zoom.enabled", true);
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-// user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.frame_rate", 90);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
@@ -267,6 +267,8 @@ user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-c
 user_pref("media.gpu-process-decoder", true);
 user_pref("media.navigator.enabled", false); // Websites can track the microphone and camera status of your device.
 user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your internal IP when WebRTC is enabled (Firefox >= 42)
+// user_pref("media.rdd-process.enabled", false);
+// user_pref("media.rdd-vpx.enabled", false);
 // user_pref("media.videocontrols.picture-in-picture.enabled", true);
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
 // user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
@@ -321,11 +323,11 @@ user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
 user_pref("privacy.donottrackheader.enabled", true);
 user_pref("privacy.firstparty.isolate", false); // for jira
-user_pref("privacy.resistFingerprinting", true);
+user_pref("privacy.resistFingerprinting", false);
 user_pref("privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts", false); // Add dialog for canvas API
 user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // enable webextensions on mozilla websites
 user_pref("privacy.resistFingerprinting.letterboxing", false);
-user_pref("privacy.resistFingerprinting.target_video_res", 760);
+user_pref("privacy.resistFingerprinting.target_video_res", 1080);
 user_pref("privacy.trackingprotection.cryptomining.enabled", true);
 user_pref("privacy.trackingprotection.enabled", true);
 user_pref("privacy.trackingprotection.fingerprinting.enabled", true);

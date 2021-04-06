@@ -12,69 +12,6 @@ HISTTIMEFORMAT="%F %T "
 
 # END HISTORY
 
-# CUSTOM FUNCTIONS
-function command_exists () {
-  command -v "$1"  > /dev/null 2>&1;
-}
-
-# CUSTOM FUNCTIONS
-## ARCHIVES
-function extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)        tar xjf $1        ;;
-      *.tar.gz)         tar xzf $1        ;;
-      *.bz2)            bunzip2 $1        ;;
-      *.rar)            unrar x $1        ;;
-      *.gz)             gunzip $1         ;;
-      *.tar)            tar xf $1         ;;
-      *.tbz2)           tar xjf $1        ;;
-      *.tgz)            tar xzf $1        ;;
-      *.zip)            unzip $1          ;;
-      *.Z)              uncompress $1     ;;
-      *.7z)             7zr e $1          ;;
-      *)                echo "'$1' cannot be extracted via extract()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-zipin () {
-  for f in $(ls -A);
-    do
-    if [ -f "$f" ]; then
-      case $f in
-        *.zip)       echo "$f already zipped"  ;;
-        *)           zip -9 $f.zip $f && rm $f ;;
-      esac
-    fi;
-  done
-}
-## END ARCHIVES
-
-function file_replace() {
-  for file in $(find . -type f -name "$1*"); do
-    mv $file $(echo "$file" | sed "s/$1/$2/");
-  done
-}
-
-# convert jpg files to single pdf
-con_jpg_pdf (){
-  convert *.jpg $@.pdf
-}
-
-mkcd() {
-  folder=$@
-  mkdir -p $folder
-  cd $folder
-}
-install_from_file(){
-  local file=$1
-  cat $file | xargs pkg install
-}
-# END CUSTOM FUNCTIONS
-
 # NAVIGATION
 # \e[A arrow up
 # \e[B arrow down
@@ -149,13 +86,132 @@ if test -t 1; then
 fi
 
 # ALIASES
+alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+export PAGER='less -SRXF'
+
 alias arch='uname -m'
 alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
-alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-export PAGER='less -SRXF'
 
+
+# CUSTOM FUNCTIONS
+command_exists () {
+  command -v "$1"  > /dev/null 2>&1;
+}
+
+# SUDO
+SUDO=''
+if [[ $EUID -ne 0 ]] && command_exists sudo ; then
+  complete -cf sudo
+  SUDO='sudo'
+fi
+# END SUDO
+## ARCHIVES
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+zipin () {
+  for f in $(ls -A);
+    do
+    if [ -f "$f" ]; then
+      case $f in
+        *.zip)       echo "$f already zipped"  ;;
+        *)           zip -9 $f.zip $f && rm $f ;;
+      esac
+    fi;
+  done
+}
+## END ARCHIVES
+
+file_replace() {
+  for file in $(find . -type f -name "$1*"); do
+    mv $file $(echo "$file" | sed "s/$1/$2/");
+  done
+}
+
+# convert jpg files to single pdf
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
+
+## X11 VS WAYLAND
+disable_x11 (){
+  systemctl --user disable clipmenud.service
+  systemctl --user disable kbdd.service
+  systemctl --user disable dunst.service
+}
+
+enable_x11 (){
+  systemctl --user enable clipmenud.service
+  systemctl --user enable kbdd.service
+  systemctl --user enable dunst.service
+}
+## END X11 VS WAYLAND
+
+## TOGGLE HDMI SOUND
+hdmi_sound_on (){
+  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
+}
+hdmi_sound_off (){
+  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
+}
+
+return_root (){
+  xhost si:localuser:root
+}
+
+mkcd() {
+  folder=$@
+  mkdir -p $folder
+  cd $folder
+}
+# END CUSTOM FUNCTIONS
+
+# IMPORT ADDITIONAL FILES
+## CUSTOM ALIASES AND EXPORTS
+if [ -f ~/.aliases.bash ]; then
+  . ~/.aliases.bash
+fi
+
+# USER SPECIFIC BINARIES
+LOCAL_BIN=$HOME/.local/bin
+if [ -d $LOCAL_BIN ]; then
+  export PATH=$PATH:$LOCAL_BIN
+fi
+
+if [ -f /etc/profile.d/vte.sh ]; then
+  . /etc/profile.d/vte.sh
+fi
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+# END IMPORT
 
 # PACKAGE MANAGERS
 if command_exists pacman ; then
@@ -175,6 +231,7 @@ if command_exists pacman ; then
     alias upgy='yay -Syua'
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
+    alias yaqi='yay -Sii'
   fi
   if command_exists powerpill ; then
     alias upg="powerpill -Syu"
@@ -215,8 +272,10 @@ fi
 # SYSTEM TOOLS
 ## MEDIA TOOLS
 if command_exists youtube-dl ; then
-  alias ytb='youtube-dl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-  alias ytm='youtube-dl -f bestaudio -x'
+  alias ytdl='youtube-dl'
+  alias ytb='ytdl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+  alias ytm='ytdl -f bestaudio -x'
+  alias ytlf='ytdl --list-formats'
 fi
 
 if command_exists aria2c ; then
@@ -261,11 +320,6 @@ if command_exists nnn ; then
 fi
 ## END FILE MANAGERS
 
-if command_exists bat ; then
-  alias ct='bat'
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-fi
-
 if command_exists git ; then
   alias g='git'
   alias pla='g pull'
@@ -280,6 +334,43 @@ fi
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
+
+if command_exists bat ; then
+  alias ct='bat'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
+if ! command_exists tldr ; then
+  echo "install tealdeer"
+fi
+
+if ! command_exists rg ; then
+  echo "install ripgrep"
+fi
+
+if command_exists fzf
+then
+  gdelbr() {
+    git branch |
+      rg --invert-match '\*' |
+      cut -c 3- |
+      fzf --multi --preview="git log {} --" |
+      xargs --no-run-if-empty git branch --delete --force
+  }
+else
+  echo "install fzf"
+fi
+
+if command_exists zoxide; then
+  eval "$(zoxide init --no-aliases zsh)"
+  alias j='__zoxide_z' # cd to highest ranked directory matching path
+  alias ja='__zoxide_za' # add path to the database
+  alias ji='__zoxide_zi' # cd with interactive selection using fzf
+  alias jr='__zoxide_zr' # remove path from the database
+else
+  echo "Please install zoxide"
+fi
+
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES
@@ -313,7 +404,6 @@ fi
 ## END SCALA
 
 ## RUST
-
 if command_exists cargo ; then
   if [ ! -d $HOME/.cargo/bin ]; then
     mkdir -p $HOME/.cargo/bin
@@ -323,26 +413,11 @@ if command_exists cargo ; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  if ! command_exists rg ; then
-    cargo install ripgrep
-  fi
 fi
 
 if [ -d /usr/src/rust ]; then
   export RUST_SRC_PATH=/usr/src/rust/src
 fi
-
-if command_exists zoxide; then
-  eval "$(zoxide init --no-aliases bash)"
-  alias j='__zoxide_z' # cd to highest ranked directory matching path
-  alias ja='__zoxide_za' # add path to the database
-  alias ji='__zoxide_zi' # cd with interactive selection using fzf
-  alias jr='__zoxide_zr' # remove path from the database
-else
-  echo "Please install zoxide"
-fi
-
-
 ## END RUST
 
 ## PYTHON
@@ -359,33 +434,6 @@ clean_pyc (){
 }
 ## END PYTHON
 # END PROGRAMM LANGUAGES
-
-# IMPORT ADDITIONAL FILES
-## CUSTOM ALIASES AND EXPORTS
-if [ -f ~/.aliases.bash ]; then
-  . ~/.aliases.bash
-fi
-
-## USER SPECIFIC BINARIES
-LOCAL_BIN=$HOME/.local/bin
-if [ -d $LOCAL_BIN ]; then
-  export PATH=$PATH:$LOCAL_BIN
-fi
-
-if [ -f /etc/profile.d/vte.sh ]; then
-  . /etc/profile.d/vte.sh
-fi
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-# END IMPORT
 
 # PROMPT
 function parse_git_branch(){

@@ -12,128 +12,6 @@ HISTTIMEFORMAT="%F %T "
 
 # END HISTORY
 
-# CUSTOM FUNCTIONS
-function command_exists () {
-  command -v "$1"  > /dev/null 2>&1;
-}
-
-project_folders="$PERS_DIR/projects"
-function prj () {
-  cd $project_folders
-  if [ ! -z $1 ]; then
-    cd $1
-  fi
-}
-_prj()
-{
-  local cur=${COMP_WORDS[COMP_CWORD]}
-  COMPREPLY=( $(compgen -W "$(ls $project_folders)" -- $cur) )
-}
-complete -F _prj prj
-
-backup_dir="$PERS_DIR/backup"
-function backup () {
-  cd $backup_dir
-  if [ ! -z $1 ]; then
-    cd $1
-  fi
-}
-_backup()
-{
-  local cur=${COMP_WORDS[COMP_CWORD]}
-  COMPREPLY=( $(compgen -W "$(ls $backup_dir)" -- $cur) )
-}
-complete -F _backup backup
-
-## SWAP
-function soff {
-  eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
-}
-
-function son {
-  eval "$SUDO swapon $(swapon --noheadings --show=NAME)" #/dev/mapper/xubuntu--vg-swap_1
-}
-## END SWAP
-
-## ARCHIVES
-function extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)        tar xjf $1        ;;
-      *.tar.gz)         tar xzf $1        ;;
-      *.bz2)            bunzip2 $1        ;;
-      *.rar)            unrar x $1        ;;
-      *.gz)             gunzip $1         ;;
-      *.tar)            tar xf $1         ;;
-      *.tbz2)           tar xjf $1        ;;
-      *.tgz)            tar xzf $1        ;;
-      *.zip)            unzip $1          ;;
-      *.Z)              uncompress $1     ;;
-      *.7z)             7zr e $1          ;;
-      *)                echo "'$1' cannot be extracted via extract()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
-zipin () {
-  for f in $(ls -A);
-    do
-    if [ -f "$f" ]; then
-      case $f in
-        *.zip)       echo "$f already zipped"  ;;
-        *)           zip -9 $f.zip $f && rm $f ;;
-      esac
-    fi;
-  done
-}
-## END ARCHIVES
-
-function file_replace() {
-  for file in $(find . -type f -name "$1*"); do
-    mv $file $(echo "$file" | sed "s/$1/$2/");
-  done
-}
-
-# convert jpg files to single pdf
-con_jpg_pdf (){
-  convert *.jpg $@.pdf
-}
-
-## X11 VS WAYLAND
-disable_x11 (){
-  systemctl --user disable clipmenud.service
-  systemctl --user disable kbdd.service
-  systemctl --user disable dunst.service
-}
-
-enable_x11 (){
-  systemctl --user enable clipmenud.service
-  systemctl --user enable kbdd.service
-  systemctl --user enable dunst.service
-}
-## END X11 VS WAYLAND
-
-## TOGGLE HDMI SOUND
-hdmi_sound_on (){
-  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
-}
-hdmi_sound_off (){
-  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
-}
-
-return_root (){
-  xhost si:localuser:root
-}
-
-mkcd() {
-  folder=$@
-  mkdir -p $folder
-  cd $folder
-}
-# END CUSTOM FUNCTIONS
-
 # NAVIGATION
 # \e[A arrow up
 # \e[B arrow down
@@ -208,14 +86,22 @@ if test -t 1; then
 fi
 
 # ALIASES
+export PERS_DIR='/data/work'
+alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+export PAGER='less -SRXF'
+
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
-export PERS_DIR='/data/work'
 alias home_pr='cd $PERS_DIR/home'
-alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-export PAGER='less -SRXF'
+alias check_adb='adb devices -l'
+
+
+# CUSTOM FUNCTIONS
+command_exists () {
+  command -v "$1"  > /dev/null 2>&1;
+}
 
 # SUDO
 SUDO=''
@@ -224,6 +110,157 @@ if [[ $EUID -ne 0 ]] && command_exists sudo ; then
   SUDO='sudo'
 fi
 # END SUDO
+
+# COMPLETIONS
+if command_exists jira
+then
+  eval "$(jira --completion-script-bash)"
+fi
+# END COMPLETIONS
+
+project_folders="$PERS_DIR/projects"
+prj () {
+  cd $project_folders
+  if [ ! -z $1 ]; then
+    cd $1
+  fi
+}
+_prj()
+{
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$(ls $project_folders)" -- $cur) )
+}
+complete -F _prj prj
+
+backup_dir="$PERS_DIR/backup"
+backup () {
+  cd $backup_dir
+  if [ ! -z $1 ]; then
+    cd $1
+  fi
+}
+_backup()
+{
+  local cur=${COMP_WORDS[COMP_CWORD]}
+  COMPREPLY=( $(compgen -W "$(ls $backup_dir)" -- $cur) )
+}
+complete -F _backup backup
+
+## SWAP
+soff () {
+  eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
+}
+
+son () {
+  eval "$SUDO swapon /swapfile"
+}
+## END SWAP
+
+## ARCHIVES
+extract () {
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)        tar xjf $1        ;;
+      *.tar.gz)         tar xzf $1        ;;
+      *.bz2)            bunzip2 $1        ;;
+      *.rar)            unrar x $1        ;;
+      *.gz)             gunzip $1         ;;
+      *.tar)            tar xf $1         ;;
+      *.tbz2)           tar xjf $1        ;;
+      *.tgz)            tar xzf $1        ;;
+      *.zip)            unzip $1          ;;
+      *.Z)              uncompress $1     ;;
+      *.7z)             7zr e $1          ;;
+      *)                echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+zipin () {
+  for f in $(ls -A);
+    do
+    if [ -f "$f" ]; then
+      case $f in
+        *.zip)       echo "$f already zipped"  ;;
+        *)           zip -9 $f.zip $f && rm $f ;;
+      esac
+    fi;
+  done
+}
+## END ARCHIVES
+
+file_replace() {
+  for file in $(find . -type f -name "$1*"); do
+    mv $file $(echo "$file" | sed "s/$1/$2/");
+  done
+}
+
+# convert jpg files to single pdf
+con_jpg_pdf (){
+  convert *.jpg $@.pdf
+}
+
+## X11 VS WAYLAND
+disable_x11 (){
+  systemctl --user disable clipmenud.service
+  systemctl --user disable kbdd.service
+  systemctl --user disable dunst.service
+}
+
+enable_x11 (){
+  systemctl --user enable clipmenud.service
+  systemctl --user enable kbdd.service
+  systemctl --user enable dunst.service
+}
+## END X11 VS WAYLAND
+
+## TOGGLE HDMI SOUND
+hdmi_sound_on (){
+  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:hdmi-stereo+input:analog-stereo
+}
+hdmi_sound_off (){
+  pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
+}
+
+return_root (){
+  xhost si:localuser:root
+}
+
+mkcd() {
+  folder=$@
+  mkdir -p $folder
+  cd $folder
+}
+# END CUSTOM FUNCTIONS
+
+# IMPORT ADDITIONAL FILES
+## CUSTOM ALIASES AND EXPORTS
+if [ -f ~/.aliases.bash ]; then
+  . ~/.aliases.bash
+fi
+
+# USER SPECIFIC BINARIES
+LOCAL_BIN=$HOME/.local/bin
+if [ -d $LOCAL_BIN ]; then
+  export PATH=$PATH:$LOCAL_BIN
+fi
+
+if [ -f /etc/profile.d/vte.sh ]; then
+  . /etc/profile.d/vte.sh
+fi
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+# END IMPORT
 
 # PACKAGE MANAGERS
 if command_exists pacman ; then
@@ -244,6 +281,7 @@ if command_exists pacman ; then
     alias upgy='yay -Syua'
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
+    alias yaqi='yay -Sii'
   fi
   if command_exists powerpill ; then
     alias upg="$SUDO powerpill -Syu"
@@ -298,7 +336,7 @@ if command_exists docker ; then
   alias d='docker'
   alias dc='docker-compose'
   alias dl='docker-compose logs --tail 15'
-  alias run='docker-compose stop && docker-compose run --service-ports'
+  alias drun='docker-compose stop && docker-compose run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
   alias dvrm='d volume rm $(d volume ls -q)'
@@ -311,6 +349,8 @@ if command_exists docker ; then
     docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
   }
   export d_exec;
+  d_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
+  export DOCKER_HOST_IP=$d_ip
 fi
 
 ### KUBERNETES
@@ -347,8 +387,10 @@ fi
 
 ## MEDIA TOOLS
 if command_exists youtube-dl ; then
-  alias ytb='youtube-dl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-  alias ytm='youtube-dl -f bestaudio -x'
+  alias ytdl='youtube-dl'
+  alias ytb='ytdl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+  alias ytm='ytdl -f bestaudio -x'
+  alias ytlf='ytdl --list-formats'
 fi
 
 if command_exists aria2c ; then
@@ -393,11 +435,6 @@ if command_exists nnn ; then
 fi
 ## END FILE MANAGERS
 
-if command_exists bat ; then
-  alias ct='bat'
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-fi
-
 if command_exists systemctl ; then
   alias ssystemctl="$SUDO systemctl"
 fi
@@ -417,12 +454,9 @@ if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
 
-if command_exists jira ; then
-  eval "$(jira --completion-script-bash)"
-fi
-
 if command_exists qt5ct ; then
   export QT_QPA_PLATFORMTHEME="qt5ct"
+  export QT_PLATFORM_PLUGIN="qt5ct"
 fi
 
 if command_exists clipmenud ; then
@@ -432,6 +466,42 @@ fi
 
 if command_exists bemenu ; then
   export BEMENU_OPTS='-I 0 -i -m 0 --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
+fi
+
+if command_exists bat ; then
+  alias ct='bat'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
+if ! command_exists tldr ; then
+  echo "install tealdeer"
+fi
+
+if ! command_exists rg ; then
+  echo "install ripgrep"
+fi
+
+if command_exists fzf
+then
+  gdelbr() {
+    git branch |
+      rg --invert-match '\*' |
+      cut -c 3- |
+      fzf --multi --preview="git log {} --" |
+      xargs --no-run-if-empty git branch --delete --force
+  }
+else
+  echo "install fzf"
+fi
+
+if command_exists zoxide; then
+  eval "$(zoxide init --no-aliases zsh)"
+  alias j='__zoxide_z' # cd to highest ranked directory matching path
+  alias ja='__zoxide_za' # add path to the database
+  alias ji='__zoxide_zi' # cd with interactive selection using fzf
+  alias jr='__zoxide_zr' # remove path from the database
+else
+  echo "Please install zoxide"
 fi
 
 if command_exists reflector ; then
@@ -447,13 +517,6 @@ if command_exists go ; then
   export PATH=$PATH:$GOPATH/bin
   if [ -d $GOPATH/goprojects ]; then
     export GOPATH=$GOPATH:$GOPATH/goprojects
-  fi
-
-  if ! command_exists fzf ; then
-    go get -u github.com/junegunn/fzf
-    if [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.bash ]; then
-      . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.bash
-    fi
   fi
 fi
 ## END GO
@@ -480,18 +543,7 @@ if command_exists scala ; then
 fi
 ## END SCALA
 
-## PROLOG
-if command_exists swipl ; then
-  swi_path=/usr/lib/swipl
-  if [ -d $swi_path ]; then
-    export SWI_HOME_DIR=$swi_path
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SWI_HOME_DIR/lib/x86_64-linux
-  fi
-fi
-## END PROLOG
-
 ## RUST
-
 if command_exists cargo ; then
   if [ ! -d $HOME/.cargo/bin ]; then
     mkdir -p $HOME/.cargo/bin
@@ -501,29 +553,11 @@ if command_exists cargo ; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  if ! command_exists tldr ; then
-    cargo install tealdeer
-  fi
-  if ! command_exists rg ; then
-    cargo install ripgrep
-  fi
 fi
 
 if [ -d /usr/src/rust ]; then
   export RUST_SRC_PATH=/usr/src/rust/src
 fi
-
-if command_exists zoxide; then
-  eval "$(zoxide init --no-aliases bash)"
-  alias j='__zoxide_z' # cd to highest ranked directory matching path
-  alias ja='__zoxide_za' # add path to the database
-  alias ji='__zoxide_zi' # cd with interactive selection using fzf
-  alias jr='__zoxide_zr' # remove path from the database
-else
-  echo "Please install zoxide"
-fi
-
-
 ## END RUST
 
 ## PYTHON
@@ -539,40 +573,13 @@ clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 ### Determine active Python virtualenv details.
-function set_virtualenv () {
+set_virtualenv () {
   if [ ! -z "$VIRTUAL_ENV" ] ; then
     PYTHON_VIRTUALENV=" %YELLOW[`basename \"$VIRTUAL_ENV\"`]%NORMAL"
   fi
 }
 ## END PYTHON
 # END PROGRAMM LANGUAGES
-
-# IMPORT ADDITIONAL FILES
-## CUSTOM ALIASES AND EXPORTS
-if [ -f ~/.aliases.bash ]; then
-  . ~/.aliases.bash
-fi
-
-## USER SPECIFIC BINARIES
-LOCAL_BIN=$HOME/.local/bin
-if [ -d $LOCAL_BIN ]; then
-  export PATH=$PATH:$LOCAL_BIN
-fi
-
-if [ -f /etc/profile.d/vte.sh ]; then
-  . /etc/profile.d/vte.sh
-fi
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-fi
-# END IMPORT
 
 # PROMPT
 function parse_git_branch(){

@@ -28,11 +28,6 @@ SAVEHIST=$HISTSIZE
 # Arch Linux command-not-found support, you must have package pkgfile installed
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# CUSTOM FUNCTIONS
-function command_exists () {
-  (( $+commands[$1] ))
-}
-
 # NAVIGATION
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -88,18 +83,24 @@ if test -t 1; then
 fi
 
 # ALIASES
+export PERS_DIR='/data/work'
+alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+export PAGER='less -SRXF'
+
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
 alias home_pr='cd $PERS_DIR/home'
-alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias -g G='|grep'
 alias -g L='|less'
 alias check_adb='adb devices -l'
 
-export PAGER='less -SRXF'
-export PERS_DIR='/data/work'
+
+# CUSTOM FUNCTIONS
+command_exists () {
+  (( $+commands[$1] ))
+}
 
 # SUDO
 SUDO=''
@@ -108,15 +109,15 @@ if [[ $EUID -ne 0 ]] && command_exists sudo ; then
 fi
 # END SUDO
 
-# Bash completions
+# COMPLETIONS
 if command_exists jira
 then
   eval "$(jira --completion-script-zsh)"
 fi
-# END Bash completions
+# END COMPLETIONS
 
 project_folders="$PERS_DIR/projects"
-function prj () {
+prj () {
   cd $project_folders
   if [ ! -z $1 ]; then
     cd $1
@@ -125,7 +126,7 @@ function prj () {
 compdef "_path_files -W $project_folders -/ && return 0 || return 1" prj
 
 backup_dir="$PERS_DIR/backup"
-function backup () {
+backup () {
   cd $backup_dir
   if [ ! -z $1 ]; then
     cd $1
@@ -134,11 +135,11 @@ function backup () {
 compdef "_path_files -W $backup_dir -/ && return 0 || return 1" backup
 
 ## SWAP
-function soff {
+soff () {
   eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
 }
 
-function son {
+son () {
   eval "$SUDO swapon /swapfile"
 }
 ## END SWAP
@@ -246,7 +247,7 @@ fi
 # END IMPORT
 
 # PLUGIN MANAGMENT
-function plugin_init() {
+plugin_init() {
   source $zinit_source
   autoload -Uz _zinit
   (( ${+_comps} )) && _comps[zinit]=_zinit
@@ -254,7 +255,6 @@ function plugin_init() {
   zinit wait lucid light-mode for \
           MichaelAquilina/zsh-autoswitch-virtualenv \
           OMZL::clipboard.zsh \
-          OMZP::colored-man-pages \
           djui/alias-tips \
           zsh-users/zsh-completions \
           zsh-users/zsh-history-substring-search \
@@ -478,11 +478,6 @@ if command_exists nnn ; then
 fi
 ## END FILE MANAGERS
 
-if command_exists bat ; then
-  alias ct='bat'
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-fi
-
 if command_exists systemctl ; then
   alias ssystemctl="$SUDO systemctl"
 fi
@@ -517,6 +512,41 @@ if command_exists bemenu ; then
   export BEMENU_OPTS='-I 0 -i -m 0 --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
 fi
 
+if command_exists bat ; then
+  alias ct='bat'
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
+if ! command_exists tldr ; then
+  echo "install tealdeer"
+fi
+
+if ! command_exists rg ; then
+  echo "install ripgrep"
+fi
+
+if command_exists fzf ; then
+  gdelbr() {
+    git branch |
+      rg --invert-match '\*' |
+      cut -c 3- |
+      fzf --multi --preview="git log {} --" |
+      xargs --no-run-if-empty git branch --delete --force
+  }
+else
+  echo "install fzf"
+fi
+
+if command_exists zoxide; then
+  eval "$(zoxide init --no-aliases zsh)"
+  alias j='__zoxide_z' # cd to highest ranked directory matching path
+  alias ja='__zoxide_za' # add path to the database
+  alias ji='__zoxide_zi' # cd with interactive selection using fzf
+  alias jr='__zoxide_zr' # remove path from the database
+else
+  echo "Please install zoxide"
+fi
+
 if command_exists reflector ; then
   alias gen_mirror='reflector --ipv4 -p https -f 10 --sort rate --save /tmp/mirror'
   alias gen_rsync='reflector --ipv4 -p rsync -f 10 --sort rate --save /tmp/powerpill'
@@ -530,13 +560,6 @@ if command_exists go ; then
   export PATH=$PATH:$GOPATH/bin
   if [ -d $GOPATH/goprojects ]; then
     export GOPATH=$GOPATH:$GOPATH/goprojects
-  fi
-
-  if ! command_exists fzf ; then
-    go get -u github.com/junegunn/fzf
-    if [ -f ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh ]; then
-      . ~/go/src/github.com/junegunn/fzf/shell/key-bindings.zsh
-    fi
   fi
 fi
 ## END GO
@@ -563,16 +586,6 @@ if command_exists scala ; then
 fi
 ## END SCALA
 
-## PROLOG
-if command_exists swipl ; then
-  swi_path=/usr/lib/swipl
-  if [ -d $swi_path ]; then
-    export SWI_HOME_DIR=$swi_path
-    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$SWI_HOME_DIR/lib/x86_64-linux
-  fi
-fi
-## END PROLOG
-
 ## RUST
 if command_exists cargo ; then
   if [ ! -d $HOME/.cargo/bin ]; then
@@ -583,26 +596,10 @@ if command_exists cargo ; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  if ! command_exists tldr ; then
-    cargo install tealdeer
-  fi
-  if ! command_exists rg ; then
-    cargo install ripgrep
-  fi
 fi
 
 if [ -d /usr/src/rust ]; then
   export RUST_SRC_PATH=/usr/src/rust/src
-fi
-
-if command_exists zoxide; then
-  eval "$(zoxide init --no-aliases zsh)"
-  alias j='__zoxide_z' # cd to highest ranked directory matching path
-  alias ja='__zoxide_za' # add path to the database
-  alias ji='__zoxide_zi' # cd with interactive selection using fzf
-  alias jr='__zoxide_zr' # remove path from the database
-else
-  echo "Please install zoxide"
 fi
 ## END RUST
 
@@ -619,7 +616,7 @@ clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 ### Determine active Python virtualenv details.
-function set_virtualenv () {
+set_virtualenv () {
   if [ ! -z "$VIRTUAL_ENV" ] ; then
     echo " %F{yellow}[`basename \"$VIRTUAL_ENV\"`]"
   fi
@@ -628,12 +625,12 @@ function set_virtualenv () {
 # END PROGRAMM LANGUAGES
 
 # PROMPT
-function parse_git_branch(){
+parse_git_branch(){
   git branch 2> /dev/null | sed -n 's/^\* //p'
 }
 
 ## Determine the branch/state information for this git repository.
-function set_git_branch() {
+set_git_branch() {
   # Get the final branch string.
   if command_exists git_status ; then
     branch="$(git_status zsh)"
@@ -646,12 +643,12 @@ function set_git_branch() {
   fi
 }
 
-function set_prompt_symbol () {
+set_prompt_symbol () {
   echo "%(?.%F{yellow}.%F{red}[%?])$INSIDE_VIFM"
   echo "╰─➤%f"
 }
 
-function fish_pwd() {
+fish_pwd() {
   if typeset -f shrink_path > /dev/null; then
     echo "$(shrink_path -f)"
   else
@@ -660,7 +657,7 @@ function fish_pwd() {
 }
 
 # Set the prompt.
-function set_zsh_prompt () {
+set_zsh_prompt () {
   [[ $SSH_CONNECTION ]] && local uath='%F{white}@%M%f'
   PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f${uath} %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
 }
