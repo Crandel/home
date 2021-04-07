@@ -348,9 +348,8 @@ if ! command_exists rg ; then
   echo "install ripgrep"
 fi
 
-if command_exists fzf
-then
-  gdelbr() {
+if command_exists fzf ; then
+  gdelbrf() {
     git branch |
       rg --invert-match '\*' |
       cut -c 3- |
@@ -359,6 +358,22 @@ then
   }
 else
   echo "install fzf"
+fi
+
+if command_exists sk ; then
+  alias fzf='sk'
+  if [[ -d /usr/share/skim/completion.bash ]]; then
+    source /usr/share/skim/completion.bash
+  fi
+  gdelbrs() {
+    git branch |
+      rg --invert-match '\*' |
+      cut -c 3- |
+      sk --multi --preview="git log {} --" |
+      xargs --no-run-if-empty git branch --delete --force
+  }
+else
+  echo "install sk"
 fi
 
 if command_exists zoxide; then

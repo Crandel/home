@@ -147,9 +147,10 @@ command! make !!make %a
 command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
-
+command! ln ln -s %f:p %D
 " ------------------------------------------------------------------------------
 
+let $INSIDE_VIFM = 'true'
 " The file type is for the default programs to be used with
 " a file extension.
 " :filetype pattern1,pattern2 defaultprogram,program2
@@ -341,7 +342,7 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 fileviewer *.png,*.jpeg,*.jpg
   \ identify %c
 
-fileviewer *.mp3 mp3info
+fileviewer *.mp3 mp3info %c
 fileviewer *.rar unrar v %c
 fileviewer *.tar tar -tf %c
 fileviewer *.tar.bz2,*.tbz2 tar -tjf %c
@@ -415,6 +416,7 @@ nnoremap <c-l> :rename<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
 
+nnoremap :Q :quit
 " ------------------------------------------------------------------------------
 
 " Various customization examples

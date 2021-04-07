@@ -526,7 +526,7 @@ if ! command_exists rg ; then
 fi
 
 if command_exists fzf ; then
-  gdelbr() {
+  gdelbrf() {
     git branch |
       rg --invert-match '\*' |
       cut -c 3- |
@@ -535,6 +535,22 @@ if command_exists fzf ; then
   }
 else
   echo "install fzf"
+fi
+
+if command_exists sk ; then
+  alias fzf='sk'
+  if [[ -d /usr/share/skim/completion.zsh ]]; then
+    source /usr/share/skim/completion.zsh
+  fi
+  gdelbrs() {
+    git branch |
+      rg --invert-match '\*' |
+      cut -c 3- |
+      sk --multi --preview="git log {} --" |
+      xargs --no-run-if-empty git branch --delete --force
+  }
+else
+  echo "install sk"
 fi
 
 if command_exists zoxide; then
@@ -596,6 +612,18 @@ if command_exists cargo ; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
+  if ! command_exists cargo-expand; then
+    cargo install cargo-expand
+  fi
+  if ! command_exists cargo-audit; then
+    cargo install cargo-audit
+  fi
+  if ! command_exists cargo-modules; then
+    cargo install cargo-modules
+  fi
+  if ! command_exists cargo-outdated; then
+    cargo install cargo-outdated
+  fi
 fi
 
 if [ -d /usr/src/rust ]; then
