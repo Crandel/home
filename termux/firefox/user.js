@@ -54,7 +54,6 @@ user_pref("browser.in-content.dark-mode", true); // Dark mode in content pages
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true); // [FF75+] disable media cache from writing to disk in Private Browsing
-user_pref("browser.privatebrowsing.searchUI", false);
 user_pref("browser.safebrowsing.allowOverride", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
@@ -151,7 +150,6 @@ user_pref("device.sensors.orientation.enabled", false);
 // user_pref("devtools.theme", "dark");
 // user_pref("devtools.toolbox.splitconsoleEnabled", false);
 // user_pref("devtools.webide.enabled", false); // [DEFAULT: false FF70+]
-user_pref("dom.enable_performance_observer", false);
 user_pref("dom.enable_resource_timing", false); // PREF: Disable resource timing API
 // user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
@@ -196,6 +194,7 @@ user_pref("font.internaluseonly.changed", true);
 //user_pref("font.name.sans-serif.x-western", "Fira Sans");
 //user_pref("font.name.serif.x-cyrillic", "Liberation Serif");
 //user_pref("font.name.serif.x-western", "Liberation Serif");
+//user_pref("full-screen-api.ignore-widgets", true);
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
@@ -260,7 +259,7 @@ user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
 user_pref("media.av1.enabled", true);
-user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
+user_pref("media.eme.enabled", false);
 // user_pref("media.ffmpeg.vaapi.enabled", true);
 // user_pref("media.ffvpx.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content

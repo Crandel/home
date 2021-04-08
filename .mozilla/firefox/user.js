@@ -316,6 +316,7 @@ user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
+user_pref("nglayout.initialpaint.delay", 0);
 user_pref("pdfjs.disabled", true);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
