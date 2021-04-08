@@ -618,9 +618,6 @@ if command_exists cargo ; then
   if ! command_exists cargo-audit; then
     cargo install cargo-audit
   fi
-  if ! command_exists cargo-modules; then
-    cargo install cargo-modules
-  fi
   if ! command_exists cargo-outdated; then
     cargo install cargo-outdated
   fi
