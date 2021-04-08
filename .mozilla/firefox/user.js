@@ -54,7 +54,6 @@ user_pref("browser.newtabpage.enhanced", true);
 user_pref("browser.ping-centre.telemetry", false);
 user_pref("browser.pocket.enabled", false); // PREF: Disable Pocket
 user_pref("browser.privatebrowsing.forceMediaMemoryCache", true); // [FF75+] disable media cache from writing to disk in Private Browsing
-user_pref("browser.privatebrowsing.searchUI", false);
 user_pref("browser.safebrowsing.allowOverride", false);
 user_pref("browser.safebrowsing.blockedURIs.enabled", false);
 user_pref("browser.safebrowsing.downloads.enabled", false);
@@ -151,7 +150,6 @@ user_pref("devtools.onboarding.telemetry.logged", true);
 user_pref("devtools.theme", "dark");
 user_pref("devtools.toolbox.splitconsoleEnabled", false);
 user_pref("devtools.webide.enabled", false); // [DEFAULT: false FF70+]
-user_pref("dom.enable_performance_observer", false);
 user_pref("dom.enable_resource_timing", false); // PREF: Disable resource timing API
 user_pref("dom.event.clipboardevents.enabled", true);
 user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
@@ -196,10 +194,10 @@ user_pref("font.name.sans-serif.x-cyrillic", "Droid Sans");
 user_pref("font.name.sans-serif.x-western", "Droid Sans");
 user_pref("font.name.serif.x-cyrillic", "Droid Serif");
 user_pref("font.name.serif.x-western", "Droid Serif");
+user_pref("full-screen-api.ignore-widgets", true);
 user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("full-screen-api.warning.timeout", 0);
-user_pref("full-screen-api.ignore-widgets", true);
 user_pref("general.smoothScroll.currentVelocityWeighting", "0");
 user_pref("general.smoothScroll.durationToIntervalRatio", 1000);
 user_pref("general.smoothScroll.lines.durationMaxMS", 150);
@@ -261,7 +259,7 @@ user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
 user_pref("media.av1.enabled", true);
-user_pref("media.eme.enabled", false); // Disables playback of DRM-controlled HTML5 content
+user_pref("media.eme.enabled", false);
 user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.ffvpx.enabled", false);
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
@@ -290,7 +288,7 @@ user_pref("network.allow-experiments", false);
 user_pref("network.captive-portal-service.enabled", false); // check if network is public wifi
 user_pref("network.cookie.prefsMigrated", true);
 user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.dns.disableIPv6", true);
+user_pref("network.dns.disableIPv6", false);
 user_pref("network.dns.disablePrefetch", true);
 user_pref("network.dns.disablePrefetchFromHTTPS", true);
 user_pref("network.dns.echconfig.enabled", true);
@@ -318,7 +316,6 @@ user_pref("network.trr.mode", 3);
 user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
-user_pref("nglayout.initialpaint.delay", 0);
 user_pref("pdfjs.disabled", true);
 user_pref("permissions.default.desktop-notification", 2);
 user_pref("permissions.default.geo", 2);
