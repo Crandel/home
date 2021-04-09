@@ -340,14 +340,6 @@ if command_exists bat ; then
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
-if ! command_exists tldr ; then
-  echo "install tealdeer"
-fi
-
-if ! command_exists rg ; then
-  echo "install ripgrep"
-fi
-
 if command_exists fzf ; then
   gdelbrf() {
     git branch |
@@ -356,8 +348,6 @@ if command_exists fzf ; then
       fzf --multi --preview="git log {} --" |
       xargs --no-run-if-empty git branch --delete --force
   }
-else
-  echo "install fzf"
 fi
 
 if command_exists sk ; then
@@ -372,8 +362,6 @@ if command_exists sk ; then
       sk --multi --preview="git log {} --" |
       xargs --no-run-if-empty git branch --delete --force
   }
-else
-  echo "install sk"
 fi
 
 if command_exists zoxide; then
@@ -382,8 +370,6 @@ if command_exists zoxide; then
   alias ja='__zoxide_za' # add path to the database
   alias ji='__zoxide_zi' # cd with interactive selection using fzf
   alias jr='__zoxide_zr' # remove path from the database
-else
-  echo "Please install zoxide"
 fi
 
 # END SYSTEM TOOLS
