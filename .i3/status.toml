@@ -1,23 +1,20 @@
 [icons]
 name = "awesome5"
 [icons.overrides]
-backlight_empty = "🌑"
-backlight_full = "🌕"
-backlight_partial1 = "🌒"
-backlight_partial3 = "🌔"
-bat_charging = "  "
-bat_discharging = "  "
-bat_empty = " "
-bat_full = "  "
-bat_half = "  "
-bat_quarter = "  "
-bat_three_quarters = "  "
+bat_charging = ""
+bat_discharging = ""
+bat_empty = ""
+bat_full = ""
+bat_half = ""
+bat_quarter = ""
+bat_three_quarters = ""
 cpu = ""
-disk_drive = " "
-memory_mem = " "
+disk_drive = ""
+memory_mem = ""
+net_up = "⇈"
 net_down = "⇊"
 time = "⏳"
-volume_muted = " "
+volume_muted = ""
 
 [theme]
 name = "gruvbox-dark"
@@ -28,14 +25,14 @@ separator = ""
 block = "custom"
 command = "gmail"
 interval = 60
+hide_when_empty = true
 
 [[block]]
 block = "disk_space"
 alert = 10.0
-alert_absolute = true
-alias = "/"
-format = "{icon}{alias}{free}{unit}"
-info_type = "free"
+alert_absolute = false
+format = "{icon} {path^1}{available;G}"
+info_type = "available"
 interval = 300
 path = "/"
 unit = "GB"
@@ -52,21 +49,19 @@ clickable = true
 critical_mem = 95
 critical_swap = 95
 display_type = "memory"
-format_mem = "{Mug}GB"
-format_swap = "{SUm}MB"
+format_mem = "{mem_used;G}"
+format_swap = "{swap_used_percents}"
 icons = true
 interval = 60
 warning_mem = 80
 warning_swap = 80
-critical_mem = 95
-critical_swap = 95
 
 [[block]]
 #device = "BAT1"
 device = "DisplayDevice"
 block = "battery"
 driver = "upower"
-format = "{percentage}% {time}"
+format = "{percentage:0} {time:0}"
 #interval = 60
 
 [[block]]
@@ -77,36 +72,37 @@ show_volume_when_muted = true
 [[block]]
 block = "backlight"
 step_width = 5
+invert_icons = true
 
 [[block]]
 block = "net"
 device = "enp0"
-format = "{speed_down}"
+format = "{speed_down;M}"
+format_alt = "{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
-speed_min_unit = "M"
-use_bits = false
 
 [[block]]
 block = "net"
 device = "wlan0"
-format = "{ssid}{speed_down}"
+format = "{signal_strength}{speed_down;M}"
+format_alt = "{ssid}{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
-speed_min_unit = "M"
-use_bits = false
 
 [[block]]
 block = "keyboard_layout"
 format = "{layout}"
 driver = "kbddbus"
 
-# [[block]]
-# block = "bluetooth"
-# mac = ""
-# label = "B"
+#[[block]]
+#block = "bluetooth"
+#mac = ""
+#format = "B{percentage}"
+#format_unavailable = "B[x]"
+#hide_disconnected = false
 
 [[block]]
 block = "time"
