@@ -20,7 +20,7 @@ for font in "${fonts[@]}"; do
   echo "Finish -------------------"
 done
 
-dlls=(d3dcompiler_47 d3dx10 d3dx11_43 d3dx9 d9vk dinput8 dmusic dotnet48 dxvk galliumnine msxml6 python27 vb6run vcrun2019)
+dlls=(d3dcompiler_47 d3dx10 d3dx11_43 d3dx9 d9vk dinput8 dmusic dotnet40 dxvk galliumnine msxml6 python27 vb6run ffdshow xvid)
 
 for dll in "${dlls[@]}"; do
   echo "Apply dll: $dll"
