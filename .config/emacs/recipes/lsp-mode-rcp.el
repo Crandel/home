@@ -4,6 +4,8 @@
 (use-package lsp-mode
   :ensure t
   :defer t
+  :init
+  (setq lsp-completion-provider           :none)
   :custom
   (lsp-enable-completion-at-point         t)
   (lsp-enable-imenu                       t)
@@ -19,6 +21,7 @@
   (lsp-imenu-container-name-separator     t)
   (lsp-imenu-show-container-name          t)
   (lsp-keymap-prefix                      "C-l")
+  (lsp-modeline-code-actions-segments     '(count icon name))
   (lsp-prefer-capf                        t)
   (lsp-signature-auto-activate            nil)
   (lsp-yaml-schema-store-local-db         "~/.config/emacs/.cache/lsp/lsp-yaml-schemas.json")
@@ -47,6 +50,7 @@
 (use-package lsp-ui
   :ensure t
   :defer t
+  :commands lsp-ui-mode
   :custom
   (lsp-ui-doc-delay                   2)
   (lsp-ui-doc-max-height              3)
@@ -61,6 +65,7 @@
 (use-package lsp-treemacs
   :ensure t
   :defer t
+  :commands lsp-treemacs-errors-list
   :after treemacs
   :hook
   (treemacs-mode . lsp-treemacs-sync-mode)

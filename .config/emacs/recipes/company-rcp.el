@@ -20,14 +20,18 @@
     (selection-coding-system           'utf-8)
     (company-format-margin-function    #'company-vscode-dark-icons-margin)
     (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
-    (company-backends '((company-capf
-                         company-yasnippet
+    (company-backends '(
+                         (
+                          company-capf
+                          :with company-yasnippet
+                          company-files
+                          company-dabbrev-code
+                          )
                          company-semantic
-                         company-files
                          company-etags
                          company-keywords
-                         company-dabbrev-code
-                         company-dabbrev))))
+                         company-dabbrev))
+)
 
 (use-package company-flx
   :ensure t
