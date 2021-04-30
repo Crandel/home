@@ -3,10 +3,18 @@
 	<title>Playlist</title>
 	<trackList>
 		<track>
+			<location>http://209.9.229.211:80/</location>
+			<title>Death Fm</title>
+			<extension application="http://www.videolan.org/vlc/playlist/0">
+				<vlc:id>0</vlc:id>
+				<vlc:option>network-caching=1000</vlc:option>
+			</extension>
+		</track>
+		<track>
 			<location>http://uk1.internet-radio.com:8294/live</location>
 			<title>Radio Bloodstream</title>
 			<extension application="http://www.videolan.org/vlc/playlist/0">
-				<vlc:id>0</vlc:id>
+				<vlc:id>14</vlc:id>
 				<vlc:option>network-caching=1000</vlc:option>
 			</extension>
 		</track>

@@ -1,5 +1,10 @@
+set newtab about:blank
+
 set storageloc sync
+
 set smoothscroll false
+
+set editorcmd ~/.local/bin/editor-run
 
 set searchengine duckduckgo
 

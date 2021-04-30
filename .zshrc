@@ -14,6 +14,7 @@ setopt AUTO_NAME_DIRS CORRECTALL MAGIC_EQUAL_SUBST
 bindkey -e
 unsetopt nomatch # escape string fixing zsh: no matches found error
 autoload -Uz compinit; compinit
+SPROMPT='Correct %B%F{red}%U%R%b%f%u to %F{green}%r%f? [%By%bes|%BN%bo|%Be%bdit|%Ba%bbort] '
 # END ZSH SPECIFIC
 
 # HISTORY

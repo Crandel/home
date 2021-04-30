@@ -36,7 +36,7 @@
     (use-package-enable-imenu-support t))
 )
 (add-to-list 'load-path (expand-file-name "recipes/" (file-name-directory load-file-name)))
-
+;; (debug-watch 'company-backends)
 (require 'functions_my)
 
 (require 'base-rcp) ; emacs default settings

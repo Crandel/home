@@ -86,6 +86,8 @@ filepos_max_saved_entries=1024
 
 safe_overwrite=false
 
+shadows=true
+
 [Layout]
 message_visible=true
 keybar_visible=true

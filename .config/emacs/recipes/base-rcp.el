@@ -199,7 +199,7 @@
   :defer t
   :config
   (add-to-list 'ispell-dicts-name2locale-equivs-alist
-               '("american" "en_DK"))
+               '("american" "en_US"))
   :custom
   (ispell-local-dictionary-alist
                '(("en_US"
@@ -218,12 +218,12 @@
                   ("-d" "de_DE"); Dictionary file name
                   nil
                   utf-8)
-                 ("ru_RU"
+                 ("hunspell-ru"
                   "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
                   "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
                   "[-']"
                   nil
-                  ("-d" "ru_RU")
+                  ("-d" "ru")
                   nil
                   utf-8)
                  ("uk_UA"
@@ -231,7 +231,7 @@
                   "[^АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
                   "[-']"
                   nil
-                  ("-d" "uk_UA")
+                  ("-d" "uk")
                   nil
                   utf-8)))
   (ispell-local-dictionary    "en_US")
