@@ -263,15 +263,15 @@
   (coding-system-for-read      'utf-8)
 )
 
-;; (use-package paren
-;;   :init
-;;   (show-paren-mode 2)
-;;   :custom-face
-;;   (show-paren-match ((t (:background "#1d2021" :foreground "#def" :weight extra-bold))))
-;;   :custom
-;;   (show-paren-delay 0.2)
-;;   (show-paren-style 'parenthesis)
-;; )
+(use-package paren
+  :init
+  (show-paren-mode 2)
+  :custom-face
+  (show-paren-match ((t (:background "#1d2021" :foreground "#def" :weight extra-bold))))
+  :custom
+  (show-paren-delay 0.2)
+  (show-paren-style 'parenthesis)
+)
 
 (use-package recentf
   :demand t

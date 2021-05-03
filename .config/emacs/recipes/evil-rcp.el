@@ -4,20 +4,20 @@
 (use-package evil
   :ensure t
   :demand t
-  :custom
-  (evil-normal-state-tag   (propertize " <N> " 'face '((:background "DarkGoldenrod2" :foreground "black"))))
-  (evil-emacs-state-tag    (propertize " <E> " 'face '((:background "SkyBlue2"       :foreground "black"))))
-  (evil-insert-state-tag   (propertize " <I> " 'face '((:background "chartreuse3"    :foreground "black"))))
-  (evil-replace-state-tag  (propertize " <R> " 'face '((:background "chocolate"      :foreground "black"))))
-  (evil-motion-state-tag   (propertize " <M> " 'face '((:background "plum3"          :foreground "black"))))
-  (evil-visual-state-tag   (propertize " <V> " 'face '((:background "gray"           :foreground "black"))))
-  (evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
-  (evil-undo-system        'undo-tree)
-  (evil-want-fine-undo     t)
-  :hook
-  (evil-local-mode-hook turn-on-undo-tree-mode)
+  :init
+  (setq evil-normal-state-tag   (propertize "<N>" 'face '((:background "DarkGoldenrod2" :foreground "black")))
+        evil-emacs-state-tag    (propertize "<E>" 'face '((:background "SkyBlue2"       :foreground "black")))
+        evil-insert-state-tag   (propertize "<I>" 'face '((:background "chartreuse3"    :foreground "black")))
+        evil-replace-state-tag  (propertize "<R>" 'face '((:background "chocolate"      :foreground "black")))
+        evil-motion-state-tag   (propertize "<M>" 'face '((:background "plum3"          :foreground "black")))
+        evil-visual-state-tag   (propertize "<V>" 'face '((:background "gray"           :foreground "black")))
+        evil-operator-state-tag (propertize "<O>" 'face '((:background "sandy brown"    :foreground "black")))
+        evil-undo-system        'undo-tree
+        evil-want-fine-undo     t)
   :config
   (evil-mode 1)
+  :hook
+  (evil-local-mode-hook turn-on-undo-tree-mode)
   :bind (("C-x e" . evil-mode)
          ("M-," . lsp-ui-peek-find-references)
          :map evil-normal-state-map
@@ -34,7 +34,7 @@
   :ensure t
   :after evil-mode
   :hook
-  (evil-local-mode-hook evil-mc-mode)
+  (evil-local-mode . evil-mc-mode)
   :bind (
          :map evil-mc-key-map
          ("C-p" . helm-multi-files)
@@ -52,9 +52,23 @@
 
 (use-package evil-surround
   :ensure t
-  :after evil-mode
-  :hook
-  (evil-local-mode-hook evil-surround-mode))
+  :custom
+  (evil-surround-pairs-alist
+   '((40 "(" . ")")
+     (91 "[" . "]")
+     (123 "{" . "}")
+     (41 "(" . ")")
+     (93 "[" . "]")
+     (125 "{" . "}")
+     (35 "#{" . "}")
+     (98 "(" . ")")
+     (66 "{" . "}")
+     (62 "<" . ">")
+     (116 . evil-surround-read-tag)
+     (60 . evil-surround-read-tag)
+     (102 . evil-surround-function)))
+  :config
+  (global-evil-surround-mode 1))
 
 (provide 'evil-rcp)
 ;;; Commentary:

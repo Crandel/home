@@ -29,11 +29,16 @@ x-scheme-handler/magnet=qBittorrent.desktop
 x-scheme-handler/mailto=org.gnome.Evolution.desktop
 message/rfc822=org.gnome.Evolution.desktop
 x-scheme-handler/viber=viber.desktop
+x-scheme-handler/webcal=firefox.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-I33DZ0.desktop
 
 [Removed Associations]
 application/pdf=libreoffice-draw.desktop
 application/ppdf=libreoffice-draw.desktop
-application/pdf=com.github.babluboy.bookworm.desktop
-application/ppdf=com.github.babluboy.bookworm.desktop
+application/pdf=chromium.desktop
+application/ppdf=chromium.desktop
 application/x-bittorrent=popkorntime.desktop
 x-scheme-handler/magnet=popkorntime.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-I33DZ0.desktop;
