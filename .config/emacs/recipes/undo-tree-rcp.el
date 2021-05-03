@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package undo-tree
   :ensure t
+  :demand t
   :config
   (global-undo-tree-mode t)
   :custom
