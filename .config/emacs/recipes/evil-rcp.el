@@ -2,6 +2,7 @@
 
 ;;; Code:
 (use-package evil
+  :after use-package-chords
   :ensure t
   :demand t
   :init
@@ -16,18 +17,22 @@
         evil-want-fine-undo     t)
   :config
   (evil-mode 1)
+  (evil-ex-define-cmd "Q[uit]" 'save-buffers-kill-terminal)
+  (evil-ex-define-cmd "k[ill]" 'kill-buffer)
   :hook
   (evil-local-mode-hook turn-on-undo-tree-mode)
   :bind (("C-x e" . evil-mode)
          ("M-," . lsp-ui-peek-find-references)
          :map evil-normal-state-map
          ("M-." . lsp-ui-peek-find-definitions)
-         ("q" . nil)
-         ("qq" . delete-other-windows)
          ("C-p" . helm-multi-files)
          :map evil-insert-state-map
          ("C-p" . helm-multi-files)
          )
+  :chords (
+           :map evil-insert-state-map
+            ("jj" . evil-normal-state)
+            ("qq" . delete-other-windows))
   )
 
 (use-package evil-mc
