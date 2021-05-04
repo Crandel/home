@@ -104,7 +104,8 @@ nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 " JSON PRETTIFY
 nnoremap <leader>jp :%!python -m json.tool<cr>
 
-
+nmap ] }
+nmap [ {
 noremap <space>s :ls<cr>
 nnoremap <space>/ :Grep<Space>
 
