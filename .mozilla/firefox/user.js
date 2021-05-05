@@ -259,15 +259,19 @@ user_pref("media.autoplay.block-event.enabled", true);
 user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
-user_pref("media.av1.enabled", true);
-user_pref("media.eme.enabled", false);
+user_pref("media.av1.enabled", false);
+user_pref("media.devices.insecure.enabled", true);
+user_pref("media.eme.enabled", false); // disable all DRM content (EME: Encryption Media Extension)
+user_pref("media.encoder.webm.enabled", true);
 user_pref("media.ffmpeg.vaapi.enabled", true);
 user_pref("media.ffvpx.enabled", false);
+user_pref("media.getdisplaymedia.enabled", true);
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.gpu-process-decoder", true);
-user_pref("media.navigator.enabled", false); // Websites can track the microphone and camera status of your device.
-user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your internal IP when WebRTC is enabled (Firefox >= 42)
-user_pref("media.rdd-process.enabled", false);
+user_pref("media.navigator.enabled", true); // websites can track the microphone and camera status of your device.
+user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
+user_pref("media.peerconnection.ice.no_host", false); // PREF: reveal your internal IP when WebRTC is enabled
+user_pref("media.rdd-process.enabled", true);
 user_pref("media.rdd-vpx.enabled", false);
 user_pref("media.videocontrols.picture-in-picture.enabled", true);
 user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
