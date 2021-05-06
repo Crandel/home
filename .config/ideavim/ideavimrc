@@ -11,5 +11,6 @@ set ReplaceWithRegister
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"
 
+map <leader> <Plug>(easymotion-prefix)
 imap jj <Esc>
 set timeoutlen=1000

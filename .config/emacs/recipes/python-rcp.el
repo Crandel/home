@@ -52,11 +52,11 @@
   )
 
 (when (executable-find "virtualenvwrapper.sh")
-  (use-package auto-virtualenvwrapper
+  (use-package pyvenv
     :ensure t
-    :defer t
     :hook
-    (python-mode . auto-virtualenvwrapper-activate))
+    (python-mode)
+    )
   )
 
 (when (executable-find "pyright")

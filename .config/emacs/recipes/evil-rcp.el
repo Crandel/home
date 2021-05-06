@@ -2,7 +2,6 @@
 
 ;;; Code:
 (use-package evil
-  :after use-package-chords
   :ensure t
   :demand t
   :init
@@ -22,17 +21,19 @@
   :hook
   (evil-local-mode-hook turn-on-undo-tree-mode)
   :bind (("C-x e" . evil-mode)
-         ("M-," . lsp-ui-peek-find-references)
          :map evil-normal-state-map
-         ("M-." . lsp-ui-peek-find-definitions)
+         ("M-." . xref-find-definitions)
+         ("M-," . xref-find-references)
          ("C-p" . helm-multi-files)
          :map evil-insert-state-map
          ("C-p" . helm-multi-files)
+         ("C-v" . yank)
          )
   :chords (
-           :map evil-insert-state-map
-            ("jj" . evil-normal-state)
-            ("qq" . delete-other-windows))
+           ("qq" . delete-other-windows)
+           ("kk" . kill-buffer)
+           ("jj" . evil-normal-state)
+           )
   )
 
 (use-package evil-mc
@@ -74,6 +75,9 @@
      (102 . evil-surround-function)))
   :config
   (global-evil-surround-mode 1))
+
+(use-package treemacs-evil
+  :ensure t)
 
 (provide 'evil-rcp)
 ;;; Commentary:

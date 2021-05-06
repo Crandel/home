@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package use-package-chords
   :ensure t
+  :demand 1
   :config
   (key-chord-mode 1)
   (bind-chord "yy" 'copy-line)

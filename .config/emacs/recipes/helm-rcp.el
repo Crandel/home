@@ -73,7 +73,7 @@
   (:map helm-buffer-map
         ("C-v" . 'yank))
   :chords
-  ("bb" . helm-buffers-list)
+  ("bl" . helm-buffers-list)
 )
 
 (use-package helm-imenu
