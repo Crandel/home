@@ -15,10 +15,14 @@ bind --mode=normal gf hint
 unbind --mode=normal d
 unbind --mode=normal x
 unbind --mode=normal <C-b>
+unbind --mode=normal >>
+unbind --mode=normal <<
 bind --mode=normal x tabclose
 bind --mode=normal d stop
 bind --mode=normal n tab #
 
+" keymaps
+keymap : ;
 " Ukrainian keymap in normal mode
 keymap а f
 keymap А F
