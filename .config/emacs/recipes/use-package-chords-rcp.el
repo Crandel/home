@@ -6,9 +6,10 @@
   :demand 1
   :config
   (key-chord-mode 1)
-  (bind-chord "yy" 'copy-line)
-  (bind-chord "xx" 'save-buffer)
+  (bind-chord "ee" 'keyboard-escape-quit)
   (bind-chord "qq" 'delete-other-windows)
+  (bind-chord "xx" 'save-buffer)
+  (bind-chord "yy" 'copy-line)
 )
 
 (provide 'use-package-chords-rcp)

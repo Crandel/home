@@ -28,11 +28,14 @@
          :map evil-insert-state-map
          ("C-p" . helm-multi-files)
          ("C-v" . yank)
+         :map evil-motion-state-map
+         (";" . 'evil-ex)
+         (":" . 'evil-repeat-find-char)
          )
   :chords (
-           ("qq" . delete-other-windows)
-           ("kk" . kill-buffer)
            ("jj" . evil-normal-state)
+           ("kk" . kill-buffer)
+           ("qq" . delete-other-windows)
            )
   )
 

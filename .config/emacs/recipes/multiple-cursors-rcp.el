@@ -12,6 +12,9 @@
   ("C-c C-_" . 'mc/mark-all-like-this)
   ("C-x M-m" . 'back-to-indentation)
   )
+  :chords (
+           ("ee" . mc/keyboard-quit)
+  )
   :config
   (unbind-key "<return>" mc/keymap)
 )
