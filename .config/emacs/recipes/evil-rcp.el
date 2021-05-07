@@ -19,7 +19,11 @@
   (evil-ex-define-cmd "Q[uit]" 'save-buffers-kill-terminal)
   (evil-ex-define-cmd "k[ill]" 'kill-buffer)
   :hook
-  (evil-local-mode-hook turn-on-undo-tree-mode)
+  (evil-local-mode . turn-on-undo-tree-mode)
+  (evil-insert-state-entry . (lambda()
+                               (setq display-line-numbers t)))
+  (evil-insert-state-exit  . (lambda()
+                               (setq display-line-numbers 'relative)))
   :bind (("C-x e" . evil-mode)
          :map evil-normal-state-map
          ("M-." . xref-find-definitions)

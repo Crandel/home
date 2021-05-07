@@ -58,9 +58,8 @@
   (ad-redefinition-action    'accept)
   (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
   (c-basic-offset            2)
-  (display-line-numbers      t)
-  (display-time-24hr-format  t)
   (display-time-mode         t)
+  (display-time-24hr-format  t)
   (frame-title-format        "%b %I %P %l" "Display the name of the current buffer in the title bar")
   (gc-cons-threshold         100000000)
   (indent-line-function      'insert-tab "End Indent settings")
@@ -134,6 +133,14 @@
   :demand t
   :config
   (delete-selection-mode t)
+)
+
+(use-package display-line-numbers
+  :demand t
+  :custom
+  (display-line-numbers-type 'visual)
+  :config
+  (global-display-line-numbers-mode t)
 )
 
 (use-package dired
