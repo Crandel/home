@@ -38,8 +38,6 @@
          )
   :chords (
            ("jj" . evil-normal-state)
-           ("kk" . kill-buffer)
-           ("qq" . delete-other-windows)
            )
   )
 

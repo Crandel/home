@@ -7,8 +7,10 @@
   :config
   (key-chord-mode 1)
   (bind-chord "ee" 'keyboard-quit)
+  (bind-chord "kk" 'kill-buffer)
   (bind-chord "qq" 'delete-other-windows)
   (bind-chord "xx" 'save-buffer)
+  (bind-chord "xc" 'save-buffers-kill-terminal)
   (bind-chord "yy" 'copy-line)
 )
 
