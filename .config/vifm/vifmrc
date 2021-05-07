@@ -499,6 +499,10 @@ nnoremap ,C :!emacs &<cr>
 " Toggle wrap setting on ,w key
 nnoremap ,w :set wrap!<cr>
 
+nnoremap : ;
+nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 " Example of standard two-panel file managers mappings
 nnoremap <f3> :!less %f<cr>
 nnoremap <f4> :edit<cr>
