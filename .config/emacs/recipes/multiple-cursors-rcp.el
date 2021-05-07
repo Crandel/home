@@ -12,11 +12,11 @@
   ("C-c C-_" . 'mc/mark-all-like-this)
   ("C-x M-m" . 'back-to-indentation)
   )
-  :chords (
-           ("ee" . mc/keyboard-quit)
-  )
-  :config
-  (unbind-key "<return>" mc/keymap)
+  :hook
+  (multiple-cursors-mode . (lambda()
+                             (unbind-key "<return>" mc/keymap)
+                             (key-chord-define mc/keymap "ee" 'mc/keyboard-quit)
+                             ))
 )
 
 (provide 'multiple-cursors-rcp)

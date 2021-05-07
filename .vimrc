@@ -89,7 +89,24 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.pyc,**/bower_components/**,**/node_modules/
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
+autocmd InsertEnter * highlight CursorLine guibg=#768a31
+autocmd InsertLeave * highlight CursorLine guibg=bg
+
+autocmd BufNewFile,BufFilePre,BufRead,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufFilePre,BufRead,BufReadPost vifm* set filetype=vifm
+" jump to the last position when reopening a file
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" change coursor shape in different modes
+let &t_SI = "\<Esc>[6 q"
+let &t_EI = "\<Esc>[2 q"
+
+" MAPS
 vnoremap <C-c> "+y            " copy selected text Ctrl+c
+nnoremap : ;
+nnoremap ; :
+vnoremap : ;
+vnoremap ; :
 
 " previous buffer
 map <F5> :bp<CR>
@@ -106,20 +123,12 @@ nnoremap <leader>jp :%!python -m json.tool<cr>
 
 nmap ] }
 nmap [ {
+
 noremap <space>s :ls<cr>
 nnoremap <space>/ :Grep<Space>
 
-autocmd InsertEnter * highlight CursorLine guibg=#768a31
-autocmd InsertLeave * highlight CursorLine guibg=bg
-
-autocmd BufNewFile,BufFilePre,BufRead,BufReadPost *.md set filetype=markdown
-autocmd BufNewFile,BufFilePre,BufRead,BufReadPost vifm* set filetype=vifm
-" jump to the last position when reopening a file
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" change coursor shape in different modes
-let &t_SI = "\<Esc>[6 q"
-let &t_EI = "\<Esc>[2 q"
+nnoremap :Q :quit
+" nnoremap <NUL> :%s/\s\+$//e
 
 " The Silver Searcher
 if executable('rg')
@@ -179,7 +188,6 @@ function! TabToggle()
     set expandtab
   endif
 endfunction
-nmap <F10> mz:execute TabToggle()<CR>
 
 " relative numbers
 set number relativenumber
@@ -201,9 +209,6 @@ let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
 map <F7> :Texplore<CR>
-
-nnoremap :Q :quit
-" nnoremap <NUL> :%s/\s\+$//e
 
 
 if &diff
