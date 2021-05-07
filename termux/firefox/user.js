@@ -155,13 +155,13 @@ user_pref("dom.enable_resource_timing", false); // PREF: Disable resource timing
 user_pref("dom.flyweb.enabled", false); // PREF: Disable FlyWeb (discovery of LAN/proximity IoT devices that expose a Web interface)
 user_pref("dom.gamepad.enabled", false); // PREF: Disable gamepad API to prevent USB device enumeration
 user_pref("dom.gamepad.extensions.enabled", false);
-user_pref("dom.image-lazy-loading.enabled", false);
+user_pref("dom.image-lazy-loading.enabled", true);
 user_pref("dom.ipc.processCount", 3);
 user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
-user_pref("dom.security.https_only_mode", true);  // Force to open https
+user_pref("dom.security.https_only_mode", false);  // Force to open https
 user_pref("dom.security.https_only_mode.upgrade_local", false);  // ignore localhost
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
@@ -188,6 +188,7 @@ user_pref("findbar.highlightAll", true);
 user_pref("font.internaluseonly.changed", true);
 //user_pref("font.minimum-size.x-cyrillic", 10);
 //user_pref("font.minimum-size.x-western", 10);
+//user_pref("font.name-list.emoji", "Noto Color Emoji, Twemoji Mozilla");
 //user_pref("font.name.monospace.x-cyrillic", "Hack Nerd Font Mono");
 //user_pref("font.name.monospace.x-western", "Hack Nerd Font Mono");
 //user_pref("font.name.sans-serif.x-cyrillic", "Fira Sans");
@@ -230,7 +231,7 @@ user_pref("gestures.enable_single_finger_input", true);
 user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
 user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
-user_pref("gfx.webrender.compositor", false);
+user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
 user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.webrender.software", false);
@@ -258,20 +259,24 @@ user_pref("media.autoplay.block-event.enabled", true);
 user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
-user_pref("media.av1.enabled", true);
-user_pref("media.eme.enabled", false);
-// user_pref("media.ffmpeg.vaapi.enabled", true);
-// user_pref("media.ffvpx.enabled", false);
+user_pref("media.av1.enabled", false);
+user_pref("media.devices.insecure.enabled", true);
+user_pref("media.eme.enabled", false); // disable all DRM content (EME: Encryption Media Extension)
+user_pref("media.encoder.webm.enabled", true);
+user_pref("media.ffmpeg.vaapi.enabled", false);
+user_pref("media.ffvpx.enabled", false);
+user_pref("media.getdisplaymedia.enabled", true);
 user_pref("media.gmp-widevinecdm.enabled", false); // Disables playback of DRM-controlled HTML5 content
 user_pref("media.gpu-process-decoder", true);
-user_pref("media.navigator.enabled", false); // Websites can track the microphone and camera status of your device.
-user_pref("media.peerconnection.ice.no_host", true); // PREF: Don't reveal your internal IP when WebRTC is enabled (Firefox >= 42)
-// user_pref("media.rdd-process.enabled", false);
-// user_pref("media.rdd-vpx.enabled", false);
-// user_pref("media.videocontrols.picture-in-picture.enabled", true);
-// user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
-// user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
-// user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
+user_pref("media.navigator.enabled", true); // websites can track the microphone and camera status of your device.
+user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
+user_pref("media.peerconnection.ice.no_host", false); // PREF: reveal your internal IP when WebRTC is enabled
+user_pref("media.rdd-process.enabled", true);
+user_pref("media.rdd-vpx.enabled", false);
+//user_pref("media.videocontrols.picture-in-picture.enabled", true);
+//user_pref("media.videocontrols.picture-in-picture.video-toggle.always-show", true);
+//user_pref("media.videocontrols.picture-in-picture.video-toggle.enabled", true);
+//user_pref("media.videocontrols.picture-in-picture.video-toggle.flyout-enabled", true);
 user_pref("media.webspeech.recognition.enable", false); // PREF: Disable speech recognition
 user_pref("media.webspeech.synth.enabled", false); // PREF: Disable speech synthesis
 // user_pref("middlemouse.paste", true);
