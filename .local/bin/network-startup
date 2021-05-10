@@ -15,18 +15,6 @@ while [ $connection == 0 ] ; do
   sleep 0.5
 done
 
-if command_exists rssguard ; then
-  sleep 0.5
-  echo "run rssguard"
-  rssguard &
-fi
-
-if command_exists evolution ; then
-  sleep 0.5
-  echo "run evolution"
-  evolution &
-fi
-
 if command_exists telegram-desktop ; then
   sleep 0.5
   echo "run telegram-desktop"
@@ -40,14 +28,14 @@ fi
 #  discord-ozone &
 #fi
 
-# if command_exists signal-desktop ; then
-#   sleep 0.5
-#   echo "run signal-desktop"
-#   GDK_BACKEND=x11 signal-desktop &
-# fi
+if command_exists rssguard ; then
+  sleep 0.5
+  echo "run rssguard"
+  rssguard &
+fi
 
-# if command_exists slack ; then
-#   sleep 0.5
-#   echo "run slack"
-#   GDK_BACKEND=x11 slack &
-# fi
+if command_exists evolution ; then
+  sleep 0.5
+  echo "run evolution"
+  evolution &
+fi
