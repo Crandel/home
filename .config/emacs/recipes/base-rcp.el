@@ -164,7 +164,7 @@
   :defer t
   :config
   (electric-pair-mode     1)
-  (electric-indent-mode   1)
+  (electric-indent-mode   -1)
 )
 
 (use-package files

@@ -38,6 +38,7 @@
          )
   :chords (
            ("jj" . evil-normal-state)
+           ("qq" . delete-other-windows)
            )
   )
 

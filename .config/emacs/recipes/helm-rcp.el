@@ -114,6 +114,9 @@
         ("C-i" . nil)
         ("RET" . helm-ff-RET)
         ))
+  :chords
+  ("pp" . helm-multi-files)
+  ("ff" . helm-find-files)
 )
 
 (use-package helm-lib
