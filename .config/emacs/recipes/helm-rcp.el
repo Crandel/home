@@ -115,8 +115,8 @@
         ("RET" . helm-ff-RET)
         ))
   :chords
-  ("pp" . helm-multi-files)
-  ("ff" . helm-find-files)
+  ("fp" . helm-multi-files)
+  ("fh" . helm-find-files)
 )
 
 (use-package helm-lib

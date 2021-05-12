@@ -15,7 +15,7 @@
   :hook
   (multiple-cursors-mode . (lambda()
                              (unbind-key "<return>" mc/keymap)
-                             (key-chord-define mc/keymap "ee" 'mc/keyboard-quit)
+                             (key-chord-define mc/keymap "re" 'mc/keyboard-quit)
                              ))
 )
 

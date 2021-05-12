@@ -285,7 +285,7 @@
   :custom
   (recentf-max-saved-items 1500)
   (recentf-max-menu-items  150)
-  (recentf-exclude         '("recentf" "elpa" "custom.el" ".cache"))
+  (recentf-exclude         '("recentf" "elpa" ".cache" "eln-cache" "semanticdb" "transient"))
   (recentf-save-file       (concat user-emacs-directory ".my-recentf"))
   :config
   (recentf-mode t)
