@@ -116,14 +116,15 @@ imap <F5> <Esc>:bp<CR>i
 map <F6> :bn<CR>
 vmap <F6> <Esc>:bn<CR>i
 imap <F6> <Esc>:bn<CR>i
-" swap the current word with the next, without changing cursor position
-nnoremap <silent> gw "_yiw:s/\(\%#\w\+\)\(\W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+
+map <F7> :Explore
 " JSON PRETTIFY
 nnoremap <leader>jp :%!python -m json.tool<cr>
 
 nmap ] }
 nmap [ {
 
+inoremap jk <Esc>
 noremap <space>s :ls<cr>
 nnoremap <space>/ :Grep<Space>
 

@@ -17,32 +17,39 @@
         evil-want-fine-undo                t)
   :config
   (evil-mode 1)
-  (evil-ex-define-cmd "Q[uit]" 'save-buffers-kill-terminal)
-  (evil-ex-define-cmd "k[ill]" 'kill-buffer)
   :hook
   (evil-local-mode . turn-on-undo-tree-mode)
   (evil-insert-state-entry . (lambda()
                                (setq display-line-numbers t)))
   (evil-insert-state-exit  . (lambda()
                                (setq display-line-numbers 'relative)))
-  :bind (("C-x e" . evil-mode)
-         :map evil-normal-state-map
-         ("q" . nil)
-         ("M-." . xref-find-definitions)
-         ("M-," . xref-find-references)
-         ("C-p" . helm-multi-files)
-         :map evil-insert-state-map
-         ("C-p" . helm-multi-files)
-         ("C-v" . yank)
+  :bind (
+  ("C-x e" . evil-mode)
+  :map evil-motion-state-map
+  ("q"   . nil)
+  ("f"   . evil-avy-goto-char)
+  :map evil-normal-state-map
+  ("q"   . nil)
+  ("f"   . evil-avy-goto-char)
+  ("M-." . xref-find-definitions)
+  ("M-," . xref-find-references)
+  ("C-p" . helm-multi-files)
+  )
+  :chords (
+  ("jk" . evil-normal-state))
+)
+
+(use-package evil-ex
+  :after evil
+  :config
+  (evil-ex-define-cmd "q[uit]" 'save-buffers-kill-terminal)
+  (evil-ex-define-cmd "k[ill]" 'kill-buffer)
+  :bind (
          :map evil-motion-state-map
          (";" . 'evil-ex)
          (":" . 'evil-repeat-find-char)
-         )
-  :chords (
-           ("jj" . evil-normal-state)
-           ("qq" . delete-other-windows)
-           )
-  )
+        )
+)
 
 (use-package evil-mc
   :ensure t

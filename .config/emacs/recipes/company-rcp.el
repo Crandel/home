@@ -4,7 +4,9 @@
 (use-package company
     :ensure t
     :defer 1
-    :config (global-company-mode t)
+    :config
+    (global-company-mode t)
+    (bind-chord "ew" 'company-abort 'company-active-map)
     :custom
     (company-idle-delay                0)
     (delete-selection-mode             t)
@@ -31,6 +33,9 @@
                          company-etags
                          company-keywords
                          company-dabbrev))
+    :bind
+    (:map company-active-map
+                ("C-h" . nil))
 )
 
 (use-package company-flx

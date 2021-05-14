@@ -68,6 +68,8 @@
   (helm-buffers-maybe-switch-to-tab  t)
   (helm-mini-default-sources '(helm-source-buffers-list
                               helm-source-buffer-not-found))
+  :config
+  (bind-chord "ew" 'helm-keyboard-quit 'helm-buffer-map)
   :bind
   ("C-x C-b" . helm-buffers-list)
   (:map helm-buffer-map
@@ -108,15 +110,15 @@
   :bind (
   ("C-p" . helm-multi-files)
   ("C-x C-f" . helm-find-files)
-  (:map helm-read-file-map
+  :map helm-read-file-map
         ("C-/" . helm-ff-run-find-sh-command)
         ("C-d" . helm-ff-persistent-delete)
         ("C-i" . nil)
         ("RET" . helm-ff-RET)
-        ))
+        )
   :chords
-  ("fp" . helm-multi-files)
   ("fh" . helm-find-files)
+  ("fp" . helm-multi-files)
 )
 
 (use-package helm-lib

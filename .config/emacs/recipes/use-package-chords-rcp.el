@@ -5,15 +5,15 @@
   :ensure t
   :demand 1
   :custom
-  (key-chord-two-keys-delay 0.5)
-  (key-chord-one-key-delay  0.5)
+  (key-chord-two-keys-delay 0.3)
+  (key-chord-one-key-delay  0.3)
   :config
   (key-chord-mode 1)
   (bind-chord "ew" 'keyboard-quit)
   (bind-chord "kd" 'kill-buffer)
   (bind-chord "qq" 'delete-other-windows)
-  (bind-chord "xx" 'save-buffer)
   (bind-chord "xc" 'save-buffers-kill-terminal)
+  (bind-chord "xx" 'save-buffer)
   (bind-chord "yl" 'copy-line)
 )
 
