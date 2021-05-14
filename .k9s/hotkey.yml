@@ -1,0 +1,5 @@
+hotKey:
+  quit:
+    shortCut: q
+    description: quit
+    command: quit
