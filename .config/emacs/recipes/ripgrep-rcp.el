@@ -6,7 +6,7 @@
   :defer t
   :custom
   (helm-ag-insert-at-point 'word)
-  (helm-ag-base-command    "rg --hidden -uuu --color=never -i --vimgrep")
+  (helm-ag-base-command    "rg --color=never -i --vimgrep")
   (helm-ag-use-temp-buffer t)
   (helm-ag-fuzzy-match     t)
   :bind

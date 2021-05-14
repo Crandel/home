@@ -9,7 +9,7 @@
   (key-chord-one-key-delay  0.5)
   :config
   (key-chord-mode 1)
-  (bind-chord "re" 'keyboard-quit)
+  (bind-chord "ew" 'keyboard-quit)
   (bind-chord "kd" 'kill-buffer)
   (bind-chord "qq" 'delete-other-windows)
   (bind-chord "xx" 'save-buffer)

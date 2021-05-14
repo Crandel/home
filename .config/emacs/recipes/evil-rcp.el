@@ -12,8 +12,9 @@
         evil-motion-state-tag   (propertize "<M>" 'face '((:background "plum3"          :foreground "black")))
         evil-visual-state-tag   (propertize "<V>" 'face '((:background "gray"           :foreground "black")))
         evil-operator-state-tag (propertize "<O>" 'face '((:background "sandy brown"    :foreground "black")))
-        evil-undo-system        'undo-tree
-        evil-want-fine-undo     t)
+        evil-undo-system                   'undo-tree
+        evil-disable-insert-state-bindings t
+        evil-want-fine-undo                t)
   :config
   (evil-mode 1)
   (evil-ex-define-cmd "Q[uit]" 'save-buffers-kill-terminal)
@@ -26,6 +27,7 @@
                                (setq display-line-numbers 'relative)))
   :bind (("C-x e" . evil-mode)
          :map evil-normal-state-map
+         ("q" . nil)
          ("M-." . xref-find-definitions)
          ("M-," . xref-find-references)
          ("C-p" . helm-multi-files)
