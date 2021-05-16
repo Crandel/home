@@ -1,12 +1,12 @@
 ;;; bazel-mode-rcp.el --- Bazel support for emacs
 
 ;;; Code:
-(use-package bazel-mode
+(use-package bazel
   :ensure t
   :mode ("\\.star\\'" . bazel-starlark-mode)
 )
 
-(provide 'bazel-mode-rcp)
+(provide 'bazel-rcp)
 ;;; Commentary:
 ;;
-;;; bazel-mode-rcp.el ends here
+;;; bazel-rcp.el ends here

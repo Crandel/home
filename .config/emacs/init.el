@@ -45,7 +45,7 @@
 
 ;; (require 'fnhh-rcp)
 (require 'avy-rcp)
-(require 'bazel-mode-rcp)
+(require 'bazel-rcp)
 (require 'company-rcp)
 (require 'dired-subtree-rcp)
 ;; (require 'editorconfig-rcp)
