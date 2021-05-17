@@ -70,9 +70,19 @@
                               helm-source-buffer-not-found))
   :config
   (bind-chord "ew" 'helm-keyboard-quit 'helm-buffer-map)
-  :bind
+  :bind(
   ("C-x C-b" . helm-buffers-list)
-  (:map helm-buffer-map
+  :map helm-generic-files-map
+        ("M-w" . helm-previous-line)
+        ("M-s" . helm-next-line)
+        ("M-d" . helm-next-source)
+        ("M-a" . helm-previous-source)
+        ("C-v" . 'yank)
+  :map helm-buffer-map
+        ("M-w" . helm-previous-line)
+        ("M-s" . helm-next-line)
+        ("M-d" . helm-next-source)
+        ("M-a" . helm-previous-source)
         ("C-v" . 'yank))
   :chords
   ("bl" . helm-buffers-list)
