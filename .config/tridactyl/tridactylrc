@@ -21,7 +21,7 @@ bind --mode=normal x tabclose
 bind --mode=normal d stop
 bind --mode=normal n tab #
 
-bind --mode=insert jk escape
+bind --mode=insert <A-i> composite unfocus | mode normal
 " keymaps
 keymap ; :
 " Ukrainian keymap in normal mode
