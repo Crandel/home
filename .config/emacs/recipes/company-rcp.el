@@ -7,6 +7,12 @@
     :config
     (global-company-mode t)
     (bind-chord "ew" 'company-abort 'company-active-map)
+    (defun my-change-company-backends (backend)
+      (unless (member backend (car company-backends))
+        (setq comp-back (car company-backends))
+        (push backend comp-back)
+        (setq company-backends (list comp-back)))
+      )
     :custom
     (company-idle-delay                0)
     (delete-selection-mode             t)

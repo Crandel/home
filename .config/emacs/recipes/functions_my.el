@@ -96,13 +96,6 @@
   (save-buffers-kill-terminal "y")
 )
 
-(defun my-change-company-backends (backend)
-  (unless (member backend (car company-backends))
-    (setq comp-back (car company-backends))
-    (push backend comp-back)
-    (setq company-backends (list comp-back)))
-)
-
 (defun kill-other-buffers ()
     "Kill all other buffers."
     (interactive)
