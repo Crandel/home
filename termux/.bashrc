@@ -340,6 +340,11 @@ if command_exists bat ; then
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
+
+if command_exists rg ; then
+  export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+fi
+
 if command_exists fzf ; then
   gdelbrf() {
     git branch |

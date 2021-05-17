@@ -479,6 +479,8 @@ fi
 
 if ! command_exists rg ; then
   echo "install ripgrep"
+else
+  export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 fi
 
 if command_exists fzf ; then
