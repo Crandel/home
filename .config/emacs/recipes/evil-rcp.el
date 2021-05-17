@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package evil
   :ensure t
+  :after undo-tree
   :demand t
   :init
   (setq evil-normal-state-tag   (propertize "<N>" 'face '((:background "DarkGoldenrod2" :foreground "black")))
