@@ -95,6 +95,7 @@ alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
 alias home_pr='cd $PERS_DIR/home'
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
 alias check_adb='adb devices -l'
 
 
