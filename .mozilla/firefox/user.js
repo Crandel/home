@@ -259,7 +259,7 @@ user_pref("media.autoplay.block-event.enabled", true);
 user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
-user_pref("media.av1.enabled", false);
+user_pref("media.av1.enabled", true);
 user_pref("media.devices.insecure.enabled", true);
 user_pref("media.eme.enabled", false); // disable all DRM content (EME: Encryption Media Extension)
 user_pref("media.encoder.webm.enabled", true);
