@@ -1,9 +1,23 @@
 ;;; evil-rcp.el --- Evil mode
 
 ;;; Code:
+(use-package evil-leader
+  :ensure t
+  :custom
+  (evil-leader/leader "<SPC>")
+  :config
+  (evil-leader/set-key
+   "k" 'kill-buffer
+   "f" 'helm-find-files
+   "p" 'helm-multi-files
+   "b" 'helm-buffer-list
+   )
+  (global-evil-leader-mode)
+)
+
 (use-package evil
   :ensure t
-  :after undo-tree
+  :after (undo-tree evil-leader)
   :demand t
   :init
   (setq evil-normal-state-tag   (propertize "<N>" 'face '((:background "DarkGoldenrod2" :foreground "black")))
@@ -17,6 +31,9 @@
         evil-disable-insert-state-bindings t
         evil-want-fine-undo                t)
   :config
+  ;; (evil-leader/set-key
+  ;;  "j" 'evil-normal-state
+  ;;  )
   (evil-mode 1)
   :hook
   (evil-local-mode . turn-on-undo-tree-mode)
@@ -36,8 +53,8 @@
   ("M-," . xref-find-references)
   ("C-p" . helm-multi-files)
   )
-  :chords (
-  ("jk" . evil-normal-state))
+  :chords
+  (" j" . evil-normal-state)
 )
 
 (use-package evil-ex

@@ -5,16 +5,16 @@
   :ensure t
   :demand 1
   :custom
-  (key-chord-two-keys-delay 0.3)
-  (key-chord-one-key-delay  0.3)
+  (key-chord-two-keys-delay 0.2)
+  (key-chord-one-key-delay  0.1)
   :config
   (key-chord-mode 1)
-  (bind-chord "ew" 'keyboard-quit)
-  (bind-chord "kd" 'kill-buffer)
+  (bind-chord " q" 'keyboard-quit)
+  (bind-chord " d" 'kill-buffer)
   (bind-chord "qq" 'delete-other-windows)
-  (bind-chord "xc" 'save-buffers-kill-terminal)
-  (bind-chord "xx" 'save-buffer)
-  (bind-chord "yl" 'copy-line)
+  (bind-chord " c" 'save-buffers-kill-terminal)
+  (bind-chord " x" 'save-buffer)
+  (bind-chord " y" 'copy-line)
 )
 
 (provide 'use-package-chords-rcp)

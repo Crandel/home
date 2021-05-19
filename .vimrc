@@ -1,6 +1,11 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
+" LEADER
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+" LEADER END
+
 syntax on
 
 if &shell =~# 'fish$'
@@ -117,18 +122,18 @@ map <F6> :bn<CR>
 vmap <F6> <Esc>:bn<CR>i
 imap <F6> <Esc>:bn<CR>i
 
-map <F7> :Explore
 " JSON PRETTIFY
 nnoremap <leader>jp :%!python -m json.tool<cr>
 
 nmap ] }
 nmap [ {
 
-inoremap jk <Esc>
-noremap <space>s :ls<cr>
-nnoremap <space>/ :Grep<Space>
+inoremap <leader>j <Esc>
+noremap <leader>s :ls -la<cr>
+nnoremap <leader>/ :Grep<Space>
 
 nnoremap :Q :quit
+nnoremap <leader>q :quit
 " nnoremap <NUL> :%s/\s\+$//e
 
 " The Silver Searcher
@@ -136,7 +141,7 @@ if executable('rg')
   " Use ag over grep
   set grepprg=rg\ --color\ auto\ --vimgrep
   set grepformat=%f:%l:%c:%m
-  nnoremap <leader>gg :grep <cword><CR>:cwindow<CR>
+  nnoremap <leader>/ :grep <cword><CR>:cwindow<CR>
 endif
 
 " Comment section
@@ -198,7 +203,7 @@ augroup numbertoggle
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-nnoremap <C-n> :call NumberToggle()<cr>
+" nnoremap <C-n> :call NumberToggle()<cr>
 
 " file browser section
 let g:netrw_liststyle     = 3
@@ -209,8 +214,8 @@ let g:netrw_keepdir       = 1
 let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
-map <F7> :Texplore<CR>
 
+map <F7> :Texplore
 
 if &diff
   map ] ]c
