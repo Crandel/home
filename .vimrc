@@ -215,7 +215,7 @@ let g:netrw_retmap        = 1
 let g:netrw_silent        = 1
 let g:netrw_special_syntax= 1
 
-map <F7> :Texplore
+map <F7> :Texplore<CR>
 
 if &diff
   map ] ]c
