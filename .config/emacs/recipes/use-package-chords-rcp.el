@@ -11,7 +11,7 @@
   (key-chord-mode 1)
   (bind-chord " q" 'keyboard-quit)
   (bind-chord " d" 'kill-buffer)
-  (bind-chord "qq" 'delete-other-windows)
+  (bind-chord "wq" 'delete-other-windows)
   (bind-chord " c" 'save-buffers-kill-terminal)
   (bind-chord " x" 'save-buffer)
   (bind-chord " y" 'copy-line)

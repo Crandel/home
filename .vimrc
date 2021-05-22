@@ -128,7 +128,7 @@ nnoremap <leader>jp :%!python -m json.tool<cr>
 nmap ] }
 nmap [ {
 
-inoremap <leader>j <Esc>
+inoremap jk <Esc>
 noremap <leader>s :ls -la<cr>
 nnoremap <leader>/ :Grep<Space>
 

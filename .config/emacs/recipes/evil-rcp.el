@@ -54,7 +54,7 @@
   ("C-p" . helm-multi-files)
   )
   :chords
-  (" j" . evil-normal-state)
+  ("jk" . evil-normal-state)
 )
 
 (use-package evil-ex
