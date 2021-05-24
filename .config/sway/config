@@ -1,7 +1,7 @@
 set {
   $mod Mod4
   $lock sleep.sh
-  $term tilix
+  $term wezterm
   $editor emacs
 #  $editor alacritty -e emacs -nw
   $browser firefox
@@ -17,7 +17,7 @@ set {
 output {
   $o_center background ~/Pictures/wallpaper.jpg fill
   # $o_left pos 1920 0 res 1920x1080
-  $o_center pos 0 0 res --custom 1920x1080@120Hz
+  $o_center pos 0 0 res --custom 1920x1080@144Hz
   $o_center adaptive_sync off
 }
 
@@ -81,7 +81,7 @@ assign [class="(?i)Viber"] 2
 for_window [shell="xwayland"] title_format "%title [XWayland]"
 
 # terminal
-for_window [app_id="tilix"] move scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
+for_window [app_id="org.wezfurlong.wezterm"] move scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
 for_window [class="discord"] move workspace 4
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,7 +222,7 @@ bindsym --to-code {
   $mod+c exec $browser
 
   # tilix
-  F1 exec swaymsg [app_id="tilix"] scratchpad show || exec $term, resize set width 100 ppt height 100 ppt
+  F1 exec swaymsg [app_id="org.wezfurlong.wezterm"] scratchpad show || exec $term, resize set width 100 ppt height 100 ppt
   # F1 exec $term --quake
   $mod+F1 exec env GDK_BACKEND=x11 $term --quake
 
@@ -310,11 +310,11 @@ bar {
 }
 
 # gaps
-default_border normal
-smart_borders off
-smart_gaps on
-gaps inner 6
-gaps outer 6
+# default_border normal
+# smart_borders off
+# smart_gaps on
+gaps inner 0
+gaps outer 0
 
 # my settings
 # class                 border   backgr. text    indicator

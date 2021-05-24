@@ -52,6 +52,8 @@
   ("M-." . xref-find-definitions)
   ("M-," . xref-find-references)
   ("C-p" . helm-multi-files)
+  :map evil-insert-state-map
+  ("C-v" . yank)
   )
   :chords
   ("jk" . evil-normal-state)

@@ -5,5 +5,13 @@ return {
    enable_wayland = true,
    font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),
    font_size=18.0,
+   hide_tab_bar_if_only_one_tab = true,
+   keys = {
+      {key="Z", mods="CTRL", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
+      {key="X", mods="CTRL", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+      {key="z", mods="CTRL", action="Nop"},
+      {key="t", mods="CTRL", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+      {key="A", mods="CTRL", action="ActivateCopyMode"}
+   },
    scrollback_lines = 150000,
 }
