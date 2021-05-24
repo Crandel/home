@@ -60,6 +60,7 @@
 (require 'json-mode-rcp)
 (require 'k8s-mode-rcp)
 (require 'lsp-mode-rcp)
+(require 'lua-rcp)
 (require 'magit-rcp)
 (require 'markdown-mode-rcp)
 (require 'multi-compile-rcp)
