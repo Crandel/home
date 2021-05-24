@@ -31,7 +31,7 @@ return {
 
       -- Inactive tabs are the tabs that do not have focus
       inactive_tab = {
-        bg_color = "#1b1032",
+        bg_color = "#181907",
         fg_color = "#36473A",
 
         -- The same options that were listed under the `active_tab` section above
@@ -63,4 +63,6 @@ return {
   },
   ratelimit_output_bytes_per_second = 4289999998,
   scrollback_lines = 150000,
+  tab_max_width = 46,
+  window_background_opacity = 0.9,
 }
