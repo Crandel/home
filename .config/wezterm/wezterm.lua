@@ -13,5 +13,6 @@ return {
       {key="t", mods="CTRL", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
       {key="A", mods="CTRL", action="ActivateCopyMode"}
    },
+   ratelimit_output_bytes_per_second = 4289999998,
    scrollback_lines = 150000,
 }
