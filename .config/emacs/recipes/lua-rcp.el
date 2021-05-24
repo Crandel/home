@@ -4,6 +4,8 @@
 (use-package lua-mode
   :ensure t
   :mode "\\.lua\\'"
+  :custom
+  (lua-indent-level 2)
 )
 
 (provide 'lua-rcp)
