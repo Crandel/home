@@ -37,10 +37,6 @@
   (evil-mode 1)
   :hook
   (evil-local-mode . turn-on-undo-tree-mode)
-  (evil-insert-state-entry . (lambda()
-                               (setq display-line-numbers t)))
-  (evil-insert-state-exit  . (lambda()
-                               (setq display-line-numbers 'relative)))
   :bind (
   ("C-x e" . evil-mode)
   :map evil-motion-state-map

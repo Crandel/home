@@ -196,7 +196,7 @@ function! TabToggle()
 endfunction
 
 " relative numbers
-set number relativenumber
+set norelativenumber
 
 augroup numbertoggle
   autocmd!

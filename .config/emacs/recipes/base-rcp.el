@@ -138,7 +138,7 @@
 (use-package display-line-numbers
   :demand t
   :custom
-  (display-line-numbers-type 'visual)
+  (display-line-numbers-type t)
   :config
   (global-display-line-numbers-mode t)
 )
@@ -225,7 +225,7 @@
                   ("-d" "de_DE"); Dictionary file name
                   nil
                   utf-8)
-                 ("hunspell-ru"
+                 ("ru"
                   "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
                   "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
                   "[-']"
@@ -243,7 +243,7 @@
                   utf-8)))
   (ispell-local-dictionary    "en_US")
   (ispell-personal-dictionary "~/.config/emacs/.ispell.dic")
-  (ispell-program-name        "aspell")
+  (ispell-program-name        "hunspell")
   (ispell-really-aspell       nil)
   (ispell-really-hunspell     t)
   (ispell-encoding8-command   t)
