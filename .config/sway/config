@@ -58,8 +58,6 @@ font pango:Hack Nerd Font, Source Code Pro 16
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod normal
 
-workspace_layout tabbed
-
 workspace 1 output $o_center
 workspace 2 output $o_center
 # workspace 3 output $o_left
@@ -79,6 +77,8 @@ assign [class="(?i)Slack"] 3
 assign [class="(?i)Viber"] 2
 
 for_window [shell="xwayland"] title_format "%title [XWayland]"
+for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="Vivaldi-stable"] inhibit_idle fullscreen
 
 # terminal
 for_window [app_id="org.wezfurlong.wezterm"] move scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt

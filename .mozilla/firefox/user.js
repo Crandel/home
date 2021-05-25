@@ -303,6 +303,8 @@ user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/confe
 user_pref("network.http.altsvc.oe", false);
 user_pref("network.http.http3.enabled", true);
 user_pref("network.http.redirection-limit", 10);
+user_pref("network.http.referer.XOriginPolicy", 0);
+user_pref("network.http.referer.defaultPolicy", 1);
 user_pref("network.http.spdy.enabled.http2", true);
 user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.manage-offline-status", false);

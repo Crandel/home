@@ -259,7 +259,7 @@ user_pref("media.autoplay.block-event.enabled", true);
 user_pref("media.autoplay.default", 5);
 user_pref("media.autoplay.enabled", false);
 user_pref("media.autoplay.enabled.user-gestures-needed", false);
-user_pref("media.av1.enabled", false);
+user_pref("media.av1.enabled", true);
 user_pref("media.devices.insecure.enabled", true);
 user_pref("media.eme.enabled", false); // disable all DRM content (EME: Encryption Media Extension)
 user_pref("media.encoder.webm.enabled", true);
@@ -303,6 +303,8 @@ user_pref("network.http.altsvc.enabled", false); // https://www.usenix.org/confe
 user_pref("network.http.altsvc.oe", false);
 user_pref("network.http.http3.enabled", true);
 user_pref("network.http.redirection-limit", 10);
+user_pref("network.http.referer.XOriginPolicy", 0);
+user_pref("network.http.referer.defaultPolicy", 1);
 user_pref("network.http.spdy.enabled.http2", true);
 user_pref("network.http.speculative-parallel-limit", 0);
 // user_pref("network.manage-offline-status", false);
