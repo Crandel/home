@@ -9,6 +9,7 @@
   (js2-mode              . rainbow-delimiters-mode)
   (json-mode             . rainbow-delimiters-mode)
   (lisp-interaction-mode . rainbow-delimiters-mode)
+  (lua-mode              . rainbow-delimiters-mode)
   (python-mode           . rainbow-delimiters-mode)
   (rust-mode             . rainbow-delimiters-mode)
   (scala-mode            . rainbow-delimiters-mode)
