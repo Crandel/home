@@ -10,7 +10,7 @@
    "k" 'kill-buffer
    "f" 'helm-find-files
    "p" 'helm-multi-files
-   "b" 'helm-buffer-list
+   "b" 'helm-buffers-list
    )
   (global-evil-leader-mode)
 )
