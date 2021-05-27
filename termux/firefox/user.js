@@ -351,6 +351,8 @@ user_pref("reader.parse-on-load.enabled", true);
 user_pref("reader.parse-on-load.force-enabled", true);
 user_pref("reader.toolbar.vertical", true);
 user_pref("security.dialog_enable_delay", 1000); // PREF: Ensure you have a security delay when installing add-ons (milliseconds)
+user_pref("security.mixed_content.block_active_content", false);
+user_pref("security.mixed_content.upgrade_display_content", true);
 user_pref("security.secure_connection_icon_color_gray", false); // Return green lock for https (Firefox >= 70)
 user_pref("security.ssl.errorReporting.automatic", false);
 user_pref("security.ssl.errorReporting.enabled", false);
