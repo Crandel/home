@@ -392,8 +392,8 @@ if command_exists docker ; then
   }
   export d_exec;
   d_ip() {
-    d_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
-    export DOCKER_HOST_IP=$d_ip
+    doc_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
+    export DOCKER_HOST_IP=$doc_ip
   }
   export d_ip
 fi
@@ -570,9 +570,13 @@ else
   echo "Please install zoxide"
 fi
 
+if command_exists lsd; then
+  alias ls='lsd'
+fi
+
 if command_exists reflector ; then
-  alias gen_mirror='reflector --ipv4 -p https -f 10 --sort rate --save /tmp/mirror'
-  alias gen_rsync='reflector --ipv4 -p rsync -f 10 --sort rate --save /tmp/powerpill'
+  alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
+  alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
 fi
 # END SYSTEM TOOLS
 
