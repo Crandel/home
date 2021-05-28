@@ -253,7 +253,6 @@ user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.frame_rate", 144);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
-user_pref("lightweightThemes.selectedThemeID", "firefox-compact-dark@mozilla.org");
 user_pref("media.autoplay.allow-muted", false);
 user_pref("media.autoplay.block-event.enabled", true);
 user_pref("media.autoplay.default", 5);
