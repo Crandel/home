@@ -244,7 +244,7 @@ user_pref("javascript.options.wasm", true); // PREF: Enable WebAssembly
 user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 user_pref("keyword.enabled", true); // PREF: Submit invalid URIs entered in the address bar to the default search engine
 user_pref("layers.acceleration.force-enabled", false);
-user_pref("layers.amd-switchable-gfx.enabled", false); // AMD specific settings
+user_pref("layers.amd-switchable-gfx.enabled", false); // AMD|Windows specific settings
 user_pref("layers.async-pan-zoom.enabled", true);
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
