@@ -7,8 +7,10 @@ $pacman -S \
         lsd \
         mc \
         ripgrep \
+        skim \
         the_silver_searcher \
         vifm \
+        xh \
         zsh \
         zsh-completions \
         zsh-doc
