@@ -1,49 +1,90 @@
+# K9s Gruvbox Dark Skin Contributed by [@indiebrain](https://github.com/indiebrain)
+foreground: &foreground "#ebdbb2"
+background: &background "#272727"
+current_line: &current_line "#BFFF00"
+selection: &selection "#3c3735"
+comment: &comment "#bdad93"
+cyan: &cyan "#31B404"
+green: &green "#989719"
+orange: &orange "#d79920"
+magenta: &magenta "#b16185"
+blue: &blue "#448488"
+red: &red "#cc231c"
+
 k9s:
   body:
-    fgColor: green
-    bgColor: black
-    logoColor: orange
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *blue
   info:
-    fgColor: white
-    sectionColor: green
+    fgColor: *magenta
+    sectionColor: *foreground
+  dialog:
+    fgColor: *foreground
+    bgColor: *background
+    buttonFgColor: *foreground
+    buttonBgColor: *magenta
+    buttonFocusFgColor: yellow
+    buttonFocusBgColor: *cyan
+    labelFgColor: *orange
+    fieldFgColor: *foreground
   frame:
     border:
-      fgColor: green
-      focusColor: olive
+      fgColor: *selection
+      focusColor: *current_line
     menu:
-      fgColor: white
-      keyColor: green
-      numKeyColor: fuchsia
+      fgColor: *foreground
+      keyColor: *magenta
+      numKeyColor: *magenta
     crumbs:
-      fgColor: black
-      bgColor: steelblue
-      activeColor: orange
+      fgColor: *foreground
+      bgColor: *comment
+      activeColor: *blue
     status:
-      newColor: greenyellow
-      modifyColor: darkviolet
-      addColor: white
-      errorColor: orangered
-      highlightcolor: olive
-      killColor: mediumpurple
-      completedColor: gray
+      newColor: *green
+      modifyColor: *blue
+      addColor: *cyan
+      errorColor: *red
+      highlightcolor: *orange
+      killColor: *comment
+      completedColor: *comment
     title:
-      fgColor: olive
-      highlightColor: fuchsia
-      counterColor: papayawhip
-      filterColor: greenyellow
-  table:
-    fgColor: blue
-    bgColor: black
-    cursorColor: olive
-    header:
-      fgColor: white
-      bgColor: black
-      sorterColor: orange
+      fgColor: *foreground
+      bgColor: *background
+      highlightColor: *orange
+      counterColor: *blue
+      filterColor: *magenta
   views:
+    charts:
+      bgColor: background
+      defaultDialColors:
+        - *blue
+        - *red
+      defaultChartColors:
+        - *blue
+        - *red
+    table:
+      fgColor: *foreground
+      bgColor: *background
+      cursorFgColor: *foreground
+      cursorBgColor: *current_line
+      header:
+        fgColor: *foreground
+        bgColor: *background
+        sorterColor: *selection
+    xray:
+      fgColor: *foreground
+      bgColor: *background
+      cursorColor: *current_line
+      graphicColor: *blue
+      showIcons: false
     yaml:
-      keyColor: greenyellow
-      colonColor: white
-      valueColor: papayawhip
+      keyColor: *magenta
+      colonColor: *blue
+      valueColor: *foreground
     logs:
-      fgColor: white
-      bgColor: black
+      fgColor: *foreground
+      bgColor: *background
+      indicator:
+        fgColor: *foreground
+        bgColor: *background
