@@ -129,10 +129,13 @@ nmap ] }
 nmap [ {
 
 inoremap jk <Esc>
-noremap <leader>s :ls -la<cr>
+noremap <leader>s :ls -la<CR>
 nnoremap <leader>/ :Grep<Space>
+nnoremap <leader>k :bd<CR>
+nnoremap <leader>d yyp<CR>
+nnoremap <leader>l yy<CR>
 
-nnoremap :Q :quit
+nnoremap ;Q :quit<CR>
 nnoremap <leader>q :quit
 " nnoremap <NUL> :%s/\s\+$//e
 
@@ -196,13 +199,13 @@ function! TabToggle()
 endfunction
 
 " relative numbers
-set norelativenumber
+set number
 
-augroup numbertoggle
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" augroup numbertoggle
+"   autocmd!
+"   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
 " nnoremap <C-n> :call NumberToggle()<cr>
 
 " file browser section
