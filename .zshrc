@@ -572,6 +572,7 @@ fi
 
 if command_exists lsd; then
   alias ls='lsd'
+  alias ll='ls -ahlF --group-dirs=first'
 fi
 
 if command_exists reflector ; then

@@ -93,6 +93,7 @@ alias arch='uname -m'
 alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
 alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
 
 
 # CUSTOM FUNCTIONS
@@ -375,6 +376,11 @@ if command_exists zoxide; then
   alias ja='__zoxide_za' # add path to the database
   alias ji='__zoxide_zi' # cd with interactive selection using fzf
   alias jr='__zoxide_zr' # remove path from the database
+fi
+
+if command_exists lsd; then
+  alias ls='lsd'
+  alias ll='ls -ahlF --group-dirs=first'
 fi
 
 # END SYSTEM TOOLS
