@@ -1,4 +1,15 @@
 local wezterm = require 'wezterm';
+
+wezterm.on("toggle-opacity", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  if not overrides.window_background_opacity then
+    overrides.window_background_opacity = 0.8;
+  else
+    overrides.window_background_opacity = nil
+  end
+  window:set_config_overrides(overrides)
+end)
+
 return {
   color_scheme = "Gruvbox Dark",
   colors = {
@@ -53,16 +64,22 @@ return {
   font_size=18.0,
   hide_tab_bar_if_only_one_tab = true,
   keys = {
-    {key="Z",   mods="CTRL", action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
-    {key="X",   mods="CTRL", action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
-    {key="z",   mods="CTRL", action="Nop"},
-    {key="t",   mods="CTRL", action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
-    {key="Tab", mods="CTRL", action=wezterm.action{ActivateTabRelative=1}},
-    {key="Tab", mods="CTRL|SHIFT", action=wezterm.action{ActivateTabRelative=-1}},
-    {key="A",   mods="CTRL", action="ActivateCopyMode"}
+    {key="A"          ,mods="CTRL"       ,action="ActivateCopyMode"},
+    {key="B"          ,mods="CTRL|SHIFT" ,action=wezterm.action{EmitEvent="toggle-opacity"}},
+    {key="DownArrow"  ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Down"}},
+    {key="LeftArrow"  ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Left"}},
+    {key="RightArrow" ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Right"}},
+    {key="Tab"        ,mods="CTRL"       ,action=wezterm.action{ActivateTabRelative=1}},
+    {key="Tab"        ,mods="CTRL|SHIFT" ,action=wezterm.action{ActivateTabRelative=-1}},
+    {key="UpArrow"    ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Up"}},
+    {key="X"          ,mods="CTRL"       ,action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {key="Z"          ,mods="CTRL"       ,action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
+    {key="t"          ,mods="CTRL"       ,action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
+    {key="w"          ,mods="CTRL"       ,action=wezterm.action{CloseCurrentPane={confirm=true}}},
+    {key="z"          ,mods="CTRL"       ,action="Nop"},
   },
   ratelimit_output_bytes_per_second = 4289999998,
   scrollback_lines = 150000,
   tab_max_width = 46,
-  window_background_opacity = 0.9,
+  window_background_opacity = 1.0,
 }
