@@ -9,6 +9,7 @@
   ("C-x g" . consult-ripgrep)
   ("C-c b" . consult-buffer)
   ("C-x C-b" . consult-buffer)
+  ("C-p" . consult-recent-file)
   :chords
   ("bl" . consult-buffer)
 )
