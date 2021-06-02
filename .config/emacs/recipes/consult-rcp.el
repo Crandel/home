@@ -5,9 +5,12 @@
 (use-package consult
   :ensure t
   :bind
-  ;("M-x" . consult-man-command)
   ("C-s" . consult-line)
+  ("C-x g" . consult-ripgrep)
   ("C-c b" . consult-buffer)
+  ("C-x C-b" . consult-buffer)
+  :chords
+  ("bl" . consult-buffer)
 )
 
 (provide 'consult-rcp)

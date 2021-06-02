@@ -2,8 +2,9 @@
 ;;; Code:
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
-
-(setq custom-file (expand-file-name "custom.el" (file-name-directory load-file-name)))
+(setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
+      url-history-file (expand-file-name "url/history" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file :noerror)
 
 (eval-after-load 'gnutls

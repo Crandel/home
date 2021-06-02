@@ -58,6 +58,7 @@
   (ad-redefinition-action    'accept)
   (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
   (c-basic-offset            2)
+  (comp-async-report-warnings-errors nil)
   (display-time-mode         t)
   (display-time-24hr-format  t)
   (frame-title-format        "%f%* %I %P %l" "Display the name of the current buffer in the title bar")
