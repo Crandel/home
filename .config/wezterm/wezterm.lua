@@ -81,5 +81,5 @@ return {
   ratelimit_output_bytes_per_second = 4289999998,
   scrollback_lines = 150000,
   tab_max_width = 46,
-  window_background_opacity = 1.0,
+  window_background_opacity = 0.9,
 }
