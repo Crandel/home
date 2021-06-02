@@ -7,11 +7,18 @@
   (evil-leader/leader "<SPC>")
   :config
   (evil-leader/set-key
+   "d" 'duplicate-line
    "k" 'kill-buffer
+   "l" 'copy-line
+   "q" 'keyboard-quit
+   "b" 'helm-buffers-list
    "f" 'helm-find-files
    "p" 'helm-multi-files
-   "b" 'helm-buffers-list
    )
+  (evil-leader/set-key-for-mode
+    'evil-visual-state-map
+        "q" 'evil-exit-visual-state
+    )
   (global-evil-leader-mode)
 )
 

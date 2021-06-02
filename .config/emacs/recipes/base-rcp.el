@@ -60,7 +60,7 @@
   (c-basic-offset            2)
   (display-time-mode         t)
   (display-time-24hr-format  t)
-  (frame-title-format        "%b %I %P %l" "Display the name of the current buffer in the title bar")
+  (frame-title-format        "%f%* %I %P %l" "Display the name of the current buffer in the title bar")
   (gc-cons-threshold         100000000)
   (indent-line-function      'insert-tab "End Indent settings")
   (indent-tabs-mode          nil "Indent settings")

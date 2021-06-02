@@ -134,6 +134,7 @@ nnoremap <leader>/ :Grep<Space>
 nnoremap <leader>k :bd<CR>
 nnoremap <leader>d yyp<CR>
 nnoremap <leader>l yy<CR>
+nnoremap <Leader>b :ls<CR>:b<Space>
 
 nnoremap ;Q :quit<CR>
 nnoremap <leader>q :quit
