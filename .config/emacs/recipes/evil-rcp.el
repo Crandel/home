@@ -50,6 +50,7 @@
   ("C-p" . helm-multi-files)
   :map evil-insert-state-map
   ("C-v" . yank)
+  ("C-p" . helm-multi-files)
   )
   :chords
   ("jk" . evil-normal-state)
