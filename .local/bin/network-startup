@@ -34,8 +34,8 @@ if command_exists rssguard ; then
   rssguard &
 fi
 
-if command_exists evolution ; then
+if command_exists thunderbird ; then
   sleep 0.5
-  echo "run evolution"
-  evolution &
+  echo "run thunderbird"
+  thunderbird &
 fi

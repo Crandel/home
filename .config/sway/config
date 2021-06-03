@@ -6,7 +6,7 @@ set {
 #  $editor alacritty -e emacs -nw
   $browser firefox
   $feed quiterss
-  $email evolution
+  $email thunderbird
   $gnome-schema org.gnome.desktop.interface
   $ide pycharm
 
@@ -68,6 +68,7 @@ assign [app_id="com.github.rssguard"] 2
 assign [app_id="discord"] 4
 assign [app_id="evolution"] 2
 assign [app_id="telegramdesktop"] 2
+assign [app_id="thunderbird"] 2
 assign [class="(?i)Discord"] 4
 assign [class="(?i)Evolution"] 2
 assign [class="(?i)TelegramDesktop"] 2

@@ -54,10 +54,10 @@
   ("f"   . evil-avy-goto-char)
   ("M-." . xref-find-definitions)
   ("M-," . xref-find-references)
-  ("C-p" . helm-multi-files)
+  ("C-p" . nil)
   :map evil-insert-state-map
   ("C-v" . yank)
-  ("C-p" . helm-multi-files)
+  ("C-p" . nil)
   )
   :chords
   ("jk" . evil-normal-state)
@@ -82,7 +82,7 @@
   (evil-local-mode . evil-mc-mode)
   :bind (
          :map evil-mc-key-map
-         ("C-p" . helm-multi-files)
+         ("C-p" . nil)
          ("C-c C-<right>" . 'evil-mc-make-and-goto-next-match) ; choose same word next
          ("C-c C-<left>" . 'evil-mc-make-and-goto-prev-match) ; choose same word previous
          ("M-n" . 'evil-mc-make-and-goto-next-match) ; choose char from next line same position
