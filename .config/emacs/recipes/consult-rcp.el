@@ -10,6 +10,7 @@
   ("C-c b" . consult-buffer)
   ("C-x C-b" . consult-buffer)
   ("C-p" . consult-recent-file)
+  ("F10" . consult-outline)
   :chords
   ("bl" . consult-buffer)
 )
