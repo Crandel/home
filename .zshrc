@@ -314,7 +314,10 @@ if command_exists pacman ; then
   alias pqs='pacman -Qs'
   alias pql='pacman -Ql'
   alias pqi='pacman -Sii'
-  alias paci='pacman -S --needed'
+  paci() {
+    $SUDO pacman -S --needed $@
+    rehash
+  }
   alias pacr='pacman -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
@@ -322,9 +325,6 @@ if command_exists pacman ; then
     alias yacs='yay -Ss'
     alias yaci='yay -Sa'
     alias yaqi='yay -Sii'
-  fi
-  if command_exists powerpill ; then
-    alias upg="$SUDO powerpill -Syu"
   fi
 
   recovery-pacman() {

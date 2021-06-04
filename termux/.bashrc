@@ -234,9 +234,6 @@ if command_exists pacman ; then
     alias yaci='yay -Sa'
     alias yaqi='yay -Sii'
   fi
-  if command_exists powerpill ; then
-    alias upg="powerpill -Syu"
-  fi
 
   recovery-pacman() {
     pacman "$@"  \
