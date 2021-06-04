@@ -58,6 +58,8 @@ font pango:Hack Nerd Font, Source Code Pro 16
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod normal
 
+workspace_layout tabbed
+
 workspace 1 output $o_center
 workspace 2 output $o_center
 # workspace 3 output $o_left
@@ -87,9 +89,7 @@ for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 
 # terminal
-for_window [app_id="org.wezfurlong.wezterm"] fullscreen enable, border pixel 1, move to scratchpad, scratchpad show
-
-workspace_layout tabbed
+for_window [app_id="org.wezfurlong.wezterm"] border pixel 1, move to scratchpad, scratchpad show, fullscreen enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -118,8 +118,11 @@ mode "resize" {
 }
 
 bindsym --to-code {
-  # start a terminal
-  $mod+Return exec $term
+
+  # Terminal
+  F1 exec swaymsg [app_id="org.wezfurlong.wezterm"] "scratchpad show, fullscreen enable" || exec $term
+  # F1 exec $term --quake
+  $mod+F1 exec env GDK_BACKEND=x11 tilix --quake
 
   # kill focused window
   $mod+q kill
@@ -228,11 +231,6 @@ bindsym --to-code {
 
   # browser
   $mod+c exec $browser
-
-  # tilix
-  F1 exec swaymsg [app_id="org.wezfurlong.wezterm"] scratchpad show || exec $term, fullscreen enable
-  # F1 exec $term --quake
-  $mod+F1 exec env GDK_BACKEND=x11 tilix --quake
 
   # pulseaudio
   $mod+p exec pavucontrol
