@@ -58,7 +58,6 @@
   (ad-redefinition-action    'accept)
   (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
   (c-basic-offset            2)
-  (comp-async-report-warnings-errors nil)
   (display-time-mode         t)
   (display-time-24hr-format  t)
   (frame-title-format        "%f%* %I %P %l" "Display the name of the current buffer in the title bar")
@@ -70,6 +69,7 @@
   (js-indent-level           2)
   (lisp-body-indent          2)
   (max-mini-window-height    0.5)
+  (native-comp-async-report-warnings-errors nil)
   (next-line-add-newlines    nil)
   (nxml-attribute-indent 2)
   (ring-bell-function        'ignore)
@@ -291,6 +291,12 @@
   :config
   (recentf-mode t)
   :diminish nil)
+
+(use-package savehist
+  :demand t
+  :config
+  (savehist-mode)
+)
 
 (use-package saveplace
   :demand t

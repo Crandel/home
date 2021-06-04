@@ -11,9 +11,10 @@
    "k" 'kill-buffer
    "l" 'copy-line
    "q" 'keyboard-quit
-   "b" 'helm-buffers-list
-   "f" 'helm-find-files
-   "p" 'helm-multi-files
+   "b" 'consult-buffer
+   "g" 'consult-ripgrep
+   "f" 'find-file
+   "p" 'consult-recent-file
    )
   (evil-leader/set-key-for-mode
     'evil-visual-state-map

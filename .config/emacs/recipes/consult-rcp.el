@@ -7,20 +7,14 @@
   :bind
   ("C-s" . consult-line)
   ("C-x g" . consult-ripgrep)
-  ("C-c b" . consult-buffer)
+  ("C-x b" . consult-buffer)
   ("C-x C-b" . consult-buffer)
   ("C-p" . consult-recent-file)
-  ("F10" . consult-outline)
+  ([F10] . consult-imenu)
   :chords
   ("bl" . consult-buffer)
 )
 
-(use-package orderless
-  :ensure t
-  :init
-  (setq completion-styles '(orderless)
-        completion-category-defaults nil
-        completion-category-overrides '((file (styles . (partial-completion))))))
 
 (provide 'consult-rcp)
 

@@ -4,6 +4,7 @@
 (use-package lsp-mode
   :ensure t
   :defer t
+  :commands (lsp lsp-deferred)
   :init
   (setq lsp-completion-provider           :none)
   :custom
@@ -17,7 +18,7 @@
   (lsp-headerline-breadcrumb-enable       t)
   (lsp-headerline-breadcrumb-icons-enable t)
   (lsp-headerline-breadcrumb-segments     '(project file symbols))
-  (lsp-idle-delay                         0.500)
+  (lsp-idle-delay                         1.0)
   (lsp-imenu-container-name-separator     t)
   (lsp-imenu-show-container-name          t)
   (lsp-keymap-prefix                      "C-l")
@@ -29,14 +30,14 @@
   :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server 'rust-analyzer
                               lsp-enable-semantic-highlighting nil)
-                        (lsp)
+                        (lsp-deferred)
                         ))
-         (c++-mode       . lsp)
-         (java-mode      . lsp)
-         (js2-mode       . lsp)
-         (scala-mode     . lsp)
-         (terraform-mode . lsp)
-         (vimrc-mode     . lsp)
+         (c++-mode       . lsp-deferred)
+         (java-mode      . lsp-deferred)
+         (js2-mode       . lsp-deferred)
+         (scala-mode     . lsp-deferred)
+         (terraform-mode . lsp-deferred)
+         (vimrc-mode     . lsp-deferred)
          ;; (yaml-mode      . lsp)
          ;; (sh-mode        . lsp)
          )
