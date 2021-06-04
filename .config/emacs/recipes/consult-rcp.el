@@ -14,7 +14,7 @@
     (consult-line (thing-at-point 'symbol)))
   :custom
   (consult--project-root #'get-project-root)
-  (consult-preview-key (kdb "M-."))
+  (consult-preview-key nil)
   :bind
   ("C-s" . consult-line-symbol-at-point)
   ("C-x g" . consult-ripgrep)
@@ -22,6 +22,8 @@
   ("C-x C-b" . consult-buffer)
   ("C-p" . consult-recent-file)
   ([F10] . consult-imenu)
+  ;:map consult
+  "M-." . consult-preview-key)
   :chords
   ("bl" . consult-buffer)
 )
