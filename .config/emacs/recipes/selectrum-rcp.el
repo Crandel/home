@@ -9,7 +9,7 @@
   (selectrum-mode +1)
   :bind
   (:map selectrum-minibuffer-map
-        ([right] . selectrum-select-current-candidate)
+        ([right] . selectrum-insert-current-candidate)
         ([left] . selectrum-backward-kill-sexp)
    )
 )

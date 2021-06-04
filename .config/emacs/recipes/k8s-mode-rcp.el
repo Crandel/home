@@ -23,9 +23,9 @@
   :ensure t
   :commands (kubernetes-overview))
 
-(use-package kubernetes-helm
-  :ensure t
-)
+;; (use-package kubernetes-helm
+;;   :ensure t
+;; )
 
 (provide 'k8s-mode-rcp)
 ;;; Commentary:
