@@ -72,7 +72,7 @@
 (require 'pkgbuild-rcp)
 (require 'projectile-rcp)
 (require 'rainbow-rcp)
-;; (require 'restclient-rcp)
+(require 'restclient-rcp)
 (require 'selectrum-rcp)
 (require 'smart-mode-line-rcp)
 ;; (require 'smartparens-rcp)

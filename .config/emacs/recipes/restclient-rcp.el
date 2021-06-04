@@ -7,7 +7,7 @@
   :mode ("\\.rest\\'" . restclient-mode)
 )
 
-(use-package restclient-helm :ensure t)
+;(use-package restclient-helm :ensure t)
 
 (use-package company-restclient
   :ensure t
