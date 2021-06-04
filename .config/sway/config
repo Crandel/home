@@ -87,7 +87,7 @@ for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 
 # terminal
-for_window [app_id="org.wezfurlong.wezterm"] fullscreen enable, layout tabbed, move scratchpad, scratchpad show, border pixel 1
+for_window [app_id="org.wezfurlong.wezterm"] fullscreen enable, border pixel 1, move to scratchpad, scratchpad show
 
 workspace_layout tabbed
 
@@ -348,7 +348,7 @@ exec hash dbus-update-activation-environment 2>/dev/null \
   && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
-exec $term
+exec $term, fullscreen enable
 exec swaykbdd
 exec network-startup
 exec swayidle \

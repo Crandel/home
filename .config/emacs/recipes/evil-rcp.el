@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package evil-leader
   :ensure t
+  :demand t
   :custom
   (evil-leader/leader "<SPC>")
   :config

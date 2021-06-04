@@ -9,11 +9,14 @@
     (if (fboundp 'projectile-project-root)
       (projectile-project-root)
       (vc-root-dir)))
+  (defun consult-line-symbol-at-point ()
+    (interactive)
+    (consult-line (thing-at-point 'symbol)))
   :custom
   (consult--project-root #'get-project-root)
   (consult-preview-key (kdb "M-."))
   :bind
-  ("C-s" . consult-line)
+  ("C-s" . consult-line-symbol-at-point)
   ("C-x g" . consult-ripgrep)
   ("C-x b" . consult-buffer)
   ("C-x C-b" . consult-buffer)
