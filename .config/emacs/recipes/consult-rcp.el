@@ -4,6 +4,14 @@
 ;;; Code:
 (use-package consult
   :ensure t
+  :init
+  (defun get-project-root ()
+    (if (fboundp 'projectile-project-root)
+      (projectile-project-root)
+      (vc-root-dir)))
+  :custom
+  (consult--project-root #'get-project-root)
+  (consult-preview-key (kdb "M-."))
   :bind
   ("C-s" . consult-line)
   ("C-x g" . consult-ripgrep)
