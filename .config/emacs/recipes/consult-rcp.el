@@ -16,7 +16,10 @@
   (consult--project-root #'get-project-root)
   (consult-find-command "fd --color=never --full-path ARG OPTS")
   :config
-  (consult-customize consult-recent-file :preview-key '([M-.]))
+  (consult-customize
+   consult--source-file
+   consult-recent-file
+   :preview-key '[M-.])
   :bind
   ("C-s" . consult-line-symbol-at-point)
   ("C-x g" . consult-ripgrep)
