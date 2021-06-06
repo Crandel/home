@@ -20,6 +20,10 @@
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
+(use-package wgrep
+  :ensure t
+)
+
 (provide 'embark-rcp)
 ;;; Commentary:
 ;;
