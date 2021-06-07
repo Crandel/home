@@ -13,7 +13,7 @@
     (interactive)
     (consult-line (thing-at-point 'symbol)))
   :custom
-  (consult--project-root #'get-project-root)
+  (consult--project-root get-project-root)
   (consult-find-command "fd --color=never --full-path ARG OPTS")
   :config
   (consult-customize
@@ -32,6 +32,15 @@
   ("bl" . consult-buffer)
 )
 
+(use-package consult-flycheck
+  :ensure t
+  :after consult
+)
+
+(use-package consult-lsp
+  :ensure t
+  :after (consult lsp)
+)
 
 (provide 'consult-rcp)
 
