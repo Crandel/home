@@ -21,6 +21,10 @@
   ("md" . magit-status)
 )
 
+(use-package magit-todos
+  :ensure t
+  :defer t)
+
 (provide 'magit-rcp)
 ;;; Commentary:
 ;;
