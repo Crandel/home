@@ -8,12 +8,13 @@
   (("M-c" . embark-act)       ;; pick some comfortable binding
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
   :custom
-  (prefix-help-command embark-prefix-help-command)
   (embark-action-indicator
       (lambda (map _target)
         (which-key--show-keymap "Embark" map nil nil 'no-paging)
         #'which-key--hide-popup-ignore-command)
       embark-become-indicator embark-action-indicator)
+  :config
+  (setq prefix-help-command #'embark-prefix-help-command)
 )
 
 (use-package embark-consult

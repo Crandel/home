@@ -5,12 +5,10 @@
   :ensure t
   :defer t
   :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-completion-provider           :none)
   :custom
+  (lsp-completion-provider                :capf)
   (lsp-enable-completion-at-point         t)
   (lsp-enable-imenu                       t)
-  (lsp-enable-semantic-highlighting       t)
   (lsp-enable-text-document-color         t)
   (lsp-enable-which-key-integration       t)
   (lsp-enable-xref                        t)
@@ -24,7 +22,6 @@
   (lsp-log-io                             nil)
   (lsp-keymap-prefix                      "C-l")
   (lsp-modeline-code-actions-segments     '(count icon name))
-  (lsp-prefer-capf                        t)
   (lsp-signature-auto-activate            nil)
   (read-process-output-max                (* 1024 1024)) ;; 1mb
   :bind(
@@ -32,8 +29,7 @@
   ([remap xref-find-definitions] . lsp-find-definition)
   ([remap xref-find-references] . lsp-find-references)
   )
-  :hook ((lsp-mode . lsp-enable-which-key-integration)
-         (rust-mode . (lambda()
+  :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server 'rust-analyzer
                               lsp-enable-semantic-highlighting nil)
                         (lsp-deferred)

@@ -7,37 +7,32 @@
     :config
     (global-company-mode t)
     (bind-chord "ew" 'company-abort 'company-active-map)
+    :init
     (defun my-change-company-backends (backend)
-      (unless (member backend (car company-backends))
-        (setq comp-back (car company-backends))
-        (push backend comp-back)
-        (setq company-backends (list comp-back)))
+      (unless (member backend company-backends)
+        (message "company add backend %s to %S" backend company-backends)
+        (push backend company-backends))
       )
     :custom
     (company-idle-delay                0)
     (delete-selection-mode             t)
     (company-minimum-prefix-length     2)
-    (company-dabbrev-downcase          nil)
-    (company-dabbrev-other-buffers     t)
     (company-echo-delay                0)
     (company-show-numbers              t)
-    (company-dabbrev-code-everywhere   t)
-    (company-dabbrev-code-ignore-case  nil)
     (company-selection-wrap-around     t)
     (company-tooltip-align-annotations t)
     (selection-coding-system           'utf-8)
     (company-format-margin-function    #'company-vscode-dark-icons-margin)
     (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
     (company-backends '(
-                         (
-                          company-capf
-                          :with company-yasnippet
-                          company-dabbrev-code
-                          )
-                          company-files
-                         ))
-    :bind
-    (:map company-active-map
+                        company-files
+                        (
+                         company-capf
+                         :with company-yasnippet
+                         )
+                        ))
+    :bind(
+    :map company-active-map
                 ("C-h" . nil))
 )
 
