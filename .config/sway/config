@@ -89,7 +89,7 @@ for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 
 # terminal
-for_window [app_id="org.wezfurlong.wezterm"] border pixel 1, move to scratchpad, scratchpad show, fullscreen enable
+for_window [app_id="org.wezfurlong.wezterm"] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -120,7 +120,7 @@ mode "resize" {
 bindsym --to-code {
 
   # Terminal
-  F1 exec swaymsg [app_id="org.wezfurlong.wezterm"] "scratchpad show, fullscreen enable" || exec $term
+  F1 exec swaymsg [app_id="org.wezfurlong.wezterm"] scratchpad show || exec $term, move position center, resize set width 100 ppt height 100 ppt
   # F1 exec $term --quake
   $mod+F1 exec env GDK_BACKEND=x11 tilix --quake
 
@@ -346,7 +346,7 @@ exec hash dbus-update-activation-environment 2>/dev/null \
   && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
-exec $term, fullscreen enable
+exec $term, resize set width 100 ppt height 100 ppt
 exec swaykbdd
 exec network-startup
 exec swayidle \

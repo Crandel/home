@@ -80,7 +80,7 @@
   (split-height-threshold    nil "Minimum height for splitting windows vertically.")
   (split-width-threshold     0   "Minimum height for splitting windows horizontally.")
   (standart-indent           2)
-  (tab-always-indent         nil)
+  (tab-always-indent         'complete)
   (tab-width                 4)
   (use-dialog-box            nil "Non-nil means mouse commands use dialog boxes to ask questions.")
   :bind
