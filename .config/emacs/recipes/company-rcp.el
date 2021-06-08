@@ -32,13 +32,10 @@
                          (
                           company-capf
                           :with company-yasnippet
-                          company-files
                           company-dabbrev-code
                           )
-                         company-semantic
-                         company-etags
-                         company-keywords
-                         company-dabbrev))
+                          company-files
+                         ))
     :bind
     (:map company-active-map
                 ("C-h" . nil))

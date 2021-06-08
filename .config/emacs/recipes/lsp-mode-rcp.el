@@ -14,20 +14,26 @@
   (lsp-enable-text-document-color         t)
   (lsp-enable-which-key-integration       t)
   (lsp-enable-xref                        t)
-  (lsp-file-watch-threshold               10000)
+  (lsp-file-watch-threshold               1000)
   (lsp-headerline-breadcrumb-enable       t)
   (lsp-headerline-breadcrumb-icons-enable t)
   (lsp-headerline-breadcrumb-segments     '(project file symbols))
-  (lsp-idle-delay                         1.0)
+  (lsp-idle-delay                         0.5)
   (lsp-imenu-container-name-separator     t)
   (lsp-imenu-show-container-name          t)
+  (lsp-log-io                             nil)
   (lsp-keymap-prefix                      "C-l")
   (lsp-modeline-code-actions-segments     '(count icon name))
   (lsp-prefer-capf                        t)
   (lsp-signature-auto-activate            nil)
-  (lsp-yaml-schema-store-local-db         "~/.config/emacs/.cache/lsp/lsp-yaml-schemas.json")
   (read-process-output-max                (* 1024 1024)) ;; 1mb
-  :hook ((rust-mode . (lambda()
+  :bind(
+  :map lsp-mode-map
+  ([remap xref-find-definitions] . lsp-find-definition)
+  ([remap xref-find-references] . lsp-find-references)
+  )
+  :hook ((lsp-mode . lsp-enable-which-key-integration)
+         (rust-mode . (lambda()
                         (setq-default lsp-rust-server 'rust-analyzer
                               lsp-enable-semantic-highlighting nil)
                         (lsp-deferred)
@@ -43,11 +49,6 @@
          )
 )
 
-(use-package lsp-lens
-  :defer t
-  :hook
-  (lsp-mode . lsp-lens-mode))
-
 (use-package lsp-ui
   :ensure t
   :defer t
@@ -56,10 +57,12 @@
   (lsp-ui-doc-delay                   2)
   (lsp-ui-doc-max-height              3)
   (lsp-ui-doc-max-width               30)
+  (lsp-ui-peek-show-directory         t)
   :bind
   (:map lsp-ui-mode-map
         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
         ([remap xref-find-references] . lsp-ui-peek-find-references)
+        ("C-," . lsp-ui-peek-jump-backward)
         )
 )
 

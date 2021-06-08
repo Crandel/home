@@ -55,20 +55,21 @@
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill))
   :custom
-  (ad-redefinition-action    'accept)
-  (bidi-display-reordering   nil "Never reorder bidirectional text for display in the visual order.")
-  (c-basic-offset            2)
-  (display-time-mode         t)
-  (display-time-24hr-format  t)
-  (frame-title-format        '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l")) "Display the name of the current buffer in the title bar")
-  (gc-cons-threshold         100000000)
-  (indent-line-function      'insert-tab "End Indent settings")
-  (indent-tabs-mode          nil "Indent settings")
-  (inhibit-startup-screen    t   "Don't show splash screen")
-  (java-basic-offset         2)
-  (js-indent-level           2)
-  (lisp-body-indent          2)
-  (max-mini-window-height    0.5)
+  (ad-redefinition-action     'accept)
+  (bidi-display-reordering    nil "Never reorder bidirectional text for display in the visual order.")
+  (c-basic-offset             2)
+  (completion-cycle-threshold 3)
+  (display-time-mode          t)
+  (display-time-24hr-format   t)
+  (frame-title-format         '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l")) "Display the name of the current buffer in the title bar")
+  (gc-cons-threshold          100000000)
+  (indent-line-function       'insert-tab "End Indent settings")
+  (indent-tabs-mode           nil "Indent settings")
+  (inhibit-startup-screen     t   "Don't show splash screen")
+  (java-basic-offset          2)
+  (js-indent-level            2)
+  (lisp-body-indent           2)
+  (max-mini-window-height     0.5)
   (native-comp-async-report-warnings-errors nil)
   (next-line-add-newlines    nil)
   (nxml-attribute-indent 2)
@@ -80,7 +81,7 @@
   (split-height-threshold    nil "Minimum height for splitting windows vertically.")
   (split-width-threshold     0   "Minimum height for splitting windows horizontally.")
   (standart-indent           2)
-  (tab-always-indent         'complete)
+  (tab-always-indent         nil)
   (tab-width                 4)
   (use-dialog-box            nil "Non-nil means mouse commands use dialog boxes to ask questions.")
   :bind
@@ -333,13 +334,13 @@
           interprogram-paste-function 'wl-paste))
 )
 
-(use-package semantic
-  :demand t
-  :config
-  (semantic-mode 1)
-  :custom
-  (semantic-which-function-use-color t)
-)
+;; (use-package semantic
+;;   :demand t
+;;   :config
+;;   (semantic-mode 1)
+;;   :custom
+;;   (semantic-which-function-use-color t)
+;; )
 
 (use-package sendmail
   :defer t

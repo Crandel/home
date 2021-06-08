@@ -40,9 +40,6 @@
         evil-disable-insert-state-bindings t
         evil-want-fine-undo                t)
   :config
-  ;; (evil-leader/set-key
-  ;;  "j" 'evil-normal-state
-  ;;  )
   (evil-mode 1)
   :hook
   (evil-local-mode . turn-on-undo-tree-mode)
