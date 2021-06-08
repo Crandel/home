@@ -4,15 +4,23 @@
 (use-package company
     :ensure t
     :defer 1
-    :config
-    (global-company-mode t)
-    (bind-chord "ew" 'company-abort 'company-active-map)
     :init
+    (defun my-sort-uppercase (candidates)
+      (let (case-fold-search
+            (re "\\`[[:upper:]]*\\'"))
+        (sort candidates
+              (lambda (s1 s2)
+                (and (string-match-p re s2)
+                     (not (string-match-p re s1)))))))
     (defun my-change-company-backends (backend)
       (unless (member backend company-backends)
         (message "company add backend %s to %S" backend company-backends)
         (push backend company-backends))
       )
+    :config
+    (push 'my-sort-uppercase company-transformers)
+    (global-company-mode t)
+    (bind-chord "ew" 'company-abort 'company-active-map)
     :custom
     (company-idle-delay                0)
     (delete-selection-mode             t)
