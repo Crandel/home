@@ -17,6 +17,8 @@
     (company-idle-delay                0)
     (delete-selection-mode             t)
     (company-minimum-prefix-length     2)
+    (company-dabbrev-downcase          nil)
+    (company-dabbrev-other-buffers     t)
     (company-echo-delay                0)
     (company-show-numbers              t)
     (company-selection-wrap-around     t)
@@ -26,14 +28,20 @@
     (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
     (company-backends '(
                         company-files
+                        company-dabbrev
                         (
                          company-capf
                          :with company-yasnippet
                          )
                         ))
     :bind(
-    :map company-active-map
-                ("C-h" . nil))
+      :map company-active-map
+      ("C-h" . nil)
+      ([tab] . 'company-indent-or-complete-common)
+      :map company-mode-map
+      ("C-h" . nil)
+      ([tab] . 'company-indent-or-complete-common)
+    )
 )
 
 (use-package company-flx
