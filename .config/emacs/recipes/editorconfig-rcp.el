@@ -4,8 +4,12 @@
 
 (use-package editorconfig
   :ensure t
-  :config
-  (editorconfig-mode 1))
+  :hook
+  (python-mode   . editorconfig-mode)
+  (yaml-mode     . editorconfig-mode)
+  (sh-mode       . editorconfig-mode)
+  (markdown-mode . editorconfig-mode)
+)
 
 (provide 'editorconfig-rcp)
 ;;; Commentary:
