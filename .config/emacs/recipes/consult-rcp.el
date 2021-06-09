@@ -22,6 +22,7 @@
    :preview-key '[M-.])
   :bind
   ("C-s" . consult-line-symbol-at-point)
+  ("C-c s" . consult-multi-occur)
   ("C-x g" . consult-ripgrep)
   ("C-x b" . consult-buffer)
   ("C-x C-b" . consult-buffer)
