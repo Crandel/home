@@ -23,7 +23,8 @@
 
 (use-package magit-todos
   :ensure t
-  :defer t)
+  :after magit
+)
 
 (provide 'magit-rcp)
 ;;; Commentary:

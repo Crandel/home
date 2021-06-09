@@ -4,7 +4,10 @@
 ;;; Code:
 (use-package consult
   :ensure t
-  :init
+  :defer t
+  :custom
+  (consult-find-command "fd --color=never --full-path ARG OPTS")
+  :config
   (defun get-project-root ()
     (if (fboundp 'projectile-project-root)
       (projectile-project-root)
@@ -12,10 +15,7 @@
   (defun consult-line-symbol-at-point ()
     (interactive)
     (consult-line (thing-at-point 'symbol)))
-  :custom
-  (consult--project-root get-project-root)
-  (consult-find-command "fd --color=never --full-path ARG OPTS")
-  :config
+  (setq consult--project-root #'get-project-root)
   (consult-customize
    consult--source-file
    consult-recent-file
@@ -34,7 +34,7 @@
 
 (use-package consult-flycheck
   :ensure t
-  :after consult
+  :after (consult flycheck)
 )
 
 (use-package consult-lsp

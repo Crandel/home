@@ -4,7 +4,8 @@
 
 (use-package marginalia
   :ensure t
-  :init
+  :after (:any consult selectrum)
+  :config
   (marginalia-mode)
 )
 

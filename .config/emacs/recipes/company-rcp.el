@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package company
     :ensure t
-    :defer 1
+    :defer 0.1
     :init
     (defun my-sort-uppercase (candidates)
       (let (case-fold-search

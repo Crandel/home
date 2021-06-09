@@ -2,8 +2,10 @@
 ;;; Code:
 (use-package org-jira
   :ensure t
+  :defer t
+  :commands (org-jira-mode org-jira-get-issues)
   :custom
-  (jiralib-url "https://<host>.atlassian.net")
+  (jiralib-url "https://hitmeister.atlassian.net")
 )
 
 (provide 'org-jira-rcp)

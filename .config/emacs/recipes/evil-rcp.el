@@ -27,7 +27,6 @@
 (use-package evil
   :ensure t
   :after (undo-tree evil-leader)
-  :demand t
   :init
   (setq evil-normal-state-tag   (propertize "<N>" 'face '((:background "DarkGoldenrod2" :foreground "black")))
         evil-emacs-state-tag    (propertize "<E>" 'face '((:background "SkyBlue2"       :foreground "black")))
@@ -37,6 +36,9 @@
         evil-visual-state-tag   (propertize "<V>" 'face '((:background "gray"           :foreground "black")))
         evil-operator-state-tag (propertize "<O>" 'face '((:background "sandy brown"    :foreground "black")))
         evil-undo-system                   'undo-tree
+        evil-want-C-i-jump                 nil
+        evil-want-C-d-scroll               nil
+        evil-want-integration              t
         evil-disable-insert-state-bindings t
         evil-want-fine-undo                t)
   :config
@@ -96,6 +98,7 @@
 
 (use-package evil-surround
   :ensure t
+  :after evil
   :custom
   (evil-surround-pairs-alist
    '((40 "(" . ")")
@@ -115,7 +118,9 @@
   (global-evil-surround-mode 1))
 
 (use-package treemacs-evil
-  :ensure t)
+  :ensure t
+  :after (evil treemacs)
+)
 
 (provide 'evil-rcp)
 ;;; Commentary:

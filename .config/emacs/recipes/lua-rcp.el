@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package lua-mode
   :ensure t
+  :defer t
   :mode "\\.lua\\'"
   :custom
   (lua-indent-level 2)

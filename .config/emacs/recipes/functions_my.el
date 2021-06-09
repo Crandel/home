@@ -3,14 +3,14 @@
 ;;; Code:
 
 ;; Moving
-;; move line up
+;;;###autoload
 (defun move-line-up ()
   "Move line up."
   (interactive)
   (transpose-lines 1)
   (forward-line -2))
 
-;; move line down
+;;;###autoload
 (defun move-line-down ()
   "Move line down."
   (interactive)
@@ -18,7 +18,7 @@
   (transpose-lines 1)
   (forward-line -1))
 
-;; duplicate line
+;;;###autoload
 (defun duplicate-line()
   "Duplicate whole line."
   (interactive)
@@ -30,7 +30,7 @@
   (yank)
   )
 
-;; copy line
+;;;###autoload
 (defun copy-line (arg)
   "Copy lines (as many as prefix ARG) in the kill ring."
   (interactive "p")
@@ -38,13 +38,14 @@
                   (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
-;; copy word
+;;;###autoload
 (defun get-point (symbol &optional arg)
   "Copy word current SYMBOL belongs.  With additional ARG."
   (funcall symbol arg)
   (point)
   )
 
+;;;###autoload
 (defun copy-thing (begin-of-thing end-of-thing &optional arg)
   "Copy thing between BEGIN-OF-THING & END-OF-THING into kill ring.  With optional ARG."
   (save-excursion
@@ -52,6 +53,8 @@
           (end (get-point end-of-thing arg)))
       (copy-region-as-kill beg end)))
   )
+
+;;;###autoload
 (defun copy-word (&optional arg)
   "Copy words at point into KILL-RING.  With optional ARG."
   (interactive "P")
@@ -59,7 +62,7 @@
   ;;(paste-to-mark arg)
   )
 
-;; delete line
+;;;###autoload
 (defun my-delete-line ()
   "Delete text from begin to end of line char."
   (interactive)
@@ -71,6 +74,8 @@
 
 
 (defvar newline-and-indent t)
+
+;;;###autoload
 (defun open-next-line ()
   "Open new line (vi's o command)."
   (interactive)
@@ -80,22 +85,23 @@
   (when newline-and-indent
     (indent-according-to-mode)))
 
-;; Behave like vi's O command
+;;;###autoload
 (defun open-previous-line (arg)
-  "Open a new line before the current one.  See also `newline-and-indent'.  With optional ARG."
+  "Open a new line before the current one.  See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
   (interactive "p")
   (beginning-of-line)
   (open-line arg)
   (when newline-and-indent
     (indent-according-to-mode)))
 
-
+;;;###autoload
 (defun my-kill-emacs-with-save ()
   "Kill terminal."
   (interactive)
   (save-buffers-kill-terminal "y")
 )
 
+;;;###autoload
 (defun kill-other-buffers ()
     "Kill all other buffers."
     (interactive)

@@ -19,8 +19,8 @@
   (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
         package-enable-at-startup nil
         package-archive-priorities '(("melpa"        . 200)
-                                     ("org"          . 100)
-                                     ("elpa"         . 75)
+                                     ("elpa"         . 100)
+                                     ("org"          . 75)
                                      ("gnu"          . 50)))  ;; Higher values are searched first.
 ;(setq package-check-signature nil) ;; for gnu repository
   (package-initialize t)

@@ -118,7 +118,7 @@
 )
 
 (use-package autorevert
-  :demand t
+  :defer 3
   :config
   (auto-revert-mode t)
 )
@@ -193,6 +193,7 @@
 )
 
 (use-package fringe
+  :demand t
   :config
   (fringe-mode '(8 . 1))
 )
@@ -253,6 +254,7 @@
 )
 
 (use-package make-mode
+  :defer t
   :bind (
   (:map makefile-mode-map
         ("M-n" . nil)))
@@ -273,6 +275,7 @@
 )
 
 (use-package paren
+  :defer 0.1
   :init
   (show-paren-mode 2)
   :custom-face
@@ -283,7 +286,7 @@
 )
 
 (use-package recentf
-  :demand t
+  :defer 0.5
   :custom
   (recentf-max-saved-items 1500)
   (recentf-max-menu-items  150)
@@ -300,7 +303,7 @@
 )
 
 (use-package saveplace
-  :demand t
+  :defer 3
   :init
   (save-place-mode 1)
   :custom
@@ -362,7 +365,7 @@
     (add-to-list 'mode-line-buffer-identification
                  '(:propertize (" " default-directory " ") face dired-directory)))
   :hook
-  (shell-mode-hook . add-mode-line-dirtrack)
+  (shell-mode . add-mode-line-dirtrack)
   :custom
   (shell-file-name "/bin/zsh" "Set zsh as default shell")
 )

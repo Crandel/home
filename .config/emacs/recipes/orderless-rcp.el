@@ -4,10 +4,13 @@
 ;;; Code:
 (use-package orderless
   :ensure t
+  :after (:any consult selectrum)
   :init
-  (setq completion-styles '(orderless)
-        completion-category-defaults nil
-        completion-category-overrides '((file (styles . (partial-completion))))))
+  (setq completion-styles             '(orderless)
+        completion-category-defaults  nil
+        completion-category-overrides '((file (styles . (partial-completion)))))
+)
+
 (provide 'orderless-rcp)
 ;;; Commentary:
 ;;

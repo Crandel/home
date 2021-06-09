@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package embark
   :ensure t
-  :demand t
+  :defer t
   :bind
   (("M-c" . embark-act)       ;; pick some comfortable binding
    ("C-h B" . embark-bindings)) ;; alternative for `describe-bindings'
@@ -28,6 +28,7 @@
 
 (use-package wgrep
   :ensure t
+  :after embark
 )
 
 (provide 'embark-rcp)
