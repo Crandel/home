@@ -22,25 +22,26 @@
     (global-company-mode t)
     (bind-chord "ew" 'company-abort 'company-active-map)
     :custom
-    (company-idle-delay                0)
-    (delete-selection-mode             t)
-    (company-minimum-prefix-length     2)
+    (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
     (company-dabbrev-downcase          nil)
     (company-dabbrev-other-buffers     t)
     (company-echo-delay                0)
-    (company-show-numbers              t)
-    (company-selection-wrap-around     t)
-    (company-tooltip-align-annotations t)
-    (selection-coding-system           'utf-8)
     (company-format-margin-function    #'company-vscode-dark-icons-margin)
-    (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
+    (company-idle-delay                0)
+    (company-minimum-prefix-length     2)
+    (company-selection-wrap-around     t)
+    (company-show-numbers              t)
+    (company-tooltip-align-annotations t)
+    (delete-selection-mode             t)
+    (selection-coding-system           'utf-8)
     (company-backends '(
                         company-files
-                        company-dabbrev
                         (
                          company-capf
                          :with company-yasnippet
+                         company-dabbrev-code
                          )
+                        company-dabbrev
                         ))
     :bind(
       :map company-active-map
