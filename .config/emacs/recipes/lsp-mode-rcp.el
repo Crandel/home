@@ -11,6 +11,7 @@
   (lsp-enable-imenu                       t)
   (lsp-enable-text-document-color         t)
   (lsp-enable-which-key-integration       t)
+  (lsp-enable-file-watchers               nil)
   (lsp-enable-xref                        t)
   (lsp-file-watch-threshold               1000)
   (lsp-headerline-breadcrumb-enable       t)

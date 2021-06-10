@@ -46,10 +46,8 @@
     :bind(
       :map company-active-map
       ("C-h" . nil)
-      ([tab] . 'company-indent-or-complete-common)
       :map company-mode-map
       ("C-h" . nil)
-      ([tab] . 'company-indent-or-complete-common)
     )
 )
 

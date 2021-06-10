@@ -13,9 +13,10 @@
    "l" 'copy-line
    "q" 'keyboard-quit
    "b" 'consult-buffer
-   "g" 'consult-ripgrep
+   "g" 'consult-git-grep
    "f" 'find-file
    "p" 'consult-recent-file
+   "/" 'consult-ripgrep
    )
   (evil-leader/set-key-for-mode
     'evil-visual-state-map
@@ -78,7 +79,9 @@
 
 (use-package evil-mc
   :ensure t
-  :after evil-mode
+  :after evil
+  :custom
+  (evil-mc-mode-line-prefix "ⓜ")
   :hook
   (evil-local-mode . evil-mc-mode)
   :bind (
@@ -92,7 +95,6 @@
          ("C-x M-m" . 'back-to-indentation)
          ("C-c C-n" . 'evil-mc-skip-and-goto-next-match)
          ("C-c <return>" . 'evil-mc-skip-and-goto-prev-match)
-         ("ESC" . 'evil-mc-undo-all-cursors)
          )
 )
 

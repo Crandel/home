@@ -7,6 +7,7 @@
   :defer t
   :custom
   (consult-find-command "fd --color=never --full-path ARG OPTS")
+  (consult-project-root-function #'get-project-root)
   :config
   (defun get-project-root ()
     (if (fboundp 'projectile-project-root)
@@ -15,7 +16,6 @@
   (defun consult-line-symbol-at-point ()
     (interactive)
     (consult-line (thing-at-point 'symbol)))
-  (setq consult--project-root #'get-project-root)
   (consult-customize
    consult--source-file
    consult-recent-file

@@ -63,10 +63,14 @@
   (use-package lsp-pyright
     :ensure t
     :defer t
+    :custom
+    (lsp-pyright-disable-organize-imports t)
+    (lsp-pyright-auto-import-completions  t)
+    (lsp-pyright-auto-search-paths        nil)
     :hook
     (python-mode . (lambda ()
                            (require 'lsp-pyright)
-                           (lsp))))  ; or lsp-deferred
+                           (lsp-deferred))))  ; or lsp
 )
 
 (provide 'python-rcp)
