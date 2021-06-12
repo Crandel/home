@@ -46,6 +46,7 @@
 
 ;; (require 'fnhh-rcp)
 (require 'avy-rcp)
+(require 'all-the-icons-rcp)
 (require 'bazel-rcp)
 (require 'company-rcp)
 ;;(require 'corfu-rcp)

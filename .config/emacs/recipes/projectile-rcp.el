@@ -4,7 +4,7 @@
 (use-package projectile
   :ensure t
   :commands projectile-project-root
-  :defer t
+  :defer 2
   :defines projectile-globally-ignored-directories
   :config
   (projectile-mode)

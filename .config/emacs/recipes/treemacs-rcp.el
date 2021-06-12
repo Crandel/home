@@ -3,6 +3,7 @@
 ;;; Code:
 (use-package treemacs
   :ensure t
+  :defer t
   :bind
   ([f7] . treemacs)
   :custom
@@ -47,20 +48,23 @@
 
 (use-package treemacs-icons-dired
   :ensure t
-  :defer t
   :hook (dired-mode . treemacs-icons-dired-mode)
 )
 
 (use-package treemacs-projectile
   :ensure t
-  :defer t
+  :after (treemacs projectile)
 )
 
 (use-package treemacs-magit
   :ensure t
-  :defer t
+  :after (treemacs magit)
 )
 
+(use-package treemacs-all-the-icons
+  :ensure t
+  :after treemacs
+)
 (provide 'treemacs-rcp)
 ;;; Commentary:
 ;;
