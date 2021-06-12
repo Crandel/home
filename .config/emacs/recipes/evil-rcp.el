@@ -87,14 +87,6 @@
   :bind (
          :map evil-mc-key-map
          ("C-p" . nil)
-         ("C-c C-<right>" . 'evil-mc-make-and-goto-next-match) ; choose same word next
-         ("C-c C-<left>" . 'evil-mc-make-and-goto-prev-match) ; choose same word previous
-         ("M-n" . 'evil-mc-make-and-goto-next-match) ; choose char from next line same position
-         ("M-m" . 'evil-mc-make-and-goto-prev-match); choose char from previous line same position
-         ("C-c C-_" . 'evil-mc-make-all-cursors)
-         ("C-x M-m" . 'back-to-indentation)
-         ("C-c C-n" . 'evil-mc-skip-and-goto-next-match)
-         ("C-c <return>" . 'evil-mc-skip-and-goto-prev-match)
          )
 )
 
