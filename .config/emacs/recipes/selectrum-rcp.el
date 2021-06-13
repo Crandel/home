@@ -5,32 +5,13 @@
 (use-package selectrum
   :ensure t
   :demand t
-  :custom
-  (selectrum-display-action '(display-buffer-show-in-posframe))
-  :init
-  (defun display-buffer-show-in-posframe (buffer _alist)
-    (frame-root-window
-     (posframe-show buffer
-                    :min-height 10
-                    :min-width (frame-width)
-                    :internal-border-width 1
-                    :left-fringe 8
-                    :right-fringe 8
-                    :poshandler 'posframe-poshandler-frame-bottom-left-corner)))
   :config
   (selectrum-mode +1)
-  :hook
-  (minibuffer-exit . posframe-delete-all)
   :bind
   (:map selectrum-minibuffer-map
         ([right] . selectrum-insert-current-candidate)
         ([left] . selectrum-backward-kill-sexp)
    )
-)
-
-(use-package posframe
-  :ensure t
-  :demand t
 )
 
 (provide 'selectrum-rcp)

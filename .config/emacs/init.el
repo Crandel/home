@@ -72,6 +72,7 @@
 (require 'markdown-mode-rcp)
 (require 'multi-compile-rcp)
 ;(require 'multiple-cursors-rcp)
+(require 'mini-frame-rcp)
 (require 'orderless-rcp)
 ;(require 'org-jira-rcp)
 (require 'pkgbuild-rcp)

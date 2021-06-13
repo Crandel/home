@@ -80,8 +80,6 @@
 (use-package evil-mc
   :ensure t
   :after evil
-  :custom
-  (evil-mc-mode-line-prefix "ⓜ")
   :hook
   (evil-local-mode . evil-mc-mode)
   :bind (

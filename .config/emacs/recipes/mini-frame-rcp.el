@@ -7,7 +7,8 @@
   (mini-frame-show-parameters '((top . 10)
                                 (width . 0.7)
                                 (left . 0.5)))
-  (x-gtk-resize-child-frames 'resize-mode)
+  (x-gtk-resize-child-frames  'resize-mode)
+  (mini-frame-detach-on-hide  nil)
   :config
   (mini-frame-mode +1)
 )
