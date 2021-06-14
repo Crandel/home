@@ -80,12 +80,17 @@
 (use-package evil-mc
   :ensure t
   :after evil
-  :hook
-  (evil-local-mode . evil-mc-mode)
+  :custom
+  (evil-mc-one-cursor-show-mode-line-text nil)
+  :config
+  (evil-leader/set-key
+    "m" evil-mc-cursors-map)
   :bind (
          :map evil-mc-key-map
          ("C-p" . nil)
          )
+  :hook
+  (evil-local-mode . evil-mc-mode)
 )
 
 (use-package evil-surround
