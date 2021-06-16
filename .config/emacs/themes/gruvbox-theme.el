@@ -51,6 +51,7 @@
       (gruvbox-dark3       (if (display-graphic-p) "#665c54" "color-241"))
       (gruvbox-dark4       (if (display-graphic-p) "#7c6f64" "color-243"))
 
+      (gruvbox-gray        (if (display-graphic-p) "#928374" "#8a8a8a"))
       (gruvbox-medium      (if (display-graphic-p) "#928374" "color-245")) ;; or 244
 
       (gruvbox-light0_hard (if (display-graphic-p) "#f9f5d7" "color-230"))
@@ -523,6 +524,54 @@
     `(magit-signature-revoked                   ((t (:foreground ,gruvbox-bright_purple))))
     `(magit-signature-untrusted                 ((t (:foreground ,gruvbox-bright_blue))))
     `(magit-tag                                 ((t  (:foreground ,gruvbox-bright_yellow))))
+
+    ;; git-gutter
+    `(git-gutter:modified                     ((t (:background ,gruvbox-faded_blue :foreground ,gruvbox-faded_blue))))
+    `(git-gutter:added                        ((t (:background ,gruvbox-faded_green :foreground ,gruvbox-faded_green))))
+    `(git-gutter:deleted                      ((t (:background ,gruvbox-faded_red :foreground ,gruvbox-faded_red))))
+
+    ;; lsp
+    `(lsp-lsp-flycheck-warning-unnecessary-face ((t (:underline (:color ,gruvbox-bright_orange :style wave)
+                                                             :foreground ,gruvbox-burlywood4))))
+    `(lsp-ui-doc-background                     ((t (:background ,gruvbox-dark3))))
+    `(lsp-ui-doc-header                         ((t (:background ,gruvbox-faded_blue))))
+    `(lsp-ui-peek-filename                      ((t (:foreground ,gruvbox-bright_red))))
+    `(lsp-ui-sideline-code-action               ((t (:foreground ,gruvbox-bright_yellow))))
+    `(lsp-ui-sideline-current-symbol            ((t (:foreground ,gruvbox-faded_aqua))))
+    `(lsp-ui-sideline-symbol                    ((t (:foreground ,gruvbox-gray))))
+
+    ;; wgrep
+    `(wgrep-delete-face                         ((t (:strike-through ,gruvbox-bright_red))))
+    `(wgrep-done-face                           ((t (:foreground ,gruvbox-turquoise4))))
+    `(wgrep-face                                ((t (:underline (:color ,gruvbox-bright_yellow :style line)))))
+    `(wgrep-file-face                           ((t (:inherit 'highlight))))
+    `(wgrep-reject-face                         ((t (:foreground ,gruvbox-bright_red :bold t))))
+
+    ;; hydra
+    `(hydra-face-red      ((t (:foreground ,gruvbox-bright_red :weight 'bold))))
+    `(hydra-face-blue     ((t (:foreground ,gruvbox-bright_blue :weight 'bold))))
+    `(hydra-face-amaranth ((t (:foreground ,gruvbox-bright_yellow :weight 'bold))))
+    `(hydra-face-pink     ((t (:foreground ,gruvbox-bright_purple :weight 'bold))))
+    `(hydra-face-teal     ((t (:foreground ,gruvbox-bright_aqua :weight 'bold))))
+
+    ; flycheck
+    `(flycheck-warning                         ((t (:underline (:style wave :color ,gruvbox-bright_yellow)))))
+    `(flycheck-error                           ((t (:underline (:style wave :color ,gruvbox-bright_red)))))
+    `(flycheck-info                            ((t (:underline (:style wave :color ,gruvbox-bright_blue)))))
+    `(flycheck-fringe-warning                  ((t (:foreground ,gruvbox-bright_yellow))))
+    `(flycheck-fringe-error                    ((t (:foreground ,gruvbox-bright_red))))
+    `(flycheck-fringe-info                     ((t (:foreground ,gruvbox-bright_blue))))
+    `(flycheck-error-list-warning              ((t (:foreground ,gruvbox-bright_yellow :bold t))))
+    `(flycheck-error-list-error                ((t (:foreground ,gruvbox-bright_red :bold t))))
+    `(flycheck-error-list-info                 ((t (:foreground ,gruvbox-bright_blue :bold t))))
+
+    ;; web-mode
+    `(web-mode-doctype-face          ((t (:foreground ,gruvbox-bright_blue))))
+    `(web-mode-html-tag-bracket-face ((t (:foreground ,gruvbox-bright_blue))))
+    `(web-mode-html-tag-face         ((t (:foreground ,gruvbox-bright_blue))))
+    `(web-mode-html-attr-name-face   ((t (:foreground ,gruvbox-bright_yellow))))
+    `(web-mode-html-attr-equal-face  ((t (:foreground ,gruvbox-bright_yellow))))
+    `(web-mode-html-attr-value-face  ((t (:foreground ,gruvbox-bright_green))))
 )
 
 (custom-theme-set-variables
@@ -534,7 +583,7 @@
 
 (defun gruvbox-set-ansi-color-names-vector ()
   "Give comint and the like the same colours as the term colours we set."
-  (setq ansi-color-names-vector
+  (setq-default ansi-color-names-vector
     [term-color-black term-color-red term-color-green term-color-yellow term-color-blue
      term-color-purple term-color-aqua term-color-white]))
 
@@ -550,5 +599,4 @@
 ;; Local Variables:
 ;; eval: (when (fboundp 'rainbow-mode) (rainbow-mode +1))
 ;; End:
-
 ;;; gruvbox-theme.el ends here
