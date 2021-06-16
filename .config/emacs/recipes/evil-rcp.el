@@ -12,11 +12,11 @@
    "k" 'kill-buffer
    "l" 'copy-line
    "q" 'keyboard-quit
-   "b" 'consult-buffer
-   "g" 'consult-git-grep
+   "b" 'consult-recent-file
+   "g" 'consult-ripgrep
    "f" 'find-file
-   "p" 'consult-recent-file
-   "/" 'consult-ripgrep
+   "p" 'consult-buffer
+   "/" 'consult-ripgrep-symbol-at-point
    )
   (evil-leader/set-key-for-mode
     'evil-visual-state-map
@@ -83,12 +83,15 @@
   :custom
   (evil-mc-one-cursor-show-mode-line-text nil)
   :config
-  (evil-leader/set-key
-    "m" evil-mc-cursors-map)
-  :bind (
-         :map evil-mc-key-map
-         ("C-p" . nil)
-         )
+  (evil-define-key* '(normal visual) evil-mc-cursors-map
+    "j" 'evil-mc-make-and-goto-next-match
+    "k" 'evil-mc-make-and-goto-prev-match
+    "J" 'evil-mc-make-cursor-move-next-line
+    "K" 'evil-mc-make-cursor-move-prev-line)
+  (evil-define-key* '(normal visual) evil-mc-key-map
+    (kbd "m") evil-mc-cursors-map
+    (kbd "C-p") nil)
+  (key-chord-define evil-mc-cursors-map "wq" 'evil-mc-undo-all-cursors)
   :hook
   (evil-local-mode . evil-mc-mode)
 )

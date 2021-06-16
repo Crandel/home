@@ -20,7 +20,7 @@
            (sml/shorten-modes             t)
            (sml/use-projectile-p          'before-prefixes)
            (sml/vc-mode-show-backend      nil)
-           (sml/theme                     'dark)
+           (sml/theme                     'respectful)
            )
 )
 

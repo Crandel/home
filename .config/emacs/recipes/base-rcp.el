@@ -290,10 +290,11 @@
   :custom
   (recentf-max-saved-items 1500)
   (recentf-max-menu-items  150)
-  (recentf-exclude         '("recentf" "elpa" "eln-cache" "semanticdb" "transient"))
+  (recentf-exclude         '("recentf" "elpa" "eln-cache" "semanticdb" "transient" "bookmarks"))
   (recentf-save-file       (concat user-emacs-directory ".my-recentf"))
   :config
   (recentf-mode t)
+  (run-at-time nil 60 'recentf-save-list)
   :diminish nil)
 
 (use-package savehist
