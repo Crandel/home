@@ -35,6 +35,14 @@
   ("C-x C-b" . consult-buffer)
   ("C-p" . consult-buffer)
   ([f10] . consult-imenu)
+  :bind(:map consult-narrow-map
+             ([C-right] .  (lambda()
+                             (interactive)
+                             (consult-narrow ?f)))
+             ([C-left] .  (lambda()
+                             (interactive)
+                             (consult-narrow nil)))
+  )
   :chords
   ("bl" . consult-buffer)
 )

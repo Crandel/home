@@ -27,7 +27,7 @@
 
 (use-package evil
   :ensure t
-  :after (undo-tree evil-leader)
+  :after evil-leader
   :init
   (setq evil-normal-state-tag   (propertize "<N>" 'face '((:background "DarkGoldenrod2" :foreground "black")))
         evil-emacs-state-tag    (propertize "<E>" 'face '((:background "SkyBlue2"       :foreground "black")))
@@ -36,7 +36,7 @@
         evil-motion-state-tag   (propertize "<M>" 'face '((:background "plum3"          :foreground "black")))
         evil-visual-state-tag   (propertize "<V>" 'face '((:background "gray"           :foreground "black")))
         evil-operator-state-tag (propertize "<O>" 'face '((:background "sandy brown"    :foreground "black")))
-        evil-undo-system                   'undo-tree
+        evil-undo-system                   'undo-redo
         evil-want-C-i-jump                 nil
         evil-want-C-d-scroll               nil
         evil-want-integration              t
@@ -44,8 +44,8 @@
         evil-want-fine-undo                t)
   :config
   (evil-mode 1)
-  :hook
-  (evil-local-mode . turn-on-undo-tree-mode)
+  ;:hook
+  ;(evil-local-mode . turn-on-undo-tree-mode)
   :bind (
   ("C-x e" . evil-mode)
   :map evil-motion-state-map
@@ -92,6 +92,7 @@
     (kbd "m") evil-mc-cursors-map
     (kbd "C-p") nil)
   (key-chord-define evil-mc-cursors-map "wq" 'evil-mc-undo-all-cursors)
+  (key-chord-define evil-mc-cursors-map "jk" 'evil-normal-state)
   :hook
   (evil-local-mode . evil-mc-mode)
 )
