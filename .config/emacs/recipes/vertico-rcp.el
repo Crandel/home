@@ -5,6 +5,11 @@
   :ensure t
   :custom
   (vertico-cycle t)
+  :bind
+  (:map vertico-map
+        ([right] . vertico-insert)
+        ([left] . backward-kill-word)
+        )
   :init
   (vertico-mode)
 )

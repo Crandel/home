@@ -4,7 +4,7 @@
 ;;; Code:
 (use-package orderless
   :ensure t
-  :after (:any consult selectrum)
+  :defer t
   :init
   (setq completion-styles             '(orderless)
         completion-category-defaults  nil

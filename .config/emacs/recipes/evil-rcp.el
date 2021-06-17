@@ -84,15 +84,17 @@
   (evil-mc-one-cursor-show-mode-line-text nil)
   :config
   (evil-define-key* '(normal visual) evil-mc-cursors-map
+    "," 'evil-force-normal-state
     "j" 'evil-mc-make-and-goto-next-match
     "k" 'evil-mc-make-and-goto-prev-match
     "J" 'evil-mc-make-cursor-move-next-line
-    "K" 'evil-mc-make-cursor-move-prev-line)
+    "K" 'evil-mc-make-cursor-move-prev-line
+    )
   (evil-define-key* '(normal visual) evil-mc-key-map
     (kbd "m") evil-mc-cursors-map
     (kbd "C-p") nil)
-  (key-chord-define evil-mc-cursors-map "wq" 'evil-mc-undo-all-cursors)
-  (key-chord-define evil-mc-cursors-map "jk" 'evil-normal-state)
+  ;; (key-chord-define evil-mc-cursors-map "wq" 'evil-mc-undo-all-cursors)
+  ;; (key-chord-define evil-mc-cursors-map "jk" 'evil-force-normal-state)
   :hook
   (evil-local-mode . evil-mc-mode)
 )

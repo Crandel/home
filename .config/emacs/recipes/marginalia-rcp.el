@@ -1,10 +1,9 @@
 ;;; marginalia-rcp.el --- This package provides marginalia-mode which adds marginalia to the minibuffer completions.
 
 ;;; Code:
-
 (use-package marginalia
   :ensure t
-  :after (:any consult selectrum)
+  :after (:any consult vertico)
   :config
   (marginalia-mode)
 )
