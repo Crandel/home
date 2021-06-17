@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 declare -a arr=(
+  "Apks"
   "Books"
   "DCIM"
   "Diaro"
@@ -15,7 +16,6 @@ declare -a arr=(
   "VocalizerEx2"
   "dictdata"
   "ivona"
-  "progs"
   "termux"
   "valtGallery"
   "viber"
