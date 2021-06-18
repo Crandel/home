@@ -187,7 +187,7 @@ bindsym --to-code {
   $mod+Shift+space floating toggle
 
   # change focus between tiling / floating windows
-  $mod+space focus mode_toggle
+  $mod+Control+space focus mode_toggle
 
   # focus the parent container
   $mod+a focus parent
@@ -275,7 +275,7 @@ bindsym --to-code {
   XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 
   # mic settings
-  $mod+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute sound
+  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute sound
   XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # mute sound
 
   # Sreen brightness controls
@@ -289,7 +289,7 @@ bindsym --to-code {
 bindsym --release {
   Mod2+button2 kill
   button2 kill
-  $mod+m exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # mute mic
+  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # mute mic
 }
 
 
