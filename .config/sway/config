@@ -272,11 +272,11 @@ bindsym --to-code {
   # Pulse Audio controls
   XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # increase sound volume
   XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% # decrease sound volume
-  XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
+  XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # toggle mute sound
 
   # mic settings
-  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute sound
-  XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # mute sound
+  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute mic
+  XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
 
   # Sreen brightness controls
   XF86MonBrightnessUp exec light -A 20 # increase screen brightness
@@ -289,7 +289,7 @@ bindsym --to-code {
 bindsym --release {
   Mod2+button2 kill
   button2 kill
-  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # mute mic
+  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic
 }
 
 
