@@ -20,7 +20,7 @@ output {
   $o_center background ~/Pictures/wallpaper.jpg fill
   # $o_left pos 1920 0 res 1920x1080
   $o_center pos 0 0 res --custom 1920x1080@144Hz
-  $o_center adaptive_sync off
+  $o_center adaptive_sync on
 }
 
 input type:keyboard {

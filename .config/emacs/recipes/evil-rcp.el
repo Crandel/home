@@ -62,7 +62,7 @@
   ("C-p" . nil)
   )
   :chords
-  ("jk" . evil-normal-state)
+  ("jk" . evil-force-normal-state)
 )
 
 (use-package evil-ex
