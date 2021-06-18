@@ -84,7 +84,6 @@
   (evil-mc-one-cursor-show-mode-line-text nil)
   :config
   (evil-define-key* '(normal visual) evil-mc-cursors-map
-    "," 'evil-force-normal-state
     "j" 'evil-mc-make-and-goto-next-match
     "k" 'evil-mc-make-and-goto-prev-match
     "J" 'evil-mc-make-cursor-move-next-line
