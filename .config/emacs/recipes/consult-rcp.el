@@ -10,10 +10,31 @@
   (consult-find-command "fd --color=never --full-path ARG OPTS")
   (consult-project-root-function #'get-project-root)
   (consult-narrow-key ",")
-  :config
+  :preface
+  (defun consult-narrow-left ()
+    (interactive)
+    (when consult--narrow-keys
+      (consult-narrow
+       (if consult--narrow
+           (let ((idx (seq-position consult--narrow-keys
+                                    (assq consult--narrow consult--narrow-keys))))
+             (unless (eq idx 0)
+               (car (nth (1- idx) consult--narrow-keys))))
+         (caar (last consult--narrow-keys))))))
+
+  (defun consult-narrow-right ()
+    (interactive)
+    (when consult--narrow-keys
+      (consult-narrow
+       (if consult--narrow
+           (let ((idx (seq-position consult--narrow-keys
+                                    (assq consult--narrow consult--narrow-keys))))
+             (unless (eq idx (1- (length consult--narrow-keys)))
+               (car (nth (1+ idx) consult--narrow-keys))))
+         (caar consult--narrow-keys)))))
   (defun get-project-root ()
     (if (fboundp 'projectile-project-root)
-      (projectile-project-root)
+        (projectile-project-root)
       (vc-root-dir)))
   (defun consult-line-symbol-at-point ()
     (interactive)
@@ -21,6 +42,7 @@
   (defun consult-ripgrep-symbol-at-point ()
     (interactive)
     (consult-ripgrep (get-project-root) (thing-at-point 'symbol)))
+  :config
   (consult-customize
    consult--source-file
    consult-recent-file
@@ -36,12 +58,8 @@
   ("C-p" . consult-buffer)
   ([f10] . consult-imenu)
   :bind(:map consult-narrow-map
-             ([C-right] .  (lambda()
-                             (interactive)
-                             (consult-narrow ?f)))
-             ([C-left] .  (lambda()
-                             (interactive)
-                             (consult-narrow nil)))
+             ([C-right] .  consult-narrow-right)
+             ([C-left] .  consult-narrow-left)
   )
   :chords
   ("bl" . consult-buffer)
