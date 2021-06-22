@@ -88,7 +88,10 @@
       (gruvbox-faded_orange   (if (display-graphic-p) "#af3a03" "color-130"))
 
       (gruvbox-dark_red        (if (display-graphic-p) "#421E1E" "color-52"))
+      (gruvbox-dark_green      (if (display-graphic-p) "#071907" "color-101"))
+      (gruvbox-dark_yellow     (if (display-graphic-p) "#181907" "color-131"))
       (gruvbox-dark_blue       (if (display-graphic-p) "#2B3C44" "color-4"))
+      (gruvbox-dark_purple     (if (display-graphic-p) "#220A29" "color-97"))
       (gruvbox-dark_aqua       (if (display-graphic-p) "#36473A" "color-23"))
 
       (gruvbox-delimiter-one    (if (display-graphic-p) "#458588" "color-30"))
@@ -228,6 +231,11 @@
     `(ag-match-face                     ((t (:foreground ,gruvbox-neutral_green))))
 
     ;; avy
+    `(avy-background-face ((t (:foreground ,gruvbox-neutral_green))))
+    `(avy-lead-face   ((t (:background ,gruvbox-dark_aqua :foreground ,gruvbox-neutral_green :weight bold))))
+    `(avy-lead-face-0 ((t (:inherit 'avy-lead-face :background ,gruvbox-dark_blue))))
+    `(avy-lead-face-1 ((t (:inherit 'avy-lead-face :background ,gruvbox-dark_purple))))
+    `(avy-lead-face-2 ((t (:inherit 'avy-lead-face :background ,gruvbox-dark_yellow))))
 
     ;; company-mode
     `(company-scrollbar-bg                 ((t (:background ,gruvbox-dark1))))
