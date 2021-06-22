@@ -51,11 +51,11 @@
     )
   )
 
-(when (executable-find "virtualenvwrapper.sh")
+(when (executable-find "virtualenv")
   (use-package pyvenv
     :ensure t
     :hook
-    (python-mode)
+    (python-mode . pyvenv-mode)
     )
   )
 

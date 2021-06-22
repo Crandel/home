@@ -57,8 +57,10 @@
   ("M-." . xref-find-definitions)
   ("M-," . xref-find-references)
   ("C-p" . nil)
+  ("C-e" . nil)
   :map evil-insert-state-map
   ("C-v" . yank)
+  ("C-e" . nil)
   ("C-p" . nil)
   )
   :chords

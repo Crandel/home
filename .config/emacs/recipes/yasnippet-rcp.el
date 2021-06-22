@@ -4,24 +4,19 @@
 (use-package yasnippet
   :ensure t
   :defer t
+  :commands (yas-minor-mode my-yas-try-expanding)
+  :preface
+  (defun my-yas-try-expanding ()
+    (interactive)
+    (when yas-minor-mode (yas-expand)))
+  :custom
+  (yas-snippet-dirs '("~/.config/emacs/snippets"))
   :config
   (yas-reload-all)
   :hook
-  (c++-mode              . yas-minor-mode)
-  (c-mode                . yas-minor-mode)
-  (emacs-lisp-mode       . yas-minor-mode)
-  (fish-mode             . yas-minor-mode)
-  (go-mode               . yas-minor-mode)
-  (java-mode             . yas-minor-mode)
-  (js-mode               . yas-minor-mode)
-  (lisp-interaction-mode . yas-minor-mode)
-  (markdown-mode         . yas-minor-mode)
-  (python-mode           . yas-minor-mode)
-  (rust-mode             . yas-minor-mode)
-  (scala-mode            . yas-minor-mode)
-  (terraform-mode        . yas-minor-mode)
-  (web-mode              . yas-minor-mode)
-  (yaml-mode             . yas-minor-mode)
+  (prog-mode . yas-minor-mode)
+  :bind
+  ("C-<tab>" . my-yas-try-expanding)
 )
 
 (use-package yafolding

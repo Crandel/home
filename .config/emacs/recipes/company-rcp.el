@@ -35,12 +35,10 @@
     (delete-selection-mode             t)
     (selection-coding-system           'utf-8)
     (company-backends '(
+                        (company-capf
+                        :with company-yasnippet
                         company-files
-                        (
-                         company-capf
-                         :with company-yasnippet
-                         company-dabbrev-code
-                         )
+                        company-dabbrev-code)
                         company-dabbrev
                         ))
     :bind(
