@@ -6,15 +6,19 @@
   :defer t
   :commands (lsp lsp-deferred)
   :custom
-  (lsp-completion-provider                :capf)
+  (lsp-completion-provider                :none)
+  (lsp-completion-show-detail             t)
+  (lsp-completion-show-kind               t)
+  (lsp-diagnostics-provider               :flycheck)
   (lsp-enable-completion-at-point         t)
   (lsp-enable-file-watchers               nil)
   (lsp-enable-imenu                       t)
   (lsp-enable-on-type-formatting          nil)
+  (lsp-enable-snippet                     t)
+  (lsp-enable-symbol-highlighting         t)
   (lsp-enable-text-document-color         t)
   (lsp-enable-which-key-integration       t)
   (lsp-enable-xref                        t)
-  (lsp-enable-snippet                     t)
   (lsp-file-watch-threshold               1000)
   (lsp-headerline-breadcrumb-enable       t)
   (lsp-headerline-breadcrumb-icons-enable t)
@@ -23,8 +27,11 @@
   (lsp-imenu-container-name-separator     t)
   (lsp-imenu-show-container-name          t)
   (lsp-keymap-prefix                      "C-l")
+  (lsp-lens-enable                        t)
   (lsp-log-io                             nil)
+  (lsp-modeline-code-actions-enable       t)
   (lsp-modeline-code-actions-segments     '(count icon name))
+  (lsp-modeline-diagnostics-enable        t)
   (lsp-signature-auto-activate            nil)
   (read-process-output-max                (* 1024 1024)) ;; 1mb
   :bind(
@@ -56,7 +63,12 @@
   (lsp-ui-doc-delay                   2)
   (lsp-ui-doc-max-height              3)
   (lsp-ui-doc-max-width               30)
+  (lsp-ui-doc-show-with-cursor        nil)
+  (lsp-ui-doc-show-with-mouse         t)
   (lsp-ui-peek-show-directory         t)
+  (lsp-ui-sideline-enable             nil)
+  (lsp-ui-sideline-show-code-actions  nil)
+  (lsp-ui-sideline-show-hover         nil)
   :bind
   (:map lsp-ui-mode-map
         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
