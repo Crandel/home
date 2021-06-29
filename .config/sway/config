@@ -10,7 +10,8 @@ set {
   $browser firefox
   $feed quiterss
   $email thunderbird
-  $gnome-schema org.gnome.desktop.interface
+  $gnome-sound org.gnome.desktop.sound
+  $gnome-interface org.gnome.desktop.interface
   $ide pycharm
 
   $o_center eDP-1
@@ -45,12 +46,13 @@ input type:touchpad {
 }
 
 exec_always {
-  gsettings set $gnome-schema gtk-theme 'gruvbox-dark-gtk'
-  gsettings set $gnome-schema icon-theme 'gruvbox-dark-icons-gtk'
-  gsettings set $gnome-schema font-name 'Hack Nerd Font 16'
-  gsettings set $gnome-schema document-font-name 'Hack Nerd Font 16'
-  gsettings set $gnome-schema text-scaling-factor 1.0
-  gsettings set $gnome-schema cursor-theme 'capitaine-cursors'
+  gsettings set $gnome-interface gtk-theme 'gruvbox-dark-gtk'
+  gsettings set $gnome-interface icon-theme 'gruvbox-dark-icons-gtk'
+  gsettings set $gnome-interface font-name 'Hack Nerd Font 16'
+  gsettings set $gnome-interface document-font-name 'Hack Nerd Font 16'
+  gsettings set $gnome-interface text-scaling-factor 1.0
+  gsettings set $gnome-interface cursor-theme 'capitaine-cursors'
+  gsettings set $gnome-sound theme-name 'deepin'
 }
 
 # Font for window titles. Will also be used by the bar unless a different font
