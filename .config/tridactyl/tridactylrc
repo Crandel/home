@@ -20,6 +20,8 @@ unbind --mode=normal <<
 bind --mode=normal x tabclose
 bind --mode=normal d stop
 bind --mode=normal n tab #
+bind --mode=normal } tabmove -1
+bind --mode=normal { tabmove +1
 
 bind --mode=insert <A-i> composite unfocus | mode normal
 " keymaps
