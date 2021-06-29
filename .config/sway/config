@@ -1,9 +1,10 @@
 set {
   $mod Mod4
   $lock sleep.sh
-  $term wezterm
-  $other_term tilix
-  $term_id org.wezfurlong.wezterm
+  $term tilix
+  $term_id tilix
+  $other_term wezterm
+  $other_term_id org.wezfurlong.wezterm
   $editor emacs
 #  $editor alacritty -e emacs -nw
   $browser firefox
@@ -93,7 +94,7 @@ for_window [window_type="dialog"] floating enable
 
 # terminal
 for_window [app_id=$term_id] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
-for_window [app_id=$other_term] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
+for_window [app_id=$other_term_id] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -126,7 +127,7 @@ bindsym --to-code {
   # Terminal
   F1 exec swaymsg [app_id=$term_id] scratchpad show || exec $term, move position center, resize set width 100 ppt height 100 ppt
   # F1 exec $term --quake
-  $mod+F1 exec swaymsg [app_id=$other_term] scratchpad show || exec $other_term, move position center, resize set width 100 ppt height 100 ppt
+  $mod+F1 exec swaymsg [app_id=$other_term_id] scratchpad show || exec $other_term, move position center, resize set width 100 ppt height 100 ppt
 
   # kill focused window
   $mod+q kill

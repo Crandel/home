@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package evil-leader
   :ensure t
-  :demand t
+  :after evil
   :custom
   (evil-leader/leader "<SPC>")
   :config
@@ -27,7 +27,7 @@
 
 (use-package evil
   :ensure t
-  :after evil-leader
+  :demand t
   :init
   (setq evil-normal-state-tag   (propertize "<N>" 'face '((:background "DarkGoldenrod2" :foreground "black")))
         evil-emacs-state-tag    (propertize "<E>" 'face '((:background "SkyBlue2"       :foreground "black")))
@@ -40,6 +40,7 @@
         evil-want-C-i-jump                 nil
         evil-want-C-d-scroll               nil
         evil-want-integration              t
+        evil-want-keybinding               nil
         evil-disable-insert-state-bindings t
         evil-want-fine-undo                t)
   :config
@@ -124,6 +125,13 @@
 (use-package treemacs-evil
   :ensure t
   :after (evil treemacs)
+)
+
+(use-package evil-collection
+  :ensure t
+  :after evil
+  :config
+  (evil-collection-init)
 )
 
 (provide 'evil-rcp)
