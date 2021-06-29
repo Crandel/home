@@ -94,7 +94,7 @@ alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
 alias home_pr='cd $PERS_DIR/home'
-alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
 alias check_adb='adb devices -l'
 
@@ -203,6 +203,11 @@ con_jpg_pdf (){
   convert *.jpg $@.pdf
 }
 
+# convert png files to single pdf
+con_png_pdf (){
+  convert *.png $@.pdf
+}
+
 ## X11 VS WAYLAND
 disable_x11 (){
   systemctl --user disable clipmenud.service
@@ -242,7 +247,7 @@ if [ -f ~/.aliases.bash ]; then
   . ~/.aliases.bash
 fi
 
-# USER SPECIFIC BINARIES
+## USER SPECIFIC BINARIES
 LOCAL_BIN=$HOME/.local/bin
 if [ -d $LOCAL_BIN ]; then
   export PATH=$PATH:$LOCAL_BIN
