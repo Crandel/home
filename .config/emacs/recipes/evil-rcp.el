@@ -127,12 +127,6 @@
   :after (evil treemacs)
 )
 
-(use-package evil-collection
-  :ensure t
-  :after evil
-  :config
-  (evil-collection-init)
-)
 
 (provide 'evil-rcp)
 ;;; Commentary:
