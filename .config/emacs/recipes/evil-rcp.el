@@ -44,6 +44,31 @@
         evil-disable-insert-state-bindings t
         evil-want-fine-undo                t)
   :config
+  (evil-define-command evil-paste-before-and-indent
+    (count &optional register yank-handler)
+    "Pastes the latest yanked text before point
+and gives it the same indentation as the surrounding code.
+The return value is the yanked text."
+    (interactive "P<x>")
+    (evil-with-single-undo
+      (end-of-line)
+      (newline-and-indent)
+      (let ((text (evil-paste-before count register yank-handler)))
+        (evil-indent (evil-get-marker ?[) (evil-get-marker ?]))
+        text)))
+
+  (evil-define-command evil-paste-after-and-indent
+    (count &optional register yank-handler)
+    "Pastes the latest yanked text behind point
+and gives it the same indentation as the surrounding code.
+The return value is the yanked text."
+    (interactive "P<x>")
+    (evil-with-single-undo
+      (end-of-line)
+      (newline-and-indent)
+      (let ((text (evil-paste-after count register yank-handler)))
+        (evil-indent (evil-get-marker ?[) (evil-get-marker ?]))
+        text)))
   (evil-mode 1)
   ;:hook
   ;(evil-local-mode . turn-on-undo-tree-mode)
@@ -51,6 +76,8 @@
   ("C-x e" . evil-mode)
   :map evil-motion-state-map
   ("q"   . nil)
+  ("]p" . evil-paste-after-and-indent)
+  ("]P" . evil-paste-before-and-indent)
   ("f"   . evil-avy-goto-char)
   :map evil-normal-state-map
   ("q"   . nil)
