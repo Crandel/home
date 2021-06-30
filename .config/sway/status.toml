@@ -105,7 +105,7 @@ sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 block = "bluetooth"
 mac = ""
 format = "B{percentage}"
-format_unavailable = "B"
+format_unavailable = "X"
 hide_disconnected = false
 
 [[block]]

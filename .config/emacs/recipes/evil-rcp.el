@@ -87,16 +87,34 @@
   (evil-mc-one-cursor-show-mode-line-text nil)
   :config
   (evil-define-key* '(normal visual) evil-mc-cursors-map
+    "m" 'evil-mc-make-all-cursors
+    "f" 'evil-mc-make-and-goto-first-cursor
+    "l" 'evil-mc-make-and-goto-last-cursor
+    "n" 'evil-mc-make-and-goto-next-cursor
     "j" 'evil-mc-make-and-goto-next-match
+    "p" 'evil-mc-make-and-goto-prev-cursor
     "k" 'evil-mc-make-and-goto-prev-match
-    "J" 'evil-mc-make-cursor-move-next-line
-    "K" 'evil-mc-make-cursor-move-prev-line
+    "h" 'evil-mc-make-cursor-here
+    "I" 'evil-mc-make-cursor-in-visual-selection-beg
+    "A" 'evil-mc-make-cursor-in-visual-selection-end
+    "[" 'evil-mc-make-cursor-move-next-line
+    "]" 'evil-mc-make-cursor-move-prev-line
+    "s" 'evil-mc-pause-cursors
+    "r" 'evil-mc-resume-cursors
+    "N" 'evil-mc-skip-and-goto-next-cursor
+    "J" 'evil-mc-skip-and-goto-next-match
+    "P" 'evil-mc-skip-and-goto-prev-cursor
+    "K" 'evil-mc-skip-and-goto-prev-match
+    "q" 'evil-mc-undo-all-cursors
+    "u" 'evil-mc-undo-last-added-cursor
     )
   (evil-define-key* '(normal visual) evil-mc-key-map
     (kbd "m") evil-mc-cursors-map
+    (kbd "C-n") nil
+    (kbd "C-t") nil
+    (kbd "M-p") nil
+    (kbd "M-n") nil
     (kbd "C-p") nil)
-  ;; (key-chord-define evil-mc-cursors-map "wq" 'evil-mc-undo-all-cursors)
-  ;; (key-chord-define evil-mc-cursors-map "jk" 'evil-force-normal-state)
   :hook
   (evil-local-mode . evil-mc-mode)
 )
@@ -127,6 +145,14 @@
   :after (evil treemacs)
 )
 
+(use-package evil-collection
+  :ensure t
+  :after evil-mc
+  :config
+  (delete 'evil-mc evil-collection-mode-list)
+  (delete 'company evil-collection-mode-list)
+  (evil-collection-init)
+)
 
 (provide 'evil-rcp)
 ;;; Commentary:

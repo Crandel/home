@@ -6,6 +6,7 @@
   :defer t
   :custom
   (flycheck-check-syntax-automatically '(mode-enabled save idle-change))
+  (flycheck-emacs-lisp-load-path       'inherit)
   (flycheck-highlighting-mode          'lines)
   (flycheck-indication-mode            'left-fringe)
   (flycheck-scalastylerc               "~/scalastyle_config.xml")

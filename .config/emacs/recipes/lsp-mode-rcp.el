@@ -41,7 +41,7 @@
   )
   :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server 'rust-analyzer
-                              lsp-enable-semantic-highlighting nil)
+                              lsp-semantic-tokens-enable nil)
                         (lsp-deferred)
                         ))
          (c++-mode       . lsp-deferred)
