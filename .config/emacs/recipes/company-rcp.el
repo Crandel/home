@@ -38,11 +38,11 @@
     (selection-coding-system           'utf-8)
     (company-backends '(
                         (company-capf
-                        :with company-yasnippet
-                        company-files
-                        company-dabbrev
-                        company-dabbrev-code
-                        company-keywords
+                         company-yasnippet
+                         company-files
+                         company-dabbrev
+                         company-dabbrev-code
+                         company-keywords
                         )
                         ))
     :bind(
