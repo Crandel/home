@@ -30,7 +30,7 @@
     (company-echo-delay                0.1)
     (company-format-margin-function    #'company-vscode-dark-icons-margin)
     (company-idle-delay                0.1)
-    (company-minimum-prefix-length     2)
+    (company-minimum-prefix-length     1)
     (company-selection-wrap-around     t)
     (company-show-numbers              t)
     (company-tooltip-align-annotations t)
@@ -49,6 +49,8 @@
       :map company-active-map
       ("<tab>" . company-complete-common-or-cycle)
       ("<backtab>" . (lambda() (interactive) (company-complete-common-or-cycle -1)))
+      ("C-j" . company-select-next-or-abort)
+      ("C-k" . company-select-previous-or-abort)
       ("C-h" . nil)
       :map company-mode-map
       ("C-h" . nil)

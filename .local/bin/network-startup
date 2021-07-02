@@ -5,11 +5,16 @@ function command_exists () {
 }
 
 local='lo'
-connection=0
-while [ $connection == 0 ] ; do
+connection=""
+while [ "$connection" != "up" ] ; do
   for interface in /sys/class/net/* ; do
     if [[ ! "$interface" == *"$local"* ]]; then
-      connection=$(cat $interface/carrier)
+      if [ -f $interface/operstate ]; then
+        connection=$(cat $interface/operstate)
+      fi
+    fi
+    if [ "$connection" == "up" ]; then
+      break
     fi
   done
   sleep 0.5

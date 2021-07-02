@@ -54,7 +54,7 @@ The return value is the yanked text."
       (end-of-line)
       (newline-and-indent)
       (let ((text (evil-paste-before count register yank-handler)))
-        (evil-indent (evil-get-marker ?[) (evil-get-marker ?]))
+        (evil-indent (evil-get-marker ?\[) (evil-get-marker ?\]))
         text)))
 
   (evil-define-command evil-paste-after-and-indent
@@ -67,7 +67,7 @@ The return value is the yanked text."
       (end-of-line)
       (newline-and-indent)
       (let ((text (evil-paste-after count register yank-handler)))
-        (evil-indent (evil-get-marker ?[) (evil-get-marker ?]))
+        (evil-indent (evil-get-marker ?\[) (evil-get-marker ?\]))
         text)))
   (evil-mode 1)
   ;:hook
