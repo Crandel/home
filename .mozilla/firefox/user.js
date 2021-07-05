@@ -23,6 +23,7 @@ user_pref("browser.display.background_color", "#2e2e31");
 user_pref("browser.display.foreground_color", "#f9f9fa");
 user_pref("browser.display.use_document_fonts", 1);
 user_pref("browser.download.autohideButton", false);
+user_pref("browser.download.improvements_to_download_panel", false); // Remove temp files
 user_pref("browser.download.panel.shown", true);
 user_pref("browser.engagement.total_uri_count.pbm", false); // Turn off counting URIs in private browsing mode
 user_pref("browser.fixup.domainwhitelist.gateway.localhost", true);
@@ -177,6 +178,7 @@ user_pref("extensions.getAddons.showPane", false);
 user_pref("extensions.htmlaboutaddons.discover.enabled", false);
 user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);
 user_pref("extensions.pocket.enabled", false);
+user_pref("extensions.spellcheck.inline.max-misspellings", 1500);
 user_pref("extensions.ui.dictionary.hidden", false);
 user_pref("extensions.ui.experiment.hidden", false);
 user_pref("extensions.ui.locale.hidden", false);
