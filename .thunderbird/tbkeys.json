@@ -1,14 +1,14 @@
 {
-    "j": "cmd:cmd_nextMsg",
-    "k": "cmd:cmd_previousMsg",
+    "h": "cmd:cmd_nextMsg",
+    "l": "cmd:cmd_previousMsg",
     "o": "cmd:cmd_openMessage",
     "f": "cmd:cmd_forward",
-    "#": "cmd:cmd_delete",
+    "x": "cmd:cmd_delete",
     "r": "cmd:cmd_reply",
     "a": "cmd:cmd_replyall",
     "x": "cmd:cmd_archive",
     "c": "func:MsgNewMessage",
     "u": "tbkeys:closeMessageAndRefresh",
-    ".": "cmd:cmd_nextUnreadMsg",
-    ",": "cmd:cmd_previousUnreadMsg"
+    "j": "cmd:cmd_nextUnreadMsg",
+    "k": "cmd:cmd_previousUnreadMsg"
 }
