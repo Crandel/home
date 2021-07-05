@@ -55,6 +55,7 @@
   ("C-x C-g" . consult-ripgrep)
   ("C-x b" . consult-buffer)
   ("C-x C-b" . consult-buffer)
+  ("C-h C-m" . consult-minor-mode-menu)
   ("C-p" . consult-buffer)
   ([f10] . consult-imenu)
   :bind(:map consult-narrow-map

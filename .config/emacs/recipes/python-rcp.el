@@ -30,7 +30,8 @@
         ("RET" . newline-and-indent)
         ("M-RET" . newline)
         ("C-c C-b" . insert_pdb))
-  )
+)
+
 (use-package pip-requirements
   :ensure t
   :defer t

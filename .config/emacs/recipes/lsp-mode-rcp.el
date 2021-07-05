@@ -50,7 +50,7 @@
          (scala-mode     . lsp-deferred)
          (terraform-mode . lsp-deferred)
          (vimrc-mode     . lsp-deferred)
-         ;; (yaml-mode      . lsp)
+         (yaml-mode      . lsp-deferred)
          ;; (sh-mode        . lsp)
          )
 )
