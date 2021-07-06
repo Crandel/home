@@ -18,6 +18,15 @@
     (let ((mode-imenu (imenu-default-create-index-function))
           (custom-imenu (imenu--generic-function imenu-generic-expression)))
       (append mode-imenu custom-imenu)))
+  (defvar my/python-mode-map
+    (let ((map (make-keymap)))
+     (define-key map (kbd "p") 'run-python)
+     (define-key map (kbd "s") 'python-shell-send-statement)
+     (define-key map (kbd "f") 'python-shell-send-file)
+     (define-key map (kbd "r") 'python-shell-send-region)
+     (define-key map (kbd "b") 'python-shell-send-buffer)
+      map)
+    "Custom keymap for python major mode")
   :custom
   (python-shell-completion-native             nil)
   (python-shell-prompt-detect-failure-warning nil)
