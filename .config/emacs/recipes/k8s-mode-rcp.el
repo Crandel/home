@@ -4,7 +4,6 @@
 (use-package k8s-mode
   :ensure t
   :mode (
-         ".config.yaml"
          "Chart.yaml"
          "_helpers.tpl"
          "configmap.yaml"

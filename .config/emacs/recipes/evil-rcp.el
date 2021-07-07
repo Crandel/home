@@ -117,30 +117,32 @@ The return value is the yanked text."
   :custom
   (evil-mc-one-cursor-show-mode-line-text nil)
   :config
-  (evil-define-key* '(normal visual) evil-mc-cursors-map
-    "m" 'evil-mc-make-all-cursors
-    "f" 'evil-mc-make-and-goto-first-cursor
-    "l" 'evil-mc-make-and-goto-last-cursor
-    "n" 'evil-mc-make-and-goto-next-cursor
-    "j" 'evil-mc-make-and-goto-next-match
-    "p" 'evil-mc-make-and-goto-prev-cursor
-    "k" 'evil-mc-make-and-goto-prev-match
-    "h" 'evil-mc-make-cursor-here
-    "I" 'evil-mc-make-cursor-in-visual-selection-beg
-    "A" 'evil-mc-make-cursor-in-visual-selection-end
-    "[" 'evil-mc-make-cursor-move-next-line
-    "]" 'evil-mc-make-cursor-move-prev-line
-    "s" 'evil-mc-pause-cursors
-    "r" 'evil-mc-resume-cursors
-    "N" 'evil-mc-skip-and-goto-next-cursor
-    "J" 'evil-mc-skip-and-goto-next-match
-    "P" 'evil-mc-skip-and-goto-prev-cursor
-    "K" 'evil-mc-skip-and-goto-prev-match
-    "q" 'evil-mc-undo-all-cursors
-    "u" 'evil-mc-undo-last-added-cursor
-    )
+  (defvar evil-mc-my-cursors-map
+    (let ((map (make-sparse-keymap)))
+      (define-key map (kbd "A") 'evil-mc-make-cursor-in-visual-selection-end)
+      (define-key map (kbd "m") 'evil-mc-make-all-cursors)
+      (define-key map (kbd "f") 'evil-mc-make-and-goto-first-cursor)
+      (define-key map (kbd "l") 'evil-mc-make-and-goto-last-cursor)
+      (define-key map (kbd "n") 'evil-mc-make-and-goto-next-cursor)
+      (define-key map (kbd "j") 'evil-mc-make-and-goto-next-match)
+      (define-key map (kbd "p") 'evil-mc-make-and-goto-prev-cursor)
+      (define-key map (kbd "k") 'evil-mc-make-and-goto-prev-match)
+      (define-key map (kbd "h") 'evil-mc-make-cursor-here)
+      (define-key map (kbd "I") 'evil-mc-make-cursor-in-visual-selection-beg)
+      (define-key map (kbd "A") 'evil-mc-make-cursor-in-visual-selection-end)
+      (define-key map (kbd "[") 'evil-mc-make-cursor-move-next-line)
+      (define-key map (kbd "]") 'evil-mc-make-cursor-move-prev-line)
+      (define-key map (kbd "s") 'evil-mc-pause-cursors)
+      (define-key map (kbd "r") 'evil-mc-resume-cursors)
+      (define-key map (kbd "N") 'evil-mc-skip-and-goto-next-cursor)
+      (define-key map (kbd "J") 'evil-mc-skip-and-goto-next-match)
+      (define-key map (kbd "P") 'evil-mc-skip-and-goto-prev-cursor)
+      (define-key map (kbd "K") 'evil-mc-skip-and-goto-prev-match)
+      (define-key map (kbd "q") 'evil-mc-undo-all-cursors)
+      (define-key map (kbd "u") 'evil-mc-undo-last-added-cursor)
+      map))
   (evil-define-key* '(normal visual) evil-mc-key-map
-    (kbd "m") evil-mc-cursors-map
+    (kbd "m") evil-mc-my-cursors-map
     (kbd "C-n") nil
     (kbd "C-t") nil
     (kbd "M-p") nil
