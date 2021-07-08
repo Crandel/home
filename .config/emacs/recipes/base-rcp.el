@@ -67,7 +67,6 @@
   (gc-cons-threshold            100000000)
   (indent-line-function         'insert-tab "End Indent settings")
   (indent-tabs-mode             nil "Indent settings")
-  (indicate-empty-lines         t)
   (inhibit-startup-screen       t   "Don't show splash screen")
   (java-basic-offset            2)
   (js-indent-level              2)
