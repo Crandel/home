@@ -4,16 +4,8 @@
 (use-package k8s-mode
   :ensure t
   :mode (
-         "Chart.yaml"
-         "_helpers.tpl"
-         "configmap.yaml"
-         "deployment.yaml"
+         "**/helm/**.*\\.yaml$"
          "\\*kubernetes pod\\*"
-         "ingress.yaml"
-         "pvc.yaml"
-         "service.yaml"
-         "statefulset.yaml"
-         "values.yaml"
          )
   :hook (k8s-mode . yas-minor-mode))
 
