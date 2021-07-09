@@ -1,5 +1,8 @@
 ;;; init.el --- Main init
 ;;; Code:
+;; Set garbage collection threshold to 1GB.
+(setq gc-cons-threshold #x40000000)
+
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
 (setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
@@ -124,6 +127,11 @@
 (when (executable-find "terraform")
   (require 'terraform-rcp)
 )
+
+(add-function :after after-focus-change-function
+  (defun me/garbage-collect-maybe ()
+    (unless (frame-focus-state)
+      (garbage-collect))))
 
 ;;; Commentary:
 ;; Main init file
