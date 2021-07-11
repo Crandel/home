@@ -34,6 +34,8 @@
   (lsp-modeline-diagnostics-enable        t)
   (lsp-signature-auto-activate            nil)
   (read-process-output-max                (* 1024 1024)) ;; 1mb
+  :config
+  (add-to-list 'lsp-language-id-configuration '(k8s-mode . "yaml"))
   :bind(
   :map lsp-mode-map
   ([remap xref-find-definitions] . lsp-find-definition)

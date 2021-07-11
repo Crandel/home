@@ -11,6 +11,14 @@
         ([left] . backward-kill-word)
         )
   :init
+  (advice-add #'vertico--format-candidate :around
+              (lambda (orig cand prefix suffix index)
+                (setq cand (funcall orig cand prefix suffix index))
+                (concat
+                 (if (= vertico--index index)
+                     (propertize "» " 'face 'vertico-current)
+                   "  ")
+                 cand)))
   (vertico-mode)
 )
 
