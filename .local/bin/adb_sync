@@ -30,6 +30,7 @@ do
   # --delete \
   adb-sync --reverse \
            --times \
+           --copy-links \
            "/sdcard/$FolderStr/" \
            /data/backup/android/realme_x2_pro/$FolderStr \
            1> $log_fol/out.log \
