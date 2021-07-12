@@ -1,0 +1,3 @@
+#!/bin/bash
+
+secret-tool lookup user <name>

@@ -15,6 +15,7 @@ bind --mode=normal gf hint
 unbind --mode=normal d
 unbind --mode=normal x
 unbind --mode=normal <C-b>
+unbind --mode=normal <C-f>
 unbind --mode=normal >>
 unbind --mode=normal <<
 bind --mode=normal x tabclose

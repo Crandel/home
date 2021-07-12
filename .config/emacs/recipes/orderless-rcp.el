@@ -10,7 +10,7 @@
         completion-category-defaults  nil
         completion-category-overrides '((file (styles . (partial-completion)))))
   :custom
-  (orderless-matching-styles     '(orderless-literal orderless-regexp orderless-flex))
+  (orderless-matching-styles     '(orderless-literal orderless-regexp))
 )
 
 (provide 'orderless-rcp)
