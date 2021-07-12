@@ -1,7 +1,8 @@
 ;;; python-rcp.el --- Python support
 
 ;;; Code:
-(use-package python
+(use-package python-mode
+  :ensure t
   :defer t
   :mode ("\\.py\\'" . python-mode)
   :interpreter ("python" . python-mode)
@@ -61,11 +62,30 @@
     )
   )
 
+(when (executable-find "black")
+  (use-package python-black
+    :ensure t
+    :after python
+    :hook (python-mode . python-black-on-save-mode-enable-dwim)
+    )
+)
+
 (when (executable-find "virtualenv")
   (use-package pyvenv
     :ensure t
+    :preface
+    (defun pyvenv-autoload ()
+      (interactive)
+      "auto activate venv directory if exists"
+      (unless pyvenv-virtual-env-name
+        (message "Activate .venv")
+        (f-traverse-upwards (lambda (path)
+                              (let ((venv-path (f-expand ".venv" path)))
+                                (when (f-exists? venv-path)
+                                  (pyvenv-activate venv-path)))))))
     :hook
     (python-mode . pyvenv-mode)
+    (pyvenv-mode . pyvenv-autoload)
     )
   )
 
