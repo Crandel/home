@@ -10,6 +10,7 @@
   :config
   (key-chord-mode 1)
   (bind-chord "wq" 'delete-other-windows)
+  (bind-chord "xz" 'undo)
 )
 
 (provide 'use-package-chords-rcp)
