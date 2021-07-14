@@ -1,3 +1,22 @@
+var user_pref = function(pref, val){
+
+  try{
+    if(typeof val == "string"){
+
+         Services.prefs.setStringPref(pref, val);
+    }
+    else if(typeof val == "number"){
+
+         Services.prefs.setIntPref(pref, val);
+    }
+    else if(typeof val == "boolean"){
+
+         Services.prefs.setBoolPref(pref, val);
+    }
+  } catch(e){
+    console.log("pref:" + pref + " val:" + val + " e:" + e);
+  }
+}
 //user_pref("layout.css.devPixelsPerPx", 1.25);
 user_pref("accessibility.force_disabled", true);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
