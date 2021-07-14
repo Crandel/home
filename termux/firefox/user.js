@@ -1,3 +1,7 @@
+// 1. Start remote debugging from desktop Firefox. (about:debugging)
+// 2. After you connect to android firefox app, you go to about:config page.
+// 3. Inject a script to a web page that opened from Android.
+// 4. Execute whole script to android firefox.
 var user_pref = function(pref, val){
 
   try{
