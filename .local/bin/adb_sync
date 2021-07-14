@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 
 declare -a arr=(
+  "AlreaderX"
+  "Android/obb"
   "Apks"
+  "Backup"
   "Books"
   "DCIM"
   "Diaro"
@@ -9,13 +12,14 @@ declare -a arr=(
   "Download"
   "Fonts"
   "Music"
+  "Notes"
   "OABX"
   "Pictures"
   "SamLib-Info"
   "TWRP"
+  "Telegram"
   "VocalizerEx2"
   "dictdata"
-  "ivona"
   "termux"
   "valtGallery"
   "viber"
@@ -39,3 +43,20 @@ do
   # adb-sync /data/backup/android/realme_x2_pro/$FolderStr/ /sdcard/$FolderStr/
   sleep 2
 done
+
+# for FolderStr in "${arr[@]}"
+# do
+#   echo "Download to /sdcard/$FolderStr"
+#   log_fol=/tmp/adb/$FolderStr
+#   mkdir -p $log_fol
+#   # --delete \
+#   adb-sync --times \
+#            --copy-links \
+#            /data/backup/android/realme_x2_pro/$FolderStr \
+#            "/sdcard/" \
+#            1> $log_fol/out.log \
+#            2> $log_fol/err.log
+#   # push to smart
+#   # adb-sync /data/backup/android/realme_x2_pro/$FolderStr/ /sdcard/$FolderStr/
+#   sleep 2
+# done
