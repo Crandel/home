@@ -5,7 +5,6 @@ declare -a list=(
   "com.android.chrome"
   "com.android.companiondevicemanager"
   "com.android.printspooler"
-  "com.android.providers.partnerbookmarks"
   "com.coloros.assistantscreen"
   "com.coloros.athena"
   "com.coloros.backuprestore"
@@ -56,6 +55,6 @@ declare -a list=(
 for app in "${list[@]}"
 do
     echo "$app"
-    adb shell pm uninstall -k --user 0 "$app"
+    adb shell pm disable-user --user 0 "$app"
     sleep 2
 done
