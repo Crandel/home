@@ -337,13 +337,13 @@ user_pref("network.prefetch-next", false); // After the browser is finished load
 user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.bootstrapAddress", "176.103.130.130");
-user_pref("network.trr.custom_uri", "https://dns.adguard.com/dns-query");
+user_pref("network.trr.bootstrapAddress", "9.9.9.9");
+user_pref("network.trr.custom_uri", "https://dns9.quad9.net/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
 user_pref("network.trr.mode", 3);
-user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
+user_pref("network.trr.uri", "https://dns9.quad9.net/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 user_pref("nglayout.initialpaint.delay", 0);
