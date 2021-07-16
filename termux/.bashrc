@@ -92,7 +92,7 @@ export PAGER='less -SRXF'
 alias arch='uname -m'
 alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
-alias compress_jpeg="find ./ -iname '*.jpg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
 
 
@@ -154,6 +154,11 @@ con_jpg_pdf (){
   convert *.jpg $@.pdf
 }
 
+# convert png files to single pdf
+con_png_pdf (){
+  convert *.png $@.pdf
+}
+
 ## X11 VS WAYLAND
 disable_x11 (){
   systemctl --user disable clipmenud.service
@@ -193,7 +198,7 @@ if [ -f ~/.aliases.bash ]; then
   . ~/.aliases.bash
 fi
 
-# USER SPECIFIC BINARIES
+## USER SPECIFIC BINARIES
 LOCAL_BIN=$HOME/.local/bin
 if [ -d $LOCAL_BIN ]; then
   export PATH=$PATH:$LOCAL_BIN
@@ -225,7 +230,10 @@ if command_exists pacman ; then
   alias pqs='pacman -Qs'
   alias pql='pacman -Ql'
   alias pqi='pacman -Sii'
-  alias paci='pacman -S --needed'
+  paci() {
+    pacman -S --needed $@
+    rehash
+  }
   alias pacr='pacman -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
@@ -387,6 +395,9 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  if [ -d $GOPATH/goprojects ]; then
+    export GOPATH=$GOPATH:$GOPATH/goprojects
+  fi
 fi
 ## END GO
 

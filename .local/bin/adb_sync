@@ -13,7 +13,6 @@ declare -a arr=(
   "Fonts"
   "Music"
   "Notes"
-  "OABX"
   "Pictures"
   "SamLib-Info"
   "TWRP"
@@ -33,14 +32,13 @@ do
   mkdir -p $log_fol
   # --delete \
   adb-sync --reverse \
+           --no-clobber \
            --times \
            --copy-links \
            "/sdcard/$FolderStr/" \
            /data/backup/android/realme_x2_pro/$FolderStr \
            1> $log_fol/out.log \
            2> $log_fol/err.log
-  # push to smart
-  # adb-sync /data/backup/android/realme_x2_pro/$FolderStr/ /sdcard/$FolderStr/
   sleep 2
 done
 
@@ -50,13 +48,11 @@ done
 #   log_fol=/tmp/adb/$FolderStr
 #   mkdir -p $log_fol
 #   # --delete \
-#   adb-sync --times \
-#            --copy-links \
+#   adb-sync --copy-links \
+#            --no-clobber \
 #            /data/backup/android/realme_x2_pro/$FolderStr \
 #            "/sdcard/" \
 #            1> $log_fol/out.log \
 #            2> $log_fol/err.log
-#   # push to smart
-#   # adb-sync /data/backup/android/realme_x2_pro/$FolderStr/ /sdcard/$FolderStr/
 #   sleep 2
 # done
