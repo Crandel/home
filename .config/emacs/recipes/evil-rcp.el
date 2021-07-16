@@ -12,7 +12,7 @@
    "k" 'kill-buffer
    "l" 'copy-line
    "q" 'keyboard-quit
-   "b" 'consult-recent-file
+   "b" 'ibuffer
    "g" 'consult-ripgrep
    "f" 'find-file
    "p" 'consult-buffer

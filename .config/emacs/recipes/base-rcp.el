@@ -110,6 +110,8 @@
   ([M-S-up] . move-line-up)
   ([M-S-down] . move-line-down)
   ("C-x C-d" . duplicate-line)
+  ("C-x b" . ibuffer)
+  ("C-x C-b" . ibuffer)
   ("C-c C-k" . copy-line)
   ("C-c C-w" . copy-word)
   ("C-d" . my-delete-line)

@@ -45,16 +45,16 @@
   :config
   (consult-customize
    consult--source-file
+   consult--source-bookmark
    consult-recent-file
    consult-ripgrep
+   consult-bookmark
    :preview-key '[M-.])
   :bind
   ("C-s" . consult-line-symbol-at-point)
   ("C-c s" . consult-multi-occur)
   ("C-x g" . consult-ripgrep-symbol-at-point)
   ("C-x C-g" . consult-ripgrep)
-  ("C-x b" . consult-buffer)
-  ("C-x C-b" . consult-buffer)
   ("C-h C-m" . consult-minor-mode-menu)
   ("C-p" . consult-buffer)
   ([f10] . consult-imenu)
