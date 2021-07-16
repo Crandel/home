@@ -6,7 +6,7 @@
   :ensure t
   :defer 1
   :config
-  (defun my-orderless-dispatch (pattern _index _total)
+  (defun vd/orderless-dispatch (pattern _index _total)
     "Recognizes the following patterns:
  * =literal literal=
  * `initialism initialism`
@@ -35,7 +35,8 @@
      ((string-suffix-p "~" pattern) `(orderless-flex . ,(substring pattern 0 -1)))))
   (setq completion-styles             '(orderless)
         completion-category-defaults  nil
-        completion-category-overrides '((file (styles . (partial-completion)))))
+        completion-category-overrides '((file (styles . (partial-completion))))
+        orderless-style-dispatchers '(vd/orderless-dispatch))
 )
 
 (provide 'orderless-rcp)
