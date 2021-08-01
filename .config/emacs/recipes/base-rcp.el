@@ -24,6 +24,7 @@
           (tool-bar-lines . 0)
           (vertical-scroll-bars . right)
           ))
+  (set-fontset-font t nil (font-spec :size 16 :name "Noto Color Emoji"))
   (blink-cursor-mode              1)
   (column-number-mode             t)
   (global-font-lock-mode          1)
