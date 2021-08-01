@@ -2,7 +2,7 @@
     "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-left": ["sway/workspaces"],
     "modules-right": [
         "custom/gmail",
         "disk",
@@ -72,26 +72,27 @@
     //     }
     //},
     "custom/gmail": {
-        "format": "{}",
+        "format": "📧{}",
         "return-type": "string",
         "max-length": 45,
+        "min-length": 7,
         "interval": 60,
         "exec": "gmail"
     },
     "disk": {
         "path": "/",
         "interval": 60,
-        "format": " {free}",
+        "format": "📂 {free}",
         "states": {
             "warning": 30,
             "critical": 5
         },
     },
     "cpu": {
-        "format": " {usage}%",
+        "format": "💻 {usage}%",
     },
     "memory": {
-        "format": " {used:0.1f}G",
+        "format": "💾 {used:0.1f}G",
     },
     "battery": {
         "states": {
@@ -99,8 +100,8 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon} ",
-        "format-charging": "{capacity}% ",
+        "format": "{icon} {capacity}%",
+        "format-charging": " {capacity}%",
         "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -109,43 +110,46 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "{icon} 🔇 {format_source}",
+        "format-muted": " 🔇 {format_source}",
+        "format-source": "🎤 {volume}%",
+        "format-source-muted": "🔕",
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
+            "headphone": "🎧",
+            "hands-free": "🎧",
+            "headset": "🎧",
+            "phone": "📞",
+            "portable": "📞",
+            "default": ["🔈", "🔉", "🔊"]
         },
         "on-click": "pavucontrol"
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", ""]
+        "format": "{icon} {percent}",
+        "format-icons": ["🌑", "🌘", "🌗", "🌒", "🌕"]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-wifi": "📡{essid:5}/{signalStrength}%",
+        "format-ethernet": "🖧{ifname}: {ipaddr}/{cidr}",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
+    "sway/language": {
+        "min-length": 2
+    },
     "clock": {
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%d.%m %R}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": "⌚ {:%d.%m %R}",
         "format-alt": "{:%d.%m %R}"
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 28,
         "spacing": 2
     },
 }
