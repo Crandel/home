@@ -87,12 +87,12 @@ window#waybar.chromium {
 }
 
 #clock {
-  background-color: #64727D;
+  background-color: #088A08;
 }
 
 #battery {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #8A4B08;
+  color: #A9D0F5;
 }
 
 #battery.charging, #battery.plugged {
@@ -126,19 +126,35 @@ label:focus {
   color: #000000;
 }
 
+#cpu.warning {
+  background-color: orange;
+}
+#cpu.critical {
+  background-color: red;
+  color: #FFFFFF
+}
+
+
 #memory {
   background-color: #9b59b6;
 }
 
 #disk {
-  background-color: #964B00;
+  background-color: #FAFAFA;
+  color: #1B2A0A;
 }
 
-#disk.warning { background: orange; }
-#disk.critical { background: red; }
+#disk.warning {
+  background-color: orange;
+}
+#disk.critical {
+  background-color: red;
+  color: #FFFFFF
+}
 
 #backlight {
   background-color: #90b1b1;
+  color: #0A2A1B;
 }
 
 #network {
@@ -173,7 +189,7 @@ label:focus {
 }
 
 #tray {
-  background-color: #2980b9;
+  background-color: transparent;
 }
 
 #idle_inhibitor {

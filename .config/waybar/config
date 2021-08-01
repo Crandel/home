@@ -74,7 +74,6 @@
     "custom/gmail": {
         "format": "📧{}",
         "return-type": "string",
-        "max-length": 45,
         "min-length": 7,
         "interval": 60,
         "exec": "gmail"
@@ -90,6 +89,11 @@
     },
     "cpu": {
         "format": "💻 {usage}%",
+        "states": {
+            "good": 30,
+            "warning": 50,
+            "critical": 85
+        }
     },
     "memory": {
         "format": "💾 {used:0.1f}G",
@@ -109,7 +113,7 @@
         "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
+        "scroll-step": 10, // %, can be a float
         "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{icon} {volume}% {format_source}",
         "format-bluetooth-muted": "{icon} 🔇 {format_source}",
@@ -124,12 +128,13 @@
             "portable": "📞",
             "default": ["🔈", "🔉", "🔊"]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pavucontrol",
+        "on-click-right": "bluetoothctl connect B0:06:32:79:B7:CA"
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}",
-        "format-icons": ["🌑", "🌘", "🌗", "🌒", "🌕"]
+        "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
