@@ -1,6 +1,6 @@
 * {
   border: none;
-  border-radius: 0;
+  border-radius: 3;
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: Hack Nerd Font Mono;
   font-size: 22px;
@@ -9,7 +9,6 @@
 
 window#waybar {
   background-color: rgba(43, 48, 59, 0.5);
-  border-bottom: 3px solid rgba(100, 114, 125, 0.5);
   color: #ffffff;
   transition-property: background-color;
   transition-duration: .5s;
@@ -27,14 +26,9 @@ window#waybar.hidden {
    background-color: #FFFFFF;
    }
  */
-
-window#waybar.termite {
-  background-color: #3F3F3F;
-}
-
 window#waybar.chromium {
-  background-color: #000000;
-  border: none;
+   background-color: #000000;
+   border: none;
 }
 
 #workspaces button {
@@ -61,8 +55,7 @@ window#waybar.chromium {
 }
 
 #mode {
-  background-color: #64727D;
-  border-bottom: 3px solid #ffffff;
+  background-color: #64627D;
 }
 
 #clock,
@@ -78,15 +71,9 @@ window#waybar.chromium {
 #tray,
 #mode,
 #idle_inhibitor,
-#mpd {
-  padding: 0 10px;
-  margin: 0 4px;
-  color: #ffffff;
-}
-
 #window,
 #workspaces {
-  margin: 0 4px;
+  margin: 0 2px;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -147,6 +134,9 @@ label:focus {
   background-color: #964B00;
 }
 
+#disk.warning { background: orange; }
+#disk.critical { background: red; }
+
 #backlight {
   background-color: #90b1b1;
 }
@@ -169,18 +159,9 @@ label:focus {
   color: #2a5c45;
 }
 
-#custom-media {
+#custom-gmail {
   background-color: #66cc99;
   color: #2a5c45;
-  min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-  background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-  background-color: #ffa000;
 }
 
 #temperature {

@@ -323,11 +323,11 @@ bar {
 }
 
 # gaps
-# default_border normal
-# smart_borders off
-# smart_gaps on
-gaps inner 0
-gaps outer 0
+default_border none
+#smart_borders on
+#smart_gaps on
+gaps inner 1
+gaps outer 1
 
 # my settings
 # class                 border   backgr. text    indicator
