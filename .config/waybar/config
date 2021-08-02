@@ -109,13 +109,14 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": "{capacity}%",
-        "format-alt": "{time} {icon}",
+        "format": "🔋 {capacity}%",
+        "format-charging": "🔌{capacity}%",
+        "format-plugged": "🔌",
+        "format-alt": "🔋 {time}",
         // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-full": "🔋",
+        "tooltip-format": "🔋{capacity}% {time}",
+        // "format-icons": ["", "", "", "", ""]
     },
     "pulseaudio": {
         "scroll-step": 10, // %, can be a float
@@ -144,15 +145,15 @@
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format-ethernet": "🖧{ifname:.3}",
+        "format": "🌍{ifname:.3}",
         "format-disconnected": "",
-        "tooltip-format-ethernet": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
         "tooltip-format-disconnected": "",
     },
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format-wifi": "📡{essid:.6}/{signalStrength}% ",
+        "format-wifi": "📡{essid:.7}/{signalStrength}% ",
         "format-disconnected": "",
         "tooltip-format-wifi": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
         "tooltip-format-disconnected": "",
