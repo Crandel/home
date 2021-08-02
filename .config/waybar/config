@@ -2,7 +2,7 @@
     "layer": "bottom", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces"],
+    "modules-left": ["sway/workspaces", "tray"],
     "modules-right": [
         "custom/gmail",
         "disk",
@@ -11,10 +11,11 @@
         "battery",
         "pulseaudio",
         "backlight",
-        "network",
+        "network#eth",
+        "network#wifi",
+        "network#vpn",
         "sway/language",
-        "clock",
-        "tray"
+        "clock"
     ],
     // Modules configuration
     // "sway/workspaces": {
@@ -71,10 +72,14 @@
     //         "deactivated": ""
     //     }
     //},
+    "tray": {
+        "icon-size": 28,
+        "spacing": 2
+    },
     "custom/gmail": {
         "format": "📧{}",
         "return-type": "string",
-        "min-length": 7,
+        "min-length": 9,
         "interval": 60,
         "exec": "gmail"
     },
@@ -136,13 +141,29 @@
         "format": "{icon} {percent}",
         "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
     },
-    "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "📡{essid:5}/{signalStrength}%",
-        "format-ethernet": "🖧{ifname}: {ipaddr}/{cidr}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "network#eth": {
+        "interface": "enp*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "format-ethernet": "🖧{ifname:.3}",
+        "format-disconnected": "",
+        "tooltip-format-ethernet": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format-disconnected": "",
+    },
+    "network#wifi": {
+        "interface": "wlp*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "format-wifi": "📡{essid:.6}/{signalStrength}% ",
+        "format-disconnected": "",
+        "tooltip-format-wifi": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
+        "tooltip-format-disconnected": "",
+    },
+    "network#vpn": {
+        "interface": "tun*", // (Optional) To force the use of this interface
+        "interval": 1,
+        "format": "VPN",
+        "format-disconnected": "",
+        "tooltip-format-linked": "VPN",
+        "tooltip-format-disconnected": "",
     },
     "sway/language": {
         "min-length": 2
@@ -152,9 +173,5 @@
         "tooltip-format": "<big>{:%d.%m %R}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "⌚ {:%d.%m %R}",
         "format-alt": "{:%d.%m %R}"
-    },
-    "tray": {
-        "icon-size": 28,
-        "spacing": 2
     },
 }

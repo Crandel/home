@@ -1,6 +1,6 @@
 * {
   border: none;
-  border-radius: 3;
+  border-radius: 3px;
   /* `otf-font-awesome` is required to be installed for icons */
   font-family: Hack Nerd Font Mono;
   font-size: 22px;
@@ -157,8 +157,17 @@ label:focus {
   color: #0A2A1B;
 }
 
-#network {
+#network.eth {
   background-color: #2980b9;
+}
+
+#network.wifi {
+  background-color: #A5DF00;
+  color: #000000
+}
+
+#network.vpn {
+  background-color: #1B0A2A;
 }
 
 #network.disconnected {
