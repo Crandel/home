@@ -74,8 +74,8 @@
   :bind
   (:map lsp-ui-mode-map
         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-        ([remap xref-find-references] . lsp-ui-peek-find-references)
-        ("C-," . lsp-ui-peek-jump-backward)
+        ([remap xref-find-references] . lsp-ui-peek-jump-backward)
+        ("C-," . lsp-ui-peek-find-references)
         )
 )
 

@@ -7,14 +7,12 @@
   :mode "\\.go\\'"
   :hook
   (go-mode . (lambda()
-               (add-hook 'before-save-hook #'gofmt-before-save)
-               (setq gofmt-command    "goimports"
-                     tab-width        2
-                     indent-tabs-mode t)
+               (add-hook 'before-save-hook #'lsp-format-buffer t t)
+               (add-hook 'before-save-hook #'lsp-organize-imports t t)
+               (lsp-deferred)
                ))
   :bind
   (:map go-mode-map
-        ("M-." . godef-jump)
         ("RET" . newline-and-indent)
         ("M-RET" . newline)
         )
@@ -34,12 +32,12 @@
   :after go-mode
 )
 
-(use-package go-eldoc
-  :ensure t
-  :after go-mode
-  :hook
-  (go-mode . go-eldoc-setup)
-)
+;; (use-package go-eldoc
+;;   :ensure t
+;;   :after go-mode
+;;   :hook
+;;   (go-mode . go-eldoc-setup)
+;; )
 
 
 (provide 'go-rcp)
