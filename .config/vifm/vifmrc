@@ -304,6 +304,10 @@ filetype *.7z
   \ {Mount with fuse-7z}
   \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
 
+filetype *.xpi
+  \ {Mount with fuse-7z}
+  \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
+
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
   \ {Play using ffplay}

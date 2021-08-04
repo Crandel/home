@@ -3,7 +3,7 @@ local wezterm = require 'wezterm';
 wezterm.on("toggle-opacity", function(window, pane)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
-    overrides.window_background_opacity = 0.9;
+    overrides.window_background_opacity = 1.0;
   else
     overrides.window_background_opacity = nil
   end
@@ -78,7 +78,7 @@ return {
     {key="w"          ,mods="CTRL"       ,action=wezterm.action{CloseCurrentPane={confirm=true}}},
     {key="z"          ,mods="CTRL"       ,action="Nop"},
   },
-  ratelimit_output_bytes_per_second = 4289999998,
+  ratelimit_mux_line_prefetches_per_second = 4289999998,
   scrollback_lines = 150000,
   tab_max_width = 46,
   window_background_opacity = 0.9,

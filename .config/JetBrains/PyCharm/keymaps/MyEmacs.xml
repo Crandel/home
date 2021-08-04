@@ -33,14 +33,22 @@
     <mouse-shortcut keystroke="button4" />
     <keyboard-shortcut first-keystroke="alt comma" />
   </action>
+  <action id="BraceOrQuoteOut" />
   <action id="ChangesView.Diff" />
+  <action id="ChangesView.UnshelveSilently" />
   <action id="CloseActiveTab" />
+  <action id="CloseAllUnmodifiedEditors">
+    <keyboard-shortcut first-keystroke="ctrl alt u" />
+  </action>
+  <action id="CodeCompletion" />
   <action id="CollapseBlock" />
   <action id="CompareTwoFiles" />
+  <action id="Console.TableResult.ColumnVisibility" />
   <action id="Debugger.RemoveCustomField">
     <keyboard-shortcut first-keystroke="delete" />
   </action>
   <action id="Diff.FocusOppositePane" />
+  <action id="Diff.FocusOppositePaneAndScroll" />
   <action id="Diff.ShowDiff" />
   <action id="DomElementsTreeView.DeleteElement">
     <keyboard-shortcut first-keystroke="delete" />
@@ -51,9 +59,11 @@
   <action id="Editor Undo">
     <keyboard-shortcut first-keystroke="ctrl z" />
   </action>
-  <action id="EditorCopy">
-    <keyboard-shortcut first-keystroke="ctrl c" />
+  <action id="EditorChooseLookupItemReplace" />
+  <action id="EditorCompleteStatement">
+    <keyboard-shortcut first-keystroke="ctrl tab" />
   </action>
+  <action id="EditorCopy" />
   <action id="EditorCut">
     <keyboard-shortcut first-keystroke="shift delete" />
   </action>
@@ -79,6 +89,10 @@
   <action id="EditorEscape">
     <keyboard-shortcut first-keystroke="ctrl g" />
   </action>
+  <action id="EditorIndentLineOrSelection">
+    <keyboard-shortcut first-keystroke="tab" />
+  </action>
+  <action id="EditorIndentSelection" />
   <action id="EditorLeft">
     <keyboard-shortcut first-keystroke="left" />
     <keyboard-shortcut first-keystroke="ctrl b" />
@@ -127,6 +141,8 @@
     <keyboard-shortcut first-keystroke="up" />
     <keyboard-shortcut first-keystroke="alt i" />
   </action>
+  <action id="EmacsStyleIndent" />
+  <action id="ExpandLiveTemplateByTab" />
   <action id="FileChooser.GotoDesktop" />
   <action id="FileChooser.TogglePathShowing" />
   <action id="FocusEditor" />
@@ -138,17 +154,27 @@
     <keyboard-shortcut first-keystroke="alt period" />
     <mouse-shortcut keystroke="control button1" />
   </action>
+  <action id="GotoNextError">
+    <keyboard-shortcut first-keystroke="ctrl c" second-keystroke="n" />
+  </action>
+  <action id="GotoTypeDeclaration">
+    <mouse-shortcut keystroke="shift control button1" />
+  </action>
   <action id="GuiDesigner.QuickJavadoc">
     <mouse-shortcut keystroke="alt button2" />
   </action>
   <action id="IntroduceVariable" />
   <action id="NextDiff" />
+  <action id="NextParameter" />
   <action id="NextSplitter" />
-  <action id="PreviousTab">
-    <keyboard-shortcut first-keystroke="alt left" />
-    <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="p" />
-    <keyboard-shortcut first-keystroke="ctrl tab" />
+  <action id="NextTemplateParameter" />
+  <action id="NextTemplateVariable">
+    <keyboard-shortcut first-keystroke="enter" />
+    <keyboard-shortcut first-keystroke="ctrl m" />
   </action>
+  <action id="PrevParameter" />
+  <action id="PrevTemplateParameter" />
+  <action id="PreviousTemplateVariable" />
   <action id="QuickDocCopy" />
   <action id="QuickJavaDoc">
     <mouse-shortcut keystroke="alt button2" />
@@ -163,6 +189,11 @@
     <keyboard-shortcut first-keystroke="shift ctrl alt equals" />
     <keyboard-shortcut first-keystroke="shift ctrl alt add" />
   </action>
+  <action id="SearchEverywhere.CompleteCommand">
+    <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="tab" />
+  </action>
+  <action id="SearchEverywhere.NextTab" />
+  <action id="SearchEverywhere.PrevTab" />
   <action id="SelectNextOccurrence">
     <keyboard-shortcut first-keystroke="alt n" />
   </action>
@@ -172,6 +203,12 @@
     <keyboard-shortcut first-keystroke="alt down" />
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="ctrl b" />
   </action>
+  <action id="ShowUmlDiagramPopup" />
+  <action id="SmartTypeCompletion">
+    <keyboard-shortcut first-keystroke="shift ctrl tab" />
+  </action>
+  <action id="SplitChooser.NextWindow" />
+  <action id="SplitChooser.PreviousWindow" />
   <action id="StepInto" />
   <action id="Switcher" />
   <action id="SynchronizeCurrentFile">
@@ -181,8 +218,14 @@
     <keyboard-shortcut first-keystroke="alt a" />
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="b" />
   </action>
+  <action id="Terminal.CopySelectedText">
+    <keyboard-shortcut first-keystroke="ctrl insert" />
+  </action>
   <action id="Terminal.SwitchFocusToEditor">
     <keyboard-shortcut first-keystroke="ctrl q" />
+  </action>
+  <action id="Tool_External Tools_Black">
+    <keyboard-shortcut first-keystroke="shift ctrl b" />
   </action>
   <action id="UpdateRunningApplication" />
   <action id="Vcs.RefreshStatuses">
@@ -190,7 +233,7 @@
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="z" />
   </action>
   <action id="VimPluginToggle">
-    <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="i" />
+    <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="e" />
   </action>
   <action id="VimShortcutKeyAction">
     <keyboard-shortcut first-keystroke="ctrl x" second-keystroke="s" />

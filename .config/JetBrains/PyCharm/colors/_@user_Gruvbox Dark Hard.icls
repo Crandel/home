@@ -4,17 +4,17 @@
     <property name="created">2020-10-01T15:55:59</property>
     <property name="ide">PyCharmCore</property>
     <property name="ideVersion">2020.2.2.0.0</property>
-    <property name="modified">2020-10-01T16:37:59</property>
+    <property name="modified">2021-03-03T10:26:31</property>
     <property name="originalScheme">Gruvbox Dark Hard</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.0" />
   <font>
     <option name="EDITOR_FONT_NAME" value="FiraCode Nerd Font Mono" />
-    <option name="EDITOR_FONT_SIZE" value="18" />
+    <option name="EDITOR_FONT_SIZE" value="22" />
   </font>
   <font>
     <option name="EDITOR_FONT_NAME" value="Source Code Pro" />
-    <option name="EDITOR_FONT_SIZE" value="18" />
+    <option name="EDITOR_FONT_SIZE" value="22" />
   </font>
   <option name="EDITOR_LIGATURES" value="true" />
   <colors>
@@ -394,7 +394,7 @@
     </option>
     <option name="DEFAULT_KEYWORD">
       <value>
-        <option name="FOREGROUND" value="fb4934" />
+        <option name="FOREGROUND" value="94fb34" />
       </value>
     </option>
     <option name="DEFAULT_LABEL">
@@ -552,6 +552,9 @@
         <option name="FOREGROUND" value="83a598" />
       </value>
     </option>
+    <option name="HTML_CODE">
+      <value />
+    </option>
     <option name="HTML_TAG_NAME">
       <value>
         <option name="FOREGROUND" value="83a598" />
@@ -621,10 +624,13 @@
         <option name="FOREGROUND" value="83786e" />
       </value>
     </option>
-    <option name="KOTLIN_LABEL">
+    <option name="KOTLIN_FUNCTION_LITERAL_BRACES_AND_ARROW">
       <value>
-        <option name="FOREGROUND" value="83a598" />
+        <option name="FONT_TYPE" value="1" />
       </value>
+    </option>
+    <option name="KOTLIN_LABEL">
+      <value />
     </option>
     <option name="KOTLIN_MUTABLE_VARIABLE">
       <value>
@@ -653,7 +659,8 @@
     </option>
     <option name="MATCHED_BRACE_ATTRIBUTES">
       <value>
-        <option name="FOREGROUND" value="ff8647" />
+        <option name="BACKGROUND" value="3b514d" />
+        <option name="FONT_TYPE" value="1" />
       </value>
     </option>
     <option name="METHOD_CALL_ATTRIBUTES">

@@ -4,7 +4,7 @@
     <property name="created">2017-06-26T15:24:18</property>
     <property name="ide">Idea</property>
     <property name="ideVersion">2017.1.4.0.0</property>
-    <property name="modified">2019-07-15T15:48:29</property>
+    <property name="modified">2020-11-26T13:52:00</property>
     <property name="originalScheme">Darcula</property>
   </metaInfo>
   <option name="LINE_SPACING" value="1.0" />
@@ -26,4 +26,11 @@
     <option name="EDITOR_FONT_SIZE" value="16" />
   </console-font>
   <option name="CONSOLE_LIGATURES" value="true" />
+  <attributes>
+    <option name="DEFAULT_KEYWORD">
+      <value>
+        <option name="FOREGROUND" value="6daa28" />
+      </value>
+    </option>
+  </attributes>
 </scheme>
