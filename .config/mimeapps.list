@@ -26,11 +26,11 @@ x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/magnet=qBittorrent.desktop
-x-scheme-handler/mailto=org.gnome.Evolution.desktop
-message/rfc822=org.gnome.Evolution.desktop
+x-scheme-handler/mailto=userapp-Thunderbird.desktop
+message/rfc822=userapp-Thunderbird.desktop
 x-scheme-handler/viber=viber.desktop
 x-scheme-handler/webcal=firefox.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-I33DZ0.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop.desktop
 
 [Removed Associations]
 image/bmp=feh.desktop
@@ -57,8 +57,9 @@ x-scheme-handler/http=firefoxfirefox-developer-edition.desktop;
 x-scheme-handler/https=firefoxfirefox-developer-edition.desktop;
 
 [Added Associations]
-x-scheme-handler/tg=userapp-Telegram Desktop.desktop;
 application/force-download=emacs.desktop;
 application/pdf=org.gnome.Evince.desktop;
-x-scheme-handler/mailto=userapp-Thunderbird-.desktop;
-message/rfc822=userapp-Thunderbird-.desktop;
+message/rfc822=userapp-Thunderbird.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop.desktop;
+text/calendar=thunderbird.desktop;
