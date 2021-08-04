@@ -225,22 +225,23 @@ if command_exists pacman ; then
     pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
   }
 
-  alias upg='pacman -Syu'
-  alias pacs='pacman -Ss'
-  alias pqs='pacman -Qs'
+  alias p="$SUDO pacman"
   alias pql='pacman -Ql'
-  alias pqi='pacman -Sii'
-  paci() {
-    pacman -S --needed $@
+  alias pqs='pacman -Qs'
+  alias pas='pacman -Ss'
+  alias upg='p -Syu'
+  alias pii='pacman -Sii'
+  pai() {
+    $SUDO pacman -S --needed $@
     rehash
   }
-  alias pacr='pacman -Rs'
+  alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
-    alias upgy='yay -Syua'
-    alias yacs='yay -Ss'
-    alias yaci='yay -Sa'
-    alias yaqi='yay -Sii'
+    alias upy='yay -Syua'
+    alias yss='yay -Ss'
+    alias ya='yay -Sa'
+    alias yii='yay -Sii'
   fi
 
   recovery-pacman() {
@@ -255,23 +256,24 @@ if command_exists pacman ; then
 fi
 
 if command_exists apt ; then
-  alias upd='apt update'
-  alias upgy='apt upgrade'
+  alias a='apt'
+  alias pas='apt search'
+  alias upd='a update'
+  alias upy='a upgrade'
   alias upl='apt list --upgradable'
   alias upg='upd && sleep 2 && upl && sleep 2 && upgy'
-  alias pacs='apt search'
-  alias paci='apt install'
-  alias pacr='apt remove'
+  alias pai='a install'
+  alias par='a remove'
   alias pql="dpkg-query -L"
   alias aar="add-apt-repository"
 fi
 
 if command_exists yum ; then
-  alias apt="yum"
+  alias y="yum"
   alias upg='yum upgrade'
-  alias pacs='yum search'
-  alias paci='yum install'
-  alias pacr='yum remove'
+  alias pas='yum search'
+  alias pai='yum install'
+  alias par='yum remove'
 fi
 # END PACKAGE MANAGERS
 
@@ -296,9 +298,11 @@ fi
 ## EDITORS
 if command_exists emacs ; then
   alias em='emacs -nw'
+  alias e='emacs -nw'
   alias sem="$SUDO emacs -nw"
   export EDITOR='editor-run'
 elif command_exists vim; then
+  alias v='vim'
   export EDITOR='vim'
 fi
 ## END EDITORS
