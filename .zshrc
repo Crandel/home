@@ -34,20 +34,56 @@ autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^h' edit-command-line
+
+typeset -g -A key
+
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Insert]="${terminfo[kich1]}"
+key[Backspace]="${terminfo[kbs]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+key[Left]="${terminfo[kcub1]}"
+key[Right]="${terminfo[kcuf1]}"
+key[PageUp]="${terminfo[kpp]}"
+key[PageDown]="${terminfo[knp]}"
+key[Shift-Tab]="${terminfo[kcbt]}"
+
+# setup key accordingly
+[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
+[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
+[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
+[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
+[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
+[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-beginning-search
+[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-beginning-search
+[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
+[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
+[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
+[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
+[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
+
 # \e[A arrow up
 # \e[B arrow down
 # \e[C arrow right
 # \e[D arrow left
-bindkey "\e[A" up-line-or-beginning-search
-bindkey "\e[B" down-line-or-beginning-search
+# bindkey "\e[A" up-line-or-beginning-search
+# bindkey "^[0A" up-line-or-beginning-search
+# bindkey "\e[B" down-line-or-beginning-search
+# bindkey "^[0B" down-line-or-beginning-search
 
 # \e[1;5A Ctrl + arrow up
 # \e[1;5B Ctrl + arrow down
 # \e[1;5C Ctrl + arrow right
 # \e[1;5D Ctrl + arrow left
 # should be binded after zsh-users/zsh-history-substring-search loading
-bindkey "\e[1;5A" history-substring-search-up
-bindkey "\e[1;5B" history-substring-search-down
+# bindkey "\e[1;5A" history-substring-search-up
+bindkey "^[[1;5A" history-substring-search-up
+# bindkey "\e[1;5B" history-substring-search-down
+bindkey "^[[1;5B" history-substring-search-down
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
@@ -629,6 +665,18 @@ if command_exists fzf ; then
 else
   echo "install fzf"
 fi
+if command_exists lf ; then
+  lfcd () {
+      tmp="$(mktemp)"
+      lf -last-dir-path="$tmp" "$@"
+      if [ -f "$tmp" ]; then
+          dir="$(cat "$tmp")"
+          rm -f "$tmp"
+          [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+      fi
+  }
+  bindkey -s '^o' 'lfcd\n'
+fi
 ## END GO
 
 ## SCALA
@@ -672,6 +720,15 @@ set_virtualenv () {
   fi
 }
 ## END PYTHON
+
+## NPM
+if command_exists npm; then
+  NPM_PACKAGES="${HOME}/.config/npm-packages"
+  mkdir -p $NPM_PACKAGES
+  NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+  export PATH=$PATH:$HOME/$NPM_PACKAGES/bin
+fi
+
 # END PROGRAMM LANGUAGES
 
 # PROMPT
