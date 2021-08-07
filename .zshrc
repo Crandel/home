@@ -80,10 +80,8 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # \e[1;5C Ctrl + arrow right
 # \e[1;5D Ctrl + arrow left
 # should be binded after zsh-users/zsh-history-substring-search loading
-# bindkey "\e[1;5A" history-substring-search-up
-bindkey "^[[1;5A" history-substring-search-up
-# bindkey "\e[1;5B" history-substring-search-down
-bindkey "^[[1;5B" history-substring-search-down
+bindkey "\e[1;5A" history-substring-search-up
+bindkey "\e[1;5B" history-substring-search-down
 bindkey "\e[1;5C" forward-word
 bindkey "\e[1;5D" backward-word
 
@@ -93,6 +91,8 @@ bindkey "\e[1;5D" backward-word
 # \e[1;2D Shift + arrow left
 bindkey "\e[1;2A" history-incremental-search-forward
 bindkey "\e[1;2B" history-incremental-search-backward # Ctrl+r
+bindkey "\e[1;2C" end-of-line
+bindkey "\e[1;2D" beginning-of-line
 
 # fix of delete key
 bindkey "\e[3~" delete-char
@@ -267,10 +267,10 @@ mkcd() {
 # END CUSTOM FUNCTIONS
 
 # IMPORT ADDITIONAL FILES
-## CUSTOM ZSH FUNCS
-if [ -f ~/.zfunc.zsh ]; then
-  fpath+=~/.zfunc.zsh
-  . ~/.zfunc.zsh
+## CUSTOM FUNCS
+if [ -f ~/.func.zsh ]; then
+  fpath+=~/.func.zsh
+  . ~/.func.zsh
 fi
 
 ## CUSTOM ALIASES AND EXPORTS
@@ -492,14 +492,15 @@ fi
 ## END MEDIA TOOLS
 
 ## EDITORS
+if command_exists vim; then
+  alias v='vim'
+  export EDITOR='vim'
+fi
 if command_exists emacs ; then
   alias em='emacs -nw'
   alias e='emacs -nw'
   alias sem="$SUDO emacs -nw"
   export EDITOR='editor-run'
-elif command_exists vim; then
-  alias v='vim'
-  export EDITOR='vim'
 fi
 ## END EDITORS
 
@@ -732,12 +733,12 @@ fi
 # END PROGRAMM LANGUAGES
 
 # PROMPT
-parse_git_branch(){
+function parse_git_branch(){
   git branch 2> /dev/null | sed -n 's/^\* //p'
 }
 
 ## Determine the branch/state information for this git repository.
-set_git_branch() {
+function set_git_branch() {
   # Get the final branch string.
   if command_exists git_status ; then
     branch="$(git_status zsh)"
@@ -750,7 +751,7 @@ set_git_branch() {
   fi
 }
 
-set_prompt_symbol () {
+function set_prompt_symbol () {
   echo "%(?.%F{yellow}.%F{red}[%?])$INSIDE_VIFM"
   echo "╰─➤%f"
 }

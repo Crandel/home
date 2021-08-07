@@ -33,8 +33,10 @@ bind '"\e[1;5D":backward-word' 2>/dev/null
 # \e[1;2B Shift + arrow down
 # \e[1;2C Shift + arrow right
 # \e[1;2D Shift + arrow left
-bind '"\e[1;2A":forward-search-history' 2>/dev/null # Ctrl+s 
+bind '"\e[1;2A":forward-search-history' 2>/dev/null # Ctrl+s
 bind '"\e[1;2B":reverse-search-history' 2>/dev/null # Ctrl+r
+bind '"\e[1;2C":end-of-line' 2>/dev/null
+bind '"\e[1;2D":beginning-of-line' 2>/dev/null
 
 set completion-ignore-case on
 set show-all-if-ambiguous on
@@ -193,6 +195,12 @@ mkcd() {
 # END CUSTOM FUNCTIONS
 
 # IMPORT ADDITIONAL FILES
+## CUSTOM FUNCS
+if [ -f ~/.func.bash ]; then
+  fpath+=~/.func.bash
+  . ~/.func.bash
+fi
+
 ## CUSTOM ALIASES AND EXPORTS
 if [ -f ~/.aliases.bash ]; then
   . ~/.aliases.bash
@@ -261,7 +269,7 @@ if command_exists apt ; then
   alias upd='a update'
   alias upy='a upgrade'
   alias upl='apt list --upgradable'
-  alias upg='upd && sleep 2 && upl && sleep 2 && upgy'
+  alias upg='upd && sleep 2 && upl && sleep 2 && upy'
   alias pai='a install'
   alias par='a remove'
   alias pql="dpkg-query -L"
@@ -296,14 +304,15 @@ fi
 ## END MEDIA TOOLS
 
 ## EDITORS
+if command_exists vim; then
+  alias v='vim'
+  export EDITOR='vim'
+fi
 if command_exists emacs ; then
   alias em='emacs -nw'
   alias e='emacs -nw'
   alias sem="$SUDO emacs -nw"
   export EDITOR='editor-run'
-elif command_exists vim; then
-  alias v='vim'
-  export EDITOR='vim'
 fi
 ## END EDITORS
 
@@ -344,6 +353,34 @@ fi
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
+# END SYSTEM TOOLS
+
+# PROGRAMM LANGUAGES
+## RUST
+
+if command_exists cargo || [ -d $HOME/.rustup ]; then
+  if [ ! -d $HOME/.cargo/bin ]; then
+    mkdir -p $HOME/.cargo/bin
+  fi
+  export PATH=$PATH:$HOME/.cargo/bin
+  alias crn='cargo run'
+  alias cup='cargo update'
+  alias cbd='cargo build'
+  alias cbr='cargo build --release'
+  if ! command_exists cargo-expand; then
+    cargo install cargo-expand
+  fi
+  if ! command_exists cargo-audit; then
+    cargo install cargo-audit
+  fi
+  if ! command_exists cargo-outdated; then
+    cargo install cargo-outdated
+  fi
+fi
+
+if [ -d /usr/src/rust ]; then
+  export RUST_SRC_PATH=/usr/src/rust/src
+fi
 
 if command_exists bat ; then
   alias ct='bat'
@@ -353,16 +390,6 @@ fi
 
 if command_exists rg ; then
   export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
-fi
-
-if command_exists fzf ; then
-  gdelbrf() {
-    git branch |
-      rg --invert-match '\*' |
-      cut -c 3- |
-      fzf --multi --preview="git log {} --" |
-      xargs --no-run-if-empty git branch --delete --force
-  }
 fi
 
 if command_exists sk ; then
@@ -391,10 +418,8 @@ if command_exists lsd; then
   alias ls='lsd'
   alias ll='ls -ahlF --group-dirs=first'
 fi
+## END RUST
 
-# END SYSTEM TOOLS
-
-# PROGRAMM LANGUAGES
 ## GO
 if command_exists go ; then
   export GOPATH=$HOME/go
@@ -402,6 +427,30 @@ if command_exists go ; then
   if [ -d $GOPATH/goprojects ]; then
     export GOPATH=$GOPATH:$GOPATH/goprojects
   fi
+fi
+
+if command_exists fzf ; then
+  gdelbrf() {
+    git branch |
+      rg --invert-match '\*' |
+      cut -c 3- |
+      fzf --multi --preview="git log {} --" |
+      xargs --no-run-if-empty git branch --delete --force
+  }
+else
+  echo "install fzf"
+fi
+if command_exists lf ; then
+  lfcd () {
+      tmp="$(mktemp)"
+      lf -last-dir-path="$tmp" "$@"
+      if [ -f "$tmp" ]; then
+          dir="$(cat "$tmp")"
+          rm -f "$tmp"
+          [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+      fi
+  }
+  bind '"^O":lfcd'
 fi
 ## END GO
 
@@ -427,23 +476,6 @@ if command_exists scala ; then
 fi
 ## END SCALA
 
-## RUST
-if command_exists cargo ; then
-  if [ ! -d $HOME/.cargo/bin ]; then
-    mkdir -p $HOME/.cargo/bin
-  fi
-  export PATH=$PATH:$HOME/.cargo/bin
-  alias crn='cargo run'
-  alias cup='cargo update'
-  alias cbd='cargo build'
-  alias cbr='cargo build --release'
-fi
-
-if [ -d /usr/src/rust ]; then
-  export RUST_SRC_PATH=/usr/src/rust/src
-fi
-## END RUST
-
 ## PYTHON
 virtual='virtualenvwrapper.sh'
 if command_exists $virtual; then
@@ -457,6 +489,15 @@ clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 ## END PYTHON
+
+## NPM
+if command_exists npm; then
+  NPM_PACKAGES="${HOME}/.config/npm-packages"
+  mkdir -p $NPM_PACKAGES
+  NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+  export PATH=$PATH:$HOME/$NPM_PACKAGES/bin
+fi
+
 # END PROGRAMM LANGUAGES
 
 # PROMPT
