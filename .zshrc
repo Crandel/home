@@ -703,6 +703,14 @@ fi
 ## END SCALA
 
 ## PYTHON
+if [ -d "$HOME/.pyenv" ]; then
+   export PYENV_ROOT="$HOME/.pyenv"
+   export PATH="$PYENV_ROOT/bin:$PATH"
+   eval "$(pyenv init --path)"
+   eval "$(pyenv init -)"
+   eval "$(pyenv virtualenv-init -)"
+fi
+
 virtual='virtualenvwrapper.sh'
 if command_exists $virtual; then
   export VIRTUAL_ENV_DISABLE_PROMPT=1
