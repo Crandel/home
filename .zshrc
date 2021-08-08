@@ -296,7 +296,6 @@ plugin_init() {
   (( ${+_comps} )) && _comps[zinit]=_zinit
 
   zinit wait lucid light-mode for \
-          MichaelAquilina/zsh-autoswitch-virtualenv \
           OMZL::clipboard.zsh \
           djui/alias-tips \
           zsh-users/zsh-completions \
@@ -443,14 +442,11 @@ fi
 if command_exists kubectl ; then
   alias k='kubectl'
   alias kapr='kubectl api-resources'
-  compdef k='kubectl'
   if command_exists kubectx ; then
     alias ktx='kubectx'
-    compdef ktx='kubectx'
   fi
   if command_exists kubens ; then
     alias kns='kubens'
-    compdef kns='kubens'
   fi
   # alias k9s_cont_namesp='k9s --context <context> -n <namespace>'
   # pod_pf() {
@@ -706,26 +702,20 @@ fi
 if [ -d "$HOME/.pyenv" ]; then
    export PYENV_ROOT="$HOME/.pyenv"
    export PATH="$PYENV_ROOT/bin:$PATH"
+   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
    eval "$(pyenv init --path)"
-   eval "$(pyenv init -)"
-   eval "$(pyenv virtualenv-init -)"
+   eval "$(pyenv init - zsh)"
+   eval "$(pyenv virtualenv-init - zsh)"
 fi
 
-virtual='virtualenvwrapper.sh'
-if command_exists $virtual; then
-  export VIRTUAL_ENV_DISABLE_PROMPT=1
-  export WORKON_HOME=~/.virtualenvs/
-  export AUTOSWITCH_SILENT=1
-  source $virtual
-fi
 
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
 ### Determine active Python virtualenv details.
 set_virtualenv () {
-  if [ ! -z "$VIRTUAL_ENV" ] ; then
-    echo " %F{yellow}[`basename \"$VIRTUAL_ENV\"`]"
+  if [ ! -z "$PYENV_VIRTUAL_ENV" ] ; then
+    echo " %F{yellow}[$(pyenv version-name)]%f"
   fi
 }
 ## END PYTHON
@@ -734,8 +724,8 @@ set_virtualenv () {
 if command_exists npm; then
   NPM_PACKAGES="${HOME}/.config/npm-packages"
   mkdir -p $NPM_PACKAGES
-  NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-  export PATH=$PATH:$HOME/$NPM_PACKAGES/bin
+  export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+  export PATH=$PATH:$NPM_PACKAGES/bin
 fi
 
 # END PROGRAMM LANGUAGES

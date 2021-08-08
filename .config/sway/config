@@ -1,10 +1,10 @@
 set {
   $mod Mod4
   $lock sleep.sh
-  $term tilix
-  $term_id tilix
-  $other_term wezterm
-  $other_term_id org.wezfurlong.wezterm
+  $term wezterm
+  $term_id org.wezfurlong.wezterm
+  $other_term tilix
+  $other_term_id tilix
   $editor emacs
 #  $editor alacritty -e emacs -nw
   $browser firefox
@@ -49,6 +49,7 @@ exec_always {
   gsettings set $gnome-interface gtk-theme 'gruvbox-dark-gtk'
   gsettings set $gnome-interface icon-theme 'gruvbox-dark-icons-gtk'
   gsettings set $gnome-interface font-name 'Hack Nerd Font 16'
+  gsettings set $gnome-interface monospace-font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface document-font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface text-scaling-factor 1.0
   gsettings set $gnome-interface cursor-theme 'capitaine-cursors'
@@ -328,8 +329,8 @@ bar {
 default_border none
 #smart_borders on
 #smart_gaps on
-gaps inner 1
-gaps outer 1
+gaps inner 0
+gaps outer 0
 
 # my settings
 # class                 border   backgr. text    indicator
@@ -352,7 +353,7 @@ exec systemctl --user import-environment \
     XDG_CURRENT_DESKTOP \
     XDG_SESSION_TYPE
 exec hash dbus-update-activation-environment 2>/dev/null \
-  && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP
+  && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE GNOME_DESKTOP_SESSION_ID
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term, resize set width 100 ppt height 100 ppt

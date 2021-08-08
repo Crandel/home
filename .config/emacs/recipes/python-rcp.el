@@ -35,6 +35,12 @@
   (tab-width                                  4)
   (python-indent                              4)
   (imenu-create-index-function                'my-merge-imenu)
+  :hook
+  (evil-mode . (lambda()
+                   (interactive)
+                   (evil-define-key* '(normal visual) python-mode-map
+                     (kbd "gf") my/python-mode-map)
+                   ))
   :bind
   (:map python-mode-map
         ("RET" . newline-and-indent)
@@ -49,7 +55,7 @@
 
 (use-package py-isort
   :ensure t
-  :after (python-mode)
+  :after python-mode
   :defer t
 )
 
@@ -57,7 +63,7 @@
 (when (executable-find "autopep8")
   (use-package py-autopep8
     :ensure t
-    :after (python-mode)
+    :after python-mode
     :defer t
     )
   )
@@ -65,43 +71,47 @@
 (when (executable-find "black")
   (use-package python-black
     :ensure t
-    :after python
+    :after python-mode
     :hook (python-mode . python-black-on-save-mode-enable-dwim)
     )
 )
 
-(when (executable-find "virtualenv")
+(when (executable-find "pyenv")
   (use-package pyvenv
     :ensure t
+    :after python-mode
+    :init
+    (setenv "WORKON_HOME" "~/.pyenv/versions")
     :preface
     (defun pyvenv-autoload ()
       (interactive)
       "auto activate venv directory if exists"
       (unless pyvenv-virtual-env-name
-        (message "Activate .venv")
+        (message "Activate .python-version")
         (f-traverse-upwards (lambda (path)
-                              (let ((venv-path (f-expand ".venv" path)))
+                              (let ((venv-path (f-expand ".python-version" path)))
                                 (when (f-exists? venv-path)
                                   (pyvenv-activate venv-path)))))))
     :hook
     (python-mode . pyvenv-mode)
     (pyvenv-mode . pyvenv-autoload)
     )
-  )
 
-(when (executable-find "pyright")
-  (use-package lsp-pyright
-    :ensure t
-    :defer t
-    :custom
-    (lsp-pyright-disable-organize-imports t)
-    (lsp-pyright-auto-import-completions  t)
-    (lsp-pyright-auto-search-paths        nil)
-    :hook
-    (python-mode . (lambda ()
-                           (require 'lsp-pyright)
-                           (lsp-deferred))))  ; or lsp
-)
+    (when (executable-find "pyright")
+      (use-package lsp-pyright
+        :ensure t
+        :defer t
+        :after pyvenv
+        :custom
+        (lsp-pyright-disable-organize-imports t)
+        (lsp-pyright-auto-import-completions  t)
+        (lsp-pyright-auto-search-paths        nil)
+        :hook
+        (python-mode . (lambda ()
+                         (require 'lsp-pyright)
+                         (lsp-deferred))))  ; or lsp
+      )
+    )
 
 (provide 'python-rcp)
 

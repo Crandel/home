@@ -98,7 +98,7 @@
             "good": 30,
             "warning": 50,
             "critical": 85
-        }
+        },
     },
     "memory": {
         "format": "💾 {used:0.1f}G",

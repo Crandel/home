@@ -61,7 +61,7 @@
 ;; (require 'expand-region-rcp)
 (require 'evil-rcp)
 (require 'flycheck-rcp)
-(require 'git-gutter-rcp)
+(require 'git-rcp)
 ;;(require 'helm-rcp)
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)

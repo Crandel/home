@@ -1,6 +1,19 @@
 ;;; git-gutter-rcp.el --- Show git changes in buffer
 
 ;;; Code:
+(use-package gitconfig-mode
+  :ensure t
+)
+
+(use-package gitignore-mode
+  :ensure t
+  :mode "/.dockerignore\\'"
+)
+
+(use-package gitattributes-mode
+  :ensure t
+)
+
 (use-package git-gutter
   :ensure t
   :defer t
@@ -12,7 +25,7 @@
   ("C-c ]" . git-gutter:previous-hunk)
 )
 
-(provide 'git-gutter-rcp)
+(provide 'git-rcp)
 ;;; Commentary:
 ;;
 ;;; git-gutter-rcp.el ends here

@@ -70,12 +70,6 @@ The return value is the yanked text."
         (evil-indent (evil-get-marker ?\[) (evil-get-marker ?\]))
         text)))
   (evil-mode 1)
-  :hook
-  (python-mode . (lambda()
-                   (interactive)
-                   (evil-define-key* '(normal visual) python-mode-map
-                     (kbd "gf") my/python-mode-map)
-                   ))
   :bind (
   ("C-x e" . evil-mode)
   :map evil-motion-state-map
