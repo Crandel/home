@@ -708,7 +708,6 @@ if [ -d "$HOME/.pyenv" ]; then
    eval "$(pyenv virtualenv-init - zsh)"
 fi
 
-
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }

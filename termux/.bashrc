@@ -477,13 +477,14 @@ fi
 ## END SCALA
 
 ## PYTHON
-virtual='virtualenvwrapper.sh'
-if command_exists $virtual; then
-  export VIRTUAL_ENV_DISABLE_PROMPT=1
-  export WORKON_HOME=~/.virtualenvs/
-  export AUTOSWITCH_SILENT=1
-  source $virtual
-fi
+#if [ -d "$HOME/.pyenv" ]; then
+#   export PYENV_ROOT="$HOME/.pyenv"
+#   export PATH="$PYENV_ROOT/bin:$PATH"
+#   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+#   eval "$(pyenv init --path)"
+#   eval "$(pyenv init -)"
+#   eval "$(pyenv virtualenv-init -)"
+#fi
 
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
@@ -494,8 +495,8 @@ clean_pyc (){
 if command_exists npm; then
   NPM_PACKAGES="${HOME}/.config/npm-packages"
   mkdir -p $NPM_PACKAGES
-  NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-  export PATH=$PATH:$HOME/$NPM_PACKAGES/bin
+  export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+  export PATH=$PATH:$NPM_PACKAGES/bin
 fi
 
 # END PROGRAMM LANGUAGES
