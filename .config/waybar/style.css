@@ -90,25 +90,21 @@ window#waybar.chromium {
   background-color: #088A08;
 }
 
-#battery {
-  background-color: #8A4B08;
-  color: #A9D0F5;
-}
-
-#battery.charging, #battery.plugged {
-  color: #FFFFFF;
-  background-color: #26A65B;
-}
-
 @keyframes blink {
   to {
     background-color: #FFFFFF;
     color: #000000;
   }
 }
+
 #battery {
   background-color: #610154;
   color: #F3FBF5;
+}
+
+#battery.charging, #battery.plugged {
+  color: #FFFFFF;
+  background-color: #26A65B;
 }
 
 #battery.good:not(.charging) {
@@ -148,14 +144,23 @@ label:focus {
 #cpu.warning {
   background-color: orange;
 }
+
 #cpu.critical {
   background-color: red;
   color: #FFFFFF
 }
 
-
 #memory {
   background-color: #9B59B6;
+}
+
+#memory.warning {
+  background-color: orange;
+}
+
+#memory.critical {
+  background-color: red;
+  color: #FFFFFF
 }
 
 #disk {
@@ -166,6 +171,7 @@ label:focus {
 #disk.warning {
   background-color: orange;
 }
+
 #disk.critical {
   background-color: red;
   color: #FFFFFF

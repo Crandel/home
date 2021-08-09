@@ -86,11 +86,11 @@
     "disk": {
         "path": "/",
         "interval": 60,
-        "format": "📂 {free}",
+        "format": "📂 {percentage_used}% U",
         "states": {
-            "warning": 30,
-            "critical": 5
-        },
+            "warning": 80,
+            "critical": 95
+        }
     },
     "cpu": {
         "format": "💻 {usage}%",
@@ -98,10 +98,14 @@
             "good": 30,
             "warning": 50,
             "critical": 85
-        },
+        }
     },
     "memory": {
         "format": "💾 {used:0.1f}G",
+        "states": {
+            "warning": 80,
+            "critical": 95
+        }
     },
     "battery": {
         "states": {
@@ -116,8 +120,7 @@
         "format-alt": "🔋 {time}",
         // "format-good": "", // An empty format will hide the module
         "format-full": "🔋",
-        "tooltip-format": "🔋{capacity}% {time}",
-        // "format-icons": ["", "", "", "", ""]
+        "tooltip-format": "🔋{capacity}% {time}"
     },
     "pulseaudio": {
         "scroll-step": 10, // %, can be a float
@@ -146,10 +149,10 @@
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format": "🌍{ifname:.3}",
+        "format": "🌍{ifname:.5}",
         "format-disconnected": "",
         "tooltip-format": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
-        "tooltip-format-disconnected": "",
+        "tooltip-format-disconnected": ""
     },
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
@@ -157,7 +160,7 @@
         "format-wifi": "📡{essid:.7}/{signalStrength}% ",
         "format-disconnected": "",
         "tooltip-format-wifi": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
-        "tooltip-format-disconnected": "",
+        "tooltip-format-disconnected": ""
     },
     "network#vpn": {
         "interface": "tun*", // (Optional) To force the use of this interface
@@ -165,15 +168,14 @@
         "format": "VPN",
         "format-disconnected": "",
         "tooltip-format-linked": "VPN",
-        "tooltip-format-disconnected": "",
+        "tooltip-format-disconnected": ""
     },
     "sway/language": {
         "min-length": 2
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%d.%m %R}</big>\n<tt><small>{calendar}</small></tt>",
         "format": "⌚ {:%d.%m %R}",
         "format-alt": "{:%d.%m %R}"
-    },
+    }
 }
