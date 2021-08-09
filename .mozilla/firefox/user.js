@@ -135,6 +135,7 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
+user_pref("browser.urlbar.update2.oneOffsRefresh", false); // PREF: Disable tab to complete.
 user_pref("browser.zoom.siteSpecific", false);
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
 user_pref("captivedetect.canonicalURL", "");

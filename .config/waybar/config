@@ -86,7 +86,7 @@
     "disk": {
         "path": "/",
         "interval": 60,
-        "format": "📂 {percentage_used}% U",
+        "format": "📂 {free}",
         "states": {
             "warning": 80,
             "critical": 95

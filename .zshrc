@@ -363,7 +363,7 @@ if command_exists pacman ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
     alias upy='yay -Syua'
     alias yss='yay -Ss'
-    alias ya='yay -Sa'
+    alias yai='yay -Sa'
     alias yii='yay -Sii'
   fi
 
@@ -490,6 +490,7 @@ fi
 ## EDITORS
 if command_exists vim; then
   alias v='vim'
+  alias sv="$SUDO vim"
   export EDITOR='vim'
 fi
 if command_exists emacs ; then
