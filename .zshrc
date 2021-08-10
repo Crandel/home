@@ -722,10 +722,8 @@ set_virtualenv () {
 
 ## NPM
 if command_exists npm; then
-  NPM_PACKAGES="${HOME}/.config/npm-packages"
-  mkdir -p $NPM_PACKAGES
+  NPM_PACKAGES="${HOME}/.local"
   export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-  export PATH=$PATH:$NPM_PACKAGES/bin
 fi
 
 # END PROGRAMM LANGUAGES
