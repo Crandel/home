@@ -94,7 +94,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.pyc,**/bower_components/**,**/node_modules/
 let g:gruvbox_italic=1
 colorscheme gruvbox
 
-autocmd InsertEnter * highlight CursorLine guibg=#768a31
+autocmd InsertEnter * highlight CursorLine guibg=#0a0a0f
 autocmd InsertLeave * highlight CursorLine guibg=bg
 
 autocmd BufNewFile,BufFilePre,BufRead,BufReadPost *.md set filetype=markdown
