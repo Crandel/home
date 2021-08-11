@@ -525,7 +525,8 @@ fi
 ## END FILE MANAGERS
 
 if command_exists systemctl ; then
-  alias ssystemctl="$SUDO systemctl"
+  alias ssctl="$SUDO systemctl"
+  alias usctl='systemctl --user'
 fi
 
 if command_exists git ; then
