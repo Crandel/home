@@ -12,8 +12,8 @@
         )
   :init
   (advice-add #'vertico--format-candidate :around
-              (lambda (orig cand prefix suffix index)
-                (setq cand (funcall orig cand prefix suffix index))
+              (lambda (orig cand prefix suffix index _start)
+                (setq cand (funcall orig cand prefix suffix index _start))
                 (concat
                  (if (= vertico--index index)
                      (propertize "» " 'face 'vertico-current)
