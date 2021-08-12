@@ -22,7 +22,7 @@
 }
 
 #workspaces button.focused {
-  background-color: #00E600;
+  background-color: #355325;
   box-shadow: inset 0 -3px #FFFFFF;
 }
 
@@ -45,6 +45,7 @@
 #pulseaudio,
 #backlight,
 #network,
+#language,
 #clock {
   margin: 0 1px;
   color: #FFFFFF
@@ -116,15 +117,15 @@ label:focus {
 }
 
 #battery {
-  background-color: #384d23;
+  background-color: #2F2519;
 }
 
 #battery.charging, #battery.plugged {
-  background-color: #26A65B;
+  background-color: #2F2519;
 }
 
 #battery.good:not(.charging) {
-  background-color: #384d23;
+  background-color: #4A3F35;
 }
 
 #battery.normal:not(.charging) {
@@ -132,11 +133,11 @@ label:focus {
 }
 
 #battery.warning:not(.charging) {
-  background-color: #784627;
+  background-color: #FA7D09;
 }
 
 #battery.critical:not(.charging) {
-  background-color: #F53C3C;
+  background-color: #FF4301;
   color: #FFFFFF;
   animation-name: blink;
   animation-duration: 0.5s;
@@ -174,10 +175,7 @@ label:focus {
 }
 
 #language {
-  background: #464a41;
-  padding: 0 5px;
-  margin: 0 5px;
-  min-width: 16px;
+  background-color: #464a41;
 }
 
 #clock {
