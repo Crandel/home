@@ -7,30 +7,6 @@
   min-height: 0;
 }
 
-window#waybar {
-  background-color: rgba(43, 48, 59, 0.5);
-  color: #FFFFFF;
-  transition-property: background-color;
-  transition-duration: .5s;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
-}
-
-/*
-   window#waybar.empty {
-   background-color: transparent;
-   }
-   window#waybar.solo {
-   background-color: #FFFFFF;
-   }
- */
-window#waybar.chromium {
-   background-color: #000000;
-   border: none;
-}
-
 #workspaces button {
   padding: 0 5px;
   background-color: transparent;
@@ -58,22 +34,20 @@ window#waybar.chromium {
   background-color: #FF0000;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#custom-media,
+#workspaces,
 #tray,
 #mode,
-#idle_inhibitor,
-#window,
-#workspaces {
-  margin: 0 2px;
+#custom-gmail,
+#disk,
+#cpu,
+#memory,
+#battery,
+#pulseaudio,
+#backlight,
+#network,
+#clock {
+  margin: 0 1px;
+  color: #FFFFFF
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -86,10 +60,6 @@ window#waybar.chromium {
   margin-right: 0;
 }
 
-#clock {
-  background-color: #088A08;
-}
-
 @keyframes blink {
   to {
     background-color: #FFFFFF;
@@ -97,29 +67,72 @@ window#waybar.chromium {
   }
 }
 
+label:focus {
+  background-color: #000000;
+}
+
+#tray {
+  background-color: transparent;
+}
+
+#custom-gmail {
+  background-color: #1c7d2f;
+}
+
+#disk {
+  background-color: #23712c;
+}
+
+#disk.warning {
+  background-color: orange;
+}
+
+#disk.critical {
+  background-color: red;
+}
+
+#cpu {
+  background-color: #2a6529;
+}
+
+#cpu.warning {
+  background-color: orange;
+}
+
+#cpu.critical {
+  background-color: red;
+}
+
+#memory {
+  background-color: #355325;
+}
+
+#memory.warning {
+  background-color: orange;
+}
+
+#memory.critical {
+  background-color: red;
+}
+
 #battery {
-  background-color: #610154;
-  color: #F3FBF5;
+  background-color: #384d23;
 }
 
 #battery.charging, #battery.plugged {
-  color: #FFFFFF;
   background-color: #26A65B;
 }
 
 #battery.good:not(.charging) {
-  background-color: #610154;
-  color: #F3FBF5;
+  background-color: #384d23;
 }
 
 #battery.normal:not(.charging) {
-  background-color: #298A08;
-  color: #F3FBF5;
+  background-color: #725F0A;
 }
 
 #battery.warning:not(.charging) {
-  background-color: #725F0A;
-  color: #F3FBF5;
+  background-color: #784627;
 }
 
 #battery.critical:not(.charging) {
@@ -132,130 +145,41 @@ window#waybar.chromium {
   animation-direction: alternate;
 }
 
-label:focus {
-  background-color: #000000;
+#pulseaudio {
+  background-color: #29331e;
 }
 
-#cpu {
-  background-color: #2ECC71;
-  color: #000000;
-}
-
-#cpu.warning {
-  background-color: orange;
-}
-
-#cpu.critical {
-  background-color: red;
-  color: #FFFFFF
-}
-
-#memory {
-  background-color: #9B59B6;
-}
-
-#memory.warning {
-  background-color: orange;
-}
-
-#memory.critical {
-  background-color: red;
-  color: #FFFFFF
-}
-
-#disk {
-  background-color: #FAFAFA;
-  color: #1B2A0A;
-}
-
-#disk.warning {
-  background-color: orange;
-}
-
-#disk.critical {
-  background-color: red;
-  color: #FFFFFF
+#pulseaudio.muted {
+  background-color: #90B1B1;
 }
 
 #backlight {
-  background-color: #90B1B1;
-  color: #0A2A1B;
+  background-color: #1f2419;
 }
 
 #network.eth {
-  background-color: #2980B9;
+  background-color: #1f2419;
 }
 
 #network.wifi {
-  background-color: #A5DF00;
-  color: #000000
+  background-color: #33382e;
 }
 
 #network.vpn {
-  background-color: #1B0A2A;
+  background-color: #e58e26;
 }
 
 #network.disconnected {
   background-color: #F53C3C;
 }
 
-#pulseaudio {
-  background-color: #F1C40F;
-  color: #000000;
-}
-
-#pulseaudio.muted {
-  background-color: #90B1B1;
-  color: #2A5C45;
-}
-
-#custom-gmail {
-  background-color: #66CC99;
-  color: #2A5C45;
-}
-
-#temperature {
-  background-color: #F0932B;
-}
-
-#temperature.critical {
-  background-color: #EB4D4B;
-}
-
-#tray {
-  background-color: transparent;
-}
-
-#idle_inhibitor {
-  background-color: #2D3436;
-}
-
-#idle_inhibitor.activated {
-  background-color: #ECF0F1;
-  color: #2D3436;
-}
-
-#mpd {
-  background-color: #66CC99;
-  color: #2A5C45;
-}
-
-#mpd.disconnected {
-  background-color: #F53C3C;
-}
-
-#mpd.stopped {
-  background-color: #90B1B1;
-}
-
-#mpd.paused {
-  background-color: #51A37A;
-}
-
 #language {
-  background: #00B093;
-  color: #740864;
+  background: #464a41;
   padding: 0 5px;
   margin: 0 5px;
   min-width: 16px;
+}
+
+#clock {
+  background-color: #355325;
 }

@@ -71,7 +71,6 @@
 (when (executable-find "black")
   (use-package python-black
     :ensure t
-    :after python-mode
     :hook (python-mode . python-black-on-save-mode-enable-dwim)
     )
 )
@@ -79,39 +78,43 @@
 (when (executable-find "pyenv")
   (use-package pyvenv
     :ensure t
-    :after python-mode
+    :after f
+    :commands pyvenv-autoload
     :init
     (setenv "WORKON_HOME" "~/.pyenv/versions")
     :preface
     (defun pyvenv-autoload ()
-      (interactive)
       "auto activate venv directory if exists"
+      (interactive)
+      (message "autoload")
       (unless pyvenv-virtual-env-name
         (message "Activate .python-version")
         (f-traverse-upwards (lambda (path)
                               (let ((venv-path (f-expand ".python-version" path)))
                                 (when (f-exists? venv-path)
-                                  (pyvenv-activate venv-path)))))))
+                                  (pyvenv-workon (with-temp-buffer
+                                                     (insert-file-contents venv-path)
+                                                     (string-trim(buffer-string))))))))))
     :hook
     (python-mode . pyvenv-mode)
-    (pyvenv-mode . pyvenv-autoload)
     )
+)
 
-    (when (executable-find "pyright")
-      (use-package lsp-pyright
-        :ensure t
-        :defer t
-        :after pyvenv
-        :custom
-        (lsp-pyright-disable-organize-imports t)
-        (lsp-pyright-auto-import-completions  t)
-        (lsp-pyright-auto-search-paths        nil)
-        :hook
-        (python-mode . (lambda ()
-                         (require 'lsp-pyright)
-                         (lsp-deferred))))  ; or lsp
-      )
-    )
+(when (executable-find "pyright")
+  (use-package lsp-pyright
+    :ensure t
+    :defer t
+    :custom
+    (lsp-pyright-disable-organize-imports nil)
+    (lsp-pyright-auto-import-completions  t)
+    (lsp-pyright-auto-search-paths        nil)
+    :hook
+    (pyvenv-mode . (lambda ()
+                     (require 'lsp-pyright)
+                     (message "pyright")
+                     (pyvenv-autoload)
+                     (lsp-deferred))))  ; or lsp
+)
 
 (provide 'python-rcp)
 
