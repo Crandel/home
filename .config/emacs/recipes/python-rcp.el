@@ -86,7 +86,6 @@
     (defun pyvenv-autoload ()
       "auto activate venv directory if exists"
       (interactive)
-      (message "autoload")
       (unless pyvenv-virtual-env-name
         (message "Activate .python-version")
         (f-traverse-upwards (lambda (path)
@@ -111,7 +110,6 @@
     :hook
     (pyvenv-mode . (lambda ()
                      (require 'lsp-pyright)
-                     (message "pyright")
                      (pyvenv-autoload)
                      (lsp-deferred))))  ; or lsp
 )
