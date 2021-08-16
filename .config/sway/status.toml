@@ -90,7 +90,7 @@ idle_bg="#2F2519"
 block = "sound"
 driver = "pulseaudio"
 device_kind = "sink"
-show_volume_when_muted = true
+show_volume_when_muted = false
 [block.theme_overrides]
 idle_bg="#29331E"
 
@@ -98,7 +98,7 @@ idle_bg="#29331E"
 block = "sound"
 driver = "pulseaudio"
 device_kind = "source"
-show_volume_when_muted = true
+show_volume_when_muted = false
 [block.theme_overrides]
 idle_bg="#29331E"
 
