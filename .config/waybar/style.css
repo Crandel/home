@@ -147,7 +147,7 @@ label:focus {
 }
 
 #pulseaudio {
-  background-color: #29331e;
+  background-color: #29331E;
 }
 
 #pulseaudio.muted {
@@ -163,11 +163,11 @@ label:focus {
 }
 
 #network.wifi {
-  background-color: #33382e;
+  background-color: #33382E;
 }
 
 #network.vpn {
-  background-color: #e58e26;
+  background-color: #E58E26;
 }
 
 #network.disconnected {

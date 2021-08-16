@@ -1,20 +1,25 @@
 [icons]
 name = "awesome5"
 [icons.overrides]
-bat_charging = ""
+bat_charging = "🔌"
 bat_discharging = ""
 bat_empty = ""
-bat_full = ""
+bat_full = "🔋"
 bat_half = ""
 bat_quarter = ""
 bat_three_quarters = ""
-cpu = ""
-disk_drive = ""
-memory_mem = ""
-net_up = "⇈"
+cpu = "💻"
+disk_drive = "📂"
+memory_mem = "💾"
 net_down = "⇊"
-time = "⏳"
-volume_muted = ""
+net_up = "⇈"
+net_wired = "🌍"
+net_wireless = "📡"
+time = "⌚"
+volume_muted = "🔇"
+volume_empty = "🔈"
+volume_half = "🔉"
+volume_full = "🔊"
 
 [theme]
 name = "gruvbox-dark"
@@ -26,6 +31,8 @@ block = "custom"
 command = "gmail"
 interval = 60
 hide_when_empty = true
+[block.theme_overrides]
+idle_bg="#1c7d2f"
 
 [[block]]
 block = "disk_space"
@@ -37,11 +44,16 @@ interval = 300
 path = "/"
 unit = "GB"
 warning = 15.0
+[block.theme_overrides]
+idle_bg="#23712c"
 
 [[block]]
 block = "cpu"
 format = "{barchart} {utilization} {frequency}"
 interval = 10
+[block.theme_overrides]
+idle_bg="#2a6529"
+
 
 [[block]]
 block = "memory"
@@ -55,6 +67,8 @@ icons = true
 interval = 60
 warning_mem = 80
 warning_swap = 80
+[block.theme_overrides]
+idle_bg="#355325"
 
 [[block]]
 #device = "BAT1"
@@ -63,16 +77,22 @@ block = "battery"
 driver = "upower"
 format = "{percentage:0} {time:0}"
 #interval = 60
+[block.theme_overrides]
+idle_bg="#2F2519"
 
 [[block]]
 block = "sound"
 driver = "auto"
 show_volume_when_muted = true
+[block.theme_overrides]
+idle_bg="#29331E"
 
 [[block]]
 block = "backlight"
 step_width = 5
 invert_icons = true
+[block.theme_overrides]
+idle_bg="#1f2419"
 
 [[block]]
 block = "net"
@@ -82,6 +102,8 @@ format_alt = "{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
+[block.theme_overrides]
+idle_bg="#1f2419"
 
 [[block]]
 block = "net"
@@ -91,6 +113,28 @@ format_alt = "{ssid}{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
+[block.theme_overrides]
+idle_bg="#33382E"
+
+[[block]]
+block = "net"
+device = "tun0"
+format = "V"
+format_alt = ""
+hide_inactive = true
+hide_missing = true
+interval = 5
+[block.theme_overrides]
+idle_bg="#E58E26"
+
+[[block]]
+block = "bluetooth"
+mac = ""
+format = "B{percentage}"
+format_unavailable = "X"
+hide_disconnected = false
+[block.theme_overrides]
+idle_bg="#0B0B3B"
 
 [[block]]
 block = "keyboard_layout"
@@ -100,16 +144,13 @@ sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 [block.mappings]
 "English (US)" = "EN"
 "Ukrainian (N/A)" = "UK"
-
-[[block]]
-block = "bluetooth"
-mac = ""
-format = "B{percentage}"
-format_unavailable = "X"
-hide_disconnected = false
+[block.theme_overrides]
+idle_bg="#464a41"
 
 [[block]]
 block = "time"
 format = "%d.%m %R"
 interval = 45
 on_click = "swaymsg -q exec 'gsimplecal'"
+[block.theme_overrides]
+idle_bg="#355325"
