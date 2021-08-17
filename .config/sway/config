@@ -322,7 +322,7 @@ bar {
     button2 exec alacritty -e nmtui
   }
   pango_markup enabled
-  font FontAwesome, Hack Nerd Font Mono 16
+  font Hack Nerd Font Mono, NotoEmoji Nerd Font Mono 16
   icon_theme Gruvbox
   status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
   # swaybar_command waybar

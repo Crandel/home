@@ -82,6 +82,7 @@ device = "DisplayDevice"
 block = "battery"
 driver = "upower"
 format = "{percentage:0} {time:0}"
+full_format = ""
 #interval = 60
 [block.theme_overrides]
 idle_bg="#2F2519"
@@ -101,6 +102,15 @@ device_kind = "source"
 show_volume_when_muted = false
 [block.theme_overrides]
 idle_bg="#29331E"
+
+[[block]]
+block = "bluetooth"
+mac = ""
+format = "B{percentage}"
+format_unavailable = "X"
+hide_disconnected = false
+[block.theme_overrides]
+idle_bg="#0B0B3B"
 
 [[block]]
 block = "backlight"
@@ -141,15 +151,6 @@ hide_missing = true
 interval = 5
 [block.theme_overrides]
 idle_bg="#E58E26"
-
-[[block]]
-block = "bluetooth"
-mac = ""
-format = "B{percentage}"
-format_unavailable = "X"
-hide_disconnected = false
-[block.theme_overrides]
-idle_bg="#0B0B3B"
 
 [[block]]
 block = "keyboard_layout"
