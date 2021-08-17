@@ -136,7 +136,7 @@ bindsym --to-code {
   $mod+q kill
 
   # start j4-dmenu-desktop or bemenu (a program launcher)
-  $mod+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' --display-binary --use-xdg-de --term=tilix --usage-log="$HOME/.j4.log"
+  $mod+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' --display-binary --use-xdg-de --term=$term --usage-log="$HOME/.j4.log"
   $mod+Shift+d exec bemenu-run -l 20 -p run
   $mod+Alt+d exec wofi --show drun
 
@@ -356,7 +356,13 @@ exec systemctl --user import-environment \
     XDG_CURRENT_DESKTOP \
     XDG_SESSION_TYPE
 exec hash dbus-update-activation-environment 2>/dev/null \
-  && dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP XDG_SESSION_TYPE GNOME_DESKTOP_SESSION_ID
+  && dbus-update-activation-environment --systemd DISPLAY \
+                                                  GNOME_DESKTOP_SESSION_ID \
+                                                  MOZ_DBUS_REMOTE \
+                                                  SWAYSOCK \
+                                                  WAYLAND_DISPLAY \
+                                                  XDG_CURRENT_DESKTOP \
+                                                  XDG_SESSION_TYPE
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term, resize set width 100 ppt height 100 ppt

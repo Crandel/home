@@ -9,7 +9,7 @@
   (key-chord-one-key-delay  0.1)
   :config
   (key-chord-mode 1)
-  (bind-chord "wq" 'delete-other-windows)
+  (bind-chord "12" 'delete-other-windows)
   (bind-chord "xz" 'undo)
 )
 
