@@ -13,7 +13,8 @@ setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST
 setopt AUTO_NAME_DIRS CORRECTALL MAGIC_EQUAL_SUBST
 bindkey -e
 unsetopt nomatch # escape string fixing zsh: no matches found error
-autoload -Uz compinit; compinit
+autoload -Uz compinit
+compinit
 SPROMPT='Correct %B%F{red}%U%R%b%f%u to %F{green}%r%f? [%By%bes|%BN%bo|%Be%bdit|%Ba%bbort] '
 # END ZSH SPECIFIC
 
@@ -29,50 +30,22 @@ SAVEHIST=$HISTSIZE
 # Arch Linux command-not-found support, you must have package pkgfile installed
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^h' edit-command-line
+
 # NAVIGATION
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^h' edit-command-line
-
-typeset -g -A key
-
-key[Home]="${terminfo[khome]}"
-key[End]="${terminfo[kend]}"
-key[Insert]="${terminfo[kich1]}"
-key[Backspace]="${terminfo[kbs]}"
-key[Delete]="${terminfo[kdch1]}"
-key[Up]="${terminfo[kcuu1]}"
-key[Down]="${terminfo[kcud1]}"
-key[Left]="${terminfo[kcub1]}"
-key[Right]="${terminfo[kcuf1]}"
-key[PageUp]="${terminfo[kpp]}"
-key[PageDown]="${terminfo[knp]}"
-key[Shift-Tab]="${terminfo[kcbt]}"
-
-# setup key accordingly
-[[ -n "${key[Home]}"      ]] && bindkey -- "${key[Home]}"       beginning-of-line
-[[ -n "${key[End]}"       ]] && bindkey -- "${key[End]}"        end-of-line
-[[ -n "${key[Insert]}"    ]] && bindkey -- "${key[Insert]}"     overwrite-mode
-[[ -n "${key[Backspace]}" ]] && bindkey -- "${key[Backspace]}"  backward-delete-char
-[[ -n "${key[Delete]}"    ]] && bindkey -- "${key[Delete]}"     delete-char
-[[ -n "${key[Up]}"        ]] && bindkey -- "${key[Up]}"         up-line-or-beginning-search
-[[ -n "${key[Down]}"      ]] && bindkey -- "${key[Down]}"       down-line-or-beginning-search
-[[ -n "${key[Left]}"      ]] && bindkey -- "${key[Left]}"       backward-char
-[[ -n "${key[Right]}"     ]] && bindkey -- "${key[Right]}"      forward-char
-[[ -n "${key[PageUp]}"    ]] && bindkey -- "${key[PageUp]}"     beginning-of-buffer-or-history
-[[ -n "${key[PageDown]}"  ]] && bindkey -- "${key[PageDown]}"   end-of-buffer-or-history
-[[ -n "${key[Shift-Tab]}" ]] && bindkey -- "${key[Shift-Tab]}"  reverse-menu-complete
-
 # \e[A arrow up
 # \e[B arrow down
 # \e[C arrow right
 # \e[D arrow left
-# bindkey "\e[A" up-line-or-beginning-search
+bindkey "\e[A" up-line-or-beginning-search
 # bindkey "^[0A" up-line-or-beginning-search
-# bindkey "\e[B" down-line-or-beginning-search
+bindkey "\e[B" down-line-or-beginning-search
 # bindkey "^[0B" down-line-or-beginning-search
 
 # \e[1;5A Ctrl + arrow up
@@ -330,7 +303,6 @@ plugin_init() {
         has'poetry' \
         load'[[ $(ls) = *pyproject.toml* ]]' \
           darvid/zsh-poetry
-
   compinit
 }
 
@@ -358,6 +330,7 @@ if command_exists pacman ; then
     $SUDO pacman -S --needed $@
     rehash
   }
+  compdef "p -S" pai
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
@@ -441,12 +414,15 @@ fi
 ### KUBERNETES
 if command_exists kubectl ; then
   alias k='kubectl'
+  compdef 'kubectl' k
   alias kapr='kubectl api-resources'
   if command_exists kubectx ; then
     alias ktx='kubectx'
+    compdef 'kubectx' ktx
   fi
   if command_exists kubens ; then
     alias kns='kubens'
+    compdef 'kubens' kns
   fi
   # alias k9s_cont_namesp='k9s --context <context> -n <namespace>'
   # pod_pf() {
@@ -771,6 +747,12 @@ set_zsh_prompt () {
 # printf "%.2f" $((end-start))
 # Tell zsh to execute this function just before displaying its prompt.
 set_zsh_prompt
+
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+	compinit;
+else
+	compinit -C;
+fi
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   # Possible arguments sway|i3|xfce
