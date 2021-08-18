@@ -95,6 +95,7 @@ export PAGER='less -SRXF'
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
+alias ..='cd ..'
 alias home_pr='cd $PERS_DIR/home'
 alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
@@ -603,6 +604,7 @@ if command_exists lf ; then
           [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
       fi
   }
+  bind '"\C-o":"lfcd\n"'
 fi
 ## END GO
 

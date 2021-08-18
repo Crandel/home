@@ -14,7 +14,12 @@ setopt AUTO_NAME_DIRS CORRECTALL MAGIC_EQUAL_SUBST
 bindkey -e
 unsetopt nomatch # escape string fixing zsh: no matches found error
 autoload -Uz compinit
-compinit
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C
+fi
+
 SPROMPT='Correct %B%F{red}%U%R%b%f%u to %F{green}%r%f? [%By%bes|%BN%bo|%Be%bdit|%Ba%bbort] '
 # END ZSH SPECIFIC
 
@@ -44,9 +49,9 @@ zle -N down-line-or-beginning-search
 # \e[C arrow right
 # \e[D arrow left
 bindkey "\e[A" up-line-or-beginning-search
-# bindkey "^[0A" up-line-or-beginning-search
+# bindkey "^[OA" up-line-or-beginning-search
 bindkey "\e[B" down-line-or-beginning-search
-# bindkey "^[0B" down-line-or-beginning-search
+# bindkey "^[OB" down-line-or-beginning-search
 
 # \e[1;5A Ctrl + arrow up
 # \e[1;5B Ctrl + arrow down
@@ -80,6 +85,7 @@ if test -t 1; then
   force_color_prompt=yes
   color_prompt=yes
   export TERM="xterm-256color"
+  export CLICOLOR=1
   export LS_COLORS=$LS_COLORS:"di=01;35"
 
   # enable color support of ls and also add handy aliases
@@ -100,6 +106,7 @@ export PAGER='less -SRXF'
 alias arch='uname -m'
 alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
+alias ..='cd ..'
 alias home_pr='cd $PERS_DIR/home'
 alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
