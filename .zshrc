@@ -121,10 +121,10 @@ fi
 # END SUDO
 
 # COMPLETIONS
-if command_exists jira
-then
-  eval "$(jira --completion-script-zsh)"
-fi
+# if command_exists jira
+# then
+#   eval "$(jira --completion-script-zsh)"
+# fi
 # END COMPLETIONS
 
 project_folders="$PERS_DIR/projects"
@@ -256,10 +256,6 @@ LOCAL_BIN=$HOME/.local/bin
 if [ -d $LOCAL_BIN ]; then
   export PATH=$PATH:$LOCAL_BIN
 fi
-
-if [ -f /etc/profile.d/vte.sh ]; then
-  . /etc/profile.d/vte.sh
-fi
 # END IMPORT
 
 # PLUGIN MANAGMENT
@@ -292,10 +288,7 @@ plugin_init() {
         has'minikube' \
           OMZP::minikube \
         has'pip' \
-          OMZP::pip \
-        has'sbt' \
-          OMZP::sbt
-
+          OMZP::pip
   zinit lucid light-mode for \
         OMZP::shrink-path
 
@@ -303,7 +296,12 @@ plugin_init() {
         has'poetry' \
         load'[[ $(ls) = *pyproject.toml* ]]' \
           darvid/zsh-poetry
-  compinit
+
+  if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+    compinit;
+  else
+    compinit -C;
+  fi;
 }
 
 zinit_source="$HOME/.zinit/bin/zinit.zsh"
@@ -326,11 +324,7 @@ if command_exists pacman ; then
   alias pas='pacman -Ss'
   alias upg='p -Syu'
   alias pii='pacman -Sii'
-  pai() {
-    $SUDO pacman -S --needed $@
-    rehash
-  }
-  compdef "p -S" pai
+  alias pai='p -S --needed'
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
@@ -353,14 +347,15 @@ fi
 
 if command_exists apt ; then
   alias a="$SUDO apt"
+  alias pql='dpkg-query -L'
+  alias pqs='apt list --installed'
   alias pas='apt search'
-  alias upd="a update"
+  alias upd='a update'
   alias upy='a upgrade'
   alias upl='apt list --upgradable'
   alias upg='upd && sleep 2 && upl && sleep 2 && upy'
   alias pai='a install'
   alias par='a remove'
-  alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
 fi
 
@@ -413,16 +408,14 @@ fi
 
 ### KUBERNETES
 if command_exists kubectl ; then
-  alias k='kubectl'
-  compdef 'kubectl' k
   alias kapr='kubectl api-resources'
   if command_exists kubectx ; then
     alias ktx='kubectx'
-    compdef 'kubectx' ktx
+    compdef ktx=kubectx
   fi
   if command_exists kubens ; then
     alias kns='kubens'
-    compdef 'kubens' kns
+    compdef kns=kubens
   fi
   # alias k9s_cont_namesp='k9s --context <context> -n <namespace>'
   # pod_pf() {
@@ -747,12 +740,6 @@ set_zsh_prompt () {
 # printf "%.2f" $((end-start))
 # Tell zsh to execute this function just before displaying its prompt.
 set_zsh_prompt
-
-if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-else
-	compinit -C;
-fi
 
 if [ -z "$DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ]; then
   # Possible arguments sway|i3|xfce
