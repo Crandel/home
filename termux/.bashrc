@@ -94,6 +94,7 @@ export PAGER='less -SRXF'
 alias arch='uname -m'
 alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
+alias ..='cd ..'
 alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
 
@@ -239,16 +240,13 @@ if command_exists pacman ; then
   alias pas='pacman -Ss'
   alias upg='p -Syu'
   alias pii='pacman -Sii'
-  pai() {
-    $SUDO pacman -S --needed $@
-    rehash
-  }
+  alias pai='p -S --needed'
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
     alias upy='yay -Syua'
     alias yss='yay -Ss'
-    alias ya='yay -Sa'
+    alias yai='yay -Sa'
     alias yii='yay -Sii'
   fi
 
@@ -264,7 +262,9 @@ if command_exists pacman ; then
 fi
 
 if command_exists apt ; then
-  alias a='apt'
+  alias a="apt"
+  alias pql='dpkg-query -L'
+  alias pqs='apt list --installed'
   alias pas='apt search'
   alias upd='a update'
   alias upy='a upgrade'
@@ -272,7 +272,6 @@ if command_exists apt ; then
   alias upg='upd && sleep 2 && upl && sleep 2 && upy'
   alias pai='a install'
   alias par='a remove'
-  alias pql="dpkg-query -L"
   alias aar="add-apt-repository"
 fi
 
@@ -450,7 +449,7 @@ if command_exists lf ; then
           [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
       fi
   }
-  bind '"^O":lfcd'
+  bind '"\C-o":"lfcd\n"'
 fi
 ## END GO
 
@@ -493,10 +492,8 @@ clean_pyc (){
 
 ## NPM
 if command_exists npm; then
-  NPM_PACKAGES="${HOME}/.config/npm-packages"
-  mkdir -p $NPM_PACKAGES
-  export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-  export PATH=$PATH:$NPM_PACKAGES/bin
+  NPM_PACKAGES="${HOME}/.local"
+  export NODE_PATH="$NPM_PACKAGES/lib/node_modules"
 fi
 
 # END PROGRAMM LANGUAGES
