@@ -115,10 +115,10 @@ fi
 # END SUDO
 
 # COMPLETIONS
-if command_exists jira
-then
-  eval "$(jira --completion-script-bash)"
-fi
+# if command_exists jira
+# then
+#   eval "$(jira --completion-script-bash)"
+# fi
 # END COMPLETIONS
 
 project_folders="$PERS_DIR/projects"
@@ -288,16 +288,13 @@ if command_exists pacman ; then
   alias pas='pacman -Ss'
   alias upg='p -Syu'
   alias pii='pacman -Sii'
-  pai() {
-    $SUDO pacman -S --needed $@
-    rehash
-  }
+  alias pai='p -S --needed'
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
     alias upy='yay -Syua'
     alias yss='yay -Ss'
-    alias ya='yay -Sa'
+    alias yai='yay -Sa'
     alias yii='yay -Sii'
   fi
 
@@ -314,6 +311,8 @@ fi
 
 if command_exists apt ; then
   alias a="$SUDO apt"
+  alias pql='dpkg-query -L'
+  alias pqs='apt list --installed'
   alias pas='apt search'
   alias upd='a update'
   alias upy='a upgrade'
@@ -321,7 +320,6 @@ if command_exists apt ; then
   alias upg='upd && sleep 2 && upl && sleep 2 && upy'
   alias pai='a install'
   alias par='a remove'
-  alias pql="dpkg-query -L"
   alias aar="$SUDO add-apt-repository"
 fi
 
@@ -422,6 +420,7 @@ fi
 ## EDITORS
 if command_exists vim; then
   alias v='vim'
+  alias sv="$SUDO vim"
   export EDITOR='vim'
 fi
 if command_exists emacs ; then
@@ -456,7 +455,8 @@ fi
 ## END FILE MANAGERS
 
 if command_exists systemctl ; then
-  alias ssystemctl="$SUDO systemctl"
+  alias ssctl="$SUDO systemctl"
+  alias usctl='systemctl --user'
 fi
 
 if command_exists git ; then
@@ -603,7 +603,6 @@ if command_exists lf ; then
           [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
       fi
   }
-  bind '"^O":lfcd'
 fi
 ## END GO
 
@@ -652,10 +651,8 @@ set_virtualenv () {
 
 ## NPM
 if command_exists npm; then
-  NPM_PACKAGES="${HOME}/.config/npm-packages"
-  mkdir -p $NPM_PACKAGES
-  export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-  export PATH=$PATH:$NPM_PACKAGES/bin
+  NPM_PACKAGES="${HOME}/.local"
+  export NODE_PATH="$NPM_PACKAGES/lib/node_modules"
 fi
 
 # END PROGRAMM LANGUAGES
