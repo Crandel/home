@@ -137,6 +137,7 @@ nnoremap <leader>l yy<CR>
 nnoremap <Leader>b :ls<CR>:b<Space>
 
 nnoremap ;Q :quit<CR>
+nnoremap <C-x> :quit<CR>
 nnoremap <leader>q :quit
 " nnoremap <NUL> :%s/\s\+$//e
 
