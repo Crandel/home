@@ -5,8 +5,8 @@
   :ensure t
   :defer t
   :custom
-  (multi-compile-alist '((go-mode . (("gr" "go run -v"
-                                      (buffer-file-name))
+  (multi-compile-alist '((go-mode . (("gr" ("go run -v %file-name")
+                                      (locate-dominating-file buffer-file-name ".git"))
                                      ("gb" "go build -v"
                                       (locate-dominating-file buffer-file-name ".git"))
                                      ("gbr" "go build -v && echo 'build finish' && eval ./${PWD##*/}"
