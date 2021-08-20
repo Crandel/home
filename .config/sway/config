@@ -96,8 +96,8 @@ for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 
 # terminal
-for_window [app_id=$term_id] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
-for_window [app_id=$other_term_id] move to scratchpad, scratchpad show, resize set width 100 ppt height 100 ppt
+for_window [app_id=$term_id] move to scratchpad, scratchpad show, resize set width 98 ppt height 98 ppt
+for_window [app_id=$other_term_id] move to scratchpad, scratchpad show, resize set width 98 ppt height 98 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -128,9 +128,9 @@ mode "resize" {
 bindsym --to-code {
 
   # Terminal
-  F1 exec swaymsg [app_id=$term_id] scratchpad show || exec $term, move position center, resize set width 100 ppt height 100 ppt
+  F1 exec swaymsg [app_id=$term_id] scratchpad show || exec $term, move position center, resize set width 98 ppt height 98 ppt
   # F1 exec $term --quake
-  $mod+F1 exec swaymsg [app_id=$other_term_id] scratchpad show || exec $other_term, move position center, resize set width 100 ppt height 100 ppt
+  $mod+F1 exec swaymsg [app_id=$other_term_id] scratchpad show || exec $other_term, move position center, resize set width 98 ppt height 98 ppt
 
   # kill focused window
   $mod+q kill
@@ -312,7 +312,7 @@ bar {
     statusline #E1F5A9
     focused_statusline #688A08
     focused_workspace  #688A08 #355325 #FFFFFF
-    active_workspace   #333333 #FACC2E #FFFFFF
+    active_workspace   #333333 #331A00 #FFFFFF
     inactive_workspace #333333 #222222 #888888
     urgent_workspace   #2f343a #EB4D4B #FFFFFF
     binding_mode       #2f343a #FF0000 #FFFFFF
@@ -365,7 +365,7 @@ exec hash dbus-update-activation-environment 2>/dev/null \
                                                   XDG_SESSION_TYPE
 exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
-exec $term, resize set width 100 ppt height 100 ppt
+exec $term, resize set width 98 ppt height 98 ppt
 exec swaykbdd
 exec network-startup
 exec swayidle \
