@@ -576,9 +576,6 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
-  if [ -d $GOPATH/projects ]; then
-    export GOPATH=$GOPATH:$GOPATH/projects
-  fi
 fi
 
 if command_exists fzf ; then
