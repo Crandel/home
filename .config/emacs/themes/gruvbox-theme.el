@@ -139,14 +139,14 @@
     `(shadow                            ((t (:foreground ,gruvbox-dark4))))
 
     ;; Built-in syntax
-    `(font-lock-builtin-face            ((t (:foreground ,gruvbox-neutral_orange))))
-    `(font-lock-constant-face           ((t (:foreground ,gruvbox-neutral_purple))))
+    `(font-lock-builtin-face            ((t (:foreground ,gruvbox-neutral_yellow))))
+    `(font-lock-constant-face           ((t (:foreground ,gruvbox-turquoise4))))
     `(font-lock-comment-face            ((t (:foreground ,gruvbox-dark4))))
-    `(font-lock-function-name-face      ((t (:foreground ,gruvbox-neutral_yellow))))
+    `(font-lock-function-name-face      ((t (:foreground ,gruvbox-neutral_orange))))
     `(font-lock-keyword-face            ((t (:foreground ,gruvbox-neutral_green))))
     `(font-lock-string-face             ((t (:foreground ,gruvbox-neutral_aqua))))
-    `(font-lock-variable-name-face      ((t (:foreground ,gruvbox-neutral_blue))))
-    `(font-lock-type-face               ((t (:foreground ,gruvbox-neutral_purple))))
+    `(font-lock-variable-name-face      ((t (:foreground ,gruvbox-aquamarine4))))
+    `(font-lock-type-face               ((t (:foreground ,gruvbox-faded_aqua))))
     `(font-lock-warning-face            ((t (:foreground ,gruvbox-neutral_red :bold t))))
 
     ;; Diffs
