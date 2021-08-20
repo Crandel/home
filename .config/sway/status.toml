@@ -106,7 +106,7 @@ idle_bg="#29331E"
 [[block]]
 block = "bluetooth"
 mac = ""
-format = "B{percentage}"
+format = "B"
 format_unavailable = "X"
 hide_disconnected = false
 [block.theme_overrides]
