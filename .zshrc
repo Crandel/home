@@ -14,11 +14,7 @@ setopt AUTO_NAME_DIRS CORRECTALL MAGIC_EQUAL_SUBST
 bindkey -e
 unsetopt nomatch # escape string fixing zsh: no matches found error
 autoload -Uz compinit
-if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-else
-  compinit -C
-fi
+compinit
 
 SPROMPT='Correct %B%F{red}%U%R%b%f%u to %F{green}%r%f? [%By%bes|%BN%bo|%Be%bdit|%Ba%bbort] '
 # END ZSH SPECIFIC
@@ -141,16 +137,22 @@ prj () {
     cd $1
   fi
 }
-compdef "_path_files -W $project_folders -/ && return 0 || return 1" prj
+_prj () {
+  _path_files -/ -W $project_folders && return 0 || return 1
+}
+compdef _prj prj
 
 backup_dir="$PERS_DIR/backup"
-backup () {
+bcp () {
   cd $backup_dir
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-compdef "_path_files -W $backup_dir -/ && return 0 || return 1" backup
+_backup () {
+  _path_files -W $backup_dir -/ && return 0 || return 1
+}
+compdef _backup bcp
 
 ## SWAP
 soff () {
@@ -304,11 +306,7 @@ plugin_init() {
         load'[[ $(ls) = *pyproject.toml* ]]' \
           darvid/zsh-poetry
 
-  if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
-    compinit;
-  else
-    compinit -C;
-  fi;
+  compinit
 }
 
 zinit_source="$HOME/.zinit/bin/zinit.zsh"
@@ -624,8 +622,8 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
-  if [ -d $GOPATH/goprojects ]; then
-    export GOPATH=$GOPATH:$GOPATH/goprojects
+  if [ -d $GOPATH/projects ]; then
+    export GOPATH=$GOPATH:$GOPATH/projects
   fi
 fi
 

@@ -129,22 +129,20 @@ prj () {
     cd $1
   fi
 }
-_prj()
-{
+_prj () {
   local cur=${COMP_WORDS[COMP_CWORD]}
   COMPREPLY=( $(compgen -W "$(ls $project_folders)" -- $cur) )
 }
 complete -F _prj prj
 
 backup_dir="$PERS_DIR/backup"
-backup () {
+bcp () {
   cd $backup_dir
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-_backup()
-{
+_backup () {
   local cur=${COMP_WORDS[COMP_CWORD]}
   COMPREPLY=( $(compgen -W "$(ls $backup_dir)" -- $cur) )
 }
@@ -578,8 +576,8 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
-  if [ -d $GOPATH/goprojects ]; then
-    export GOPATH=$GOPATH:$GOPATH/goprojects
+  if [ -d $GOPATH/projects ]; then
+    export GOPATH=$GOPATH:$GOPATH/projects
   fi
 fi
 
