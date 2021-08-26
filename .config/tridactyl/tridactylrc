@@ -8,6 +8,8 @@ set editorcmd ~/.local/bin/editor-run
 
 set searchengine duckduckgo
 
+set allowautofocus false
+seturl ^https://docs.google.com/ preventautofocusjackhammer true
 
 unbind --mode=normal f
 bind --mode=normal gf hint

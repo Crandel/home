@@ -1,4 +1,4 @@
-user_pref("accessibility.force_disabled", true);
+user_pref("accessibility.force_disabled", 1);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
 user_pref("app.normandy.enabled", false);
@@ -12,6 +12,7 @@ user_pref("apz.frame_delay.enabled", false);
 user_pref("apz.gtk.kinetic_scroll.enabled", false);
 user_pref("beacon.enabled", false); // PREF: Disable "beacon" asynchronous HTTP transfers (used for analytics)
 user_pref("browser.aboutConfig.showWarning", false); // for the new HTML version [FF71+]
+user_pref("browser.autofocus", false);
 user_pref("browser.bookmarks.openInTabClosesMenu", false); // Prevent bookmark menu and toolbar folder menu from closing when opening bookmark in a new tab
 user_pref("browser.bookmarks.restore_default_bookmarks", false);
 user_pref("browser.bookmarks.showMobileBookmarks", true);
@@ -251,7 +252,7 @@ user_pref("layers.amd-switchable-gfx.enabled", false); // AMD|Windows specific s
 user_pref("layers.async-pan-zoom.enabled", true);
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-user_pref("layout.css.devPixelsPerPx", 1.25);
+user_pref("layout.css.devPixelsPerPx", -1);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
 user_pref("layout.frame_rate", 144);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
