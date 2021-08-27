@@ -578,19 +578,19 @@ call s:HL('Todo', s:vim_fg, s:vim_bg, s:bold . s:italic)
 call s:HL('Error', s:red, s:vim_bg, s:bold . s:inverse)
 
 " Generic statement
-hi! link Statement GruvboxRed
+hi! link Statement GruvboxGreen
 " if, then, else, endif, swicth, etc.
-hi! link Conditional GruvboxRed
+hi! link Conditional GruvboxGreen
 " for, do, while, etc.
-hi! link Repeat GruvboxRed
+hi! link Repeat GruvboxGreen
 " case, default, etc.
-hi! link Label GruvboxRed
+hi! link Label GruvboxGreen
 " try, catch, throw
-hi! link Exception GruvboxRed
+hi! link Exception GruvboxGreen
 " sizeof, "+", "*", etc.
 hi! link Operator Normal
 " Any other keyword
-hi! link Keyword GruvboxRed
+hi! link Keyword GruvboxGreen
 
 " Variable name
 hi! link Identifier GruvboxBlue
