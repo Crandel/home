@@ -3,10 +3,10 @@ set adblocker=update
 set cache=clearonquit
 set closablepinnedtabs
 set commandhist=useronly
-set containercolors=temp\d+~#ff0
+set containercolors=^temp\d+~#ff0,^g$~orange,^w$~yellow,^f$~blue,^b$~green,^r$~purple,^l$~mediumslateblue
 set containerkeeponreopen
 set containernewtab=s:usecurrent
-set containershowname=automatic
+set containershowname=always
 set containersplitpage=s:usecurrent
 set containerstartuppage=main
 set countlimit=100
@@ -61,21 +61,24 @@ set nosplitright
 set notabclosefocusright
 set notificationduration=6000
 set notificationposition=bottomright
-set permissioncamera=block
-set permissionclipboardread=block
+set permissioncamera=ask
+set permissionclipboardread=ask
 set permissionclosepage=allow
-set permissiondisplaycapture=block
+set permissiondisplaycapture=ask
 set permissionfullscreen=allow
 set permissiongeolocation=block
-set permissionmediadevices=block
-set permissionmicrophone=block
+set permissionmediadevices=ask
+set permissionmicrophone=ask
 set permissionmidi=block
 set permissionmidisysex=block
-set permissionnotifications=block
+set permissionnotifications=ask
 set permissionopenexternal=ask
-set permissionpersistentstorage=block
+set permissionpersistentstorage=ask
 set permissionpointerlock=block
 set permissionsallowed=
+set permissionsallowed+=discord.com~microphone~mediadevices
+set permissionsallowed+=meet.google.com~microphone~camera~mediadevices~persistentstorage
+set permissionsallowed+=app.slack.com~microphone~mediadevices
 set permissionsasked=
 set permissionsblocked=
 set permissionscreenwakelock=block
@@ -153,6 +156,13 @@ command! zoom_0.5_true 5<zoomIn>
 command! zoom_-0.5_true 5<zoomOut>
 command! zoom_3 7<zoomIn>
 command! zoom_0.3 7<zoomOut>
+
+" Container aliases
+command! wk <:set containernewtab=w><action.openNewTab><:set containernewtab=s:usecurrent>
+command! go <:set containernewtab=g><action.openNewTab><:set containernewtab=s:usecurrent>
+command! rp <:set containernewtab=r><action.openNewTab><:set containernewtab=s:usecurrent>
+command! am <:set containernewtab=a><action.openNewTab><:set containernewtab=s:usecurrent>
+command! fb <:set containernewtab=f><action.openNewTab><:set containernewtab=s:usecurrent>
 
 " Mappings
 nmap yy <:clipboard_yank>
