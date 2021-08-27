@@ -1,0 +1,194 @@
+" Options
+set adblocker=update
+set cache=clearonquit
+set closablepinnedtabs
+set commandhist=useronly
+set containercolors=temp\d+~#ff0
+set containerkeeponreopen
+set containernewtab=s:usecurrent
+set containershowname=automatic
+set containersplitpage=s:usecurrent
+set containerstartuppage=main
+set countlimit=100
+set devtoolsposition=split
+set downloadmethod=confirm
+set downloadpath=~/Downloads/
+set explorehist
+set externalcommand=
+set favicons=session
+set favoritepages=
+set firefoxmode=always
+set follownewtabswitch
+set fontsize=18
+set guifullscreennavbar=oninput
+set guifullscreentabbar=onupdate
+set guihidetimeout=2000
+set guinavbar=oninput
+set guitabbar=onupdate
+set ignorecase
+set incsearch
+set keeprecentlyclosed
+set mapsuggest=9000000000000000
+set mapsuggestposition=topright
+set maxmapdepth=10
+set menupage=elementasneeded
+set menuvieb=both
+set mintabwidth=28
+set modifiers+=Alt
+set modifiers+=CapsLock
+set modifiers+=Ctrl
+set modifiers+=Meta
+set modifiers+=NumLock
+set modifiers+=ScrollLock
+set modifiers+=Shift
+set modifiers=
+set mouse
+set mousenewtabswitch
+set mousevisualmode=onswitch
+set nativenotification=never
+set noclearcookiesonquit
+set nocleardownloadsoncompleted
+set nocleardownloadsonquit
+set noclearhistoryonquit
+set noclearlocalstorageonquit
+set noclosablepinnedtabs
+set nomousefocus
+set nonotificationforpermissions
+set noquitonlasttabclose
+set noredirecttohttp
+set nosplitbelow
+set nosplitright
+set notabclosefocusright
+set notificationduration=6000
+set notificationposition=bottomright
+set permissioncamera=block
+set permissionclipboardread=block
+set permissionclosepage=allow
+set permissiondisplaycapture=block
+set permissionfullscreen=allow
+set permissiongeolocation=block
+set permissionmediadevices=block
+set permissionmicrophone=block
+set permissionmidi=block
+set permissionmidisysex=block
+set permissionnotifications=block
+set permissionopenexternal=ask
+set permissionpersistentstorage=block
+set permissionpointerlock=block
+set permissionsallowed=
+set permissionsasked=
+set permissionsblocked=
+set permissionscreenwakelock=block
+set permissionsensors=block
+set permissionunknown=block
+set redirects=https?://(www\.)?google\.com(\.\w+)?/amp/s/amp\.(.*)~https://$3
+set redirecttohttp
+set requesttimeout=20000
+set restoretabs
+set restorewindowmaximize
+set restorewindowposition
+set restorewindowsize
+set search=https://duckduckgo.com/?kae=d&kav=1&ko=1&q=%s&ia=web
+set searchwords=
+set searchwords+=am~https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=%s
+set searchwords+=gh~https://github.com/search?utf8=✓&q=%s
+set searchwords+=g~https://www.google.com/search?q=%s
+set searchwords+=w~https://en.wikipedia.org/wiki/Special:Search/%s
+set searchwords+=y~https://www.youtube.com/results?search_query=%s
+set showcmd
+set smartcase
+set spell
+set spelllang=system
+set startuppages=
+set storenewvisits=pages
+set suggestcommands=9000000000000000
+set suggestorder+=history
+set suggestorder+=searchword
+set suggestorder+=file
+set suggestorder=
+set suggesttopsites=10
+set suspendonrestore=regular
+set suspendtimeout=0
+set tabcycle
+set tabnexttocurrent
+set taboverflow=scroll
+set tabreopenposition=right
+set timeout
+set timeoutlen=1000
+set vimcommand=nvim-qt
+set tabreopenposition=previous
+set windowtitle=title
+
+" Commands
+colorscheme gruvbox
+
+" Custom Commands
+command! clipboard_yank <pageToClipboard>
+command! fillcmdline_open <toExploreMode>
+command! fillcmdline_tab <toCommandMode>buffer<Space>
+command! tabfirst <:buffer 0>
+command! tabfirst <:buffer 0>
+command! tablast <:buffer 999>
+command! tabprev <previousTab>
+command! tabnext <nextTab>
+command! tabmove_+1 <moveTabForward>
+command! tabmove_-1 <moveTabBackward>
+command! current_url_open <toExploreMode><End>
+command! tabclosealltoleft <:lclose>
+command! tabclosealltoright <:rclose>
+command! mute_toggle <:mute>
+command! stop <stopLoadingPage>
+command! urlincrement_-1 <decreasePageNumber>
+command! urlincrement_1 <increasePageNumber>
+command! followpage_prev <previousPage>
+command! followpage_next <nextPage>
+command! urlparent <toParentUrl>
+command! urlroot <toRootUrl>
+command! zoom_1 <zoomReset>
+command! zoom_0.1_true <zoomIn>
+command! zoom_-0.1_true <zoomOut>
+command! zoom_0.5_true 5<zoomIn>
+command! zoom_-0.5_true 5<zoomOut>
+command! zoom_0.5_true 5<zoomIn>
+command! zoom_-0.5_true 5<zoomOut>
+command! zoom_3 7<zoomIn>
+command! zoom_0.3 7<zoomOut>
+
+" Mappings
+nmap yy <:clipboard_yank>
+nmap o <:fillcmdline_open>
+nmap b <:fillcmdline_tab>
+nmap g0 <:tabfirst>
+nmap g^ <:tabfirst>
+nmap g$ <:tablast>
+nmap J <:tabprev>
+nmap K <:tabnext>
+nmap >> <:tabmove_+1>
+nmap <lt><lt> <:tabmove_-1>
+nmap O <:current_url_open>
+nmap gx0 <:tabclosealltoleft>
+nmap gx$ <:tabclosealltoright>
+nmap <A-p> <:pin>
+nmap <A-m> <:mute_toggle>
+nmap x <:stop>
+nunmap [
+nunmap ]
+nmap [[ <:followpage_prev>
+nmap ]] <:followpage_next>
+nmap gu <:urlparent>
+nmap gU <:urlroot>
+nmap [c <:urlincrement_-1>
+nmap ]c <:urlincrement_1>
+nmap zz <:zoom_1>
+nmap zi <:zoom_0.1_true>
+nmap zo <:zoom_-0.1_true>
+nmap zm <:zoom_0.5_true>
+nmap zr <:zoom_-0.5_true>
+nmap zM <:zoom_0.5_true>
+nmap zR <:zoom_-0.5_true>
+nmap zI <:zoom_3>
+nmap zO <:zoom_0.3>
+" Tridactyl easter egg
+nmap <A-S-Up><A-S-Up><A-S-Down><A-S-Down><A-S-Left><A-S-Right><A-S-Left><A-S-Right>ba <:open https://www.youtube.com/watch?v=M3iOROuTuMA>
+" Viebrc generated by Vieb
+" vim: ft=vim
