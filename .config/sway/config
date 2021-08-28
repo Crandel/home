@@ -8,7 +8,7 @@ set {
   $editor emacs
 #  $editor alacritty -e emacs -nw
   $browser firefox
-  $feed quiterss
+  $feed rssguard
   $email thunderbird
   $gnome-sound org.gnome.desktop.sound
   $gnome-interface org.gnome.desktop.interface

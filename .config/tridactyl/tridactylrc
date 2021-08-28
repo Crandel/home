@@ -29,6 +29,7 @@ bind --mode=normal { tabmove +1
 bind --mode=insert <A-i> composite unfocus | mode normal
 " keymaps
 keymap ; :
+keymap : ;
 " Ukrainian keymap in normal mode
 keymap а f
 keymap А F
