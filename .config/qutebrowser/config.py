@@ -415,11 +415,11 @@ config.set('content.javascript.enabled', True, '*')
 
 # Bindings
 config.bind(';', 'set-cmd-text :', mode='normal')
-config.bind('x', 'tab-close', mode='normal')
-config.bind('gf', 'hint', mode='normal')
-config.bind('t', 'new-tab', mode='normal')
-config.bind('yv', 'hint links spawn mpv {hint-url}', mode='normal')
 config.bind('F2', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('gf', 'hint', mode='normal')
+config.bind('t', 'open -t', mode='normal')
+config.bind('x', 'tab-close', mode='normal')
+config.bind('yv', 'hint links spawn mpv {hint-url}', mode='normal')
 
 config.unbind('d', mode='normal')
 config.unbind('d', mode='normal')
