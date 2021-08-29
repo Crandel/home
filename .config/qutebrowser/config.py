@@ -1,3 +1,6 @@
+# pylint: disable=C0111
+c = c  # noqa: F821 pylint: disable=E0602,C0103
+config = config  # noqa: F821 pylint: disable=E0602,C0103
 # base16-qutebrowser (https://github.com/theova/base16-qutebrowser)
 # Base16 qutebrowser template by theova
 # Gruvbox dark, hard scheme by Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
@@ -291,6 +294,59 @@ c.colors.tabs.selected.even.fg = base05
 # Background color of selected even tabs.
 c.colors.tabs.selected.even.bg = base02
 
+# Dark mode
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.grayscale.images = 0
+c.colors.webpage.darkmode.policy.images = "never"
+
+# Position of the tab bar.
+# Type: Position
+# Valid values:
+#   - top
+#   - bottom
+#   - left
+#   - right
+c.tabs.position = 'left'
+
+# Aliases for commands. The keys of the given dictionary are the
+# aliases, while the values are the commands they map to.
+# Type: Dict
+c.aliases = {
+    'q': 'quit',
+    'w': 'session-save',
+    'wq': 'quit --save',
+}
+
+c.auto_save.session = True
+
+# Directory to save downloads to. If unset, a sensible OS-specific
+# default is used.
+# Type: Directory
+c.downloads.location.directory = '/data/internet'
+
+c.completion.open_categories = ["bookmarks", "history", "filesystem"]
+# When to show the tab bar.
+# Type: String
+# Valid values:
+#   - always: Always show the tab bar.
+#   - never: Always hide the tab bar.
+#   - multiple: Hide the tab bar if only one tab is open.
+#   - switching: Show the tab bar when switching tabs.
+c.tabs.show = 'multiple'
+
+# Default font families to use. Whenever "default_family" is used in a
+# font setting, it's replaced with the fonts listed here. If set to an
+# empty value, a system-specific monospace default is used.
+# Type: List of Font, or Font
+c.fonts.default_family = '"Hack Nerd Font Mono"'
+
+# Default font size to use. Whenever "default_size" is used in a font
+# setting, it's replaced with the size listed here. Valid values are
+# either a float value with a "pt" suffix, or an integer value with a
+# "px" suffix.
+# Type: String
+c.fonts.default_size = '18pt'
+
 # NOTE: config.py is intended for advanced users who are comfortable
 # with manually migrating the config file on qutebrowser upgrades. If
 # you prefer, you can also configure qutebrowser using the
@@ -336,7 +392,7 @@ config.set('content.cookies.accept', 'all', '*')
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://accounts.google.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://*.google.com/*')
 
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
 
@@ -357,47 +413,13 @@ config.set('content.images', True, '*')
 # Type: Bool
 config.set('content.javascript.enabled', True, '*')
 
-# Position of the tab bar.
-# Type: Position
-# Valid values:
-#   - top
-#   - bottom
-#   - left
-#   - right
-c.tabs.position = 'left'
+# Bindings
+config.bind(';', 'set-cmd-text :', mode='normal')
+config.bind('x', 'tab-close', mode='normal')
+config.bind('gf', 'hint', mode='normal')
+config.bind('t', 'new-tab', mode='normal')
+config.bind('yv', 'hint links spawn mpv {hint-url}', mode='normal')
+config.bind('F2', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 
-# Aliases for commands. The keys of the given dictionary are the
-# aliases, while the values are the commands they map to.
-# Type: Dict
-c.aliases = {
-    'q': 'quit',
-    'w': 'session-save',
-    'wq': 'quit --save',
-}
-
-# Directory to save downloads to. If unset, a sensible OS-specific
-# default is used.
-# Type: Directory
-c.downloads.location.directory = '/data/internet'
-
-# When to show the tab bar.
-# Type: String
-# Valid values:
-#   - always: Always show the tab bar.
-#   - never: Always hide the tab bar.
-#   - multiple: Hide the tab bar if only one tab is open.
-#   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'multiple'
-
-# Default font families to use. Whenever "default_family" is used in a
-# font setting, it's replaced with the fonts listed here. If set to an
-# empty value, a system-specific monospace default is used.
-# Type: List of Font, or Font
-c.fonts.default_family = '"Hack Nerd Font Mono"'
-
-# Default font size to use. Whenever "default_size" is used in a font
-# setting, it's replaced with the size listed here. Valid values are
-# either a float value with a "pt" suffix, or an integer value with a
-# "px" suffix.
-# Type: String
-c.fonts.default_size = '14pt'
+config.unbind('d', mode='normal')
+config.unbind('d', mode='normal')
