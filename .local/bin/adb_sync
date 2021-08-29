@@ -2,7 +2,6 @@
 
 declare -a arr=(
   "AlreaderX"
-  "Android/obb"
   "Apks"
   "Backup"
   "Books"

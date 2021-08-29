@@ -8,6 +8,7 @@ set {
   $editor emacs
 #  $editor alacritty -e emacs -nw
   $browser firefox
+  $other_browser qutebrowser_socket
   $feed rssguard
   $email thunderbird
   $gnome-sound org.gnome.desktop.sound
@@ -240,6 +241,7 @@ bindsym --to-code {
 
   # browser
   $mod+c exec $browser
+  $mod+Control+c exec $other_browser
 
   # pulseaudio
   $mod+p exec pavucontrol
@@ -363,7 +365,7 @@ exec hash dbus-update-activation-environment 2>/dev/null \
                                                   WAYLAND_DISPLAY \
                                                   XDG_CURRENT_DESKTOP \
                                                   XDG_SESSION_TYPE
-exec --no-startup-id wl-paste -t text --watch clipman store --max-items=1000 1>> $HOME/.local/log/clipman.log 2>&1 &
+exec --no-startup-id wl-paste -t text --watch clipman.sh &
 exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
 exec $term, resize set width 98 ppt height 98 ppt
 exec swaykbdd

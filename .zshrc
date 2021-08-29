@@ -333,7 +333,7 @@ if command_exists pacman ; then
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
-    alias upy='yay -Syua'
+    alias ypg='yay -Syua'
     alias yss='yay -Ss'
     alias yai='yay -Sa'
     alias yii='yay -Sii'
@@ -536,6 +536,10 @@ fi
 if command_exists reflector ; then
   alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
   alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
+fi
+
+if command_exists shiori ; then
+  export SHIORI_DIR=$backup_dir/drive/sync
 fi
 # END SYSTEM TOOLS
 

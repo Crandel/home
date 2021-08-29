@@ -491,6 +491,10 @@ if command_exists reflector ; then
   alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
   alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
 fi
+
+if command_exists shiori ; then
+  export SHIORI_DIR=$backup_dir/drive/sync
+fi
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES
