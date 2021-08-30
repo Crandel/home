@@ -21,8 +21,19 @@ base0D = "#83a598"
 base0E = "#d3869b"
 base0F = "#d65d0e"
 
-# set qutebrowser colors
 
+# Aliases for commands. The keys of the given dictionary are the
+# aliases, while the values are the commands they map to.
+# Type: Dict
+c.aliases = {
+    'q': 'quit',
+    'w': 'session-save',
+    'wq': 'quit --save',
+}
+
+c.auto_save.session = True
+
+# set qutebrowser colors
 # Text color of the completion widget. May be a single color to use for
 # all columns or a list of three colors, one for each column.
 c.colors.completion.fg = base05
@@ -299,40 +310,12 @@ c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.grayscale.images = 0
 c.colors.webpage.darkmode.policy.images = "never"
 
-# Position of the tab bar.
-# Type: Position
-# Valid values:
-#   - top
-#   - bottom
-#   - left
-#   - right
-c.tabs.position = 'left'
-
-# Aliases for commands. The keys of the given dictionary are the
-# aliases, while the values are the commands they map to.
-# Type: Dict
-c.aliases = {
-    'q': 'quit',
-    'w': 'session-save',
-    'wq': 'quit --save',
-}
-
-c.auto_save.session = True
+c.completion.open_categories = ["bookmarks", "history", "filesystem"]
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
 # Type: Directory
 c.downloads.location.directory = '/data/internet'
-
-c.completion.open_categories = ["bookmarks", "history", "filesystem"]
-# When to show the tab bar.
-# Type: String
-# Valid values:
-#   - always: Always show the tab bar.
-#   - never: Always hide the tab bar.
-#   - multiple: Hide the tab bar if only one tab is open.
-#   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'multiple'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
@@ -347,15 +330,23 @@ c.fonts.default_family = '"Hack Nerd Font Mono"'
 # Type: String
 c.fonts.default_size = '18pt'
 
-# NOTE: config.py is intended for advanced users who are comfortable
-# with manually migrating the config file on qutebrowser upgrades. If
-# you prefer, you can also configure qutebrowser using the
-# :set/:bind/:config-* commands without having to write a config.py
-# file.
-#
-# Documentation:
-#   qute://help/configuring.html
-#   qute://help/settings.html
+# Position of the tab bar.
+# Type: Position
+# Valid values:
+#   - top
+#   - bottom
+#   - left
+#   - right
+c.tabs.position = 'left'
+
+# When to show the tab bar.
+# Type: String
+# Valid values:
+#   - always: Always show the tab bar.
+#   - never: Always hide the tab bar.
+#   - multiple: Hide the tab bar if only one tab is open.
+#   - switching: Show the tab bar when switching tabs.
+c.tabs.show = 'multiple'
 
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
@@ -392,9 +383,9 @@ config.set('content.cookies.accept', 'all', '*')
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://*.google.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0', 'https://*.google.com/*')
 
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0', 'https://*.slack.com/*')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -403,6 +394,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/53
 #   - false
 #   - ask
 config.set('content.notifications.enabled', True, 'https://calendar.google.com')
+config.set('content.notifications.enabled', True, 'https://meet.google.com')
 config.set('content.notifications.enabled', True, 'https://app.slack.com')
 
 # Load images automatically in web pages.
@@ -414,11 +406,12 @@ config.set('content.images', True, '*')
 config.set('content.javascript.enabled', True, '*')
 
 # Bindings
-config.bind(';', 'set-cmd-text :', mode='normal')
+config.bind(';',  'set-cmd-text :', mode='normal')
 config.bind('F2', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('b',  'tab-focus last', mode='normal')
 config.bind('gf', 'hint', mode='normal')
-config.bind('t', 'open -t', mode='normal')
-config.bind('x', 'tab-close', mode='normal')
+config.bind('t',  'open -t', mode='normal')
+config.bind('x',  'tab-close', mode='normal')
 config.bind('yv', 'hint links spawn mpv {hint-url}', mode='normal')
 
 config.unbind('d', mode='normal')

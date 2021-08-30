@@ -109,7 +109,9 @@ alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} 
 alias -g G='|grep'
 alias -g L='|less'
 alias check_adb='adb devices -l'
-
+alias frx='firefox'
+alias qte='qutebrowser'
+alias vb='vieb'
 
 # CUSTOM FUNCTIONS
 command_exists () {
@@ -626,6 +628,7 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  export GO111MODULE=on
 fi
 
 if command_exists fzf ; then
