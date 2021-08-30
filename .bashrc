@@ -62,6 +62,7 @@ if test -t 1; then
   force_color_prompt=yes
   color_prompt=yes
   export TERM="xterm-256color"
+  export CLICOLOR=1
   export LS_COLORS=$LS_COLORS:"di=01;35"
 
   RED="\[\033[0;31m\]"
@@ -100,7 +101,9 @@ alias home_pr='cd $PERS_DIR/home'
 alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
 alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
 alias check_adb='adb devices -l'
-
+alias frx='firefox'
+alias qte='qutebrowser'
+alias vb='vieb'
 
 # CUSTOM FUNCTIONS
 command_exists () {
@@ -288,7 +291,7 @@ if command_exists pacman ; then
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
-    alias upy='yay -Syua'
+    alias ypg='yay -Syua'
     alias yss='yay -Ss'
     alias yai='yay -Sa'
     alias yii='yay -Sii'
@@ -577,6 +580,7 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  export GO111MODULE=on
 fi
 
 if command_exists fzf ; then

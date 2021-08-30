@@ -105,7 +105,7 @@ set suggestorder=
 set suggestorder+=history
 set suggestorder+=searchword
 set suggestorder+=file
-set suggesttopsites=10
+set suggesttopsites=100
 set suspendonrestore=regular
 set suspendtimeout=0
 set tabcycle
