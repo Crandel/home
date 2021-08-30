@@ -4,6 +4,8 @@ export QT_QPA_PLATFORM=wayland
 export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
 export QT_ENABLE_HIGHDPI_SCALING=0
 
+export SDL_VIDEODRIVER=wayland
+
 export GDK_BACKEND=wayland
 export GTK_THEME=gruvbox-dark-gtk
 

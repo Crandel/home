@@ -260,9 +260,6 @@ if [ -d $LOCAL_BIN ]; then
   export PATH=$PATH:$LOCAL_BIN
 fi
 
-if [ -f /etc/profile.d/vte.sh ]; then
-  . /etc/profile.d/vte.sh
-fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

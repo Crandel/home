@@ -160,7 +160,6 @@ command! rp <:set containernewtab=r><action.openNewTab><:set containernewtab=s:u
 command! am <:set containernewtab=a><action.openNewTab><:set containernewtab=s:usecurrent>
 command! fb <:set containernewtab=f><action.openNewTab><:set containernewtab=s:usecurrent>
 
-
 " Mappings
 nmap ; <toCommandMode>
 nmap yy <:clipboard_yank>

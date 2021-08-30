@@ -26,21 +26,14 @@ if command_exists telegram-desktop ; then
   telegram-desktop &
 fi
 
-#if command_exists discord ; then
-#  sleep 0.5
-#  echo "run discord"
-#  # GDK_BACKEND=x11 discord &
-#  discord-ozone &
-#fi
+if command_exists thunderbird ; then
+  sleep 0.5
+  echo "run thunderbird"
+  thunderbird &
+fi
 
 if command_exists rssguard ; then
   sleep 0.5
   echo "run rssguard"
   rssguard &
-fi
-
-if command_exists thunderbird ; then
-  sleep 0.5
-  echo "run thunderbird"
-  thunderbird &
 fi
