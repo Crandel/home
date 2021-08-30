@@ -11,7 +11,7 @@ set containerstartuppage=main
 set countlimit=100
 set devtoolsposition=split
 set downloadmethod=confirm
-set downloadpath=~/Downloads/
+set downloadpath=/data/internet
 set explorehist
 set externalcommand=
 set favicons=session
