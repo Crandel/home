@@ -310,7 +310,7 @@ bar {
     icon_theme Gruvbox
   }
   colors {
-    background #282828
+    background #282828AA
     statusline #E1F5A9
     focused_statusline #688A08
     focused_workspace  #688A08 #355325 #FFFFFF
