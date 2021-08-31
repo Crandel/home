@@ -8,29 +8,28 @@ set {
   $editor emacs
 #  $editor alacritty -e emacs -nw
   $browser firefox
-  $other_browser qutebrowser_socket
-  $feed rssguard
-  $email thunderbird
+  $other_browser vieb.sh
   $gnome-sound org.gnome.desktop.sound
   $gnome-interface org.gnome.desktop.interface
   $ide pycharm
 
-  $o_center eDP-1
+  $laptop eDP-1
   # $o_left "HDMI model"
 }
 
 output {
-  $o_center background ~/Pictures/wallpaper.jpg fill
-  # $o_left pos 1920 0 res 1920x1080
-  $o_center pos 0 0 res --custom 1920x1080@144Hz
-  $o_center adaptive_sync on
+  # $left pos 1920 0 res 1920x1080
+  $laptop adaptive_sync on
+  $laptop background ~/Pictures/wallpaper.jpg fill
+  $laptop pos 0 0 res --custom 1920x1080@144Hz
+  # $right pos 1920 0 res 1920x1080
 }
 
 input type:keyboard {
-  xkb_layout "us,ua"
-  xkb_options "grp:shift_caps_switch,compose:prsc"
   xkb_capslock disabled
   xkb_numlock enable
+  xkb_layout "us,ua"
+  xkb_options "grp:shift_caps_switch,compose:prsc"
 }
 
 input type:touchpad {
@@ -47,13 +46,13 @@ input type:touchpad {
 }
 
 exec_always {
+  gsettings set $gnome-interface cursor-theme 'capitaine-cursors'
+  gsettings set $gnome-interface document-font-name 'Hack Nerd Font 16'
+  gsettings set $gnome-interface font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface gtk-theme 'gruvbox-dark-gtk'
   gsettings set $gnome-interface icon-theme 'Gruvbox'
-  gsettings set $gnome-interface font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface monospace-font-name 'Hack Nerd Font 16'
-  gsettings set $gnome-interface document-font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface text-scaling-factor 1.0
-  gsettings set $gnome-interface cursor-theme 'capitaine-cursors'
   gsettings set $gnome-sound theme-name 'deepin'
 }
 
@@ -67,10 +66,10 @@ floating_modifier $mod normal
 
 workspace_layout tabbed
 
-workspace 1 output $o_center
-workspace 2 output $o_center
-# workspace 3 output $o_left
-# workspace 4 output $o_left
+workspace 1 output laptop$
+workspace 2 output laptop$
+# workspace 3 output $left
+# workspace 4 output $right
 
 # assings
 assign [app_id="com.github.rssguard"] 2
@@ -90,7 +89,6 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 for_window [app_id="Vivaldi-stable"] inhibit_idle fullscreen
-for_window [class="discord"] move workspace 4
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
@@ -303,31 +301,33 @@ bindsym --release {
 # Start swaybar to display a workspace bar (plus the system information swaystatus
 # finds out, if available)
 bar {
-  position top
-  workspace_buttons yes
-  tray {
-    output *
-    icon_theme Gruvbox
+  # The middle button over a titlebar kills the window
+  bindsym {
+     button2 exec alacritty -e nmtui
   }
+
   colors {
     background #282828AA
     statusline #E1F5A9
     focused_statusline #688A08
-    focused_workspace  #688A08 #355325 #FFFFFF
-    active_workspace   #333333 #331A00 #FFFFFF
-    inactive_workspace #333333 #222222 #888888
-    urgent_workspace   #2f343a #EB4D4B #FFFFFF
-    binding_mode       #2f343a #FF0000 #FFFFFF
+    focused_workspace  #688A08 #355325AA #FFFFFF
+    active_workspace   #333333 #331A00AA #FFFFFF
+    inactive_workspace #333333 #222222AA #888888
+    urgent_workspace   #2f343a #EB4D4BAA #FFFFFF
+    binding_mode       #2f343a #FF0000AA #FFFFFF
   }
-  # The middle button over a titlebar kills the window
-  bindsym {
-    button2 exec alacritty -e nmtui
-  }
-  pango_markup enabled
+
   font Hack Nerd Font Mono, NotoEmoji Nerd Font Mono 16
   icon_theme Gruvbox
+  pango_markup enabled
+  position top
   status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
+  workspace_buttons yes
   # swaybar_command waybar
+  tray {
+    output *
+    icon_theme Gruvbox
+  }
 }
 
 # gaps
@@ -338,11 +338,11 @@ gaps inner 2
 gaps outer 2
 
 # my settings
-# class                 border   backgr. text    indicator
-client.focused          #4B610B  #999900 #e6ffff #00DA8E    #4B610B
-client.focused_inactive #4B610B  #000000 #FFFFFF #484e50    #4B610B
-client.unfocused        #4B610B  #424242 #ECF6CE #292d2e    #4B610B
-client.urgent           #4B610B  #900000 #ffffff #900000    #4B610B
+# class                 border   backgr.   text    indicator  child border
+client.focused          #4B610B  #999900AA #E6FFFF #00DA8E    #4B610B
+client.focused_inactive #4B610B  #000000AA #FFFFFF #484E50    #4B610B
+client.unfocused        #4B610B  #424242AA #ECF6CE #292D2E    #4B610B
+client.urgent           #4B610B  #900000AA #FFFFFF #900000    #4B610B
 
 exec systemctl --user import-environment \
     DISPLAY \

@@ -44,7 +44,7 @@ command = "gmail"
 interval = 60
 hide_when_empty = true
 [block.theme_overrides]
-idle_bg="#1c7d2f"
+idle_bg="#1C7D2FAA"
 
 [[block]]
 block = "disk_space"
@@ -57,14 +57,14 @@ path = "/"
 unit = "GB"
 warning = 15.0
 [block.theme_overrides]
-idle_bg="#23712c"
+idle_bg="#23712CAA"
 
 [[block]]
 block = "cpu"
 format = "{barchart} {utilization} {frequency}"
 interval = 10
 [block.theme_overrides]
-idle_bg="#2a6529"
+idle_bg="#2A6529AA"
 
 
 [[block]]
@@ -80,7 +80,7 @@ interval = 60
 warning_mem = 80
 warning_swap = 80
 [block.theme_overrides]
-idle_bg="#355325"
+idle_bg="#355325AA"
 
 [[block]]
 #device = "BAT1"
@@ -91,7 +91,7 @@ format = "{percentage:0} {time:0}"
 full_format = ""
 #interval = 60
 [block.theme_overrides]
-idle_bg="#2F2519"
+idle_bg="#2F2519AA"
 
 [[block]]
 block = "sound"
@@ -99,7 +99,7 @@ driver = "pulseaudio"
 device_kind = "sink"
 show_volume_when_muted = false
 [block.theme_overrides]
-idle_bg="#29331E"
+idle_bg="#29331EAA"
 
 [[block]]
 block = "sound"
@@ -107,7 +107,7 @@ driver = "pulseaudio"
 device_kind = "source"
 show_volume_when_muted = false
 [block.theme_overrides]
-idle_bg="#29331E"
+idle_bg="#29331EAA"
 
 [[block]]
 block = "bluetooth"
@@ -116,14 +116,14 @@ format = "B"
 format_unavailable = "X"
 hide_disconnected = false
 [block.theme_overrides]
-idle_bg="#0B0B3B"
+idle_bg="#0B0B3BAA"
 
 [[block]]
 block = "backlight"
 step_width = 5
 invert_icons = true
 [block.theme_overrides]
-idle_bg="#1f2419"
+idle_bg="#1f2419AA"
 
 [[block]]
 block = "net"
@@ -134,7 +134,7 @@ hide_inactive = true
 hide_missing = true
 interval = 5
 [block.theme_overrides]
-idle_bg="#1f2419"
+idle_bg="#1f2419AA"
 
 [[block]]
 block = "net"
@@ -145,7 +145,7 @@ hide_inactive = true
 hide_missing = true
 interval = 5
 [block.theme_overrides]
-idle_bg="#33382E"
+idle_bg="#33382EAA"
 
 [[block]]
 block = "net"
@@ -156,7 +156,7 @@ hide_inactive = true
 hide_missing = true
 interval = 5
 [block.theme_overrides]
-idle_bg="#E58E26"
+idle_bg="#E58E26AA"
 
 [[block]]
 block = "keyboard_layout"
@@ -167,7 +167,7 @@ sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 "English (US)" = "EN"
 "Ukrainian (N/A)" = "UK"
 [block.theme_overrides]
-idle_bg="#464a41"
+idle_bg="#464a41AA"
 
 [[block]]
 block = "time"
@@ -175,4 +175,4 @@ format = "%d.%m %R"
 interval = 45
 on_click = "swaymsg -q exec 'gsimplecal'"
 [block.theme_overrides]
-idle_bg="#355325"
+idle_bg="#355325AA"
