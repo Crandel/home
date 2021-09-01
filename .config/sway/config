@@ -14,15 +14,15 @@ set {
   $ide pycharm
 
   $laptop eDP-1
-  # $o_left "HDMI model"
+  # $left_out "HDMI model"
 }
 
 output {
-  # $left pos 1920 0 res 1920x1080
+  # $left_out pos 1920 0 res 1920x1080
   $laptop adaptive_sync on
   $laptop background ~/Pictures/wallpaper.jpg fill
   $laptop pos 0 0 res --custom 1920x1080@144Hz
-  # $right pos 1920 0 res 1920x1080
+  # $right_out pos 1920 0 res 1920x1080
 }
 
 input type:keyboard {
@@ -66,10 +66,10 @@ floating_modifier $mod normal
 
 workspace_layout tabbed
 
-workspace 1 output laptop$
-workspace 2 output laptop$
-# workspace 3 output $left
-# workspace 4 output $right
+workspace 1 output $laptop
+workspace 2 output $laptop
+# workspace 3 output $left_out
+# workspace 4 output $right_out
 
 # assings
 assign [app_id="com.github.rssguard"] 2
