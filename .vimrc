@@ -129,6 +129,8 @@ nmap ] }
 nmap [ {
 
 inoremap jk <Esc>
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
 noremap <leader>s :ls -la<CR>
 nnoremap <leader>/ :Grep<Space>
 nnoremap <leader>k :bd<CR>
