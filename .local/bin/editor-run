@@ -2,4 +2,4 @@
 
 args=$@
 echo "here is $args" > /tmp/edit.log
-/usr/bin/emacs "$args"
+emacs "$args"
