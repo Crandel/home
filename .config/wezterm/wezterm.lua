@@ -26,7 +26,7 @@ return {
     -- of the color of the vertical or horizontal bar when the cursor style is set to
     -- Bar or Underline.
     cursor_border = "#EBDBB2",
-
+    cursor_blink_rate = 800,
     -- the foreground color of selected text
     selection_fg = "#333333",
     -- the background color of selected text
@@ -87,6 +87,7 @@ return {
       }
     }
   },
+  default_cursor_style = "BlinkingUnderline",
   enable_scroll_bar = true,
   enable_wayland = true,
   font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),

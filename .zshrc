@@ -269,6 +269,49 @@ if [ -d $LOCAL_BIN ]; then
 fi
 # END IMPORT
 
+# ZSH VI mode
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+  ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+  bindkey -M vicmd "\e[A"    up-line-or-beginning-search
+  bindkey -M vicmd "\e[B"    down-line-or-beginning-search
+  bindkey -M vicmd "\e[1;5A" history-substring-search-up
+  bindkey -M vicmd "\e[1;5B" history-substring-search-down
+  bindkey -M vicmd "\e[1;5C" forward-word
+  bindkey -M vicmd "\e[1;5D" backward-word
+
+  bindkey -M vicmd "\e[1;2A" history-incremental-search-forward
+  bindkey -M vicmd "\e[1;2B" history-incremental-search-backward # Ctrl+r
+  bindkey -M vicmd "\e[1;2C" end-of-line
+  bindkey -M vicmd "\e[1;2D" beginning-of-line
+
+  # fix of delete key
+  bindkey -M vicmd "\e[3~"   delete-char
+  bindkey -M vicmd "\e[3;5~" delete-word
+}
+
+function zvm_after_select_vi_mode() {
+  case $ZVM_MODE in
+    $ZVM_MODE_NORMAL)
+      export VI_MODE="{N}"
+    ;;
+    $ZVM_MODE_INSERT)
+      export VI_MODE="{I}"
+    ;;
+    $ZVM_MODE_VISUAL)
+      export VI_MODE="{V}"
+    ;;
+    $ZVM_MODE_VISUAL_LINE)
+      export VI_MODE="{VL}"
+    ;;
+    $ZVM_MODE_REPLACE)
+      export VI_MODE="{R}"
+    ;;
+  esac
+}
+# END ZSH VI mode
+
 # PLUGIN MANAGMENT
 plugin_init() {
   source $zinit_source
@@ -301,7 +344,8 @@ plugin_init() {
         has'pip' \
           OMZP::pip
   zinit lucid light-mode for \
-        OMZP::shrink-path
+        OMZP::shrink-path \
+        jeffreytse/zsh-vi-mode
 
   zinit lucid load for \
         has'poetry' \
@@ -493,7 +537,7 @@ if command_exists vifm ; then
   alias vf="vifm"
   alias svf="$SUDO vifm"
   if [ -n "$INSIDE_VIFM" ]; then
-    INSIDE_VIFM="[V]"
+    INSIDE_VIFM="[VF]"
   fi
 fi
 
@@ -734,7 +778,7 @@ function set_git_branch() {
 }
 
 function set_prompt_symbol () {
-  echo "%(?.%F{yellow}.%F{red}[%?])$INSIDE_VIFM"
+  echo "%(?.%F{yellow}.%F{red}[%?])$INSIDE_VIFM$VI_MODE"
   echo "╰─➤%f"
 }
 
