@@ -331,7 +331,7 @@ bar {
 }
 
 # gaps
-default_border pixel 1
+default_border pixel 2
 smart_borders on
 smart_gaps on
 gaps inner 2
@@ -339,10 +339,10 @@ gaps outer 2
 
 # my settings
 # class                 border   backgr.   text    indicator  child border
-client.focused          #4B610B  #999900AA #E6FFFF #00DA8E    #4B610B
-client.focused_inactive #4B610B  #000000AA #FFFFFF #484E50    #4B610B
-client.unfocused        #4B610B  #424242AA #ECF6CE #292D2E    #4B610B
-client.urgent           #4B610B  #900000AA #FFFFFF #900000    #4B610B
+client.focused          #1A1A00  #999900AA #E6FFFF #00DA8E    #4B610B
+client.focused_inactive #1A1A00  #000000AA #FFFFFF #484E50    #4B610B
+client.unfocused        #1A1A00  #424242AA #ECF6CE #292D2E    #4B610B
+client.urgent           #1A1A00  #900000AA #FFFFFF #900000    #4B610B
 
 exec systemctl --user import-environment \
     DISPLAY \

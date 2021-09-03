@@ -4,7 +4,7 @@
 (use-package vimrc-mode
   :ensure t
   :defer t
-  :mode (".vim\\(rc\\|peratorrc\\)?$" ".vifm\\(rc\\|peratorrc\\)?$")
+  :mode (".vi\\(mrc\\|mperatorrc\\|fmrc\\|ebrc\\)?$")
 )
 
 (provide 'vimrc-mode-rcp)
