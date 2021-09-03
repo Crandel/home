@@ -11,17 +11,45 @@ wezterm.on("toggle-opacity", function(window, pane)
 end)
 
 return {
-  color_scheme = "Gruvbox Dark",
   colors = {
+    -- The default text color
+    foreground = "#E6D4A3",
+    -- The default background color
+    background = "#1E1E1E",
+
+    -- Overrides the cell background color when the current cell is occupied by the
+    -- cursor and the cursor style is set to Block
+    cursor_bg = "#1E1E1E",
+    -- Overrides the text color when the current cell is occupied by the cursor
+    cursor_fg = "#FFDDCC",
+    -- Specifies the border color of the cursor when the cursor style is set to Block,
+    -- of the color of the vertical or horizontal bar when the cursor style is set to
+    -- Bar or Underline.
+    cursor_border = "#EBDBB2",
+
+    -- the foreground color of selected text
+    selection_fg = "#333333",
+    -- the background color of selected text
+    selection_bg = "#EBDBB2",
+
+    -- The color of the scrollbar "thumb"; the portion that represents the current viewport
+    scrollbar_thumb = "#333333",
+
+    -- The color of the split lines between panes
+    split = "#444444",
+
+    ansi = {"#1E1E1E","#BE0F17","#868715","#CC881A","#377375","#A04B73","#578E57","#978771"},
+    brights = {"#7F7061","#F73028","#AAB01E","#F7B125","#719586","#C77089","#7DB669","#E6D4A3"},
+    -- Arbitrary colors of the palette in the range from 16 to 255
+    indexed = {[136] = "#AF8700"},
+
     tab_bar = {
-      -- The color of the strip that goes along the top of the window
-      background = "#1d2021",
       -- The active tab is the one that has focus in the window
       active_tab = {
         -- The color of the background area for the tab
-        bg_color = "#427b58",
+        bg_color = "#AF8700",
         -- The color of the text for the tab
-        fg_color = "#c0c0c0",
+        fg_color = "#E6D4A3",
         -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
         -- label shown for this tab.
         -- The default is "Normal"
@@ -39,11 +67,12 @@ return {
         -- or not for this tab.  The default is false.
         strikethrough = false,
       },
-
+      -- The color of the strip that goes along the top of the window
+      background = "#1d2021",
       -- Inactive tabs are the tabs that do not have focus
       inactive_tab = {
         bg_color = "#181907",
-        fg_color = "#36473A",
+        fg_color = "#E6D4A3",
 
         -- The same options that were listed under the `active_tab` section above
         -- can also be used for `inactive_tab`.
@@ -53,7 +82,7 @@ return {
       -- moves over inactive tabs
       inactive_tab_hover = {
         bg_color = "#282828",
-        fg_color = "#909090",
+        fg_color = "#E6D4A3",
         italic = true,
       }
     }
@@ -81,5 +110,6 @@ return {
   ratelimit_mux_line_prefetches_per_second = 4289999998,
   scrollback_lines = 150000,
   tab_max_width = 46,
+  text_background_opacity = 1.0,
   window_background_opacity = 0.9,
 }
