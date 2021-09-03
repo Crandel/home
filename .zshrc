@@ -272,23 +272,23 @@ fi
 # ZSH VI mode
 function zvm_config() {
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+  ZVM_VI_INSERT_ESCAPE_BINDKEY='^['
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
-  bindkey -M vicmd "\e[A"    up-line-or-beginning-search
-  bindkey -M vicmd "\e[B"    down-line-or-beginning-search
-  bindkey -M vicmd "\e[1;5A" history-substring-search-up
-  bindkey -M vicmd "\e[1;5B" history-substring-search-down
-  bindkey -M vicmd "\e[1;5C" forward-word
-  bindkey -M vicmd "\e[1;5D" backward-word
+  bindkey -M viins "\e[A"    up-line-or-beginning-search
+  bindkey -M viins "\e[B"    down-line-or-beginning-search
+  bindkey -M viins "\e[1;5A" history-substring-search-up
+  bindkey -M viins "\e[1;5B" history-substring-search-down
+  bindkey -M viins "\e[1;5C" forward-word
+  bindkey -M viins "\e[1;5D" backward-word
 
-  bindkey -M vicmd "\e[1;2A" history-incremental-search-forward
-  bindkey -M vicmd "\e[1;2B" history-incremental-search-backward # Ctrl+r
-  bindkey -M vicmd "\e[1;2C" end-of-line
-  bindkey -M vicmd "\e[1;2D" beginning-of-line
+  bindkey -M viins "\e[1;2A" history-incremental-search-forward
+  bindkey -M viins "\e[1;2B" history-incremental-search-backward # Ctrl+r
+  bindkey -M viins "\e[1;2C" end-of-line
+  bindkey -M viins "\e[1;2D" beginning-of-line
 
   # fix of delete key
-  bindkey -M vicmd "\e[3~"   delete-char
-  bindkey -M vicmd "\e[3;5~" delete-word
+  bindkey -M viins "\e[3~"   delete-char
+  bindkey -M viins "\e[3;5~" delete-word
 }
 
 function zvm_after_select_vi_mode() {
