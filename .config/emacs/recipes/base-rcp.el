@@ -10,7 +10,7 @@
         '(
           (alpha 100 100)
           (cursor-color . "#BE81F7")
-          (cursor-type . 'bar)
+          (cursor-type . 'vbar)
           (font . "Hack Nerd Font-16")
           (tool-bar-lines . 0)
           (vertical-scroll-bars . right)
@@ -18,7 +18,7 @@
   (setq default-frame-alist
         '(
           (alpha 100 100)
-          (cursor-type . 'bar)
+          (cursor-type . 'vbar)
           (cursor-color . "#BE81F7")
           (font . "Hack Nerd Font-16")
           (tool-bar-lines . 0)
@@ -69,7 +69,7 @@
                                 "Display the name of the current buffer in the title bar")
   (gc-cons-threshold            100000000)
   (indent-line-function         'insert-tab "End Indent settings")
-  (indent-tabs-mode             nil "Indent settings")
+  (indent-tabs-mode             nil)
   (inhibit-startup-screen       t   "Don't show splash screen")
   (java-basic-offset            2)
   (js-indent-level              2)

@@ -292,7 +292,7 @@ bindsym --to-code {
 
 # The middle button over a titlebar kills the window
 bindsym --release {
-  Mod2+button2 kill
+  $mod+button2 kill
   button2 kill
   $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic
 }
