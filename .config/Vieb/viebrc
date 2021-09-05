@@ -1,7 +1,7 @@
 " Options
 set adblocker=off
 set cache=clearonquit
-set commandhist=all
+set commandhist=persistuseronly
 set containercolors=^temp\d+~#ff0,^g$~orange,^w$~yellow,^f$~blue,^b$~green,^r$~purple,^l$~mediumslateblue
 set containerkeeponreopen
 set containernewtab=s:usecurrent
