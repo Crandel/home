@@ -62,6 +62,7 @@ if test -t 1; then
   force_color_prompt=yes
   color_prompt=yes
   export TERM="xterm-256color"
+  export CLICOLOR=1
   export LS_COLORS=$LS_COLORS:"di=01;35"
 
   RED="\[\033[0;31m\]"
@@ -213,9 +214,6 @@ if [ -d $LOCAL_BIN ]; then
   export PATH=$PATH:$LOCAL_BIN
 fi
 
-if [ -f /etc/profile.d/vte.sh ]; then
-  . /etc/profile.d/vte.sh
-fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -244,7 +242,7 @@ if command_exists pacman ; then
   alias par='p -Rs'
   if command_exists yay ; then
     alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
-    alias upy='yay -Syua'
+    alias ypg='yay -Syua'
     alias yss='yay -Ss'
     alias yai='yay -Sa'
     alias yii='yay -Sii'
@@ -352,6 +350,9 @@ fi
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
+if command_exists shiori ; then
+  export SHIORI_DIR=/sdcard/Apks/wallet/sync
+fi
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES
@@ -423,6 +424,7 @@ fi
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
+  export GO111MODULE=on
 fi
 
 if command_exists fzf ; then
