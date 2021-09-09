@@ -108,9 +108,7 @@ let &t_EI = "\<Esc>[2 q"
 
 " MAPS
 vnoremap <C-c> "+y            " copy selected text Ctrl+c
-nnoremap : ;
 nnoremap ; :
-vnoremap : ;
 vnoremap ; :
 
 " previous buffer
