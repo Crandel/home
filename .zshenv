@@ -1,5 +1,7 @@
 export ZDOTDIR=$HOME/.config/zsh
 
+typeset -U path # tells the shell that it should not add anything to $path if it's there already.
+
 export WORDCHARS='*?[]~&;!#$%^(){}<>'
 
 if test -t 1; then
@@ -16,19 +18,13 @@ LOCAL_BIN=$HOME/.local/bin
 if [ ! -d $LOCAL_BIN ]; then
   mkdir -p $LOCAL_BIN
 fi
-if [ -d $LOCAL_BIN ] && [[ $PATH != *"$LOCAL_BIN"* ]]; then
-  export PATH=$PATH:$LOCAL_BIN
-fi
+export PATH=$PATH:$LOCAL_BIN
 
 CARGO_BIN=$HOME/.cargo/bin
 if [ ! -d $CARGO_BIN ]; then
   mkdir -p $CARGO_BIN
 fi
-if [ -d $CARGO_BIN ] && [[ $PATH != *"$CARGO_BIN"* ]]; then
-  export PATH=$PATH:$CARGO_BIN
-fi
+export PATH=$PATH:$CARGO_BIN
 
 export GOPATH=$HOME/go
-if [ -d $GOPATH/bin ] && [[ $PATH != *"$GOPATH/bin"* ]]; then
-  export PATH=$PATH:$GOPATH/bin
-fi
+export PATH=$PATH:$GOPATH/bin
