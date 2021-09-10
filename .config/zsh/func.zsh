@@ -172,3 +172,7 @@ function zvm_after_select_vi_mode() {
   esac
 }
 # END ZSH VI mode
+
+if [ -f $ZDOTDIR/func.local.zsh ]; then
+  . $ZDOTDIR/func.local.zsh
+fi
