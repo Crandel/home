@@ -49,7 +49,8 @@ exec_always {
   gsettings set $gnome-interface cursor-theme 'capitaine-cursors'
   gsettings set $gnome-interface document-font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface font-name 'Hack Nerd Font 16'
-  gsettings set $gnome-interface gtk-theme 'gruvbox-dark-gtk'
+  gsettings set $gnome-interface gtk-theme 'gruvbox-hard-dark-gtk'
+  gsettings set $gnome-interface gtk-color-theme 'gruvbox-hard-dark-gtk'
   gsettings set $gnome-interface icon-theme 'Gruvbox'
   gsettings set $gnome-interface monospace-font-name 'Hack Nerd Font 16'
   gsettings set $gnome-interface text-scaling-factor 1.0
@@ -89,6 +90,7 @@ for_window [shell="xwayland"] title_format "%title [XWayland]"
 for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="mpv"] inhibit_idle fullscreen
 for_window [app_id="Vivaldi-stable"] inhibit_idle fullscreen
+for_window [app_id="ulauncher"] floating enable, border none
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
@@ -137,7 +139,7 @@ bindsym --to-code {
   # start j4-dmenu-desktop or bemenu (a program launcher)
   $mod+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' --display-binary --use-xdg-de --term=$term --usage-log="$HOME/.j4.log"
   $mod+Shift+d exec bemenu-run -l 20 -p run
-  $mod+Alt+d exec wofi --show drun
+  $mod+Ctrl+d exec ulauncher-toggle || ulauncher
 
   # change focus
   $mod+j focus left
@@ -230,10 +232,10 @@ bindsym --to-code {
 
   # exit sway (logs you out of your X session)
   $mod+Shift+e exec swaynag -t warning -m 'Hello. Do you really want to exit sway? This will end your Wayland session.' \
-    -b '🌚️Suspend' 'systemctl suspend' \
-    -b '⚡️Shutdown' 'systemctl -i poweroff' \
-    -b '🌀️Reboot' 'systemctl -i reboot' \
-    -b '🚪️Yes, exit sway' 'swaymsg exit' \
+    -b '🌚Suspend' 'systemctl suspend' \
+    -b '⚡Shutdown' 'systemctl -i poweroff' \
+    -b '🌀Reboot' 'systemctl -i reboot' \
+    -b '🚪Yes, exit sway' 'swaymsg exit' \
     --button-background=ff9100 \
     --button-border-size=3px --border=fcc99d --text=092e47 --font=Hack Nerd Font 16 --background=#282828
 
@@ -297,7 +299,6 @@ bindsym --release {
   $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic
 }
 
-
 # Start swaybar to display a workspace bar (plus the system information swaystatus
 # finds out, if available)
 bar {
@@ -317,16 +318,15 @@ bar {
     binding_mode       #2f343a #FF0000AA #FFFFFF
   }
 
-  font Hack Nerd Font Mono, NotoEmoji Nerd Font Mono 16
-  icon_theme Gruvbox
+  font "Hack Nerd Font Mono 16"
   pango_markup enabled
   position top
   status_command i3status-rs --exit-on-error $HOME/.config/sway/status.toml 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
   workspace_buttons yes
   # swaybar_command waybar
   tray {
-    output *
     icon_theme Gruvbox
+    output *
   }
 }
 
@@ -371,5 +371,5 @@ exec $term, resize set width 98 ppt height 98 ppt
 exec swaykbdd
 exec network-startup
 exec swayidle \
-         timeout 60 'swaymsg "output * dpms off"' \
+         timeout 300 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"'
