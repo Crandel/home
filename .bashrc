@@ -247,14 +247,13 @@ mkcd() {
 
 # IMPORT ADDITIONAL FILES
 ## CUSTOM FUNCS
-if [ -f ~/.func.bash ]; then
-  fpath+=~/.func.bash
-  . ~/.func.bash
+if [ -f $HOME/.func.bash ]; then
+  . $HOME/.func.bash
 fi
 
 ## CUSTOM ALIASES AND EXPORTS
-if [ -f ~/.aliases.bash ]; then
-  . ~/.aliases.bash
+if [ -f $HOME/.aliases.bash ]; then
+  . $HOME/.aliases.bash
 fi
 
 ## USER SPECIFIC BINARIES
@@ -312,22 +311,22 @@ if command_exists apt ; then
   alias a="$SUDO apt"
   alias pql='dpkg-query -L'
   alias pqs='apt list --installed'
-  alias pas='apt search'
-  alias upd='a update'
-  alias upy='a upgrade'
-  alias upl='apt list --upgradable'
-  alias upg='upd && sleep 2 && upl && sleep 2 && upy'
-  alias pai='a install'
-  alias par='a remove'
+  alias pss='apt search'
+  alias psd='a update'
+  alias psy='a upgrade'
+  alias psl='apt list --upgradable'
+  alias psu='psd && sleep 2 && psl && sleep 2 && psy'
+  alias psi='a install'
+  alias prs='a remove'
   alias aar="$SUDO add-apt-repository"
 fi
 
 if command_exists yum ; then
   alias y="$SUDO yum"
-  alias upg='yum upgrade'
-  alias pas='yum search'
-  alias pai='yum install'
-  alias par='yum remove'
+  alias psu='yum upgrade'
+  alias pss='yum search'
+  alias psi='yum install'
+  alias prs='yum remove'
 fi
 # END PACKAGE MANAGERS
 
@@ -446,7 +445,7 @@ if command_exists vifm ; then
   alias vf="vifm"
   alias svf="$SUDO vifm"
   if [ -n "$INSIDE_VIFM" ]; then
-    INSIDE_VIFM="[V]"
+    export INSIDE_VIFM="[VF]"
   fi
 fi
 
@@ -650,6 +649,7 @@ fi
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
+
 ### Determine active Python virtualenv details.
 set_virtualenv () {
   if [ ! -z "$PYENV_VIRTUAL_ENV" ] ; then
