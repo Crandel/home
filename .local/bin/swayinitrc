@@ -20,4 +20,4 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export LP_NUM_THREADS=1
 export WLR_DRM_NO_MODIFIERS=1
 
-exec sway #-d 2>> ~/.local/log/sway.log
+exec sway -Dtxn-timeout=10 -d #2>> ~/.local/log/sway.log
