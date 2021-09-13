@@ -57,11 +57,6 @@
     )
 )
 
-(use-package company-flx
-  :ensure t
-  :hook (company-mode . company-flx-mode)
-)
-
 (provide 'company-rcp)
 
 ;;; Commentary:

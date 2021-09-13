@@ -192,6 +192,7 @@
         auto-save-list-file-prefix     emacs-tmp-dir)
   :custom
   (backup-inhibited               t)
+  (confirm-kill-processes         nil)
   (create-lockfiles               nil "Disable lockfiles .#filename")
   (delete-old-versions            t   "Don't ask to delete excess backup versions.")
   (make-backup-files              t)
@@ -332,19 +333,19 @@
   :init
   (setq-default wl-copy-process nil)
   (when (string-prefix-p "wayland" (getenv "WAYLAND_DISPLAY"))
-    (defun wl-copy (text)
+    (defun wl-copy-handler (text)
       (setq wl-copy-process (make-process :name "wl-copy"
                                           :buffer nil
                                           :command '("wl-copy" "-f" "-n")
                                           :connection-type 'pipe))
       (process-send-string wl-copy-process text)
       (process-send-eof wl-copy-process))
-    (defun wl-paste ()
+    (defun wl-paste-handler ()
       (if (and wl-copy-process (process-live-p wl-copy-process))
           nil ; should return nil if we're the current paste owner
         (shell-command-to-string "wl-paste -n | tr -d \r")))
-    (setq interprogram-cut-function 'wl-copy
-          interprogram-paste-function 'wl-paste))
+    (setq interprogram-cut-function 'wl-copy-handler
+          interprogram-paste-function 'wl-paste-handler))
 )
 
 ;; (use-package semantic
