@@ -3,6 +3,7 @@
 # HISTORY
 # append to the history file, don't overwrite it
 shopt -s autocd checkhash checkwinsize cmdhist globstar histappend
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 HISTFILE=$HOME/.hist_bash
@@ -38,10 +39,6 @@ bind '"\e[1;2B":reverse-search-history' 2>/dev/null # Ctrl+r
 bind '"\e[1;2C":end-of-line' 2>/dev/null
 bind '"\e[1;2D":beginning-of-line' 2>/dev/null
 
-set completion-ignore-case on
-set show-all-if-ambiguous on
-set completion-query-items 30
-set editing-mode emacs
 # NAVIGATION END
 
 # COLORS

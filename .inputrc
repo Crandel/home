@@ -1,0 +1,5 @@
+set completion-ignore-case on
+set show-all-if-ambiguous on
+set completion-query-items 30
+#VI mode
+set editing-mode vi
