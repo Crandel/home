@@ -1,5 +1,9 @@
 export ZDOTDIR=$HOME/.config/zsh
 
+declare -A ZINIT
+export ZINIT[HOME_DIR]=$ZDOTDIR/.zinit
+
+export ZPFX=$ZINIT
 typeset -U path # tells the shell that it should not add anything to $path if it's there already.
 
 export WORDCHARS='*?[]~&;!#$%^(){}<>'

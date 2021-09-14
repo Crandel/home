@@ -25,7 +25,7 @@
     :custom
     (company-auto-commit-chars         '(32 40 41 119 46 34 36 47 124 33))
     (company-dabbrev-downcase          nil)
-    (company-dabbrev-ignore-cse        nil)
+    (company-dabbrev-ignore-case       nil)
     (company-dabbrev-other-buffers     t)
     (company-echo-delay                0.1)
     (company-format-margin-function    #'company-vscode-dark-icons-margin)
@@ -37,7 +37,8 @@
     (delete-selection-mode             t)
     (selection-coding-system           'utf-8)
     (company-backends '(
-                        (company-capf
+                        (
+                         company-capf
                          company-yasnippet
                          company-files
                          company-dabbrev
@@ -55,6 +56,10 @@
       :map company-mode-map
       ("C-h" . nil)
     )
+)
+
+(use-package company-prescient
+  :ensure t
 )
 
 (provide 'company-rcp)

@@ -128,19 +128,37 @@ mkcd() {
 
 # ZSH VI mode
 function zvm_config() {
+  ZVM_INIT_MODE=sourcing
+  ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLINKING_BEAM
   ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
   ZVM_NORMAL_MODE_CURSOR=$ZVM_CURSOR_BLINKING_UNDERLINE
+  ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_ZLE
+  ZVM_VI_HIGHLIGHT_BACKGROUND="cyan"
+  ZVM_VI_HIGHLIGHT_FOREGROUND="darkolive"
+  ZVM_VI_HIGHLIGHT_EXTRASTYLE=bold,underline
 }
 
 function zvm_after_init() {
-  zvm_bindkey viins 'jk' zvm_exit_insert_mode
+  zvm_bindkey viins 'jk'      zvm_exit_insert_mode
+  zvm_bindkey viins '^v'      edit-command-line
+  # \e[A arrow up
+  # \e[B arrow down
+  # \e[C arrow right
+  # \e[D arrow left
   zvm_bindkey viins "\e[A"    up-line-or-beginning-search
   zvm_bindkey viins "\e[B"    down-line-or-beginning-search
+  # \e[1;5A Ctrl + arrow up
+  # \e[1;5B Ctrl + arrow down
+  # \e[1;5C Ctrl + arrow right
+  # \e[1;5D Ctrl + arrow left
   zvm_bindkey viins "\e[1;5A" history-substring-search-up
   zvm_bindkey viins "\e[1;5B" history-substring-search-down
   zvm_bindkey viins "\e[1;5C" forward-word
   zvm_bindkey viins "\e[1;5D" backward-word
-
+  # \e[1;2A Shift + arrow up
+  # \e[1;2B Shift + arrow down
+  # \e[1;2C Shift + arrow right
+  # \e[1;2D Shift + arrow left
   zvm_bindkey viins "\e[1;2A" history-incremental-search-forward
   zvm_bindkey viins "\e[1;2B" history-incremental-search-backward # Ctrl+r
   zvm_bindkey viins "\e[1;2C" end-of-line
@@ -148,8 +166,9 @@ function zvm_after_init() {
 
   # fix of delete key
   zvm_bindkey viins "\e[3~"   delete-char
-  # bindkey -M viins "\e[3;5~" delete-word
+  # zvm_bindkey viins "\e[3;5~" delete-word
   zvm_bindkey viins "^[^?"    backward-kill-word
+  zvm_bindkey viins "^@"      autosuggest-accept
 }
 
 function zvm_after_select_vi_mode() {

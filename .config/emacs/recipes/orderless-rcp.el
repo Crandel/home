@@ -47,11 +47,13 @@
         completion-category-overrides '((file (styles . (partial-completion)))))
   (advice-add 'company-capf--candidates :around #'vd/just-one-face)
   :custom
-  (orderless-matching-styles 'orderless-regexp)
-  (orderless-style-dispatchers '(vd/orderless-dispatch))
+  (orderless-component-separator "[ &]")
+  (orderless-matching-styles     'orderless-regexp)
+  (orderless-style-dispatchers   '(vd/orderless-dispatch))
   :bind
   (:map minibuffer-local-completion-map
-        ("C-l" . vd/match-components-literally))
+        ("C-l" . vd/match-components-literally)
+        )
 )
 
 (provide 'orderless-rcp)

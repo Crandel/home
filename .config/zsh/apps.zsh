@@ -238,6 +238,14 @@ if command_exists cargo || [ -d $HOME/.rustup ]; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
+  if   [[ ! -f $ZSH_CACHE_DIR/cargo_version ]] \
+    || [[ "$(cargo --version)" != "$(< "$ZSH_CACHE_DIR/cargo_version")" ]] \
+    || [[ ! -f $LOCAL_ZSH_COMP_DIR/_cargo ]]
+  then
+    rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
+    rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
+    cargo --version > $ZSH_CACHE_DIR/cargo_version
+  fi
   if ! command_exists cargo-expand; then
     cargo install cargo-expand
   fi
