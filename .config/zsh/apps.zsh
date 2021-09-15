@@ -22,12 +22,12 @@ if command_exists pacman ; then
 
   recovery-pacman() {
     pacman "$@"  \
-         --log /dev/null   \
-         --noscriptlet     \
-         --dbonly          \
-         --force           \
-         --nodeps          \
-         --needed
+           --log /dev/null   \
+           --noscriptlet     \
+           --dbonly          \
+           --force           \
+           --nodeps          \
+           --needed
   }
 fi
 
@@ -238,23 +238,21 @@ if command_exists cargo || [ -d $HOME/.rustup ]; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  if   [[ ! -f $ZSH_CACHE_DIR/cargo_version ]] \
-    || [[ "$(cargo --version)" != "$(< "$ZSH_CACHE_DIR/cargo_version")" ]] \
-    || [[ ! -f $LOCAL_ZSH_COMP_DIR/_cargo ]]
-  then
+  setup_cargo () {
     rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
     rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
-    cargo --version > $ZSH_CACHE_DIR/cargo_version
-  fi
-  if ! command_exists cargo-expand; then
-    cargo install cargo-expand
-  fi
-  if ! command_exists cargo-audit; then
-    cargo install cargo-audit
-  fi
-  if ! command_exists cargo-outdated; then
-    cargo install cargo-outdated
-  fi
+  }
+  setup_cargo_tools() {
+    if ! command_exists cargo-expand; then
+      cargo install cargo-expand
+    fi
+    if ! command_exists cargo-audit; then
+      cargo install cargo-audit
+    fi
+    if ! command_exists cargo-outdated; then
+      cargo install cargo-outdated
+    fi
+  }
 fi
 
 if [ -d /usr/src/rust ]; then
@@ -331,13 +329,13 @@ else
 fi
 if command_exists lf ; then
   lfcd () {
-      tmp="$(mktemp)"
-      lf -last-dir-path="$tmp" "$@"
-      if [ -f "$tmp" ]; then
-          dir="$(cat "$tmp")"
-          rm -f "$tmp"
-          [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-      fi
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+      dir="$(cat "$tmp")"
+      rm -f "$tmp"
+      [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
   }
   bindkey -s '^o' 'lfcd\n'
 fi
@@ -367,12 +365,12 @@ fi
 
 ## PYTHON
 if [ -d "$HOME/.pyenv" ]; then
-   export PYENV_ROOT="$HOME/.pyenv"
-   export PATH="$PYENV_ROOT/bin:$PATH"
-   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-   eval "$(pyenv init --path)"
-   eval "$(pyenv init - zsh)"
-   eval "$(pyenv virtualenv-init - zsh)"
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init - zsh)"
+  eval "$(pyenv virtualenv-init - zsh)"
 fi
 
 clean_pyc (){

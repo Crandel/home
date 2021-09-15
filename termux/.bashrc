@@ -224,34 +224,34 @@ fi
 
 # PACKAGE MANAGERS
 if command_exists pacman ; then
+  alias p="$SUDO pacman"
+  alias pql='pacman -Ql'
+  alias pqs='pacman -Qs'
+  alias pss='pacman -Ss'
+  alias psu='p -Syu'
+  alias pii='pacman -Sii'
+  alias psi='p -S --needed'
+  alias prs='p -Rs'
+  if command_exists yay ; then
+    alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
+    alias psuy='yay -Syua'
+    alias pssy='yay -Ss'
+    alias psiy='yay -Sa'
+    alias piiy='yay -Sii'
+  fi
+
   paclist() {
     pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
   }
 
-  alias p="$SUDO pacman"
-  alias pql='pacman -Ql'
-  alias pqs='pacman -Qs'
-  alias pas='pacman -Ss'
-  alias upg='p -Syu'
-  alias pii='pacman -Sii'
-  alias pai='p -S --needed'
-  alias par='p -Rs'
-  if command_exists yay ; then
-    alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
-    alias ypg='yay -Syua'
-    alias yss='yay -Ss'
-    alias yai='yay -Sa'
-    alias yii='yay -Sii'
-  fi
-
   recovery-pacman() {
     pacman "$@"  \
-         --log /dev/null   \
-         --noscriptlet     \
-         --dbonly          \
-         --force           \
-         --nodeps          \
-         --needed
+           --log /dev/null   \
+           --noscriptlet     \
+           --dbonly          \
+           --force           \
+           --nodeps          \
+           --needed
   }
 fi
 
@@ -376,15 +376,21 @@ if command_exists cargo || [ -d $HOME/.rustup ]; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  if ! command_exists cargo-expand; then
-    cargo install cargo-expand
-  fi
-  if ! command_exists cargo-audit; then
-    cargo install cargo-audit
-  fi
-  if ! command_exists cargo-outdated; then
-    cargo install cargo-outdated
-  fi
+  setup_cargo () {
+    rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
+    rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
+  }
+  setup_cargo_tools() {
+    if ! command_exists cargo-expand; then
+      cargo install cargo-expand
+    fi
+    if ! command_exists cargo-audit; then
+      cargo install cargo-audit
+    fi
+    if ! command_exists cargo-outdated; then
+      cargo install cargo-outdated
+    fi
+  }
 fi
 
 if [ -d /usr/src/rust ]; then
@@ -449,13 +455,13 @@ else
 fi
 if command_exists lf ; then
   lfcd () {
-      tmp="$(mktemp)"
-      lf -last-dir-path="$tmp" "$@"
-      if [ -f "$tmp" ]; then
-          dir="$(cat "$tmp")"
-          rm -f "$tmp"
-          [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-      fi
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+      dir="$(cat "$tmp")"
+      rm -f "$tmp"
+      [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
   }
   bind '"\C-o":"lfcd\n"'
 fi

@@ -9,12 +9,15 @@ zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 
 # END OF LINES ADDED BY COMPINSTALL
-setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST
+setopt AUTOCD EXTENDEDGLOB NOTIFY PROMPT_SUBST INTERACTIVE_COMMENTS
 setopt AUTO_NAME_DIRS CORRECTALL MAGIC_EQUAL_SUBST
 
 bindkey -e
 
 unsetopt nomatch # escape string fixing zsh: no matches found error
+
+autoload -U colors && colors
+
 autoload -Uz compinit
 compinit
 
