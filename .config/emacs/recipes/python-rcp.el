@@ -95,7 +95,7 @@
                                                      (insert-file-contents venv-path)
                                                      (string-trim(buffer-string))))))))))
     :hook
-    (python-mode . pyvenv-mode)
+    (python-mode . pyvenv-autoload)
     )
 )
 
@@ -108,9 +108,8 @@
     (lsp-pyright-auto-import-completions  t)
     (lsp-pyright-auto-search-paths        nil)
     :hook
-    (pyvenv-mode . (lambda ()
+    (python-mode . (lambda ()
                      (require 'lsp-pyright)
-                     (pyvenv-autoload)
                      (lsp-deferred))))  ; or lsp
 )
 

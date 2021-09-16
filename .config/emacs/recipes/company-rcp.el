@@ -39,11 +39,15 @@
     (company-backends '(
                         (
                          company-capf
+                         :with
                          company-yasnippet
-                         company-files
-                         company-dabbrev
+                         :with
                          company-dabbrev-code
-                         company-keywords
+                         :separate
+                         company-files
+                         :separate
+                         company-dabbrev
+                         :separate company-keywords
                         )
                         ))
     :bind(
@@ -52,6 +56,7 @@
       ("<backtab>" . (lambda() (interactive) (company-complete-common-or-cycle -1)))
       ("C-j" . company-select-next-or-abort)
       ("C-k" . company-select-previous-or-abort)
+      ("C-l" . company-other-backend)
       ("C-h" . nil)
       :map company-mode-map
       ("C-h" . nil)
@@ -60,6 +65,8 @@
 
 (use-package company-prescient
   :ensure t
+  :custom
+  (company-prescient-sort-length-enable t)
 )
 
 (provide 'company-rcp)

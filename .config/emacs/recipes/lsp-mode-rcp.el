@@ -8,6 +8,7 @@
   :custom
   (lsp-completion-provider                :none)
   (lsp-completion-show-detail             t)
+  (lsp-completion-sort-initial-results    t)
   (lsp-completion-show-kind               t)
   (lsp-diagnostics-provider               :flycheck)
   (lsp-enable-completion-at-point         t)

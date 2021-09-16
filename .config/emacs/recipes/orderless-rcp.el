@@ -42,9 +42,12 @@
     (setq-local orderless-matching-styles '(orderless-literal)
                 orderless-style-dispatchers nil))
   :config
-  (setq completion-styles             '(orderless)
+  (setq completion-styles             '(basic orderless)
         completion-category-defaults  nil
-        completion-category-overrides '((file (styles . (partial-completion)))))
+        completion-category-overrides '((file (styles orderless+initiallism))
+                                        (command (styles orderless+initialism))
+                                        (symbol (styles orderless+initialism))
+                                        (variable (styles orderless+initialism))))
   (advice-add 'company-capf--candidates :around #'vd/just-one-face)
   :custom
   (orderless-component-separator "[ &]")
