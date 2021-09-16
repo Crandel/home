@@ -140,6 +140,12 @@
   (compilation-window-height   10)
 )
 
+(use-package dabbrev
+  ;; Swap M-/ and C-M-/
+  :bind (("M-/" . dabbrev-completion)
+         ("C-M-/" . dabbrev-expand))
+)
+
 (use-package delsel
   :demand t
   :config
