@@ -38,15 +38,13 @@
     (selection-coding-system           'utf-8)
     (company-backends '(
                          company-capf
-                         :with company-yasnippet
+                         company-yasnippet
                          company-dabbrev-code
-                         :separate
                          company-files
-                         :separate
                          company-dabbrev
-                         :separate company-keywords
+                         company-keywords
                         )
-                        ))
+                        )
     :bind(
       :map company-active-map
       ("<tab>" . company-complete-common-or-cycle)
