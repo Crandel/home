@@ -42,12 +42,14 @@
     (setq-local orderless-matching-styles '(orderless-literal)
                 orderless-style-dispatchers nil))
   :config
-  (setq completion-styles             '(basic orderless)
+  (setq completion-styles             '(orderless)
         completion-category-defaults  nil
-        completion-category-overrides '((file (styles orderless+initiallism))
-                                        (command (styles orderless+initialism))
-                                        (symbol (styles orderless+initialism))
-                                        (variable (styles orderless+initialism))))
+        completion-category-overrides nil
+        ;; completion-category-overrides '((file (styles orderless+initiallism))
+        ;;                                 (command (styles orderless+initialism))
+        ;;                                 (symbol (styles orderless+initialism))
+        ;;                                 (variable (styles orderless+initialism)))
+        )
   (advice-add 'company-capf--candidates :around #'vd/just-one-face)
   :custom
   (orderless-component-separator "[ &]")

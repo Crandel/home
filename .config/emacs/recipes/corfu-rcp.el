@@ -12,8 +12,8 @@
   (corfu-quit-no-match    t)
   (corfu-auto-prefix      1)
   (corfu-auto-delay       0.2)
-  ;; (copletion-at-point-functions '(elisp-completion-at-point comint--complete-file-name-data)
-  ;;                               comint-completion-addsuffix nil)
+  (completion-at-point-functions '(elisp-completion-at-point comint--complete-file-name-data)
+                                 comint-completion-addsuffix nil)
 
 )
 

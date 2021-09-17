@@ -5,13 +5,13 @@
     :ensure t
     :defer 0.1
     :init
-    ;; (defun my-sort-uppercase (candidates)
-    ;;   (let (case-fold-search
-    ;;         (re "\\`[[:upper:]]*\\'"))
-    ;;     (sort candidates
-    ;;           (lambda (s1 s2)
-    ;;             (and (string-match-p re s2)
-    ;;                  (not (string-match-p re s1)))))))
+    (defun my-sort-uppercase (candidates)
+      (let (case-fold-search
+            (re "\\`[[:upper:]]*\\'"))
+        (sort candidates
+              (lambda (s1 s2)
+                (and (string-match-p re s2)
+                     (not (string-match-p re s1)))))))
     (defun my-change-company-backends (backend)
       (unless (member backend (car company-backends))
         (setq comp-back (car company-backends))
@@ -19,7 +19,7 @@
         (setq company-backends (list comp-back)))
       )
     :config
-    ;; (push 'my-sort-uppercase company-transformers)
+    (push 'my-sort-uppercase company-transformers)
     (global-company-mode t)
     (bind-chord "ew" 'company-abort 'company-active-map)
     :custom
@@ -37,11 +37,8 @@
     (delete-selection-mode             t)
     (selection-coding-system           'utf-8)
     (company-backends '(
-                        (
                          company-capf
-                         :with
-                         company-yasnippet
-                         :with
+                         :with company-yasnippet
                          company-dabbrev-code
                          :separate
                          company-files

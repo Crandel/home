@@ -22,6 +22,14 @@
   (vertico-mode)
 )
 
+(use-package vertico-directory
+  :load-path "vertico/extensions"
+  :bind
+  (:map vertico-map
+        ([left] . vertico-directory-up)
+        )
+  )
+
 (provide 'vertico-rcp)
 
 ;;; Commentary:
