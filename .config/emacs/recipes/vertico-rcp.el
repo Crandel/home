@@ -28,7 +28,7 @@
   (:map vertico-map
         ([left] . vertico-directory-up)
         )
-  )
+)
 
 (provide 'vertico-rcp)
 
