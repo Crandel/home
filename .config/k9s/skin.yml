@@ -17,7 +17,7 @@ k9s:
     bgColor: *background
     logoColor: *blue
   info:
-    fgColor: *magenta
+    fgColor: *orange
     sectionColor: *foreground
   dialog:
     fgColor: *foreground
@@ -34,8 +34,8 @@ k9s:
       focusColor: *current_line
     menu:
       fgColor: *foreground
-      keyColor: *magenta
-      numKeyColor: *magenta
+      keyColor: *current_line
+      numKeyColor: *blue
     crumbs:
       fgColor: *foreground
       bgColor: *comment

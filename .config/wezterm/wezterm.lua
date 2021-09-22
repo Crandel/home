@@ -112,5 +112,5 @@ return {
   scrollback_lines = 150000,
   tab_max_width = 46,
   text_background_opacity = 1.0,
-  window_background_opacity = 0.9,
+  window_background_opacity = 1.0,
 }

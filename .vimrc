@@ -108,7 +108,9 @@ let &t_EI = "\<Esc>[2 q"
 
 " MAPS
 vnoremap <C-c> "+y            " copy selected text Ctrl+c
+" nnoremap : ;
 nnoremap ; :
+" vnoremap : ;
 vnoremap ; :
 
 " previous buffer
@@ -151,19 +153,21 @@ endif
 
 " Comment section
 let s:comment_map = {
+    \   "bash": '# ',
     \   "c": '// ',
     \   "cpp": '// ',
+    \   "el": '; ',
     \   "go": '// ',
     \   "java": '// ',
     \   "javascript": '// ',
     \   "php": '// ',
     \   "python": '# ',
     \   "ruby": '# ',
-    \   "vim": '" ',
-    \   "bash": '# ',
-    \   "sh": '# ',
+    \   "rust": '// ',
     \   "scala": '// ',
-    \   "el": '; ',
+    \   "sh": '# ',
+    \   "vim": '" ',
+    \   "yaml": '# ',
     \ }
 
 function! CommentToggle()
@@ -177,11 +181,12 @@ function! CommentToggle()
         execute "silent s/^/" . comment_leader . "/"
       endif
   else
-    echo "No comment leader found for filetype"
+    echo "No comment leader found for filetype $filetype"
   end
 endfunction
 
 noremap <M-;> :call CommentToggle()<cr>
+noremap gc :call CommentToggle()<cr>
 
 " tab section
 " virtual tabstops using spaces

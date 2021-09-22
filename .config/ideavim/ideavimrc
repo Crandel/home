@@ -12,5 +12,6 @@ set ReplaceWithRegister
 let g:argtextobj_pairs="[:],(:),<:>"
 
 map <leader> <Plug>(easymotion-prefix)
-imap jj <Esc>
+map <leader>f <Action>(AceAction)
+imap jk <Esc>
 set timeoutlen=1000
