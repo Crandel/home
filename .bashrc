@@ -603,6 +603,7 @@ if command_exists fzf ; then
 else
   echo "install fzf"
 fi
+
 if command_exists lf ; then
   lfcd () {
     tmp="$(mktemp)"
@@ -656,7 +657,7 @@ clean_pyc (){
 ### Determine active Python virtualenv details.
 set_virtualenv () {
   if [ ! -z "$PYENV_VIRTUAL_ENV" ] ; then
-    PYTHON_VIRTUALENV=" %YELLOW[$(pyenv version-name)]%NORMAL"
+    PYTHON_VIRTUALENV=" ${YELLOW}[$(pyenv version-name)]${NORMAL}"
   fi
 }
 ## END PYTHON
