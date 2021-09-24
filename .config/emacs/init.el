@@ -77,6 +77,7 @@
 ;(require 'multiple-cursors-rcp)
 ;; (require 'mini-frame-rcp)
 (require 'orderless-rcp)
+(require 'org-mode-rcp)
 ;(require 'org-jira-rcp)
 (require 'pkgbuild-rcp)
 (require 'projectile-rcp)
