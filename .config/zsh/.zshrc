@@ -168,9 +168,10 @@ set_zsh_prompt () {
   [[ $SSH_CONNECTION ]] && local uath='%F{white}@%M%f'
   PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f${uath} %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
 }
-bindkey -v
+bindkey -e
 # bindkey 'jk'      exit_insert_mode
-bindkey '^v'      edit-command-line
+bindkey "^h"      edit-command-line
+bindkey "^["      vi-cmd-mode
 # \e[A arrow up
 # \e[B arrow down
 # \e[C arrow right
