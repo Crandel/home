@@ -11,6 +11,12 @@
   :after org
 )
 
+(use-package org-bullets
+  :ensure t
+  :after org
+  :hook (org-mode . org-bullets-mode)
+)
+
 (provide 'org-mode-rcp)
 ;;; Commentary:
 ;;
