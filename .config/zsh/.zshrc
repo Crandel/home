@@ -98,7 +98,7 @@ plugin_init() {
         blockf \
           zsh-users/zsh-completions \
         atload"!_zsh_autosuggest_start" \
-        atinit"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,bold,bg=bold,underline'" \
+        atinit"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,bold,underline'" \
           zsh-users/zsh-autosuggestions as"completion" \
         has'docker' \
           OMZP::docker/_docker \
