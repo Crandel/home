@@ -123,7 +123,8 @@ vmap <F6> <Esc>:bn<CR>i
 imap <F6> <Esc>:bn<CR>i
 
 " JSON PRETTIFY
-nnoremap <leader>jp :%!python -m json.tool<cr>
+autocmd FileType json nnoremap <leader>jp :%!python -m json.tool<cr>
+autocmd FileType python nnoremap gb oi import pdb; pdb.set_trace()
 
 nmap ] }
 nmap [ {
@@ -131,16 +132,15 @@ nmap [ {
 inoremap jk <Esc>
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
-noremap <leader>s :ls -la<CR>
+nnoremap <leader>f :!ls -la<CR>
 nnoremap <leader>/ :Grep<Space>
 nnoremap <leader>k :bd<CR>
 nnoremap <leader>d yyp<CR>
 nnoremap <leader>l yy<CR>
 nnoremap <Leader>b :ls<CR>:b<Space>
 
-nnoremap ;Q :quit<CR>
-nnoremap <C-x> :quit<CR>
-nnoremap <leader>q :quit
+nnoremap <C-x C-c> :quit<CR>
+nnoremap <leader>q :quit<CR>
 " nnoremap <NUL> :%s/\s\+$//e
 
 " The Silver Searcher

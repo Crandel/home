@@ -81,6 +81,7 @@ The return value is the yanked text."
   :map evil-normal-state-map
   ("q"   . nil)
   ("f"   . evil-avy-goto-char)
+  ("gc"  . comment-dwim)
   ("M-." . xref-find-definitions)
   ("M-," . xref-find-references)
   ("C-p" . nil)
