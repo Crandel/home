@@ -57,6 +57,7 @@ exec_always {
   gsettings set $gnome-interface text-scaling-factor 1.0
   gsettings set $gnome-sound theme-name 'deepin'
 }
+
 seat seat0 xcursor_theme capitaine-cursors 30
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

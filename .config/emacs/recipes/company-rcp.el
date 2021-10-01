@@ -37,9 +37,9 @@
     (delete-selection-mode             t)
     (selection-coding-system           'utf-8)
     (company-backends '(
-                         company-capf
-                         company-yasnippet
-                         company-dabbrev-code
+                         (company-capf
+                         :with company-yasnippet
+                         company-dabbrev-code)
                          company-files
                          company-dabbrev
                          company-keywords
