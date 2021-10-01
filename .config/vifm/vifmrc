@@ -352,33 +352,34 @@ if executable('highlight')
     fileviewer ?vi*rc               highlight -O xterm256 -s dante --syntax vimscript %c
     fileviewer Makefile*            highlight -O xterm256 -s dante --syntax make      %c
     fileviewer [Dd]ocker*           highlight -O xterm256 -s dante --syntax docker    %c
-elseif executable('pygmentize')
-    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f=console257 -l c         %c
-    fileviewer *.cmake              pygmentize -O -f=console256 -l cmake     %c
-    fileviewer *.css                pygmentize -O -f=console256 -l css       %c
-    fileviewer *.el,*.cl            pygmentize -O -f=console256 -l lisp      %c
-    fileviewer *.hs,lhs             pygmentize -O -f=console256 -l haskell   %c
-    fileviewer *.html               pygmentize -O -f=console256 -l html      %c
-    fileviewer *.java               pygmentize -O -f=console256 -l java      %c
-    fileviewer *.kt,*.kts           pygmentize -O -f=console256 -l kotlin    %c
-    fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
-    fileviewer *.md,*.markdown      pygmentize -O -f=console256 -l markdown  %c
-    fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
-    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
-    fileviewer *.sql,*.psql         pygmentize -O -f=console256 -l sql       %c
-    fileviewer *.toml               pygmentize -O -f=console256 -l toml      %c
-    fileviewer *.xml                pygmentize -O -f=console256 -l xml       %c
-    fileviewer ?vi*rc               pygmentize -O -f=console256 -l vimscript %c
-    fileviewer ?*.go                pygmentize -O -f=console256 -l go        %c
-    fileviewer ?*.ini               pygmentize -O -f=console256 -l ini       %c
-    fileviewer ?*.js                pygmentize -O -f=console256 -l js        %c
-    fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
-    fileviewer ?*.lua               pygmentize -O -f=console256 -l lua       %c
-    fileviewer ?*.py                pygmentize -O -f=console256 -l python    %c
-    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O -f=console256 -l sh        %c
-    fileviewer ?*.y*ml              pygmentize -O -f=console256 -l yaml      %c
-    fileviewer Makefile*            pygmentize -O -f=console256 -l make      %c
-    fileviewer [Dd]ocker*           pygmentize -O -f=console256 -l docker    %c
+endif
+if executable('pygmentize')
+    fileviewer *.[ch],*.[ch]pp      pygmentize -O style=colorful -f console16m -l c         %c
+    fileviewer *.cmake              pygmentize -O style=colorful -f console16m -l cmake     %c
+    fileviewer *.css                pygmentize -O style=colorful -f console16m -l css       %c
+    fileviewer *.el,*.cl            pygmentize -O style=colorful -f console16m -l lisp      %c
+    fileviewer *.hs,lhs             pygmentize -O style=colorful -f console16m -l haskell   %c
+    fileviewer *.html               pygmentize -O style=colorful -f console16m -l html      %c
+    fileviewer *.java               pygmentize -O style=colorful -f console16m -l java      %c
+    fileviewer *.kt,*.kts           pygmentize -O style=colorful -f console16m -l kotlin    %c
+    fileviewer *.lua,?*.lua         pygmentize -O style=colorful -f console16m -l lua       %c
+    fileviewer *.md,*.markdown      pygmentize -O style=colorful -f console16m -l markdown  %c
+    fileviewer *.rs,*.rust          pygmentize -O style=colorful -f console16m -l rust      %c
+    fileviewer *.sc,*.scala,*.sbt   pygmentize -O style=colorful -f console16m -l scala     %c
+    fileviewer *.sql,*.psql         pygmentize -O style=colorful -f console16m -l sql       %c
+    fileviewer *.toml               pygmentize -O style=colorful -f console16m -l toml      %c
+    fileviewer *.xml                pygmentize -O style=colorful -f console16m -l xml       %c
+    fileviewer ?vi*rc               pygmentize -O style=colorful -f console16m -l vimscript %c
+    fileviewer ?*.go                pygmentize -O style=colorful -f console16m -l go        %c
+    fileviewer ?*.ini               pygmentize -O style=colorful -f console16m -l ini       %c
+    fileviewer ?*.js                pygmentize -O style=colorful -f console16m -l js        %c
+    fileviewer ?*.json              pygmentize -O style=colorful -f console16m -l json      %c
+    fileviewer ?*.lua               pygmentize -O style=colorful -f console16m -l lua       %c
+    fileviewer ?*.py                pygmentize -O style=colorful -f console16m -l python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O style=colorful -f console16m -l sh        %c
+    fileviewer ?*.y*ml              pygmentize -O style=colorful -f console16m -l yaml      %c
+    fileviewer Makefile*            pygmentize -O style=colorful -f console16m -l make      %c
+    fileviewer [Dd]ocker*           pygmentize -O style=colorful -f console16m -l docker    %c
 endif
 " 16-color terminal
 " fileviewer *.c,*.h highlight -O ansi -s dante %c
@@ -389,13 +390,16 @@ endif
 
 " Other fileviewers
 fileviewer *.7z 7z l %c
+
 fileviewer *.[1-8] man ./%c | col -b
+
 fileviewer *.html links %c
 
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]
   \ ffprobe -pretty %c 2>&1
+
 fileviewer *.png,*.jpeg,*.jpg
   \ env -u COLORTERM viu -w %pw -h %ph -s %c
 
@@ -544,7 +548,15 @@ set grepprg='rg --vimgrep %i %a %s'
 
 " From mc: <Ctrl-s> fuzzy search in current directory
 command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
+command! FZFzoxide :set noquickview
+         \| let ZOXIDE_PICK = system('__zoxide_zi 2>/dev/tty ')
+         \| if $ZOXIDE_PICK != ''
+         \|   execute 'goto' fnameescape($ZOXIDE_PICK)
+         \| endif
+         \| redraw
+
 nnoremap <c-s> :FZFfind<cr>
+nnoremap J :FZFzoxide<cr>
 
 " From mc: <Atl-i> cd to the same path as inactive directory
 :nnoremap <a-i> :cd %D<cr>
