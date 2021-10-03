@@ -326,63 +326,62 @@ filetype * xdg-open
 " Explicitly set highlight type for some extensions
 " 256-color terminal
 if executable('highlight')
-    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c         %c
-    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake     %c
-    fileviewer *.css                highlight -O xterm256 -s dante --syntax css       %c
-    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp      %c
-    fileviewer *.html               highlight -O xterm256 -s dante --syntax html      %c
-    fileviewer *.java               highlight -O xterm256 -s dante --syntax java      %c
-    fileviewer *.kt,*.kts           highlight -O xterm256 -s dante --syntax kotlin    %c
-    fileviewer *.md,*.markdown      highlight -O xterm256 -s dante --syntax markdown  %c
-    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust      %c
-    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala     %c
-    fileviewer *.sql,*.psql         highlight -O xterm256 -s dante --syntax sql       %c
-    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml      %c
-    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml       %c
-    fileviewer ?*.conf              highlight -O xterm256 -s dante --syntax conf      %c
-    fileviewer ?*.go                highlight -O xterm256 -s dante --syntax go        %c
-    fileviewer ?*.ini               highlight -O xterm256 -s dante --syntax ini       %c
-    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js        %c
-    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json      %c
-    fileviewer ?*.lua               highlight -O xterm256 -s dante --syntax lua       %c
-    fileviewer ?*.py                highlight -O xterm256 -s dante --syntax python    %c
-    fileviewer ?*.sh,?*.*sh,.*shrc  highlight -O xterm256 -s dante --syntax sh        %c
-    fileviewer ?*.vue               highlight -O xterm256 -s dante --syntax vue       %c
-    fileviewer ?*.y*ml,             highlight -O xterm256 -s dante --syntax yaml      %c
-    fileviewer ?vi*rc               highlight -O xterm256 -s dante --syntax vimscript %c
-    fileviewer Makefile*            highlight -O xterm256 -s dante --syntax make      %c
-    fileviewer [Dd]ocker*           highlight -O xterm256 -s dante --syntax docker    %c
-endif
-if executable('pygmentize')
-    fileviewer *.[ch],*.[ch]pp      pygmentize -O style=colorful -f console16m -l c         %c
-    fileviewer *.cmake              pygmentize -O style=colorful -f console16m -l cmake     %c
-    fileviewer *.css                pygmentize -O style=colorful -f console16m -l css       %c
-    fileviewer *.el,*.cl            pygmentize -O style=colorful -f console16m -l lisp      %c
-    fileviewer *.hs,lhs             pygmentize -O style=colorful -f console16m -l haskell   %c
-    fileviewer *.html               pygmentize -O style=colorful -f console16m -l html      %c
-    fileviewer *.java               pygmentize -O style=colorful -f console16m -l java      %c
-    fileviewer *.kt,*.kts           pygmentize -O style=colorful -f console16m -l kotlin    %c
-    fileviewer *.lua,?*.lua         pygmentize -O style=colorful -f console16m -l lua       %c
-    fileviewer *.md,*.markdown      pygmentize -O style=colorful -f console16m -l markdown  %c
-    fileviewer *.rs,*.rust          pygmentize -O style=colorful -f console16m -l rust      %c
-    fileviewer *.sc,*.scala,*.sbt   pygmentize -O style=colorful -f console16m -l scala     %c
-    fileviewer *.sql,*.psql         pygmentize -O style=colorful -f console16m -l sql       %c
-    fileviewer *.toml               pygmentize -O style=colorful -f console16m -l toml      %c
-    fileviewer *.xml                pygmentize -O style=colorful -f console16m -l xml       %c
-    fileviewer ?vi*rc               pygmentize -O style=colorful -f console16m -l vimscript %c
-    fileviewer ?*.go                pygmentize -O style=colorful -f console16m -l go        %c
-    fileviewer ?*.ini               pygmentize -O style=colorful -f console16m -l ini       %c
-    fileviewer ?*.js                pygmentize -O style=colorful -f console16m -l js        %c
-    fileviewer ?*.json              pygmentize -O style=colorful -f console16m -l json      %c
-    fileviewer ?*.lua               pygmentize -O style=colorful -f console16m -l lua       %c
-    fileviewer ?*.py                pygmentize -O style=colorful -f console16m -l python    %c
-    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O style=colorful -f console16m -l sh        %c
-    fileviewer ?*.y*ml              pygmentize -O style=colorful -f console16m -l yaml      %c
-    fileviewer Makefile*            pygmentize -O style=colorful -f console16m -l make      %c
-    fileviewer [Dd]ocker*           pygmentize -O style=colorful -f console16m -l docker    %c
+    fileviewer *.[ch],*.[ch]pp      highlight -O truecolor -s edit-vim-dark --syntax c         %c
+    fileviewer *.cmake              highlight -O truecolor -s edit-vim-dark --syntax cmake     %c
+    fileviewer *.css                highlight -O truecolor -s edit-vim-dark --syntax css       %c
+    fileviewer *.el,*.cl            highlight -O truecolor -s edit-vim-dark --syntax lisp      %c
+    fileviewer *.html               highlight -O truecolor -s edit-vim-dark --syntax html      %c
+    fileviewer *.java               highlight -O truecolor -s edit-vim-dark --syntax java      %c
+    fileviewer *.kt,*.kts           highlight -O truecolor -s edit-vim-dark --syntax kotlin    %c
+    fileviewer *.md,*.markdown      highlight -O truecolor -s edit-vim-dark --syntax markdown  %c
+    fileviewer *.rs,*.rust          highlight -O truecolor -s edit-vim-dark --syntax rust      %c
+    fileviewer *.sc,*.scala,*.sbt   highlight -O truecolor -s edit-vim-dark --syntax scala     %c
+    fileviewer *.sql,*.psql         highlight -O truecolor -s edit-vim-dark --syntax sql       %c
+    fileviewer *.toml               highlight -O truecolor -s edit-vim-dark --syntax toml      %c
+    fileviewer *.xml                highlight -O truecolor -s edit-vim-dark --syntax xml       %c
+    fileviewer ?*.conf              highlight -O truecolor -s edit-vim-dark --syntax conf      %c
+    fileviewer ?*.go                highlight -O truecolor -s edit-vim-dark --syntax go        %c
+    fileviewer ?*.ini               highlight -O truecolor -s edit-vim-dark --syntax ini       %c
+    fileviewer ?*.js                highlight -O truecolor -s edit-vim-dark --syntax js        %c
+    fileviewer ?*.json              highlight -O truecolor -s edit-vim-dark --syntax json      %c
+    fileviewer ?*.lua               highlight -O truecolor -s edit-vim-dark --syntax lua       %c
+    fileviewer ?*.py                highlight -O truecolor -s edit-vim-dark --syntax python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  highlight -O truecolor -s edit-vim-dark --syntax sh        %c
+    fileviewer ?*.vue               highlight -O truecolor -s edit-vim-dark --syntax vue       %c
+    fileviewer ?*.y*ml,             highlight -O truecolor -s edit-vim-dark --syntax yaml      %c
+    fileviewer ?vi*rc               highlight -O truecolor -s edit-vim-dark --syntax vimscript %c
+    fileviewer Makefile*            highlight -O truecolor -s edit-vim-dark --syntax make      %c
+    fileviewer [Dd]ocker*           highlight -O truecolor -s edit-vim-dark --syntax docker    %c
+elseif executable('pygmentize')
+    fileviewer *.[ch],*.[ch]pp      pygmentize -O style=monokai -f console16m -l c         %c
+    fileviewer *.cmake              pygmentize -O style=monokai -f console16m -l cmake     %c
+    fileviewer *.css                pygmentize -O style=monokai -f console16m -l css       %c
+    fileviewer *.el,*.cl            pygmentize -O style=monokai -f console16m -l lisp      %c
+    fileviewer *.hs,lhs             pygmentize -O style=monokai -f console16m -l haskell   %c
+    fileviewer *.html               pygmentize -O style=monokai -f console16m -l html      %c
+    fileviewer *.java               pygmentize -O style=monokai -f console16m -l java      %c
+    fileviewer *.kt,*.kts           pygmentize -O style=monokai -f console16m -l kotlin    %c
+    fileviewer *.lua,?*.lua         pygmentize -O style=monokai -f console16m -l lua       %c
+    fileviewer *.md,*.markdown      pygmentize -O style=monokai -f console16m -l markdown  %c
+    fileviewer *.rs,*.rust          pygmentize -O style=monokai -f console16m -l rust      %c
+    fileviewer *.sc,*.scala,*.sbt   pygmentize -O style=monokai -f console16m -l scala     %c
+    fileviewer *.sql,*.psql         pygmentize -O style=monokai -f console16m -l sql       %c
+    fileviewer *.toml               pygmentize -O style=monokai -f console16m -l toml      %c
+    fileviewer *.xml                pygmentize -O style=monokai -f console16m -l xml       %c
+    fileviewer ?vi*rc               pygmentize -O style=monokai -f console16m -l vimscript %c
+    fileviewer ?*.go                pygmentize -O style=monokai -f console16m -l go        %c
+    fileviewer ?*.ini               pygmentize -O style=monokai -f console16m -l ini       %c
+    fileviewer ?*.js                pygmentize -O style=monokai -f console16m -l js        %c
+    fileviewer ?*.json              pygmentize -O style=monokai -f console16m -l json      %c
+    fileviewer ?*.lua               pygmentize -O style=monokai -f console16m -l lua       %c
+    fileviewer ?*.py                pygmentize -O style=monokai -f console16m -l python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O style=monokai -f console16m -l sh        %c
+    fileviewer ?*.y*ml              pygmentize -O style=monokai -f console16m -l yaml      %c
+    fileviewer Makefile*            pygmentize -O style=monokai -f console16m -l make      %c
+    fileviewer [Dd]ocker*           pygmentize -O style=monokai -f console16m -l docker    %c
 endif
 " 16-color terminal
-" fileviewer *.c,*.h highlight -O ansi -s dante %c
+" fileviewer *.c,*.h highlight -O ansi -s edit-vim-dark %c
 "
 " Or leave it for automatic detection
 "

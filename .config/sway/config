@@ -333,7 +333,7 @@ bar {
 }
 
 # gaps
-default_border pixel 2
+default_border pixel 0
 smart_borders on
 smart_gaps on
 gaps inner 2
