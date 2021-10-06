@@ -100,9 +100,10 @@ plugin_init() {
         atload"!_zsh_autosuggest_start" \
         atinit"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,bold,underline'" \
           zsh-users/zsh-autosuggestions as"completion" \
-        has'docker' \
+        has'docker' as"completion" \
           OMZP::docker/_docker \
-        has'docker-compose' \
+        has'docker-compose' as"completion" \
+          OMZP::docker-compose/_docker-compose \
           OMZP::docker-compose \
         has'git' \
           OMZP::git \

@@ -69,10 +69,8 @@ fi
 if command_exists docker ; then
   alias d='docker'
   compdef d='docker'
-  alias dc='docker-compose'
-  compdef dc='docker-compose'
-  alias dl='docker-compose logs --tail 15'
-  alias drun='docker-compose stop && docker-compose run --service-ports'
+  alias dc='docker compose'
+  alias drun='dc stop && dc run --service-ports'
   alias dst='d stop $(d ps -q)'
   alias drm='d rm $(d ps -aq)'
   alias dvrm='d volume rm $(d volume ls -q)'
