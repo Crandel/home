@@ -15,6 +15,9 @@ set {
 
   $laptop eDP-1
   # $left_out "HDMI model"
+  $t_pos move position center, resize set width 100 ppt height 100 ppt
+  $terminal_launch scratchpad show || exec $term, $t_pos
+  $other_terminal_launch scratchpad show || exec $other_term, $t_pos
 }
 
 output {
@@ -69,38 +72,44 @@ floating_modifier $mod normal
 
 workspace_layout tabbed
 
-workspace 1 output $laptop
-workspace 2 output $laptop
-# workspace 3 output $left_out
-# workspace 4 output $right_out
+workspace {
+  1 output $laptop
+  2 output $laptop
+  # 3 output $left_out
+  # 4 output $right_out
+}
 
 # assings
-assign [app_id="com.github.rssguard"] 2
-assign [app_id="discord"] 4
-assign [app_id="evolution"] 2
-assign [app_id="telegramdesktop"] 2
-assign [app_id="thunderbird"] 2
-assign [class="(?i)Discord"] 4
-assign [class="(?i)Evolution"] 2
-assign [class="(?i)RSS Guard"] 2
-assign [class="(?i)Signal"] 2
-assign [class="(?i)Slack"] 3
-assign [class="(?i)TelegramDesktop"] 2
-assign [class="(?i)Viber"] 2
+assign {
+  [app_id="com.github.rssguard"] 2
+  [app_id="discord"] 4
+  [app_id="evolution"] 2
+  [app_id="telegramdesktop"] 2
+  [app_id="thunderbird"] 2
+  [class="(?i)Discord"] 4
+  [class="(?i)Evolution"] 2
+  [class="(?i)RSS Guard"] 2
+  [class="(?i)Signal"] 2
+  [class="(?i)Slack"] 3
+  [class="(?i)TelegramDesktop"] 2
+  [class="(?i)Viber"] 2
+}
 
-for_window [shell="xwayland"] title_format "%title [XWayland]"
-for_window [app_id="firefox"] inhibit_idle fullscreen
-for_window [app_id="mpv"] inhibit_idle fullscreen
-for_window [app_id="Vivaldi-stable"] inhibit_idle fullscreen
-for_window [app_id="ulauncher"] floating enable, border none
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="bubble"] floating enable
-for_window [window_role="dialog"] floating enable
-for_window [window_type="dialog"] floating enable
+for_window {
+  [shell="xwayland"] title_format "%title [XWayland]"
+  [app_id="firefox"] inhibit_idle fullscreen
+  [app_id="mpv"] inhibit_idle fullscreen
+  [app_id="Vivaldi-stable"] inhibit_idle fullscreen
+  [app_id="ulauncher"] floating enable, border none
+  [window_role="pop-up"] floating enable
+  [window_role="bubble"] floating enable
+  [window_role="dialog"] floating enable
+  [window_type="dialog"] floating enable
+  # terminal
+  [app_id=$term_id] move to scratchpad, scratchpad show, $t_pos
+  [app_id=$other_term_id] move to scratchpad, scratchpad show, t_pos
+}
 
-# terminal
-for_window [app_id=$term_id] move to scratchpad, scratchpad show, resize set width 98 ppt height 98 ppt
-for_window [app_id=$other_term_id] move to scratchpad, scratchpad show, resize set width 98 ppt height 98 ppt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -131,9 +140,9 @@ mode "resize" {
 bindsym --to-code {
 
   # Terminal
-  F1 exec swaymsg [app_id=$term_id] scratchpad show || exec $term, move position center, resize set width 98 ppt height 98 ppt
+  F1 exec swaymsg [app_id=$term_id] $terminal_launch
   # F1 exec $term --quake
-  $mod+F1 exec swaymsg [app_id=$other_term_id] scratchpad show || exec $other_term, move position center, resize set width 98 ppt height 98 ppt
+  $mod+F1 exec swaymsg [app_id=$other_term_id] $other_terminal_launch
 
   # kill focused window
   $mod+q kill
@@ -336,8 +345,10 @@ bar {
 default_border pixel 0
 smart_borders on
 smart_gaps on
-gaps inner 2
-gaps outer 2
+gaps {
+  inner 2
+  outer 2
+}
 
 # my settings
 # class                 border   backgr.   text    indicator  child border
@@ -368,8 +379,8 @@ exec hash dbus-update-activation-environment 2>/dev/null \
                                                   XDG_CURRENT_DESKTOP \
                                                   XDG_SESSION_TYPE
 exec --no-startup-id wl-paste -t text --watch clipman.sh &
-exec --no-startup-id libinput-gestures -c ~/.config/libinput-gestures/sway.conf &
-exec $term, resize set width 98 ppt height 98 ppt
+exec systemctl --user start libinput-gestures.service &
+exec $term, $t_pos
 exec swaykbdd
 exec network-startup
 exec swayidle \

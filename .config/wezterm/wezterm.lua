@@ -26,7 +26,7 @@ return {
     -- of the color of the vertical or horizontal bar when the cursor style is set to
     -- Bar or Underline.
     -- cursor_border = "#EBDBB2",
-    cursor_blink_rate = 8000,
+    -- cursor_blink_rate = 8000,
     -- the foreground color of selected text
     selection_fg = "#333333",
     -- the background color of selected text

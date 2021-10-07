@@ -87,7 +87,7 @@ idle_bg="#355325AA"
 device = "DisplayDevice"
 block = "battery"
 driver = "upower"
-format = "{percentage:0} {time:0}"
+format = "{percentage:0}"
 full_format = ""
 #interval = 60
 [block.theme_overrides]
