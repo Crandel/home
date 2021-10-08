@@ -3,7 +3,7 @@ local wezterm = require 'wezterm';
 wezterm.on("toggle-opacity", function(window, pane)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
-    overrides.window_background_opacity = 1.0;
+    overrides.window_background_opacity = 0.9;
   else
     overrides.window_background_opacity = nil
   end
@@ -11,45 +11,40 @@ wezterm.on("toggle-opacity", function(window, pane)
 end)
 
 return {
+  color_scheme = "Gruvbox Dark Hard",
+  color_schemes = {
+    ["Gruvbox Dark Hard"] = {
+      foreground = "#E6D4A3",
+      background = "#1E1E1E",
+      cursor_bg = "#1E1E1E",
+      cursor_border = "#EBDBB2",
+      cursor_fg = "#FFDDCC",
+      selection_bg = "#EBDBB2",
+      selection_fg = "#333333",
+
+      ansi = {"#282828","#CC241D","#98971A","#D79921","#458588","#B16286","#689D6A","#A89984"},
+      brights = {"#928374","#FB4934","#B8BB26","#FABD2F","#83A598","#D3869B","#8EC07C","#EBDBB2"},
+      indexed = {
+        [24]  = "#076678", [66]  = "#458588", [72]  = "#689D6A", [88]  = "#9D0006", [96]  = "#8F3F71",
+        [100] = "#79740E", [106] = "#98971A", [108] = "#8EC07C", [109] = "#83A598", [124] = "#CC241D",
+        [130] = "#AF3A03", [132] = "#B16286", [136] = "#B57614", [142] = "#B8BB26", [166] = "#D65D0E",
+        [167] = "#FB4934", [172] = "#D79921", [175] = "#D3869B", [208] = "#FE8019", [214] = "#FABD2F",
+        [223] = "#EBDBB2", [228] = "#F2E5BC", [229] = "#FBF1C7", [230] = "#F9F5D7", [234] = "#1D2021",
+        [235] = "#282828", [236] = "#32302F", [237] = "#3C3836", [239] = "#504945", [241] = "#665C54",
+        [243] = "#7C6F64", [244] = "#928374", [245] = "#928374", [246] = "#A89984", [248] = "#BDAE93",
+        [250] = "#D5C4A1"
+      }
+    }
+  },
+  cursor_blink_rate = 8000,
   colors = {
-    -- The default text color
-    foreground = "#E6D4A3",
-    -- The default background color
-    background = "#1E1E1E",
-
-    -- Overrides the cell background color when the current cell is occupied by the
-    -- cursor and the cursor style is set to Block
-    cursor_bg = "#1E1E1E",
-    -- Overrides the text color when the current cell is occupied by the cursor
-    cursor_fg = "#FFDDCC",
-    -- Specifies the border color of the cursor when the cursor style is set to Block,
-    -- of the color of the vertical or horizontal bar when the cursor style is set to
-    -- Bar or Underline.
-    -- cursor_border = "#EBDBB2",
-    -- cursor_blink_rate = 8000,
-    -- the foreground color of selected text
-    selection_fg = "#333333",
-    -- the background color of selected text
-    selection_bg = "#EBDBB2",
-
-    -- The color of the scrollbar "thumb"; the portion that represents the current viewport
-    scrollbar_thumb = "#333333",
-
-    -- The color of the split lines between panes
-    split = "#444444",
-
-    ansi = {"#1E1E1E","#BE0F17","#868715","#CC881A","#377375","#A04B73","#578E57","#978771"},
-    brights = {"#7F7061","#F73028","#AAB01E","#F7B125","#719586","#C77089","#7DB669","#E6D4A3"},
-    -- Arbitrary colors of the palette in the range from 16 to 255
-    indexed = {[136] = "#AF8700"},
-
     tab_bar = {
       -- The active tab is the one that has focus in the window
       active_tab = {
         -- The color of the background area for the tab
         bg_color = "#AF8700",
         -- The color of the text for the tab
-        fg_color = "#E6D4A3",
+        fg_color = "#EBDBB2",
         -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
         -- label shown for this tab.
         -- The default is "Normal"
@@ -68,7 +63,7 @@ return {
         strikethrough = false,
       },
       -- The color of the strip that goes along the top of the window
-      background = "#1d2021",
+      background = "#1D2021",
       -- Inactive tabs are the tabs that do not have focus
       inactive_tab = {
         bg_color = "#181907",

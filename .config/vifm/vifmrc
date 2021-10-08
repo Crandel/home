@@ -399,8 +399,14 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.as[fx]
   \ ffprobe -pretty %c 2>&1
 
-fileviewer *.png,*.jpeg,*.jpg
-  \ env -u COLORTERM viu -w %pw -h %ph -s %c
+if executable('wezterm')
+    fileviewer *.png,*.jpeg,*.jpg
+      \ wezterm imgcat --width %pw --height %ph %c:p %pd
+elseif executable('viu')
+    fileviewer *.png,*.jpeg,*.jpg
+      \ env -u COLORTERM viu -w %pw -h %ph -s %c
+endif
+
 
 fileviewer *.mp3 mp3info %c
 fileviewer *.rar unrar v %c
