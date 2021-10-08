@@ -18,20 +18,6 @@
         )
 )
 
-(use-package company-go
-  :ensure t
-  :defer t
-  :config
-  (eval-after-load "company"
-    '(progn
-       (my-change-company-backends 'company-go)
-       ))
-  (add-to-list 'exec-path (concat default-directory "bin"))
-  :custom
-  (company-go-insert-arguments nil)
-  :after go-mode
-)
-
 ;; (use-package go-eldoc
 ;;   :ensure t
 ;;   :after go-mode
