@@ -15,7 +15,7 @@ set {
 
   $laptop eDP-1
   # $left_out "HDMI model"
-  $t_pos move position center, resize set width 100 ppt height 100 ppt
+  $t_pos border none, move position center, resize set width 100 ppt height 100 ppt
   $terminal_launch scratchpad show || exec $term, $t_pos
   $other_terminal_launch scratchpad show || exec $other_term, $t_pos
 }
@@ -159,13 +159,13 @@ bindsym --to-code {
   $mod+l focus right
 
   # alternatively, you can use the cursor keys:
-  $mod+Left focus left
-  $mod+Down focus down
-  $mod+Up focus up
+  $mod+Left  focus left
+  $mod+Down  focus down
+  $mod+Up    focus up
   $mod+Right focus right
 
   # change focused container
-  $mod+Tab focus right
+  $mod+Tab       focus right
   $mod+Shift+Tab focus left
 
   # move focused window
@@ -175,16 +175,16 @@ bindsym --to-code {
   $mod+Shift+l move right
 
   # alternatively, you can use the cursor keys:
-  $mod+Shift+Left move left
-  $mod+Shift+Down move down
-  $mod+Shift+Up move up
+  $mod+Shift+Left  move left
+  $mod+Shift+Down  move down
+  $mod+Shift+Up    move up
   $mod+Shift+Right move right
 
   # move cursor using keys:
-  $mod+Control+Left seat - cursor move -10 0
-  $mod+Control+Down seat - cursor move 0 10
-  $mod+Control+Up seat - cursor move 0 -10
-  $mod+Control+Right seat - cursor move 10 0
+  $mod+Control+Left  seat - cursor move -10  0
+  $mod+Control+Down  seat - cursor move  0   10
+  $mod+Control+Up    seat - cursor move  0  -10
+  $mod+Control+Right seat - cursor move  10  0
 
   # split in horizontal orientation
   $mod+h split h
@@ -297,7 +297,7 @@ bindsym --to-code {
   XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
 
   # Sreen brightness controls
-  XF86MonBrightnessUp exec light -A 20 # increase screen brightness
+  XF86MonBrightnessUp   exec light -A 20 # increase screen brightness
   XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
   XF86ScreenSaver exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
@@ -306,8 +306,8 @@ bindsym --to-code {
 # The middle button over a titlebar kills the window
 bindsym --release {
   $mod+button2 kill
-  button2 kill
-  $mod+space exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic
+  button2      kill
+  $mod+space   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic
 }
 
 # Start swaybar to display a workspace bar (plus the system information swaystatus
@@ -319,8 +319,8 @@ bar {
   }
 
   colors {
-    background #282828AA
-    statusline #E1F5A9
+    background         #282828AA
+    statusline         #E1F5A9
     focused_statusline #688A08
     focused_workspace  #688A08 #355325AA #FFFFFF
     active_workspace   #333333 #331A00AA #FFFFFF
@@ -342,12 +342,12 @@ bar {
 }
 
 # gaps
-default_border pixel 0
+default_border none
 smart_borders on
-smart_gaps on
+smart_gaps off
 gaps {
-  inner 2
-  outer 2
+  inner 0
+  outer 0
 }
 
 # my settings
