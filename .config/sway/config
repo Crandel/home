@@ -138,7 +138,6 @@ mode "resize" {
 }
 
 bindsym --to-code {
-
   # Terminal
   F1 exec swaymsg [app_id=$term_id] $terminal_launch
   # F1 exec $term --quake
@@ -276,8 +275,8 @@ bindsym --to-code {
   # get clipboard history
   $mod+Control+a exec clipman pick --max-items=1000 -t bemenu -T'bemenu -l 30 -p clipman'
 
-  # switch workspaces by mod+z
-  $mod+z workspace next
+  # Switches to the previously focused workspace.
+  $mod+z workspace back_and_forth
 
   # reboot and shutdown
   $mod+Control+Shift+q exec systemctl poweroff
