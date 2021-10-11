@@ -102,7 +102,7 @@ plugin_init() {
           zsh-users/zsh-autosuggestions as"completion" \
         has'docker' as"completion" \
           OMZP::docker/_docker \
-        has'docker-compose' as"completion" \
+        as"completion" \
           OMZP::docker-compose/_docker-compose \
           OMZP::docker-compose \
         has'git' \
