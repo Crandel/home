@@ -13,8 +13,10 @@ set {
   $gnome-interface org.gnome.desktop.interface
   $ide pycharm
 
+  $left_out DP-1
   $laptop eDP-1
-  # $left_out "HDMI model"
+  $right_out DP-2
+
   $t_pos border none, move position center, resize set width 100 ppt height 100 ppt
   $terminal_launch scratchpad show || exec $term, $t_pos
   $other_terminal_launch scratchpad show || exec $other_term, $t_pos
@@ -75,8 +77,8 @@ workspace_layout tabbed
 workspace {
   1 output $laptop
   2 output $laptop
-  # 3 output $left_out
-  # 4 output $right_out
+  # 3 output $right_out
+  # 4 output $left_out
 }
 
 # assings
