@@ -349,7 +349,7 @@ c.tabs.position = 'left'
 c.tabs.show = 'multiple'
 
 # Change the argument to True to still load settings configured via autoconfig.yml
-config.load_autoconfig(False)
+config.load_autoconfig(True)
 
 # Which cookies to accept. With QtWebEngine, this setting also controls
 # other features with tracking capabilities similar to those of cookies;
@@ -407,7 +407,8 @@ config.set('content.javascript.enabled', True, '*')
 
 # Bindings
 config.bind(';',  'set-cmd-text :', mode='normal')
-config.bind('F2', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('<F2>', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('gcc', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
 config.bind('b',  'tab-focus last', mode='normal')
 config.bind('gf', 'hint', mode='normal')
 config.bind('t',  'open -t', mode='normal')

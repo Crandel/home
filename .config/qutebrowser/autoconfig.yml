@@ -14,3 +14,5 @@ settings:
     https://meet.google.com: true
   content.notifications:
     https://meet.google.com: true
+  content.register_protocol_handler:
+    https://calendar.google.com: true
