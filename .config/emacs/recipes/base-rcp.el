@@ -223,11 +223,15 @@
 
 (use-package ispell
   :defer t
-  :config
-  (add-to-list 'ispell-dicts-name2locale-equivs-alist
-               '("american" "en_US"))
   :custom
-  (ispell-local-dictionary-alist
+  (ispell-program-name        "hunspell")
+  (ispell-local-dictionary    "en_US")
+  (ispell-personal-dictionary "~/.cache/emacs/.ispell.dic")
+  (ispell-really-aspell       nil)
+  (ispell-really-hunspell     t)
+  (ispell-encoding8-command   t)
+  (ispell-silently-savep      t)
+    (ispell-local-dictionary-alist
                '(("en_US"
                   "[[:alpha:]]"
                   "[^[:alpha:]]"
@@ -244,12 +248,12 @@
                   ("-d" "de_DE"); Dictionary file name
                   nil
                   utf-8)
-                 ("ru"
+                 ("ru_RU"
                   "[АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
                   "[^АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЬЫЪЭЮЯабвгдеёжзийклмнопрстуфхцчшщьыъэюяіїєґ’A-Za-z]"
                   "[-']"
                   nil
-                  ("-d" "ru")
+                  ("-d" "ru_RU")
                   nil
                   utf-8)
                  ("uk_UA"
@@ -257,16 +261,9 @@
                   "[^АБВГДЕЖЗИІЙКЛМНОПРСТУФХЦЧШЩЬЄЮЯабвгдежзиійклмнопрстуфхцчшщьєюяіїєґ’A-Za-z]"
                   "[-']"
                   nil
-                  ("-d" "uk")
+                  ("-d" "uk_UA")
                   nil
                   utf-8)))
-  (ispell-local-dictionary    "en_US")
-  (ispell-personal-dictionary "~/.config/emacs/.ispell.dic")
-  (ispell-program-name        "hunspell")
-  (ispell-really-aspell       nil)
-  (ispell-really-hunspell     t)
-  (ispell-encoding8-command   t)
-  (ispell-silently-savep      t)
 )
 
 (use-package make-mode
