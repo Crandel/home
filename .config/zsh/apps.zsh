@@ -315,6 +315,8 @@ if command_exists go ; then
 fi
 
 if command_exists fzf ; then
+  export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   gdelbrf() {
     git branch |
       rg --invert-match '\*' |
