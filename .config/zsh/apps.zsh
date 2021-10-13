@@ -15,6 +15,14 @@ if command_exists pacman ; then
     alias psiy='yay -Sa'
     alias piiy='yay -Sii'
   fi
+  if command_exists paru ; then
+    alias paru='paru --aur --fm vim --clonedir $PERS_DIR/bb'
+    alias psuy='paru -Syua'
+    alias pssy='paru -Ss'
+    alias psiy='paru -Sa'
+    alias piiy='paru -Sii'
+  fi
+
 
   paclist() {
     pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
