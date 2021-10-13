@@ -16,8 +16,8 @@ fi
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
 
 alias arch='uname -m'
-alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
+alias ll='la -hlF --time-style=long-iso --group-directories-first'
 alias ..='cd ..'
 alias home_pr='cd $PERS_DIR/home'
 alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"

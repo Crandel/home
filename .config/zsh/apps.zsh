@@ -299,8 +299,8 @@ else
 fi
 
 if command_exists lsd; then
-  alias ls='lsd'
-  alias ll='ls -ahlF --group-dirs=first'
+  alias l='lsd'
+  alias ll='l -ahlF --group-dirs=first'
 fi
 ## END RUST
 
