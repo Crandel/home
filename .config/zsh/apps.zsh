@@ -335,6 +335,11 @@ if command_exists fzf ; then
 else
   echo "install fzf"
 fi
+
+if command_exists chezmoi ; then
+  alias cz='chezmoi'
+fi
+
 if command_exists lf ; then
   lfcd () {
     tmp="$(mktemp)"
