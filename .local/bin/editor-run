@@ -1,5 +1,5 @@
 #! /bin/bash
 
 args=$@
-echo "here is $args" > /tmp/edit.log
+# echo "here is $args" > /tmp/edit.log
 emacs "$args"
