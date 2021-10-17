@@ -159,7 +159,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+r mode "resize"
 
 # exit i3 (logs you out of your X session)
-bindsym   $mod+Shift+e exec i3nag -t warning -m 'Hello. Do you really want to exit i3? This will end your Wayland session.' \
+bindsym   $mod+Shift+e exec i3nag -t warning -m 'Hello. Do you really want to exit i3? This will end your session.' \
     -b '🌚️Suspend' 'systemctl suspend' \
     -b '⚡️Shutdown' 'systemctl -i poweroff' \
     -b '🌀️Reboot' 'systemctl -i reboot' \

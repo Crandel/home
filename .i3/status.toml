@@ -1,20 +1,37 @@
 [icons]
 name = "awesome5"
 [icons.overrides]
-bat_charging = ""
+bat_10 = ""
+bat_20 = ""
+bat_30 = ""
+bat_40 = ""
+bat_50 = ""
+bat_60 = ""
+bat_70 = ""
+bat_80 = ""
+bat_90 = "🔋"
+bat_full = "🔋"
+bat_charging = "🔌"
 bat_discharging = ""
-bat_empty = ""
-bat_full = ""
-bat_half = ""
-bat_quarter = ""
-bat_three_quarters = ""
-cpu = ""
-disk_drive = ""
-memory_mem = ""
-net_up = "⇈"
+bat_not_available = ""
+cpu = "💻"
+disk_drive = "📂"
+headphones = "🎧"
+joystick = "🎮"
+keyboard = "⌨"
+memory_mem = "💾"
+microphone_muted = "🎙"
+microphone_half = "🎤"
+mouse = "🖱"
 net_down = "⇊"
-time = "⏳"
-volume_muted = ""
+net_up = "⇈"
+net_wired = "🌍"
+net_wireless = "📡"
+time = "⌚"
+volume_empty = "🔈"
+volume_full = "🔊"
+volume_half = "🔉"
+volume_muted = "🔇"
 
 [theme]
 name = "gruvbox-dark"
@@ -26,22 +43,29 @@ block = "custom"
 command = "gmail"
 interval = 60
 hide_when_empty = true
+[block.theme_overrides]
+idle_bg="#1C7D2FAA"
 
 [[block]]
 block = "disk_space"
 alert = 10.0
-alert_absolute = false
-format = "{icon} {path^1}{available;G}"
-info_type = "available"
+alert_absolute = true
+format = "{icon} {path^1}{free;G}"
+info_type = "free"
 interval = 300
 path = "/"
 unit = "GB"
 warning = 15.0
+[block.theme_overrides]
+idle_bg="#23712CAA"
 
 [[block]]
 block = "cpu"
-format = "{barchart} {utilization} {frequency}"
+format = "{utilization} {frequency}"
 interval = 10
+[block.theme_overrides]
+idle_bg="#2A6529AA"
+
 
 [[block]]
 block = "memory"
@@ -55,24 +79,51 @@ icons = true
 interval = 60
 warning_mem = 80
 warning_swap = 80
+[block.theme_overrides]
+idle_bg="#355325AA"
 
 [[block]]
 #device = "BAT1"
 device = "DisplayDevice"
 block = "battery"
 driver = "upower"
-format = "{percentage:0} {time:0}"
+format = "{percentage:0}"
+full_format = ""
 #interval = 60
+[block.theme_overrides]
+idle_bg="#2F2519AA"
 
 [[block]]
 block = "sound"
-driver = "auto"
-show_volume_when_muted = true
+driver = "pulseaudio"
+device_kind = "sink"
+show_volume_when_muted = false
+[block.theme_overrides]
+idle_bg="#29331EAA"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+device_kind = "source"
+show_volume_when_muted = false
+[block.theme_overrides]
+idle_bg="#29331EAA"
+
+[[block]]
+block = "bluetooth"
+mac = "B0:06:32:79:B7:CA"
+format = "{percentage}"
+format_unavailable = "X"
+hide_disconnected = false
+[block.theme_overrides]
+idle_bg="#0B0B3BAA"
 
 [[block]]
 block = "backlight"
 step_width = 5
 invert_icons = true
+[block.theme_overrides]
+idle_bg="#1f2419AA"
 
 [[block]]
 block = "net"
@@ -82,6 +133,8 @@ format_alt = "{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
+[block.theme_overrides]
+idle_bg="#1f2419AA"
 
 [[block]]
 block = "net"
@@ -91,21 +144,31 @@ format_alt = "{ssid}{speed_up;M}{speed_down;M}"
 hide_inactive = true
 hide_missing = true
 interval = 5
+[block.theme_overrides]
+idle_bg="#33382EAA"
+
+[[block]]
+block = "net"
+device = "tun0"
+format = "V"
+format_alt = ""
+hide_inactive = true
+hide_missing = true
+interval = 5
+[block.theme_overrides]
+idle_bg="#E58E26AA"
 
 [[block]]
 block = "keyboard_layout"
 format = "{layout}"
 driver = "kbddbus"
-
-#[[block]]
-#block = "bluetooth"
-#mac = ""
-#format = "B{percentage}"
-#format_unavailable = "B[x]"
-#hide_disconnected = false
+[block.theme_overrides]
+idle_bg="#464a41AA"
 
 [[block]]
 block = "time"
 format = "%d.%m %R"
 interval = 45
 on_click = "gsimplecal"
+[block.theme_overrides]
+idle_bg="#355325AA"
