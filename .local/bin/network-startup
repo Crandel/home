@@ -20,20 +20,20 @@ while [ "$connection" != "up" ] ; do
   sleep 0.5
 done
 
-if command_exists telegram-desktop ; then
-  sleep 0.5
-  echo "run telegram-desktop"
-  telegram-desktop &
-fi
 
-if command_exists thunderbird ; then
-  sleep 0.5
-  echo "run thunderbird"
-  thunderbird &
-fi
+sleep 0.5
+echo "Start thunderbird" >> /tmp/network-startup.log
+thunderbird &
 
-if command_exists rssguard ; then
-  sleep 0.5
-  echo "run rssguard"
-  rssguard &
-fi
+
+
+sleep 0.5
+echo "Start telegram" >> /tmp/network-startup.log
+telegram-desktop &
+
+
+
+sleep 0.5
+echo "Start RSS reader" >> /tmp/network-startup.log
+rssguard &
+
