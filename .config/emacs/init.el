@@ -50,12 +50,11 @@
 ;; (require 'fnhh-rcp)
 (require 'avy-rcp)
 (require 'all-the-icons-rcp)
-(require 'bazel-rcp)
+;;(require 'bazel-rcp)
 (require 'company-rcp)
 ;;(require 'corfu-rcp)
 (require 'consult-rcp)
 (require 'dired-subtree-rcp)
-;(require 'editorconfig-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
 ;; (require 'expand-region-rcp)
@@ -67,10 +66,8 @@
 (require 'highlight-indentation-rcp)
 (require 'i3wm-config-rcp)
 (require 'json-mode-rcp)
-(require 'k8s-mode-rcp)
 (require 'lsp-mode-rcp)
 (require 'lua-rcp)
-(require 'magit-rcp)
 (require 'marginalia-rcp)
 (require 'markdown-mode-rcp)
 (require 'multi-compile-rcp)
@@ -78,7 +75,6 @@
 ;; (require 'mini-frame-rcp)
 (require 'orderless-rcp)
 (require 'org-mode-rcp)
-;(require 'org-jira-rcp)
 (require 'pkgbuild-rcp)
 (require 'projectile-rcp)
 (require 'rainbow-rcp)
@@ -88,6 +84,7 @@
 ;; (require 'smartparens-rcp)
 ;; (require 'telega-rcp)
 (require 'treemacs-rcp)
+(require 'tree-sitter-rcp)
 ;; (require 'undo-tree-rcp)
 (require 'vertico-rcp)
 (require 'vimrc-mode-rcp)
@@ -96,38 +93,16 @@
 (require 'yasnippet-rcp)
 (require 'ytdl-rcp)
 (require 'ztree-rcp)
+(require 'k8s-mode-rcp)
+(require 'rust-rcp)
+(require 'docker-rcp)
+(require 'go-rcp)
+(require 'python-rcp)
+(require 'ripgrep-rcp)
+(require 'terraform-rcp)
+(require 'editorconfig-rcp)
+(require 'org-jira-rcp)
 
-(when (executable-find "ansible")
-  (require 'ansible-rcp)
-)
-
-(when (executable-find "cargo")
-  (require 'rust-rcp)
-)
-
-(when (executable-find "docker")
-  (require 'docker-rcp)
-)
-
-(when (executable-find "go")
-  (require 'go-rcp)
-)
-
-(when (executable-find "python")
-  (require 'python-rcp)
-)
-
-(when (executable-find "rg")
-  (require 'ripgrep-rcp)
-)
-
-(when (executable-find "scala")
-  (require 'scala-rcp)
-)
-
-(when (executable-find "terraform")
-  (require 'terraform-rcp)
-)
 
 (add-function :after after-focus-change-function
   (defun me/garbage-collect-maybe ()
@@ -136,5 +111,7 @@
 
 ;;; Commentary:
 ;; Main init file
-
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; init.el ends here
