@@ -1,6 +1,7 @@
 ;;; base-rcp.el --- Emacs default configuration
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package emacs
   :demand t
   :init
@@ -421,5 +422,8 @@
 
 (provide 'base-rcp)
 ;;; Commentary:
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;; Configuration for base Emacs without packages
 ;;; base-rcp.el ends here

@@ -1,6 +1,7 @@
 ;;; go-rcp.el --- Golang support
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package go-mode
   :ensure t
   :defer t
@@ -28,6 +29,9 @@
 
 (provide 'go-rcp)
 ;;; Commentary:
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;; go get -u github.com/alecthomas/gometalinter
 ;; gometalinter --install
 ;; go get -u github.com/rogpeppe/godef

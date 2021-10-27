@@ -1,6 +1,7 @@
 ;;; embark-rcp.el --- This package provides a sort of right-click contextual menu for Emacs
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package embark
   :ensure t
   :defer t
@@ -33,5 +34,7 @@
 
 (provide 'embark-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; embark-rcp.el ends here

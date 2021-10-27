@@ -1,6 +1,7 @@
 ;;; lua-rcp.el --- Lua mode
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package lua-mode
   :ensure t
   :defer t

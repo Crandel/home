@@ -1,6 +1,7 @@
 ;;; k8s-mode-rcp.el --- Kubernetes configuration mode
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package k8s-mode
   :ensure t
   :mode (

@@ -1,6 +1,7 @@
 ;;; expand-region-rcp.el --- Increase selected region by semantic units.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package expand-region
   :ensure t
   :defer t

@@ -1,6 +1,7 @@
 ;;; all-the-icons-rcp.el --- A utility package to collect various Icon Fonts and propertize them within Emacs.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package all-the-icons
   :ensure t
   :if (display-graphic-p)

@@ -1,6 +1,7 @@
 ;;; mini-frame-rcp.el --- Place minibuffer at the top of the current frame on read-from-minibuffer.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package mini-frame
   :ensure t
   :custom
@@ -15,5 +16,7 @@
 
 (provide 'mini-frame-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; mini-frame-rcp.el ends here

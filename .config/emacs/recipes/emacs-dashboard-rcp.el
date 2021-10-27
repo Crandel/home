@@ -1,6 +1,7 @@
 ;;; emacs-dashboard-rcp.el --- An extensible emacs startup screen showing you what’s most important.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package dashboard
   :ensure t
   :config
@@ -21,5 +22,7 @@
 
 (provide 'emacs-dashboard-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; emacs-dashboard-rcp.el ends here

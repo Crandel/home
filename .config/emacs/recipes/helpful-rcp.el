@@ -1,6 +1,7 @@
 ;;; helpful-rcp.el --- Helpful is an alternative to the built-in Emacs help that provides much more contextual information.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package helpful
   :ensure t
   :defer t

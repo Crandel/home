@@ -1,6 +1,7 @@
 ;;; org-mode-rcp.el --- A GNU Emacs major mode for convenient plain text markup — and much more.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package org
   :ensure t
   :custom

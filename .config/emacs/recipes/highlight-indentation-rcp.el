@@ -1,6 +1,7 @@
 ;;; highlight-indentation-rcp.el --- Minor modes for highlighting indentation
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package highlight-indentation
   :ensure t
   :defer t

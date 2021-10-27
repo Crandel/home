@@ -1,6 +1,7 @@
 ;;; corfu-rcp.el --- Corfu enhances the default completion in region function with a completion overlay.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package corfu
   :ensure t
   :init
@@ -19,5 +20,7 @@
 
 (provide 'corfu-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; corfu-rcp.el ends here

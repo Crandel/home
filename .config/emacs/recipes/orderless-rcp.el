@@ -2,6 +2,7 @@
 ;;; and matches candidates that match all of the components in any order.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package orderless
   :ensure t
   :defer 1

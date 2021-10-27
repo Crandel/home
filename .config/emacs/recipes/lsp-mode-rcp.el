@@ -1,6 +1,7 @@
 ;;; lsp-mode-rcp.el --- Emacs client/library for the Language Server Protocol
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package lsp-mode
   :ensure t
   :defer t

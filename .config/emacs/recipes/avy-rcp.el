@@ -1,6 +1,7 @@
 ;;; avy-rcp.el --- Jump to arbitrary positions in visible text and select text quickly.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package avy
   :ensure t
   :defer t
@@ -14,5 +15,7 @@
 
 (provide 'avy-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; avy-rcp.el ends here

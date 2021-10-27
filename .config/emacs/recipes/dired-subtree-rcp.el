@@ -1,6 +1,7 @@
 ;;; dired-subtree-rcp.el --- Insert subdirectories in a tree-like fashion
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package dired-subtree
   :ensure t
   :defer t

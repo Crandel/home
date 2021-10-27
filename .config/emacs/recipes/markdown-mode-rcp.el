@@ -1,6 +1,7 @@
 ;;; markdown-mode-rcp.el --- Markdown mode
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package markdown-mode
   :ensure t
   :defer t

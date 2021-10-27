@@ -2,6 +2,7 @@
 ;;; which allows to quickly select an item from a list of candidates with completion.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package consult
   :ensure t
   :defer t

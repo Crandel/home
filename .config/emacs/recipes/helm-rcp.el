@@ -1,6 +1,7 @@
 ;;; helm-rcp.el --- Helm is an Emacs incremental and narrowing framework
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package helm
   :ensure t
   :defer t

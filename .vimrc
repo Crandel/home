@@ -124,7 +124,7 @@ imap <F6> <Esc>:bn<CR>i
 
 " JSON PRETTIFY
 autocmd FileType json nnoremap <leader>jp :%!python -m json.tool<cr>
-autocmd FileType python nnoremap gb oi import pdb; pdb.set_trace()
+autocmd FileType python nnoremap gb o import pdb; pdb.set_trace()
 
 nmap ] }
 nmap [ {
@@ -132,6 +132,10 @@ nmap [ {
 inoremap jk <Esc>
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
+map <C-Left> <C-W>h
+map <C-Down> <C-W>j
+map <C-Up> <C-W>k
+map <C-Right> <C-W>l
 nnoremap <leader>f :!ls -la<CR>
 nnoremap <leader>/ :Grep<Space>
 nnoremap <leader>k :bd<CR>
@@ -230,6 +234,11 @@ map <F7> :Texplore<CR>
 if &diff
   map ] ]c
   map [ [c
+  nnoremap du :diffupdate<cr>
+  nnoremap dp :diffput<cr>
+  nnoremap dg :diffget<cr>
+  nnoremap df :diffget 1<cr>
+  nnoremap ds :diffget 2<cr>
 endif
 
 " wayland section

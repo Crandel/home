@@ -1,6 +1,7 @@
 ;;; evil-rcp.el --- Evil mode
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package evil-leader
   :ensure t
   :after evil
@@ -185,5 +186,7 @@ The return value is the yanked text."
 
 (provide 'evil-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; evil-rcp.el ends here

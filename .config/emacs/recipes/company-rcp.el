@@ -1,6 +1,7 @@
 ;;; company-rcp.el --- Company autocomplete
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package company
     :ensure t
     :defer 0.1
@@ -67,5 +68,7 @@
 (provide 'company-rcp)
 
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; company-rcp.el ends here

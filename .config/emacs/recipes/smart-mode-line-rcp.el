@@ -1,6 +1,7 @@
 ;;; smart-mode-line-rcp.el --- A color coded smart mode-line.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package smart-mode-line
   :ensure t
   :demand t
@@ -26,5 +27,7 @@
 
 (provide 'smart-mode-line-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; smart-mode-line-rcp.el ends here

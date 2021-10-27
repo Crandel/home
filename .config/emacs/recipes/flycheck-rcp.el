@@ -1,6 +1,7 @@
 ;;; flycheck-rcp.el --- On-the-fly syntax checking
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package flycheck
   :ensure t
   :defer t
@@ -30,5 +31,7 @@
 
 (provide 'flycheck-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; flycheck-rcp.el ends here

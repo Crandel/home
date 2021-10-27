@@ -1,6 +1,7 @@
 ;;; multi-compile-rcp.el --- "Multi-compile" is multi target interface to "compile" command.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package multi-compile
   :ensure t
   :defer t

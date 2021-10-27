@@ -1,6 +1,7 @@
 ;;; multiple-cursors-rcp.el --- Multiple cursors for Emacs.
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package multiple-cursors
   :ensure t
   :defer t
@@ -21,5 +22,7 @@
 
 (provide 'multiple-cursors-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; multiple-cursors-rcp.el ends here

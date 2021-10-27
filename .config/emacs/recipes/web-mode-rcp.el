@@ -1,6 +1,7 @@
 ;;; web-mode-rcp.el --- major mode for editing web templates
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package web-mode
   :ensure t
   :defer t
@@ -10,14 +11,17 @@
   ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)
   ("\\.gotmpl\\'" . web-mode)
+  ("\\.tmpl\\'"   . web-mode)
   ("\\.gtpl\\'"   . web-mode)
   ("\\.vue\\'"    . web-mode)
   ("\\german_lang/index.html\\'" . mhtml-mode)
+  :custom-face
+  (web-mode-block-face ((t nil)))
   :custom
   (web-mode-engines-alist '(
                             ("django" . "\\.html\\'")
                             ("razor"  . "\\.scala.html\\'")
-                            ("go"     . "\\.gotmpl\\'")
+                            ("go"     . "\\.\\(gtpl\\|tmpl\\)'")
                             ("jsx"    . "\\.js\\'")))
   (web-mode-enable-current-element-highlight   t)
   (web-mode-enable-block-face                  t)

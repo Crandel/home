@@ -1,6 +1,7 @@
 ;;; python-rcp.el --- Python support
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package python-mode
   :ensure t
   :defer t
@@ -116,6 +117,7 @@
 (provide 'python-rcp)
 
 ;;; Commentary:
-;;
-
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; python-rcp.el ends here

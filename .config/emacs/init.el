@@ -94,6 +94,7 @@
 (require 'ytdl-rcp)
 (require 'ztree-rcp)
 (require 'k8s-mode-rcp)
+(require 'ansible-rcp)
 (require 'rust-rcp)
 (require 'docker-rcp)
 (require 'go-rcp)
