@@ -1,0 +1,81 @@
+# Inserts a blank line between shell prompts
+add_newline = false
+format = """$time\
+$username\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$golang\
+$python\
+$rust\
+$cmd_duration\
+$env_var\
+$line_break\
+$jobs\
+$status\
+$character"""
+
+# Disable the package module, hiding it from the prompt completely
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%H:%M"
+
+[username]
+style_root = "bold red"
+
+[directory]
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+style = "purple"
+
+[python]
+format = '[$symbol{${version}}(\($virtualenv\))]($style)'
+version_format = "${raw}"
+
+[rust]
+format = "[$symbol{$version}]($style)"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+truncation_length = 6
+truncation_symbol = ""
+style = "cyan"
+
+[git_state]
+rebase = "rb"
+merge = "mg"
+revert = "rv"
+cherry_pick = "c-p"
+style = "bold green"
+
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+untracked = "u‍${count}"
+stashed = '[📦\($count\)](cyan)'
+modified = '[m\[$count\]](yellow)'
+staged = '[s\($count\)](green)'
+renamed = '[r\($count\)](blue)'
+deleted = '[d{$count}](bold red)'
+style = "red"
+
+[golang]
+format = "[$symbol({$version})]($style)"
+version_format = "${raw}"
+
+[cmd_duration]
+format = "[$duration]($style)"
+
+[env_var]
+variable = "INSIDE_VIFM"
+format = "{VF}"
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[I ➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[✗](bold red) "
+vicmd_symbol = "[N ➜](bold green)"

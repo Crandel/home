@@ -5,7 +5,7 @@
 (use-package lsp-mode
   :ensure t
   :defer t
-  :commands (lsp lsp-deferred)
+  :functions (lsp lsp-deferred lsp-completion-at-point)
   :custom
   (lsp-completion-provider                :none)
   (lsp-completion-show-detail             t)
@@ -45,7 +45,7 @@
   )
   :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server 'rust-analyzer
-                              lsp-semantic-tokens-enable nil)
+                                      lsp-semantic-tokens-enable nil)
                         (lsp-deferred)
                         ))
          (c++-mode       . lsp-deferred)
@@ -53,9 +53,9 @@
          (js2-mode       . lsp-deferred)
          (scala-mode     . lsp-deferred)
          (terraform-mode . lsp-deferred)
-         (vimrc-mode     . lsp-deferred)
-         (yaml-mode      . lsp-deferred)
-         ;; (sh-mode        . lsp)
+         ;; (vimrc-mode     . lsp-deferred)
+         ;; (yaml-mode      . lsp-deferred)
+         ;; (sh-mode        . lsp-deferred)
          )
 )
 

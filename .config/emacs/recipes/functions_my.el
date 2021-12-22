@@ -108,6 +108,20 @@
     (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 ;; C-x r y for paste multiple cursors
 
+;;;###autoload
+(defun find-in-directory (dir)
+  (interactive "p")
+  (let ((default-directory dir))
+    (call-interactively 'find-file))
+)
+
+;;;###autoload
+(defun find-in-config (dir)
+  (interactive "p")
+  (find-in-directory "~/.config/")
+)
+
+
 (provide 'functions_my)
 ;;; Commentary:
 ;;

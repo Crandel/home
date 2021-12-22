@@ -1,22 +1,6 @@
 #! /bin/bash
 
-function command_exists () {
-  command -v "$1"  > /dev/null 2>&1;
-}
-
-local='lo'
-connection=""
-while [ "$connection" != "up" ] ; do
-  for interface in /sys/class/net/* ; do
-    if [[ ! "$interface" == *"$local"* ]]; then
-      if [ -f $interface/operstate ]; then
-        connection=$(cat $interface/operstate)
-      fi
-    fi
-    if [ "$connection" == "up" ]; then
-      break
-    fi
-  done
+while ! ping -c 1 8.8.8.8 > /dev/null ; do
   sleep 0.5
 done
 

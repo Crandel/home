@@ -11,6 +11,7 @@ zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
+zstyle ':completion:*' rehash true
 # zstyle ':completion:*' menu select=interactive
 zstyle :compinstall filename '$ZDOTDIR/.zshrc'
 
@@ -78,9 +79,9 @@ command_exists () {
 }
 
 # SUDO
-SUDO=''
+export SUDO=''
 if [[ $EUID -ne 0 ]] && command_exists sudo ; then
-  SUDO='sudo'
+  export SUDO='sudo'
 fi
 # END SUDO
 
@@ -97,101 +98,54 @@ fi
 if [ -f $ZDOTDIR/aliases.zsh ]; then
   . $ZDOTDIR/aliases.zsh
 fi
-
-## APPS
-if [ -f $ZDOTDIR/apps.zsh ]; then
-  . $ZDOTDIR/apps.zsh
-fi
 # END IMPORT
 
 
 # PLUGIN MANAGMENT
-plugin_init() {
-  source $zinit_source
-  autoload -Uz _zinit
-  (( ${+_comps} )) && _comps[zinit]=_zinit
-
-  zinit wait lucid light-mode for \
-          OMZL::clipboard.zsh \
-          djui/alias-tips \
-          zsh-users/zsh-completions \
-          zsh-users/zsh-history-substring-search \
-        atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
-          zdharma/fast-syntax-highlighting \
-        blockf \
-          zsh-users/zsh-completions \
-        atload"!_zsh_autosuggest_start" \
-        atinit"ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8,bold,underline'" \
-          zsh-users/zsh-autosuggestions as"completion" \
-        has'docker' as"completion" \
-          OMZP::docker/_docker \
-        as"completion" \
-          OMZP::docker-compose/_docker-compose \
-          OMZP::docker-compose \
-        has'git' \
-          OMZP::git \
-        has'kubectl' \
-          OMZP::kubectl \
-        has'minikube' \
-          OMZP::minikube \
-        has'pip' \
-          OMZP::pip
-
-  zinit lucid light-mode for \
-        OMZP::shrink-path \
-        has'poetry' \
-        load'[[ $(ls) = *pyproject.toml* ]]' \
-          darvid/zsh-poetry
-
-  compinit
-}
-
-zinit_source="$ZDOTDIR/.zinit/bin/zinit.zsh"
-if [ ! -f $zinit_source ]; then
-  mkdir $ZDOTDIR/.zinit
-  git clone https://github.com/zdharma/zinit.git $ZDOTDIR/.zinit/bin/
+ZSH_CUSTOM_PLUGINS=$XDG_CACHE_HOME/zsh/plugins
+ZSH_CUSTOM_COMPLETIONS=$XDG_CACHE_HOME/zsh/completions
+alias src='source'
+if [ -d $ZSH_CUSTOM_PLUGINS/zsh-defer ]; then
+  alias src='zsh-defer source'
+  source $ZSH_CUSTOM_PLUGINS/zsh-defer/zsh-defer.plugin.zsh
 fi
-plugin_init
-unfunction plugin_init
-
-
-# PROMPT
-function parse_git_branch(){
-  git branch 2> /dev/null | sed -n 's/^\* //p'
-}
-
-## Determine the branch/state information for this git repository.
-function set_git_branch() {
-  # Get the final branch string.
-  if command_exists git_status ; then
-    branch="$(git_status zsh)"
-  else
-    branch="$(parse_git_branch)"
+if [ -d $ZSH_CUSTOM_PLUGINS/alias-tips ]; then
+  src $ZSH_CUSTOM_PLUGINS/alias-tips/alias-tips.plugin.zsh
+fi
+if [ -d $ZSH_CUSTOM_PLUGINS/zsh-autosuggestions ]; then
+  src $ZSH_CUSTOM_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+fi
+if [ -d $ZSH_CUSTOM_PLUGINS/zsh-history-substring-search ]; then
+  src $ZSH_CUSTOM_PLUGINS/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh
+fi
+if [ -d $ZSH_CUSTOM_PLUGINS/fast-syntax-highlighting ]; then
+  src $ZSH_CUSTOM_PLUGINS/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
+if [ -d $ZSH_CUSTOM_PLUGINS/ohmyzsh ]; then
+  ohmyplugins="$ZSH_CUSTOM_PLUGINS/ohmyzsh/plugins"
+  src "$ohmyplugins/command-not-found/command-not-found.plugin.zsh"
+  if command_exists adb; then
+    fpath=( "$ohmyplugins/adb" $fpath )
   fi
-
-  if [ -n "${branch}" ]; then
-    echo " ($branch)"
+  if command_exists docker; then
+    fpath=( "$ohmyplugins/docker" $fpath )
+    fpath=( "$ohmyplugins/docker-compose" $fpath )
   fi
-}
-
-function set_prompt_symbol () {
-  echo "%(?.%F{yellow}.%F{red}[%?])$INSIDE_VIFM$VI_MODE"
-  echo "╰─➤%f"
-}
-
-fish_pwd() {
-  if typeset -f shrink_path > /dev/null; then
-    echo "$(shrink_path -f)"
-  else
-    echo "%~"
+  if command_exists pip; then
+    fpath=( "$ohmyplugins/pip" $fpath )
+    src "$ohmyplugins/pip/pip.plugin.zsh"
   fi
-}
+  if command_exists go; then
+    src "$ohmyplugins/golang/golang.plugin.zsh"
+    src "$ohmyplugins/kubectl/kubectl.plugin.zsh"
+  fi
+fi
 
-# Set the prompt.
-set_zsh_prompt () {
-  [[ $SSH_CONNECTION ]] && local uath='%F{white}@%M%f'
-  PROMPT='%F{yellow}╭─%B%T%b%f$(set_virtualenv) %(!.%F{red}.%F{green})%n%f${uath} %F{magenta}{$(fish_pwd)}%f$(set_git_branch) $(set_prompt_symbol) '
-}
+if [ -d $ZSH_CUSTOM_COMPLETIONS/zsh-completions ]; then
+  fpath=( "$ZSH_CUSTOM_COMPLETIONS/zsh-completions/src" $fpath )
+fi
+compinit
+
 bindkey -e
 # bindkey 'jk'      exit_insert_mode
 bindkey "^h"      edit-command-line
@@ -228,20 +182,17 @@ bindkey "^[^?"    backward-kill-word
 function zle-keymap-select() {
   if [[ ${KEYMAP} == vicmd ]] ||
      [[ $1 = 'underline' ]]; then
-    VI_MODE="{N}"
     echo -ne '\e[3 q'
   elif [[ ${KEYMAP} == main ]] ||
        [[ ${KEYMAP} == viins ]] ||
        [[ ${KEYMAP} = '' ]] ||
        [[ $1 = 'beam' ]]; then
-    VI_MODE="{I}"
     echo -ne '\e[5 q'
   fi
   zle reset-prompt
 }
 
 function zle-line-init(){
-    VI_MODE="{I}"
     echo -ne '\e[5 q'
     zle reset-prompt
 }
@@ -253,7 +204,10 @@ bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
 # end=`date +%s.%N`
 # printf "%.2f" $((end-start))
 # Tell zsh to execute this function just before displaying its prompt.
-set_zsh_prompt
+
+# PROMPT
+eval "$(starship init zsh)"

@@ -10,20 +10,49 @@
   (sml/read-only ((t (:inherit sml/not-modified :foreground "deep sky blue"))))
   :config
   (sml/setup)
-  :custom (
-           (sml/no-confirm-load-theme     t)
-           (sml/pos-id-separator          "}")
-           (sml/pos-minor-modes-separator "|")
-           (sml/pre-id-separator          "{")
-           (sml/pre-minor-modes-separator " ")
-           (sml/pre-modes-separator       "/")
-           (sml/shorten-directory         t)
-           (sml/shorten-modes             t)
-           (sml/use-projectile-p          'before-prefixes)
-           (sml/vc-mode-show-backend      nil)
-           (sml/theme                     'respectful)
-           )
-)
+  (setq-default mode-line-format (list
+                                  '("%e"
+                                    evil-mode-line-tag
+                                    mode-line-modified
+                                    sml/pre-id-separator
+                                    mode-line-buffer-identification
+                                    sml/pos-id-separator
+                                    )
+                                  ;;mode-line-front-space
+                                  '("%e"
+                                    sml/pre-modes-separator
+                                    mode-line-modes
+                                    sml/pos-modes-separator
+                                    mode-line-position
+                                    (vc-mode vc-mode)
+                                    )
+                                  ;; line and column
+                                  "(" ;; '%02' to set to 2 chars at least; prevents flickering
+                                  (propertize "%03l" 'face 'font-lock-type-face)
+                                  ","
+                                  (propertize "%02c" 'face 'font-lock-type-face)
+                                  ")"
+                                  mode-line-misc-info
+                                  )
+                )
+  :custom
+  (sml/debug t)
+  (sml/no-confirm-load-theme     t)
+  (sml/pre-id-separator          "{")
+  (sml/pos-id-separator          "}")
+  (sml/pre-minor-modes-separator " ")
+  (sml/pos-minor-modes-separator "%")
+  (sml/pre-modes-separator       "#")
+  (sml/pos-modes-separator       "&")
+  (sml/shorten-directory         t)
+  (sml/shorten-modes             t)
+  (sml/show-frame-identification nil)
+  (sml/use-projectile-p          'before-prefixes)
+  (sml/vc-mode-show-backend      nil)
+  (sml/theme                     'respectful)
+  )
+
+
 
 (provide 'smart-mode-line-rcp)
 ;;; Commentary:

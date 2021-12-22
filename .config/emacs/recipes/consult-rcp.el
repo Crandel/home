@@ -78,6 +78,11 @@
   :after (consult lsp)
 )
 
+(use-package consult-yasnippet
+  :ensure t
+  :after consult
+)
+
 (provide 'consult-rcp)
 
 ;;; Commentary:

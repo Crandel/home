@@ -2,6 +2,7 @@
 
 declare -a arr=(
   "AlreaderX"
+  "Android/obb"
   "Apks"
   "Backup"
   "Books"
@@ -11,6 +12,7 @@ declare -a arr=(
   "Download"
   "Fonts"
   "Music"
+  "MyAppList"
   "Notes"
   "Pictures"
   "SamLib-Info"
@@ -19,7 +21,6 @@ declare -a arr=(
   "VocalizerEx2"
   "dictdata"
   "termux"
-  "valtGallery"
   "viber"
   "work"
 )
@@ -35,7 +36,7 @@ do
            --times \
            --copy-links \
            "/sdcard/$FolderStr/" \
-           /data/backup/android/realme_x2_pro/$FolderStr \
+           /data/backup/android/realme_gt/$FolderStr \
            1> $log_fol/out.log \
            2> $log_fol/err.log
   sleep 2
@@ -46,11 +47,10 @@ done
 #   echo "Download to /sdcard/$FolderStr"
 #   log_fol=/tmp/adb/$FolderStr
 #   mkdir -p $log_fol
-#   # --delete \
 #   adb-sync --copy-links \
 #            --no-clobber \
-#            /data/backup/android/realme_x2_pro/$FolderStr \
-#            "/sdcard/" \
+#            /data/backup/android/realme_gt/$FolderStr \
+#            "/sdcard" \
 #            1> $log_fol/out.log \
 #            2> $log_fol/err.log
 #   sleep 2

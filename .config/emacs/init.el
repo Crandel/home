@@ -38,9 +38,11 @@
     ; (use-package-verbose t)
     (use-package-minimum-reported-time 0.005)
     (use-package-enable-imenu-support t))
+  (use-package use-package-ensure-system-package
+    :ensure t)
 )
 (add-to-list 'load-path (expand-file-name "recipes/" (file-name-directory load-file-name)))
-;; (debug-watch 'company-backends)
+;; (debug-watch 'completion-at-point-functions)
 (require 'functions_my)
 
 (require 'base-rcp) ; emacs default settings
@@ -51,8 +53,8 @@
 (require 'avy-rcp)
 (require 'all-the-icons-rcp)
 ;;(require 'bazel-rcp)
-(require 'company-rcp)
-;;(require 'corfu-rcp)
+;;(require 'company-rcp)
+(require 'corfu-rcp)
 (require 'consult-rcp)
 (require 'dired-subtree-rcp)
 (require 'embark-rcp)
@@ -94,7 +96,6 @@
 (require 'ytdl-rcp)
 (require 'ztree-rcp)
 (require 'k8s-mode-rcp)
-(require 'ansible-rcp)
 (require 'rust-rcp)
 (require 'docker-rcp)
 (require 'go-rcp)

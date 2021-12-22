@@ -76,6 +76,7 @@
   (js-indent-level              2)
   (lisp-body-indent             2)
   (max-mini-window-height       0.5)
+  (display-time-default-load-average nil)
   (native-comp-async-report-warnings-errors nil)
   (next-line-add-newlines    nil)
   (nxml-attribute-indent     2)
@@ -382,7 +383,7 @@
   :hook
   (shell-mode . add-mode-line-dirtrack)
   :custom
-  (shell-file-name "/bin/zsh" "Set zsh as default shell")
+  (shell-file-name "/usr/bin/zsh" "Set zsh as default shell")
 )
 
 (use-package windmove
@@ -418,6 +419,10 @@
      (lines-tail 10 [8617 10]) ; 10 LINE FEED
      (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
      ))
+)
+
+(use-package f
+  :ensure t
 )
 
 (provide 'base-rcp)

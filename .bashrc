@@ -289,6 +289,14 @@ if command_exists pacman ; then
     alias piiy='yay -Sii'
   fi
 
+  if command_exists paru ; then
+    alias paru='paru --aur --fm vifm --removemake --clonedir $PERS_DIR/bb'
+    alias psuy='paru -Syua'
+    alias pssy='paru -Ss'
+    alias psiy='paru -Sa'
+    alias piiy='paru -Sii'
+  fi
+
   paclist() {
     pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
   }
@@ -463,13 +471,26 @@ fi
 
 if command_exists git ; then
   alias g='git'
-  alias pla='g pull'
-  alias pll='pla origin'
-  alias psh='g push origin'
-  alias gst='g status'
+  alias ga='g add'
+  alias gb='g branch'
+  alias gba='g branch -a'
+  alias gbd='g branch -d'
+  alias gbdf='g branch -D'
+  alias gcb='g checkout -b'
+  alias gcf='g config --list'
+  alias gcmt='g commit -v -a -m'
   alias gco='g checkout'
-  alias gadd='g add'
-  alias gcmt='g commit -m'
+  alias gl='g pull'
+  alias glo='g pull origin'
+  alias gpo='g push origin'
+  alias gs='g status'
+  alias gr='git remote'
+  alias gra='git remote add'
+  alias grb='git rebase'
+  alias grba='git rebase --abort'
+  alias grbc='git rebase --continue'
+  alias grbi='git rebase -i'
+  alias grpo='git remote prune origin'
 fi
 
 if command_exists tmux ; then
@@ -512,10 +533,6 @@ if command_exists cargo || [ -d $HOME/.rustup ]; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  setup_cargo () {
-    rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
-    rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
-  }
   setup_cargo_tools() {
     if ! command_exists cargo-expand; then
       cargo install cargo-expand

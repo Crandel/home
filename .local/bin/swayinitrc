@@ -19,5 +19,25 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 export LP_NUM_THREADS=1
 export WLR_DRM_NO_MODIFIERS=1
-
-exec sway -Dtxn-timeout=10 -d #2>> ~/.local/log/sway.log
+systemctl --user import-environment \
+    BEMENU_OPTS \
+    DISPLAY \
+    GNOME_DESKTOP_SESSION_ID \
+    LIBVA_DRIVER_NAME \
+    LP_NUM_THREADS \
+    LS_COLORS \
+    MAKEFLAGS \
+    PATH \
+    SSH_AUTH_SOCK \
+    WLR_DRM_NO_MODIFIERS \
+    XDG_CURRENT_DESKTOP \
+    XDG_SESSION_TYPE
+hash dbus-update-activation-environment 2>/dev/null \
+  && dbus-update-activation-environment --systemd BEMENU_OPTS \
+                                                  DISPLAY \
+                                                  GNOME_DESKTOP_SESSION_ID \
+                                                  MOZ_DBUS_REMOTE \
+                                                  PATH \
+                                                  XDG_CURRENT_DESKTOP \
+                                                  XDG_SESSION_TYPE 2>/dev/null
+exec sway -Dtxn-timeout=10 # -d 2>> ~/.local/log/sway.log

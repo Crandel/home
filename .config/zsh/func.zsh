@@ -49,6 +49,7 @@ extract () {
     case $1 in
       *.tar.bz2)        tar xjf $1        ;;
       *.tar.gz)         tar xzf $1        ;;
+      *.tar.xz)         tar xf  $1        ;;
       *.bz2)            bunzip2 $1        ;;
       *.rar)            unrar x $1        ;;
       *.gz)             gunzip $1         ;;
@@ -125,6 +126,80 @@ mkcd() {
   mkdir -p $folder
   cd $folder
 }
+
+if [ -n "${WAYLAND_DISPLAY:-}" ] && (( ${+commands[wl-copy]} )) && (( ${+commands[wl-paste]} )); then
+  clipcopy() {
+    wl-copy < "${1:-/dev/stdin}"
+  }
+  clippaste() {
+    wl-paste
+  }
+fi
+## Lang specific functions
+
+
+
+clean_pyc (){
+  find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+}
+drmin () {
+  for img in $(d images | rg -i 'none' | awk '{print $3}'); do
+    docker rmi $img
+  done
+}
+d_exec() {
+  docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
+}
+d_ip() {
+  doc_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
+  export DOCKER_HOST_IP=$doc_ip
+}
+setup_cargo () {
+  rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
+  rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
+}
+setup_cargo_tools() {
+  if ! command_exists cargo-expand; then
+    cargo install cargo-expand
+  fi
+  if ! command_exists cargo-audit; then
+    cargo install cargo-audit
+  fi
+  if ! command_exists cargo-outdated; then
+    cargo install cargo-outdated
+  fi
+}
+gdelbrs() {
+  git branch |
+  rg --invert-match '\*' |
+  cut -c 3- |
+  sk --multi --preview="git log {} --" |
+  xargs --no-run-if-empty git branch --delete --force
+}
+
+## GO
+gdelbrf() {
+  git branch |
+    rg --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi --preview="git log {} --" |
+    xargs --no-run-if-empty git branch --delete --force
+}
+lfcd () {
+  tmp="$(mktemp)"
+  lf -last-dir-path="$tmp" "$@"
+  if [ -f "$tmp" ]; then
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+  fi
+}
+bindkey -s '^o' 'lfcd\n'
+## END GO
+
+# End lang specific functions
+
+# Custom host functions
 
 if [ -f $ZDOTDIR/func.local.zsh ]; then
   . $ZDOTDIR/func.local.zsh

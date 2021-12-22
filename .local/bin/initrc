@@ -4,7 +4,9 @@
 
 export GNOME_DESKTOP_SESSION_ID=1
 export MAKEFLAGS="-j$(nproc)"
-#export LIBVA_DRIVER_NAME=i965
+
+# export LIBVA_DRIVER_NAME=iHD
+
 export LIBSEAT_BACKEND=logind
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
@@ -12,7 +14,7 @@ export SSH_AUTH_SOCK
 
 session=${1:-sway}
 case $session in
-  sway|swaywm       ) exec $HOME/.local/bin/swayinitrc;;
+  sway|swaywm       ) exec /usr/local/bin/swayinitrc;;
   i3|i3wm           ) exec startx ~/.xinitrc i3;;
   xfce|xfce4        ) exec startx ~/.xinitrc xfce;;
 esac

@@ -11,6 +11,7 @@ wezterm.on("toggle-opacity", function(window, pane)
 end)
 
 return {
+  check_for_updates = false,
   color_scheme = "Gruvbox Dark Hard",
   color_schemes = {
     ["Gruvbox Dark Hard"] = {
@@ -36,7 +37,6 @@ return {
       }
     }
   },
-  cursor_blink_rate = 8000,
   colors = {
     tab_bar = {
       -- The active tab is the one that has focus in the window
@@ -82,6 +82,7 @@ return {
       }
     }
   },
+  cursor_blink_rate = 800,
   default_cursor_style = "BlinkingBar",
   enable_scroll_bar = true,
   enable_wayland = true,
@@ -102,6 +103,7 @@ return {
     {key="t"          ,mods="CTRL"       ,action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
     {key="w"          ,mods="CTRL"       ,action=wezterm.action{CloseCurrentPane={confirm=true}}},
     {key="z"          ,mods="CTRL"       ,action="Nop"},
+    {key="z"          ,mods="ALT"        ,action="TogglePaneZoomState"},
   },
   ratelimit_mux_line_prefetches_per_second = 4289999998,
   scrollback_lines = 150000,

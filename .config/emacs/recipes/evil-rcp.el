@@ -9,6 +9,7 @@
   (evil-leader/leader "<SPC>")
   :config
   (evil-leader/set-key
+   "c" 'find-in-config
    "d" 'duplicate-line
    "k" 'kill-buffer
    "l" 'copy-line
@@ -18,6 +19,7 @@
    "f" 'find-file
    "p" 'consult-buffer
    "/" 'consult-ripgrep-symbol-at-point
+   "w" 'evil-window-map
    )
   (evil-leader/set-key-for-mode
     'evil-visual-state-map

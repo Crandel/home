@@ -10,10 +10,19 @@ if ! pgrep "sway" ; then
 else
   if hash swaylock >/dev/null 2>&1 && ! pgrep "swaylock" > /dev/null ; then
     echo "Swaylock with -s $SWAYSOCK beginning " >> /tmp/swaylock.log
-    swaymsg -s $SWAYSOCK input type:keyboard xkb_switch_layout 0 >> /tmp/swaylock.log
-    echo "exit code of swaymsg: $?" >> /tmp/swaylock.log
+    pkill swayidle
+    pkill_exit=$?
+    echo "Pkill swayidle: $pkill_exit"
+    swaymsg -s $SWAYSOCK input type:keyboard xkb_switch_layout 0
+    input_exit=$?
+    echo "Exit code of swaymsg input switch: $input_exit" >> /tmp/swaylock.log
+    echo "Turn screen on before swaylock" >> /tmp/swaylock.log
+    swaymsg "output * dpms on"
     swaylock -c 000000 -F -e -k -l --font Hack --font-size 22
-    echo "Succesfully block screen using swaylock" >> /tmp/swaylock.log
-    echo "swaylock was closed" >> /tmp/swaylock.log
+    lock_exit=$?
+    echo "Succesfully block screen using swaylock: $lock_exit" >> /tmp/swaylock.log
+    idle &
+    idle_exit=$?
+    echo "Run idle: $idle_exit" >> /tmp/swaylock.log
   fi
 fi
