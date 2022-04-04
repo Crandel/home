@@ -32,6 +32,7 @@
   (web-mode-enable-comment-keywords            t)
   (web-mode-enable-css-colorization            t)
   (web-mode-enable-auto-pairing                nil)
+  (web-mode-enable-auto-indentation            nil)
   (web-mode-enable-current-column-highlight    t)
   :bind
   (:map web-mode-map

@@ -49,60 +49,10 @@
         ("C-c C-b" . insert_pdb))
 )
 
+
 (use-package pip-requirements
   :ensure t
   :defer t
-)
-
-(use-package py-isort
-  :ensure t
-  :after python-mode
-  :defer t
-)
-
-(use-package py-autopep8
-  :ensure t
-  :ensure-system-package autopep8
-  :after python-mode
-  :defer t
-)
-
-(use-package python-black
-  :ensure t
-  :ensure-system-package black
-  :hook (python-mode . python-black-on-save-mode-enable-dwim)
-)
-(use-package pyvenv
-  :ensure t
-  :commands pyvenv-autoload
-  :init
-  (setenv "WORKON_HOME" "~/.pyenv/versions")
-  :config
-  (defun pyvenv-autoload ()
-    "auto activate venv directory if exists"
-    (interactive)
-    (unless pyvenv-virtual-env-name
-      (message "Activate .python-version")
-      (f-traverse-upwards (lambda (path)
-                            (let ((venv-path (f-expand ".python-version" path)))
-                              (when (f-exists? venv-path)
-                                (pyvenv-workon (with-temp-buffer
-                                                 (insert-file-contents venv-path)
-                                                 (string-trim(buffer-string))))))))))
-  (setq pyvenv-post-activate-hooks '(lambda ()
-                                      (require'lsp-pyright)
-                                      (lsp-deferred)))  ; or lsp
-
-  :hook
-  (python-mode . pyvenv-autoload)
-)
-(use-package lsp-pyright
-  :ensure t
-  :ensure-system-package pyright
-  :custom
-  (lsp-pyright-disable-organize-imports nil)
-  (lsp-pyright-auto-import-completions  t)
-  (lsp-pyright-auto-search-paths        nil)
 )
 
 (provide 'python-rcp)

@@ -44,8 +44,9 @@
   ([remap xref-find-references] . lsp-find-references)
   )
   :hook ((rust-mode . (lambda()
-                        (setq-default lsp-rust-server 'rust-analyzer
-                                      lsp-semantic-tokens-enable nil)
+                        (setq-default lsp-rust-server                              'rust-analyzer
+                                      lsp-rust-analyzer-server-display-inlay-hints t
+                                      lsp-semantic-tokens-enable                   nil)
                         (lsp-deferred)
                         ))
          (c++-mode       . lsp-deferred)
@@ -53,6 +54,7 @@
          (js2-mode       . lsp-deferred)
          (scala-mode     . lsp-deferred)
          (terraform-mode . lsp-deferred)
+         (sql-mode       . lsp-deferred)
          ;; (vimrc-mode     . lsp-deferred)
          ;; (yaml-mode      . lsp-deferred)
          ;; (sh-mode        . lsp-deferred)
@@ -90,7 +92,26 @@
   (treemacs-mode . lsp-treemacs-sync-mode)
 )
 
+(use-package dap-mode
+  :ensure t
+  :commands (dap-hydra go-dap-setup)
+  :preface
+  (defun go-dap-setup ()
+    (interactive)
+    (require 'dap-go)
+    (dap-mode 1)
+    (dap-ui-mode 1)
+    (dap-tooltip-mode 1)
+    (dap-ui-controls-mode 1)
+  )
+  :hook
+  (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
+
+)
+
 (provide 'lsp-mode-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; lsp-mode-rcp.el ends here

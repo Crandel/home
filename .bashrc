@@ -412,10 +412,10 @@ if command_exists youtube-dl ; then
 fi
 
 if command_exists yt-dlp ; then
-  alias ytdp='yt-dlp'
-  alias ytbp='ytdp -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-  alias ytmp='ytdl -f bestaudio -x'
-  alias ytlfp='ytdl --list-formats'
+  alias ypdl='yt-dlp'
+  alias ypb='ypdl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+  alias ypm='ypdl -f bestaudio -x'
+  alias yplfp='ypdl --list-formats'
 fi
 
 if command_exists aria2c ; then

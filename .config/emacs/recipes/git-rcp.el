@@ -5,6 +5,7 @@
 (use-package magit
   :ensure t
   :defer t
+  :functions magit-status
   :custom-face
   (magit-diff-added ((t (:background "dark slate gray" :foreground "chocolate"))))
   (magit-diff-added-highlight ((t (:background "dark olive green" :foreground "gold"))))
@@ -43,6 +44,23 @@
   ("C-c ]" . git-gutter:previous-hunk)
 )
 
+(use-package blamer
+  :ensure t
+  :bind (
+  ("C-c i" . blamer-show-commit-info)
+  :map evil-normal-state-map
+  ("gri"  . blamer-show-commit-info)
+  )
+  :defer 20
+  :custom
+  (blamer-idle-time 0.3)
+  (blamer-min-offset 70)
+  :custom-face
+  (blamer-face ((t :foreground "#292A0A"
+                   :background nil
+                   :height 140
+                   :italic t)))
+)
 
 (provide 'git-rcp)
 ;;; Commentary:

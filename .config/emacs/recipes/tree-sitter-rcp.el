@@ -3,6 +3,7 @@
 (eval-when-compile (require 'use-package))
 (use-package tree-sitter
   :ensure t
+  :defer t
   :hook (
          (c++-mode       . tree-sitter-hl-mode)
          (go-mode        . tree-sitter-hl-mode)
@@ -18,6 +19,7 @@
 
 (use-package tree-sitter-langs
   :ensure t
+  :after tree-sitter-mode
 )
 
 (provide 'tree-sitter-rcp)

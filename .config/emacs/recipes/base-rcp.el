@@ -4,39 +4,6 @@
 (eval-when-compile (require 'use-package))
 (use-package emacs
   :demand t
-  :init
-  (set-frame-font            "Hack Nerd Font-16" "Font settings")
-  (set-fontset-font          "fontset-default" 'unicode "Source Code Pro")
-  (setq initial-frame-alist
-        '(
-          (alpha 100 100)
-          (cursor-color . "#BE81F7")
-          (cursor-type . 'vbar)
-          (font . "Hack Nerd Font-16")
-          (tool-bar-lines . 0)
-          (vertical-scroll-bars . right)
-          ))
-  (setq default-frame-alist
-        '(
-          (alpha 100 100)
-          (cursor-type . 'vbar)
-          (cursor-color . "#BE81F7")
-          (font . "Hack Nerd Font-16")
-          (tool-bar-lines . 0)
-          (vertical-scroll-bars . right)
-          ))
-  (set-fontset-font t nil (font-spec :size 16 :name "Noto Color Emoji"))
-  (set-window-scroll-bars (minibuffer-window) nil nil)
-  (blink-cursor-mode              1)
-  (column-number-mode             t)
-  (global-font-lock-mode          1)
-  (menu-bar-mode                  -1)
-  (setq default-frame-scroll-bars 'right)
-  (scroll-bar-mode                1)
-  (tool-bar-mode                  -1)
-  (tooltip-mode                   -1)
-  (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled   nil)
   :config
   (cl-loop
    for from across "йцукенгшщзхїфівапролджєячсмитьбюЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖ\ЄЯЧСМИТЬБЮ№"
@@ -71,7 +38,6 @@
   (gc-cons-threshold            100000000)
   (indent-line-function         'insert-tab "End Indent settings")
   (indent-tabs-mode             nil)
-  (inhibit-startup-screen       t   "Don't show splash screen")
   (java-basic-offset            2)
   (js-indent-level              2)
   (lisp-body-indent             2)
@@ -160,14 +126,6 @@
   (display-line-numbers-type t)
   :config
   (global-display-line-numbers-mode t)
-)
-
-(use-package dired
-  :defer t
-  :custom
-  (dired-dwim-target t      "guess a target directory")
-  (dired-auto-revert-buffer t)
-  (dired-listing-switches   "-ahlF --time-style=long-iso --group-directories-first")
 )
 
 (use-package ediff-util
@@ -386,10 +344,28 @@
   (shell-file-name "/usr/bin/zsh" "Set zsh as default shell")
 )
 
+(use-package sql-mode
+  :mode "\\.pgsql\\'"
+  :custom
+  (sql-product 'postgres)
+)
+
+(use-package subword
+  :config
+  (global-subword-mode t)
+)
+
+
 (use-package windmove
   :defer t
+  :ensure nil
   :init
   (windmove-default-keybindings 'meta)
+)
+
+(use-package winner-mode
+  :ensure nil
+  :defer 1
 )
 
 (use-package whitespace

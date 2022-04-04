@@ -84,7 +84,12 @@ The return value is the yanked text."
   :map evil-normal-state-map
   ("q"   . nil)
   ("f"   . evil-avy-goto-char)
+  ("gb"  . go-dap-setup)
   ("gc"  . comment-dwim)
+  ("gs"  . magit-status)
+  ("gp"  . projectile-command-map)
+  ("g[" . text-scale-decrease)
+  ("g]" . text-scale-increase)
   ("M-." . xref-find-definitions)
   ("M-," . xref-find-references)
   ("C-p" . nil)
@@ -93,6 +98,9 @@ The return value is the yanked text."
   ("C-v" . yank)
   ("C-e" . nil)
   ("C-p" . nil)
+  :map evil-window-map
+  ("u" . winner-undo)
+  ("r" . winner-redo)
   )
   :chords
   ("jk" . evil-force-normal-state)
@@ -172,17 +180,16 @@ The return value is the yanked text."
   :config
   (global-evil-surround-mode 1))
 
-(use-package treemacs-evil
-  :ensure t
-  :after (evil treemacs)
-)
+;; (use-package treemacs-evil
+;;   :ensure t
+;;   :after (evil treemacs)
+;; )
 
 (use-package evil-collection
   :ensure t
   :after evil-mc
   :config
   (delete 'evil-mc evil-collection-mode-list)
-  (delete 'company evil-collection-mode-list)
   (evil-collection-init)
 )
 

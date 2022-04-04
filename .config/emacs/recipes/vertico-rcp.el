@@ -25,28 +25,30 @@
                  cand)))
   (vertico-mode)
   (vertico-indexed-mode)
+  (vertico-buffer-mode)
+  (vertico-multiform-mode)
 )
 
-(use-package mini-popup
-  :load-path "mini-popup"
-  :if window-system
-  :defer 1
-  :preface
-  (defun mini-popup-height-resize ()
-    (* (1+ (min vertico--total vertico-count)) (default-line-height)))
-  (defun mini-popup-height-fixed ()
-    (* (1+ (if vertico--input vertico-count 0)) (default-line-height)))
-  :custom
-  (mini-popup--height-function #'mini-popup-height-fixed)
-  :config
-  (advice-add #'vertico--resize-window :around
-              (lambda (&rest args)
-                (unless mini-popup-mode
-                  (apply args))))
-  (mini-popup-mode 1)
-  :hook
-  (consult--completion-refresh-hook . (lambda() (&rest _) (mini-popup--setup) 99))
-)
+;; (use-package mini-popup
+;;   :load-path "mini-popup"
+;;   :if window-system
+;;   :defer 1
+;;   :preface
+;;   (defun mini-popup-height-resize ()
+;;     (* (1+ (min vertico--total vertico-count)) (default-line-height)))
+;;   (defun mini-popup-height-fixed ()
+;;     (* (1+ (if vertico--input vertico-count 0)) (default-line-height)))
+;;   :custom
+;;   (mini-popup--height-function #'mini-popup-height-fixed)
+;;   :config
+;;   (advice-add #'vertico--resize-window :around
+;;               (lambda (&rest args)
+;;                 (unless mini-popup-mode
+;;                   (apply args))))
+;;   (mini-popup-mode 1)
+;;   :hook
+;;   (consult--completion-refresh-hook . (lambda() (&rest _) (mini-popup--setup) 99))
+;; )
 
 (provide 'vertico-rcp)
 

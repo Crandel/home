@@ -13,7 +13,7 @@
   :custom
   (corfu-auto             t)
   (corfu-auto-delay       0.1)
-  (corfu-auto-prefix      1)
+  (corfu-auto-prefix      2)
   (corfu-count            20)
   (corfu-cycle            t)
   (corfu-preselect-first  t)
@@ -36,7 +36,6 @@
                 ))
   (defun vd/setup-lsp-completion ()
     (setq-local completion-at-point-functions (list (cape-super-capf #'lsp-completion-at-point
-                                                                     #'cape-dabbrev
                                                                      #'cape-keyword
                                                                      #'cape-abbrev)))
     )

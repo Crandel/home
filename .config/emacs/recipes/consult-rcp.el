@@ -45,11 +45,12 @@
     (consult-ripgrep (get-project-root) (thing-at-point 'symbol)))
   :config
   (consult-customize
-   consult--source-file
+   consult--source-hidden-buffer
+   consult--source-buffer
+   consult--source-recent-file
    consult--source-bookmark
-   consult-recent-file
-   consult-ripgrep
-   consult-bookmark
+   consult--source-project-buffer
+   consult--source-project-recent-file
    :preview-key '[M-.])
   :bind
   ("C-s" . consult-line-symbol-at-point)

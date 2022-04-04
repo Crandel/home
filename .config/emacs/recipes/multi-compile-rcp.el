@@ -10,6 +10,8 @@
                                       (locate-dominating-file buffer-file-name ".git"))
                                      ("gb" "go build -v"
                                       (locate-dominating-file buffer-file-name ".git"))
+                                     ("gt" "go test -v"
+                                      (locate-dominating-file buffer-file-name ".git"))
                                      ("gbr" "go build -v && echo 'build finish' && eval ./${PWD##*/}"
                                       (multi-compile-locate-file-dir ".git"))))
                          (scala-mode . (("scl" "scala"

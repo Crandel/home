@@ -1,15 +1,14 @@
 ;;; projectile-rcp.el --- Project manager for emacs
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package projectile
   :ensure t
-  :commands projectile-project-root
-  :defer 2
+  :functions (projectile-project-root projectile-command-map)
+  :defer 0.5
   :defines projectile-globally-ignored-directories
   :config
   (projectile-mode)
-  (add-to-list 'projectile-globally-ignored-directories "*bloop")
-  (add-to-list 'projectile-globally-ignored-directories "*metals")
   :bind
   ("C-c p" . projectile-command-map)
 )
@@ -17,5 +16,7 @@
 (provide 'projectile-rcp)
 
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; projectile-rcp.el ends here
