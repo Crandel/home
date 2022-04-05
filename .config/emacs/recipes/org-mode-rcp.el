@@ -4,6 +4,13 @@
 (eval-when-compile (require 'use-package))
 (use-package org
   :ensure t
+  :preface
+  (setq vd/org-babel-load-languages '(
+                                      (emacs-lisp . t)
+                                      (python     . t)
+                                      (shell      . t)
+                                      (sql        . t)
+                                      ))
   :custom
   (org-ellipsis                     "▾")
   (org-hide-emphasis-markers        t)
@@ -27,10 +34,7 @@
   (add-to-list 'org-src-lang-modes           '("conf-unix" . conf-unix))
   (remove-hook 'org-cycle-hook
               #'org-optimize-window-after-visibility-change)
-  (add-to-list 'org-babel-load-languages '(emacs-lisp . t))
-  (add-to-list 'org-babel-load-languages '(python     . t))
-  (add-to-list 'org-babel-load-languages '(shell      . t))
-  (add-to-list 'org-babel-load-languages '(sql        . t))
+  (org-babel-do-load-languages 'org-babel-load-languages vd/org-babel-load-languages)
 )
 
 (use-package org-tempo
@@ -46,11 +50,12 @@
 (use-package ob-restclient
   :ensure t
   :mode ("\\.rest\\.org\\'" . org-mode)
+  :init
+  (add-to-list 'vd/org-babel-load-languages '(restclient . t))
   :hook
   (org-mode . (lambda()
-  (add-to-list 'org-structure-template-alist '("r" . "src restclient"))
-  (setq org-confirm-babel-evaluate nil)
-  (add-to-list 'org-babel-load-languages '(restclient . t))))
+                (add-to-list 'org-structure-template-alist '("r" . "src restclient"))
+                (setq org-confirm-babel-evaluate nil)))
 )
 
 (provide 'org-mode-rcp)
