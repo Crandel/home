@@ -17,23 +17,23 @@ set {
   $notification_mode "Notification: | (s) Stop | (d) Default"
 
   # Theming
-  $gnome-sound org.gnome.desktop.sound
+  $gnome-sound     org.gnome.desktop.sound
   $gnome-interface org.gnome.desktop.interface
   $font     pango:Hack Nerd Font, Source Code Pro 16
   $big_font pango:Hack Nerd Font, Source Code Pro 18
 
   # Apps
-  $launch fuzzel.sh
+  $launch       fuzzel.sh
   $launch-dmenu fuzzel-dmenu
-  $term wezterm
+  $term    wezterm
   $term_id org.wezfurlong.wezterm
-  $pass keepassxc
+  $pass    keepassxc
   $pass_id org.keepassxc.KeePassXC
-  $oterm alacritty --class oterm
+  $oterm    alacritty --class oterm
   $oterm_id oterm
   $editor_id emacs_float
-  $editor emacs --name $editor_id
-  $browser firefox
+  $editor    emacs --name $editor_id
+  $browser   firefox
   $o_browser vieb.sh
   $lock sleep.sh
 
@@ -44,8 +44,8 @@ output {
   $laptop background ~/images/wallpaper.png fill
   $laptop adaptive_sync on
   $laptop pos 0 0 res 1920x1080@144Hz
-  $hdmi pos 1920 0 res 2560x1440@144Hz
-  $hdmi background ~/images/wallpaper_hdmi.png fill
+  $hdmi   pos 1920 0 res 2560x1440@144Hz
+  $hdmi   background ~/images/wallpaper_hdmi.png fill
 }
 
 input type:keyboard {
@@ -244,14 +244,13 @@ bindsym --to-code {
   $mod+q kill
 
   # start a program launcher
-  $mod+Shift+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
-                               --display-binary \
-                               --use-xdg-de \
-                               --term=$term \
-                               --usage-log="$HOME/.local/log/j4.log"
-
   $mod+d         exec $launch -l 30 -P 'Run: '
-  $mod+Control+d exec ulauncher-toggle || ulauncher
+  $mod+Control+d exec fuzzel-launcher
+  $mod+Shift+d   exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
+                                       --display-binary \
+                                       --use-xdg-de \
+                                       --term=$term \
+                                       --usage-log="$HOME/.local/log/j4.log"
 
   # change focus
   $mod+$left  focus left
@@ -393,9 +392,9 @@ bindsym --to-code {
   XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # toggle mute sound
 
   # mic settings
-  $mod+space       exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute mic
+  $mod+space     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute mic
   XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
-  $mod+Shift+m     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
+  $mod+Shift+m   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
 
   # Sreen brightness controls
   XF86MonBrightnessUp   exec light -A 20 # increase screen brightness
