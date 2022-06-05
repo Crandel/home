@@ -1,49 +1,56 @@
 set {
   $mod Mod4
 
+  $left  h
+  $down  j
+  $up    k
+  $right l
+
   # Output
-  $left_out  DP-1
-  $laptop    eDP-1
-  $right_out DP-2
+  $laptop   eDP-1
+  $work_out DP-3
+  $hdmi     HDMI-A-1
 
   # Modes
-  $layout_mode "Change Layout: |(d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
-  $power_mode  "Power Mode:| (l)Lock | (r)Reboot | (p)Poweroff"
+  $layout_mode "Layout: |(d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
+  $power_mode  "Power:| (F2)SCRNOFF | (F3)LCK | (F4)RBT | (F5)POFF"
+  $notification_mode "Notification: | (s) Stop | (d) Default"
 
   # Theming
   $gnome-sound org.gnome.desktop.sound
   $gnome-interface org.gnome.desktop.interface
-  $icon_theme Acid-green-folder
   $font     pango:Hack Nerd Font, Source Code Pro 16
   $big_font pango:Hack Nerd Font, Source Code Pro 18
-  $gtk_font 'Hack Nerd Font 16'
 
   # Apps
+  $launch fuzzel.sh
+  $launch-dmenu fuzzel-dmenu
   $term wezterm
   $term_id org.wezfurlong.wezterm
   $pass keepassxc
   $pass_id org.keepassxc.KeePassXC
   $oterm alacritty --class oterm
   $oterm_id oterm
-  $editor emacs
+  $editor_id emacs_float
+  $editor emacs --name $editor_id
   $browser firefox
   $o_browser vieb.sh
-  $ide pycharm
   $lock sleep.sh
 
   $t_pos border none, move position center, resize set width 100 ppt height 100 ppt
 }
 
 output {
-  # $left_out background ~/images/wallpaper_left.jpg fill
-  $laptop pos 0 0 res --custom 1920x1080@144Hz
-  $laptop background ~/images/wallpaper.jpg fill
-  # $right_out background ~/images/wallpaper_right.jpg fill
+  $laptop background ~/images/wallpaper.png fill
+  $laptop adaptive_sync on
+  $laptop pos 0 0 res 1920x1080@144Hz
+  $hdmi pos 1920 0 res 2560x1440@144Hz
+  $hdmi background ~/images/wallpaper_hdmi.png fill
 }
 
 input type:keyboard {
   xkb_capslock disabled
-  xkb_numlock enable
+  xkb_numlock enabled
   xkb_layout "us,ua"
   xkb_options "grp:shift_caps_switch,compose:prsc"
 }
@@ -54,7 +61,6 @@ input type:touchpad {
   click_method clickfinger
   drag enabled
   dwt enabled
-  events disabled_on_external_mouse
   middle_emulation enabled
   pointer_accel 0.8
   scroll_method two_finger
@@ -64,12 +70,12 @@ input type:touchpad {
 exec_always {
   gsettings set $gnome-interface cursor-theme        'capitaine-cursors'
   gsettings set $gnome-interface cursor-size         30
-  gsettings set $gnome-interface document-font-name  $gtk_font
-  gsettings set $gnome-interface font-name           $gtk_font
-  gsettings set $gnome-interface gtk-theme           'Gruvbox-glass'
-  gsettings set $gnome-interface gtk-color-theme     'Gruvbox-glass'
-  gsettings set $gnome-interface icon-theme          '$icon_theme'
-  gsettings set $gnome-interface monospace-font-name $gtk_font
+  gsettings set $gnome-interface document-font-name  'Hack Nerd Font Mono 16'
+  gsettings set $gnome-interface font-name           'Hack Nerd Font Mono 16'
+  gsettings set $gnome-interface gtk-theme           'Gruvbox-Dark'
+  gsettings set $gnome-interface gtk-color-theme     'Gruvbox-Dark'
+  gsettings set $gnome-interface icon-theme          'Acid-green-folder'
+  gsettings set $gnome-interface monospace-font-name 'Hack Nerd Font Mono 16'
   gsettings set $gnome-interface text-scaling-factor 1.0
   gsettings set $gnome-sound     theme-name          'deepin'
 }
@@ -85,54 +91,62 @@ floating_modifier $mod normal
 hide_edge_borders --i3 smart
 
 workspace_layout tabbed
-workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth no
 workspace {
   1 output $laptop
   2 output $laptop
-  # 3 output $right_out
-  # 4 output $left_out
+  3 output $hdmi
 }
 
 # assings
 assign {
   [app_id="com.github.rssguard"] 2
-  [app_id="discord"] 4
-  [app_id="evolution"] 2
-  [app_id="telegramdesktop"] 2
-  [app_id="thunderbird"] 2
-  [class="(?i)Discord"] 4
-  [class="(?i)Evolution"] 2
-  [class="(?i)RSS Guard"] 2
-  [class="(?i)Signal"] 2
-  [class="(?i)Slack"] 3
-  [class="(?i)TelegramDesktop"] 2
-  [class="(?i)Viber"] 2
+  [app_id="evolution"]           2
+  [app_id="telegramdesktop"]     2
+  [app_id="thunderbird"]         2
+  [app_id="slack"]               3
+  [app_id="zoom"]                4
+  [class="(?i)Thunderbird"]      2
+  [class="(?i)RSS Guard"]        2
+  [class="(?i)Signal"]           2
+  [class="(?i)TelegramDesktop"]  2
+  [class="(?i)Viber"]            2
+  [class="(?i)Slack"]            3
 }
 
 for_window {
-  [shell="xwayland"] title_format "%title [XWayland]"
+  [shell="xwayland"] title_format "[X] %title"
   [app_id="firefox"]        inhibit_idle fullscreen
   [app_id="mpv"]            inhibit_idle focus
   [app_id="vivaldi-stable"] inhibit_idle fullscreen
   [app_id="ulauncher"]   floating enable, border none
+  [app_id="zoom"]        floating enable, inhibit_idle focus
   [window_role="pop-up"] floating enable
   [window_role="bubble"] floating enable
   [window_role="dialog"] floating enable
   [window_type="dialog"] floating enable
-  # terminal
+  # main terminal
   [app_id=$term_id] {
     move to scratchpad
     [app_id=$term_id] scratchpad show
     $t_pos
   }
+  # backup terminal
   [app_id=$oterm_id] {
     move to scratchpad
     [app_id=$oterm_id] scratchpad show
     $t_pos
   }
+  # keepassxc
   [app_id=$pass_id] {
     move to scratchpad
     [app_id=$pass_id] scratchpad show
+    $t_pos
+  }
+  # emacs
+  [app_id=$editor_id] {
+    move to scratchpad
+    [app_id=$editor_id] scratchpad show
     $t_pos
   }
 }
@@ -147,21 +161,27 @@ mode "resize" {
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
   bindsym --to-code {
-    h        resize shrink width  30 px or 30 ppt
-    j        resize grow   height 30 px or 30 ppt
-    k        resize shrink height 30 px or 30 ppt
-    l        resize grow   width  30 px or 30 ppt
+    $left        resize shrink width  30 px or 30 ppt
+    $down        resize grow   height 30 px or 30 ppt
+    $up          resize shrink height 30 px or 30 ppt
+    $right       resize grow   width  30 px or 30 ppt
 
-    Shift+h  resize shrink width  5  px or 5 ppt
-    Shift+j  resize grow   height 5  px or 5 ppt
-    Shift+k  resize shrink height 5  px or 5 ppt
-    Shift+l  resize grow   width  5  px or 5 ppt
+    Shift+$left  resize shrink width  5  px or 5 ppt
+    Shift+$down  resize grow   height 5  px or 5 ppt
+    Shift+$up    resize shrink height 5  px or 5 ppt
+    Shift+$right resize grow   width  5  px or 5 ppt
 
     # same bindings, but for the arrow keys
-    Left     resize shrink width  30 px or 30 ppt
-    Down     resize grow   height 30 px or 30 ppt
-    Up       resize shrink height 30 px or 30 ppt
-    Right    resize grow   width  30 px or 30 ppt
+    Left         resize shrink width  30 px or 30 ppt
+    Down         resize grow   height 30 px or 30 ppt
+    Up           resize shrink height 30 px or 30 ppt
+    Right        resize grow   width  30 px or 30 ppt
+
+    Shift+Left   resize shrink width  30  px or 30 ppt
+    Shift+Down   resize grow   height 30  px or 30 ppt
+    Shift+Up     resize shrink height 30  px or 30 ppt
+    Shift+Right  resize grow   width  30  px or 30 ppt
+
 
     # back to normal: Enter or Escape
     Return mode "default"
@@ -175,8 +195,8 @@ mode $layout_mode {
     d layout stacking     ; mode "default"
     t layout tabbed       ; mode "default"
     s layout toggle split ; mode "default"
-    v splitv; mode "default"
-    h splith; mode "default"
+    v layout splitv       ; mode "default"
+    h layout splith       ; mode "default"
 
     # back to normal: Enter or Escape
     Return mode "default"
@@ -186,67 +206,91 @@ mode $layout_mode {
 
 mode $power_mode {
   bindsym --to-code {
-    l exec $lock; mode "default"
-    r exec --no-startup-id systemctl -i reboot
-    p exec --no-startup-id systemctl -i poweroff
+    F2 exec idle.sh kill 1; mode "default"
+    F3 exec $lock; mode "default"
+    F4 exec --no-startup-id systemctl -i reboot
+    F5 exec --no-startup-id systemctl -i poweroff
 
-    #Return to default mode
+    # back to normal: Enter or Escape
     Return mode "default"
     Escape mode "default"
   }
 }
 
+mode $notification_mode {
+  bindsym --to-code {
+    s exec makoctl set-mode do-not-disturb; mode "default"
+    d exec makoctl set-mode default       ; mode "default"
+
+    # back to normal: Enter or Escape
+    Return mode "default"
+    Escape mode "default"
+  }
+}
+
+
 bindsym --to-code {
-  # Terminal
-  F1      exec swaymsg [app_id=$term_id]  scratchpad show || exec $term , $t_pos
-  $mod+F1 exec swaymsg [app_id=$oterm_id] scratchpad show || exec $oterm, $t_pos
+  # Scratchpad bindsym
+  ## Main terminal
+  F1           exec swaymsg [app_id=$term_id]   scratchpad show || exec $term ,  $t_pos
+  ## backup terminal
+  $mod+F1      exec swaymsg [app_id=$oterm_id]  scratchpad show || exec $oterm,  $t_pos
+  ## editor
+  $mod+x       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $t_pos
+  ## keepassxc
+  $mod+Shift+x exec swaymsg [app_id=$pass_id]   scratchpad show || exec $pass,   $t_pos
 
   # kill focused window
   $mod+q kill
 
   # start a program launcher
-  $mod+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
+  $mod+Shift+d exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
                                --display-binary \
                                --use-xdg-de \
                                --term=$term \
-                               --usage-log="$HOME/.j4.log"
+                               --usage-log="$HOME/.local/log/j4.log"
 
-  $mod+Shift+d   exec bemenu-run -l 20 -p run
+  $mod+d         exec $launch -l 30 -P 'Run: '
   $mod+Control+d exec ulauncher-toggle || ulauncher
 
   # change focus
-  $mod+j focus left
-  $mod+k focus down
-  $mod+h focus up
-  $mod+l focus right
+  $mod+$left  focus left
+  $mod+$down  focus down
+  $mod+$up    focus up
+  $mod+$right focus right
 
   # alternatively, you can use the cursor keys:
-  $mod+Left  focus left
-  $mod+Down  focus down
-  $mod+Up    focus up
-  $mod+Right focus right
+  $mod+Left   focus left
+  $mod+Down   focus down
+  $mod+Up     focus up
+  $mod+Right  focus right
 
   # change focused container
   $mod+Tab       focus right
   $mod+Shift+Tab focus left
 
   # move focused window
-  $mod+Shift+h move left
-  $mod+Shift+j move down
-  $mod+Shift+k move up
-  $mod+Shift+l move right
+  $mod+Shift+$left  move left
+  $mod+Shift+$down  move down
+  $mod+Shift+$up    move up
+  $mod+Shift+$right move right
 
   # alternatively, you can use the cursor keys:
-  $mod+Shift+Left  move left
-  $mod+Shift+Down  move down
-  $mod+Shift+Up    move up
-  $mod+Shift+Right move right
+  $mod+Shift+Left   move left
+  $mod+Shift+Down   move down
+  $mod+Shift+Up     move up
+  $mod+Shift+Right  move right
 
   # move cursor using keys:
-  $mod+Control+Left  seat - cursor move -10  0
-  $mod+Control+Down  seat - cursor move  0   10
-  $mod+Control+Up    seat - cursor move  0  -10
-  $mod+Control+Right seat - cursor move  10  0
+  $mod+Control+$left  seat - cursor move -10  0
+  $mod+Control+$down  seat - cursor move  0   10
+  $mod+Control+$up    seat - cursor move  0  -10
+  $mod+Control+$right seat - cursor move  10  0
+
+  $mod+Control+Left   seat - cursor move -10  0
+  $mod+Control+Down   seat - cursor move  0   10
+  $mod+Control+Up     seat - cursor move  0  -10
+  $mod+Control+Right  seat - cursor move  10  0
 
   # split in horizontal orientation
   $mod+period split h
@@ -301,15 +345,16 @@ bindsym --to-code {
   # exit sway (logs you out of your session)
   $mod+Shift+e exec swaynag -t warning \
                             -m 'Hello. Do you really want to exit sway? This will end your Wayland session.' \
-                            -b '🌚Suspend' 'systemctl suspend' \
-                            -b '⚡Shutdown' 'systemctl -i poweroff' \
-                            -b '🌀Reboot' 'systemctl -i reboot' \
-                            -b '🚪Yes, exit sway' 'swaymsg exit' \
-                            --button-background=ff9100 \
+                            -b 'Suspend' 'systemctl suspend' \
+                            -b 'Lock' '$lock' \
+                            -b 'Shutdown' 'systemctl -i poweroff' \
+                            -b 'Reboot' 'systemctl -i reboot' \
+                            -b 'Yes, exit sway' 'swaymsg exit' \
+                            --button-background=#FF9100 \
                             --button-border-size=3px \
-                            --border=fcc99d \
-                            --text=092e47 \
-                            --font=Hack Nerd Font 16 \
+                            --border=#FCC99D \
+                            --text=#092E47 \
+                            --font=Hack Nerd Font Mono 16 \
                             --background=#282828
 
   # browser
@@ -319,27 +364,25 @@ bindsym --to-code {
   # pulseaudio
   $mod+p exec pavucontrol
 
+  # mpc script
+  $mod+m exec menu-mpd.sh
+
   # radio
   $mod+Shift+p exec alacritty -e nvlc ~/.config/vlc/radio.xspf
 
   # screenshot
   $mod+Shift+s exec alacritty -e grimshot save area
 
-  # default editor
-  $mod+x         exec $editor
-  $mod+Control+x exec env GDK_BACKEND=x11 $editor
-
-  # IDE
-  $mod+b exec $ide
-
-  # pass
-  $mod+Shift+o exec swaymsg [app_id=$pass_id] scratchpad show || exec $pass
-
   # get clipboard history
-  $mod+a exec clipman pick --max-items=1000 -t bemenu -T'bemenu -l 30 -p clipman'
+  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel-dmenu --width 150 -P "Clipman: "'
+  # $mod+a exec clipman pick --max-items=1000 -t bemenu -T'-l 30 -p "clipman: "'
 
   # dismiss notification
   $mod+n exec makoctl dismiss
+  $mod+Shift+n exec makoctl menu $launch-dmenu -P 'Select Action: ' && makoctl dismiss
+
+  # networkmanager-dmenu
+  $mod+w exec networkmanager_dmenu
 
   # Switches to the previously focused workspace.
   $mod+z workspace back_and_forth
@@ -352,12 +395,13 @@ bindsym --to-code {
   # mic settings
   $mod+space       exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute mic
   XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
+  $mod+Shift+m     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
 
   # Sreen brightness controls
   XF86MonBrightnessUp   exec light -A 20 # increase screen brightness
   XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
 
-  XF86ScreenSaver exec swayidle timeout 1 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"; pkill -n swayidle'
+  XF86ScreenSaver exec idle.sh kill 1
 }
 
 bindsym --release {
@@ -410,10 +454,10 @@ gaps {
 
 # my settings
 # class                 border   backgr.   text    indicator  child border
-client.focused          #1A1A00  #D65D0EAA #EBDBB2 #00DA8E    #4B610B
-client.focused_inactive #1A1A00  #D79921AA #504945 #484E50    #4B610B
-client.unfocused        #1A1A00  #282828AA #8EC07C #282828    #4B610B
-client.urgent           #1A1A00  #CC241DAA #A89984 #FB4934    #4B610B
+client.focused          #689D6A  #D65D0EAA #EBDBB2 #00DA8E    #4B610B
+client.focused_inactive #689D6A  #D79921AA #504945 #484E50    #4B610B
+client.unfocused        #689D6A  #282828AA #FADB2F #282828    #4B610B
+client.urgent           #689D6A  #CC241DAA #A89984 #FB4934    #4B610B
 
 exec systemctl --user import-environment \
     SWAYSOCK \
@@ -427,4 +471,5 @@ exec $term
 exec swaykbdd
 exec touchegg
 exec network-startup
-exec idle
+exec idle.sh
+exec systemctl --user start user-graphical-session.target
