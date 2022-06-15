@@ -117,7 +117,7 @@ hdmi_sound_off (){
   pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 }
 
-return_root (){
+return_root () {
   xhost si:localuser:root
 }
 
@@ -138,6 +138,15 @@ fi
 ## Lang specific functions
 
 
+recovery-pacman() {
+  pacman "$@"  \
+         --log /dev/null   \
+         --noscriptlet     \
+         --dbonly          \
+         --force           \
+         --nodeps          \
+         --needed
+}
 
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
@@ -185,16 +194,6 @@ gdelbrf() {
     fzf --multi --preview="git log {} --" |
     xargs --no-run-if-empty git branch --delete --force
 }
-lfcd () {
-  tmp="$(mktemp)"
-  lf -last-dir-path="$tmp" "$@"
-  if [ -f "$tmp" ]; then
-    dir="$(cat "$tmp")"
-    rm -f "$tmp"
-    [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-  fi
-}
-bindkey -s '^o' 'lfcd\n'
 ## END GO
 
 # End lang specific functions

@@ -25,6 +25,7 @@ alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} 
 alias -g G='|grep'
 alias -g L='|less'
 alias check_adb='adb devices -l'
+alias bpon='bluetoothctl power on'
 alias frx='firefox'
 alias qte='qutebrowser'
 alias vb='vieb'
@@ -34,6 +35,13 @@ alias czaf='chezmoi apply --force'
 alias czd='chezmoi diff'
 alias czm='chezmoi merge'
 alias czs='chezmoi status'
+alias scz='sudo chezmoi -D / -S $HOME/.local/share/chezmoi/root -c /root/.config/chezmoi/config.toml'
+alias scza='scz apply'
+alias sczaf='scz apply --force'
+alias sczd='scz diff'
+alias sczm='scz merge'
+alias sczs='scz status'
+alias crlt='curl -w "@$HOME/.config/curl-time-format"'
 # PACKAGE MANAGERS
 
 if command_exists pacman ; then
@@ -126,7 +134,6 @@ fi
 ## END VM's
 
 ## MEDIA TOOLS
-alias ytdl='youtube-dl'
 alias ytdl='yt-dlp'
 alias ytlf='ytdl --list-formats'
 alias ytm='ytdl -f bestaudio -x'
@@ -144,7 +151,7 @@ alias sem="$SUDO emacs -nw"
 ## END EDITORS
 
 ## FILE MANAGERS
-
+alias smc="$SUDO mc"
 
 alias vf="vifm"
 alias svf="$SUDO vifm"
@@ -188,6 +195,8 @@ alias grpo='git remote prune origin'
 alias gs='git status'
 alias gsb='git status -sb'
 alias tm='tmux attach || tmux new'
+alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
+alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
 
 # END SYSTEM TOOLS
 
@@ -203,7 +212,7 @@ eval "$(zoxide init --no-aliases zsh)"
 alias j='__zoxide_z' # cd to highest ranked directory matching path
 alias ja='__zoxide_za' # add path to the database
 alias ji='__zoxide_zi' # cd with interactive selection using fzf
-alias jr='__zoxide_zr' # remove path from the database
+alias jr='zoxide remove' # remove path from the database
 alias l='lsd'
 alias ll='l -ahlF --group-dirs=first'
 ## END RUST
