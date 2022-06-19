@@ -21,7 +21,7 @@ else
     swaylock -c 000000 -F -e -k -l --font Hack --font-size 22
     lock_exit=$?
     echo "Succesfully block screen using swaylock: $lock_exit" >> /tmp/swaylock.log
-    idle &
+    idle.sh &
     idle_exit=$?
     echo "Run idle: $idle_exit" >> /tmp/swaylock.log
   fi

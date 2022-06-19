@@ -2,12 +2,12 @@
 
 . /etc/profile
 
-export GNOME_DESKTOP_SESSION_ID=1
 export MAKEFLAGS="-j$(nproc)"
 
 # export LIBVA_DRIVER_NAME=iHD
 
 export LIBSEAT_BACKEND=logind
+export GTK_THEME=Gruvbox-Dark
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK

@@ -11,6 +11,7 @@ declare -a arr=(
   "Documents"
   "Download"
   "Fonts"
+  "IDMP"
   "Music"
   "MyAppList"
   "Notes"

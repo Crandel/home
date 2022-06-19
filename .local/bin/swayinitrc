@@ -1,16 +1,12 @@
 #!/usr/bin/zsh
 
-export QT_QPA_PLATFORM=wayland
-export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+export QT_QPA_PLATFORM=wayland-egl
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_ENABLE_HIGHDPI_SCALING=0
-
-export SDL_VIDEODRIVER=wayland
-
-export GDK_BACKEND=wayland
-export GTK_THEME=gruvbox-dark-gtk
 
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DBUS_REMOTE=1
+export MOZ_DISABLE_RDD_SANDBOX=1
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
@@ -21,23 +17,16 @@ export LP_NUM_THREADS=1
 export WLR_DRM_NO_MODIFIERS=1
 systemctl --user import-environment \
     BEMENU_OPTS \
-    DISPLAY \
-    GNOME_DESKTOP_SESSION_ID \
-    LIBVA_DRIVER_NAME \
     LP_NUM_THREADS \
     LS_COLORS \
     MAKEFLAGS \
-    PATH \
     SSH_AUTH_SOCK \
     WLR_DRM_NO_MODIFIERS \
     XDG_CURRENT_DESKTOP \
     XDG_SESSION_TYPE
 hash dbus-update-activation-environment 2>/dev/null \
   && dbus-update-activation-environment --systemd BEMENU_OPTS \
-                                                  DISPLAY \
-                                                  GNOME_DESKTOP_SESSION_ID \
                                                   MOZ_DBUS_REMOTE \
-                                                  PATH \
                                                   XDG_CURRENT_DESKTOP \
                                                   XDG_SESSION_TYPE 2>/dev/null
-exec sway -Dtxn-timeout=10 # -d 2>> ~/.local/log/sway.log
+exec sway #>> ~/.local/log/sway.log

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+fuzzel.sh --dmenu --no-run-if-empty $@
