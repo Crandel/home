@@ -1,0 +1,75 @@
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym --to-code {
+    $left        resize shrink width  30 px or 30 ppt
+    $down        resize grow   height 30 px or 30 ppt
+    $up          resize shrink height 30 px or 30 ppt
+    $right       resize grow   width  30 px or 30 ppt
+
+    Shift+$left  resize shrink width  5  px or 5 ppt
+    Shift+$down  resize grow   height 5  px or 5 ppt
+    Shift+$up    resize shrink height 5  px or 5 ppt
+    Shift+$right resize grow   width  5  px or 5 ppt
+
+    # same bindings, but for the arrow keys
+    Left         resize shrink width  30 px or 30 ppt
+    Down         resize grow   height 30 px or 30 ppt
+    Up           resize shrink height 30 px or 30 ppt
+    Right        resize grow   width  30 px or 30 ppt
+
+    Shift+Left   resize shrink width  30  px or 30 ppt
+    Shift+Down   resize grow   height 30  px or 30 ppt
+    Shift+Up     resize shrink height 30  px or 30 ppt
+    Shift+Right  resize grow   width  30  px or 30 ppt
+
+
+    # back to normal: Enter or Escape
+    Return mode "default"
+    Escape mode "default"
+  }
+}
+
+mode $layout_mode {
+  # change container layout (stacked, tabbed, splitv, splith)
+  bindsym --to-code {
+    d layout stacking     ; mode "default"
+    t layout tabbed       ; mode "default"
+    s layout toggle split ; mode "default"
+    v layout splitv       ; mode "default"
+    h layout splith       ; mode "default"
+
+    # back to normal: Enter or Escape
+    Return mode "default"
+    Escape mode "default"
+  }
+}
+
+mode $power_mode {
+  bindsym --to-code {
+    F2 exec idle.sh kill 1; mode "default"
+    F3 exec $lock; mode "default"
+    F4 exec --no-startup-id systemctl -i reboot
+    F5 exec --no-startup-id systemctl -i poweroff
+
+    # back to normal: Enter or Escape
+    Return mode "default"
+    Escape mode "default"
+  }
+}
+
+mode $notification_mode {
+  bindsym --to-code {
+    s exec makoctl set-mode do-not-disturb; mode "default"
+    d exec makoctl set-mode default       ; mode "default"
+
+    # back to normal: Enter or Escape
+    Return mode "default"
+    Escape mode "default"
+  }
+}

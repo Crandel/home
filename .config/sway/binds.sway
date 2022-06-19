@@ -1,0 +1,167 @@
+bindsym --to-code {
+  # Scratchpad bindsym
+  ## Main terminal
+  F1           exec swaymsg [app_id=$term_id]   scratchpad show || exec $term ,  $t_pos
+  ## backup terminal
+  $mod+F1      exec swaymsg [app_id=$oterm_id]  scratchpad show || exec $oterm,  $t_pos
+  ## editor
+  $mod+x       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $t_pos
+  ## keepassxc
+  $mod+Shift+x exec swaymsg [app_id=$pass_id]   scratchpad show || exec $pass,   $t_pos
+
+  # kill focused window
+  $mod+q kill
+
+  # start a program launcher
+  $mod+d         exec $launch -l 30 -P 'Run: '
+  $mod+Control+d exec fuzzel-launcher
+  $mod+Shift+d   exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
+                                       --display-binary \
+                                       --use-xdg-de \
+                                       --term=$term \
+                                       --usage-log="$HOME/.local/log/j4.log"
+
+  # change focus
+  $mod+$left  focus left
+  $mod+$down  focus down
+  $mod+$up    focus up
+  $mod+$right focus right
+
+  # alternatively, you can use the cursor keys:
+  $mod+Left   focus left
+  $mod+Down   focus down
+  $mod+Up     focus up
+  $mod+Right  focus right
+
+  # change focused container
+  $mod+Tab       focus right
+  $mod+Shift+Tab focus left
+
+  # move focused window
+  $mod+Shift+$left  move left
+  $mod+Shift+$down  move down
+  $mod+Shift+$up    move up
+  $mod+Shift+$right move right
+
+  # alternatively, you can use the cursor keys:
+  $mod+Shift+Left   move left
+  $mod+Shift+Down   move down
+  $mod+Shift+Up     move up
+  $mod+Shift+Right  move right
+
+  # move cursor using keys:
+  $mod+Control+$left  seat - cursor move -10  0
+  $mod+Control+$down  seat - cursor move  0   10
+  $mod+Control+$up    seat - cursor move  0  -10
+  $mod+Control+$right seat - cursor move  10  0
+
+  $mod+Control+Left   seat - cursor move -10  0
+  $mod+Control+Down   seat - cursor move  0   10
+  $mod+Control+Up     seat - cursor move  0  -10
+  $mod+Control+Right  seat - cursor move  10  0
+
+  # split in horizontal orientation
+  $mod+period split h
+
+  # split in vertical orientation
+  $mod+comma  split v
+
+  # enter fullscreen mode for the focused container
+  $mod+f fullscreen toggle
+
+  # toggle tiling / floating
+  $mod+Shift+space   floating toggle
+
+  # change focus between tiling / floating windows
+  $mod+Control+space focus mode_toggle
+
+  # focus the parent container
+  $mod+Shift+f       focus parent
+
+  # switch to workspace
+  $mod+1 workspace 1
+  $mod+2 workspace 2
+  $mod+3 workspace 3
+  $mod+4 workspace 4
+  $mod+5 workspace 5
+  $mod+6 workspace 6
+  $mod+7 workspace 7
+  $mod+8 workspace 8
+  $mod+9 workspace 9
+  $mod+0 workspace 10
+
+  # move focused container to workspace
+  $mod+Shift+1 move container to workspace 1
+  $mod+Shift+2 move container to workspace 2
+  $mod+Shift+3 move container to workspace 3
+  $mod+Shift+4 move container to workspace 4
+  $mod+Shift+5 move container to workspace 5
+  $mod+Shift+6 move container to workspace 6
+  $mod+Shift+7 move container to workspace 7
+  $mod+Shift+8 move container to workspace 8
+  $mod+Shift+9 move container to workspace 9
+  $mod+Shift+0 move container to workspace 10
+
+  # reload the configuration file
+  $mod+Shift+c reload
+
+  # modes
+  $mod+r  mode "resize"
+  $mod+t  mode $layout_mode
+  $mod+F2 mode $power_mode
+
+  # exit sway (logs you out of your session)
+  $mod+Shift+e exec $nag
+
+  # browser
+  $mod+c         exec $browser
+  $mod+Control+c exec $o_browser
+
+  # pulseaudio
+  $mod+p exec pavucontrol
+
+  # mpc script
+  $mod+m exec menu-mpd.sh
+
+  # radio
+  $mod+Shift+p exec alacritty -e nvlc ~/.config/vlc/radio.xspf
+
+  # screenshot
+  $mod+Shift+s exec alacritty -e grimshot save area
+
+  # get clipboard history
+  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel-dmenu --width 120 -P "Clipman: "'
+  # $mod+a exec clipman pick --max-items=1000 -t bemenu -T'-l 30 -p "clipman: "'
+
+  # dismiss notification
+  $mod+n exec makoctl dismiss
+  $mod+Shift+n exec makoctl menu $launch-dmenu -P 'Select Action: ' && makoctl dismiss
+
+  # networkmanager-dmenu
+  $mod+w exec networkmanager_dmenu
+
+  # Switches to the previously focused workspace.
+  $mod+z workspace back_and_forth
+
+  # Pulse Audio controls
+  XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% # increase sound volume
+  XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% # decrease sound volume
+  XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # toggle mute sound
+
+  # mic settings
+  $mod+space     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 0 # mute mic
+  $mod+Shift+m   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle # toggle mute mic
+
+  # Sreen brightness controls
+  XF86MonBrightnessUp   exec light -A 20 # increase screen brightness
+  XF86MonBrightnessDown exec light -U 20 # decrease screen brightness
+}
+
+bindsym --release {
+  # The middle button over a titlebar kills the window
+  $mod+button2 kill
+  button2      kill
+
+  # Unmute mic on release
+  $mod+space   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic
+}
