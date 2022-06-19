@@ -11,6 +11,7 @@
   (consult-find-command "fd --color=never --full-path ARG OPTS")
   (consult-project-root-function #'get-project-root)
   (consult-narrow-key ",")
+  (consult--regexp-compiler consult--orderless-regexp-compiler)
   :preface
   (defun consult-narrow-left ()
     (interactive)
@@ -43,6 +44,11 @@
   (defun consult-ripgrep-symbol-at-point ()
     (interactive)
     (consult-ripgrep (get-project-root) (thing-at-point 'symbol)))
+  (defun consult--orderless-regexp-compiler (input type &rest _config)
+    (setq input (orderless-pattern-compiler input))
+    (cons
+     (mapcar (lambda (r) (consult--convert-regexp r type)) input)
+     (lambda (str) (orderless--highlight input str))))
   :config
   (consult-customize
    consult--source-hidden-buffer
@@ -52,17 +58,26 @@
    consult--source-project-buffer
    consult--source-project-recent-file
    :preview-key '[M-.])
-  :bind
-  ("C-s" . consult-line-symbol-at-point)
+  :hook
+  (evil-leader-mode . (lambda ()
+                        (evil-leader/set-key
+                          "/" 'consult-ripgrep-symbol-at-point
+                          "p" 'consult-buffer
+                          "g" 'consult-ripgrep
+                        )
+                       )
+  )
+  :bind (
+  ("C-s"   . consult-line-symbol-at-point)
   ("C-c s" . consult-multi-occur)
   ("C-x g" . consult-ripgrep-symbol-at-point)
   ("C-x C-g" . consult-ripgrep)
   ("C-h C-m" . consult-minor-mode-menu)
   ("C-p" . consult-buffer)
   ([f10] . consult-imenu)
-  :bind(:map consult-narrow-map
-             ([C-right] .  consult-narrow-right)
-             ([C-left] .  consult-narrow-left)
+  :map consult-narrow-map
+  ([C-right] .  consult-narrow-right)
+  ([C-left] .  consult-narrow-left)
   )
   :chords
   ("bl" . consult-buffer)
@@ -77,6 +92,14 @@
 (use-package consult-lsp
   :ensure t
   :after (consult lsp)
+  :hook
+  (evil-mode . (lambda ()
+    (evil-global-set-key 'normal "grf" 'consult-lsp-file-symbols)
+    (evil-global-set-key 'normal "grd" 'consult-lsp-symbols)
+  ))
+  :bind
+  ("C-c f" . consult-lsp-file-symbols)
+  ("C-c d" . consult-lsp-symbols)
 )
 
 (use-package consult-yasnippet
@@ -87,5 +110,7 @@
 (provide 'consult-rcp)
 
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; consult-rcp.el ends here

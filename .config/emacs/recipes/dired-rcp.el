@@ -25,6 +25,7 @@
   (dired-sidebar-theme                'icons)
   (dired-sidebar-use-term-integration t)
   (dired-sidebar-use-custom-font      t)
+  (dired-sidebar-display-alist        '((side . right) (slot . -1)))
   :config
   (with-eval-after-load 'evil
     (evil-define-key 'normal dired-sidebar-mode-map "H" 'dired-sidebar-up-directory))
@@ -52,5 +53,7 @@
 
 (provide 'dired-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; dired-rcp.el ends here

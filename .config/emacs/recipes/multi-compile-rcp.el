@@ -42,7 +42,6 @@
                                        (locate-dominating-file buffer-file-name ".git"))
                                       ("cclean" "make --no-print-directory -C build clean"
                                        (locate-dominating-file buffer-file-name ".git"))))))
-  ;(multi-compile-completion-system 'helm)
   :bind
   ([f8] . multi-compile-run)
 )

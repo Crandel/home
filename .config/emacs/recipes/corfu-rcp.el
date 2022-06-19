@@ -4,8 +4,6 @@
 (eval-when-compile (require 'use-package))
 (use-package corfu
   :ensure t
-  :init
-  (corfu-global-mode)
   :preface
   (defun corfu-lsp-setup ()
         (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
@@ -19,6 +17,13 @@
   (corfu-preselect-first  t)
   (corfu-quit-at-boundary t)
   (corfu-quit-no-match    t)
+  :bind(
+  :map corfu-map
+       ("M-c" . corfu-quick-complete)
+  )
+  :init
+  (global-corfu-mode)
+  (corfu-indexed-mode)
   :hook
   (lsp-completion-mode . corfu-lsp-setup)
 )
@@ -54,6 +59,14 @@
   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
   :custom
   (kind-icon-default-face 'corfu-default)
+)
+
+(use-package corfu-terminal
+  :ensure t
+  :after corfu
+  :config
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1))
 )
 
 (provide 'corfu-rcp)

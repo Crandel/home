@@ -137,6 +137,9 @@ if [ -n "${WAYLAND_DISPLAY:-}" ] && (( ${+commands[wl-copy]} )) && (( ${+command
 fi
 ## Lang specific functions
 
+paclist() {
+  pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
+}
 
 recovery-pacman() {
   pacman "$@"  \

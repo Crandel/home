@@ -83,15 +83,6 @@
         )
 )
 
-(use-package lsp-treemacs
-  :ensure t
-  :defer t
-  :commands lsp-treemacs-errors-list
-  :after treemacs
-  :hook
-  (treemacs-mode . lsp-treemacs-sync-mode)
-)
-
 (use-package dap-mode
   :ensure t
   :commands (dap-hydra go-dap-setup)

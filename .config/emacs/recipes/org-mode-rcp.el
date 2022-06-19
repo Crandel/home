@@ -12,21 +12,18 @@
                                       (sql        . t)
                                       ))
   :custom
+  (org-confirm-babel-evaluate       nil)
+  (org-edit-src-content-indentation 0)
   (org-ellipsis                     "▾")
   (org-hide-emphasis-markers        t)
   (org-src-fontify-natively         t)
   (org-src-preserve-indentation     t "do not put two spaces on the left")
-  (org-edit-src-content-indentation 0)
   (org-src-strip-leading-and-trailing-blank-lines t)
   (org-src-tab-acts-natively        t)
   (org-src-tab-acts-natively        t)
   (org-src-window-setup             'current-window "edit in current window")
   (truncate-lines                   t)
   (word-wrap                        nil)
-  :bind (
-  :map evil-normal-state-map
-  ("gri"  . org-insert-structure-template)
-  )
   :config
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
@@ -47,18 +44,36 @@
   :hook (org-mode . org-bullets-mode)
 )
 
+(use-package org-modern
+  :ensure t
+  :hook (org-mode . org-modern-mode)
+)
+
 (use-package ob-restclient
   :ensure t
-  :mode ("\\.rest\\.org\\'" . org-mode)
+  :mode ("\\.restorg\\'" . org-mode)
   :init
   (add-to-list 'vd/org-babel-load-languages '(restclient . t))
   :hook
   (org-mode . (lambda()
                 (add-to-list 'org-structure-template-alist '("r" . "src restclient"))
-                (setq org-confirm-babel-evaluate nil)))
+                ))
+)
+
+(use-package ob-go
+  :ensure t
+  :mode ("\\.goorg\\'" . org-mode)
+  :init
+  (add-to-list 'vd/org-babel-load-languages '(go . t))
+  :hook
+  (org-mode . (lambda()
+                (add-to-list 'org-structure-template-alist '("go" . "src go"))
+                ))
 )
 
 (provide 'org-mode-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; org-mode-rcp.el ends here

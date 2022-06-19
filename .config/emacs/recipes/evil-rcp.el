@@ -9,16 +9,15 @@
   (evil-leader/leader "<SPC>")
   :config
   (evil-leader/set-key
+   "a" 'beginning-of-defun
+   "e" 'end-of-defun
+   "b" 'ibuffer
    "c" 'find-in-config
    "d" 'duplicate-line
+   "f" 'find-file
    "k" 'kill-buffer
    "l" 'copy-line
    "q" 'keyboard-quit
-   "b" 'ibuffer
-   "g" 'consult-ripgrep
-   "f" 'find-file
-   "p" 'consult-buffer
-   "/" 'consult-ripgrep-symbol-at-point
    "w" 'evil-window-map
    )
   (evil-leader/set-key-for-mode
@@ -77,23 +76,27 @@ The return value is the yanked text."
   :bind (
   ("C-x e" . evil-mode)
   :map evil-motion-state-map
-  ("q"   . nil)
-  ("]p" . evil-paste-after-and-indent)
   ("]P" . evil-paste-before-and-indent)
-  ("f"   . evil-avy-goto-char)
+  ("]p" . evil-paste-after-and-indent)
+  ("f"  . evil-avy-goto-char)
+  ("q"  . nil)
   :map evil-normal-state-map
-  ("q"   . nil)
+  ("C-e" . nil)
+  ("C-p" . nil)
+  ("S-<up>"   . scroll-down-command)
+  ("S-<down>" . scroll-up-command)
+  ("M-," . xref-find-references)
+  ("M-." . xref-find-definitions)
   ("f"   . evil-avy-goto-char)
+  ("g["  . text-scale-decrease)
+  ("g]"  . text-scale-increase)
   ("gb"  . go-dap-setup)
   ("gc"  . comment-dwim)
-  ("gs"  . magit-status)
   ("gp"  . projectile-command-map)
-  ("g[" . text-scale-decrease)
-  ("g]" . text-scale-increase)
-  ("M-." . xref-find-definitions)
-  ("M-," . xref-find-references)
-  ("C-p" . nil)
-  ("C-e" . nil)
+  ("grc" . blamer-show-commit-info)
+  ("gri" . org-insert-structure-template)
+  ("gs"  . magit-status)
+  ("q"   . nil)
   :map evil-insert-state-map
   ("C-v" . yank)
   ("C-e" . nil)
@@ -124,37 +127,20 @@ The return value is the yanked text."
   :custom
   (evil-mc-one-cursor-show-mode-line-text nil)
   :config
-  (defvar evil-mc-my-cursors-map
-    (let ((map (make-sparse-keymap)))
-      (define-key map (kbd "A") 'evil-mc-make-cursor-in-visual-selection-end)
-      (define-key map (kbd "m") 'evil-mc-make-all-cursors)
-      (define-key map (kbd "f") 'evil-mc-make-and-goto-first-cursor)
-      (define-key map (kbd "l") 'evil-mc-make-and-goto-last-cursor)
-      (define-key map (kbd "n") 'evil-mc-make-and-goto-next-cursor)
-      (define-key map (kbd "j") 'evil-mc-make-and-goto-next-match)
-      (define-key map (kbd "p") 'evil-mc-make-and-goto-prev-cursor)
-      (define-key map (kbd "k") 'evil-mc-make-and-goto-prev-match)
-      (define-key map (kbd "h") 'evil-mc-make-cursor-here)
-      (define-key map (kbd "I") 'evil-mc-make-cursor-in-visual-selection-beg)
-      (define-key map (kbd "A") 'evil-mc-make-cursor-in-visual-selection-end)
-      (define-key map (kbd "[") 'evil-mc-make-cursor-move-next-line)
-      (define-key map (kbd "]") 'evil-mc-make-cursor-move-prev-line)
-      (define-key map (kbd "s") 'evil-mc-pause-cursors)
-      (define-key map (kbd "r") 'evil-mc-resume-cursors)
-      (define-key map (kbd "N") 'evil-mc-skip-and-goto-next-cursor)
-      (define-key map (kbd "J") 'evil-mc-skip-and-goto-next-match)
-      (define-key map (kbd "P") 'evil-mc-skip-and-goto-prev-cursor)
-      (define-key map (kbd "K") 'evil-mc-skip-and-goto-prev-match)
-      (define-key map (kbd "q") 'evil-mc-undo-all-cursors)
-      (define-key map (kbd "u") 'evil-mc-undo-last-added-cursor)
-      map))
   (evil-define-key* '(normal visual) evil-mc-key-map
-    (kbd "m") evil-mc-my-cursors-map
+    (kbd "m")   nil
     (kbd "C-n") nil
     (kbd "C-t") nil
     (kbd "M-p") nil
     (kbd "M-n") nil
     (kbd "C-p") nil)
+  :bind (
+  ("C-c q" . evil-mc-undo-all-cursors)
+  :map evil-motion-state-map
+  ("grq" . evil-mc-undo-all-cursors)
+  :map evil-normal-state-map
+  ("grq" . evil-mc-undo-all-cursors)
+  )
   :hook
   (evil-local-mode . evil-mc-mode)
 )
@@ -175,15 +161,10 @@ The return value is the yanked text."
      (66 "{" . "}")
      (62 "<" . ">")
      (116 . evil-surround-read-tag)
-     (60 . evil-surround-read-tag)
+     (60  . evil-surround-read-tag)
      (102 . evil-surround-function)))
   :config
   (global-evil-surround-mode 1))
-
-;; (use-package treemacs-evil
-;;   :ensure t
-;;   :after (evil treemacs)
-;; )
 
 (use-package evil-collection
   :ensure t

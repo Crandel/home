@@ -33,12 +33,17 @@
   :ensure t
 )
 
+(use-package magit-delta
+  :ensure t
+  :custom
+  (magit-delta-default-dark-theme "gruvbox-dark")
+  :hook (magit-mode . magit-delta-mode))
+
 (use-package git-gutter
   :ensure t
   :defer t
   :config
   (global-git-gutter-mode)
-  (git-gutter:linum-setup)
   :bind
   ("C-c [" . git-gutter:next-hunk)
   ("C-c ]" . git-gutter:previous-hunk)
@@ -47,16 +52,13 @@
 (use-package blamer
   :ensure t
   :bind (
-  ("C-c i" . blamer-show-commit-info)
-  :map evil-normal-state-map
-  ("gri"  . blamer-show-commit-info)
-  )
+  ("C-c c" . blamer-show-commit-info))
   :defer 20
   :custom
   (blamer-idle-time 0.3)
   (blamer-min-offset 70)
   :custom-face
-  (blamer-face ((t :foreground "#292A0A"
+  (blamer-face ((t :foreground "#F4FA58"
                    :background nil
                    :height 140
                    :italic t)))

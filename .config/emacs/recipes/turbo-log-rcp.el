@@ -3,7 +3,7 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package turbo-log
-  :load-path "turbo-log"
+  :load-path "git"
   :bind (("C-s-l" . turbo-log-print)
          ("C-s-i" . turbo-log-print-immediately)
          ("C-s-h" . turbo-log-comment-all-logs)

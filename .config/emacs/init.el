@@ -52,7 +52,7 @@
 (require 'git-rcp)
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)
-(require 'i3wm-config-rcp)
+(require 'hydra-rcp)
 (require 'json-mode-rcp)
 (require 'lsp-mode-rcp)
 (require 'lua-rcp)
@@ -71,10 +71,13 @@
 (require 'turbo-log-rcp)
 (require 'vertico-rcp)
 (require 'vimrc-mode-rcp)
-(require 'web-mode-rcp)
 (require 'yasnippet-rcp)
 (require 'ytdl-rcp)
 (require 'ztree-rcp)
+
+(require 'web-mode-rcp)
+(require 'i3wm-config-rcp)
+
 (require 'k8s-mode-rcp)
 (require 'rust-rcp)
 (require 'docker-rcp)
