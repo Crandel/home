@@ -32,6 +32,10 @@
   (remove-hook 'org-cycle-hook
               #'org-optimize-window-after-visibility-change)
   (org-babel-do-load-languages 'org-babel-load-languages vd/org-babel-load-languages)
+  :bind(
+  :map evil-normal-state-map
+  ("gri" . org-insert-structure-template)
+  )
 )
 
 (use-package org-tempo

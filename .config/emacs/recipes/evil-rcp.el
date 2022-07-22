@@ -90,12 +90,7 @@ The return value is the yanked text."
   ("f"   . evil-avy-goto-char)
   ("g["  . text-scale-decrease)
   ("g]"  . text-scale-increase)
-  ("gb"  . go-dap-setup)
   ("gc"  . comment-dwim)
-  ("gp"  . projectile-command-map)
-  ("grc" . blamer-show-commit-info)
-  ("gri" . org-insert-structure-template)
-  ("gs"  . magit-status)
   ("q"   . nil)
   :map evil-insert-state-map
   ("C-v" . yank)

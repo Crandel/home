@@ -9,8 +9,11 @@
   :defines projectile-globally-ignored-directories
   :config
   (projectile-mode)
-  :bind
+  :bind(
   ("C-c p" . projectile-command-map)
+  :map evil-normal-state-map
+  ("gp"  . projectile-command-map)
+  )
 )
 
 (provide 'projectile-rcp)

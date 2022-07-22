@@ -9,8 +9,8 @@
   :custom
   (lsp-completion-provider                :none)
   (lsp-completion-show-detail             t)
-  (lsp-completion-sort-initial-results    t)
   (lsp-completion-show-kind               t)
+  (lsp-completion-sort-initial-results    t)
   (lsp-diagnostics-provider               :flycheck)
   (lsp-enable-completion-at-point         t)
   (lsp-enable-file-watchers               nil)
@@ -35,6 +35,7 @@
   (lsp-modeline-code-actions-segments     '(count icon name))
   (lsp-modeline-diagnostics-enable        t)
   (lsp-signature-auto-activate            nil)
+  (lsp-use-plists                         t)
   (read-process-output-max                (* 1024 1024)) ;; 1mb
   :config
   (add-to-list 'lsp-language-id-configuration '(k8s-mode . "yaml"))
@@ -94,6 +95,10 @@
     (dap-ui-mode 1)
     (dap-tooltip-mode 1)
     (dap-ui-controls-mode 1)
+  )
+  :bind(
+  :map evil-normal-state-map
+  ("gb"  . go-dap-setup)
   )
   :hook
   (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))

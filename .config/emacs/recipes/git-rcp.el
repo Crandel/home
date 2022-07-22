@@ -12,13 +12,17 @@
   (magit-diff-removed ((t (:background "red" :foreground "#ffdddd"))))
   (magit-diff-removed-highlight ((t (:background "dark red" :foreground "navajo white"))))
   :custom
-  (magit-display-buffer-function         'magit-display-buffer-fullframe-status-v1)
+  (magit-diff-refine-hunk                'all)
+  (magit-display-buffer-function         'magit-display-buffer-fullframe-status-topleft-v1)
   (magit-ediff-dwim-show-on-hunks        t)
   (magit-log-arguments                   '("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256"))
   (magit-log-margin-show-committer-date  t)
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
-  :bind
+  :bind(
   ("C-x C-z" . magit-status)
+  :map evil-normal-state-map
+  ("gs"  . magit-status)
+  )
   :chords
   ("md" . magit-status)
 )
@@ -52,7 +56,10 @@
 (use-package blamer
   :ensure t
   :bind (
-  ("C-c c" . blamer-show-commit-info))
+  ("C-c c" . blamer-show-commit-info)
+  :map evil-normal-state-map
+  ("grc" . blamer-show-commit-info)
+  )
   :defer 20
   :custom
   (blamer-idle-time 0.3)

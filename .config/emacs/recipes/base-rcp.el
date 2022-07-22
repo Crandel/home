@@ -31,12 +31,16 @@
   (bidi-display-reordering      nil "Never reorder bidirectional text for display in the visual order.")
   (c-basic-offset               2)
   (completion-cycle-threshold   3)
-  (display-time-mode            t)
   (display-time-24hr-format     t)
+  (display-time-default-load-average nil)
+  (display-time-mode            t)
   (enable-recursive-minibuffers t)
-  (frame-title-format           '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l"))
-                                "Display the name of the current buffer in the title bar")
-  (gc-cons-threshold            100000000)
+  (file-name-shadow-properties     '(invisible t intangible t face file-name-shadow field shadow)
+                                   "Removing minibuffer 'default directory' prefix.")
+  (file-name-shadow-tty-properties '(invisible t intangible t before-string "{" after-string "} " field shadow)
+                                   "Removing minibuffer 'default directory' prefix in tty.")
+  (frame-title-format              '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l"))
+                                   "Display the name of the current buffer in the title bar")
   (indent-line-function         'insert-tab "End Indent settings")
   (indent-tabs-mode             nil)
   (java-basic-offset            2)
@@ -44,8 +48,6 @@
   (lisp-body-indent             2)
   (max-mini-window-height       0.5)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
-  (display-time-default-load-average nil)
-  (native-comp-async-report-warnings-errors nil)
   (next-line-add-newlines     nil)
   (nxml-attribute-indent      2)
   (ring-bell-function         'ignore)
@@ -61,8 +63,8 @@
   (tab-always-indent          nil)
   (tab-width                  4)
   (use-dialog-box             nil "Non-nil means mouse commands use dialog boxes to ask questions.")
-  (uniquify-buffer-name-style 'reverse)
-  (uniquify-min-dir-content   3)
+  ;; (uniquify-buffer-name-style 'reverse)
+  ;; (uniquify-min-dir-content   3)
   :bind
   ("M-i" . previous-line)
   ("M-j" . backward-char)
@@ -132,13 +134,30 @@
   (global-display-line-numbers-mode t)
 )
 
-(use-package ediff-util
+(use-package ediff
   :defer t
+  :preface
+  (defun vd/command-line-diff (switch)
+      (let ((file1 (pop command-line-args-left))
+            (file2 (pop command-line-args-left)))
+        (ediff file1 file2)))
+  (defun vd/command-line-merge (switch)
+      (let ((local    (pop command-line-args-left))
+            (base     (pop command-line-args-left))
+            (remote   (pop command-line-args-left))
+            (merged   (pop command-line-args-left)))
+        (ediff-merge-files-with-ancestor local remote base nil merged)))
+  :init
+  (add-to-list 'command-switch-alist '("diff" . vd/command-line-diff))
+  (add-to-list 'command-switch-alist '("merge" . vd/command-line-merge))
   :custom
   (ediff-forward-word-function       'forward-char)
   (ediff-highlight-all-diffs         t)
-  (ediff-merge-split-window-function 'split-window-vertically)
+  (ediff-merge-split-window-function 'split-window-horizontally)
+  (ediff-split-window-function       'split-window-horizontally)
   (ediff-window-setup-function       'ediff-setup-windows-plain)
+  :hook
+  (ediff-startup . ediff-next-difference)
 )
 
 (use-package electric

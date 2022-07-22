@@ -14,19 +14,20 @@
 
 ;; Native compilation settings
 (when (native-comp-available-p)
+  ;; Set the right directory to store the native compilation cache
+  (let ((path (expand-file-name "eln-cache/" user-emacs-directory)))
+    (setq native-comp-eln-load-path (list path))
+    (setq native-compile-target-directory path))
   ;; Silence compiler warnings as they can be pretty disruptive
   (setq native-comp-async-report-warnings-errors nil)
   ;; Make native compilation happens asynchronously
   (setq native-comp-deferred-compilation t)
 
-  ;; Set the right directory to store the native compilation cache
-  (setq native-comp-eln-load-path (list (expand-file-name "eln-cache/" user-emacs-directory)))
   )
 
+;; Themes
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
-
-
 
 
 ;; Prefer loading newest compiled .el file
