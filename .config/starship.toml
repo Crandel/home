@@ -27,9 +27,9 @@ style_root = "bold red"
 
 [directory]
 truncation_length = 3
-truncate_to_repo = true
+truncate_to_repo = false
 truncation_symbol = "…/"
-style = "purple"
+style = "bold purple"
 
 [python]
 format = '[$symbol{${version}}(\($virtualenv\))]($style)'
@@ -76,6 +76,6 @@ format = "{VF}"
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"
-success_symbol = "[I ➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+success_symbol = "[➜](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
 error_symbol = "[✗](bold red) "
 vicmd_symbol = "[N ➜](bold green)"
