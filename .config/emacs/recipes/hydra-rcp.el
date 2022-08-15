@@ -30,7 +30,7 @@
     ("J" #'evil-mc-make-cursor-move-next-line)
     ("K" #'evil-mc-make-cursor-move-prev-line)
     ("r" #'evil-mc-undo-last-added-cursor)
-    ("R" #'evil-mc-undo-all-cursors)
+    ("R" #'evil-mc-undo-all-cursors "quit" :exit t)
     ("q" #'evil-mc-resume-cursors "quit" :exit t)
     ("<escape>" #'evil-mc-resume-cursors "quit" :exit t)
   )

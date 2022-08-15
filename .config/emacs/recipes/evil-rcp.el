@@ -12,11 +12,11 @@
    "a" 'beginning-of-defun
    "e" 'end-of-defun
    "b" 'ibuffer
-   "c" 'find-in-config
-   "d" 'duplicate-line
+   "c" 'vd/find-in-config
+   "d" 'vd/duplicate-line
    "f" 'find-file
    "k" 'kill-buffer
-   "l" 'copy-line
+   "l" 'vd/copy-line
    "q" 'keyboard-quit
    "w" 'evil-window-map
    )
@@ -167,6 +167,13 @@ The return value is the yanked text."
   :config
   (delete 'evil-mc evil-collection-mode-list)
   (evil-collection-init)
+  (evil-collection-translate-key
+    'normal
+    '(dired-mode-map dired-sidebar-mode-map)
+    "H" "^"
+    ;; Set this to t to make this swap the keys everytime
+    ;; this expression is evaluated.
+    :destructive t)
 )
 
 (provide 'evil-rcp)

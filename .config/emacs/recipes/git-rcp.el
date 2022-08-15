@@ -13,7 +13,7 @@
   (magit-diff-removed-highlight ((t (:background "dark red" :foreground "navajo white"))))
   :custom
   (magit-diff-refine-hunk                'all)
-  (magit-display-buffer-function         'magit-display-buffer-fullframe-status-topleft-v1)
+  (magit-display-buffer-function         'magit-display-buffer-fullframe-status-v1)
   (magit-ediff-dwim-show-on-hunks        t)
   (magit-log-arguments                   '("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256"))
   (magit-log-margin-show-committer-date  t)

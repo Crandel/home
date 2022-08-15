@@ -4,14 +4,14 @@
 
 ;; Moving
 ;;;###autoload
-(defun move-line-up ()
+(defun vd/move-line-up ()
   "Move line up."
   (interactive)
   (transpose-lines 1)
   (forward-line -2))
 
 ;;;###autoload
-(defun move-line-down ()
+(defun vd/move-line-down ()
   "Move line down."
   (interactive)
   (forward-line 1)
@@ -19,7 +19,7 @@
   (forward-line -1))
 
 ;;;###autoload
-(defun duplicate-line()
+(defun vd/duplicate-line()
   "Duplicate whole line."
   (interactive)
   (move-beginning-of-line 1)
@@ -31,7 +31,7 @@
   )
 
 ;;;###autoload
-(defun copy-line (arg)
+(defun vd/copy-line (arg)
   "Copy lines (as many as prefix ARG) in the kill ring."
   (interactive "p")
   (kill-ring-save (line-beginning-position)
@@ -39,31 +39,32 @@
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
 
 ;;;###autoload
-(defun get-point (symbol &optional arg)
+(defun vd/get-point (symbol &optional arg)
   "Copy word current SYMBOL belongs.  With additional ARG."
   (funcall symbol arg)
   (point)
   )
 
 ;;;###autoload
-(defun copy-thing (begin-of-thing end-of-thing &optional arg)
-  "Copy thing between BEGIN-OF-THING & END-OF-THING into kill ring.  With optional ARG."
+(defun vd/copy-thing (begin-of-thing end-of-thing &optional arg)
+  "Copy thing between BEGIN-OF-THING & END-OF-THING into kill ring.
+With optional ARG."
   (save-excursion
-    (let ((beg (get-point begin-of-thing 1))
-          (end (get-point end-of-thing arg)))
+    (let ((beg (vd/get-point begin-of-thing 1))
+          (end (vd/get-point end-of-thing arg)))
       (copy-region-as-kill beg end)))
   )
 
 ;;;###autoload
-(defun copy-word (&optional arg)
+(defun vd/copy-word (&optional arg)
   "Copy words at point into KILL-RING.  With optional ARG."
   (interactive "P")
-  (copy-thing 'backward-word 'forward-word arg)
+  (vd/copy-thing 'backward-word 'forward-word arg)
   ;;(paste-to-mark arg)
   )
 
 ;;;###autoload
-(defun my-delete-line ()
+(defun vd/delete-line ()
   "Delete text from begin to end of line char."
   (interactive)
   (kill-region
@@ -76,7 +77,7 @@
 (defvar newline-and-indent t)
 
 ;;;###autoload
-(defun open-next-line ()
+(defun vd/open-next-line ()
   "Open new line (vi's o command)."
   (interactive)
   (end-of-line)
@@ -86,8 +87,9 @@
     (indent-according-to-mode)))
 
 ;;;###autoload
-(defun open-previous-line (arg)
-  "Open a new line before the current one.  See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
+(defun vd/open-previous-line (arg)
+  "Open a new line before the current one.
+See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
   (interactive "p")
   (beginning-of-line)
   (open-line arg)
@@ -95,32 +97,56 @@
     (indent-according-to-mode)))
 
 ;;;###autoload
-(defun my-kill-emacs-with-save ()
+(defun vd/kill-emacs-with-save ()
   "Kill terminal."
   (interactive)
   (save-buffers-kill-terminal "y")
 )
 
 ;;;###autoload
-(defun kill-other-buffers ()
+(defun vd/kill-other-buffers ()
     "Kill all other buffers."
     (interactive)
     (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 ;; C-x r y for paste multiple cursors
 
 ;;;###autoload
-(defun find-in-directory (dir)
+(defun vd/find-in-directory (dir)
+  "Find files in DIR."
   (interactive "p")
   (let ((default-directory dir))
     (call-interactively 'find-file))
 )
 
 ;;;###autoload
-(defun find-in-config (dir)
+(defun vd/find-in-config ()
+  "Find in config directory."
   (interactive "p")
-  (find-in-directory "~/.config/")
+  (vd/find-in-directory "~/.config/")
 )
-
+;;;###autoload
+(defun vd/delete-this-file (&optional path force-p)
+  "Delete PATH, kill its buffers.
+If PATH is not specified, default to the current buffer's file.
+If FORCE-P, delete without confirmation."
+  (interactive
+   (list (buffer-file-name (buffer-base-buffer))
+         current-prefix-arg))
+  (let* ((path (or path (buffer-file-name (buffer-base-buffer))))
+         (short-path (abbreviate-file-name path)))
+    (unless (and path (file-exists-p path))
+      (user-error "Buffer is not visiting any file"))
+    (unless (file-exists-p path)
+      (error "File doesn't exist: %s" path))
+    (unless (or force-p (y-or-n-p (format "Really delete %S?" short-path)))
+      (user-error "Aborted"))
+    (let ((buf (current-buffer)))
+      (unwind-protect
+          (progn (delete-file path t) t)
+        (if (file-exists-p path)
+            (error "Failed to delete %S" short-path)
+          (kill-buffer buf)
+          (message "Deleted %S" short-path))))))
 
 (provide 'functions_my)
 ;;; Commentary:

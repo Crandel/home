@@ -4,9 +4,6 @@
 
 (use-package dired
   :defer t
-  :config
-  (with-eval-after-load 'evil
-    (evil-define-key 'normal dired-mode-map "H" 'dired-up-directory))
   :custom
   (dired-dwim-target                        t "guess a target directory")
   (dired-auto-revert-buffer                 t)
@@ -16,19 +13,14 @@
               ("H" . dired-up-directory)
               ("-" . dired-do-hardlink)
               )
-)
+  )
 
 (use-package dired-sidebar
   :ensure t
   :commands (dired-sidebar-toggle-sidebar)
   :custom
   (dired-sidebar-theme                'icons)
-  (dired-sidebar-use-term-integration t)
-  (dired-sidebar-use-custom-font      t)
   (dired-sidebar-display-alist        '((side . right) (slot . -1)))
-  :config
-  (with-eval-after-load 'evil
-    (evil-define-key 'normal dired-sidebar-mode-map "H" 'dired-sidebar-up-directory))
   :bind
   ([f7] . dired-sidebar-toggle-sidebar)
   (:map dired-sidebar-mode-map
@@ -49,6 +41,8 @@
 
 (use-package all-the-icons-dired
   :ensure t
+  :hook
+  (dired-mode . all-the-icons-dired-mode)
 )
 
 (provide 'dired-rcp)

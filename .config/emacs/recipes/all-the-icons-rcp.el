@@ -15,11 +15,6 @@
     (all-the-icons-install-fonts t))
 )
 
-(use-package treemacs-icons-dired
-  :ensure t
-  :hook (dired-mode . treemacs-icons-dired-mode)
-)
-
 (provide 'all-the-icons-rcp)
 ;;; Commentary:
 ;;

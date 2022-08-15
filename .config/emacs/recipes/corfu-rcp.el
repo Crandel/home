@@ -19,35 +19,32 @@
   (corfu-quit-no-match    t)
   :bind(
   :map corfu-map
-       ("M-c" . corfu-quick-complete)
+       ("M-z" . corfu-quick-complete)
   )
   :init
   (global-corfu-mode)
   (corfu-indexed-mode)
-  :hook
-  (lsp-completion-mode . corfu-lsp-setup)
 )
 
 (use-package cape
   :ensure t
-  :functions cape-super-capf
+  :functions cape-super-capf cape-file
   :preface
-  (defun vd/setup-elisp-completion ()
-    (setq-local completion-at-point-functions
-                `(,(cape-super-capf
-                    #'elisp-completion-at-point
-                    #'cape-dabbrev)
-                  cape-file)
-                ))
   (defun vd/setup-lsp-completion ()
-    (setq-local completion-at-point-functions (list (cape-super-capf #'lsp-completion-at-point
-                                                                     #'cape-keyword
-                                                                     #'cape-abbrev)))
-    )
+    (setq-local completion-at-point-functions (list (cape-super-capf #'tempel-complete
+                                                                     #'lsp-completion-at-point)
+                                                    #'cape-file
+                                                    #'cape-dabbrev)))
+  (defun vd/setup-elisp-completion ()
+    (setq-local completion-at-point-functions (list (cape-super-capf #'tempel-complete
+                                                                     #'elisp-completion-at-point)
+                                                    #'cape-file
+                                                    #'cape-dabbrev)))
   :init
-  (add-hook 'completion-at-point-functions (cape-super-capf #'cape-dabbrev #'cape-abbrev #'cape-keyword) nil nil)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
+  (add-to-list 'completion-at-point-functions #'cape-keyword)
   :hook
-  (emacs-lisp-mode . vd/setup-elisp-completion)
+  (emacs-lisp-mode     . vd/setup-elisp-completion)
   (lsp-completion-mode . vd/setup-lsp-completion)
 )
 

@@ -13,7 +13,7 @@
 (load custom-file :noerror)
 
 ;; Native compilation settings
-(when (native-comp-available-p)
+(when (fboundp 'native-comp-available-p)
   ;; Set the right directory to store the native compilation cache
   (let ((path (expand-file-name "eln-cache/" user-emacs-directory)))
     (setq native-comp-eln-load-path (list path))
@@ -29,6 +29,8 @@
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
 
+;; Set tempel-path
+(setq-default tempel-path (expand-file-name "templates/*.eld" (file-name-directory load-file-name)))
 
 ;; Prefer loading newest compiled .el file
 (setq load-prefer-newer       noninteractive

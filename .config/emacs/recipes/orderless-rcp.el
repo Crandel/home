@@ -42,9 +42,6 @@
           (cons (cdr x) (substring pattern 1))
         (when-let (x (assq (aref pattern (1- (length pattern))) +orderless-dispatch-alist))
           (cons (cdr x) (substring pattern 0 -1)))))))
-  (defun vd/just-one-face (fn &rest args)
-    (let ((orderless-match-faces [completions-common-part]))
-      (apply fn args)))
   (defun vd/match-components-literally ()
     "Components match literally for the rest of the session."
     (interactive)
@@ -53,7 +50,6 @@
   :config
   (orderless-define-completion-style +orderless-with-initialism
     (orderless-matching-styles '(orderless-initialism orderless-literal orderless-regexp)))
-  (advice-add 'company-capf--candidates :around #'vd/just-one-face)
   :custom
   (completion-styles             '(orderless basic))
   (completion-category-defaults  nil)

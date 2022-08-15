@@ -43,6 +43,8 @@
   :map lsp-mode-map
   ([remap xref-find-definitions] . lsp-find-definition)
   ([remap xref-find-references] . lsp-find-references)
+  ("C-." . lsp-find-implementation)
+  ("M-," . lsp-find-locations)
   )
   :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server                              'rust-analyzer
