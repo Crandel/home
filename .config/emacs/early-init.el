@@ -29,9 +29,6 @@
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
 
-;; Set tempel-path
-(setq-default tempel-path (expand-file-name "templates/*.eld" (file-name-directory load-file-name)))
-
 ;; Prefer loading newest compiled .el file
 (setq load-prefer-newer       noninteractive
       inhibit-startup-message t)
