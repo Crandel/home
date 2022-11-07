@@ -5,15 +5,15 @@ set adjust-open "best-fit"
 # set pages-per-row 1
 
 # Enable scrolbars, commandline and statusbar
-set guioptions sv
+set guioptions sh
 
 #stop at page boundries
 set scroll-page-aware "true"
 set scroll-full-overlap 0.01
-set scroll-step 100
+set scroll-step 50
 set selection-clipboard clipboard
 
-set font "hack 16"
+set font "hack 20"
 set default-bg "#000000" #00
 set default-fg "#F7F7F6" #01
 
@@ -54,9 +54,15 @@ map ] zoom in
 map [ zoom out
 map r recolor
 map p print
-map g goto
+map M goto
 map i jumplist backward
 map o jumplist forward
 map I toggle_index
+map b toggle_statusbar
+
 map y scroll half-up
+map <C-Up> scroll half-up
+
 map u scroll half-down
+map <C-Down> scroll half-down
+map <C-Space> scroll half-down

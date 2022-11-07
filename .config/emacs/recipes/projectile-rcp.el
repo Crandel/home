@@ -7,6 +7,8 @@
   :functions (projectile-project-root projectile-command-map)
   :defer 0.5
   :defines projectile-globally-ignored-directories
+  :custom
+  (projectile-run-use-comint-mode t)
   :config
   (projectile-mode)
   :bind(

@@ -2,8 +2,7 @@
 autocmd! bufwritepost .vimrc source %
 
 " LEADER
-nnoremap <SPACE> <Nop>
-let mapleader=" "
+map <SPACE> <Leader>
 " LEADER END
 
 syntax on
@@ -103,8 +102,16 @@ autocmd BufNewFile,BufFilePre,BufRead,BufReadPost vifm* set filetype=vifm
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " change coursor shape in different modes
-let &t_SI = "\<Esc>[6 q"
-let &t_EI = "\<Esc>[2 q"
+"Cursor settings:
+"  1 -> blinking block
+"  2 -> solid block
+"  3 -> blinking underscore
+"  4 -> solid underscore
+"  5 -> blinking vertical bar
+"  6 -> solid vertical bar
+let &t_SI = "\<Esc>[5 q" "SI = INSERT mode
+let &t_EI = "\<Esc>[3 q" "EI = NORMAL mode (ELSE)
+let &t_SR = "\<Esc>[1 q" "SR = REPLACE mode
 
 " MAPS
 vnoremap <C-c> "+y            " copy selected text Ctrl+c
@@ -123,7 +130,7 @@ vmap <F6> <Esc>:bn<CR>i
 imap <F6> <Esc>:bn<CR>i
 
 " JSON PRETTIFY
-autocmd FileType json nnoremap <leader>jp :%!python -m json.tool<cr>
+autocmd FileType json nnoremap <Leader>jp :%!python -m json.tool<cr>
 autocmd FileType python nnoremap gb o import pdb; pdb.set_trace()
 
 nmap ] }
@@ -132,27 +139,24 @@ nmap [ {
 inoremap jk <Esc>
 inoremap <C-a> <C-o>0
 inoremap <C-e> <C-o>$
-map <C-Left> <C-W>h
-map <C-Down> <C-W>j
-map <C-Up> <C-W>k
-map <C-Right> <C-W>l
-nnoremap <leader>f :!ls -la<CR>
-nnoremap <leader>/ :Grep<Space>
-nnoremap <leader>k :bd<CR>
-nnoremap <leader>d yyp<CR>
-nnoremap <leader>l yy<CR>
+map <Leader>w <C-w>
+nnoremap <Leader>f :!ls -la<CR>
+nnoremap <Leader>/ :Grep<Space>
+nnoremap <Leader>k :bd<CR>
+nnoremap <Leader>d yyp<CR>
+nnoremap <Leader>l yy<CR>
 nnoremap <Leader>b :ls<CR>:b<Space>
 
-nnoremap <C-x C-c> :quit<CR>
-nnoremap <leader>q :quit<CR>
-" nnoremap <NUL> :%s/\s\+$//e
+nnoremap <C-x> :quit<CR>
+nnoremap <Leader>q :quit<CR>
+nnoremap <Leader>s :s/ /_/g<CR>
 
 " The Silver Searcher
 if executable('rg')
   " Use ag over grep
   set grepprg=rg\ --color\ auto\ --vimgrep
   set grepformat=%f:%l:%c:%m
-  nnoremap <leader>/ :grep <cword><CR>:cwindow<CR>
+  nnoremap <Leader>/ :grep <cword><CR>:cwindow<CR>
 endif
 
 " Comment section
@@ -190,7 +194,7 @@ function! CommentToggle()
 endfunction
 
 noremap <M-;> :call CommentToggle()<cr>
-noremap gc :call CommentToggle()<cr>
+noremap gc    :call CommentToggle()<cr>
 
 " tab section
 " virtual tabstops using spaces
@@ -235,10 +239,11 @@ if &diff
   map ] ]c
   map [ [c
   nnoremap du :diffupdate<cr>
-  nnoremap dp :diffput<cr>
-  nnoremap dg :diffget<cr>
-  nnoremap df :diffget 1<cr>
-  nnoremap ds :diffget 2<cr>
+  nnoremap df :diffput 1<cr>
+  nnoremap ds :diffput 2<cr>
+  nnoremap dgt :diffget<cr>
+  nnoremap dgf :diffget 1<cr>
+  nnoremap dgs :diffget 2<cr>
 endif
 
 " wayland section

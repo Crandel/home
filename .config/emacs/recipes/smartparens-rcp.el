@@ -1,6 +1,7 @@
 ;;; smartparens-rcp.el --- Smart paren support
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package smartparens
   :ensure t
   :defer 1

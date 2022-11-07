@@ -12,9 +12,9 @@ set {
   $hdmi     HDMI-A-1
 
   # Modes
-  $layout_mode "Layout: |(d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
-  $power_mode  "Power:| (F2)SCRNOFF | (F3)LCK | (F4)RBT | (F5)POFF"
-  $notification_mode "Notification: | (s) Stop | (d) Default"
+  $layout_mode "Layout: (d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
+  $power_mode  "Power: (F2)SCRNOFF | (F3)LCK | (F4)RBT | (F5)POFF"
+  $notification_mode "Notification: (s) Stop | (d) Default | (n) dismiss | (a) Action"
 
   # Theming
   $gnome-sound     org.gnome.desktop.sound
@@ -25,8 +25,8 @@ set {
   # Apps
   $launch       fuzzel.sh
   $launch-dmenu fuzzel-dmenu
-  $term    wezterm
-  $term_id org.wezfurlong.wezterm
+  $term_id quake_term
+  $term    wezterm start --class $term_id
   $pass    keepassxc
   $pass_id org.keepassxc.KeePassXC
   $oterm    alacritty --class oterm
@@ -116,6 +116,8 @@ assign {
   [app_id="com.github.rssguard"] 2
   [app_id="telegramdesktop"]     2
   [app_id="thunderbird"]         2
+  [app_id="NewsFlashGTK"]        2
+  [app_id="elfeed"]              2
   [app_id="slack"]               3
   [app_id="zoom"]                4
   [class="(?i)Thunderbird"]      2
@@ -131,6 +133,7 @@ for_window {
   [app_id="firefox"]        inhibit_idle fullscreen
   [app_id="mpv"]            inhibit_idle focus
   [app_id="vivaldi-stable"] inhibit_idle fullscreen
+  [app_id="screenshot"]     move to scratchpad
   [app_id="ulauncher"]   floating enable, border none
   [app_id="zoom"]        floating enable, inhibit_idle focus
   [window_role="pop-up"] floating enable
@@ -213,17 +216,19 @@ client.focused_inactive #689D6A  #D79921AA #504945 #484E50    #4B610B
 client.unfocused        #689D6A  #282828AA #FADB2F #282828    #4B610B
 client.urgent           #689D6A  #CC241DAA #A89984 #FB4934    #4B610B
 
-exec systemctl --user import-environment \
+exec --no-startup-id wl-paste -t text --watch clipman.sh &
+exec {
+  systemctl --user import-environment \
     SWAYSOCK \
     WAYLAND_DISPLAY
 
-exec hash dbus-update-activation-environment 2>/dev/null \
-  && dbus-update-activation-environment --systemd SWAYSOCK \
-                                                  WAYLAND_DISPLAY 2>/dev/null
-exec --no-startup-id wl-paste -t text --watch clipman.sh &
-exec $term
-exec swaykbdd
-exec touchegg
-exec network-startup
-exec idle.sh
-exec systemctl --user start user-graphical-session.target
+  hash dbus-update-activation-environment 2>/dev/null
+  dbus-update-activation-environment --systemd SWAYSOCK \
+                                               WAYLAND_DISPLAY 2>/dev/null
+  swaykbdd
+  touchegg
+  idle.sh
+  $term, resize set width 50 ppt height 50 ppt
+  systemctl --user start user-graphical-session.target
+  network-startup
+}

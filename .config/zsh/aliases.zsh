@@ -8,8 +8,8 @@ if test -t 1; then
   alias dir='dir --color=auto'
   alias vdir='vdir --color=auto'
   alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
+  alias grepf='grep -F --color=auto'
+  alias grepe='grep -E --color=auto'
 fi
 
 # ALIASES
@@ -137,7 +137,8 @@ fi
 alias ytdl='yt-dlp'
 alias ytlf='ytdl --list-formats'
 alias ytm='ytdl -f bestaudio -x'
-alias ytb='ytdl -f "bestvideo[height<=1080]"+bestaudio' # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+# --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
+alias ytb='ytdl -f "best[height<=1080]"'
 alias a2c='aria2c -x 10 -s 10'
 alias play='ffplay -nodisp -autoexit'
 ## END MEDIA TOOLS

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ $# != 2 ] ; then
+    echo 'Expected exactly two arguments'
+    exit 1
+fi
+
+if [ -f "$1" -a -f "$2" ]; then
+    vimdiff $args "$1" "$2"
+else
+    echo "Arguments are not files"
+    exit 1
+fi
+

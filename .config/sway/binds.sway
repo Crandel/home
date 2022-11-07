@@ -13,8 +13,8 @@ bindsym --to-code {
   $mod+q kill
 
   # start a program launcher
-  $mod+d         exec $launch -l 30 -P 'Run: '
-  $mod+Control+d exec fuzzel-launcher
+  $mod+d         exec $launch -l 30 -p 'Run: '
+  $mod+Control+d exec $launch-dmenu
   $mod+Shift+d   exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
                                        --display-binary \
                                        --use-xdg-de \
@@ -106,9 +106,10 @@ bindsym --to-code {
   $mod+Shift+c reload
 
   # modes
-  $mod+r  mode "resize"
-  $mod+t  mode $layout_mode
-  $mod+F2 mode $power_mode
+  $mod+r       mode "resize"
+  $mod+t       mode $layout_mode
+  $mod+Shift+n mode $notification_mode
+  $mod+F2      mode $power_mode
 
   # exit sway (logs you out of your session)
   $mod+Shift+e exec $nag
@@ -127,18 +128,18 @@ bindsym --to-code {
   $mod+Shift+p exec alacritty -e nvlc ~/.config/vlc/radio.xspf
 
   # screenshot
-  $mod+Shift+s exec alacritty -e grimshot save area
+  $mod+Shift+s exec alacritty --class screenshot -e grimshot save area
 
   # get clipboard history
-  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel-dmenu --width 120 -P "Clipman: "'
+  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel-dmenu --width 120 -p "Clipman: "'
   # $mod+a exec clipman pick --max-items=1000 -t bemenu -T'-l 30 -p "clipman: "'
-
-  # dismiss notification
-  $mod+n exec makoctl dismiss
-  $mod+Shift+n exec makoctl menu $launch-dmenu -P 'Select Action: ' && makoctl dismiss
 
   # networkmanager-dmenu
   $mod+w exec networkmanager_dmenu
+
+  # Dismiss notification
+  $mod+n exec makoctl dismiss
+  $mod+Control+n exec makoctl menu $launch-dmenu -P 'Select Action: ' && makoctl dismiss
 
   # Switches to the previously focused workspace.
   $mod+z workspace back_and_forth

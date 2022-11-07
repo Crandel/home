@@ -16,13 +16,10 @@
 (when (fboundp 'native-comp-available-p)
   ;; Set the right directory to store the native compilation cache
   (let ((path (expand-file-name "eln-cache/" user-emacs-directory)))
-    (setq native-comp-eln-load-path (list path))
-    (setq native-compile-target-directory path))
-  ;; Silence compiler warnings as they can be pretty disruptive
-  (setq native-comp-async-report-warnings-errors nil)
-  ;; Make native compilation happens asynchronously
-  (setq native-comp-deferred-compilation t)
-
+    (setq native-comp-eln-load-path (list path)
+          native-compile-target-directory path))
+  (setq native-comp-async-report-warnings-errors nil ;; Silence compiler warnings as they can be pretty disruptive
+        native-comp-deferred-compilation         t)  ;; Make native compilation happens asynchronously
   )
 
 ;; Themes
@@ -47,8 +44,6 @@
           (font . "Hack Nerd Font-16")
           (tool-bar-lines . 0)
           (vertical-scroll-bars . right)))
-
-(setq initial-frame-alist default-frame-alist)
 
 (blink-cursor-mode              1)
 (column-number-mode             t)

@@ -81,8 +81,8 @@ if test -t 1; then
   alias dir='dir --color=auto'
   alias vdir='vdir --color=auto'
   alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
+  alias fgrep='grep -F --color=auto'
+  alias egrep='grep -E --color=auto'
 fi
 
 # ALIASES
@@ -459,7 +459,7 @@ if command_exists nnn ; then
   export NNN_USE_EDITOR=1
   export NNN_CONTEXT_COLORS='2745'
   export NNN_COPIER=$(which xsel)
-  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_NOTE=/data/backup/notes
   export NNN_OPS_PROG=1
 fi
 ## END FILE MANAGERS
@@ -598,11 +598,6 @@ fi
 ## END RUST
 
 ## GO
-go16_path=/usr/lib/go-1.16/bin
-if [ -d $go16_path ]; then
-  export PATH=$PATH:$go16_path
-fi
-
 if command_exists go ; then
   export GOPATH=$HOME/go
   export PATH=$PATH:$GOPATH/bin
@@ -658,15 +653,6 @@ fi
 ## END SCALA
 
 ## PYTHON
-if [ -d "$HOME/.pyenv" ]; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-  eval "$(pyenv init --path)"
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }

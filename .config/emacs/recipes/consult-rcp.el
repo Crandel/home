@@ -64,6 +64,7 @@
                           "/" 'consult-ripgrep-symbol-at-point
                           "p" 'consult-buffer
                           "g" 'consult-ripgrep
+                          "i" 'consult-imenu-multi
                         )
                        )
   )
@@ -74,11 +75,16 @@
   ("C-x C-g" . consult-ripgrep)
   ("C-h C-m" . consult-minor-mode-menu)
   ("C-p" . consult-buffer)
+  ([remap switch-to-buffer] . consult-buffer)
+  ([remap yank-pop] . consult-yank-pop)
+  ([remap goto-line] . consult-goto-line)
   ([f10] . consult-imenu)
   :map consult-narrow-map
   ([C-right] .  consult-narrow-right)
   ([C-left] .  consult-narrow-left)
-  )
+  :map minibuffer-local-map
+  ([remap previous-matching-history-element] . consult-history)
+)
   :chords
   ("bl" . consult-buffer)
 )
@@ -102,10 +108,10 @@
   ("C-c d" . consult-lsp-symbols)
 )
 
-(use-package consult-yasnippet
-  :ensure t
-  :after consult
-)
+;; (use-package consult-yasnippet
+;;   :ensure t
+;;   :after consult
+;; )
 
 (provide 'consult-rcp)
 

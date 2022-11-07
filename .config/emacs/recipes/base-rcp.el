@@ -25,7 +25,6 @@
   (defalias 'yes-or-no-p     'y-or-n-p)
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill))
-  (add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
   :custom
   (ad-redefinition-action       'accept)
   (bidi-display-reordering      nil "Never reorder bidirectional text for display in the visual order.")
@@ -44,6 +43,7 @@
                                    "Display the name of the current buffer in the title bar")
   (indent-line-function         'insert-tab "End Indent settings")
   (indent-tabs-mode             nil)
+  (initial-scratch-message      "")
   (java-basic-offset            2)
   (js-indent-level              2)
   (lisp-body-indent             2)
@@ -62,7 +62,7 @@
   (split-width-threshold      0   "Minimum height for splitting windows horizontally.")
   (standart-indent            2)
   (tab-always-indent          nil)
-  (tab-width                  4)
+  (tab-width                  2)
   (use-dialog-box             nil "Non-nil means mouse commands use dialog boxes to ask questions.")
   ;; (uniquify-buffer-name-style 'reverse)
   ;; (uniquify-min-dir-content   3)
@@ -97,8 +97,9 @@
   ("C-o" . vd/open-next-line)
   ("C-x C-x" . vd/kill-emacs-with-save)
   ("C-c o" . vd/open-previous-line)
-  ("<backspace>" . backward-delete-char-untabify)
-  ("<delete>" . delete-char)
+  :hook
+  (minibuffer-setup . cursor-intangible-mode)
+  (prog-mode . vd/highlight-todos)
 )
 
 (use-package autorevert
@@ -168,9 +169,16 @@
 
 (use-package electric
   :defer t
-  :config
-  (electric-pair-mode     1)
-  (electric-indent-mode   -1)
+  :init
+  (electric-pair-mode    1)
+  (electric-indent-mode -1)
+  :custom
+  (electric-pair-pairs  '((34 . 34)
+                          (8216 . 8217)
+                          (8220 . 8221)
+                          (123 . 125)
+                          (40 . 41)
+                          (60 . 62)))
 )
 
 (use-package files
@@ -205,6 +213,9 @@
 
 (use-package imenu
   :defer t
+  :config
+  (define-fringe-bitmap 'left-curly-arrow [16 48 112 240 240 112 48 16])
+  (define-fringe-bitmap 'right-curly-arrow [8 12 14 15 15 14 12 8])
   :custom
   (imenu-auto-rescan      t)
   (imenu-use-popup-menu   nil)

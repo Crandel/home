@@ -1,4 +1,5 @@
 # ZSH Specific envs
+skip_global_compinit=1
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -41,17 +42,19 @@ export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export EDITOR='vim'
 export EDITOR='emacs'
-export QT_QPA_PLATFORMTHEME="qt5ct"
-export QT_PLATFORM_PLUGIN="qt5ct"
+export LSP_USE_PLISTS=true
+export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_PLATFORM_PLUGIN="qt6ct"
 export BEMENU_OPTS='-I 0 -i --fn "Hack:32" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
-
-export GO111MODULE=on
 export GO15VENDOREXPERIMENT=1
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 export NPM_PACKAGES="${XDG_DATA_HOME}"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules"
 export WINEARCH=win32
+if [ -f . $ZDOTDIR/zshenv.local.zsh ]; then
+  . $ZDOTDIR/zshenv.local.zsh
+fi
+

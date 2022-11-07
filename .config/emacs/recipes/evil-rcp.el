@@ -87,6 +87,7 @@ The return value is the yanked text."
   ("S-<down>" . scroll-up-command)
   ("M-," . xref-find-references)
   ("M-." . xref-find-definitions)
+  ([remap yank-pop] . nil)
   ("f"   . evil-avy-goto-char)
   ("g["  . text-scale-decrease)
   ("g]"  . text-scale-increase)

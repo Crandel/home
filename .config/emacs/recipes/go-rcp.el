@@ -22,6 +22,7 @@
                           (nilness . t)
                           (shadow . t)
                           (unusedwrite . t)
+                          (fieldalignment . t)
                                        ))
 )
 

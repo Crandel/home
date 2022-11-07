@@ -148,6 +148,12 @@ If FORCE-P, delete without confirmation."
           (kill-buffer buf)
           (message "Deleted %S" short-path))))))
 
+;;;###autoload
+(defun vd/highlight-todos ()
+    (font-lock-add-keywords nil
+                            '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t))))
+
+
 (provide 'functions_my)
 ;;; Commentary:
 ;;

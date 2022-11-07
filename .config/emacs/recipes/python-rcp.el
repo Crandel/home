@@ -38,7 +38,6 @@
   (imenu-create-index-function                'my-merge-imenu)
   :hook
   (evil-mode . (lambda()
-                   (interactive)
                    (evil-define-key* '(normal visual) python-mode-map
                      (kbd "gf") my/python-mode-map)
                    ))

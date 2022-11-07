@@ -67,7 +67,10 @@ mode $notification_mode {
   bindsym --to-code {
     s exec makoctl set-mode do-not-disturb; mode "default"
     d exec makoctl set-mode default       ; mode "default"
-
+    n exec makoctl dismiss                ; mode "default"
+    a exec makoctl menu $launch-dmenu -p 'Select Action: ' \
+        && makoctl dismiss; \
+           mode "default"
     # back to normal: Enter or Escape
     Return mode "default"
     Escape mode "default"

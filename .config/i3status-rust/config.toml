@@ -20,8 +20,10 @@ headphones = "🎧"
 joystick = "🎮"
 keyboard = "⌨"
 memory_mem = "💾"
-microphone_muted = "🎙"
+microphone_empty = "🎤"
+microphone_full = "🎤"
 microphone_half = "🎤"
+microphone_muted = "🎙"
 mouse = "🖱"
 net_down = "⇊"
 net_up = "⇈"
@@ -93,13 +95,11 @@ warning_swap = 80
 idle_bg="#355325AA"
 
 [[block]]
-#device = "BAT1"
-device = "DisplayDevice"
+device = "battery_BAT0"
 block = "battery"
 driver = "upower"
 format = "{percentage:0}"
 full_format = ""
-#interval = 60
 [block.theme_overrides]
 idle_bg="#2F2519AA"
 
@@ -108,6 +108,7 @@ block = "sound"
 driver = "pulseaudio"
 device_kind = "sink"
 show_volume_when_muted = false
+headphones_indicator = true
 [block.theme_overrides]
 idle_bg="#29331EAA"
 
@@ -188,7 +189,7 @@ idle_bg="#464a41AA"
 [[block]]
 block = "time"
 format = "%d.%m %R"
-interval = 45
+interval = 10
 on_click = "swaymsg -q exec 'gsimplecal'"
 [block.theme_overrides]
 idle_bg="#355325AA"

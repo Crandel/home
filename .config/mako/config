@@ -1,6 +1,6 @@
 markup=1
 actions=1
-anchor=top-center
+anchor=top-right
 width=500
 height=500
 
@@ -39,3 +39,12 @@ border-color=#B7472A
 border-size=2
 background-color=#191311
 format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
+
+# == Mode: Away ==
+[mode=away]
+default-timeout=0
+ignore-timeout=1
+
+# == Mode: Do Not Disturb ==
+[mode=do-not-disturb]
+invisible=1

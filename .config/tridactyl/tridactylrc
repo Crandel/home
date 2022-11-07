@@ -45,8 +45,8 @@ keymap е t
 keymap Е T
 " keymap є '
 " keymap Є “
-" keymap ж ;
-keymap Ж :
+keymap ж :
+keymap Ж ;
 keymap з p
 keymap З P
 keymap и b
