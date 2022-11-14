@@ -1,5 +1,16 @@
 local wezterm = require 'wezterm';
 
+wezterm.on('update-right-status', function(window, pane)
+  local date = wezterm.strftime '%d-%m-%Y %H:%M:%S'
+  local cwd_uri = pane:get_current_working_dir()
+  cwd_uri = cwd_uri:sub(8)
+  local slash = cwd_uri:find '/'
+  cwd = cwd_uri:sub(slash)
+  window:set_right_status(wezterm.format {
+    { Text = cwd .. ' | ' .. date},
+  })
+end)
+
 wezterm.on("toggle-opacity", function(window, pane)
   local overrides = window:get_config_overrides() or {}
   if not overrides.window_background_opacity then
@@ -17,7 +28,7 @@ return {
     ["Gruvbox Dark Hard"] = {
       foreground = "#E6D4A3",
       background = "#1E1E1E",
-      cursor_bg = "#1E1E1E",
+      cursor_bg = "#EBDBB2",
       cursor_border = "#EBDBB2",
       cursor_fg = "#FFDDCC",
       selection_bg = "#EBDBB2",
@@ -82,24 +93,26 @@ return {
       }
     }
   },
-  cursor_blink_rate = 800,
+  cursor_blink_rate = 1000,
   default_cursor_style = "BlinkingBar",
   enable_scroll_bar = true,
   enable_wayland = true,
   font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),
-  font_size=18.0,
+  font_size = 20.0,
   hide_tab_bar_if_only_one_tab = true,
   keys = {
-    {key="A"          ,mods="CTRL"       ,action="ActivateCopyMode"},
-    {key="B"          ,mods="CTRL|SHIFT" ,action=wezterm.action{EmitEvent="toggle-opacity"}},
+    {key="a"          ,mods="CTRL|SHIFT" ,action="ActivateCopyMode"},
+    {key="b"          ,mods="CTRL|SHIFT" ,action=wezterm.action{EmitEvent="toggle-opacity"}},
     {key="DownArrow"  ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Down"}},
     {key="LeftArrow"  ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Left"}},
     {key="RightArrow" ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Right"}},
+    {key="UpArrow"    ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Up"}},
+    {key="UpArrow"    ,mods="CTRL|SHIFT" ,action=wezterm.action{ScrollByPage=-1}},
+    {key="DownArrow"  ,mods="CTRL|SHIFT" ,action=wezterm.action{ScrollByPage=1}},
     {key="Tab"        ,mods="CTRL"       ,action=wezterm.action{ActivateTabRelative=1}},
     {key="Tab"        ,mods="CTRL|SHIFT" ,action=wezterm.action{ActivateTabRelative=-1}},
-    {key="UpArrow"    ,mods="ALT"        ,action=wezterm.action{ActivatePaneDirection="Up"}},
-    {key="X"          ,mods="CTRL"       ,action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
-    {key="Z"          ,mods="CTRL"       ,action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
+    {key="x"          ,mods="CTRL|SHIFT" ,action=wezterm.action{SplitHorizontal={domain="CurrentPaneDomain"}}},
+    {key="z"          ,mods="CTRL|SHIFT" ,action=wezterm.action{SplitVertical={domain="CurrentPaneDomain"}}},
     {key="t"          ,mods="CTRL"       ,action=wezterm.action{SpawnTab="CurrentPaneDomain"}},
     {key="w"          ,mods="CTRL"       ,action=wezterm.action{CloseCurrentPane={confirm=true}}},
     {key="z"          ,mods="CTRL"       ,action="Nop"},
@@ -107,7 +120,27 @@ return {
   },
   ratelimit_mux_line_prefetches_per_second = 4289999998,
   scrollback_lines = 150000,
+  tab_bar_at_bottom = true,
   tab_max_width = 46,
   text_background_opacity = 1.0,
+  use_fancy_tab_bar = true,
+  warn_about_missing_glyphs = false,
   window_background_opacity = 1.0,
+  window_frame = {
+    -- The font used in the tab bar.
+    font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),
+    font_size = 16.0,
+    -- The overall background color of the tab bar when
+    -- the window is focused
+    active_titlebar_bg = '#333333',
+    -- The overall background color of the tab bar when
+    -- the window is not focused
+    inactive_titlebar_bg = '#333333',
+  },
+  window_padding = {
+    left = 0,
+    right = 2,
+    top = 0,
+    bottom = 0,
+  },
 }
