@@ -44,7 +44,7 @@
         evil-want-integration              t
         evil-want-keybinding               nil
         evil-disable-insert-state-bindings t
-        evil-normal-state-cursor           '(hbar . 2)
+        evil-normal-state-cursor           '(hollow . 2)
         evil-want-fine-undo                t)
   :config
   (evil-define-command evil-paste-before-and-indent

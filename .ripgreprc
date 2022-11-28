@@ -1,5 +1,5 @@
 # Don't let ripgrep vomit really long lines to my terminal, and show a preview.
---max-columns=150
+--max-columns=350
 --max-columns-preview
 
 # Add my 'web' type.
@@ -10,6 +10,7 @@ web:*.{html,css,js}*
 
 # Using glob patterns to include/exclude files or folders
 --glob=!.git/*
+--glob=!vendor/*
 
 # Set the colors.
 --colors=line:none

@@ -126,8 +126,8 @@
     ;; UI
     `(default                           ((t (:background ,gruvbox-bg :foreground ,gruvbox-light0))))
     `(cursor                            ((t (:background ,gruvbox-light0))))
-    `(mode-line                         ((t (:box nil :background ,gruvbox-dark2 :foreground ,gruvbox-light2))))
-    `(mode-line-inactive                ((t (:box nil :background ,gruvbox-dark1 :foreground ,gruvbox-light4))))
+    `(mode-line                         ((t (:box unspecified :background ,gruvbox-dark2 :foreground ,gruvbox-light2))))
+    `(mode-line-inactive                ((t (:box unspecified :background ,gruvbox-dark1 :foreground ,gruvbox-light4))))
     `(fringe                            ((t (:background ,gruvbox-bg))))
     `(linum                             ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
     `(hl-line                           ((t (:background ,gruvbox-dark1))))
@@ -136,6 +136,7 @@
     `(minibuffer-prompt                 ((t (:background ,gruvbox-bg :foreground ,gruvbox-neutral_green :bold t))))
     `(vertical-border                   ((t (:foreground ,gruvbox-dark2))))
     `(link                              ((t (:foreground ,gruvbox-faded_blue :underline t))))
+    `(highlight                         ((t (:box t :underline t))))
     `(shadow                            ((t (:foreground ,gruvbox-dark4))))
 
     ;; Built-in syntax
@@ -154,11 +155,11 @@
     `(diff-file-header                  ((t (:background ,gruvbox-dark2))))
     `(diff-hunk-header                  ((t (:background ,gruvbox-dark2))))
     `(diff-context                      ((t (:background ,gruvbox-dark1 :foreground ,gruvbox-light1))))
-    `(diff-changed                      ((t (:background nil :foreground ,gruvbox-light1))))
-    `(diff-added                        ((t (:background nil :foreground ,gruvbox-neutral_green))))
-    `(diff-refine-added                 ((t (:background nil :foreground ,gruvbox-bright_green))))
-    `(diff-removed                      ((t (:background nil :foreground ,gruvbox-neutral_red))))
-    `(diff-refine-removed               ((t (:background nil :foreground ,gruvbox-bright_red))))
+    `(diff-changed                      ((t (:background unspecified :foreground ,gruvbox-light1))))
+    `(diff-added                        ((t (:background unspecified :foreground ,gruvbox-neutral_green))))
+    `(diff-refine-added                 ((t (:background unspecified :foreground ,gruvbox-bright_green))))
+    `(diff-removed                      ((t (:background unspecified :foreground ,gruvbox-neutral_red))))
+    `(diff-refine-removed               ((t (:background unspecified :foreground ,gruvbox-bright_red))))
     `(diff-indicator-changed            ((t (:inherit 'diff-changed))))
     `(diff-indicator-added              ((t (:inherit 'diff-added))))
     `(diff-indicator-removed            ((t (:inherit 'diff-removed))))
@@ -221,7 +222,7 @@
     `(whitespace-line                   ((t (:background ,gruvbox-dark1))))
     `(whitespace-space-before-tab       ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
     `(whitespace-indentation            ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
-    `(whitespace-empty                  ((t (:background nil :foreground nil))))
+    `(whitespace-empty                  ((t (:background unspecified :foreground unspecified))))
     `(whitespace-space-after-tab        ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
 
     ;; 3-rd party packages
@@ -277,21 +278,21 @@
     `(diredp-read-priv                  ((t (:foreground ,gruvbox-bright_red  :background ,gruvbox-dark_red))))
     `(diredp-write-priv                 ((t (:foreground ,gruvbox-bright_aqua :background ,gruvbox-dark_aqua))))
 
-    ;; ;; elfeed
-    ;; `(elfeed-search-title-face          ((t (:foreground ,gruvbox-medium))))
-    ;; `(elfeed-search-unread-title-face   ((t (:foreground ,gruvbox-light0))))
-    ;; `(elfeed-search-date-face           ((t (:inherit font-lock-builtin-face :underline t))))
-    ;; `(elfeed-search-feed-face           ((t (:inherit font-lock-variable-name-face))))
-    ;; `(elfeed-search-tag-face            ((t (:inherit font-lock-keyword-face))))
-    ;; `(elfeed-search-last-update-face    ((t (:inherit font-lock-comment-face))))
-    ;; `(elfeed-search-unread-count-face   ((t (:inherit font-lock-comment-face))))
-    ;; `(elfeed-search-filter-face         ((t (:inherit font-lock-string-face))))
+    ;; elfeed
+    `(elfeed-search-title-face          ((t (:foreground ,gruvbox-medium))))
+    `(elfeed-search-unread-title-face   ((t (:foreground ,gruvbox-light0))))
+    `(elfeed-search-date-face           ((t (:inherit font-lock-builtin-face :underline t))))
+    `(elfeed-search-feed-face           ((t (:inherit font-lock-variable-name-face))))
+    `(elfeed-search-tag-face            ((t (:inherit font-lock-keyword-face))))
+    `(elfeed-search-last-update-face    ((t (:inherit font-lock-comment-face))))
+    `(elfeed-search-unread-count-face   ((t (:inherit font-lock-comment-face))))
+    `(elfeed-search-filter-face         ((t (:inherit font-lock-string-face))))
 
     ;; elscreen
-    `(elscreen-tab-background-face      ((t (:box nil :background ,gruvbox-bg)))) ;; Tab bar, not the tabs
-    `(elscreen-tab-control-face         ((t (:box nil :background ,gruvbox-dark2 :foreground ,gruvbox-neutral_red :underline nil)))) ;; The controls
-    `(elscreen-tab-current-screen-face  ((t (:box nil :background ,gruvbox-dark4 :foreground ,gruvbox-dark0)))) ;; Current tab
-    `(elscreen-tab-other-screen-face    ((t (:box nil :background ,gruvbox-dark2 :foreground ,gruvbox-light4 :underline nil)))) ;; Inactive tab
+    `(elscreen-tab-background-face      ((t (:box unspecified :background ,gruvbox-bg)))) ;; Tab bar, not the tabs
+    `(elscreen-tab-control-face         ((t (:box unspecified :background ,gruvbox-dark2 :foreground ,gruvbox-neutral_red :underline unspecified)))) ;; The controls
+    `(elscreen-tab-current-screen-face  ((t (:box unspecified :background ,gruvbox-dark4 :foreground ,gruvbox-dark0)))) ;; Current tab
+    `(elscreen-tab-other-screen-face    ((t (:box unspecified :background ,gruvbox-dark2 :foreground ,gruvbox-light4 :underline unspecified)))) ;; Inactive tab
 
     ; flycheck
     `(flycheck-warning                  ((t (:underline (:style wave :color ,gruvbox-bright_yellow)))))
@@ -313,16 +314,16 @@
     `(js2-warning                       ((t (:underline (:color ,gruvbox-bright_yellow :style wave)))))
     `(js2-error                         ((t (:underline (:color ,gruvbox-bright_red :style wave)))))
     `(js2-external-variable             ((t (:underline (:color ,gruvbox-bright_aqua :style wave)))))
-    `(js2-jsdoc-tag                     ((t (:background nil :foreground ,gruvbox-medium ))))
-    `(js2-jsdoc-type                    ((t (:background nil :foreground ,gruvbox-light4 ))))
-    `(js2-jsdoc-value                   ((t (:background nil :foreground ,gruvbox-light3 ))))
-    `(js2-function-param                ((t (:background nil :foreground ,gruvbox-bright_aqua ))))
-    `(js2-function-call                 ((t (:background nil :foreground ,gruvbox-bright_blue ))))
-    `(js2-instance-member               ((t (:background nil :foreground ,gruvbox-bright_orange ))))
-    `(js2-private-member                ((t (:background nil :foreground ,gruvbox-faded_yellow ))))
-    `(js2-private-function-call         ((t (:background nil :foreground ,gruvbox-faded_aqua ))))
-    `(js2-jsdoc-html-tag-name           ((t (:background nil :foreground ,gruvbox-light4 ))))
-    `(js2-jsdoc-html-tag-delimiter      ((t (:background nil :foreground ,gruvbox-light3 ))))
+    `(js2-jsdoc-tag                     ((t (:background unspecified :foreground ,gruvbox-medium ))))
+    `(js2-jsdoc-type                    ((t (:background unspecified :foreground ,gruvbox-light4 ))))
+    `(js2-jsdoc-value                   ((t (:background unspecified :foreground ,gruvbox-light3 ))))
+    `(js2-function-param                ((t (:background unspecified :foreground ,gruvbox-bright_aqua ))))
+    `(js2-function-call                 ((t (:background unspecified :foreground ,gruvbox-bright_blue ))))
+    `(js2-instance-member               ((t (:background unspecified :foreground ,gruvbox-bright_orange ))))
+    `(js2-private-member                ((t (:background unspecified :foreground ,gruvbox-faded_yellow ))))
+    `(js2-private-function-call         ((t (:background unspecified :foreground ,gruvbox-faded_aqua ))))
+    `(js2-jsdoc-html-tag-name           ((t (:background unspecified :foreground ,gruvbox-light4 ))))
+    `(js2-jsdoc-html-tag-delimiter      ((t (:background unspecified :foreground ,gruvbox-light3 ))))
 
     ;; Helm
     ;; `(helm-M-x-key                              ((t ( :foreground ,gruvbox-neutral_orange  ))))
@@ -478,7 +479,7 @@
     `(org-drawer                        ((t (:inherit font-lock-function-face))))
     `(org-column                        ((t (:background ,gruvbox-dark0))))
     `(org-column-title                  ((t (:background ,gruvbox-dark0 :underline t :weight bold))))
-    `(org-warning                       ((t (:bold t :foreground ,gruvbox-neutral_red :weight bold :underline nil))))
+    `(org-warning                       ((t (:bold t :foreground ,gruvbox-neutral_red :weight bold :underline unspecified))))
     `(org-archived                      ((t (:foreground ,gruvbox-light0 :weight bold))))
     `(org-link                          ((t (:foreground ,gruvbox-faded_aqua :underline t))))
     `(org-footnote                      ((t (:foreground ,gruvbox-neutral_aqua :underline t))))
@@ -533,7 +534,7 @@
     `(rainbow-delimiters-depth-10-face  ((t (:foreground ,gruvbox-delimiter-two))))
     `(rainbow-delimiters-depth-11-face  ((t (:foreground ,gruvbox-delimiter-three))))
     `(rainbow-delimiters-depth-12-face  ((t (:foreground ,gruvbox-delimiter-four))))
-    `(rainbow-delimiters-unmatched-face ((t (:background nil :foreground ,gruvbox-light0))))
+    `(rainbow-delimiters-unmatched-face ((t (:background unspecified :foreground ,gruvbox-light0))))
 
     ;; Smartparens
     ;; `(sp-pair-overlay-face              ((t (:background ,gruvbox-dark2))))
@@ -543,7 +544,7 @@
     ;; `(sp-show-pair-mismatch-face        ((t (:background ,gruvbox-neutral_red)))) ;; Highlight for bracket without pair
 
     ;; Smart-mode-line
-    `(sml/global                        ((t (:foreground ,gruvbox-burlywood4 :inverse-video nil))))
+    `(sml/global                        ((t (:foreground ,gruvbox-burlywood4 :inverse-video unspecified))))
     `(sml/modes                         ((t (:foreground ,gruvbox-bright_green))))
     `(sml/filename                      ((t (:foreground ,gruvbox-bright_yellow :weight bold))))
     `(sml/prefix                        ((t (:foreground ,gruvbox-light1))))

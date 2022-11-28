@@ -1,21 +1,22 @@
 bindsym --to-code {
   # Scratchpad bindsym
   ## Main terminal
-  F1           exec swaymsg [app_id=$term_id]   scratchpad show || exec $term ,  $t_pos
+  F1           exec swaymsg [app_id=$term_id]   scratchpad show || exec $term,   $maximize
+
   ## backup terminal
-  $mod+F1      exec swaymsg [app_id=$oterm_id]  scratchpad show || exec $oterm,  $t_pos
+  $mod+F1      exec swaymsg [app_id=$oterm_id]  scratchpad show || exec $oterm,  $maximize
   ## editor
-  $mod+x       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $t_pos
+  $mod+x       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $maximize
   ## keepassxc
-  $mod+Shift+x exec swaymsg [app_id=$pass_id]   scratchpad show || exec $pass,   $t_pos
+  $mod+Shift+x exec swaymsg [app_id=$pass_id]   scratchpad show || exec $pass,   $maximize
 
   # kill focused window
   $mod+q kill
 
   # start a program launcher
-  $mod+d         exec $launch -l 30 -p 'Run: '
-  $mod+Control+d exec $launch-dmenu
-  $mod+Shift+d   exec j4-dmenu-desktop --dmenu='bemenu -l 20 -p drun' \
+  $mod+d         exec $launch 'Run: '
+  $mod+Shift+d   exec $launch-dmenu
+  $mod+Control+d exec j4-dmenu-desktop --dmenu='fuzzel-prompt.sh drun --dmenu ' \
                                        --display-binary \
                                        --use-xdg-de \
                                        --term=$term \
@@ -131,15 +132,14 @@ bindsym --to-code {
   $mod+Shift+s exec alacritty --class screenshot -e grimshot save area
 
   # get clipboard history
-  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel-dmenu --width 120 -p "Clipman: "'
-  # $mod+a exec clipman pick --max-items=1000 -t bemenu -T'-l 30 -p "clipman: "'
+  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel --dmenu --width 120 -p "Clipman: "'
 
   # networkmanager-dmenu
   $mod+w exec networkmanager_dmenu
 
   # Dismiss notification
   $mod+n exec makoctl dismiss
-  $mod+Control+n exec makoctl menu $launch-dmenu -P 'Select Action: ' && makoctl dismiss
+  $mod+Control+n exec makoctl menu $launch 'Select Action: ' --dmenu  && makoctl dismiss
 
   # Switches to the previously focused workspace.
   $mod+z workspace back_and_forth

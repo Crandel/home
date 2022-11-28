@@ -1,10 +1,9 @@
-[user]
-    name = Crandel
-    email = cradlemann@gmail.com
-[core]
-    autocrlf = false
-    safecrlf = true
-    excludesFile = ~/.gitignore
+[alias]
+    co = checkout
+    st = status
+    br = branch
+    d = difftool
+
 [color]
     ui = true
 [color "branch"]
@@ -20,19 +19,34 @@
     added = green
     changed = yellow
     untracked = cyan
-[alias]
-    co = checkout
-    st = status
-    br = branch
-    d = difftool
-[merge]
-    tool = meld
-    conflictstyle = diff3
-[diff]
-    tool = meld
-[difftool]
-    prompt = false
+
+[core]
+    autocrlf = false
+    safecrlf = true
+    excludesFile = ~/.gitignore
+
 [credential]
     helper = /usr/lib/git-core/git-credential-gnome-keyring
+
+[delta]
+    side-by-side = true
+    syntax-theme = gruvbox-dark
+
+[diff]
+    tool = ediff
+[difftool]
+    prompt = false
+[difftool "ediff"]
+    cmd = emacs -diff "$LOCAL" "$REMOTE"
+
+[merge]
+    tool = ediff
+    conflictstyle = diff3
+[mergetool "ediff"]
+    cmd = emacs -merge "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
+
 [pull]
     rebase = true
+
+[user]
+    name = "Crandel"

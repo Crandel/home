@@ -39,7 +39,7 @@
 (setq default-frame-alist
         '(
           (alpha 100 100)
-          (cursor-type . 'vbar)
+          (cursor-type . 'hbar)
           (cursor-color . "#BE81F7")
           (font . "Hack Nerd Font-16")
           (tool-bar-lines . 0)

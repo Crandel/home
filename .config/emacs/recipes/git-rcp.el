@@ -37,11 +37,11 @@
   :ensure t
 )
 
-(use-package magit-delta
-  :ensure t
-  :custom
-  (magit-delta-default-dark-theme "gruvbox-dark")
-  :hook (magit-mode . magit-delta-mode))
+;; (use-package magit-delta
+;;   :ensure t
+;;   :custom
+;;   (magit-delta-default-dark-theme "gruvbox-dark")
+;;   :hook (magit-mode . magit-delta-mode))
 
 (use-package git-gutter
   :ensure t
@@ -66,7 +66,7 @@
   (blamer-min-offset 70)
   :custom-face
   (blamer-face ((t :foreground "#F4FA58"
-                   :background nil
+                   :background unspecified
                    :height 140
                    :italic t)))
 )

@@ -8,10 +8,10 @@ if [ ! -z $kill ]; then
 fi
 
 if [ -z $timeout ]; then
-  timeout=180
+  timeout=300
 fi
 
-echo "idle.sh; timeout=$timeout; rms=$rms" >> /tmp/idle.log
+echo "idle.sh; timeout=$timeout; rsm=$rsm" >> /tmp/idle.log
 
 swayidle \
   timeout $timeout 'swaymsg "output * dpms off"' \

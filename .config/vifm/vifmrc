@@ -114,6 +114,7 @@ mark b /data/backup
 mark m /data/media
 mark p /data/work/projects
 mark y /data/media/youtube
+mark t /tmp
 
 " ------------------------------------------------------------------------------
 " What should be saved automatically between vifm sessions.  Drop "savedirs"

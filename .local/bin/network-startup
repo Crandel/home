@@ -23,3 +23,6 @@ sleep 0.5
 echo "Start RSS reader" >> /tmp/network-startup.log
 rssguard &
 
+sleep 0.5
+echo "Start Rss reader" >> /tmp/network-startup.log
+emacs --name "elfeed" -elfeed &

@@ -43,7 +43,6 @@
 
 (require 'avy-rcp)
 (require 'all-the-icons-rcp)
-(require 'beacon-rcp)
 (require 'corfu-rcp)
 (require 'consult-rcp)
 (require 'dired-rcp)
@@ -88,7 +87,6 @@
 (require 'go-rcp)
 (require 'python-rcp)
 (require 'ripgrep-rcp)
-(require 'editorconfig-rcp)
 
 
 (add-function :after after-focus-change-function

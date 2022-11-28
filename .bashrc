@@ -470,27 +470,68 @@ if command_exists systemctl ; then
 fi
 
 if command_exists git ; then
+  function git_main_branch() {
+    command git rev-parse --git-dir &>/dev/null || return
+    local ref
+    for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk}; do
+      if command git show-ref -q --verify $ref; then
+        echo ${ref:t}
+        return
+      fi
+    done
+    echo master
+  }
+
+  function git_current_branch() {
+    local ref
+    ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
+    local ret=$?
+    if [[ $ret != 0 ]]; then
+      [[ $ret == 128 ]] && return  # no git repo.
+      ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return
+    fi
+    echo ${ref#refs/heads/}
+  }
+
   alias g='git'
   alias ga='g add'
-  alias gb='g branch'
-  alias gba='g branch -a'
-  alias gbd='g branch -d'
-  alias gbdf='g branch -D'
-  alias gcb='g checkout -b'
-  alias gcf='g config --list'
-  alias gcmt='g commit -v -a -m'
-  alias gco='g checkout'
-  alias gl='g pull'
-  alias glo='g pull origin'
-  alias gpo='g push origin'
-  alias gs='g status'
+  alias gb='git branch'
+  alias gba='git branch -a'
+  alias gbd='git branch -d'
+  alias gbdf='git branch -D'
+  alias gco='git checkout'
+  alias gcb='git checkout -b'
+  alias gcm='git checkout "$(git_main_branch)"'
+  alias gcf='git config --list'
+  alias gcmt='git commit -v -a -m'
+  alias gcn='git clone'
+  alias gd='git diff'
+  alias gdca='git diff --cached'
+  alias gf='git fetch'
+  alias gfo='git fetch origin'
+  alias gfc='git fetch origin "$(git_current_branch)"'
+  alias gfm='git fetch origin "$(git_main_branch)"'
+  alias gl='git pull'
+  alias glo='git pull origin'
+  alias glc='git pull origin "$(git_current_branch)"'
+  alias glm='git pull origin "$(git_main_branch)"'
+  alias glr='git pull --rebase'
+  alias gm='git merge'
+  alias gp='git push'
+  alias gpo='git push origin'
+  alias gpc='git push origin "$(git_current_branch)"'
+  alias gpm='git push origin "$(git_main_branch)"'
   alias gr='git remote'
   alias gra='git remote add'
+  alias grv='git remote -v'
   alias grb='git rebase'
   alias grba='git rebase --abort'
   alias grbc='git rebase --continue'
   alias grbi='git rebase -i'
+  alias grhh='git reset --hard'
   alias grpo='git remote prune origin'
+  alias gs='git status'
+  alias gsb='git status -sb'
 fi
 
 if command_exists tmux ; then
@@ -750,9 +791,9 @@ function set_git_branch() {
 
 function set_prompt_symbol () {
   if test $1 -eq 0 ; then
-    P_SYMBOL="${BLUE}\n╰─➤${NORMAL} "
+    P_SYMBOL="${BLUE}\n─➤${NORMAL} "
   else
-    P_SYMBOL="${LIGHT_RED}[$1]$INSIDE_VIFM\n╰─➤${NORMAL} "
+    P_SYMBOL="${LIGHT_RED}[$1]$INSIDE_VIFM\n─➤${NORMAL} "
   fi
 }
 
@@ -780,7 +821,7 @@ function set_bash_prompt () {
 
   # Set the bash prompt variable.
   [[ $SSH_CONNECTION ]] && local uath="${YELLOW}@\h${NORMAL}"
-  PS1="${BLUE}╭─\A${NORMAL}${PYTHON_VIRTUALENV} ${USERCOLOR}\u${NORMAL}${uath} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
+  PS1="${BLUE}\A${NORMAL}${PYTHON_VIRTUALENV} ${USERCOLOR}\u${NORMAL}${uath} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.

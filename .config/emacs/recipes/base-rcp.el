@@ -179,6 +179,7 @@
                           (123 . 125)
                           (40 . 41)
                           (60 . 62)))
+  (electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 )
 
 (use-package files
@@ -356,14 +357,6 @@
           interprogram-paste-function 'wl-paste-handler))
 )
 
-;; (use-package semantic
-;;   :demand t
-;;   :config
-;;   (semantic-mode 1)
-;;   :custom
-;;   (semantic-which-function-use-color t)
-;; )
-
 (use-package sendmail
   :defer t
   :mode ("^/tmp/evo.*" . mail-mode)
@@ -411,35 +404,37 @@
 (use-package winner-mode
   :ensure nil
   :defer 1
+  :init
+  (winner-mode)
 )
 
 (use-package whitespace
-  :demand t
-  :init
-  (global-whitespace-mode t)
-  :custom-face
-  (whitespace-style-face '(trailing spaces lines-tail empty indentation::tab
-                           indentation::space tabs newline space-mark tab-mark newline-mark))
-  (whitespace-empty ((t (:foreground "sienna"))))
-  (whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
-  (whitespace-indentation ((t (:foreground "DarkOrchid4"))))
-  (whitespace-newline ((t (:foreground "dark green" :weight normal))))
-  (whitespace-space ((t (:foreground "DarkOrchid4"))))
-  (whitespace-space-after-tab ((t (:foreground "firebrick"))))
-  (whitespace-space-before-tab ((t (:foreground "firebrick"))))
-  (whitespace-tab ((t (:foreground "magenta"))))
-  (whitespace-trailing ((t (:foreground "yellow" :weight bold))))
-  :custom
-  (whitespace-global-modes '(not magit-diff-mode))
-  (whitespace-line-column 130)
-  (whitespace-display-mappings
-   ;; all numbers are Unicode codepoint in decimal. ⁖ (insert-char 182 1)
-   '(
-     (space-mark 32 [183] [46]) ; 32 SPACE 「 」, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
-     (newline-mark 10 [8617 10]) ; 10 LINE FEED
-     (lines-tail 10 [8617 10]) ; 10 LINE FEED
-     (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
-     ))
+ :demand t
+ :init
+ (global-whitespace-mode t)
+ :custom-face
+ (whitespace-empty ((t (:foreground "sienna"))))
+ (whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
+ (whitespace-indentation ((t (:foreground "DarkOrchid4"))))
+ (whitespace-newline ((t (:foreground "dark green" :weight normal))))
+ (whitespace-space ((t (:foreground "DarkOrchid4"))))
+ (whitespace-space-after-tab ((t (:foreground "firebrick"))))
+ (whitespace-space-before-tab ((t (:foreground "firebrick"))))
+ (whitespace-tab ((t (:foreground "magenta"))))
+ (whitespace-trailing ((t (:foreground "yellow" :weight bold))))
+ :custom
+ (whitespace-style '(face trailing spaces lines-char empty indentation::tab
+                     indentation::space tabs newline space-mark tab-mark newline-mark))
+ (whitespace-global-modes '(not magit-diff-mode))
+ (whitespace-line-column 130)
+ ;; all numbers are Unicode codepoint in decimal. ⁖ (insert-char 182 1)
+ (whitespace-display-mappings
+  '(
+    (space-mark 32 [183] [46]) ; 32 SPACE 「 」, 183 MIDDLE DOT 「·」, 46 FULL STOP 「.」
+    (newline-mark 10 [8617 10]) ; 10 LINE FEED
+    (lines-char 10 [8617 10]) ; 10 LINE FEED
+    (tab-mark 9 [8594 9] [183 9]) ; 9 TAB, 9655 WHITE RIGHT-POINTING TRIANGLE 「▷」
+    ))
 )
 
 (use-package f

@@ -90,14 +90,18 @@
   :preface
   (defun go-dap-setup ()
     (interactive)
-    (require 'dap-go)
     (require 'dap-dlv-go)
     (dap-mode 1)
-    (dap-ui-mode 1)
-    (dap-tooltip-mode 1)
-    (dap-ui-controls-mode 1)
+    (dap-ui-mode nil)
+    (dap-tooltip-mode nil)
+    (dap-ui-controls-mode nil)
     (dap-go-setup)
+    (projectile-with-default-dir (projectile-acquire-root)
+      (call-interactively 'dap-debug))
   )
+  :custom
+  (dap-auto-configure-features '(sessions locals breakpoints controls tooltip))
+  (dap-ui-variable-length      60)
   :bind(
   :map evil-normal-state-map
   ("gb"  . go-dap-setup)

@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: debug
-# key: deb
-# --
-<pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre>

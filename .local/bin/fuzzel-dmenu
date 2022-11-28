@@ -1,3 +1,23 @@
 #!/bin/sh
 
-fuzzel.sh --dmenu --no-run-if-empty $@
+_bindirs=($(echo $PATH | tr ':' '\n' | sort | uniq))
+_lsdirs=()
+for _bindir in "${_bindirs[@]}"; do
+  if [ -d $_bindir ]; then
+    _lsdirs+=($_bindir)
+  fi
+done
+
+if [ -n "$_lsdirs" ]; then
+  _execfile="$(ls ${_lsdirs[@]} | sort | uniq | sed '/^$/d' | fuzzel --dmenu -p 'BRun:')"
+
+  [ -n "$_execfile" ] || { echo "No executable was selected!"; exit; }
+
+  if which "$_execfile"; then
+    exec "$_execfile"
+  else
+    exit_err "No executable: $_execfile"
+  fi
+else
+  exit_err "Failed finding executables!"
+fi

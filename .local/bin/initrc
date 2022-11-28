@@ -4,8 +4,6 @@
 
 export MAKEFLAGS="-j$(nproc)"
 
-# export LIBVA_DRIVER_NAME=iHD
-
 export LIBSEAT_BACKEND=logind
 export GTK_THEME=Gruvbox-Dark
 

@@ -3,12 +3,19 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package json-mode
+  :ensure t
   :defer t
-  :ensure t)
+)
 
 (use-package yaml-mode
+  :ensure t
   :defer t
-  :ensure t)
+)
+
+(use-package json-navigator
+  :ensure t
+  :defer t
+)
 
 (provide 'json-mode-rcp)
 ;;; Commentary:

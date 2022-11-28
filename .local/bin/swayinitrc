@@ -16,7 +16,6 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export LP_NUM_THREADS=1
 export WLR_DRM_NO_MODIFIERS=1
 systemctl --user import-environment \
-    BEMENU_OPTS \
     LP_NUM_THREADS \
     LS_COLORS \
     MAKEFLAGS \
@@ -25,8 +24,7 @@ systemctl --user import-environment \
     XDG_CURRENT_DESKTOP \
     XDG_SESSION_TYPE
 hash dbus-update-activation-environment 2>/dev/null \
-  && dbus-update-activation-environment --systemd BEMENU_OPTS \
-                                                  MOZ_DBUS_REMOTE \
+  && dbus-update-activation-environment --systemd MOZ_DBUS_REMOTE \
                                                   XDG_CURRENT_DESKTOP \
                                                   XDG_SESSION_TYPE 2>/dev/null
 exec sway #>> ~/.local/log/sway.log

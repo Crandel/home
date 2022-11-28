@@ -1,6 +1,7 @@
 ;;; rainbow-rcp.el --- Colorize color names and delimeters in buffers
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package rainbow-delimiters
   :ensure t
   :defer t

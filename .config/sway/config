@@ -23,7 +23,7 @@ set {
   $big_font pango:Hack Nerd Font, Source Code Pro 18
 
   # Apps
-  $launch       fuzzel.sh
+  $launch       fuzzel-prompt.sh
   $launch-dmenu fuzzel-dmenu
   $term_id quake_term
   $term    wezterm start --class $term_id
@@ -50,7 +50,7 @@ set {
                --font=Hack Nerd Font Mono 16 \
                --background=#282828
 
-  $t_pos border none, move position center, resize set width 100 ppt height 100 ppt
+  $maximize border none, move position center, resize set width 100 ppt height 100 ppt
 }
 
 output {
@@ -113,19 +113,13 @@ workspace {
 
 # assings
 assign {
-  [app_id="com.github.rssguard"] 2
-  [app_id="telegramdesktop"]     2
-  [app_id="thunderbird"]         2
-  [app_id="NewsFlashGTK"]        2
-  [app_id="elfeed"]              2
-  [app_id="slack"]               3
-  [app_id="zoom"]                4
-  [class="(?i)Thunderbird"]      2
-  [class="(?i)RSS Guard"]        2
-  [class="(?i)Signal"]           2
-  [class="(?i)TelegramDesktop"]  2
-  [class="(?i)Viber"]            2
-  [class="(?i)Slack"]            3
+  [app_id="com.github.rssguard"]  2
+  [app_id="org.telegram.desktop"] 2
+  [app_id="thunderbird"]          2
+  [app_id="NewsFlashGTK"]         2
+  [app_id="elfeed"]               2
+  [app_id="slack"]                3
+  [app_id="zoom"]                 4
 }
 
 for_window {
@@ -134,36 +128,23 @@ for_window {
   [app_id="mpv"]            inhibit_idle focus
   [app_id="vivaldi-stable"] inhibit_idle fullscreen
   [app_id="screenshot"]     move to scratchpad
-  [app_id="ulauncher"]   floating enable, border none
   [app_id="zoom"]        floating enable, inhibit_idle focus
   [window_role="pop-up"] floating enable
   [window_role="bubble"] floating enable
   [window_role="dialog"] floating enable
   [window_type="dialog"] floating enable
   # main terminal
-  [app_id=$term_id] {
-    move to scratchpad
-    [app_id=$term_id] scratchpad show
-    $t_pos
-  }
+  [app_id=$term_id] move to scratchpad, scratchpad show
+  [app_id=$term_id] $maximize
   # backup terminal
-  [app_id=$oterm_id] {
-    move to scratchpad
-    [app_id=$oterm_id] scratchpad show
-    $t_pos
-  }
+  [app_id=$oterm_id] move to scratchpad, scratchpad show
+  [app_id=$oterm_id] $maximize
   # keepassxc
-  [app_id=$pass_id] {
-    move to scratchpad
-    [app_id=$pass_id] scratchpad show
-    $t_pos
-  }
+  [app_id=$pass_id] move to scratchpad, scratchpad show
+  [app_id=$pass_id] $maximize
   # emacs
-  [app_id=$editor_id] {
-    move to scratchpad
-    [app_id=$editor_id] scratchpad show
-    $t_pos
-  }
+  [app_id=$editor_id] move to scratchpad, scratchpad show
+  [app_id=$editor_id] $maximize
 }
 
 include modes.sway
@@ -228,7 +209,7 @@ exec {
   swaykbdd
   touchegg
   idle.sh
-  $term, resize set width 50 ppt height 50 ppt
+  $term, $maximize
   systemctl --user start user-graphical-session.target
   network-startup
 }

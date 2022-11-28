@@ -102,6 +102,22 @@ format = "{percentage:0}"
 full_format = ""
 [block.theme_overrides]
 idle_bg="#2F2519AA"
+[block.format]
+full = "{percentage:0} {power} {time}"
+short = "{percentage:0}"
+[block.full_format]
+full = "{power}"
+short = ""
+
+[[block]]
+block = "temperature"
+collapsed = false
+interval = 10
+format = "{average}"
+chip = "pci-*"
+[block.format]
+full = "{average}"
+short = ""
 
 [[block]]
 block = "sound"
