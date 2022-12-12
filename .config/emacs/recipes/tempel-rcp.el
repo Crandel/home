@@ -16,11 +16,14 @@
       (indent-for-tab-command)))
   :init
   (add-to-list 'completion-at-point-functions #'tempel-complete)
-  :custom
-  (tempel-path (expand-file-name "tempel/*.eld" (file-name-directory user-emacs-directory)))
   :bind (("M-+" . tempel-complete) ;; Alternative tempel-expand
          ("M-*" . tempel-insert)
          ("<tab>" . vd/tab-indent-or-complete))
+)
+
+(use-package tempel-collection
+  :ensure t
+  :after tempel
 )
 
 (provide 'tempel-rcp)

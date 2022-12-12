@@ -35,6 +35,7 @@
   (display-time-default-load-average nil)
   (display-time-mode            t)
   (enable-recursive-minibuffers t)
+  (fast-but-imprecise-scrolling nil)
   (file-name-shadow-properties     '(invisible t intangible t face file-name-shadow field shadow)
                                    "Removing minibuffer 'default directory' prefix.")
   (file-name-shadow-tty-properties '(invisible t intangible t before-string "{" after-string "} " field shadow)
@@ -45,17 +46,20 @@
   (indent-tabs-mode             nil)
   (initial-scratch-message      "")
   (java-basic-offset            2)
+  (jit-lock-defer-time          0)
   (js-indent-level              2)
   (lisp-body-indent             2)
   (max-mini-window-height       0.5)
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
   (next-line-add-newlines     nil)
   (nxml-attribute-indent      2)
-  (ring-bell-function         'ignore)
+  (redisplay-dont-pause       t)
   (resize-mini-windows        t)
-  (scroll-conservatively      10000)
-  (scroll-margin              10)
-  (scroll-step                1 "Scrolling settings")
+  (ring-bell-function         'ignore)
+  (scroll-conservatively           100000)
+  (scroll-margin                   1)
+  (scroll-step                     1 "Scrolling settings")
+  (scroll-preserve-screen-position 1 "Scrolling settings")
   (size-indication-mode       t)
   (sentence-end-double-space  nil)
   (split-height-threshold     nil "Minimum height for splitting windows vertically.")
@@ -437,8 +441,12 @@
     ))
 )
 
-(use-package f
-  :ensure t
+(use-package xref
+  :defer t
+  :bind
+  ("M-,"   . xref-find-references)
+  ("C-,"   . xref-go-back)
+  ("C-M-," . xref-go-forward)
 )
 
 (provide 'base-rcp)

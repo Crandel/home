@@ -39,11 +39,12 @@
 (setq default-frame-alist
         '(
           (alpha 100 100)
-          (cursor-type . 'hbar)
-          (cursor-color . "#BE81F7")
-          (font . "Hack Nerd Font-16")
-          (tool-bar-lines . 0)
-          (vertical-scroll-bars . right)))
+          (cursor-type              . 'hbar)
+          (cursor-color             . "#BE81F7")
+          (font                     . "Hack Nerd Font-16")
+          (tool-bar-lines           . 0)
+          (inhibit-double-buffering . t)
+          (vertical-scroll-bars     . right)))
 
 (blink-cursor-mode              1)
 (column-number-mode             t)

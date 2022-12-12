@@ -4,6 +4,7 @@
 (eval-when-compile (require 'use-package))
 (use-package org
   :ensure t
+  :pin elpa
   :preface
   (setq vd/org-babel-load-languages '(
                                       (emacs-lisp . t)

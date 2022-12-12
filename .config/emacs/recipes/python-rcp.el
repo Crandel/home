@@ -53,17 +53,6 @@
   :ensure t
   :defer t
 )
-(use-package py-isort
-  :ensure t
-  :after python-mode
-  :defer t
-)
-(use-package py-autopep8
-  :ensure t
-  :ensure-system-package autopep8
-  :after python-mode
-  :defer t
-)
 
 (provide 'python-rcp)
 

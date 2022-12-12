@@ -40,9 +40,10 @@
   (add-to-list 'lsp-language-id-configuration '(k8s-mode . "yaml"))
   :bind(
   :map lsp-mode-map
-  ([remap xref-find-definitions] . lsp-find-definition)
-  ([remap xref-find-references] . lsp-find-references)
-  ("C-." . lsp-find-implementation)
+       ([remap xref-find-definitions] . lsp-find-definition)
+       ([remap xref-find-references]  . lsp-find-references)
+       ([remap xref-find-apropos]     . lsp-find-declaration)
+       ("C-."                         . lsp-find-implementation)
   )
   :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server                              'rust-analyzer
@@ -79,8 +80,10 @@
   :bind
   (:map lsp-ui-mode-map
         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
-        ([remap xref-find-references] . lsp-ui-peek-jump-backward)
-        ("C-," . lsp-ui-peek-find-references)
+        ([remap xref-find-references]  . lsp-ui-peek-find-references)
+        ([remap xref-go-back]          . lsp-ui-peek-jump-backward)
+        ([remap xref-go-forward]       . lsp-ui-peek-jump-forward)
+        ("C-."                         . lsp-ui-peek-find-implementation)
         )
 )
 
@@ -108,7 +111,10 @@
   )
   :hook
   (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
+)
 
+(use-package f
+  :ensure t
 )
 
 (provide 'lsp-mode-rcp)
