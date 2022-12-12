@@ -6,9 +6,12 @@ set {
   $up    k
   $right l
 
+  # Input
+  $trackball "1149:32793:ExpertBT5.0_Mouse"
+
   # Output
   $laptop   eDP-1
-  $work_out DP-3
+  $work_out DP-1
   $hdmi     HDMI-A-1
 
   # Modes
@@ -69,15 +72,21 @@ input type:keyboard {
 }
 
 input type:touchpad {
-  accel_profile adaptive
-  click_method button_areas
-  click_method clickfinger
-  drag enabled
-  dwt enabled
+  accel_profile    adaptive
+  click_method     button_areas
+  click_method     clickfinger
+  drag             enabled
+  dwt              enabled
   middle_emulation enabled
-  pointer_accel 0.8
-  scroll_method two_finger
-  tap enabled
+  pointer_accel    0.8
+  scroll_method    two_finger
+  tap              enabled
+}
+
+input $trackball {
+  accel_profile    adaptive
+  middle_emulation enabled
+  pointer_accel    1.0
 }
 
 exec_always {
@@ -170,7 +179,7 @@ bar {
   font $font
   pango_markup enabled
   position top
-  status_command i3status-rs --exit-on-error 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
+  status_command i3status-rs --never-pause --exit-on-error # 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
   workspace_buttons yes
   tray {
     icon_theme $icon_theme
@@ -184,10 +193,10 @@ bar {
 # gaps
 default_border pixel 3
 smart_borders on
-smart_gaps on
+smart_gaps off
 gaps {
-  inner 2
-  outer 2
+  inner 0
+  outer 0
 }
 
 # my settings

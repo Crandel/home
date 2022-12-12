@@ -61,6 +61,8 @@ bindsym --to-code {
   $mod+Control+Up     seat - cursor move  0  -10
   $mod+Control+Right  seat - cursor move  10  0
 
+  $mod+Control+g      seat - cursor press button1
+
   # split in horizontal orientation
   $mod+period split h
 
