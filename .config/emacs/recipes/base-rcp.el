@@ -71,9 +71,9 @@
   ;; (uniquify-buffer-name-style 'reverse)
   ;; (uniquify-min-dir-content   3)
   :bind
-  ("M-i" . previous-line)
-  ("M-j" . backward-char)
-  ("M-k" . next-line)
+  ("M-k" . previous-line)
+  ("M-h" . backward-char)
+  ("M-j" . next-line)
   ("C-c k" . kill-sentence)
   ("M-l" . forward-char)
   ("C-c l" . downcase-word)

@@ -155,6 +155,7 @@ alias sem="$SUDO emacs -nw"
 alias smc="$SUDO mc"
 
 alias vf="vifm"
+compdef vf=vifm
 alias svf="$SUDO vifm"
 ## END FILE MANAGERS
 alias ssctl="$SUDO systemctl"
@@ -212,6 +213,7 @@ alias cup='cargo update'
 alias cbd='cargo build'
 alias cbr='cargo build --release'
 alias ct='bat'
+compdef ct=bat
 alias fsf='sk'
 source /usr/share/skim/completion.zsh
 eval "$(zoxide init --no-aliases zsh)"
@@ -220,9 +222,11 @@ alias ja='__zoxide_za' # add path to the database
 alias ji='__zoxide_zi' # cd with interactive selection using fzf
 alias jr='zoxide remove' # remove path from the database
 alias l='lsd'
+compdef l=lsd
 alias ll='l -ahlF --group-dirs=first'
 ## END RUST
 
+## PYTHON
 if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init --path)"
   eval "$(pyenv init -)"

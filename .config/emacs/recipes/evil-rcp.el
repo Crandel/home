@@ -92,6 +92,8 @@ The return value is the yanked text."
   ("f"   . evil-avy-goto-char)
   ("g["  . text-scale-decrease)
   ("g]"  . text-scale-increase)
+  ("gJ"  . vd/move-line-down)
+  ("gK"  . vd/move-line-up)
   ("gc"  . comment-dwim)
   ("q"   . nil)
   :map evil-insert-state-map
@@ -177,6 +179,12 @@ The return value is the yanked text."
     ;; this expression is evaluated.
     :destructive t)
 )
+
+(use-package evil-goggles
+  :after evil
+  :ensure t
+  :config
+  (evil-goggles-mode))
 
 (provide 'evil-rcp)
 ;;; Commentary:

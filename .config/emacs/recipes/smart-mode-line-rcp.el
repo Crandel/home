@@ -33,10 +33,11 @@
                                   (propertize "%02c" 'face 'font-lock-type-face)
                                   ")"
                                   mode-line-misc-info
+                                  " "
                                   )
                 )
   :custom
-  (sml/debug t)
+  (sml/debug                     nil)
   (sml/no-confirm-load-theme     t)
   (sml/pre-id-separator          "{")
   (sml/pos-id-separator          "}")

@@ -98,7 +98,7 @@ return {
   enable_scroll_bar = true,
   enable_wayland = true,
   font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),
-  font_size = 20.0,
+  font_size = 18.0,
   hide_tab_bar_if_only_one_tab = true,
   keys = {
     {key="a"          ,mods="CTRL|SHIFT" ,action="ActivateCopyMode"},

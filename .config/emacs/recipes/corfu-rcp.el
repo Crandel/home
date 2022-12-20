@@ -19,7 +19,7 @@
   (corfu-quit-no-match    t)
   :bind(
   :map corfu-map
-       ("M-z" . corfu-quick-complete)
+       ("C-f" . corfu-quick-complete)
   )
   :init
   (global-corfu-mode)

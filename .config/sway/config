@@ -6,12 +6,9 @@ set {
   $up    k
   $right l
 
-  # Input
-  $trackball "1149:32793:ExpertBT5.0_Mouse"
-
   # Output
   $laptop   eDP-1
-  $work_out DP-1
+  $work_out DP-3
   $hdmi     HDMI-A-1
 
   # Modes
@@ -83,8 +80,9 @@ input type:touchpad {
   tap              enabled
 }
 
-input $trackball {
+input type:pointer {
   accel_profile    adaptive
+  natural_scroll   enabled
   middle_emulation enabled
   pointer_accel    1.0
 }

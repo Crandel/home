@@ -1,3 +1,3 @@
 #!/bin/sh
 
-emacs --name "elfeed" -elfeed &
+emacs --init-directory ~/.config/emacs/elfeed --name "elfeed" -elfeed&

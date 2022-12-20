@@ -6,7 +6,7 @@
 ;; Set garbage collection threshold to 1GB.
 (setq gc-cons-threshold #x40000000)
 
-(setq user-emacs-directory (expand-file-name "~/.cache/emacs/")
+(setq user-emacs-directory (expand-file-name "~/.cache/emacs-elfeed/")
       package-user-dir (expand-file-name "packages" user-emacs-directory)
       url-history-file (expand-file-name "url/history" user-emacs-directory)
       custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -23,7 +23,6 @@
   )
 
 ;; Themes
-(add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
 (load-theme 'gruvbox t)
 
 ;; Prefer loading newest compiled .el file

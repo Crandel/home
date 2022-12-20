@@ -12,14 +12,11 @@
   :custom
   (url-queue-timeout 30)
   (elfeed-search-filter "@4-week-ago +unread ")
+  :bind
+  (:map elfeed-search-mode-map
+        ("a" . elfeed-update))
   :config
   (elfeed-update)
-  (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
-    "J" 'elfeed-goodies/split-show-next
-    "K" 'elfeed-goodies/split-show-prev)
-  (evil-collection-define-key '(normal visual) 'elfeed-show-mode-map
-    "J" 'elfeed-goodies/split-show-next
-    "K" 'elfeed-goodies/split-show-prev)
   (run-with-timer 0 (* 60 15) 'elfeed-update)
 )
 
@@ -36,6 +33,12 @@
   :after elfeed
   :config
   (elfeed-goodies/setup)
+  (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
+    "J" 'elfeed-goodies/split-show-next
+    "K" 'elfeed-goodies/split-show-prev)
+  (evil-collection-define-key '(normal visual) 'elfeed-show-mode-map
+    "J" 'elfeed-goodies/split-show-next
+    "K" 'elfeed-goodies/split-show-prev)
   :custom
   (elfeed-goodies/entry-pane-size 0.5)
 )

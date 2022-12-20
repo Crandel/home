@@ -18,7 +18,6 @@
                                      ("nongnu"       . 65)
                                      ("gnu"          . 50)))  ;; Higher values are searched first.
 ;(setq package-check-signature nil) ;; for gnu repository
-  (package-initialize t)
   (unless (package-installed-p 'use-package)
     (package-refresh-contents)
     (package-install 'use-package))
@@ -46,7 +45,6 @@
 (require 'corfu-rcp)
 (require 'consult-rcp)
 (require 'dired-rcp)
-(require 'elfeed-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
 (require 'evil-rcp)

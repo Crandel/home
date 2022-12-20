@@ -16,7 +16,6 @@ thunderbird &
 
 sleep 0.5
 echo "Start telegram" >> /tmp/network-startup.log
-unset GNOME_DESKTOP_SESSION_ID
 telegram-desktop &
 
 sleep 0.5
@@ -25,4 +24,4 @@ rssguard &
 
 sleep 0.5
 echo "Start Rss reader" >> /tmp/network-startup.log
-emacs --name "elfeed" -elfeed &
+elfeed.sh &

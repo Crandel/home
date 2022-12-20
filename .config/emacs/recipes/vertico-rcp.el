@@ -15,9 +15,8 @@
   (:map vertico-map
         ([right] . vertico-insert)
         ([left]  . vertico-directory-up)
-        ("M-x"  . vertico-quick-insert)
-        ("C-q"  . vertico-quick-exit)
-        )
+        ("C-f"  . vertico-quick-insert)
+        ("C-q"  . vertico-quick-exit))
   :init
   (advice-add #'vertico--format-candidate :around
               (lambda (orig cand prefix suffix index _start)
