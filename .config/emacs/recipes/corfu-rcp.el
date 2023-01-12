@@ -24,6 +24,7 @@
   :init
   (global-corfu-mode)
   (corfu-indexed-mode)
+  (corfu-echo-mode)
 )
 
 (use-package cape

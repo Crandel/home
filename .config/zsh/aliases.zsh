@@ -20,8 +20,8 @@ alias la='ls -A'
 alias ll='la -hlF --time-style=long-iso --group-directories-first'
 alias ..='cd ..'
 alias home_pr='cd $PERS_DIR/home'
-alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
+alias compress_jpeg="fd -e jpg -e jpeg --size +100k --exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_png="fd -e png --size +100k --exec optipng {} \;"
 alias -g G='|grep'
 alias -g L='|less'
 alias check_adb='adb devices -l'
@@ -45,28 +45,28 @@ alias crlt='curl -w "@$HOME/.config/curl-time-format"'
 # PACKAGE MANAGERS
 
 if command_exists pacman ; then
-  alias p="$SUDO pacman"
-  alias pql='pacman -Ql'
-  alias pqs='pacman -Qs'
-  alias pss='pacman -Ss'
-  alias psu='p -Syu'
-  alias pii='pacman -Sii'
-  alias psi='p -S --needed'
-  alias prs='p -Rs'
-  if command_exists yay ; then
-    alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
-    alias psuy='yay -Syua'
-    alias pssy='yay -Ss'
-    alias psiy='yay -Sa'
-    alias piiy='yay -Sii'
-  fi
-  if command_exists paru ; then
-    alias paru='paru --aur --fm vim --clonedir $PERS_DIR/bb'
-    alias psuy='paru -Syua'
-    alias pssy='paru -Ss'
-    alias psiy='paru -Sa'
-    alias piiy='paru -Sii'
-  fi
+alias p="$SUDO pacman"
+alias pql='pacman -Ql'
+alias pqs='pacman -Qs'
+alias pss='pacman -Ss'
+alias psu='p -Syu'
+alias pii='pacman -Sii'
+alias psi='p -S --needed'
+alias prs='p -Rs'
+if command_exists yay ; then
+alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
+alias psuy='yay -Syua'
+alias pssy='yay -Ss'
+alias psiy='yay -Sa'
+alias piiy='yay -Sii'
+fi
+if command_exists paru ; then
+alias paru='paru --aur --fm vifm --removemake --clonedir $PERS_DIR/bb'
+alias psuy='paru -Syua'
+alias pssy='paru -Ss'
+alias psiy='paru -Sa'
+alias piiy='paru -Sii'
+fi
 fi
 if command_exists apt ; then
   alias a="$SUDO apt"
@@ -140,6 +140,7 @@ alias ytm='ytdl -f bestaudio -x'
 # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
 alias ytb='ytdl -f "best[height<=1080]"'
 alias a2c='aria2c -x 10 -s 10'
+alias i3s_rst='pkill -SIGUSR2 i3status-rs'
 alias play='ffplay -nodisp -autoexit'
 ## END MEDIA TOOLS
 
@@ -225,6 +226,8 @@ alias l='lsd'
 compdef l=lsd
 alias ll='l -ahlF --group-dirs=first'
 ## END RUST
+alias task='go-task'
+compdef task=go-task
 
 ## PYTHON
 if [ -d "$HOME/.pyenv" ]; then

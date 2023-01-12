@@ -37,11 +37,11 @@
   :ensure t
 )
 
-;; (use-package magit-delta
-;;   :ensure t
-;;   :custom
-;;   (magit-delta-default-dark-theme "gruvbox-dark")
-;;   :hook (magit-mode . magit-delta-mode))
+(use-package magit-delta
+  :ensure t
+  :custom
+  (magit-delta-default-dark-theme "gruvbox-dark")
+  :hook (magit-mode . magit-delta-mode))
 
 (use-package git-gutter
   :ensure t

@@ -15,6 +15,7 @@
   (lsp-enable-file-watchers               nil)
   (lsp-enable-imenu                       t)
   (lsp-enable-on-type-formatting          nil)
+  (lsp-enable-snippet                     nil)
   (lsp-enable-symbol-highlighting         t)
   (lsp-enable-text-document-color         t)
   (lsp-enable-which-key-integration       t)
@@ -40,10 +41,10 @@
   (add-to-list 'lsp-language-id-configuration '(k8s-mode . "yaml"))
   :bind(
   :map lsp-mode-map
-       ([remap xref-find-definitions] . lsp-find-definition)
-       ([remap xref-find-references]  . lsp-find-references)
-       ([remap xref-find-apropos]     . lsp-find-declaration)
-       ("C-."                         . lsp-find-implementation)
+  ([remap xref-find-definitions] . lsp-find-definition)
+  ([remap xref-find-references]  . lsp-find-references)
+  ([remap xref-find-apropos]     . lsp-find-declaration)
+  ("C-."                         . lsp-find-implementation)
   )
   :hook ((rust-mode . (lambda()
                         (setq-default lsp-rust-server                              'rust-analyzer
@@ -69,10 +70,11 @@
   :commands lsp-ui-mode
   :custom
   (lsp-ui-doc-delay                   2)
-  (lsp-ui-doc-max-height              3)
+  (lsp-ui-doc-max-height              5)
   (lsp-ui-doc-max-width               30)
-  (lsp-ui-doc-show-with-cursor        nil)
-  (lsp-ui-doc-show-with-mouse         t)
+  (lsp-ui-doc-position               'bottom)
+  (lsp-ui-doc-show-with-cursor        t)
+  (lsp-ui-doc-show-with-mouse         nil)
   (lsp-ui-peek-show-directory         t)
   (lsp-ui-sideline-enable             nil)
   (lsp-ui-sideline-show-code-actions  nil)
@@ -95,19 +97,24 @@
     (interactive)
     (require 'dap-dlv-go)
     (dap-mode 1)
-    (dap-ui-mode nil)
-    (dap-tooltip-mode nil)
-    (dap-ui-controls-mode nil)
-    (dap-go-setup)
+    (dap-ui-mode 1)
+    (dap-tooltip-mode 1)
+    (dap-ui-controls-mode 1)
+    (dap-auto-configure-mode 1))
+  (defun go-root-setup ()
+    (interactive)
+    (go-dap-setup)
     (projectile-with-default-dir (projectile-acquire-root)
       (call-interactively 'dap-debug))
   )
   :custom
-  (dap-auto-configure-features '(sessions locals breakpoints controls tooltip))
-  (dap-ui-variable-length      60)
+  (dap-auto-configure-features      '(sessions locals breakpoints expressions controls tooltip))
+  (dap-auto-show-output             t)
+  (dap-label-output-buffer-category t)
   :bind(
   :map evil-normal-state-map
   ("gb"  . go-dap-setup)
+  ("gh"  . go-root-setup)
   )
   :hook
   (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
