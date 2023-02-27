@@ -9,6 +9,9 @@ set editorcmd ~/.local/bin/editor-run
 set searchengine duckduckgo
 
 blacklistadd console.cloud.google.com
+blacklistadd monkeytype.com
+blacklistadd klava.org
+blacklistadd keybr.com
 
 unbind --mode=normal f
 bind --mode=normal gf hint

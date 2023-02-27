@@ -136,8 +136,6 @@ if [ -n "${WAYLAND_DISPLAY:-}" ] && (( ${+commands[wl-copy]} )) && (( ${+command
   }
 fi
 
-restart_i3status() {
-  pkill -SIGUSR2 i3status-rs
 }
 ## Lang specific functions
 

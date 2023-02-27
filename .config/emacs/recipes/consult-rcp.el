@@ -57,7 +57,7 @@
    consult--source-bookmark
    consult--source-project-buffer
    consult--source-project-recent-file
-   :preview-key '[M-.])
+   :preview-key "M-.")
   :hook
   (evil-leader-mode . (lambda ()
                         (evil-leader/set-key

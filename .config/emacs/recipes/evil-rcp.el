@@ -19,6 +19,7 @@
    "l" 'vd/copy-line
    "q" 'keyboard-quit
    "w" 'evil-window-map
+   "x" 'delete-other-windows
    )
   (evil-leader/set-key-for-mode
     'evil-visual-state-map

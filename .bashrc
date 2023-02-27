@@ -4,6 +4,11 @@
 # append to the history file, don't overwrite it
 shopt -s autocd checkhash checkwinsize cmdhist globstar histappend
 
+# EXPORTS
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 HISTFILE=$HOME/.hist_bash
@@ -95,12 +100,25 @@ alias ll='ls -ahlF --time-style=long-iso --group-directories-first'
 alias la='ls -A'
 alias ..='cd ..'
 alias home_pr='cd $PERS_DIR/home'
-alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
+alias compress_jpeg="fd -e jpg -e jpeg --size +100k --exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_png="fd -e png --size +100k --exec optipng {} \;"
 alias check_adb='adb devices -l'
 alias frx='firefox'
 alias qte='qutebrowser'
 alias vb='vieb'
+alias cz='chezmoi'
+alias cza='chezmoi apply'
+alias czaf='chezmoi apply --force'
+alias czd='chezmoi diff'
+alias czm='chezmoi merge'
+alias czs='chezmoi status'
+alias scz='sudo chezmoi -D / -S $HOME/.local/share/chezmoi/root -c /root/.config/chezmoi/config.toml'
+alias scza='scz apply'
+alias sczaf='scz apply --force'
+alias sczd='scz diff'
+alias sczm='scz merge'
+alias sczs='scz status'
+alias crlt='curl -w "@$HOME/.config/curl-time-format"'
 
 # CUSTOM FUNCTIONS
 command_exists () {
@@ -438,6 +456,7 @@ if command_exists emacs ; then
   alias e='emacs -nw'
   alias sem="$SUDO emacs -nw"
   export EDITOR='editor-run'
+  export LSP_USE_PLISTS=true
 fi
 ## END EDITORS
 
@@ -538,18 +557,14 @@ if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
 fi
 
-if command_exists qt5ct ; then
-  export QT_QPA_PLATFORMTHEME="qt5ct"
-  export QT_PLATFORM_PLUGIN="qt5ct"
+if command_exists qt6ct ; then
+  export QT_QPA_PLATFORMTHEME="qt6ct"
+  export QT_PLATFORM_PLUGIN="qt6ct"
 fi
 
 if command_exists clipmenud ; then
   export CM_LAUNCHER=bemenu
   export CM_DIR=$HOME/.cache/.clipmenud
-fi
-
-if command_exists bemenu ; then
-  export BEMENU_OPTS='-I 0 -i --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
 fi
 
 if command_exists reflector ; then
@@ -640,9 +655,8 @@ fi
 
 ## GO
 if command_exists go ; then
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
-  export GO111MODULE=on
+  export GOPATH="$HOME/.local/share/go"
+  export GOBIN=$LOCAL_BIN
 fi
 
 if command_exists fzf ; then
@@ -708,7 +722,7 @@ set_virtualenv () {
 
 ## NPM
 if command_exists npm; then
-  NPM_PACKAGES="${HOME}/.local"
+  export NPM_PACKAGES="${HOME}/.local"
   export NODE_PATH="$NPM_PACKAGES/lib/node_modules"
 fi
 

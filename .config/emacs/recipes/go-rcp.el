@@ -5,12 +5,15 @@
 (use-package go-mode
   :ensure t
   :mode "\\.go\\'"
-  :hook
-  (go-mode . (lambda()
+  :preface
+  (defun vd/go-lsp-start()
                (add-hook 'before-save-hook #'lsp-format-buffer t t)
                (add-hook 'before-save-hook #'lsp-organize-imports t t)
                (lsp-deferred)
-               ))
+               )
+  :hook
+  (go-mode . vd/go-lsp-start)
+  (go-ts-mode . vd/go-lsp-start)
   :bind
   (:map go-mode-map
         ("RET" . newline-and-indent)

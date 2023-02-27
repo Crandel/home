@@ -6,6 +6,7 @@
   :defer t
   :hook (
          (c++-mode       . tree-sitter-hl-mode)
+         (c-mode         . tree-sitter-hl-mode)
          (go-mode        . tree-sitter-hl-mode)
          (java-mode      . tree-sitter-hl-mode)
          (js2-mode       . tree-sitter-hl-mode)

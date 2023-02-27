@@ -15,6 +15,7 @@
   :bind
   (:map elfeed-search-mode-map
         ("a" . elfeed-update))
+        ("C-q" . save-buffers-kill-terminal)
   :config
   (elfeed-update)
   (run-with-timer 0 (* 60 15) 'elfeed-update)

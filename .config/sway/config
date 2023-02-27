@@ -29,7 +29,7 @@ set {
   $term    wezterm start --class $term_id
   $pass    keepassxc
   $pass_id org.keepassxc.KeePassXC
-  $oterm    alacritty --class oterm
+  $oterm    alacritty --class oterm --working-directory /data/media/youtube
   $oterm_id oterm
   $editor_id emacs_float
   $editor    emacs --name $editor_id
@@ -63,9 +63,10 @@ output {
 
 input type:keyboard {
   xkb_capslock disabled
-  xkb_numlock enabled
-  xkb_layout "us,ua"
-  xkb_options "grp:shift_caps_switch,compose:prsc"
+  xkb_numlock  enabled
+  xkb_layout   "us,ua"
+  # xkb_variant  "colemak,"
+  xkb_options  "grp:shift_caps_switch,compose:prsc"
 }
 
 input type:touchpad {
@@ -77,14 +78,16 @@ input type:touchpad {
   middle_emulation enabled
   pointer_accel    0.8
   scroll_method    two_finger
+  scroll_factor    1.5
   tap              enabled
 }
 
 input type:pointer {
   accel_profile    adaptive
-  natural_scroll   enabled
+  natural_scroll   disabled
   middle_emulation enabled
-  pointer_accel    1.0
+  pointer_accel    0.8
+  scroll_factor    1.5
 }
 
 exec_always {
@@ -120,13 +123,13 @@ workspace {
 
 # assings
 assign {
-  [app_id="com.github.rssguard"]  2
-  [app_id="org.telegram.desktop"] 2
-  [app_id="thunderbird"]          2
-  [app_id="NewsFlashGTK"]         2
-  [app_id="elfeed"]               2
-  [app_id="slack"]                3
-  [app_id="zoom"]                 4
+  [app_id="io.github.martinrotter.rssguard"]  2
+  [app_id="org.telegram.desktop"]             2
+  [app_id="thunderbird"]                      2
+  [app_id="NewsFlashGTK"]                     2
+  [app_id="elfeed"]                           2
+  [app_id="slack"]                            3
+  [app_id="zoom"]                             4
 }
 
 for_window {
@@ -177,7 +180,7 @@ bar {
   font $font
   pango_markup enabled
   position top
-  status_command i3status-rs --never-pause --exit-on-error # 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
+  status_command i3status-rs --never-pause # 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
   workspace_buttons yes
   tray {
     icon_theme $icon_theme
@@ -214,7 +217,7 @@ exec {
   dbus-update-activation-environment --systemd SWAYSOCK \
                                                WAYLAND_DISPLAY 2>/dev/null
   swaykbdd
-  touchegg
+  # touchegg
   idle.sh
   $term, $maximize
   systemctl --user start user-graphical-session.target

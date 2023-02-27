@@ -1,27 +1,28 @@
 " Options
-set adblocker=off
+set adblocker=update
 set cache=clearonquit
 set commandhist=persistuseronly
 set containercolors=^temp\d+~#ff0,^g$~orange,^w$~yellow,^f$~blue,^b$~green,^r$~purple,^l$~mediumslateblue
 set containerkeeponreopen
+set containernames=.*youtube.com.*~g,.*google.*~g,.*facebook.com.*~f,.*github.com.*~r,.*habr.com.*~w
 set containernewtab=s:usecurrent
 set containershowname=always
 set containersplitpage=s:usecurrent
 set containerstartuppage=main
 set countlimit=100
+set darkreader
 set devtoolsposition=split
 set downloadmethod=confirm
 set downloadpath=/data/internet
-set explorehist
+set explorehist=persist
 set externalcommand=
 set favicons=session
 set favoritepages=
 set favoritepages+=facebook.com
 set favoritepages+=habr.com
 set favoritepages+=translate.google.com
-set firefoxmode=always
 set follownewtabswitch
-set fontsize=20
+set guifontsize=22
 set guifullscreennavbar=oninput
 set guifullscreentabbar=onupdate
 set guihidetimeout=2000
@@ -41,7 +42,6 @@ set modifiers+=Alt
 set modifiers+=Ctrl
 set modifiers+=Meta
 set modifiers+=Shift
-set mouse
 set mousenewtabswitch
 set mousevisualmode=onswitch
 set nativenotification=always
@@ -70,7 +70,7 @@ set permissionpointerlock=ask
 set permissionsallowed=
 set permissionsallowed+=discord.com~camera~microphone~mediadevices
 set permissionsallowed+=calendar.google.com~persistentstorage~notifications
-set permissionsallowed+=meet.google.com~persistentstorage~notifications~camera~microphone
+set permissionsallowed+=meet.google.com~mediadevices~persistentstorage~notifications~camera~microphone
 set permissionsallowed+=app.slack.com~microphone~camera~notifications
 set permissionsasked=
 set permissionsblocked=
@@ -111,6 +111,7 @@ set taboverflow=scroll
 set tabreopenposition=right
 set timeout
 set timeoutlen=1000
+set useragent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.5112.83 Safari/537.36"
 set vimcommand=nvim-qt
 set tabreopenposition=previous
 set windowtitle=title

@@ -138,7 +138,7 @@ alias ytdl='yt-dlp'
 alias ytlf='ytdl --list-formats'
 alias ytm='ytdl -f bestaudio -x'
 # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-alias ytb='ytdl -f "best[height<=1080]"'
+alias yt='ytdl -f "best[height<=1080]"'
 alias a2c='aria2c -x 10 -s 10'
 alias i3s_rst='pkill -SIGUSR2 i3status-rs'
 alias play='ffplay -nodisp -autoexit'
@@ -226,9 +226,11 @@ alias l='lsd'
 compdef l=lsd
 alias ll='l -ahlF --group-dirs=first'
 ## END RUST
+
+## GO
 alias task='go-task'
 compdef task=go-task
-
+## END GO
 ## PYTHON
 if [ -d "$HOME/.pyenv" ]; then
   eval "$(pyenv init --path)"

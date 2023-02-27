@@ -7,11 +7,8 @@
   :commands (vertico--format-candidate vertico-mode)
   :custom
   (vertico-cycle t)
-  (vertico-buffer-display-action
-   '(display-buffer-in-side-window
-     (window-height . 13)
-     (side . top)))
   :bind
+  ("C-c r" . vertico-repeat)
   (:map vertico-map
         ([right] . vertico-insert)
         ([left]  . vertico-directory-up)
@@ -27,11 +24,24 @@
                    "  ")
                  cand)))
   (vertico-mode)
-  (vertico-buffer-mode)
   (vertico-indexed-mode)
   (add-to-list 'savehist-additional-variables 'vertico-repeat-history)
   :hook
   (minibuffer-setup . vertico-repeat-save)
+  (evil-mode . (lambda ()
+    (evil-global-set-key 'normal "g." 'vertico-repeat)))
+  (evil-leader-mode . (lambda ()
+    (evil-leader/set-key "." 'vertico-repeat)))
+)
+
+(use-package vertico-posframe
+  :ensure t
+  :after vertico
+  :custom
+  (vertico-posframe-poshandler    #'posframe-poshandler-frame-top-center)
+  (vertico-posframe-fallback-mode vertico-buffer-mode)
+  :config
+  (vertico-posframe-mode)
 )
 
 (provide 'vertico-rcp)

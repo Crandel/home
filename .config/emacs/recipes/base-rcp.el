@@ -81,6 +81,8 @@
   ("M-u" . backward-word)
   ("C-c u" . upcase-word)
   ("C-v" . yank)
+  ("<Copy>" . kill-ring-save)
+  ("<Paste>" . yank)
   ("C-y" . scroll-up-command)
   ("RET" . newline)
   ("M-RET" . newline-and-indent)

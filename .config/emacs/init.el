@@ -53,7 +53,7 @@
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)
-(require 'json-mode-rcp)
+(require 'js-mode-rcp)
 (require 'lsp-mode-rcp)
 (require 'lua-rcp)
 (require 'marginalia-rcp)

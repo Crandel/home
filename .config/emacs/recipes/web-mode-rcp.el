@@ -6,7 +6,6 @@
   :ensure t
   :defer t
   :mode
-  ("\\.js\\'"     . web-mode)
   ("\\.html\\'"   . web-mode)
   ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)

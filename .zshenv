@@ -6,6 +6,9 @@ export XDG_CACHE_HOME="$HOME/.cache"
 
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export ZSH_CACHE_DIR="$XDG_CACHE_HOME/zsh"
+if [ ! -d $ZSH_CACHE_DIR ]; then
+  mkdir -p $ZSH_CACHE_DIR
+fi
 
 SPROMPT='Correct %B%F{red}%U%R%b%f%u to %F{green}%r%f? [%By%bes|%BN%bo|%Be%bdit|%Ba%bbort] '
 export WORDCHARS='*?[]~&;!#$%^(){}<>'
@@ -37,9 +40,6 @@ if [ ! -d $CARGO_BIN ]; then
   mkdir -p $CARGO_BIN
 fi
 export PATH=$PATH:$CARGO_BIN
-
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
 export EDITOR='vim'
 export EDITOR='emacs'
 export LSP_USE_PLISTS=true
@@ -48,6 +48,8 @@ export QT_PLATFORM_PLUGIN="qt6ct"
 export SHIORI_DIR=$BACKUP_DIR/drive/sync
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
+export GOPATH="$HOME/.local/share/go"
+export GOBIN=$LOCAL_BIN
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export NPM_PACKAGES="${XDG_DATA_HOME}"

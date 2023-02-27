@@ -74,8 +74,9 @@ fi
 # END SUDO
 
 # PLUGIN MANAGMENT
-ZSH_CUSTOM_PLUGINS=$XDG_CACHE_HOME/zsh/plugins
-ZSH_CUSTOM_COMPLETIONS=$XDG_CACHE_HOME/zsh/completions
+ZSH_CUSTOM_PLUGINS=$ZSH_CACHE_DIR/plugins
+ZSH_CUSTOM_COMPLETIONS=$ZSH_CACHE_DIR/completions
+ZSH_CUSTOM_PROMPT=$ZSH_CACHE_DIR/prompt
 alias src='source'
 if [ -d $ZSH_CUSTOM_PLUGINS/zsh-defer ]; then
   alias src='zsh-defer source'
@@ -181,7 +182,14 @@ bindkey "^[^?"    backward-kill-word
 # bindkey -M menuselect 'j' vi-down-line-or-history
 
 # PROMPT
-eval "$(starship init zsh)"
+if [ -d $ZSH_CUSTOM_PROMPT/powerlevel10k ]; then
+  POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+  source $ZSH_CUSTOM_PROMPT/powerlevel10k/powerlevel10k.zsh-theme
+  source $ZDOTDIR/.p10k.zsh
+else
+  echo "$ZSH_CUSTOM_PROMPT/powerlevel10k directory is missing"
+fi
+# eval "$(starship init zsh)"
 
 # end=`date +%s.%N`
 # printf "%.2f" $((end-start))

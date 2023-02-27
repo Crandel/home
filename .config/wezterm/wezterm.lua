@@ -98,8 +98,44 @@ return {
   enable_scroll_bar = true,
   enable_wayland = true,
   font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),
-  font_size = 18.0,
+  font_size = 20.0,
   hide_tab_bar_if_only_one_tab = true,
+  hyperlink_rules = {
+    -- Linkify things that look like URLs and the host has a TLD name.
+    -- Compiled-in default. Used if you don't specify any hyperlink_rules.
+    {
+      regex = '\\b\\w+://[\\w.-]+\\.[a-z]{2,15}\\S*\\b',
+      format = '$0',
+    },
+    -- linkify email addresses
+    -- Compiled-in default. Used if you don't specify any hyperlink_rules.
+    {
+      regex = [[\b\w+@[\w-]+(\.[\w-]+)+\b]],
+      format = 'mailto:$0',
+    },
+
+    -- file:// URI
+    -- Compiled-in default. Used if you don't specify any hyperlink_rules.
+    {
+      regex = [[\bfile://\S*\b]],
+      format = '$0',
+    },
+
+    -- Linkify things that look like URLs with numeric addresses as hosts.
+    -- E.g. http://127.0.0.1:8000 for a local development server,
+    -- or http://192.168.1.1 for the web interface of many routers.
+    {
+      regex = [[\b\w+://(?:[\d]{1,3}\.){3}[\d]{1,3}\S*\b]],
+      format = '$0',
+    },
+
+    -- Linkify things that look like URLs with localhost.
+    -- E.g. http://localhost:8000 for a local development server,
+    {
+      regex = [[\b\w+://(?:[\w.-]+)(?:(:?:\.[a-z]{2,15}\S*)|(?::\d{1,5}))\b]],
+      format = '$0',
+    },
+  },
   keys = {
     {key="a"          ,mods="CTRL|SHIFT" ,action="ActivateCopyMode"},
     {key="b"          ,mods="CTRL|SHIFT" ,action=wezterm.action{EmitEvent="toggle-opacity"}},
