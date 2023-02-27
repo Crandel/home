@@ -29,7 +29,7 @@
     helper = /usr/lib/git-core/git-credential-gnome-keyring
 
 [delta]
-    side-by-side = true
+    side-by-side = false
     syntax-theme = gruvbox-dark
 
 [diff]
