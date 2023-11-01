@@ -12,12 +12,20 @@
                                       (shell      . t)
                                       (sql        . t)
                                       ))
+  (defun vd/org-toggle-emphasis ()
+    "Toggle hiding/showing of org emphasize markers."
+    (interactive)
+    (if org-hide-emphasis-markers
+        (set-variable 'org-hide-emphasis-markers nil)
+      (set-variable 'org-hide-emphasis-markers t))
+    (org-mode-restart))
   :custom
   (org-confirm-babel-evaluate       nil)
   (org-edit-src-content-indentation 0)
   (org-ellipsis                     "▾")
-  (org-hide-emphasis-markers        t)
+  (org-hide-emphasis-markers        nil) ;; show all markers
   (org-src-fontify-natively         t)
+  (org-support-shift-select         'always)
   (org-src-preserve-indentation     t "do not put two spaces on the left")
   (org-src-strip-leading-and-trailing-blank-lines t)
   (org-src-tab-acts-natively        t)
@@ -33,20 +41,16 @@
   (remove-hook 'org-cycle-hook
               #'org-optimize-window-after-visibility-change)
   (org-babel-do-load-languages 'org-babel-load-languages vd/org-babel-load-languages)
-  :bind(
-  :map evil-normal-state-map
-  ("gri" . org-insert-structure-template)
-  )
+  :hook
+  (evil-local-mode . (lambda ()
+    (evil-global-set-key 'normal "grt" 'vd/org-toggle-emphasis)
+    (evil-global-set-key 'normal "gri" 'org-insert-structure-template)
+    (evil-global-set-key 'normal "gra" 'org-babel-remove-result)
+  ))
 )
 
 (use-package org-tempo
   :after org
-)
-
-(use-package org-bullets
-  :ensure t
-  :after org
-  :hook (org-mode . org-bullets-mode)
 )
 
 (use-package org-modern
@@ -60,7 +64,7 @@
   :init
   (add-to-list 'vd/org-babel-load-languages '(restclient . t))
   :hook
-  (org-mode . (lambda()
+  (org-local-mode . (lambda()
                 (add-to-list 'org-structure-template-alist '("r" . "src restclient"))
                 ))
 )
@@ -71,7 +75,7 @@
   :init
   (add-to-list 'vd/org-babel-load-languages '(go . t))
   :hook
-  (org-mode . (lambda()
+  (org-local-mode . (lambda()
                 (add-to-list 'org-structure-template-alist '("go" . "src go"))
                 ))
 )

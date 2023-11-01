@@ -3,7 +3,6 @@
 (eval-when-compile (require 'use-package))
 (use-package elfeed
   :ensure t
-  :defer t
   :preface
   (defun vd/elfeed-startup (switch)
     (elfeed))
@@ -17,8 +16,12 @@
         ("a" . elfeed-update))
         ("C-q" . save-buffers-kill-terminal)
   :config
+  (load (expand-file-name "feeds.el" user-emacs-directory))
   (elfeed-update)
   (run-with-timer 0 (* 60 15) 'elfeed-update)
+  :hook
+  (evil-leader-mode . (lambda ()
+                        (evil-leader/set-key "<SPC>" 'elfeed-search-browse-url)))
 )
 
 (use-package elfeed-summary
@@ -31,7 +34,7 @@
 
 (use-package elfeed-goodies
   :ensure t
-  :after elfeed
+  :after (elfeed evil-collection)
   :config
   (elfeed-goodies/setup)
   (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map

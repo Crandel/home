@@ -27,10 +27,12 @@
     (emacs-lock-mode 'kill))
   :custom
   (ad-redefinition-action       'accept)
+  (auto-window-vscroll          nil "Make scrolling less stuttered")
   (bidi-display-reordering      nil "Never reorder bidirectional text for display in the visual order.")
   (bidi-paragraph-direction     'left-to-right)
   (c-basic-offset               2)
   (completion-cycle-threshold   3)
+  (completion-detailed          t)
   (display-time-24hr-format     t)
   (display-time-default-load-average nil)
   (display-time-mode            t)
@@ -42,24 +44,28 @@
                                    "Removing minibuffer 'default directory' prefix in tty.")
   (frame-title-format              '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l"))
                                    "Display the name of the current buffer in the title bar")
-  (indent-line-function         'insert-tab "End Indent settings")
-  (indent-tabs-mode             nil)
+  (indent-line-function         'insert-tab "Indent settings")
+  (indent-tabs-mode             nil "Indent settings")
+  (indicate-empty-lines         nil "Scrolling settings")
   (initial-scratch-message      "")
   (java-basic-offset            2)
   (jit-lock-defer-time          0)
   (js-indent-level              2)
+  (kill-do-not-save-duplicates  t)
   (lisp-body-indent             2)
   (max-mini-window-height       0.5)
+  (maximum-scroll-margin        0.5 "Scrolling settings")
   (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
   (next-line-add-newlines     nil)
   (nxml-attribute-indent      2)
   (redisplay-dont-pause       t)
   (resize-mini-windows        t)
   (ring-bell-function         'ignore)
-  (scroll-conservatively           100000)
-  (scroll-margin                   1)
+  (fast-but-imprecise-scrolling    t "Scrolling settings")
+  (scroll-conservatively           most-positive-fixnum "Scrolling settings")
+  (scroll-margin                   1000 "Scrolling settings")
   (scroll-step                     1 "Scrolling settings")
-  (scroll-preserve-screen-position 1 "Scrolling settings")
+  (scroll-preserve-screen-position t "Scrolling settings")
   (size-indication-mode       t)
   (sentence-end-double-space  nil)
   (split-height-threshold     nil "Minimum height for splitting windows vertically.")
@@ -95,8 +101,8 @@
   ([M-S-up] . vd/move-line-up)
   ([M-S-down] . vd/move-line-down)
   ("C-x C-d" . vd/duplicate-line)
+  ([remap list-buffers] . ibuffer-list-buffers) ;; C-x C-b by default
   ("C-x b" . ibuffer)
-  ("C-x C-b" . ibuffer)
   ("C-c C-k" . vd/copy-line)
   ("C-c C-w" . vd/copy-word)
   ("C-d" . vd/delete-line)
@@ -106,12 +112,15 @@
   :hook
   (minibuffer-setup . cursor-intangible-mode)
   (prog-mode . vd/highlight-todos)
+  (after-save . executable-make-buffer-file-executable-if-script-p) ;; Make shebang (#!) file executable when saved
 )
 
 (use-package autorevert
   :defer 3
+  :custom
+  (global-auto-revert-non-file-buffers t)
   :config
-  (auto-revert-mode t)
+  (global-auto-revert-mode t)
 )
 
 (use-package compile
@@ -170,7 +179,7 @@
   (ediff-split-window-function       'split-window-horizontally)
   (ediff-window-setup-function       'ediff-setup-windows-plain)
   :hook
-  (ediff-startup . ediff-next-difference)
+  (ediff-startup      . ediff-next-difference)
 )
 
 (use-package electric
@@ -205,7 +214,7 @@
   (confirm-kill-processes         nil)
   (create-lockfiles               nil "Disable lockfiles .#filename")
   (delete-old-versions            t   "Don't ask to delete excess backup versions.")
-  (make-backup-files              t)
+  (make-backup-files              nil)
   (version-control                t   "Use version numbers for backups.")
   (vc-make-backup-files           t   "Emacs never backs up versioned files")
   (kept-new-versions              5   "Number of newest versions to keep.")
@@ -388,12 +397,6 @@
   (shell-file-name "/usr/bin/zsh" "Set zsh as default shell")
 )
 
-(use-package sql-mode
-  :mode "\\.pgsql\\'"
-  :custom
-  (sql-product 'postgres)
-)
-
 (use-package subword
   :config
   (global-subword-mode t)
@@ -421,13 +424,14 @@
  :custom-face
  (whitespace-empty ((t (:foreground "sienna"))))
  (whitespace-hspace ((t (:background "grey24" :foreground "MistyRose4"))))
- (whitespace-indentation ((t (:foreground "DarkOrchid4"))))
+ (whitespace-indentation ((t (:background unspecified :foreground "DarkOrchid4"))))
  (whitespace-newline ((t (:foreground "dark green" :weight normal))))
  (whitespace-space ((t (:foreground "DarkOrchid4"))))
  (whitespace-space-after-tab ((t (:foreground "firebrick"))))
  (whitespace-space-before-tab ((t (:foreground "firebrick"))))
  (whitespace-tab ((t (:foreground "magenta"))))
  (whitespace-trailing ((t (:foreground "yellow" :weight bold))))
+ (hl-line ((t (:background unspecified))))
  :custom
  (whitespace-style '(face trailing spaces lines-char empty indentation::tab
                      indentation::space tabs newline space-mark tab-mark newline-mark))

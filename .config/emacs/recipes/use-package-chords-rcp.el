@@ -1,8 +1,8 @@
 ;;; use-package-chords-rcp.el --- Add chord support
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package use-package-chords
-  :ensure t
   :demand 1
   :custom
   (key-chord-two-keys-delay 0.2)

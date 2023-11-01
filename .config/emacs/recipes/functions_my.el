@@ -111,11 +111,13 @@ See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
 ;; C-x r y for paste multiple cursors
 
 ;;;###autoload
-(defun vd/find-in-directory (dir)
+(defun vd/find-in-directory (&optional dir)
   "Find files in DIR."
   (interactive "p")
-  (let ((default-directory dir))
-    (call-interactively 'find-file))
+  (let ((dir (or dir "~")))
+        (setq default-directory dir)
+        (call-interactively 'find-file)
+    )
 )
 
 ;;;###autoload

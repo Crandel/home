@@ -20,21 +20,12 @@
                                     )
                                   ;;mode-line-front-space
                                   '("%e"
-                                    sml/pre-modes-separator
-                                    mode-line-modes
-                                    sml/pos-modes-separator
-                                    mode-line-position
                                     (vc-mode vc-mode)
                                     )
-                                  ;; line and column
-                                  "(" ;; '%02' to set to 2 chars at least; prevents flickering
-                                  (propertize "%03l" 'face 'font-lock-type-face)
-                                  ","
-                                  (propertize "%02c" 'face 'font-lock-type-face)
-                                  ")"
-                                  mode-line-misc-info
-                                  " "
-                                  )
+                                   ;; line and column
+                                    mode-line-misc-info
+                                    " "
+                                    )
                 )
   :custom
   (sml/debug                     nil)

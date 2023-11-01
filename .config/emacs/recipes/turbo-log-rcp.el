@@ -3,7 +3,7 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package turbo-log
-  :load-path "git"
+  :vc (:fetcher github :repo Artawower/turbo-log)
   :bind (("C-s-l" . turbo-log-print)
          ("C-s-i" . turbo-log-print-immediately)
          ("C-s-h" . turbo-log-comment-all-logs)
@@ -17,5 +17,6 @@
 (provide 'turbo-log-rcp)
 
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
 ;;; turbo-log-rcp.el ends here

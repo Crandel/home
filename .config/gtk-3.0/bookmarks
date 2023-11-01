@@ -1,4 +1,5 @@
 file:///tmp
-file:///data/docs
+file:///etc
+file:///usr
 file:///data/backup
-file:///data/work
+file:///data

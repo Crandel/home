@@ -8,23 +8,32 @@
   (defun corfu-lsp-setup ()
         (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '(orderless)))
+  (defun vd/corfu-disable-quit-with-orderless-advice (func)
+    (let ((corfu-quit-at-boundary
+           (not (seq-contains-p (car corfu--input)
+                                corfu-separator))))
+      (funcall func)))
   :custom
   (corfu-auto             t)
   (corfu-auto-delay       0.1)
   (corfu-auto-prefix      2)
   (corfu-count            20)
   (corfu-cycle            t)
-  (corfu-preselect-first  t)
+  (corfu-preselect        'first)
+  (corfu-preview-current  t)
   (corfu-quit-at-boundary t)
   (corfu-quit-no-match    t)
   :bind(
   :map corfu-map
+       ("<esc>" . corfu-quit)
        ("C-f" . corfu-quick-complete)
   )
   :init
   (global-corfu-mode)
   (corfu-indexed-mode)
+  (corfu-history-mode)
   (corfu-echo-mode)
+  (advice-add 'corfu--post-command :around #'vd/corfu-disable-quit-with-orderless-advice)
 )
 
 (use-package cape

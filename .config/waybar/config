@@ -1,9 +1,9 @@
 {
-    "layer": "bottom", // Waybar at top layer
-    "position": "top", // Waybar position (top|bottom|left|right)
+    "position": "right", // Waybar position (top|bottom|left|right)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "tray", "sway/mode"],
-    "modules-right": [
+    "modules-left": [
+        "clock",
+        "sway/language",
         "custom/gmail",
         "disk",
         "cpu",
@@ -14,8 +14,12 @@
         "network#eth",
         "network#wifi",
         "network#vpn",
-        "sway/language",
-        "clock"
+        "tray",
+        "sway/window"
+    ],
+    "modules-right": [
+        "sway/mode",
+        "sway/workspaces"
     ],
     // Modules configuration
     "sway/workspaces": {
@@ -23,31 +27,35 @@
         "all-outputs": false,
         "format": "{name}"
     },
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
     "tray": {
         "icon-size": 28,
         "spacing": 2
     },
+    "sway/mode": {
+        "format": "<span style=\"italic\">{}</span>",
+        "rotate": 90
+    },
+    "sway/window": {
+        "format": "{}",
+        "rotate": 90
+    },
     "custom/gmail": {
-        "format": "📧{}",
+        "format": "{}",
         "return-type": "string",
-        "min-length": 9,
         "interval": 60,
-        "exec": "gmail"
+        "exec": "gmail -s"
     },
     "disk": {
         "path": "/",
         "interval": 60,
-        "format": "📂 {free}",
+        "format": "📂",
         "states": {
             "warning": 80,
             "critical": 95
         }
     },
     "cpu": {
-        "format": "💻 {usage}%",
+        "format": "💻",
         "states": {
             "good": 30,
             "warning": 50,
@@ -55,7 +63,7 @@
         }
     },
     "memory": {
-        "format": "💾 {used:0.1f}G",
+        "format": "💾",
         "states": {
             "warning": 80,
             "critical": 95
@@ -68,21 +76,21 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "🔋 {capacity}%",
-        "format-charging": "🔌{capacity}%",
+        "format": "🔋",
+        "format-charging": "🔌",
         "format-plugged": "🔌",
-        "format-alt": "🔋 {time}",
-        // "format-good": "", // An empty format will hide the module
+        "format-alt": "🔋",
+        "format-good": "", // An empty format will hide the module
         "format-full": "🔋",
-        "tooltip-format": "🔋{capacity}% {time}"
+        "tooltip-format": "🔋\n{capacity}%\n{time}"
     },
     "pulseaudio": {
         "scroll-step": 10, // %, can be a float
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "{icon} 🔇 {format_source}",
-        "format-muted": " 🔇 {format_source}",
-        "format-source": "🎤 {volume}%",
+        "format": "{icon}\n{volume}%\n{format_source}",
+        "format-bluetooth": "{icon}\n{volume}%\n{format_source}",
+        "format-bluetooth-muted": "{icon}🔇\n{format_source}",
+        "format-muted": " 🔇\n{format_source}",
+        "format-source": "🎤\n{volume}%",
         "format-source-muted": "🔕",
         "format-icons": {
             "headphone": "🎧",
@@ -93,17 +101,17 @@
             "default": ["🔈", "🔉", "🔊"]
         },
         "on-click": "pavucontrol",
-        "on-click-right": "bluetoothctl connect B0:06:32:79:B7:CA"
+        "on-click-right": "bluetoothctl connect "
     },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}",
+        "format": "{icon}",
         "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
     },
     "network#eth": {
         "interface": "enp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format": "🌍{ifname:.5}",
+        "format": "🌍",
         "format-disconnected": "",
         "tooltip-format": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
         "tooltip-format-disconnected": ""
@@ -111,7 +119,7 @@
     "network#wifi": {
         "interface": "wlp*", // (Optional) To force the use of this interface
         "interval": 1,
-        "format-wifi": "📡{essid:.7}/{signalStrength}% ",
+        "format-wifi": "📡",
         "format-disconnected": "",
         "tooltip-format-wifi": "{ipaddr} ⇵{bandwidthUpBits}|{bandwidthDownBits}",
         "tooltip-format-disconnected": ""
@@ -129,7 +137,7 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%d.%m %R}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "⌚ {:%d.%m %R}",
-        "format-alt": "{:%d.%m %R}"
+        "format": "{:%R}",
+        "format-alt": "{:%d.%m} \n{:%R}"
     }
 }

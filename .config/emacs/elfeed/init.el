@@ -6,17 +6,23 @@
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
-  (setq package-enable-at-startup nil
+  (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+  (setq gnutls-algorithm-priority        "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
+        package-enable-at-startup        nil
+        package-install-upgrade-built-in t
         package-archive-priorities '(("melpa"        . 200)
-                                     ("elpa"         . 100)))  ;; Higher values are searched first.
-
-  (unless (package-installed-p 'use-package)
-    (package-refresh-contents)
-    (package-install 'use-package))
+                                     ("elpa"         . 100)
+                                     ("org"          . 75)
+                                     ("nongnu"       . 65)
+                                     ("gnu"          . 50)))  ;; Higher values are searched first.
   (require 'use-package)
   (put 'use-package 'lisp-indent-function 1)
 
+  (unless (package-installed-p 'vc-use-package)
+    (package-vc-install "https://github.com/slotThe/vc-use-package"))
   (use-package use-package-core
     :custom
     ; (use-package-verbose t)
@@ -30,18 +36,22 @@
 (require 'functions_my)
 
 (require 'base-rcp) ; emacs default settings
-(require 'use-package-chords-rcp) ; provide :chords for use-package
-;; (require 'quelpa-rcp) ; install from different sourses
 
+(require 'avy-rcp)
+(require 'consult-rcp)
+(require 'dired-rcp)
+(require 'embark-rcp)
 (require 'elfeed-rcp)
 (require 'evil-rcp)
+(require 'flymake-rcp)
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)
 (require 'marginalia-rcp)
+(require 'mini-echo-rcp)
 (require 'orderless-rcp)
 (require 'rainbow-rcp)
-(require 'smart-mode-line-rcp)
+;; (require 'smart-mode-line-rcp)
 (require 'vertico-rcp)
 (require 'which-key-rcp)
 

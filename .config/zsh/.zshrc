@@ -60,6 +60,13 @@ setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history
 setopt SHARE_HISTORY             # Share history between all sessions.
 # END HISTORY
 
+# Quoted urls
+set zle_bracketed_paste
+
+autoload -Uz bracketed-paste-magic url-quote-magic
+
+zle -N bracketed-paste bracketed-paste-magic
+zle -N self-insert url-quote-magic
 
 # CUSTOM FUNCTIONS
 command_exists () {
@@ -113,7 +120,7 @@ fi
 if [ -d $ZSH_CUSTOM_COMPLETIONS/zsh-completions ]; then
   fpath=( "$ZSH_CUSTOM_COMPLETIONS/zsh-completions/src" $fpath )
 fi
-compinit
+compinit -u
 
 # IMPORT ADDITIONAL FILES
 ## CUSTOM FUNCS
@@ -124,7 +131,7 @@ source $ZDOTDIR/aliases.zsh
 # END IMPORT
 
 bindkey -e
-bindkey "^h"      edit-command-line
+# bindkey "^h"      edit-command-line
 # \e[A arrow up
 # \e[B arrow down
 # \e[C arrow right

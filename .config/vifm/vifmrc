@@ -165,6 +165,8 @@ command! vgrep vim "+grep %a"
 command! reload :write | restart
 command! ln ln -s %f:p %D
 command! rsync rsync -av --progress %d %D %i 1>&2 &
+command! cp :yank | winrun , put
+command! mv :yank | winrun , put
 
 " From mc: <Ctrl-s> fuzzy search in current directory
 command! FZFfind : set noquickview
@@ -186,18 +188,20 @@ command! cmp : if expand('%%c') == expand('%%f')
 " Keymaps
 
 " ------------------------------------------------------------------------------
+map <space> <nop>
+
+nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>  " Open editor to edit vifmrc and apply settings after returning to vifm
+nnoremap <space>a :rename<cr>
+nnoremap <space>b :file &<cr> " Open file in the background using its default program
+nnoremap <space>c :cp<cr>
+nnoremap <space>d :delete<cr>
+nnoremap <space>e :mkcd " Make directory and cd into
+nnoremap <space>i :cd %D<cr>
+nnoremap <space>m :mv<cr>
 nnoremap <space>s :FZFfind<cr>
+nnoremap <space>t :!alacritty &<cr>  " Open console in current directory
+nnoremap <space>w :set wrap!<cr>  " Toggle wrap setting on <space>w key
 
-" Open console in current directory
-nnoremap <space>t :!alacritty &<cr>
-
-" Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap <space>c :write | edit $MYVIFMRC | restart<cr>
-" Open emacs to edit vifmrc
-nnoremap <space>C :!emacs &<cr>
-
-" Toggle wrap setting on <space>w key
-nnoremap <space>w :set wrap!<cr>
 
 nnoremap t tj
 
@@ -360,9 +364,11 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]
   \ {View using mpv}
-  \ mpv %f &
+  \ mpv --speed=2 %f &
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.heic
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.heic,*.heif,*.avif
+  \ {View in gthumb}
+  \ gthumb %c &,
   \ {View in nomacs}
   \ nomacs %c &,
   \ {View in feh}
@@ -370,6 +376,8 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.heic
 
 " Audio
 filextype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
+  \ {Play using amberol}
+  \ amberol %c &,
   \ {Play using deadbeef}
   \ deadbeef %c &
 

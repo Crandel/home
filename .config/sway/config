@@ -7,9 +7,11 @@ set {
   $right l
 
   # Output
-  $laptop   eDP-1
-  $work_out DP-3
-  $hdmi     HDMI-A-1
+  $laptop  eDP-1
+  $dp_out  DP-1
+  $dp_out2 DP-2
+  $dp_out3 DP-3
+  $hdmi    HDMI-A-1
 
   # Modes
   $layout_mode "Layout: (d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
@@ -19,8 +21,7 @@ set {
   # Theming
   $gnome-sound     org.gnome.desktop.sound
   $gnome-interface org.gnome.desktop.interface
-  $font     pango:Hack Nerd Font, Source Code Pro 16
-  $big_font pango:Hack Nerd Font, Source Code Pro 18
+  $font     pango:Hack Nerd Font Mono, Source Code Pro 16
 
   # Apps
   $launch       fuzzel-prompt.sh
@@ -54,11 +55,16 @@ set {
 }
 
 output {
-  $laptop background ~/images/wallpaper.png fill
+  $laptop    background ~/images/wallpaper.avif         fill
+  $hdmi      background ~/images/wallpaper_monitor.avif fill
+  $dp_out    background ~/images/wallpaper_monitor.avif fill
+  $dp_out2   background ~/images/wallpaper_monitor.avif fill
+  $dp_out3   background ~/images/wallpaper_monitor.avif fill
   $laptop adaptive_sync on
-  $laptop pos 0 0 res 1920x1080@144Hz
-  $hdmi   pos 1920 0 res 2560x1440@144Hz
-  $hdmi   background ~/images/wallpaper_hdmi.png fill
+  $laptop scale 1.5
+  $laptop pos 0    0 res 2560x1600@90Hz
+  $hdmi   pos 1706 0 res 2560x1440@144Hz
+  #$dp_out pos 1706 0 res 2560x1440@75Hz
 }
 
 input type:keyboard {
@@ -87,7 +93,18 @@ input type:pointer {
   natural_scroll   disabled
   middle_emulation enabled
   pointer_accel    0.8
+  scroll_factor    0.5
+  scroll_button    BTN_SIDE
+  scroll_method    on_button_down
+}
+input "39251:50:wylderbuilds_Dactyl-Manuform_Wyld_Trackball_(3x5_track)_Mouse" {
+  accel_profile    adaptive
+  natural_scroll   disabled
+  middle_emulation enabled
+  pointer_accel    1.0
   scroll_factor    1.5
+  scroll_button    BTN_SIDE
+  scroll_method    on_button_down
 }
 
 exec_always {
@@ -119,6 +136,7 @@ workspace {
   1 output $laptop
   2 output $laptop
   3 output $hdmi
+  4 output $hdmi
 }
 
 # assings
@@ -207,7 +225,8 @@ client.focused_inactive #689D6A  #D79921AA #504945 #484E50    #4B610B
 client.unfocused        #689D6A  #282828AA #FADB2F #282828    #4B610B
 client.urgent           #689D6A  #CC241DAA #A89984 #FB4934    #4B610B
 
-exec --no-startup-id wl-paste -t text --watch clipman.sh &
+exec --no-startup-id wl-paste -t text  --watch cliphist.sh &
+exec --no-startup-id wl-paste -t image --watch cliphist store &
 exec {
   systemctl --user import-environment \
     SWAYSOCK \

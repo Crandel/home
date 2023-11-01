@@ -9,17 +9,31 @@
   (evil-leader/leader "<SPC>")
   :config
   (evil-leader/set-key
-   "a" 'beginning-of-defun
-   "e" 'end-of-defun
-   "b" 'ibuffer
-   "c" 'vd/find-in-config
-   "d" 'vd/duplicate-line
-   "f" 'find-file
-   "k" 'kill-buffer
-   "l" 'vd/copy-line
-   "q" 'keyboard-quit
-   "w" 'evil-window-map
-   "x" 'delete-other-windows
+   "a"  'beginning-of-defun
+   "bb" 'ibuffer
+   "bk" 'kill-buffer
+   "e"  'end-of-defun
+   "f"  'find-file
+   "mc" 'vd/copy-line
+   "md" 'vd/duplicate-line
+   "ms" 'sort-lines
+   "sj" 'scroll-up ;; scroll-up moves content down
+   "sk" 'scroll-down
+   "q"  'keyboard-quit
+   "v"  'vd/find-in-config
+   "w"  'evil-window-map
+   "x"  'delete-other-windows
+   "z"  'evil-repeat
+   ","  'indent-region
+
+   "h"  'evil-window-left
+   "j"  'evil-window-down
+   "k"  'evil-window-up
+   "l"  'evil-window-right
+   "<left>"  'evil-window-left
+   "<down>"  'evil-window-down
+   "<up>"    'evil-window-up
+   "<right>" 'evil-window-right
    )
   (evil-leader/set-key-for-mode
     'evil-visual-state-map
@@ -105,8 +119,6 @@ The return value is the yanked text."
   ("u" . winner-undo)
   ("r" . winner-redo)
   )
-  :chords
-  ("jk" . evil-force-normal-state)
 )
 
 (use-package evil-ex
@@ -129,6 +141,7 @@ The return value is the yanked text."
   :config
   (evil-define-key* '(normal visual) evil-mc-key-map
     (kbd "m")   nil
+    (kbd "grf")   nil
     (kbd "C-n") nil
     (kbd "C-t") nil
     (kbd "M-p") nil
@@ -172,13 +185,13 @@ The return value is the yanked text."
   :config
   (delete 'evil-mc evil-collection-mode-list)
   (evil-collection-init)
-  (evil-collection-translate-key
-    'normal
-    '(dired-mode-map dired-sidebar-mode-map)
-    "H" "^"
-    ;; Set this to t to make this swap the keys everytime
-    ;; this expression is evaluated.
-    :destructive t)
+  ;; (evil-collection-translate-key
+  ;;   'normal
+  ;;   '(dired-mode-map dired-sidebar-mode-map)
+  ;;   "H" "^"
+  ;;   ;; Set this to t to make this swap the keys everytime
+  ;;   ;; this expression is evaluated.
+  ;;   :destructive t)
 )
 
 (use-package evil-goggles

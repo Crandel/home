@@ -45,15 +45,15 @@ export EDITOR='emacs'
 export LSP_USE_PLISTS=true
 export QT_QPA_PLATFORMTHEME="qt6ct"
 export QT_PLATFORM_PLUGIN="qt6ct"
-export SHIORI_DIR=$BACKUP_DIR/drive/sync
+export XCURSOR_THEME=capitaine-cursors
+export XCURSOR_SIZE=30
+export MANROFFOPT="-c"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export RIPGREP_CONFIG_PATH=$HOME/.ripgreprc
 export GOPATH="$HOME/.local/share/go"
 export GOBIN=$LOCAL_BIN
 export FZF_DEFAULT_COMMAND="rg --files --hidden --glob '!.git'"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export NPM_PACKAGES="${XDG_DATA_HOME}"
-export NODE_PATH="$NPM_PACKAGES/lib/node_modules"
 export WINEARCH=win32
 if [ -f . $ZDOTDIR/zshenv.local.zsh ]; then
   . $ZDOTDIR/zshenv.local.zsh

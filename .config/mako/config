@@ -5,7 +5,7 @@ width=500
 height=500
 
 # Format
-font=Hack 16
+font=Hack Nerd Font Mono 16
 border-color=#5B8234
 border-size=2
 background-color=#191311
@@ -39,6 +39,19 @@ border-color=#B7472A
 border-size=2
 background-color=#191311
 format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
+on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music/critical.opus
+
+
+# == Mode: Default ==
+[mode=default]
+invisible=0
+on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music/notification.opus
+
+[mode=default app-name="Thunderbird"]
+on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music/mail.opus
+
+[mode=default app-name="Telegram Desktop"]
+on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music/messenger.opus
 
 # == Mode: Away ==
 [mode=away]
@@ -48,3 +61,4 @@ ignore-timeout=1
 # == Mode: Do Not Disturb ==
 [mode=do-not-disturb]
 invisible=1
+on-notify=none

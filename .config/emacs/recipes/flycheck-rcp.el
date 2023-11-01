@@ -12,21 +12,23 @@
   (flycheck-indication-mode            'left-fringe)
   (flycheck-scalastylerc               "~/scalastyle_config.xml")
   (flycheck-checker-error-threshold    2000)
+  ;; :hook
+  ;; (prog-mode . flycheck-mode)
+  ;; (web-mode  . flycheck-mode)
+  :bind ("C-c C-n" . flycheck-next-error)
+)
+
+(use-package flycheck-golangci-lint
+  :ensure t
   :hook
-  (python-mode           . flycheck-mode)
-  (js-mode               . flycheck-mode)
-  (web-mode              . flycheck-mode)
-  (lisp-interaction-mode . flycheck-mode)
-  (emacs-lisp-mode       . flycheck-mode)
-  (fish-mode             . flycheck-mode)
-  (markdown-mode         . flycheck-mode)
-  (go-mode               . flycheck-mode)
-  (scala-mode            . flycheck-mode)
-  (java-mode             . flycheck-mode)
-  (c-mode                . flycheck-mode)
-  (c++-mode              . flycheck-mode)
-  (rust-mode             . flycheck-mode)
-  :bind ("C-c n" . flycheck-next-error)
+  (go-mode . flycheck-golangci-lint-setup)
+)
+
+(use-package flycheck-rust
+  :ensure t
+  :defer t
+  :hook
+  (rust-mode . flycheck-rust-setup)
 )
 
 (provide 'flycheck-rcp)

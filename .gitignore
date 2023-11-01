@@ -1,2 +1,15 @@
-Taskfile-local.yml
+
+#Python
 pyrightconfig.json
+.venv
+.python-version
+
+# Docker
+docker-compose-local.yaml
+
+# task files
+Taskfile-local.yml
+run*.sh
+
+# Emacs
+.dir-locals.el

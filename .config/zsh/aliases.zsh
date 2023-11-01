@@ -14,6 +14,7 @@ fi
 
 # ALIASES
 alias less="less --LONG-PROMPT --no-init --quit-at-eof --quit-if-one-screen --quit-on-intr"
+alias which='type -p'
 
 alias arch='uname -m'
 alias la='ls -A'
@@ -139,6 +140,8 @@ alias ytlf='ytdl --list-formats'
 alias ytm='ytdl -f bestaudio -x'
 # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
 alias yt='ytdl -f "best[height<=1080]"'
+alias yto='ytdl -f "bestvideo[height<=1080]+bestaudio"'
+alias ytp='ytdl -f "best[height<=1080]" -o "%(playlist_index)s__%(title)s_%(id)s.%(ext)s"'
 alias a2c='aria2c -x 10 -s 10'
 alias i3s_rst='pkill -SIGUSR2 i3status-rs'
 alias play='ffplay -nodisp -autoexit'
@@ -161,6 +164,7 @@ alias svf="$SUDO vifm"
 ## END FILE MANAGERS
 alias ssctl="$SUDO systemctl"
 alias usctl='systemctl --user'
+compdef usctl=systemctl
 alias g='git'
 compdef g=git
 alias ga='g add'
@@ -216,7 +220,6 @@ alias cbr='cargo build --release'
 alias ct='bat'
 compdef ct=bat
 alias fsf='sk'
-source /usr/share/skim/completion.zsh
 eval "$(zoxide init --no-aliases zsh)"
 alias j='__zoxide_z' # cd to highest ranked directory matching path
 alias ja='__zoxide_za' # add path to the database

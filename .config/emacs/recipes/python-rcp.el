@@ -53,6 +53,14 @@
   :ensure t
   :defer t
 )
+(use-package lsp-pyright
+  :ensure t
+  :ensure-system-package pyright
+  :custom
+  (lsp-pyright-disable-organize-imports nil)
+  (lsp-pyright-auto-import-completions  t)
+  (lsp-pyright-auto-search-paths        nil)
+)
 
 (provide 'python-rcp)
 

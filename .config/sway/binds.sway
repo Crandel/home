@@ -8,10 +8,10 @@ bindsym --to-code {
   $mod+F1      exec swaymsg [app_id=$oterm_id]  scratchpad show || exec $oterm,  $maximize
   ## editor
   $mod+x       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $maximize
-  $mod+e       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $maximize
+  $mod+m       exec swaymsg [app_id=$editor_id] scratchpad show || exec $editor, $maximize
 
   ## keepassxc
-  $mod+Shift+x exec swaymsg [app_id=$pass_id]   scratchpad show || exec $pass,   $maximize
+  $mod+p       exec swaymsg [app_id=$pass_id]   scratchpad show || exec $pass,   $maximize
 
   # kill focused window
   $mod+q kill
@@ -109,15 +109,15 @@ bindsym --to-code {
   $mod+Shift+0 move container to workspace 10
 
   # Switch workspaces via keys
-  $mod+i workspace 1
-  $mod+u workspace 2
-  $mod+o workspace 3
+  $mod+e workspace 1
+  $mod+o workspace 2
+  $mod+u workspace 3
   $mod+y workspace 4
 
   # move focused container to workspace via keys
-  $mod+Shift+i move container to workspace 1
-  $mod+Shift+u move container to workspace 2
-  $mod+Shift+o move container to workspace 3
+  $mod+Shift+e move container to workspace 1
+  $mod+Shift+o move container to workspace 2
+  $mod+Shift+u move container to workspace 3
   $mod+Shift+y move container to workspace 4
 
   # reload the configuration file
@@ -130,17 +130,14 @@ bindsym --to-code {
   $mod+F2      mode $power_mode
 
   # exit sway (logs you out of your session)
-  $mod+Shift+e exec $nag
+  $mod+Shift+i exec $nag
 
   # browser
   $mod+c         exec $browser
   $mod+Control+c exec $o_browser
 
-  # pulseaudio
-  $mod+p exec pavucontrol
-
   # mpc script
-  $mod+m exec menu-mpd.sh
+  $mod+i exec menu-mpd.sh
   XF86AudioNext exec mpd next
   XF86AudioPrev exec mpd prev
 
@@ -151,7 +148,7 @@ bindsym --to-code {
   $mod+Shift+s exec alacritty --class screenshot -e grimshot save area
 
   # get clipboard history
-  $mod+a exec clipman pick --max-items=1000 -t CUSTOM -T'fuzzel --dmenu --width 120 -p "Clipman: "'
+  $mod+a exec cliphist list | fuzzel.sh --dmenu -p "Clipboard: " | cliphist decode | wl-copy
 
   # networkmanager-dmenu
   $mod+w exec networkmanager_dmenu

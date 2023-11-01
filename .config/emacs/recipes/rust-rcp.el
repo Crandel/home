@@ -1,22 +1,16 @@
 ;;; rust-rcp.el --- Rust support
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package rust-mode
   :ensure t
   :defer t
   :mode "\\.rs\\'"
   :custom
-  (rust-indent-offset  2)
+  (rust-indent-offset  4)
   (rust-format-on-save t)
 )
 
-(use-package flycheck-rust
-  :ensure t
-  :defer t
-  :after flycheck
-  :hook
-  (flycheck-mode . flycheck-rust-setup)
-)
 
 (provide 'rust-rcp)
 

@@ -12,7 +12,7 @@
                (lsp-deferred)
                )
   :hook
-  (go-mode . vd/go-lsp-start)
+  (go-mode    . vd/go-lsp-start)
   (go-ts-mode . vd/go-lsp-start)
   :bind
   (:map go-mode-map
@@ -20,19 +20,30 @@
         ("M-RET" . newline)
         )
   :config
-  (add-to-list 'exec-path "~/go/bin")
+  (add-to-list 'exec-path "~/.local/bin")
   (setq lsp-go-analyses '(
                           (nilness . t)
                           (shadow . t)
                           (unusedwrite . t)
                           (fieldalignment . t)
-                                       ))
+                                       )
+        lsp-go-codelenses '(
+                          (test . t)
+                          (tidy . t)
+                          (upgrade_dependency . t)
+                          (vendor . t)
+                          (run_govulncheck . t)
+                                       )
+        )
 )
 
 (use-package go-tag
   :ensure t
 )
 
+(use-package godoctor
+  :ensure t
+)
 (use-package flycheck-golangci-lint
   :ensure t
   :hook

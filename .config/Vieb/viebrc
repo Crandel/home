@@ -48,7 +48,6 @@ set nativenotification=always
 set noclearcookiesonquit
 set nocleardownloadsoncompleted
 set nocleardownloadsonquit
-set noclearhistoryonquit
 set noclearlocalstorageonquit
 set noclosablepinnedtabs
 set notificationduration=6000
@@ -80,11 +79,11 @@ set permissionunknown=ask
 set redirects=https?://(www\.)?google\.com(\.\w+)?/amp/s/amp\.(.*)~https://$3
 set redirecttohttp
 set requesttimeout=20000
-set restoretabs
+set restoretabs=all
 set restorewindowmaximize
 set restorewindowposition
 set restorewindowsize
-set search=https://duckduckgo.com/?kae=d&kav=1&ko=1&q=%s&ia=web
+set searchengine=https://duckduckgo.com/?kae=d&kav=1&ko=1&q=%s&ia=web
 set searchwords=
 set searchwords+=am~https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias=aps&field-keywords=%s
 set searchwords+=gh~https://github.com/search?utf8=✓&q=%s
@@ -106,7 +105,6 @@ set suggesttopsites=100
 set suspendonrestore=regular
 set suspendtimeout=0
 set tabcycle
-set tabnexttocurrent
 set taboverflow=scroll
 set tabreopenposition=right
 set timeout
@@ -152,11 +150,11 @@ command! zoom_3 7<zoomIn>
 command! zoom_0.3 7<zoomOut>
 
 " Container aliases
-command! wk <:set containernewtab=w><action.openNewTab><:set containernewtab=s:usecurrent>
-command! go <:set containernewtab=g><action.openNewTab><:set containernewtab=s:usecurrent>
-command! rp <:set containernewtab=r><action.openNewTab><:set containernewtab=s:usecurrent>
-command! am <:set containernewtab=a><action.openNewTab><:set containernewtab=s:usecurrent>
-command! fb <:set containernewtab=f><action.openNewTab><:set containernewtab=s:usecurrent>
+command! wk <:set containernewtab=w><:tabnew><:set containernewtab=s:usecurrent>
+command! go <:set containernewtab=g><:tabnew><:set containernewtab=s:usecurrent>
+command! rp <:set containernewtab=r><:tabnew><:set containernewtab=s:usecurrent>
+command! am <:set containernewtab=a><:tabnew><:set containernewtab=s:usecurrent>
+command! fb <:set containernewtab=f><:tabnew><:set containernewtab=s:usecurrent>
 
 " Mappings
 nmap ; <toCommandMode>

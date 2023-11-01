@@ -14,7 +14,7 @@
         (which-key--show-keymap "Embark" map nil nil 'no-paging)
         #'which-key--hide-popup-ignore-command)
       embark-become-indicator embark-action-indicator)
-  :config
+  :init
   (setq prefix-help-command #'embark-prefix-help-command)
 )
 

@@ -18,13 +18,12 @@
   (magit-log-arguments                   '("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256"))
   (magit-log-margin-show-committer-date  t)
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
+  (magit-todos-insert-after              '(bottom))
   :bind(
   ("C-x C-z" . magit-status)
   :map evil-normal-state-map
   ("gs"  . magit-status)
   )
-  :chords
-  ("md" . magit-status)
 )
 
 (use-package magit-todos

@@ -78,6 +78,7 @@ label:focus {
 
 #custom-gmail {
   background-color: #1c7d2f;
+    min-height: 40px;
 }
 
 #disk {
@@ -180,4 +181,8 @@ label:focus {
 
 #clock {
   background-color: #355325;
+}
+
+#window {
+  background-color: #464b43;
 }
