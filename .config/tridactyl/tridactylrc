@@ -28,6 +28,7 @@ bind --mode=normal n tab #
 bind --mode=normal } tabmove -1
 bind --mode=normal { tabmove +1
 bind --mode=normal yv hint -W mpvsafe
+bind --mode=normal yh hint -y
 
 bind --mode=insert <A-i> composite unfocus | mode normal
 " keymaps

@@ -99,4 +99,5 @@
 ;;; Commentary:
 ;; Local Variables:
 ;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; early-init.el ends here

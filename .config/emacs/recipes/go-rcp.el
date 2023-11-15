@@ -44,19 +44,10 @@
 (use-package godoctor
   :ensure t
 )
-(use-package flycheck-golangci-lint
-  :ensure t
-  :hook
-  (go-mode . flycheck-golangci-lint-setup)
-)
 
 (provide 'go-rcp)
 ;;; Commentary:
 ;; Local Variables:
 ;; byte-compile-warnings: (not unresolved free-vars)
 ;; End:
-;; go get -u github.com/alecthomas/gometalinter
-;; gometalinter --install
-;; go get -u github.com/rogpeppe/godef
-;; go get -u github.com/nsf/gocode
 ;;; go-rcp.el ends here

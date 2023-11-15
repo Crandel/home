@@ -15,6 +15,7 @@
       (vc-root-dir))))
   (consult-narrow-key ",")
   (consult--regexp-compiler consult--orderless-regexp-compiler)
+  (completion-in-region-function 'consult-completion-in-region)
   :preface
   (defun consult-narrow-left ()
     (interactive)

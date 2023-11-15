@@ -16,7 +16,8 @@
   :ensure t
   :after go
   :hook
-  (go-mode . flymake-golangci-load)
+  (go-mode    . flymake-golangci-load)
+  (go-ts-mode . flymake-golangci-load)
 )
 (require 'flycheck-rcp)
 
@@ -42,4 +43,5 @@
 ;;; Commentary:
 ;; Local Variables:
 ;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; flymake-rcp.el ends here

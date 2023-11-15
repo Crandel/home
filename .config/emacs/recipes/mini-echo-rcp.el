@@ -4,7 +4,6 @@
 (eval-when-compile (require 'use-package))
 (use-package mini-echo
   :ensure t
-  :vc (:fetcher github :repo Crandel/mini-echo.el)
   :custom-face
   (mini-echo-major-mode        ((t (:foreground "green"))))
   (mini-echo-minibuffer-window ((t nil)))

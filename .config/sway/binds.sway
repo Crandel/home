@@ -110,13 +110,13 @@ bindsym --to-code {
 
   # Switch workspaces via keys
   $mod+e workspace 1
-  $mod+o workspace 2
+  $mod+i workspace 2
   $mod+u workspace 3
   $mod+y workspace 4
 
   # move focused container to workspace via keys
   $mod+Shift+e move container to workspace 1
-  $mod+Shift+o move container to workspace 2
+  $mod+Shift+i move container to workspace 2
   $mod+Shift+u move container to workspace 3
   $mod+Shift+y move container to workspace 4
 
@@ -130,14 +130,14 @@ bindsym --to-code {
   $mod+F2      mode $power_mode
 
   # exit sway (logs you out of your session)
-  $mod+Shift+i exec $nag
+  $mod+Shift+o exec $nag
 
   # browser
   $mod+c         exec $browser
   $mod+Control+c exec $o_browser
 
   # mpc script
-  $mod+i exec menu-mpd.sh
+  $mod+o exec menu-mpd.sh
   XF86AudioNext exec mpd next
   XF86AudioPrev exec mpd prev
 

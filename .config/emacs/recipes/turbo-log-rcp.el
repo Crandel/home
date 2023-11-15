@@ -19,4 +19,5 @@
 ;;; Commentary:
 ;; Local Variables:
 ;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; turbo-log-rcp.el ends here

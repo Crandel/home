@@ -39,4 +39,5 @@
 ;;; Commentary:
 ;; Local Variables:
 ;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; awesome-tray-rcp.el ends here

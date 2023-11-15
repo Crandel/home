@@ -3,4 +3,4 @@
 --replace-in-metadata title "\"" ""
 --replace-in-metadata title "\/" ""
 -P /data/media/youtube
--o "%(playlist_index,autonumber)d_%(title).50s_%(id)s.%(ext)s"
+-o "%(title).50s_%(id)s.%(ext)s"

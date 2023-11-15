@@ -2,20 +2,28 @@
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
+;; (use-package journalctl-mode
+;;   :vc (:fetcher github :repo WJCFerguson/journalctl)
+;;   :bind
+;;   :bind (
+;;   ("C-c t" . journalctl)
+;;   :map evil-normal-state-map
+;;   ("gtt" . journalctl)
+;;   ("gtf" . jcm-full-message)
+;;   )
+;; )
+
 (use-package journalctl-mode
   :ensure t
-  :bind
   :bind (
-  ("C-c t" . journalctl-boot)
+  ("C-c t" . journalctl)
   :map evil-normal-state-map
-  ("gtt" . journalctl-boot)
-  ("gtu" . journalctl-unit)
-  ("gts" . journalctl-user-unit)
-  ("gta" . journalctl-add-opt)
-  ("gtr" . journalctl-remove-opt)
-  ("gte" . journalctl-edit-opts)
+  ("gtt" . journalctl)
   )
+  :hook
+  (journalctl-mode . turn-off-evil-mode)
 )
+
 (provide 'journalctl-rcp)
 
 ;;; Commentary:

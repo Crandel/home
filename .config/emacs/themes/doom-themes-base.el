@@ -1145,8 +1145,8 @@
     (orderless-match-face-3 :weight 'bold :foreground (doom-blend yellow  fg 0.6) :background (doom-blend yellow  bg 0.1))
     ;;;; org <built-in> <modes:org-mode>
     (org-archived                 :foreground doc-comments)
-    (org-block                    :background base3    :extend t)
-    (org-block-background         :background base3    :extend t)
+    (org-block                    :extend t)
+    (org-block-background         :extend t)
     (org-block-begin-line         :inherit 'org-block  :foreground comments)
     (org-block-end-line           :inherit 'org-block-begin-line)
     (org-checkbox                 :inherit 'org-todo)

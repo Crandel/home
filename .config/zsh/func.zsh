@@ -1,50 +1,50 @@
 project_folders="$PERS_DIR/projects"
-prj () {
+prj() {
   cd $project_folders
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-_prj () {
+_prj() {
   _path_files -/ -W $project_folders && return 0 || return 1
 }
 compdef _prj prj
 
 export BACKUP_DIR="$PERS_DIR/backup"
-bcp () {
+bcp() {
   cd $BACKUP_DIR
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-_backup () {
+_backup() {
   _path_files -W $BACKUP_DIR -/ && return 0 || return 1
 }
 compdef _backup bcp
 
-cf () {
+cf() {
   cd $HOME/.config
   if [ ! -z $1 ]; then
     cd $1
   fi
 }
-_config_dir () {
+_config_dir() {
   _path_files -W $HOME/.config -/ && return 0 || return 1
 }
 compdef _config_dir cf
 
 ## SWAP
-soff () {
+soff() {
   eval "$SUDO swapoff $(swapon --noheadings --show=NAME)"
 }
 
-son () {
+son() {
   eval "$SUDO swapon /swapfile"
 }
 ## END SWAP
 
 ## ARCHIVES
-extract () {
+extract() {
   if [ -f $1 ] ; then
     case $1 in
       *.tar.bz2)        tar xjf $1        ;;
@@ -66,7 +66,7 @@ extract () {
   fi
 }
 
-zipin () {
+zipin() {
   for f in $(ls -A);
     do
     if [ -f "$f" ]; then
@@ -117,7 +117,7 @@ hdmi_sound_off (){
   pactl --server "unix:$XDG_RUNTIME_DIR/pulse/native" set-card-profile 0 output:analog-stereo+input:analog-stereo
 }
 
-return_root () {
+return_root() {
   xhost si:localuser:root
 }
 
@@ -125,6 +125,17 @@ mkcd() {
   folder=$@
   mkdir -p $folder
   cd $folder
+}
+
+# Mount usb device
+mdev() {
+  dev=$1
+  $SUDO mount /dev/$dev $HOME/mnt
+}
+
+# Unmount usb device
+umdev() {
+  $SUDO umount -R $HOME/mnt
 }
 
 if [ -n "${WAYLAND_DISPLAY:-}" ] && (( ${+commands[wl-copy]} )) && (( ${+commands[wl-paste]} )); then
@@ -179,7 +190,7 @@ function git_current_branch() {
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
-drmin () {
+drmin() {
   for img in $(d images | rg -i 'none' | awk '{print $3}'); do
     docker rmi $img
   done
@@ -191,7 +202,7 @@ d_ip() {
   doc_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
   export DOCKER_HOST_IP=$doc_ip
 }
-setup_cargo () {
+setup_cargo() {
   rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
   rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
 }
