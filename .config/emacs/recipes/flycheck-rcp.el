@@ -10,12 +10,11 @@
   (flycheck-emacs-lisp-load-path       'inherit)
   (flycheck-highlighting-mode          'lines)
   (flycheck-indication-mode            'left-fringe)
-  (flycheck-scalastylerc               "~/scalastyle_config.xml")
   (flycheck-checker-error-threshold    2000)
-  ;; :hook
-  ;; (prog-mode . flycheck-mode)
-  ;; (web-mode  . flycheck-mode)
-  :bind ("C-c C-n" . flycheck-next-error)
+  :hook
+  (prog-mode . flycheck-mode)
+  (web-mode  . flycheck-mode)
+  :bind ("C-c n" . flycheck-next-error)
 )
 
 (use-package flycheck-golangci-lint

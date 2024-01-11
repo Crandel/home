@@ -6,7 +6,6 @@
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
@@ -43,7 +42,6 @@
 (require 'embark-rcp)
 (require 'elfeed-rcp)
 (require 'evil-rcp)
-(require 'flymake-rcp)
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)

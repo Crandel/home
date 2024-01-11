@@ -11,7 +11,7 @@
   (lsp-completion-show-detail             t)
   (lsp-completion-show-kind               t)
   (lsp-completion-sort-initial-results    t)
-  (lsp-diagnostics-provider               :flymake)
+  (lsp-diagnostics-provider               :flycheck)
   (lsp-enable-file-watchers               nil)
   (lsp-enable-imenu                       t)
   (lsp-enable-on-type-formatting          nil)
@@ -124,15 +124,29 @@
   (dap-auto-configure-features      '(sessions locals breakpoints expressions controls tooltip))
   (dap-auto-show-output             t)
   (dap-label-output-buffer-category t)
-  :bind(
-  :map evil-normal-state-map
-  ("gbb"  . go-dap-setup)
-  ("gbh"  . go-root-setup)
-  ("gbt"  . dap-breakpoint-toggle)
-  )
   :hook
   (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
-)
+  (go-ts-mode . (lambda ()
+                  (define-key evil-normal-state-local-map
+                              (kbd "gbb")   'go-dap-setup)
+                  (define-key evil-normal-state-local-map
+                              (kbd "gbh")   'go-root-setup)
+                  (define-key evil-normal-state-local-map
+                              (kbd "gbt")   'dap-breakpoint-toggle)
+                  ))
+  (python-ts-mode . (lambda()
+                      (define-key evil-normal-state-local-map
+                                  (kbd "gbp") 'run-python)
+                      (define-key evil-normal-state-local-map
+                                  (kbd "gbs") 'python-shell-send-statement)
+                      (define-key evil-normal-state-local-map
+                                  (kbd "gbf") 'python-shell-send-file)
+                      (define-key evil-normal-state-local-map
+                                  (kbd "gbr") 'python-shell-send-region)
+                      (define-key evil-normal-state-local-map
+                                  (kbd "gbb") 'python-shell-send-buffer)
+                      ))
+  )
 
 (use-package f
   :ensure t

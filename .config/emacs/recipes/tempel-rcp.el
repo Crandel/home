@@ -16,8 +16,8 @@
       (indent-for-tab-command)))
   :init
   (add-to-list 'completion-at-point-functions #'tempel-complete)
-  :bind (("M-+" . tempel-complete) ;; Alternative tempel-expand
-         ("M-*" . tempel-insert)
+  :bind (("C-t" . tempel-complete) ;; Alternative tempel-expand
+         ("M-t" . tempel-insert)
          ("<tab>" . vd/tab-indent-or-complete))
 )
 

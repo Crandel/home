@@ -66,7 +66,7 @@
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
 (require 'evil-rcp)
-(require 'flymake-rcp)
+(require 'flycheck-rcp)
 (require 'git-rcp)
 (require 'gptel-rcp)
 (require 'helpful-rcp)

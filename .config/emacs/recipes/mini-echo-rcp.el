@@ -12,10 +12,10 @@
                                         "time"
                                         "buffer-position"
                                         "major-mode"
-                                        "lsp-mode"
-                                        "flymake"
+                                        "flycheck"
                                         "vcs"
                                         "buffer-name"
+                                        "macro"
                                         "evil"
                                         )
                                 :short (
@@ -28,9 +28,17 @@
   (mini-echo-buffer-status-style 'both)
   (mini-echo-window-divider-args '(t 1 1))
   (mini-echo-update-interval 0.3)
+  :init
+  (setq mini-echo-rules
+      '((elfeed-search-mode :long (("elfeed"   . 2)))
+        (go-ts-mode         :long (("lsp-mode" . 4)))
+        (rust-ts-mode       :long (("lsp-mode" . 4)))
+        (c-ts-mode          :long (("lsp-mode" . 4)))
+        (python-ts-mode     :long (("lsp-mode" . 4)))
+        ))
   :config
   (mini-echo-mode 1)
-)
+  )
 
 (provide 'mini-echo-rcp)
 ;;; Commentary:

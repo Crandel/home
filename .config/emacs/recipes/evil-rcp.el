@@ -147,12 +147,14 @@ The return value is the yanked text."
     (kbd "M-p") nil
     (kbd "M-n") nil
     (kbd "C-p") nil)
+  (eval-after-load "evil-mc"
+  '(progn
+     (define-key evil-normal-state-map (kbd "gr") nil)
+     (define-key evil-visual-state-map (kbd "gr") nil)
+     (define-key evil-motion-state-map (kbd "gr") nil)
+     ))
   :bind (
   ("C-c q" . evil-mc-undo-all-cursors)
-  :map evil-motion-state-map
-  ("grq" . evil-mc-undo-all-cursors)
-  :map evil-normal-state-map
-  ("grq" . evil-mc-undo-all-cursors)
   )
   :hook
   (evil-local-mode . evil-mc-mode)
@@ -185,13 +187,13 @@ The return value is the yanked text."
   :config
   (delete 'evil-mc evil-collection-mode-list)
   (evil-collection-init)
-  ;; (evil-collection-translate-key
-  ;;   'normal
-  ;;   '(dired-mode-map dired-sidebar-mode-map)
-  ;;   "H" "^"
-  ;;   ;; Set this to t to make this swap the keys everytime
-  ;;   ;; this expression is evaluated.
-  ;;   :destructive t)
+  (evil-collection-translate-key
+    'normal
+    '(dired-mode-map dired-sidebar-mode-map)
+    "H" "^"
+    ;; Set this to t to make this swap the keys everytime
+    ;; this expression is evaluated.
+    :destructive t)
 )
 
 (use-package evil-goggles

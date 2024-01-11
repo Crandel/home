@@ -2,13 +2,11 @@
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
-(use-package python-mode
-  :ensure t
-  :defer t
-  :mode ("\\.py\\'" . python-mode)
-  :interpreter ("python" . python-mode)
+(use-package python-ts-mode
+  :mode ("\\.py\\'" . python-ts-mode)
+  :interpreter ("python" . python-ts-mode)
   :commands (my-merge-imenu imenu-create-index-function)
-  :init
+  :preface
   (defun insert_pdb ()
     (interactive)
     (progn
@@ -22,11 +20,6 @@
       (append mode-imenu custom-imenu)))
   (defvar my/python-mode-map
     (let ((map (make-keymap)))
-     (define-key map (kbd "p") 'run-python)
-     (define-key map (kbd "s") 'python-shell-send-statement)
-     (define-key map (kbd "f") 'python-shell-send-file)
-     (define-key map (kbd "r") 'python-shell-send-region)
-     (define-key map (kbd "b") 'python-shell-send-buffer)
       map)
     "Custom keymap for python major mode")
   :custom
@@ -36,13 +29,8 @@
   (tab-width                                  4)
   (python-indent                              4)
   (imenu-create-index-function                'my-merge-imenu)
-  :hook
-  (evil-mode . (lambda()
-                   (evil-define-key* '(normal visual) python-mode-map
-                     (kbd "gf") my/python-mode-map)
-                   ))
   :bind
-  (:map python-mode-map
+  (:map python-ts-mode-map
         ("RET" . newline-and-indent)
         ("M-RET" . newline)
         ("C-c C-b" . insert_pdb))
@@ -52,14 +40,6 @@
 (use-package pip-requirements
   :ensure t
   :defer t
-)
-(use-package lsp-pyright
-  :ensure t
-  :ensure-system-package pyright
-  :custom
-  (lsp-pyright-disable-organize-imports nil)
-  (lsp-pyright-auto-import-completions  t)
-  (lsp-pyright-auto-search-paths        nil)
 )
 
 (provide 'python-rcp)

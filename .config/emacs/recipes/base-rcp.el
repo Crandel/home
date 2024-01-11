@@ -63,7 +63,7 @@
   (ring-bell-function         'ignore)
   (fast-but-imprecise-scrolling    t "Scrolling settings")
   (scroll-conservatively           most-positive-fixnum "Scrolling settings")
-  (scroll-margin                   1000 "Scrolling settings")
+  (scroll-margin                   100 "Scrolling settings")
   (scroll-step                     1 "Scrolling settings")
   (scroll-preserve-screen-position t "Scrolling settings")
   (size-indication-mode       t)
@@ -219,6 +219,10 @@
   (vc-make-backup-files           t   "Emacs never backs up versioned files")
   (kept-new-versions              5   "Number of newest versions to keep.")
   (kept-old-versions              0   "Number of oldest versions to keep.")
+)
+
+(use-package flyspell-mode
+  :defer 1
 )
 
 (use-package fringe
@@ -402,6 +406,8 @@
   (global-subword-mode t)
 )
 
+(use-package tramp
+  :disabled)
 
 (use-package windmove
   :defer t

@@ -52,24 +52,6 @@
   ("C-c ]" . git-gutter:previous-hunk)
 )
 
-(use-package blamer
-  :ensure t
-  :bind (
-  ("C-c c" . blamer-show-commit-info)
-  :map evil-normal-state-map
-  ("grc" . blamer-show-commit-info)
-  )
-  :defer 20
-  :custom
-  (blamer-idle-time 0.3)
-  (blamer-min-offset 70)
-  :custom-face
-  (blamer-face ((t :foreground "#F4FA58"
-                   :background unspecified
-                   :height 140
-                   :italic t)))
-)
-
 (provide 'git-rcp)
 ;;; Commentary:
 ;; Local Variables:

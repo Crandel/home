@@ -33,20 +33,20 @@
   (corfu-indexed-mode)
   (corfu-history-mode)
   (corfu-echo-mode)
-  (advice-add 'corfu--post-command :around #'vd/corfu-disable-quit-with-orderless-advice)
+  (advice-add 'corfu--auto-post-command :around #'vd/corfu-disable-quit-with-orderless-advice)
 )
 
 (use-package cape
   :ensure t
-  :functions cape-super-capf cape-file
+  :functions cape-capf-super cape-file
   :preface
   (defun vd/setup-lsp-completion ()
-    (setq-local completion-at-point-functions (list (cape-super-capf #'tempel-complete
+    (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
                                                                      #'lsp-completion-at-point)
                                                     #'cape-file
                                                     #'cape-dabbrev)))
   (defun vd/setup-elisp-completion ()
-    (setq-local completion-at-point-functions (list (cape-super-capf #'tempel-complete
+    (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
                                                                      #'elisp-completion-at-point)
                                                     #'cape-file
                                                     #'cape-dabbrev)))

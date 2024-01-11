@@ -73,7 +73,6 @@
   :bind (
   ("C-s"   . consult-line)
   ("C-c s" . consult-multi-occur)
-  ("C-c n" . consult-flymake)
   ("C-c g" . consult-ripgrep)
   ("C-c C-g" . consult-ripgrep)
   ("C-h C-m" . consult-minor-mode-menu)
@@ -90,11 +89,11 @@
   )
 )
 
-;; (use-package consult-flycheck
-;;   :ensure t
-;;   :bind
-;;   ("C-c n" . consult-flycheck)
-;; )
+(use-package consult-flycheck
+  :ensure t
+  :bind
+  ("C-c n" . consult-flycheck)
+)
 
 (use-package consult-lsp
   :ensure t
