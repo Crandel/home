@@ -31,7 +31,6 @@
   (org-src-tab-acts-natively        t)
   (org-src-tab-acts-natively        t)
   (org-src-window-setup             'current-window "edit in current window")
-  (truncate-lines                   t)
   (word-wrap                        nil)
   :config
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
@@ -41,12 +40,11 @@
   (remove-hook 'org-cycle-hook
               #'org-optimize-window-after-visibility-change)
   (org-babel-do-load-languages 'org-babel-load-languages vd/org-babel-load-languages)
-  :hook
-  (evil-local-mode . (lambda ()
-    (evil-global-set-key 'normal "grt" 'vd/org-toggle-emphasis)
-    (evil-global-set-key 'normal "gri" 'org-insert-structure-template)
-    (evil-global-set-key 'normal "gra" 'org-babel-remove-result)
-  ))
+  :bind
+  ("C-c o o" . vd/org-toggle-emphasis)
+  ("C-c o i" . org-insert-structure-template)
+  ("C-c o a" . org-babel-remove-result)
+
 )
 
 (use-package org-tempo

@@ -7,9 +7,10 @@
 (setq gc-cons-threshold #x40000000)
 
 (setq-default user-emacs-directory (expand-file-name "~/.cache/emacs/")
-      package-user-dir (expand-file-name "packages" user-emacs-directory)
-      url-history-file (expand-file-name "url/history" user-emacs-directory)
-      custom-file (expand-file-name "custom.el" user-emacs-directory))
+  emacs-config-directory (file-name-directory load-file-name)
+  package-user-dir (expand-file-name "packages" user-emacs-directory)
+  url-history-file (expand-file-name "url/history" user-emacs-directory)
+  custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file :noerror)
 
 ;; Native compilation settings
@@ -26,9 +27,10 @@
   )
 
 ;; Themes
-(add-to-list 'custom-theme-load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
-(load-theme 'tango-dark t)
-(add-to-list 'load-path (expand-file-name "themes/" (file-name-directory load-file-name)))
+(add-to-list 'custom-theme-load-path (expand-file-name "themes/" emacs-config-directory))
+(load-theme  'tango-dark t)
+(add-to-list 'load-path (expand-file-name "themes/" emacs-config-directory))
+(add-to-list 'load-path (expand-file-name "recipes/" emacs-config-directory))
 
 (setq-default byte-compile-warnings     '(not obsolete)
       frame-resize-pixelwise    t  ;; Default frame configuration: full screen

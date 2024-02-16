@@ -13,15 +13,14 @@
   (elfeed-search-filter "@4-week-ago +unread ")
   :bind
   (:map elfeed-search-mode-map
-        ("a" . elfeed-update))
-        ("C-q" . save-buffers-kill-terminal)
+        ("a"   . elfeed-update)
+        ("u"   . elfeed-search-untag-all-unread)
+        ("m"   . elfeed-search-browse-url)
+        ("C-q" . save-buffers-kill-terminal))
   :config
   (load (expand-file-name "feeds.el" user-emacs-directory))
   (elfeed-update)
   (run-with-timer 0 (* 60 15) 'elfeed-update)
-  :hook
-  (evil-leader-mode . (lambda ()
-                        (evil-leader/set-key "<SPC>" 'elfeed-search-browse-url)))
 )
 
 (use-package elfeed-summary
@@ -30,19 +29,15 @@
   :commands (elfeed-summary)
   :custom
   (elfeed-summary-filter-by-title t)
+  :config
+  (elfeed-summary)
 )
 
 (use-package elfeed-goodies
   :ensure t
-  :after (elfeed evil-collection)
+  :after elfeed
   :config
   (elfeed-goodies/setup)
-  (evil-collection-define-key '(normal visual) 'elfeed-search-mode-map
-    "J" 'elfeed-goodies/split-show-next
-    "K" 'elfeed-goodies/split-show-prev)
-  (evil-collection-define-key '(normal visual) 'elfeed-show-mode-map
-    "J" 'elfeed-goodies/split-show-next
-    "K" 'elfeed-goodies/split-show-prev)
   :custom
   (elfeed-goodies/entry-pane-size 0.5)
 )

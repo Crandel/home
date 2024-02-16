@@ -97,6 +97,13 @@ See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
     (indent-according-to-mode)))
 
 ;;;###autoload
+(defun vd/save-all-buffers ()
+  "Save all buffers."
+  (interactive)
+  (save-some-buffers t)
+)
+
+;;;###autoload
 (defun vd/kill-emacs-with-save ()
   "Kill terminal."
   (interactive)
@@ -113,7 +120,7 @@ See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
 ;;;###autoload
 (defun vd/find-in-directory (&optional dir)
   "Find files in DIR."
-  (interactive "p")
+  (interactive)
   (let ((dir (or dir "~")))
         (setq default-directory dir)
         (call-interactively 'find-file)
@@ -123,7 +130,7 @@ See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
 ;;;###autoload
 (defun vd/find-in-config ()
   "Find in config directory."
-  (interactive "p")
+  (interactive)
   (vd/find-in-directory "~/.config/")
 )
 ;;;###autoload
@@ -132,9 +139,9 @@ See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
 If PATH is not specified, default to the current buffer's file.
 If FORCE-P, delete without confirmation."
   (interactive
-   (list (buffer-file-name (buffer-base-buffer))
-         current-prefix-arg))
-  (let* ((path (or path (buffer-file-name (buffer-base-buffer))))
+  (list (buffer-file-name (buffer-base-buffer))
+        current-prefix-arg))
+    (let* ((path (or path (buffer-file-name (buffer-base-buffer))))
          (short-path (abbreviate-file-name path)))
     (unless (and path (file-exists-p path))
       (user-error "Buffer is not visiting any file"))

@@ -7,14 +7,22 @@
   :mode "\\.go\\'"
   :preface
   (defun vd/go-lsp-start()
-    (define-key go-ts-mode-map
-                ["RET"] 'newline-and-indent)
-    (define-key go-ts-mode-map
-                ["M-RET"] 'newline)
     (add-hook 'before-save-hook #'lsp-format-buffer t t)
     (add-hook 'before-save-hook #'lsp-organize-imports t t)
     (lsp-deferred)
     )
+  :bind
+  (:map go-ts-mode-map
+    ("C-c g b" . go-dap-setup)
+    ("C-c g h" . go-root-setup)
+    ("C-c g t" . dap-breakpoint-toggle)
+    ("C-c g a" . treesit-beginning-of-defun)
+    ("C-c g e" . treesit-end-of-defun)
+    ("C-c g i" . prog-indent-sexp)
+    ("RET"     . newline-and-indent)
+    ("M-RET"   . newline)
+   )
+
   :custom
   (go-ts-mode-indent-offset 4)
   :config

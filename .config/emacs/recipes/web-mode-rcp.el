@@ -10,7 +10,6 @@
   ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)
   ("\\.gotmpl\\'" . web-mode)
-  ("\\.tmpl\\'"   . web-mode)
   ("\\.gtpl\\'"   . web-mode)
   ("\\.vue\\'"    . web-mode)
   ("\\german_lang/index.html\\'" . mhtml-mode)
@@ -20,7 +19,7 @@
   (web-mode-engines-alist '(
                             ("django" . "\\.html\\'")
                             ("razor"  . "\\.scala.html\\'")
-                            ("go"     . "\\.\\(gtpl\\|tmpl\\)'")
+                            ("go"     . "\\.\\gtpl\\'")
                             ("jsx"    . "\\.js\\'")))
   (web-mode-enable-current-element-highlight   t)
   (web-mode-enable-block-face                  t)

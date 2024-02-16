@@ -6,13 +6,12 @@
 (use-package chezmoi
   :ensure t
   :defer 2
-  :functions (chezmoi-write chezmoi-find)
+  :commands (chezmoi-write chezmoi-find)
   :custom
   (chezmoi-template-display-p t)
-  :hook
-  (evil-mode . (lambda ()
-    (evil-global-set-key 'normal "grw" 'chezmoi-write)
-    (evil-global-set-key 'normal "grf" 'chezmoi-find)))
+  :bind
+  ("C-c t w" . chezmoi-write)
+  ("C-c t f" . chezmoi-find)
 )
 
 (provide 'chezmoi-rcp)

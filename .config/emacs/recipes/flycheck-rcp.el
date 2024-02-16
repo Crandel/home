@@ -20,7 +20,7 @@
 (use-package flycheck-golangci-lint
   :ensure t
   :hook
-  (go-mode . flycheck-golangci-lint-setup)
+  (go-ts-mode . flycheck-golangci-lint-setup)
 )
 
 (use-package flycheck-rust

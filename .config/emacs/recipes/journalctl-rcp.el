@@ -2,26 +2,12 @@
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
-;; (use-package journalctl-mode
-;;   :vc (:fetcher github :repo WJCFerguson/journalctl)
-;;   :bind
-;;   :bind (
-;;   ("C-c t" . journalctl)
-;;   :map evil-normal-state-map
-;;   ("gtt" . journalctl)
-;;   ("gtf" . jcm-full-message)
-;;   )
-;; )
-
 (use-package journalctl-mode
   :ensure t
+  :commands journalctl
   :bind (
-  ("C-c t" . journalctl)
-  :map evil-normal-state-map
-  ("gtt" . journalctl)
+  ("C-c t j" . journalctl)
   )
-  :hook
-  (journalctl-mode . turn-off-evil-mode)
 )
 
 (provide 'journalctl-rcp)

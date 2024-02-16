@@ -21,7 +21,7 @@
   box-shadow: inset 0 -3px #FFFFFF;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
   background-color: #355325;
   box-shadow: inset 0 -3px #FFFFFF;
 }
@@ -30,22 +30,22 @@
   background-color: #EB4D4B;
 }
 
-#mode {
+#submap {
   background-color: #FF0000;
 }
 
 #workspaces,
-#tray,
-#mode,
-#custom-gmail,
+#submap,
+#systemd-failed-units,
 #disk,
 #cpu,
 #memory,
 #battery,
-#pulseaudio,
+#wireplumber,
 #backlight,
 #network,
 #language,
+#tray,
 #clock {
   margin: 0 1px;
   color: #FFFFFF
@@ -72,13 +72,14 @@ label:focus {
   background-color: #000000;
 }
 
-#tray {
-  background-color: transparent;
+
+#window {
+  background-color: #464b43;
 }
 
 #custom-gmail {
   background-color: #1c7d2f;
-    min-height: 40px;
+  min-height: 40px;
 }
 
 #disk {
@@ -147,12 +148,32 @@ label:focus {
   animation-direction: alternate;
 }
 
-#pulseaudio {
+#bluetooth {
+  background-color: #0B0B3B
+}
+
+#bluetooth.warning {
+  background-color: orange;
+}
+
+#bluetooth.critical {
+  background-color: red;
+}
+
+#pulseaudio.output {
   background-color: #29331E;
 }
 
-#pulseaudio.muted {
-  background-color: #90B1B1;
+#pulseaudio.input {
+  background-color: #29333E;
+}
+
+#pulseaudio.output.muted {
+  background-color : #d79921;
+}
+
+#pulseaudio.input.source-muted{
+  background-color : #d79925;
 }
 
 #backlight {
@@ -183,6 +204,7 @@ label:focus {
   background-color: #355325;
 }
 
-#window {
-  background-color: #464b43;
+
+#tray {
+  background-color: transparent;
 }

@@ -23,10 +23,10 @@ mode "resize" {
     Up           resize shrink height 30 px or 30 ppt
     Right        resize grow   width  30 px or 30 ppt
 
-    Shift+Left   resize shrink width  30  px or 30 ppt
-    Shift+Down   resize grow   height 30  px or 30 ppt
-    Shift+Up     resize shrink height 30  px or 30 ppt
-    Shift+Right  resize grow   width  30  px or 30 ppt
+    Shift+Left   resize shrink width  5  px or 5 ppt
+    Shift+Down   resize grow   height 5  px or 5 ppt
+    Shift+Up     resize shrink height 5  px or 5 ppt
+    Shift+Right  resize grow   width  5  px or 5 ppt
 
 
     # back to normal: Enter or Escape

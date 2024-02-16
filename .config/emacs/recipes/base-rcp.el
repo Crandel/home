@@ -77,41 +77,44 @@
   ;; (uniquify-buffer-name-style 'reverse)
   ;; (uniquify-min-dir-content   3)
   :bind
-  ("M-k" . previous-line)
-  ("M-h" . backward-char)
-  ("M-j" . next-line)
-  ("C-c k" . kill-sentence)
-  ("M-l" . forward-char)
-  ("C-c l" . downcase-word)
-  ("M-o" . forward-word)
-  ("M-u" . backward-word)
-  ("C-c u" . upcase-word)
-  ("C-v" . yank)
-  ("<Copy>" . kill-ring-save)
-  ("<Paste>" . yank)
-  ("C-y" . scroll-up-command)
-  ("RET" . newline)
-  ("M-RET" . newline-and-indent)
-  ("C-c b" . (lambda()
-               (interactive)
-               (revert-buffer t t)))
-  ("C-x a s" . sort-lines)
-  ("C-x a d" . delete-trailing-whitespace)
-  ;; keybindings from functions_my.el file
-  ([M-S-up] . vd/move-line-up)
-  ([M-S-down] . vd/move-line-down)
-  ("C-x C-d" . vd/duplicate-line)
+  ("M-h"      . backward-char)
+  ("M-l"      . forward-char)
+  ("C-k"      . backward-paragraph)
+  ("C-j"      . forward-paragraph)
+  ("C-v"      . yank)
+  ("<Copy>"   . kill-ring-save)
+  ("<Paste>"  . yank)
+  ("C-y"      . scroll-up-command)
+  ("RET"      . newline)
+  ("M-RET"    . newline-and-indent)
+  ("C-c d d"  . delete-other-windows)
+  ("C-c d t"  . split-window-below)
+  ("C-c d v"  . split-window-right)
+  ("C-c d s"  . vd/save-all-buffers)
+  ("C-c d b"  . kill-buffer)
+  ("C-c d c"  . comment-dwim)
+  ("C-c f d"  . vd/duplicate-line)
+  ("C-c f l"  . vd/copy-line)
+  ("C-c f r"  . (lambda()
+                  (interactive)
+                  (revert-bluffer t t)))
+  ("C-c f s"  . sort-lines)
+  ("C-c f w"  . delete-trailing-whitespace)
+  ("C-c f c"  . vd/copy-word)
+  ("C-c f x"  . vd/delete-line)
+  ("C-c f f"  . find-file)
+  ("C-b"      . list-buffers)
+  ("C-c b"    . list-buffers)
+  ("C-c q"    . vd/kill-emacs-with-save)
   ([remap list-buffers] . ibuffer-list-buffers) ;; C-x C-b by default
-  ("C-x b" . ibuffer)
-  ("C-c C-k" . vd/copy-line)
-  ("C-c C-w" . vd/copy-word)
-  ("C-d" . vd/delete-line)
-  ("C-o" . vd/open-next-line)
-  ("C-x C-x" . vd/kill-emacs-with-save)
-  ("C-c o" . vd/open-previous-line)
+  ("C-x b"    . ibuffer)
+  ("C-o"      . vd/open-next-line)
+  ("C-O"      . vd/open-previous-line)
+  ([M-S-down] . vd/move-line-down)
+  ([M-S-up]   . vd/move-line-up)
   :hook
   (minibuffer-setup . cursor-intangible-mode)
-  (prog-mode . vd/highlight-todos)
+  (prog-mode  . vd/highlight-todos)
   (after-save . executable-make-buffer-file-executable-if-script-p) ;; Make shebang (#!) file executable when saved
 )
 
@@ -129,12 +132,6 @@
   (compilation-always-kill     t)
   (compilation-disable-input   t)
   (compilation-window-height   10)
-)
-
-(use-package dabbrev
-  ;; Swap M-/ and C-M-/
-  :bind (("M-/" . dabbrev-completion)
-         ("C-M-/" . dabbrev-expand))
 )
 
 (use-package delsel
@@ -195,6 +192,10 @@
                           (40 . 41)
                           (60 . 62)))
   (electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+)
+
+(use-package emacs-lisp-mode
+  :mode ("\\.el\\'" "\\.el.tmpl\\'")
 )
 
 (use-package files
@@ -414,6 +415,11 @@
   :ensure nil
   :init
   (windmove-default-keybindings 'meta)
+  :bind
+  ("C-c d h" . windmove-left)
+  ("C-c d l" . windmove-right)
+  ("C-c d j" . windmove-down)
+  ("C-c d k" . windmove-up)
 )
 
 (use-package winner-mode

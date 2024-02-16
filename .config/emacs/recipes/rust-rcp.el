@@ -2,8 +2,7 @@
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
-(use-package rust-mode
-  :ensure t
+(use-package rust-ts-mode
   :defer t
   :mode "\\.rs\\'"
   :custom

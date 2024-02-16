@@ -48,31 +48,24 @@
   ([remap xref-find-apropos]     . lsp-find-declaration)
   ("C-."                         . lsp-find-implementation)
   )
-  :hook ((rust-mode . (lambda()
-                        (setq-default lsp-rust-server                              'rust-analyzer
-                                      lsp-rust-analyzer-server-display-inlay-hints t
-                                      lsp-semantic-tokens-enable                   nil)
-                        (lsp-deferred)
-                        ))
-         (rust-ts-mode . (lambda()
+  :hook ((rust-ts-mode . (lambda()
                            (setq-default lsp-rust-server                              'rust-analyzer
                                          lsp-rust-analyzer-server-display-inlay-hints t
                                          lsp-semantic-tokens-enable                   nil)
                            (lsp-deferred)
                            ))
-         (c++-mode       . lsp-deferred)
          (c++-ts-mode    . lsp-deferred)
-         (c-mode         . lsp-deferred)
          (c-ts-mode      . lsp-deferred)
          (java-mode      . lsp-deferred)
-         (js2-mode       . lsp-deferred)
+         (js-ts-mode       . lsp-deferred)
          (kotlin-mode    . lsp-deferred)
          (scala-mode     . lsp-deferred)
          (terraform-mode . lsp-deferred)
          (sql-mode       . lsp-deferred)
          ;; (vimrc-mode     . lsp-deferred)
-         ;; (yaml-mode      . lsp-deferred)
-         ;; (sh-mode        . lsp-deferred)
+         (toml-ts-mode   . lsp-deferred)
+         (yaml-ts-mode   . lsp-deferred)
+         (bash-ts-mode   . lsp-deferred)
          )
 )
 
@@ -88,6 +81,7 @@
   (lsp-ui-doc-show-with-cursor        t)
   (lsp-ui-doc-show-with-mouse         nil)
   (lsp-ui-peek-show-directory         t)
+  (lsp-ui-peek-enable                 t)
   (lsp-ui-sideline-enable             nil)
   (lsp-ui-sideline-show-code-actions  nil)
   (lsp-ui-sideline-show-hover         nil)
@@ -95,8 +89,6 @@
   (:map lsp-ui-mode-map
         ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
         ([remap xref-find-references]  . lsp-ui-peek-find-references)
-        ([remap xref-go-back]          . lsp-ui-peek-jump-backward)
-        ([remap xref-go-forward]       . lsp-ui-peek-jump-forward)
         ("C-."                         . lsp-ui-peek-find-implementation)
         )
 )
@@ -126,26 +118,6 @@
   (dap-label-output-buffer-category t)
   :hook
   (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
-  (go-ts-mode . (lambda ()
-                  (define-key evil-normal-state-local-map
-                              (kbd "gbb")   'go-dap-setup)
-                  (define-key evil-normal-state-local-map
-                              (kbd "gbh")   'go-root-setup)
-                  (define-key evil-normal-state-local-map
-                              (kbd "gbt")   'dap-breakpoint-toggle)
-                  ))
-  (python-ts-mode . (lambda()
-                      (define-key evil-normal-state-local-map
-                                  (kbd "gbp") 'run-python)
-                      (define-key evil-normal-state-local-map
-                                  (kbd "gbs") 'python-shell-send-statement)
-                      (define-key evil-normal-state-local-map
-                                  (kbd "gbf") 'python-shell-send-file)
-                      (define-key evil-normal-state-local-map
-                                  (kbd "gbr") 'python-shell-send-region)
-                      (define-key evil-normal-state-local-map
-                                  (kbd "gbb") 'python-shell-send-buffer)
-                      ))
   )
 
 (use-package f

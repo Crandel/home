@@ -190,29 +190,39 @@ command! cmp : if expand('%%c') == expand('%%f')
 " ------------------------------------------------------------------------------
 map <space> <nop>
 
-nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>  " Open editor to edit vifmrc and apply settings after returning to vifm
+" Open editor to edit vifmrc and apply settings after returning to vifm
+nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>
 nnoremap <space>a :rename<cr>
-nnoremap <space>b :file &<cr> " Open file in the background using its default program
+" Open file in the background using its default program
+nnoremap <space>b :file &<cr>
 nnoremap <space>c :cp<cr>
 nnoremap <space>d :delete<cr>
-nnoremap <space>e :mkcd " Make directory and cd into
+" Make directory and cd into
+nnoremap <space>e :mkcd
 nnoremap <space>i :cd %D<cr>
 nnoremap <space>m :mv<cr>
 nnoremap <space>s :FZFfind<cr>
-nnoremap <space>t :!alacritty &<cr>  " Open console in current directory
-nnoremap <space>w :set wrap!<cr>  " Toggle wrap setting on <space>w key
+" Open console in current directory
+nnoremap <space>t :!alacritty &<cr>
+" Toggle wrap setting on <space>w key
+nnoremap <space>w :set wrap!<cr>
 
 
 nnoremap t tj
 
-nnoremap s :shell<cr> " Start shell in current directory
-nnoremap S :sort<cr> " Display sorting dialog
-nnoremap w :view<cr> " Toggle visibility of preview window
-vnoremap w :view<cr>gv
-nnoremap o :!emacs -nw %f<cr> " Open file in existing instance of emacs
+" Start shell in current directory
+nnoremap s :shell<cr>
+" Display sorting dialog
+nnoremap S :sort<cr>
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+" Open file in existing instance of emacs
+nnoremap o :!emacs -nw %f<cr>
 
-nnoremap gb :file &<cr> " Open file in the background using its default program
-nnoremap ge :mkcd " Make directory and cd into
+" Open file in the background using its default program
+nnoremap gb :file &<cr>
+" Make directory and cd into
+nnoremap ge :mkcd
 nnoremap gc :copy<cr>
 nnoremap gm :move<cr>
 nnoremap gd :delete<cr>
@@ -570,10 +580,10 @@ fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
 
 if executable('wezterm')
     fileviewer *.png,*.jpeg,*.jpg,*.heic
-      \ wezterm imgcat --width %pw --height %ph %c:p %pd
+      \ wezterm imgcat --width %pw --height %ph %c %N:p %pd
 elseif executable('viu')
     fileviewer *.png,*.jpeg,*.jpg,*.heic
-      \ env -u COLORTERM viu -w %pw -h %ph -s %c
+      \ env -u COLORTERM viu -w %pw -h %ph -s %c %N
 endif
 
 

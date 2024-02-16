@@ -1,0 +1,6 @@
+colorscheme gruvbox-dark
+
+add-highlighter global/ number-lines -hlcursor
+add-highlighter global/ show-whitespaces
+
+set global tabstop 4

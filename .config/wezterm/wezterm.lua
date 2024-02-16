@@ -90,6 +90,8 @@ config.enable_scroll_bar = true
 
 config.enable_wayland = true
 
+config.front_end = "OpenGL"
+
 config.font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"})
 
 config.font_size = 20.0
@@ -148,15 +150,19 @@ config.keys = {
   {key="z"          ,mods="CTRL|SHIFT" ,action=act.SplitVertical { domain = "CurrentPaneDomain" } },
   {key="t"          ,mods="CTRL"       ,action=act.SpawnTab "CurrentPaneDomain" },
   {key="w"          ,mods="CTRL"       ,action=act.CloseCurrentPane { confirm = true } },
-  {key="z"          ,mods="CTRL"       ,action=act.Nop },
   {key="z"          ,mods="ALT"        ,action=act.TogglePaneZoomState },
+  {key=","          ,mods="CTRL|ALT"   ,action=act.DecreaseFontSize },
+  {key="."          ,mods="CTRL|ALT"   ,action=act.IncreaseFontSize },
   -- Disable standart annoying keybindings
+  {key="z"          ,mods="CTRL"       ,action=act.DisableDefaultAssignment },
   {key="-"          ,mods="CTRL|SHIFT" ,action=act.DisableDefaultAssignment },
   {key="-"          ,mods="CTRL"       ,action=act.DisableDefaultAssignment },
+  {key="-"          ,mods="SUPER"      ,action=act.DisableDefaultAssignment },
   {key="_"          ,mods="CTRL|SHIFT" ,action=act.DisableDefaultAssignment },
   {key="_"          ,mods="CTRL"       ,action=act.DisableDefaultAssignment },
   {key="="          ,mods="CTRL|SHIFT" ,action=act.DisableDefaultAssignment },
   {key="="          ,mods="CTRL"       ,action=act.DisableDefaultAssignment },
+  {key="="          ,mods="SUPER"      ,action=act.DisableDefaultAssignment },
   {key="+"          ,mods="CTRL|SHIFT" ,action=act.DisableDefaultAssignment },
   {key="+"          ,mods="CTRL"       ,action=act.DisableDefaultAssignment },
   {key="Backspace"  ,mods="CTRL"       ,action=act.DisableDefaultAssignment },

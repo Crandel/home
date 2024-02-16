@@ -5,10 +5,11 @@
 (use-package editorconfig
   :ensure t
   :hook
-  (python-mode   . editorconfig-mode)
-  (yaml-mode     . editorconfig-mode)
-  (sh-mode       . editorconfig-mode)
-  (markdown-mode . editorconfig-mode)
+  (python-ts-mode   . editorconfig-mode)
+  (go-ts-mode       . editorconfig-mode)
+  (yaml-ts-mode     . editorconfig-mode)
+  (sh-ts-mode       . editorconfig-mode)
+  (markdown-mode    . editorconfig-mode)
 )
 
 (provide 'editorconfig-rcp)

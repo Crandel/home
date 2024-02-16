@@ -45,7 +45,6 @@
   )
 )
 
-(add-to-list 'load-path (expand-file-name "recipes/" (file-name-directory load-file-name)))
 ;; (debug-watch 'completion-at-point-functions)
 (require 'functions_my)
 
@@ -57,7 +56,7 @@
 (require 'mini-echo-rcp)
 
 ;; Rest packages
-(require 'avy-rcp)
+;; (require 'avy-rcp)
 (require 'chezmoi-rcp)
 (require 'consult-rcp)
 (require 'corfu-rcp)
@@ -65,7 +64,6 @@
 (require 'dired-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
-(require 'evil-rcp)
 (require 'flycheck-rcp)
 (require 'git-rcp)
 (require 'gptel-rcp)
@@ -73,12 +71,15 @@
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)
 (require 'journalctl-rcp)
-(require 'js-mode-rcp)
+(require 'js-rcp)
+(require 'json-rcp)
 (require 'kotlin-rcp)
 (require 'lsp-mode-rcp)
 (require 'lua-rcp)
 (require 'marginalia-rcp)
 (require 'markdown-mode-rcp)
+(require 'meow-rcp)
+(require 'monkeytype-rcp)
 (require 'multi-compile-rcp)
 (require 'orderless-rcp)
 (require 'org-mode-rcp)

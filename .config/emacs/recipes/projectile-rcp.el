@@ -18,8 +18,6 @@
   (projectile-mode)
   :bind(
   ("C-c p" . projectile-command-map)
-  :map evil-normal-state-map
-  ("gp"  . projectile-command-map)
   :map projectile-command-map
   ("xc" . projectile-run-command-in-root)
   )

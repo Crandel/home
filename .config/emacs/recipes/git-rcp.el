@@ -5,7 +5,7 @@
 (use-package magit
   :ensure t
   :defer t
-  :functions magit-status
+  :commands magit-status
   :custom-face
   (magit-diff-added ((t (:background "dark slate gray" :foreground "chocolate"))))
   (magit-diff-added-highlight ((t (:background "dark olive green" :foreground "gold"))))
@@ -20,9 +20,10 @@
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
   (magit-todos-insert-after              '(bottom))
   :bind(
-  ("C-x C-z" . magit-status)
-  :map evil-normal-state-map
-  ("gs"  . magit-status)
+  ("C-c t g" . magit-status)
+  (:map magit-status-mode-map
+        ("x" . magit-discard)
+        ("p" . magit-push))
   )
 )
 

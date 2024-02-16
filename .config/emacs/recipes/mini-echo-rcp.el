@@ -6,6 +6,7 @@
   :ensure t
   :custom-face
   (mini-echo-major-mode        ((t (:foreground "green"))))
+  (mini-echo-meow              ((t (:foreground "yellow"))))
   (mini-echo-minibuffer-window ((t nil)))
   :custom
   (mini-echo-default-segments '(:long (
@@ -16,13 +17,13 @@
                                         "vcs"
                                         "buffer-name"
                                         "macro"
-                                        "evil"
+                                        "meow"
                                         )
                                 :short (
                                          "time"
                                          "major-mode"
                                          "buffer-name-short"
-                                         "evil"
+                                         "meow"
                                          ))
                                )
   (mini-echo-buffer-status-style 'both)

@@ -27,12 +27,6 @@
         ("H" . dired-sidebar-up-directory)
         ("-" . dired-do-hardlink)
         )
-  :hook
-  (evil-leader-mode . (lambda ()
-                        (evil-leader/set-key
-                          "d" 'dired-sidebar-toggle-sidebar)
-                       )
-  )
 )
 
 (use-package dired-subtree

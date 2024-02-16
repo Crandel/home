@@ -5,8 +5,7 @@
 (eval-when-compile (require 'use-package))
 (use-package consult
   :ensure t
-  :defer t
-  :functions (get-project-root consult-line-symbol-at-point consult-ripgrep-symbol-at-point)
+  :commands (consult-ripgrep consult-multi-occur consult-buffer consult-imenu consult-yank-from-kill-ring)
   :custom
   (consult-find-command "fd --color=never --full-path ARG OPTS")
   (consult-project-function (lambda (_)
@@ -58,28 +57,18 @@
    consult-ripgrep
    :add-history (seq-some #'thing-at-point '(region symbol))
    :initial (thing-at-point 'symbol))
-  :hook
-  (evil-mode . (lambda ()
-    (evil-global-set-key 'normal "gl" 'consult-imenu)
-    (evil-global-set-key 'normal "grv" 'consult-yank-from-kill-ring)))
-  (evil-leader-mode . (lambda ()
-                        (evil-leader/set-key
-                          "/" 'consult-ripgrep
-                          "p" 'consult-buffer
-                          "i" 'consult-imenu-multi
-                        )
-                       )
-  )
   :bind (
-  ("C-s"   . consult-line)
-  ("C-c s" . consult-multi-occur)
-  ("C-c g" . consult-ripgrep)
-  ("C-c C-g" . consult-ripgrep)
+  ("C-s"     . consult-line)
+  ("C-c s i" . consult-imenu)
+  ("C-c s l" . consult-line)
+  ("C-c s s" . consult-line-multi)
+  ("C-c s /" . consult-ripgrep)
+  ("C-c s g" . consult-ripgrep)
+  ("C-c s m" . consult-minor-mode-menu)
   ("C-h C-m" . consult-minor-mode-menu)
-  ("C-p" . consult-buffer)
-  ([remap switch-to-buffer] . consult-buffer)
-  ([remap yank-pop]         . consult-yank-pop)
-  ([remap goto-line]        . consult-goto-line)
+  ([remap list-buffers] . consult-buffer)
+  ([remap yank-pop]     . consult-yank-pop)
+  ([remap goto-line]    . consult-goto-line)
   ([f10] . consult-imenu)
   :map consult-narrow-map
   ([C-right] .  consult-narrow-right)
@@ -92,32 +81,25 @@
 (use-package consult-flycheck
   :ensure t
   :bind
-  ("C-c n" . consult-flycheck)
+  ("C-c s n" . consult-flycheck)
 )
 
 (use-package consult-lsp
   :ensure t
+  :commands (consult-lsp-file-symbols consult-lsp-symbols)
   :after (consult lsp)
-  :hook
-  (evil-mode . (lambda ()
-    (evil-global-set-key 'normal "grf" 'consult-lsp-file-symbols)
-    (evil-global-set-key 'normal "grm" 'consult-lsp-symbols)
-  ))
   :bind
-  ("C-c f" . consult-lsp-file-symbols)
-  ("C-c m" . consult-lsp-symbols)
+  ("C-c s ," . consult-lsp-file-symbols)
+  ("C-c s ." . consult-lsp-symbols)
 )
 
 (use-package consult-dir
   :ensure t
-  :bind (("C-c d" . consult-dir)
+  :commands (consult-dir consult-dir-jump-file)
+  :bind (("C-c s d" . consult-dir)
          :map minibuffer-local-completion-map
-         ("C-c d" . consult-dir)
-         ("C-c j" . consult-dir-jump-file))
-  :hook
-  (evil-mode . (lambda ()
-    (evil-global-set-key 'normal "grd" 'consult-dir)
-    (evil-global-set-key 'normal "grj" 'consult-dir-jump-file)))
+         ("C-d" . consult-dir)
+         ("C-j" . consult-dir-jump-file))
 )
 ;; (use-package consult-yasnippet
 ;;   :ensure t

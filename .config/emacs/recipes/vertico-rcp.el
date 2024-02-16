@@ -4,7 +4,7 @@
 (eval-when-compile (require 'use-package))
 (use-package vertico
   :ensure t
-  :commands (vertico--format-candidate vertico-mode)
+  :commands (vertico--format-candidate vertico-mode vertico-repeat)
   :preface
   (defun vd/vertico-highlight-directory (file)
     "If FILE ends with a slash, highlight it as a directory."
@@ -35,7 +35,7 @@
      (window-height . 13)
      (side . top)))
   :bind
-  ("C-c r" . vertico-repeat)
+  ("C-c t r" . vertico-repeat)
   (:map vertico-map
         ([right] . vertico-insert)
         ([left]  . vertico-directory-up)
@@ -69,10 +69,6 @@
       (add-to-history minibuffer-history-variable (minibuffer-contents))))
   :hook
   (minibuffer-setup . vertico-repeat-save)
-  (evil-mode . (lambda ()
-    (evil-global-set-key 'normal "g." 'vertico-repeat)))
-  (evil-leader-mode . (lambda ()
-    (evil-leader/set-key "." 'vertico-repeat)))
 )
 
 ;; (use-package vertico-posframe

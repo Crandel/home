@@ -36,6 +36,8 @@ volume_muted =  "🔇"
 
 [theme]
 theme = "gruvbox-dark"
+[theme.overrides]
+separator = ""
 
 [[block]]
 block = "focused_window"
