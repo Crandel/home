@@ -19,7 +19,7 @@
     ("C-c g a" . treesit-beginning-of-defun)
     ("C-c g e" . treesit-end-of-defun)
     ("C-c g i" . prog-indent-sexp)
-    ("RET"     . newline-and-indent)
+    ("RET"     . reindent-then-newline-and-indent)
     ("M-RET"   . newline)
    )
 

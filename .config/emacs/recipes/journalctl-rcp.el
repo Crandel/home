@@ -5,6 +5,9 @@
 (use-package journalctl-mode
   :ensure t
   :commands journalctl
+  :custom
+  (journalctl-chunk-size 500)
+  (journalctl-default-options '("--lines=500" "--reverse"))
   :bind (
   ("C-c t j" . journalctl)
   )

@@ -1,8 +1,5 @@
 ;;; init.el --- Main init
 ;;; Code:
-(eval-after-load 'gnutls
-  '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
-
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -52,21 +49,21 @@
 
 ;; info packages
 (require 'all-the-icons-rcp)
-;; (require 'smart-mode-line-rcp)
 (require 'mini-echo-rcp)
 
 ;; Rest packages
-;; (require 'avy-rcp)
+(require 'c-rcp)
 (require 'chezmoi-rcp)
 (require 'consult-rcp)
+(require 'compilation-rcp)
 (require 'corfu-rcp)
 (require 'csv-mode-rcp)
 (require 'dired-rcp)
+(require 'ellama-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
 (require 'flycheck-rcp)
 (require 'git-rcp)
-(require 'gptel-rcp)
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)
@@ -78,8 +75,7 @@
 (require 'lua-rcp)
 (require 'marginalia-rcp)
 (require 'markdown-mode-rcp)
-(require 'meow-rcp)
-(require 'monkeytype-rcp)
+;; (require 'monkeytype-rcp)
 (require 'multi-compile-rcp)
 (require 'orderless-rcp)
 (require 'org-mode-rcp)
@@ -89,11 +85,10 @@
 (require 'restclient-rcp)
 (require 'sql-rcp)
 (require 'tempel-rcp)
-(require 'turbo-log-rcp)
+;; (require 'turbo-log-rcp)
 (require 'vertico-rcp)
 (require 'vimrc-mode-rcp)
 (require 'which-key-rcp)
-;; (require 'yasnippet-rcp)
 (require 'ytdl-rcp)
 (require 'ztree-rcp)
 
@@ -106,12 +101,11 @@
 (require 'go-rcp)
 (require 'python-rcp)
 (require 'ripgrep-rcp)
+(require 'editorconfig-rcp)
 
 
-(add-function :after after-focus-change-function
-  (defun me/garbage-collect-maybe ()
-    (unless (frame-focus-state)
-      (garbage-collect))))
+;; meow should be the last one to collect all keybindings.
+(require 'meow-rcp)
 
 ;;; Commentary:
 ;; Main init file

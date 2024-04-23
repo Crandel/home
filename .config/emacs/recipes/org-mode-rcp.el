@@ -19,6 +19,18 @@
         (set-variable 'org-hide-emphasis-markers nil)
       (set-variable 'org-hide-emphasis-markers t))
     (org-mode-restart))
+  (defun vd/org-insert-headings ()
+    "Insert a new heading with same level as current, after current subtree."
+    (interactive)
+    (org-insert-heading-after-current)
+    (meow-insert)
+    )
+  (defun vd/org-insert-item ()
+    "Insert item."
+    (interactive)
+    (org-insert-item)
+    (meow-insert)
+    )
   :custom
   (org-confirm-babel-evaluate       nil)
   (org-edit-src-content-indentation 0)
@@ -32,6 +44,48 @@
   (org-src-tab-acts-natively        t)
   (org-src-window-setup             'current-window "edit in current window")
   (word-wrap                        nil)
+  :init
+  (with-eval-after-load 'meow
+    (setq meow-org-motion-keymap (make-keymap))
+    (meow-define-state org-motion
+      "Org-mode structural motion"
+      :lighter "[N]"
+      :keymap meow-org-motion-keymap)
+
+    (meow-define-keys 'org-motion
+      '("<escape>" . meow-normal-mode)
+      '("i" . meow-insert-mode)
+      '("g" . meow-normal-mode)
+      '("u" .  meow-undo)
+      ;; Moving between headlines
+      '("k" .  org-previous-visible-heading)
+      '("j" .  org-next-visible-heading)
+      ;; Moving between headings at the same level
+      '("p" .  org-backward-heading-same-level)
+      '("n" .  org-forward-heading-same-level)
+      ;; Moving subtrees themselves
+      '("K" .  org-subtree-up)
+      '("J" .  org-subtree-down)
+      ;; Subtree de/promotion
+      '("L" .  org-demote-subtree)
+      '("H" .  org-promote-subtree)
+      ;; Completion-style search of headings
+      '("v" .  consult-org-heading)
+      ;; Setting subtree metadata
+      '("l" .  org-set-property)
+      '("t" .  org-todo)
+      '("d" .  org-deadline)
+      '("s" .  org-schedule)
+      '("e" .  org-set-effort)
+      ;; Block navigation
+      '("b" .  org-previous-block)
+      '("f" .  org-next-block)
+      ;; Narrowing/widening
+      '("N" .  org-narrow-to-subtree)
+      '("W" .  widen))
+    (meow-define-keys 'normal
+      '("N" . meow-org-motion-mode))
+    )
   :config
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
@@ -41,10 +95,13 @@
               #'org-optimize-window-after-visibility-change)
   (org-babel-do-load-languages 'org-babel-load-languages vd/org-babel-load-languages)
   :bind
+  (:map org-mode-map
   ("C-c o o" . vd/org-toggle-emphasis)
-  ("C-c o i" . org-insert-structure-template)
+  ("C-c o t" . org-insert-structure-template)
   ("C-c o a" . org-babel-remove-result)
-
+  ("C-c o i" . vd/org-insert-item)
+  ("C-c o h" . vd/org-insert-headings)
+    )
 )
 
 (use-package org-tempo
@@ -62,7 +119,7 @@
   :init
   (add-to-list 'vd/org-babel-load-languages '(restclient . t))
   :hook
-  (org-local-mode . (lambda()
+  (org-mode . (lambda()
                 (add-to-list 'org-structure-template-alist '("r" . "src restclient"))
                 ))
 )
@@ -73,7 +130,7 @@
   :init
   (add-to-list 'vd/org-babel-load-languages '(go . t))
   :hook
-  (org-local-mode . (lambda()
+  (org-mode . (lambda()
                 (add-to-list 'org-structure-template-alist '("go" . "src go"))
                 ))
 )

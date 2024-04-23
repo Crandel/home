@@ -8,8 +8,9 @@
   :defer 0.5
   :defines projectile-globally-ignored-directories
   :custom
-  (projectile-indexing-method 'hybrid)
-  (projectile-run-use-comint-mode t)
+  (projectile-indexing-method                'hybrid)
+  (projectile-run-use-comint-mode            t)
+  (projectile-per-project-compilation-buffer t)
   (projectile-root-local
      projectile-root-top-down
      projectile-root-bottom-up

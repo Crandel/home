@@ -21,6 +21,9 @@
   (magit-todos-insert-after              '(bottom))
   :bind(
   ("C-c t g" . magit-status)
+  (:map magit-diff-mode-map
+        ("k" . nil)
+        ("x" . magit-delete-thing))
   (:map magit-status-mode-map
         ("x" . magit-discard)
         ("p" . magit-push))

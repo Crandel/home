@@ -28,7 +28,7 @@
   (lsp-idle-delay                         0.5)
   (lsp-imenu-container-name-separator     t)
   (lsp-imenu-show-container-name          t)
-  (lsp-keymap-prefix                      "C-l")
+  (lsp-keymap-prefix                      "C-c l")
   (lsp-lens-enable                        t)
   (lsp-log-io                             nil)
   (lsp-modeline-code-actions-enable       t)

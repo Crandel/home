@@ -6,6 +6,7 @@
   :ensure t
   :custom
   (meow-use-clipboard t)
+  (meow-keypad-leader-dispatch "C-c")
   :custom-face
   (meow-beacon-indicator ((t (:background "purple"))))
   (meow-insert-indicator ((t (:foreground "white"))))
@@ -21,6 +22,7 @@
      '("j" . meow-next)
      '("k" . meow-prev)
      '("<escape>" . ignore))
+
     (meow-leader-define-key
      ;; SPC j/k will run the original command in MOTION state.
      '("j" . "H-j")
@@ -41,6 +43,7 @@
      '("|" . meow-keypad-describe-key)
      '("?" . meow-cheatsheet)
      )
+
     (meow-normal-define-key
      '("0" . meow-expand-0)
      '("9" . meow-expand-9)
@@ -52,34 +55,44 @@
      '("3" . meow-expand-3)
      '("2" . meow-expand-2)
      '("1" . meow-expand-1)
+     ;; helper function
      '("-" . negative-argument)
      '(";" . meow-reverse)
+     ;; Selection
      '("," . meow-inner-of-thing)
      '("." . meow-bounds-of-thing)
-     '("a" . meow-append)
-     '("A" . meow-open-below)
      '("b" . meow-back-word)
      '("B" . meow-back-symbol)
-     '("c" . meow-change)
-     '("d" . meow-delete)
-     '("D" . meow-backward-delete)
      '("e" . meow-next-word)
      '("E" . meow-next-symbol)
      '("f" . meow-find)
+     '("F" . meow-find-expand)
      '("g" . meow-cancel-selection)
      '("G" . meow-grab)
-     '("h" . meow-left)
      '("H" . meow-left-expand)
+     '("J" . meow-next-expand)
+     '("K" . meow-prev-expand)
+     '("L" . meow-right-expand)
+     '("s" . meow-line)
+     '("w" . meow-mark-word)
+     '("W" . meow-mark-symbol)
+     ;; movement
+     '("h" . meow-left)
+     '("j" . meow-next)
+     '("k" . meow-prev)
+     '("l" . meow-right)
+     ;; Other functions
+     '("a" . meow-append)
+     '("A" . meow-open-below)
+     '("c" . meow-change)
+     '("d" . meow-kill)
+     '("D" . meow-backward-delete)
      '("i" . meow-insert)
      '("I" . meow-open-above)
-     '("j" . meow-next)
-     '("J" . meow-next-expand)
-     '("k" . meow-prev)
-     '("K" . meow-prev-expand)
-     '("l" . meow-right)
-     '("L" . meow-right-expand)
      '("m" . meow-join)
+     '("M" . meow-indent)
      '("n" . meow-search)
+     ;; '("N" . meow-org-motion-mode) define in org-rcp
      '("o" . meow-block)
      '("O" . meow-to-block)
      '("p" . meow-yank)
@@ -87,21 +100,21 @@
      '("Q" . meow-goto-line)
      '("r" . meow-change-char)
      '("R" . meow-replace)
-     '("s" . meow-line)
      '("t" . meow-till)
+     '("T" . meow-till-expand)
      '("u" . meow-undo)
      '("U" . undo-redo)
      '("v" . meow-end-of-thing)
      '("V" . meow-beginning-of-thing)
-     '("w" . meow-mark-word)
-     '("W" . meow-mark-symbol)
-     '("x" . meow-kill)
+     '("x" . meow-delete)
      '("X" . meow-goto-line)
      '("y" . meow-save)
      '("Y" . meow-sync-grab)
      '("z" . meow-pop-selection)
      '("/" . meow-visit)
      '("'" . repeat)
+     '("<backspace>" . meow-kill)
+     '("<delete>" . meow-kill)
      '("<escape>" . ignore)))
   :config
   (meow-setup)
@@ -110,5 +123,7 @@
 
 (provide 'meow-rcp)
 ;;; Commentary:
-;;
+;; Local Variables:
+;; byte-compile-warnings: (not unresolved free-vars)
+;; End:
 ;;; meow-rcp.el ends here

@@ -31,7 +31,7 @@
   (imenu-create-index-function                'my-merge-imenu)
   :bind
   (:map python-ts-mode-map
-        ("RET" . newline-and-indent)
+        ("RET" . reindent-then-newline-and-indent)
         ("M-RET" . newline)
         ("C-c C-b" . insert_pdb))
 )
@@ -40,16 +40,6 @@
 (use-package pip-requirements
   :ensure t
   :defer t
-)
-(use-package lsp-pyright
-  :ensure t
-  :ensure-system-package pyright
-  :custom
-  (lsp-pyright-disable-organize-imports nil)
-  (lsp-pyright-auto-import-completions  t)
-  (lsp-pyright-auto-search-paths        nil)
-  :hook
-  (python-ts-mode . lsp-deferred)
 )
 
 (provide 'python-rcp)

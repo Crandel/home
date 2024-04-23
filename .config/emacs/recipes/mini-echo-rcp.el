@@ -4,6 +4,7 @@
 (eval-when-compile (require 'use-package))
 (use-package mini-echo
   :ensure t
+  :after hide-mode-line
   :custom-face
   (mini-echo-major-mode        ((t (:foreground "green"))))
   (mini-echo-meow              ((t (:foreground "yellow"))))
@@ -41,6 +42,11 @@
   (mini-echo-mode 1)
   )
 
+(use-package hide-mode-line
+  :ensure t
+  :init
+  (setq hide-mode-line-excluded-modes nil)
+)
 (provide 'mini-echo-rcp)
 ;;; Commentary:
 ;;

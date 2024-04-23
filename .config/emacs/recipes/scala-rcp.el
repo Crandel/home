@@ -22,7 +22,7 @@
   (max-specpdl-size                 5000)
   :bind (
     :map scala-mode-map
-         ("RET" . newline-and-indent)
+         ("RET" . reindent-then-newline-and-indent)
          ("M-RET" . newline))
 )
 

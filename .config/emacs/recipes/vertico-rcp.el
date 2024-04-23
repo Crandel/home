@@ -35,7 +35,7 @@
      (window-height . 13)
      (side . top)))
   :bind
-  ("C-c t r" . vertico-repeat)
+  ("C-c s r" . vertico-repeat)
   (:map vertico-map
         ([right] . vertico-insert)
         ([left]  . vertico-directory-up)

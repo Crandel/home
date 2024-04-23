@@ -1,11 +1,9 @@
 ;;; init.el --- Main init
 ;;; Code:
-(eval-after-load 'gnutls
-  '(add-to-list 'gnutls-trustfiles "/etc/ssl/cert.pem"))
-
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
@@ -36,7 +34,11 @@
 
 (require 'base-rcp) ; emacs default settings
 
-(require 'avy-rcp)
+;; info packages
+(require 'all-the-icons-rcp)
+(require 'mini-echo-rcp)
+
+;; Rest packages
 (require 'consult-rcp)
 (require 'dired-rcp)
 (require 'elfeed-rcp)
@@ -46,17 +48,12 @@
 (require 'hydra-rcp)
 (require 'marginalia-rcp)
 (require 'meow-rcp)
-(require 'mini-echo-rcp)
 (require 'orderless-rcp)
+(require 'org-mode-rcp)
 (require 'rainbow-rcp)
-;; (require 'smart-mode-line-rcp)
 (require 'vertico-rcp)
 (require 'which-key-rcp)
 
-(add-function :after after-focus-change-function
-  (defun me/garbage-collect-maybe ()
-    (unless (frame-focus-state)
-      (garbage-collect))))
 
 ;;; Commentary:
 ;; Main init file

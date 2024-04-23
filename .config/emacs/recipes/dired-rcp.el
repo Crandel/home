@@ -23,6 +23,7 @@
   (dired-sidebar-display-alist        '((side . right) (slot . -1)))
   :bind
   ([f7] . dired-sidebar-toggle-sidebar)
+  ("C-c d i" . dired-sidebar-toggle-sidebar)
   (:map dired-sidebar-mode-map
         ("H" . dired-sidebar-up-directory)
         ("-" . dired-do-hardlink)

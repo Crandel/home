@@ -43,13 +43,13 @@
   (defun vd/setup-lsp-completion ()
     (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
                                                                      #'lsp-completion-at-point)
-                                                    #'cape-file
-                                                    #'cape-dabbrev)))
+                                                    #'cape-file))
+    )
   (defun vd/setup-elisp-completion ()
     (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
                                                                      #'elisp-completion-at-point)
-                                                    #'cape-file
-                                                    #'cape-dabbrev)))
+                                                    #'cape-file))
+    )
   :init
   (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-keyword)

@@ -3,7 +3,7 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package turbo-log
-  :vc (:fetcher github :repo Artawower/turbo-log)
+  :vc (:vc-backend github :url Artawower/turbo-log)
   :bind (("C-s-l" . turbo-log-print)
          ("C-s-i" . turbo-log-print-immediately)
          ("C-s-h" . turbo-log-comment-all-logs)

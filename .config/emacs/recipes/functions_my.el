@@ -73,6 +73,13 @@ With optional ARG."
   (delete-char 1)
   )
 
+;;;###autoload
+(defun vd/revert-buffer ()
+  "Revert buffer."
+  (interactive)
+  (revert-buffer t t)
+  )
+
 
 (defvar newline-and-indent t)
 

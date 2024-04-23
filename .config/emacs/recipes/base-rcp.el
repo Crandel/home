@@ -26,54 +26,55 @@
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill))
   :custom
-  (ad-redefinition-action       'accept)
-  (auto-window-vscroll          nil "Make scrolling less stuttered")
-  (bidi-display-reordering      nil "Never reorder bidirectional text for display in the visual order.")
-  (bidi-paragraph-direction     'left-to-right)
-  (c-basic-offset               2)
-  (completion-cycle-threshold   3)
-  (completion-detailed          t)
-  (display-time-24hr-format     t)
+  (ad-redefinition-action            'accept)
+  (bidi-display-reordering           nil "Never reorder bidirectional text for display in the visual order.")
+  (bidi-paragraph-direction          'left-to-right)
+  (c-basic-offset                    2)
+  (completion-cycle-threshold        3)
+  (completion-detailed               t)
+  (cursor-in-non-selected-windows    nil)
+  (display-time-24hr-format          t)
   (display-time-default-load-average nil)
-  (display-time-mode            t)
-  (enable-recursive-minibuffers t)
-  (fast-but-imprecise-scrolling nil)
+  (display-time-mode                 t)
+  (enable-recursive-minibuffers      t)
+  (fast-but-imprecise-scrolling      nil)
   (file-name-shadow-properties     '(invisible t intangible t face file-name-shadow field shadow)
                                    "Removing minibuffer 'default directory' prefix.")
   (file-name-shadow-tty-properties '(invisible t intangible t before-string "{" after-string "} " field shadow)
                                    "Removing minibuffer 'default directory' prefix in tty.")
   (frame-title-format              '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l"))
                                    "Display the name of the current buffer in the title bar")
-  (indent-line-function         'insert-tab "Indent settings")
-  (indent-tabs-mode             nil "Indent settings")
-  (indicate-empty-lines         nil "Scrolling settings")
-  (initial-scratch-message      "")
-  (java-basic-offset            2)
-  (jit-lock-defer-time          0)
-  (js-indent-level              2)
-  (kill-do-not-save-duplicates  t)
-  (lisp-body-indent             2)
-  (max-mini-window-height       0.5)
-  (maximum-scroll-margin        0.5 "Scrolling settings")
-  (minibuffer-prompt-properties '(read-only t cursor-intangible t face minibuffer-prompt))
-  (next-line-add-newlines     nil)
-  (nxml-attribute-indent      2)
-  (redisplay-dont-pause       t)
-  (resize-mini-windows        t)
-  (ring-bell-function         'ignore)
+  (highlight-nonselected-windows   nil)
+  (indent-line-function            'insert-tab "Indent settings")
+  (indent-tabs-mode                nil "Indent settings")
+  (indicate-empty-lines            nil "Scrolling settings")
+  (initial-scratch-message         "")
+  (java-basic-offset               2)
+  (jit-lock-defer-time             0)
+  (js-indent-level                 2)
+  (kill-do-not-save-duplicates     t)
+  (lisp-body-indent                2)
+  (max-mini-window-height          0.5)
+  (maximum-scroll-margin           0.5 "Scrolling settings")
+  (minibuffer-prompt-properties    '(read-only t cursor-intangible t face minibuffer-prompt))
+  (next-line-add-newlines          nil)
+  (nxml-attribute-indent           2)
+  (redisplay-dont-pause            t)
+  (resize-mini-windows             t)
+  (ring-bell-function              'ignore)
   (fast-but-imprecise-scrolling    t "Scrolling settings")
   (scroll-conservatively           most-positive-fixnum "Scrolling settings")
   (scroll-margin                   100 "Scrolling settings")
   (scroll-step                     1 "Scrolling settings")
   (scroll-preserve-screen-position t "Scrolling settings")
-  (size-indication-mode       t)
-  (sentence-end-double-space  nil)
-  (split-height-threshold     nil "Minimum height for splitting windows vertically.")
-  (split-width-threshold      0   "Minimum height for splitting windows horizontally.")
-  (standart-indent            2)
-  (tab-always-indent          nil)
-  (tab-width                  2)
-  (use-dialog-box             nil "Non-nil means mouse commands use dialog boxes to ask questions.")
+  (size-indication-mode            t)
+  (sentence-end-double-space       nil)
+  (split-height-threshold          nil "Minimum height for splitting windows vertically.")
+  (split-width-threshold           0   "Minimum height for splitting windows horizontally.")
+  (standart-indent                 2)
+  (tab-always-indent               nil)
+  (tab-width                       2)
+  (use-dialog-box                  nil "Non-nil means mouse commands use dialog boxes to ask questions.")
   ;; (uniquify-buffer-name-style 'reverse)
   ;; (uniquify-min-dir-content   3)
   :bind
@@ -86,30 +87,26 @@
   ("<Paste>"  . yank)
   ("C-y"      . scroll-up-command)
   ("RET"      . newline)
-  ("M-RET"    . newline-and-indent)
-  ("C-c d d"  . delete-other-windows)
-  ("C-c d t"  . split-window-below)
-  ("C-c d v"  . split-window-right)
-  ("C-c d s"  . vd/save-all-buffers)
-  ("C-c d b"  . kill-buffer)
+  ("M-RET"    . reindent-then-newline-and-indent)
+  ([remap delete-char] . delete-forward-char)
   ("C-c d c"  . comment-dwim)
-  ("C-c f d"  . vd/duplicate-line)
-  ("C-c f l"  . vd/copy-line)
-  ("C-c f r"  . (lambda()
-                  (interactive)
-                  (revert-bluffer t t)))
-  ("C-c f s"  . sort-lines)
-  ("C-c f w"  . delete-trailing-whitespace)
   ("C-c f c"  . vd/copy-word)
+  ("C-c f o"  . vd/duplicate-line)
+  ("C-c f l"  . vd/copy-line)
+  ("C-c f r"  . vd/revert-buffer)
+  ("C-c f s"  . sort-lines)
+  ("C-c f d"  . delete-trailing-whitespace)
   ("C-c f x"  . vd/delete-line)
   ("C-c f f"  . find-file)
+  ("C-c f w"  . save-file)
+  ("C-c t t"  . execute-extended-command)
   ("C-b"      . list-buffers)
   ("C-c b"    . list-buffers)
   ("C-c q"    . vd/kill-emacs-with-save)
   ([remap list-buffers] . ibuffer-list-buffers) ;; C-x C-b by default
   ("C-x b"    . ibuffer)
   ("C-o"      . vd/open-next-line)
-  ("C-O"      . vd/open-previous-line)
+  ("C-S-o"    . vd/open-previous-line)
   ([M-S-down] . vd/move-line-down)
   ([M-S-up]   . vd/move-line-up)
   :hook
@@ -172,6 +169,7 @@
   :custom
   (ediff-forward-word-function       'forward-char)
   (ediff-highlight-all-diffs         t)
+  (ediff-keep-variants               nil)
   (ediff-merge-split-window-function 'split-window-horizontally)
   (ediff-split-window-function       'split-window-horizontally)
   (ediff-window-setup-function       'ediff-setup-windows-plain)
@@ -338,6 +336,9 @@
 
 (use-package savehist
   :demand t
+  :custom
+  (history-delete-duplicates t)
+  (history-length            3000)
   :config
   (savehist-mode)
 )
@@ -402,6 +403,11 @@
   (shell-file-name "/usr/bin/zsh" "Set zsh as default shell")
 )
 
+(use-package smerge-mode
+  :custom
+  (smerge-command-prefix "C-c e")
+)
+
 (use-package subword
   :config
   (global-subword-mode t)
@@ -410,27 +416,55 @@
 (use-package tramp
   :disabled)
 
+(use-package window
+  :defer t
+  :ensure nil
+  :bind
+  ("C-c d d" . delete-other-windows)
+  ("C-c d s" . vd/save-all-buffers)
+  ("C-c d b" . kill-buffer)
+  ("C-c d t" . split-window-below)
+  ("C-c d v" . split-window-right)
+  ("C-c d H" . shrink-window-horizontally)
+  ("C-c d J" . enlarge-window)
+  ("C-c d K" . shrink-window)
+  ("C-c d L" . enlarge-window-horizontally)
+)
+
 (use-package windmove
   :defer t
   :ensure nil
   :init
   (windmove-default-keybindings 'meta)
   :bind
-  ("C-c d h" . windmove-left)
-  ("C-c d l" . windmove-right)
-  ("C-c d j" . windmove-down)
-  ("C-c d k" . windmove-up)
+  ("C-c <left>"  . windmove-left)
+  ("C-c <right>" . windmove-right)
+  ("C-c <down>"  . windmove-down)
+  ("C-c <up>"    . windmove-up)
+  ("C-c d h"     . windmove-left)
+  ("C-c d l"     . windmove-right)
+  ("C-c d j"     . windmove-down)
+  ("C-c d k"     . windmove-up)
+  ("C-c d x h"   . windmove-delete-left)
+  ("C-c d x l"   . windmove-delete-right)
+  ("C-c d x j"   . windmove-delete-down)
+  ("C-c d x k"   . windmove-delete-up)
 )
 
 (use-package winner-mode
   :ensure nil
   :defer 1
+  :custom
+  (winner-dont-bind-my-keys t)
   :init
   (winner-mode)
+  :bind
+  ("C-c d u" . winner-undo)
+  ("C-c d r" . winner-redo)
 )
 
 (use-package whitespace
- :demand t
+ :demand twinner-dont-bind-my-keys
  :init
  (global-whitespace-mode t)
  :custom-face
