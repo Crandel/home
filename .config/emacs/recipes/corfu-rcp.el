@@ -14,6 +14,7 @@
                                 corfu-separator))))
       (funcall func)))
   :custom
+  (text-mode-ispell-word-completion nil)
   (corfu-auto             t)
   (corfu-auto-delay       0.1)
   (corfu-auto-prefix      2)

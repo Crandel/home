@@ -28,6 +28,10 @@
     ;; But then move directories first
     (nconc (seq-filter (lambda (x) (string-suffix-p "/" x)) files)
            (seq-remove (lambda (x) (string-suffix-p "/" x)) files)))
+  (defun vd/vertico-history ()
+    ;; Make vertico-insert add to the minibuffer history.
+    (unless (eq minibuffer-history-variable t)
+      (add-to-history minibuffer-history-variable (minibuffer-contents))))
   :custom
   (vertico-cycle t)
   (vertico-buffer-display-action
@@ -62,11 +66,7 @@
                '(execute-extended-command
                  (vd/vertico-transform-functions . vd/vertico-highlight-enabled-mode)))
   (add-to-list 'savehist-additional-variables 'vertico-repeat-history)
-  (defadvice vertico-insert
-    (after vertico-insert-add-history activate)
-    "Make vertico-insert add to the minibuffer history."
-    (unless (eq minibuffer-history-variable t)
-      (add-to-history minibuffer-history-variable (minibuffer-contents))))
+  (advice-add 'vertico-insert :after #'vd/vertico-history)
   :hook
   (minibuffer-setup . vertico-repeat-save)
 )

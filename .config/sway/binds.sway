@@ -53,19 +53,6 @@ bindsym --to-code {
   $mod+Shift+Up     move up
   $mod+Shift+Right  move right
 
-  # move cursor using keys:
-  $mod+Control+$left  seat - cursor move -10  0
-  $mod+Control+$down  seat - cursor move  0   10
-  $mod+Control+$up    seat - cursor move  0  -10
-  $mod+Control+$right seat - cursor move  10  0
-
-  $mod+Control+Left   seat - cursor move -10  0
-  $mod+Control+Down   seat - cursor move  0   10
-  $mod+Control+Up     seat - cursor move  0  -10
-  $mod+Control+Right  seat - cursor move  10  0
-
-  $mod+Control+g      seat - cursor press button1
-
   # split in horizontal orientation
   $mod+period split h
 
@@ -126,6 +113,7 @@ bindsym --to-code {
   # modes
   $mod+r       mode "resize"
   $mod+t       mode $layout_mode
+  $mod+s       mode $mouse_mode
   $mod+Shift+n mode $notification_mode
   $mod+F2      mode $power_mode
 
@@ -152,6 +140,9 @@ bindsym --to-code {
 
   # networkmanager-dmenu
   $mod+w exec networkmanager_dmenu
+
+  # networkmanager-dmenu
+  $mod+Shift+a exec bemoji -c
 
   # Dismiss notification
   $mod+n exec makoctl dismiss
@@ -180,6 +171,8 @@ bindsym --release {
   # The middle button over a titlebar kills the window
   $mod+button2 kill
   button2      kill
+
+  $mod+Control+g      seat - cursor press button1
 
   # Unmute mic on release
   $mod+space   exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ 1 # unmute mic

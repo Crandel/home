@@ -114,8 +114,8 @@
      '("/" . meow-visit)
      '("'" . repeat)
      '("<backspace>" . meow-kill)
-     '("<delete>" . meow-kill)
-     '("<escape>" . ignore)))
+     '("<delete>"    . meow-kill)
+     '("<escape>"    . ignore)))
   :config
   (meow-setup)
   (meow-global-mode 1)

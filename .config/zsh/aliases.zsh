@@ -43,12 +43,13 @@ alias sczd='scz diff'
 alias sczm='scz merge'
 alias sczs='scz status'
 alias crlt='curl -w "@$HOME/.config/curl-time-format"'
-# PACKAGE MANAGERS
+alias y='cd /data/media/youtube'
 
 if command_exists pacman ; then
 alias p="$SUDO pacman"
 alias pql='pacman -Ql'
 alias pqs='pacman -Qs'
+alias pqi='pacman -Qii'
 alias pss='pacman -Ss'
 alias psu='p -Syu'
 alias pii='pacman -Sii'
@@ -105,7 +106,7 @@ alias dvrm='d volume rm $(d volume ls -q)'
 
 alias dc='docker compose'
 alias dcb="dc build"
-alias dcdn="dc down"
+alias dcdn="dc --all-resources down"
 alias dce="dc exec"
 alias dck="dc kill"
 alias dcl="dc logs"
@@ -131,17 +132,21 @@ alias ktx='kubectx'
 compdef ktx=kubectx
 alias kns='kubens'
 compdef kns=kubens
+alias kss='k9s'
+compdef kss=k9s
 fi
 ## END VM's
 
 ## MEDIA TOOLS
-alias ytdl='yt-dlp'
-alias ytlf='ytdl --list-formats'
-alias ytm='ytdl -f bestaudio -x'
+alias ytdl='yt-dlp --embed-chapters --embed-subs'
+alias ytlf='yt-dlp --list-formats'
+alias ytm='yt-dlp  -f bestaudio -x -P /data/media/youtube/music'
+alias ytmp='yt-dlp -f bestaudio -x -P /data/media/youtube/music -o "%(playlist_index,autonumber)d.%(title).50s.%(ext)s"'
 # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-alias yt='ytdl -f "best[height<=1080]"'
-alias yto='ytdl -f "bestvideo[height<=1080]+bestaudio"'
-alias ytp='ytdl -f "best[height<=1080]" -P /data/media/youtube/playlists -o "%(playlist_index,autonumber)d_%(title).50s_%(id)s.%(ext)s"'
+alias yt='ytdl  -f "bestvideo+bestaudio"'
+alias yto='ytdl -f "best[height>=720]"'
+alias ytl='ytdl -f "bestvideo[height>=1080]+bestaudio" -o "%(upload_date>%d.%m)s.%(title)s.%(id)s.%(ext)s"'
+alias ytp='ytdl -f "bestvideo[height>=720]+bestaudio" -P /data/media/youtube/playlists -o "%(playlist_index,autonumber)d.%(title).50s.%(id)s.%(ext)s"'
 alias a2c='aria2c -x 10 -s 10'
 alias i3s_rst='pkill -SIGUSR2 i3status-rs'
 alias play='ffplay -nodisp -autoexit'
@@ -208,7 +213,10 @@ alias gsb='git status -sb'
 alias tm='tmux attach || tmux new'
 alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
 alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
-
+alias olstt="$SUDO systemctl start ollama.service"
+alias olend="$SUDO systemctl stop ollama.service"
+alias olsts="$SUDO systemctl status ollama.service"
+alias olf='journalctl -f -u ollama'
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES

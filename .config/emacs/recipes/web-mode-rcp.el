@@ -6,6 +6,7 @@
   :ensure t
   :defer t
   :mode
+  ("\\.mdx\\'"    . web-mode)
   ("\\.html\\'"   . web-mode)
   ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)
@@ -20,7 +21,7 @@
                             ("django" . "\\.html\\'")
                             ("razor"  . "\\.scala.html\\'")
                             ("go"     . "\\.\\gtpl\\'")
-                            ("jsx"    . "\\.js\\'")))
+                            ("jsx"    . "\\.jsx\\'")))
   (web-mode-enable-current-element-highlight   t)
   (web-mode-enable-block-face                  t)
   (web-mode-markup-indent-offset               2)   ;; HTML

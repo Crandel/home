@@ -190,22 +190,28 @@ command! cmp : if expand('%%c') == expand('%%f')
 " ------------------------------------------------------------------------------
 map <space> <nop>
 
-" Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>
 nnoremap <space>a :rename<cr>
-" Open file in the background using its default program
-nnoremap <space>b :file &<cr>
+nnoremap <space>b '
 nnoremap <space>c :cp<cr>
 nnoremap <space>d :delete<cr>
 " Make directory and cd into
 nnoremap <space>e :mkcd
-nnoremap <space>i :cd %D<cr>
-nnoremap <space>m :mv<cr>
-nnoremap <space>s :FZFfind<cr>
+" Open file in the background using its default program
+nnoremap <space>f :file &<cr>
 " Open console in current directory
-nnoremap <space>t :!alacritty &<cr>
+nnoremap <space>g :!alacritty &<cr>
+nnoremap <space>i :cd %D<cr>
+nnoremap <space>m :move<cr>
+nnoremap <space>s :FZFfind<cr>
+nnoremap <space>th :cd ~<cr>
+nnoremap <space>tl :cd ~/.local/bin<cr>
+nnoremap <space>tm :cd /data/media<cr>
+nnoremap <space>tb :cd /data/media/youtube<cr>
 " Toggle wrap setting on <space>w key
 nnoremap <space>w :set wrap!<cr>
+
+" Open editor to edit vifmrc and apply settings after returning to vifm
+nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>
 
 
 nnoremap t tj
@@ -219,27 +225,6 @@ nnoremap w :view<cr>
 " Open file in existing instance of emacs
 nnoremap o :!emacs -nw %f<cr>
 
-" Open file in the background using its default program
-nnoremap gb :file &<cr>
-" Make directory and cd into
-nnoremap ge :mkcd
-nnoremap gc :copy<cr>
-nnoremap gm :move<cr>
-nnoremap gd :delete<cr>
-nnoremap gi :cd %D<cr>
-
-nnoremap grh :cd ~<cr>
-nnoremap grl :cd ~/.local/bin<cr>
-nnoremap grb :cd /data/backup<cr>
-nnoremap grm :cd /data/media<cr>
-nnoremap grp :cd /data/work/projects<cr>
-nnoremap grb :cd /data/media/youtube<cr>
-
-
-" Mappings for faster renaming
-nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
-nnoremap A :rename<cr>
 
 
 " From mc:

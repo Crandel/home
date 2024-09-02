@@ -1,6 +1,8 @@
---replace-in-metadata title " " "_"
---replace-in-metadata title "," ""
+--replace-in-metadata title " " "."
+--replace-in-metadata title "," "."
 --replace-in-metadata title "\"" ""
 --replace-in-metadata title "\/" ""
+--sub-langs "uk,ru,de,en"
+-S res,vcodec:av1
 -P /data/media/youtube
--o "%(title).50s_%(id)s.%(ext)s"
+-o "%(title).50s.%(id)s.%(ext)s"

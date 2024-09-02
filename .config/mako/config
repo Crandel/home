@@ -9,7 +9,7 @@ font=Hack Nerd Font Mono 16
 border-color=#5B8234
 border-size=2
 background-color=#191311
-text-color=#5B8234
+text-color=#EBDBB2
 # The format of the message.  Possible variables are:
 #   %a  appname
 #   %s  summary
@@ -52,6 +52,10 @@ on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music
 
 [mode=default app-name="Telegram Desktop"]
 on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music/messenger.opus
+
+[mode=default app-name="Music Player Daemon"]
+on-notify=none
+
 
 # == Mode: Away ==
 [mode=away]

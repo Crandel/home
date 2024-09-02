@@ -1,4 +1,4 @@
-;;; rainbow-rcp.el --- Colorize color names and delimeters in buffers
+;;; rainbow-rcp.el --- Colorize color names and delimeters in buffers.
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
@@ -12,15 +12,15 @@
   (toml-ts-mode . rainbow-delimiters-mode)
 )
 
-(use-package rainbow-mode
+(use-package colorful-mode
   :ensure t
   :defer t
   :hook
-  (prog-mode    . rainbow-mode)
-  (conf-mode    . rainbow-mode)
-  (json-ts-mode . rainbow-mode)
-  (toml-ts-mode . rainbow-mode)
-  (yaml-ts-mode . rainbow-mode)
+  (prog-mode    . colorful-mode)
+  (conf-mode    . colorful-mode)
+  (json-ts-mode . colorful-mode)
+  (toml-ts-mode . colorful-mode)
+  (yaml-ts-mode . colorful-mode)
 )
 
 (provide 'rainbow-rcp)

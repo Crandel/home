@@ -25,8 +25,9 @@
         ("k" . nil)
         ("x" . magit-delete-thing))
   (:map magit-status-mode-map
-        ("x" . magit-discard)
-        ("p" . magit-push))
+        ("TAB" . magit-section-toggle)
+        ("x"   . magit-discard)
+        ("p"   . magit-push))
   )
 )
 

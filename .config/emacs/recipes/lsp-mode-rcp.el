@@ -8,6 +8,7 @@
   :functions (lsp lsp-deferred lsp-completion-at-point)
   :custom
   (lsp-completion-enable                  t)
+  (lsp-completion-provider                :none)
   (lsp-completion-show-detail             t)
   (lsp-completion-show-kind               t)
   (lsp-completion-sort-initial-results    t)

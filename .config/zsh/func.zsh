@@ -94,7 +94,17 @@ con_jpg_pdf (){
 con_png_pdf (){
   convert *.png $@.pdf
 }
+# Add music to specified playlist
+add_music (){
+  music_dir="$1"
+  playlist="$2"
+  # Loop through all mp3 files (adjust for your format)
+  for file in "$music_dir"/*; do
+    mpc addplaylist "$playlist" "$file"
+  done
 
+  echo "Songs added to playlist!"
+}
 ## X11 VS WAYLAND
 disable_x11 (){
   systemctl --user disable clipmenud.service
@@ -202,6 +212,8 @@ d_ip() {
   doc_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
   export DOCKER_HOST_IP=$doc_ip
 }
+
+## Start Rust
 setup_cargo() {
   rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
   rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
@@ -224,6 +236,7 @@ gdelbrs() {
   sk --multi --preview="git log {} --" |
   xargs --no-run-if-empty git branch --delete --force
 }
+## End Rust
 
 ## GO
 gdelbrf() {

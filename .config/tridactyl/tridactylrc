@@ -9,6 +9,7 @@ set editorcmd ~/.local/bin/editor-run
 set searchengine duckduckgo
 
 blacklistadd console.cloud.google.com
+blacklistadd notion.com
 blacklistadd monkeytype.com
 blacklistadd klava.org
 blacklistadd keybr.com
@@ -16,12 +17,15 @@ blacklistadd keybr.com
 unbind --mode=normal f
 bind --mode=normal gf hint
 
+unbind --mode=normal a
+unbind --mode=normal A
 unbind --mode=normal d
 unbind --mode=normal x
 unbind --mode=normal <C-b>
 unbind --mode=normal <C-f>
 unbind --mode=normal >>
 unbind --mode=normal <<
+bind --mode=normal A current_url bmark
 bind --mode=normal x tabclose
 bind --mode=normal d stop
 bind --mode=normal n tab #

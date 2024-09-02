@@ -18,7 +18,6 @@
     ("C-c g t" . dap-breakpoint-toggle)
     ("C-c g a" . treesit-beginning-of-defun)
     ("C-c g e" . treesit-end-of-defun)
-    ("C-c g i" . prog-indent-sexp)
     ("RET"     . reindent-then-newline-and-indent)
     ("M-RET"   . newline)
    )
@@ -47,9 +46,14 @@
   (go-ts-mode . vd/go-lsp-start)
 )
 
-;; (use-package go-tag
-;;   :ensure t
-;; )
+(use-package go-tag
+  :ensure t
+  :bind
+  (:map go-ts-mode-map
+    ("C-c g r" . go-tag-remove)
+    ("C-c g i" . go-tag-add)
+    )
+)
 
 (use-package godoctor
   :ensure t

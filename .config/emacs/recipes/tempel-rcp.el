@@ -6,19 +6,10 @@
   :ensure t
   :after cape
   :commands (tempel-expand)
-  :preface
-  (defun vd/tab-indent-or-complete ()
-    (interactive)
-    (message (minibufferp))
-    (if (minibufferp)
-        (minibuffer-complete)
-      (tempel-expand)
-      (indent-for-tab-command)))
   :init
   (add-to-list 'completion-at-point-functions #'tempel-complete)
   :bind (("C-t" . tempel-complete) ;; Alternative tempel-expand
-         ("M-t" . tempel-insert)
-         ("<tab>" . vd/tab-indent-or-complete))
+         ("M-t" . tempel-insert))
 )
 
 (use-package tempel-collection

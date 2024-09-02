@@ -1,0 +1,48 @@
+[pyprland]
+plugins = [
+  "scratchpads",
+  "expose",
+  "magnify",
+  "layout_center",
+]
+
+[layout_center]
+margin = 10
+offset = [0, 10]
+next = "movefocus r"
+prev = "movefocus l"
+next2 = "movefocus d"
+prev2 = "movefocus u"
+
+[scratchpads.term]
+animation = "fromTop"
+command = "wezterm start --class quake_term"
+class = "quake_term"
+position = "0% 5%"
+size = "100% 95%"
+lazy = true
+
+[scratchpads.oterm]
+animation = "fromTop"
+command = "kitty --class o_term"
+class = "o_term"
+position = "0% 5%"
+size = "100% 95%"
+lazy = true
+
+[scratchpads.editor]
+animation = "fromTop"
+command = "emacs --name quake_emacs"
+class = "quake_emacs"
+position = "0% 5%"
+size = "100% 95%"
+lazy = true
+
+[scratchpads.pass]
+animation = "fromTop"
+command = "keepassxc"
+class = "org.keepassxc.KeePassXC"
+position = "0% 5%"
+size = "100% 95%"
+unfocus = "hide"
+lazy = true

@@ -166,6 +166,7 @@ If FORCE-P, delete without confirmation."
 
 ;;;###autoload
 (defun vd/highlight-todos ()
+    "Add custom highlighting for specific words."
     (font-lock-add-keywords nil
                             '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t))))
 

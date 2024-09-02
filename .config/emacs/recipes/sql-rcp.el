@@ -7,6 +7,10 @@
   (sql-product 'postgres)
 )
 
+(use-package sql-indent
+  :ensure t
+)
+
 (use-package sqlformat
   :ensure t)
 
@@ -23,10 +27,10 @@
          ("C" . sqlite-mode-extras-compose-and-execute)
          ("E" . sqlite-mode-extras-execute)
          ("S" . sqlite-mode-extras-execute-and-display-select-query)
-         ("DEL" . sqlite-mode-extras-delete-row-dwim)
+         ("R" . sqlite-mode-extras-delete-row-dwim)
          ("g" . sqlite-mode-extras-refresh)
-         ("<backtab>" . sqlite-mode-extras-backtab-dwim)
-         ("<tab>" . sqlite-mode-extras-tab-dwim)
+         ("DEL" . sqlite-mode-extras-backtab-dwim)
+         ("TAB" . sqlite-mode-extras-tab-dwim)
          ("RET" . sqlite-mode-extras-ret-dwim)))
 
 (provide 'sql-rcp)

@@ -90,7 +90,7 @@ config.enable_scroll_bar = true
 
 config.enable_wayland = true
 
-config.front_end = "OpenGL"
+config.front_end = "WebGpu"
 
 config.font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"})
 
@@ -146,6 +146,8 @@ config.keys = {
   {key="DownArrow"  ,mods="CTRL|SHIFT" ,action=act.ScrollByPage(1) },
   {key="Tab"        ,mods="CTRL"       ,action=act.ActivateTabRelative(1) },
   {key="Tab"        ,mods="CTRL|SHIFT" ,action=act.ActivateTabRelative(-1) },
+  {key="PageUp"     ,mods="SHIFT"      ,action=act.ScrollByPage(-0.5) },
+  {key="PageDown"   ,mods="SHIFT"      ,action=act.ScrollByPage(0.5) },
   {key="x"          ,mods="CTRL|SHIFT" ,action=act.SplitHorizontal { domain = "CurrentPaneDomain" } },
   {key="z"          ,mods="CTRL|SHIFT" ,action=act.SplitVertical { domain = "CurrentPaneDomain" } },
   {key="t"          ,mods="CTRL"       ,action=act.SpawnTab "CurrentPaneDomain" },
@@ -172,18 +174,28 @@ config.ratelimit_mux_line_prefetches_per_second = 4289999998
 
 config.scrollback_lines = 150000
 
--- config.mouse_bindings = {
---   {
---     event = { Down = { streak = 1, button = { WheelUp = 1 } } },
---     mods = 'NONE',
---     action = act.ScrollByPage(-0.5),
---   },
---   {
---     event = { Down = { streak = 1, button = { WheelDown = 1 } } },
---     mods = 'NONE',
---     action = act.ScrollByPage(0.5),
---   },
--- }
+config.mouse_bindings = {
+  -- {
+  --   event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+  --   mods = 'NONE',
+  --   action = act.ScrollByPage(-0.5),
+  -- },
+  -- {
+  --   event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+  --   mods = 'NONE',
+  --   action = act.ScrollByPage(0.5),
+  -- },
+  {
+    event = { Down = { streak = 1, button = { WheelUp = 1 } } },
+    mods = 'CTRL',
+    action = act.ScrollByLine(-3),
+  },
+  {
+    event = { Down = { streak = 1, button = { WheelDown = 1 } } },
+    mods = 'CTRL',
+    action = act.ScrollByLine(3),
+  },
+}
 
 config.tab_bar_at_bottom = true
 

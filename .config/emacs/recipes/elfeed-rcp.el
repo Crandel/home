@@ -10,6 +10,7 @@
   (add-to-list 'command-switch-alist '("elfeed" . vd/elfeed-startup))
   :custom
   (url-queue-timeout 30)
+  (elfeed-use-curl   nil)
   (elfeed-search-filter "@4-week-ago +unread ")
   :bind
   (:map elfeed-search-mode-map

@@ -1,4 +1,4 @@
-hotKey:
+hotKeys:
   quit:
     shortCut: q
     description: quit

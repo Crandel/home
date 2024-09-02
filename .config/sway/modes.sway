@@ -35,6 +35,33 @@ mode "resize" {
   }
 }
 
+mode $mouse_mode {
+  bindsym --to-code {
+    $left  seat - cursor move -10  0
+    $down  seat - cursor move  0   10
+    $up    seat - cursor move  0  -10
+    $right seat - cursor move  10  0
+    Left   seat - cursor move -10  0
+    Down   seat - cursor move  0   10
+    Up     seat - cursor move  0  -10
+    Right  seat - cursor move  10  0
+    t      seat - cursor press button1
+    s      seat - cursor press button2
+    g      seat - cursor press button3
+
+    p exec wl-kbptr;                 mode "default"
+    d exec wl-kbptr-sway-active-win; mode "default"
+    # back to normal: Enter or Escape
+    Return mode "default"
+    Escape mode "default"
+  }
+  bindsym --release {
+    t      seat - cursor press button1
+    s      seat - cursor press button2
+    g      seat - cursor press button3
+  }
+}
+
 mode $layout_mode {
   # change container layout (stacked, tabbed, splitv, splith)
   bindsym --to-code {
@@ -65,9 +92,9 @@ mode $power_mode {
 
 mode $notification_mode {
   bindsym --to-code {
-    s exec makoctl set-mode do-not-disturb; mode "default"
-    d exec makoctl set-mode default       ; mode "default"
-    n exec makoctl dismiss                ; mode "default"
+    s exec makoctl mode -s do-not-disturb; mode "default"
+    d exec makoctl mode -s default       ; mode "default"
+    n exec makoctl dismiss               ; mode "default"
     a exec makoctl menu $launch 'Select Action: ' --dmenu  \
         && makoctl dismiss; \
            mode "default"

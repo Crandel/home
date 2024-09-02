@@ -5,23 +5,6 @@
 (use-package emacs
   :demand t
   :config
-  (cl-loop
-   for from across "йцукенгшщзхїфівапролджєячсмитьбюЙЦУКЕНГШЩЗХЇФІВАПРОЛДЖ\ЄЯЧСМИТЬБЮ№"
-   for to   across "qwertyuiop[]asdfghjkl;'zxcvbnm,.QWERTYUIOP{}ASDFGHJKL:\"ZXCVBNM<>#"
-   do
-   (eval `(define-key local-function-key-map
-            (kbd ,(concat "C-"
-                          (string from)))
-            (kbd ,(concat "C-"
-                          (string to)))))
-   (eval `(define-key local-function-key-map
-            (kbd ,(concat "M-"
-                          (string from)))
-            (kbd ,(concat "M-"
-                          (string to)))))
-   (eval `(define-key local-function-key-map
-            (kbd ,(string from))
-            (kbd ,(string to)))))
   (defalias 'yes-or-no-p     'y-or-n-p)
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill))
@@ -31,12 +14,13 @@
   (bidi-paragraph-direction          'left-to-right)
   (c-basic-offset                    2)
   (completion-cycle-threshold        3)
+  (completion-auto-help              nil)
   (completion-detailed               t)
   (cursor-in-non-selected-windows    nil)
   (display-time-24hr-format          t)
   (display-time-default-load-average nil)
   (display-time-mode                 t)
-  (enable-recursive-minibuffers      t)
+  (enable-recursive-minibuffers      nil)
   (fast-but-imprecise-scrolling      nil)
   (file-name-shadow-properties     '(invisible t intangible t face file-name-shadow field shadow)
                                    "Removing minibuffer 'default directory' prefix.")
@@ -91,14 +75,15 @@
   ([remap delete-char] . delete-forward-char)
   ("C-c d c"  . comment-dwim)
   ("C-c f c"  . vd/copy-word)
-  ("C-c f o"  . vd/duplicate-line)
+  ("C-c f d"  . delete-trailing-whitespace)
+  ("C-c f f"  . find-file)
   ("C-c f l"  . vd/copy-line)
+  ("C-c f o"  . vd/duplicate-line)
   ("C-c f r"  . vd/revert-buffer)
   ("C-c f s"  . sort-lines)
-  ("C-c f d"  . delete-trailing-whitespace)
-  ("C-c f x"  . vd/delete-line)
-  ("C-c f f"  . find-file)
+  ("C-c f u"  . upcase-region)
   ("C-c f w"  . save-file)
+  ("C-c f x"  . vd/delete-line)
   ("C-c t t"  . execute-extended-command)
   ("C-b"      . list-buffers)
   ("C-c b"    . list-buffers)
@@ -111,7 +96,6 @@
   ([M-S-up]   . vd/move-line-up)
   :hook
   (minibuffer-setup . cursor-intangible-mode)
-  (prog-mode  . vd/highlight-todos)
   (after-save . executable-make-buffer-file-executable-if-script-p) ;; Make shebang (#!) file executable when saved
 )
 
@@ -180,7 +164,7 @@
 (use-package electric
   :defer t
   :init
-  (electric-pair-mode    1)
+  (electric-pair-mode   -1)
   (electric-indent-mode -1)
   :custom
   (electric-pair-pairs  '((34 . 34)
@@ -292,6 +276,14 @@
         ("M-n" . nil)))
 )
 
+;; (use-package minibuffer
+;;   :demand t
+;;   :bind (
+;;   (:map minibuffer-mode-map
+;;   ("TAB" . minibuffer-complete))
+;;   )
+;; )
+
 (use-package mule
   :demand t
   :config
@@ -316,6 +308,16 @@
   (show-paren-delay 0.2)
   (show-paren-style 'parenthesis)
 )
+
+(use-package prog-mode
+  :hook
+  (prog-mode . vd/highlight-todos)
+  :bind
+  (:map prog-mode-map
+    ("C-c TAB" . prog-indent-sexp)
+    )
+)
+
 
 (use-package recentf
   :defer 0.5

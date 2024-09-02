@@ -7,13 +7,10 @@
 (setq gc-cons-threshold (if (display-graphic-p) 400000000 100000000))
 
 (eval-and-compile
-  (defun vd/return-gc-to-default ()
-    (setq-default gc-cons-threshold 800000))
   (defun vd/garbage-collect-maybe ()
     (unless (frame-focus-state)
       (garbage-collect))))
 
-(add-hook 'after-init-hook #'vd/return-gc-to-default)
 (add-function :after after-focus-change-function 'vd/garbage-collect-maybe)
 
 ;; Default locations is in system cache directory.

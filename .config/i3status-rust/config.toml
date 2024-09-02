@@ -42,7 +42,7 @@ separator = ""
 [[block]]
 block = "focused_window"
 [block.format]
-full = "$title.str(max_w:10)|"
+full = "$title.str(max_w:15)|"
 short = "$title.str(max_w:5)|"
 
 [[block]]
@@ -55,7 +55,7 @@ interval = 300
 path = "/"
 warning = 15.0
 [block.theme_overrides]
-idle_bg="#23712CAA"
+idle_bg="#23712CBF"
 
 [[block]]
 block = "disk_space"
@@ -67,7 +67,7 @@ path = "/data"
 alert_unit = "GB"
 warning = 50.0
 [block.theme_overrides]
-idle_bg="#4B610BAA"
+idle_bg="#4B610BBF"
 
 
 
@@ -75,7 +75,7 @@ idle_bg="#4B610BAA"
 block = "cpu"
 interval = 10
 [block.theme_overrides]
-idle_bg="#2A6529AA"
+idle_bg="#2A6529BF"
 [block.format]
 full = "$icon $barchart $utilization $frequency"
 short = "$icon $utilization $frequency"
@@ -90,14 +90,14 @@ interval = 10
 warning_mem = 80
 warning_swap = 80
 [block.theme_overrides]
-idle_bg="#355325AA"
+idle_bg="#355325BF"
 
 [[block]]
 block = "battery"
 device = "BAT0"
 driver = "upower"
 [block.theme_overrides]
-idle_bg="#2F2519AA"
+idle_bg="#2F2519BF"
 [block.format]
 full = "$icon $percentage $power $time"
 short = "$icon $percentage"
@@ -120,7 +120,7 @@ device_kind = "sink"
 show_volume_when_muted = false
 headphones_indicator = true
 [block.theme_overrides]
-idle_bg="#29331EAA"
+idle_bg="#29331EBF"
 
 [[block]]
 block = "sound"
@@ -129,7 +129,7 @@ device_kind = "source"
 show_volume_when_muted = false
 headphones_indicator = true
 [block.theme_overrides]
-idle_bg="#29331EAA"
+idle_bg="#29331EBF"
 
 [[block]]
 block = "bluetooth"
@@ -169,7 +169,7 @@ minimum = 15
 maximum = 100
 invert_icons = true
 [block.theme_overrides]
-idle_bg="#1f2419AA"
+idle_bg="#1f2419BF"
 
 [[block]]
 block = "net"
@@ -178,7 +178,7 @@ inactive_format = ""
 missing_format = ""
 interval = 5
 [block.theme_overrides]
-idle_bg="#1f2419AA"
+idle_bg="#1f2419BF"
 [block.format]
 short = "$icon $speed_down.eng(prefix:M)"
 full = "$icon $speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
@@ -194,7 +194,7 @@ inactive_format = ""
 missing_format = ""
 interval = 5
 [block.theme_overrides]
-idle_bg="#1f2419AA"
+idle_bg="#1f2419BF"
 [block.format]
 short = "$icon $speed_down.eng(prefix:M)"
 full = "$icon $speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
@@ -210,7 +210,7 @@ inactive_format = ""
 missing_format = ""
 interval = 5
 [block.theme_overrides]
-idle_bg="#33382EAA"
+idle_bg="#33382EBF"
 [block.format]
 short = "$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
 full = "$icon $ssid $signal_strength $speed_down.eng(prefix:M)|$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
@@ -225,7 +225,7 @@ inactive_format = ""
 missing_format = ""
 interval = 5
 [block.theme_overrides]
-idle_bg="#33382EAA"
+idle_bg="#33382EBF"
 [block.format]
 short = "$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
 full = "$icon $ssid $signal_strength $speed_down.eng(prefix:M)|$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
@@ -241,7 +241,7 @@ missing_format = ""
 inactive_format = ""
 interval = 5
 [block.theme_overrides]
-idle_bg="#E58E26AA"
+idle_bg="#E58E26BF"
 [[block.click]]
 button = "left"
 cmd = "nmcli c down talonVPN"
@@ -256,14 +256,14 @@ sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 "English (Colemak)" = "ENC"
 "Ukrainian (N/A)" = "UKR"
 [block.theme_overrides]
-idle_bg="#464a41AA"
+idle_bg="#464a41BF"
 
 [[block]]
 block = "time"
 format = "$icon $timestamp.datetime(f:'%d.%m %R')"
 interval = 10
 [block.theme_overrides]
-idle_bg="#355325AA"
+idle_bg="#355325BF"
 [[block.click]]
 button = "left"
 cmd = "swaymsg -q exec 'gsimplecal'"

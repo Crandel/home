@@ -18,8 +18,6 @@
   (require 'use-package)
   (put 'use-package 'lisp-indent-function 1)
 
-  (unless (package-installed-p 'vc-use-package)
-    (package-vc-install "https://github.com/slotThe/vc-use-package"))
   (use-package use-package-core
     :custom
     ; (use-package-verbose t)
@@ -64,6 +62,7 @@
 (require 'emmet-mode-rcp)
 (require 'flycheck-rcp)
 (require 'git-rcp)
+(require 'grep-rcp)
 (require 'helpful-rcp)
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)
@@ -82,10 +81,12 @@
 (require 'pkgbuild-rcp)
 (require 'projectile-rcp)
 (require 'rainbow-rcp)
-(require 'restclient-rcp)
+(require 'selected-rcp)
+(require 'smartparens-rcp)
 (require 'sql-rcp)
 (require 'tempel-rcp)
 ;; (require 'turbo-log-rcp)
+(require 'http-rcp)
 (require 'vertico-rcp)
 (require 'vimrc-mode-rcp)
 (require 'which-key-rcp)
@@ -100,12 +101,11 @@
 (require 'docker-rcp)
 (require 'go-rcp)
 (require 'python-rcp)
-(require 'ripgrep-rcp)
-(require 'editorconfig-rcp)
 
 
 ;; meow should be the last one to collect all keybindings.
 (require 'meow-rcp)
+(require 'final-steps-rcp)
 
 ;;; Commentary:
 ;; Main init file

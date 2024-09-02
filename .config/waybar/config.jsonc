@@ -1,0 +1,190 @@
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "margin": 1,
+  // Choose the order of the modules
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/submap",
+    "hyprland/window",
+    "systemd-failed-units"
+  ],
+  "modules-right": [
+    "disk",
+    "disk#data",
+    "cpu",
+    "memory",
+    "battery",
+    "temperature",
+    "bluetooth",
+    "pulseaudio#output",
+    "pulseaudio#input",
+    "backlight",
+    "network#eth",
+    "network#wifi",
+    "network#vpn",
+    "hyprland/language",
+    "clock",
+    "tray"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{name}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "hyprland/window": {
+    "format": "{title:.15}",
+    "separate-outputs": true
+  },
+  "systemd-failed-units": {
+    "format": "{nr_failed_user}/{nr_failed_system}",
+    "hide-on-ok": true
+  },
+  "disk": {
+    "path": "/",
+    "interval": 300,
+    "format": "📂/ {free}",
+    "states": {
+      "warning": 80,
+      "critical": 95
+    }
+  },
+  "disk#data": {
+    "path": "/data",
+    "interval": 300,
+    "format": "/d {free}",
+    "states": {
+      "warning": 80,
+      "critical": 95
+    }
+  },
+  "cpu": {
+    "format": "💻 {avg_frequency}GHz",
+    "states": {
+      "good": 30,
+      "warning": 50,
+      "critical": 85
+    }
+  },
+  "memory": {
+    "format": "💾 {used:0.1f}G",
+    "states": {
+      "warning": 80,
+      "critical": 95
+    }
+  },
+  "battery": {
+    "states": {
+      "good": 90,
+      "normal": 50,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "🔋 {capacity}%",
+    "format-charging": "🔌{capacity}%",
+    "format-plugged": "🔌",
+    "format-alt": "🔋 {time}",
+    "format-good": "🔋", // An empty format will hide the module
+    "format-full": "🔋",
+    "tooltip-format": "🔋{capacity}% {time}"
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": " {temperatureC}°",
+    "states": {
+      "good": 90,
+      "normal": 50,
+      "warning": 30,
+      "critical": 15
+    },
+
+  },
+  "bluetooth": {
+    "format": "",
+    "format-connected": " {device_alias:.2}",
+    "format-disabled": "",
+    "format-connected-battery": "🎧{device_alias:.2} {device_battery_percentage}%",
+    "states": {
+      "good": 90,
+      "normal": 50,
+      "warning": 30,
+      "critical": 15
+    },
+  },
+  "pulseaudio#output": {
+    "format": "{icon} {volume}%",
+    "format-muted": "🔇",
+    "format-icons": {
+        "default": ["🔈", "🔉", "🔊"]
+    },
+    "states": {
+      "good": 90,
+      "normal": 50,
+      "warning": 30,
+      "critical": 15
+    },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+  },
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": "🎤{volume}%",
+    "format-source-muted": "🎙",
+    "scroll-step": 5,
+    "states": {
+      "good": 90,
+      "normal": 50,
+      "warning": 30,
+      "critical": 15
+    },
+    "on-click": "pavucontrol",
+  },
+  "backlight": {
+    "interval": 5,
+    "format": "{icon} {percent}%",
+    "format-icons": ["🌑", "🌘", "🌗", "🌖", "🌕"]
+  },
+  "network#eth": {
+    "interface": "eth*", // (Optional) To force the use of this interface
+    "interval": 5,
+    "format": "🌍 ⇊{bandwidthDownBytes}",
+    "format-disconnected": "",
+    "tooltip-format": "{ipaddr} ⇈{bandwidthUpBytes}|⇊{bandwidthDownBytes}",
+    "tooltip-format-disconnected": ""
+  },
+  "network#wifi": {
+    "interface": "wlan*", // (Optional) To force the use of this interface
+    "interval": 5,
+    "format-wifi": "📡{signalStrength}% ⇊{bandwidthDownBytes}",
+    "format-disconnected": "",
+    "tooltip-format-wifi": "{essid} {ipaddr} ⇈{bandwidthUpBytes}|⇊{bandwidthDownBytes}",
+    "tooltip-format-disconnected": ""
+  },
+  "network#vpn": {
+    "interface": "tun*", // (Optional) To force the use of this interface
+    "interval": 1,
+    "format": "V",
+    "format-disconnected": "",
+    "tooltip-format-linked": "VPN {ipaddr}",
+    "tooltip-format-disconnected": ""
+  },
+  "hyprland/language": {
+    "min-length": 2
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%d.%m %R}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "⌚ {:%d.%m %R}",
+    "format-alt": "{:%d.%m %R}"
+  },
+  "tray": {
+    "icon-size": 28,
+    "spacing": 2
+  }
+}

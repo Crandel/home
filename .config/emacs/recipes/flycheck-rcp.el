@@ -5,7 +5,14 @@
 (use-package flycheck
   :ensure t
   :defer t
+  :init
+  (defvar-local flycheck-local-checkers nil)
+  (defun vd/flycheck-checker-get(fn checker property)
+    (or (alist-get property (alist-get checker flycheck-local-checkers))
+        (funcall fn checker property)))
+  (advice-add 'flycheck-checker-get :around 'vd/flycheck-checker-get)
   :custom
+  (flycheck-keymap-prefix              (kbd "C-c n"))
   (flycheck-check-syntax-automatically '(mode-enabled save idle-change))
   (flycheck-emacs-lisp-load-path       'inherit)
   (flycheck-highlighting-mode          'lines)
@@ -14,14 +21,21 @@
   :hook
   (prog-mode . flycheck-mode)
   (web-mode  . flycheck-mode)
-  :bind ("C-c n" . flycheck-next-error)
 )
 
 (use-package flycheck-golangci-lint
   :ensure t
-  :hook
-  (go-ts-mode . flycheck-golangci-lint-setup)
+  :init
+  (add-hook 'go-ts-mode (progn
+                  (flycheck-golangci-lint-setup)
+                  (setq flycheck-go-local-checkers '((lsp . ((next-checkers . (golangci-lint))))))
+                  )
+              )
 )
+
+(use-package attrap
+  :ensure t
+  :bind (("C-c n f" . attrap-attrap)))
 
 (use-package flycheck-rust
   :ensure t

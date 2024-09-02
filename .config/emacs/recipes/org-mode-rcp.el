@@ -32,17 +32,20 @@
     (meow-insert)
     )
   :custom
+  (org-M-RET-may-split-line         nil)
   (org-confirm-babel-evaluate       nil)
   (org-edit-src-content-indentation 0)
-  (org-ellipsis                     "▾")
+  (org-ellipsis                     "•")
+  (org-goto-auto-isearch            nil)
   (org-hide-emphasis-markers        nil) ;; show all markers
   (org-src-fontify-natively         t)
-  (org-support-shift-select         'always)
   (org-src-preserve-indentation     t "do not put two spaces on the left")
   (org-src-strip-leading-and-trailing-blank-lines t)
   (org-src-tab-acts-natively        t)
   (org-src-tab-acts-natively        t)
   (org-src-window-setup             'current-window "edit in current window")
+  (org-support-shift-select         'always)
+  (org-yank-folded-subtrees         nil)
   (word-wrap                        nil)
   :init
   (with-eval-after-load 'meow
@@ -55,24 +58,25 @@
     (meow-define-keys 'org-motion
       '("<escape>" . meow-normal-mode)
       '("i" . meow-insert-mode)
-      '("g" . meow-normal-mode)
       '("u" .  meow-undo)
       ;; Moving between headlines
-      '("k" .  org-previous-visible-heading)
-      '("j" .  org-next-visible-heading)
+      '("h" .  org-previous-visible-heading)
+      '("l" .  org-next-visible-heading)
       ;; Moving between headings at the same level
-      '("p" .  org-backward-heading-same-level)
-      '("n" .  org-forward-heading-same-level)
+      '("k" .  org-backward-heading-same-level)
+      '("j" .  org-forward-heading-same-level)
       ;; Moving subtrees themselves
-      '("K" .  org-subtree-up)
-      '("J" .  org-subtree-down)
-      ;; Subtree de/promotion
+      '("K" .  org-move-subtree-up)
+      '("J" .  org-move-subtree-down)
+      ;; de/promotion
       '("L" .  org-demote-subtree)
       '("H" .  org-promote-subtree)
+      '("D" .  org-do-demote)
+      '("P" .  org-do-promote)
       ;; Completion-style search of headings
       '("v" .  consult-org-heading)
       ;; Setting subtree metadata
-      '("l" .  org-set-property)
+      '("p" .  org-set-property)
       '("t" .  org-todo)
       '("d" .  org-deadline)
       '("s" .  org-schedule)
@@ -80,6 +84,7 @@
       ;; Block navigation
       '("b" .  org-previous-block)
       '("f" .  org-next-block)
+      '("g" .  org-goto)
       ;; Narrowing/widening
       '("N" .  org-narrow-to-subtree)
       '("W" .  widen))
@@ -96,6 +101,7 @@
   (org-babel-do-load-languages 'org-babel-load-languages vd/org-babel-load-languages)
   :bind
   (:map org-mode-map
+  ("TAB" . org-cycle)
   ("C-c o o" . vd/org-toggle-emphasis)
   ("C-c o t" . org-insert-structure-template)
   ("C-c o a" . org-babel-remove-result)

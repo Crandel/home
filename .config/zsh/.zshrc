@@ -120,6 +120,7 @@ fi
 if [ -d $ZSH_CUSTOM_COMPLETIONS/zsh-completions ]; then
   fpath=( "$ZSH_CUSTOM_COMPLETIONS/zsh-completions/src" $fpath )
 fi
+
 compinit -u
 
 # IMPORT ADDITIONAL FILES
@@ -131,7 +132,7 @@ source $ZDOTDIR/aliases.zsh
 # END IMPORT
 
 bindkey -e
-# bindkey "^h"      edit-command-line
+bindkey "^h" edit-command-line
 # \e[A arrow up
 # \e[B arrow down
 # \e[C arrow right

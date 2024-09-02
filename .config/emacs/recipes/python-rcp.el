@@ -18,10 +18,6 @@
     (let ((mode-imenu (imenu-default-create-index-function))
           (custom-imenu (imenu--generic-function imenu-generic-expression)))
       (append mode-imenu custom-imenu)))
-  (defvar my/python-mode-map
-    (let ((map (make-keymap)))
-      map)
-    "Custom keymap for python major mode")
   :custom
   (python-shell-completion-native             nil)
   (python-shell-prompt-detect-failure-warning nil)
