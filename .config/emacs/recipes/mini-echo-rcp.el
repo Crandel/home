@@ -5,41 +5,46 @@
 (use-package mini-echo
   :ensure t
   :after hide-mode-line
+  :preface
+  (defun mini-echo-persistent-detect ()
+    "Return a plist of persistent rule if matched.
+    Otherwise, return nil."
+    (with-current-buffer (current-buffer)
+      ;; NOTE return the first match, so the former has higher priority
+      (pcase major-mode
+        ('elfeed-search-mode '(:both ("elfeed")))
+        ('helpful-mode       '(:both ("major-mode" "helpful")))
+        (_ nil))))
   :custom-face
   (mini-echo-major-mode        ((t (:foreground "green"))))
   (mini-echo-meow              ((t (:foreground "yellow"))))
   (mini-echo-minibuffer-window ((t nil)))
   :custom
-  (mini-echo-default-segments '(:long (
+  (mini-echo-persistent-function 'mini-echo-persistent-detect)
+  (mini-echo-persistent-rule '(:long (
                                         "time"
                                         "buffer-position"
                                         "major-mode"
                                         "flycheck"
+                                        "eglot"
                                         "vcs"
-                                        "buffer-name"
+                                        "shrink-path"
                                         "macro"
                                         "meow"
                                         )
                                 :short (
                                          "time"
                                          "major-mode"
+                                         "eglot"
                                          "buffer-name-short"
                                          "meow"
                                          ))
                                )
   (mini-echo-buffer-status-style 'both)
   (mini-echo-window-divider-args '(t 1 1))
-  (mini-echo-update-interval 0.3)
-  :init
-  (setq mini-echo-rules
-      '((elfeed-search-mode :long (("elfeed"   . 2)))
-        (go-ts-mode         :long (("lsp-mode" . 4)))
-        (rust-ts-mode       :long (("lsp-mode" . 4)))
-        (c-ts-mode          :long (("lsp-mode" . 4)))
-        (python-ts-mode     :long (("lsp-mode" . 4)))
-        ))
+  (mini-echo-update-interval     0.3)
   :config
-  (mini-echo-mode 1)
+  (mini-echo-mode)
   )
 
 (use-package hide-mode-line

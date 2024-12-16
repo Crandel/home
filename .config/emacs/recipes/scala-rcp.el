@@ -26,10 +26,10 @@
          ("M-RET" . newline))
 )
 
-(use-package lsp-metals
-  :ensure t
-  :defer t
-)
+;; (use-package lsp-metals
+;;   :ensure t
+;;   :defer t
+;; )
 
 (provide 'scala-rcp)
 

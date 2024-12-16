@@ -15,6 +15,7 @@
   (consult-narrow-key ",")
   (consult--regexp-compiler consult--orderless-regexp-compiler)
   (completion-in-region-function 'consult-completion-in-region)
+  (xref-show-xrefs-function 'consult-xref)
   :preface
   (defun consult-narrow-left ()
     (interactive)
@@ -84,13 +85,13 @@
   ("C-c s n" . consult-flycheck)
 )
 
-(use-package consult-lsp
+(use-package consult-eglot
   :ensure t
-  :commands (consult-lsp-file-symbols consult-lsp-symbols)
-  :after (consult lsp)
+  :commands (consult-eglot-file-symbols consult-eglot-symbols)
+  :after (consult eglot)
   :bind
-  ("C-c s ," . consult-lsp-file-symbols)
-  ("C-c s ." . consult-lsp-symbols)
+  ("C-c s ," . consult-eglot-file-symbols)
+  ("C-c s ." . consult-eglot-symbols)
 )
 
 (use-package consult-dir
@@ -101,10 +102,6 @@
          ("C-d" . consult-dir)
          ("C-j" . consult-dir-jump-file))
 )
-;; (use-package consult-yasnippet
-;;   :ensure t
-;;   :after consult
-;; )
 
 (provide 'consult-rcp)
 

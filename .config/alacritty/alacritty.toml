@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [colors.bright]
@@ -52,7 +53,7 @@ style = "Regular"
 [scrolling]
 history = 100000
 
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]

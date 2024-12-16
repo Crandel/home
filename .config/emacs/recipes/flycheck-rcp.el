@@ -25,12 +25,24 @@
 
 (use-package flycheck-golangci-lint
   :ensure t
+  :custom
+  (flycheck-eglot-exclusive nil)
   :init
   (add-hook 'go-ts-mode (progn
-                  (flycheck-golangci-lint-setup)
-                  (setq flycheck-go-local-checkers '((lsp . ((next-checkers . (golangci-lint))))))
-                  )
+                          (flycheck-golangci-lint-setup)
+                          (setq flycheck-go-local-checkers    '((eglot . ((next-checkers . (golangci-lint))))))
+                          )
               )
+  :config
+  (with-eval-after-load 'projectile
+    (setq flycheck-golangci-lint-config (concat (projectile-project-root) ".golangci.yml")))
+)
+
+(use-package flycheck-eglot
+  :ensure t
+  :after (flycheck eglot)
+  :config
+  (global-flycheck-eglot-mode 1)
 )
 
 (use-package attrap

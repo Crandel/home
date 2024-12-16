@@ -39,7 +39,7 @@ soff() {
 }
 
 son() {
-  eval "$SUDO swapon /swapfile"
+  eval "$SUDO swapon $(swapon --noheadings --show=NAME)"
 }
 ## END SWAP
 

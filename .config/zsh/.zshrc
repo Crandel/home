@@ -162,6 +162,9 @@ bindkey "\e[3~"   delete-char
 bindkey "^[^?"    backward-kill-word
 # bindkey "^@"      autosuggest-accept
 
+# insert last command
+bindkey "^V" insert-last-word
+
 # bindkey "^["      vi-cmd-mode
 # function zle-keymap-select() {
 #   if [[ ${KEYMAP} == vicmd ]] ||
@@ -197,7 +200,6 @@ if [ -d $ZSH_CUSTOM_PROMPT/powerlevel10k ]; then
 else
   echo "$ZSH_CUSTOM_PROMPT/powerlevel10k directory is missing"
 fi
-# eval "$(starship init zsh)"
 
 # end=`date +%s.%N`
 # printf "%.2f" $((end-start))

@@ -1,6 +1,7 @@
 ;;; sql-rcp.el --- SQL mode settings
 
 ;;; Code:
+(eval-when-compile (require 'use-package))
 (use-package sql-mode
   :mode "\\.pgsql\\'"
   :custom

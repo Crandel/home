@@ -3,7 +3,6 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package editorconfig
-  :ensure t
   :hook
   (python-ts-mode   . editorconfig-mode)
   (go-ts-mode       . editorconfig-mode)

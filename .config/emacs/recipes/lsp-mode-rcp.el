@@ -94,32 +94,7 @@
         )
 )
 
-(use-package dap-mode
-  :ensure t
-  :commands (dap-hydra go-dap-setup)
-  :preface
-  (defun go-dap-setup ()
-    (interactive)
-    (require 'dap-dlv-go)
-    (dap-mode 1)
-    (dap-ui-mode 1)
-    (dap-tooltip-mode 1)
-    (tooltip-mode 1)
-    (dap-ui-controls-mode 1)
-    (dap-auto-configure-mode 1))
-  (defun go-root-setup ()
-    (interactive)
-    (go-dap-setup)
-    (projectile-with-default-dir (projectile-acquire-root)
-      (call-interactively 'dap-debug))
-  )
-  :custom
-  (dap-auto-configure-features      '(sessions locals breakpoints expressions controls tooltip))
-  (dap-auto-show-output             t)
-  (dap-label-output-buffer-category t)
-  :hook
-  (dap-stopped . (lambda (arg) (call-interactively #'dap-hydra)))
-  )
+
 
 (use-package f
   :ensure t

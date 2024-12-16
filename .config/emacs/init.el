@@ -9,7 +9,6 @@
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
   (setq gnutls-algorithm-priority        "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
         package-enable-at-startup        nil
-        package-install-upgrade-built-in t
         package-archive-priorities '(("melpa"        . 200)
                                      ("elpa"         . 100)
                                      ("org"          . 75)
@@ -23,8 +22,6 @@
     ; (use-package-verbose t)
     (use-package-minimum-reported-time 0.005)
     (use-package-enable-imenu-support t))
-  (use-package use-package-ensure-system-package
-    :ensure t)
 )
 
 ;; Doom-theme load
@@ -56,7 +53,10 @@
 (require 'compilation-rcp)
 (require 'corfu-rcp)
 (require 'csv-mode-rcp)
+(require 'dape-rcp)
 (require 'dired-rcp)
+(require 'editorconfig-rcp)
+(require 'eglot-rcp)
 (require 'ellama-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
@@ -70,12 +70,13 @@
 (require 'js-rcp)
 (require 'json-rcp)
 (require 'kotlin-rcp)
-(require 'lsp-mode-rcp)
+;; (require 'lsp-mode-rcp)
 (require 'lua-rcp)
 (require 'marginalia-rcp)
 (require 'markdown-mode-rcp)
 ;; (require 'monkeytype-rcp)
 (require 'multi-compile-rcp)
+(require 'nov-rcp)
 (require 'orderless-rcp)
 (require 'org-mode-rcp)
 (require 'pkgbuild-rcp)
@@ -85,7 +86,7 @@
 (require 'smartparens-rcp)
 (require 'sql-rcp)
 (require 'tempel-rcp)
-;; (require 'turbo-log-rcp)
+(require 'turbo-log-rcp)
 (require 'http-rcp)
 (require 'vertico-rcp)
 (require 'vimrc-mode-rcp)
@@ -101,8 +102,6 @@
 (require 'docker-rcp)
 (require 'go-rcp)
 (require 'python-rcp)
-
-
 ;; meow should be the last one to collect all keybindings.
 (require 'meow-rcp)
 (require 'final-steps-rcp)

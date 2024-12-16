@@ -45,6 +45,7 @@
   (nxml-attribute-indent           2)
   (redisplay-dont-pause            t)
   (resize-mini-windows             t)
+  (resize-mini-frames              t)
   (ring-bell-function              'ignore)
   (fast-but-imprecise-scrolling    t "Scrolling settings")
   (scroll-conservatively           most-positive-fixnum "Scrolling settings")
@@ -53,12 +54,13 @@
   (scroll-preserve-screen-position t "Scrolling settings")
   (size-indication-mode            t)
   (sentence-end-double-space       nil)
-  (split-height-threshold          nil "Minimum height for splitting windows vertically.")
-  (split-width-threshold           0   "Minimum height for splitting windows horizontally.")
+  ;; (split-height-threshold          nil "Minimum height for splitting windows vertically.")
+  ;; (split-width-threshold           0   "Minimum height for splitting windows horizontally.")
   (standart-indent                 2)
-  (tab-always-indent               nil)
+  (tab-always-indent               'complete)
   (tab-width                       2)
   (use-dialog-box                  nil "Non-nil means mouse commands use dialog boxes to ask questions.")
+  (word-wrap                       t)
   ;; (uniquify-buffer-name-style 'reverse)
   ;; (uniquify-min-dir-content   3)
   :bind
@@ -67,6 +69,7 @@
   ("C-k"      . backward-paragraph)
   ("C-j"      . forward-paragraph)
   ("C-v"      . yank)
+  ("C-h F"    . describe-face)
   ("<Copy>"   . kill-ring-save)
   ("<Paste>"  . yank)
   ("C-y"      . scroll-up-command)
@@ -110,9 +113,14 @@
 (use-package compile
   :defer t
   :custom
-  (compilation-always-kill     t)
-  (compilation-disable-input   t)
-  (compilation-window-height   10)
+  (compilation-always-kill              t)
+  (compilation-auto-jump-to-first-error t)
+  (compilation-disable-input            t)
+  (compilation-max-output-line-length   nil)
+  (compilation-scroll-output            t)
+  (compilation-window-height            10)
+  :hook
+  (compilation-filter . ansi-color-compilation-filter)
 )
 
 (use-package delsel
@@ -269,11 +277,23 @@
                   utf-8)))
 )
 
+(use-package jsonrpc
+  :config
+  (fset #'jsonrpc--log-event #'ignore) ;; speed up lsp output.
+)
+
 (use-package make-mode
   :defer t
   :bind (
   (:map makefile-mode-map
         ("M-n" . nil)))
+)
+
+(use-package man
+  :defer t
+  :custom-face
+  (Man-overstrike ((t (:inherit 'bold :foreground "orange red"))))
+  (Man-underline ((t (:inherit 'underline :foreground "forest green"))))
 )
 
 ;; (use-package minibuffer
@@ -415,6 +435,9 @@
   (global-subword-mode t)
 )
 
+(use-package transient
+  :pin elpa)
+
 (use-package tramp
   :disabled)
 
@@ -466,7 +489,7 @@
 )
 
 (use-package whitespace
- :demand twinner-dont-bind-my-keys
+ :demand t
  :init
  (global-whitespace-mode t)
  :custom-face
@@ -501,6 +524,8 @@
   ("M-,"   . xref-find-references)
   ("C-,"   . xref-go-back)
   ("C-M-," . xref-go-forward)
+  :config
+  (add-hook 'xref-after-jump-hook #'delete-other-windows)
 )
 
 (provide 'base-rcp)

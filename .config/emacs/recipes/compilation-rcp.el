@@ -5,6 +5,8 @@
 (use-package fancy-compilation
   :ensure t
   :commands (fancy-compilation-mode)
+  :custom
+  (fancy-compilation-scroll-output 'first-error)
   :init
   (with-eval-after-load 'compile
     (fancy-compilation-mode))

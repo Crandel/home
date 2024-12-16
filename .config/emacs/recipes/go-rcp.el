@@ -3,60 +3,57 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package go-ts-mode
-  :ensure t
   :mode "\\.go\\'"
-  :preface
-  (defun vd/go-lsp-start()
-    (add-hook 'before-save-hook #'lsp-format-buffer t t)
-    (add-hook 'before-save-hook #'lsp-organize-imports t t)
-    (lsp-deferred)
-    )
   :bind
   (:map go-ts-mode-map
-    ("C-c g b" . go-dap-setup)
-    ("C-c g h" . go-root-setup)
-    ("C-c g t" . dap-breakpoint-toggle)
-    ("C-c g a" . treesit-beginning-of-defun)
-    ("C-c g e" . treesit-end-of-defun)
+    ("C-c i a" . treesit-beginning-of-defun)
+    ("C-c i e" . treesit-end-of-defun)
     ("RET"     . reindent-then-newline-and-indent)
     ("M-RET"   . newline)
    )
-
   :custom
   (go-ts-mode-indent-offset 4)
   :config
   (add-to-list 'exec-path "~/.local/bin")
-  (setq lsp-go-analyses '(
-                          (nilness . t)
-                          (shadow . t)
-                          (unusedwrite . t)
-                          (fieldalignment . t)
-                          (escape . t)
-                                       )
-        lsp-go-codelenses '(
-                          (test . t)
-                          (tidy . t)
-                          (upgrade_dependency . t)
-                          (vendor . t)
-                          (gc_details . t)
-                          (run_govulncheck . t)
-                                       )
-        )
-  :hook
-  (go-ts-mode . vd/go-lsp-start)
+  (setq-default eglot-workspace-configuration
+    '((:gopls .
+        ((staticcheck . t)
+         (symbolScope . "workspace")
+         (analyses . (
+                      (nilness . t)
+                      (shadow . t)
+                      (unusedwrite . t)
+                      (fieldalignment . t)
+                      (escape . t)
+         ))
+         (hints . ((parameterNames . t)))
+         )
+        ))
+    )
 )
 
 (use-package go-tag
   :ensure t
   :bind
   (:map go-ts-mode-map
-    ("C-c g r" . go-tag-remove)
-    ("C-c g i" . go-tag-add)
+    ("C-c i r" . go-tag-remove)
+    ("C-c i i" . go-tag-add)
     )
 )
 
 (use-package godoctor
   :ensure t
+)
+
+(use-package gotest
+  :ensure t
+  :after go-ts-mode
+  :commands (go-test-current-file go-test-current-test)
+  :bind
+  (:map go-ts-mode-map
+    ("C-c i t" . go-test-current-test)
+    ("C-c i f" . go-test-current-file)
+    )
 )
 
 (provide 'go-rcp)

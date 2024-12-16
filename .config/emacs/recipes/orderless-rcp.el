@@ -53,7 +53,7 @@
   (orderless-define-completion-style +orderless-with-initialism
     (orderless-matching-styles '(orderless-initialism orderless-literal orderless-regexp)))
   :custom
-  (completion-styles             '(orderless basic))
+  (completion-styles             '(basic orderless))
   (completion-category-defaults  nil)
   (completion-category-overrides '((file (styles partial-completion)) ;; partial-completion is tried first
                                    ;; enable initialism by default for symbols

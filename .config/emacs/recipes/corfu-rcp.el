@@ -5,9 +5,6 @@
 (use-package corfu
   :ensure t
   :preface
-  (defun corfu-lsp-setup ()
-        (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless)))
   (defun vd/corfu-disable-quit-with-orderless-advice (func)
     (let ((corfu-quit-at-boundary
            (not (seq-contains-p (car corfu--input)
@@ -18,7 +15,7 @@
   (corfu-auto             t)
   (corfu-auto-delay       0.1)
   (corfu-auto-prefix      2)
-  (corfu-count            20)
+  (corfu-count            10)
   (corfu-cycle            t)
   (corfu-preselect        'first)
   (corfu-preview-current  t)
@@ -27,7 +24,7 @@
   :bind(
   :map corfu-map
        ("<esc>" . corfu-quit)
-       ("C-f" . corfu-quick-complete)
+       ("C-f"   . corfu-quick-complete)
   )
   :init
   (global-corfu-mode)
@@ -42,21 +39,21 @@
   :functions cape-capf-super cape-file
   :preface
   (defun vd/setup-lsp-completion ()
+    (message "inside setup lsp completion")
     (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
-                                                                     #'lsp-completion-at-point)
-                                                    #'cape-file))
+                                                                     (cape-capf-buster #'eglot-completion-at-point #'string-prefix-p)
+                                                                     #'cape-file)))
     )
   (defun vd/setup-elisp-completion ()
     (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
-                                                                     #'elisp-completion-at-point)
-                                                    #'cape-file))
+                                                                     #'elisp-completion-at-point
+                                                                     #'cape-file)))
     )
   :init
-  (add-to-list 'completion-at-point-functions #'cape-dabbrev)
   (add-to-list 'completion-at-point-functions #'cape-keyword)
   :hook
   (emacs-lisp-mode     . vd/setup-elisp-completion)
-  (lsp-completion-mode . vd/setup-lsp-completion)
+  (eglot-managed-mode  . vd/setup-lsp-completion)
 )
 
 (use-package kind-icon

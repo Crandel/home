@@ -7,9 +7,8 @@
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-  (setq gnutls-algorithm-priority        "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
-        package-enable-at-startup        nil
-        package-install-upgrade-built-in t
+  (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
+        package-enable-at-startup  nil
         package-archive-priorities '(("melpa"        . 200)
                                      ("elpa"         . 100)
                                      ("org"          . 75)
@@ -25,8 +24,6 @@
     ; (use-package-verbose t)
     (use-package-minimum-reported-time 0.005)
     (use-package-enable-imenu-support t))
-  (use-package use-package-ensure-system-package
-    :ensure t)
 )
 (add-to-list 'load-path (expand-file-name "../recipes/" (file-name-directory load-file-name)))
 ;; (debug-watch 'completion-at-point-functions)

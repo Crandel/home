@@ -42,14 +42,15 @@
 (add-to-list 'load-path (expand-file-name "themes/"  vd/emacs-config-directory))
 (add-to-list 'load-path (expand-file-name "recipes/" vd/emacs-config-directory))
 
-(setq-default auto-window-vscroll          nil
-              byte-compile-warnings        '(not obsolete)
-              frame-inhibit-implied-resize t
-              frame-resize-pixelwise       t  ;; Default frame configuration: full screen
-              inhibit-default-init         t
-              inhibit-startup-message      t
-              load-prefer-newer            noninteractive  ;; Prefer loading newest compiled .el file
-              package-enable-at-startup    t
+(setq-default auto-window-vscroll             nil
+              byte-compile-warnings           '(not obsolete)
+              frame-inhibit-implied-resize    t
+              frame-resize-pixelwise          t  ;; Default frame configuration: full screen
+              inhibit-default-init            t
+              inhibit-startup-message         t
+              load-prefer-newer               noninteractive  ;; Prefer loading newest compiled .el file
+              package-enable-at-startup       t
+              process-adaptive-read-buffering nil ;; speadup emacs
               site-run-file                nil
               warning-suppress-log-types   '((comp) (bytecomp))
 )
@@ -75,6 +76,7 @@
 
 (modify-all-frames-parameters '((width                    . 100)
                                 (height                   . 100)
+                                (alpha-background         . 99)
                                 (cursor-color             . "#BE81F7")
                                 (font                     . "Hack Nerd Font-16")
                                 (fullscreen               . maximized)

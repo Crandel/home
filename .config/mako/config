@@ -41,7 +41,6 @@ background-color=#191311
 format=<span>[%a]</span> \n <b>%s</b> \n <span>%b</span>
 on-notify=exec ffplay -autoexit -nodisp -hide_banner -loglevel error $HOME/Music/critical.opus
 
-
 # == Mode: Default ==
 [mode=default]
 invisible=0
