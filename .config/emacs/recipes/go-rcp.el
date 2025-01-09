@@ -8,6 +8,9 @@
   (:map go-ts-mode-map
     ("C-c i a" . treesit-beginning-of-defun)
     ("C-c i e" . treesit-end-of-defun)
+    ("C-c i t" . go-ts-mode-test-function-at-point)
+    ("C-c i f" . go-ts-mode-test-this-file)
+    ("C-c i p" . go-ts-mode-test-this-package)
     ("RET"     . reindent-then-newline-and-indent)
     ("M-RET"   . newline)
    )
@@ -17,14 +20,15 @@
   (add-to-list 'exec-path "~/.local/bin")
   (setq-default eglot-workspace-configuration
     '((:gopls .
-        ((staticcheck . t)
-         (symbolScope . "workspace")
-         (analyses . (
-                      (nilness . t)
-                      (shadow . t)
-                      (unusedwrite . t)
-                      (fieldalignment . t)
-                      (escape . t)
+        ((staticcheck     . t)
+         (usePlaceholders . t)
+         (local           . "github.com/talon-one/")
+         (symbolScope     . "workspace")
+         (analyses        . (
+            (nilness . t)
+            (shadow . t)
+            (unusedwrite . t)
+            (escape . t)
          ))
          (hints . ((parameterNames . t)))
          )
@@ -34,6 +38,7 @@
 
 (use-package go-tag
   :ensure t
+  :after go-ts-mode
   :bind
   (:map go-ts-mode-map
     ("C-c i r" . go-tag-remove)
@@ -45,16 +50,16 @@
   :ensure t
 )
 
-(use-package gotest
-  :ensure t
-  :after go-ts-mode
-  :commands (go-test-current-file go-test-current-test)
-  :bind
-  (:map go-ts-mode-map
-    ("C-c i t" . go-test-current-test)
-    ("C-c i f" . go-test-current-file)
-    )
-)
+;; (use-package gotest
+;;   :ensure t
+;;   :after go-ts-mode
+;;   :commands (go-test-current-file go-test-current-test)
+;;   :bind
+;;   (:map go-ts-mode-map
+;;     ("C-c i t" . go-test-current-test)
+;;     ("C-c i f" . go-test-current-file)
+;;     )
+;; )
 
 (provide 'go-rcp)
 ;;; Commentary:

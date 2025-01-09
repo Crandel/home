@@ -125,7 +125,7 @@ The return value is the yanked text."
    "f"  'find-file
    "i"  'consult-imenu-multi
    "mc" 'vd/copy-line
-   "md" 'vd/duplicate-line
+   "md" 'duplicate-line
    "ms" 'sort-lines
    "p"  'consult-buffer
    "q"  'keyboard-quit

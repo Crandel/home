@@ -6,21 +6,6 @@
   :ensure t
   :commands (vertico--format-candidate vertico-mode vertico-repeat)
   :preface
-  (defun vd/vertico-highlight-directory (file)
-    "If FILE ends with a slash, highlight it as a directory."
-    (if (string-suffix-p "/" file)
-        (propertize file 'face 'marginalia-file-priv-dir) ; or face 'dired-directory
-      file))
-  ;; function to highlight enabled modes similar to counsel-M-x
-  (defun vd/vertico-highlight-enabled-mode (cmd)
-    "If MODE is enabled, highlight it as font-lock-constant-face."
-    (let ((sym (intern cmd)))
-      (if (or (eq sym major-mode)
-              (and
-               (memq sym minor-mode-list)
-               (boundp sym)))
-          (propertize cmd 'face 'font-lock-constant-face)
-        cmd)))
   ;; function to sort directories first
   (defun vd/sort-directories-first (files)
     ;; Still sort by history position, length and alphabetically
@@ -28,10 +13,15 @@
     ;; But then move directories first
     (nconc (seq-filter (lambda (x) (string-suffix-p "/" x)) files)
            (seq-remove (lambda (x) (string-suffix-p "/" x)) files)))
-  (defun vd/vertico-history ()
-    ;; Make vertico-insert add to the minibuffer history.
-    (unless (eq minibuffer-history-variable t)
-      (add-to-history minibuffer-history-variable (minibuffer-contents))))
+  (defun vd/vertico-truncate-candidates (args)
+    (if-let ((arg (car args))
+             (type (get-text-property 0 'multi-category arg))
+             ((eq (car-safe type) 'file))
+             (w (max 60 (- (window-width) 38)))
+             (l (length arg))
+             ((> l w)))
+        (setcar args (concat "…" (truncate-string-to-width arg l (- l w)))))
+    args)
   :custom
   (vertico-cycle t)
   (vertico-buffer-display-action
@@ -61,12 +51,14 @@
   (add-to-list 'vertico-multiform-categories
                '(file
                  ;; this is also defined in the wiki, uncomment if used
-                 (vd/vertico-transform-functions . vd/vertico-highlight-directory)))
+                 (vertico-sort-function . vd/sort-directories-first)
+                 (vd/vertico-transform-functions . vd/highlight-directory)))
   (add-to-list 'vertico-multiform-commands
                '(execute-extended-command
-                 (vd/vertico-transform-functions . vd/vertico-highlight-enabled-mode)))
+                 (vd/vertico-transform-functions . vd/highlight-enabled-mode)))
   (add-to-list 'savehist-additional-variables 'vertico-repeat-history)
-  (advice-add 'vertico-insert :after #'vd/vertico-history)
+  (advice-add #'vertico--format-candidate :filter-args #'vd/vertico-truncate-candidates)
+  (advice-add #'vertico-insert :after #'vd/minibuffer-history)
   :hook
   (minibuffer-setup . vertico-repeat-save)
 )

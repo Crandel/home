@@ -4,13 +4,24 @@
 ;; Increase the GC threshold for faster startup
 ;; The default is 800 kilobytes.  Measured in bytes.
 ;; Set garbage collection threshold to 1GB.
-(setq gc-cons-threshold (if (display-graphic-p) 400000000 100000000))
+(setq gc-cons-threshold (if (display-graphic-p) 400000000 100000000)
+      gc-cons-percentage 0.5)
+
+;; startup speed optimization.
+(defvar vd/emacs--file-name-handler-alist file-name-handler-alist)
+
+(setq file-name-handler-alist nil)
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 1000 1000 8)
+                  gc-cons-percentage 0.1
+                  file-name-handler-alist vd/emacs--file-name-handler-alist)))
 
 (eval-and-compile
   (defun vd/garbage-collect-maybe ()
     (unless (frame-focus-state)
       (garbage-collect))))
-
 (add-function :after after-focus-change-function 'vd/garbage-collect-maybe)
 
 ;; Default locations is in system cache directory.
@@ -38,15 +49,18 @@
 
 ;; Themes
 (add-to-list 'custom-theme-load-path (expand-file-name "themes/" vd/emacs-config-directory))
-(load-theme  'tango-dark t)
+(setq mode-line-format nil)
+(set-face-attribute 'default nil :background "#000000" :foreground "#ffffff")
+(set-face-attribute 'mode-line nil :background "#000000" :foreground "#ffffff" :box 'unspecified)
 (add-to-list 'load-path (expand-file-name "themes/"  vd/emacs-config-directory))
 (add-to-list 'load-path (expand-file-name "recipes/" vd/emacs-config-directory))
 
 (setq-default auto-window-vscroll             nil
-              byte-compile-warnings           '(not obsolete)
+              byte-compile-warnings           '(not obsolete lexical)
               frame-inhibit-implied-resize    t
               frame-resize-pixelwise          t  ;; Default frame configuration: full screen
               inhibit-default-init            t
+              inhibit-x-resources             t
               inhibit-startup-message         t
               load-prefer-newer               noninteractive  ;; Prefer loading newest compiled .el file
               package-enable-at-startup       t
@@ -56,7 +70,7 @@
 )
 
 (when (member "Hack Nerd Font" (font-family-list))
-  (set-frame-font "Hack Nerd Font-16" t t))
+  (set-frame-font "Hack Nerd Font-15" t t))
 (set-fontset-font
    t
    'emoji
@@ -78,7 +92,7 @@
                                 (height                   . 100)
                                 (alpha-background         . 99)
                                 (cursor-color             . "#BE81F7")
-                                (font                     . "Hack Nerd Font-16")
+                                (font                     . "Hack Nerd Font-15")
                                 (fullscreen               . maximized)
                                 (inhibit-double-buffering . t)
                                 (internal-border-width    . 1)

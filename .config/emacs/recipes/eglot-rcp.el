@@ -7,13 +7,11 @@
   (defun vd/eglot-organize-imports-on-save ()
     (eglot-code-action-organize-imports (point-min) (point-max)))
   :custom
-  (eglot-autoreconnect   t)
-  (eglot-autoshutdown    t)
-  (eglot-extend-to-xref  t)
-  (eglot-report-progress t)
-  (eglot-ignored-server-capabilities
-   '(:colorProvider
-     ))
+  (eglot-autoreconnect        t)
+  (eglot-autoshutdown         t)
+  (eglot-extend-to-xref       t)
+  (eglot-events-buffer-config '(:size 0 :format lisp))
+  (eglot-report-progress      t)
   :bind (
   :map eglot-mode-map
   ("C-."     . eglot-find-implementation)
@@ -55,7 +53,6 @@
          (yaml-ts-mode   . eglot-ensure)
          (bash-ts-mode   . eglot-ensure)
          )
-
 )
 
 (provide 'eglot-rcp)

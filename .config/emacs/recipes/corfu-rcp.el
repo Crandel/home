@@ -4,6 +4,7 @@
 (eval-when-compile (require 'use-package))
 (use-package corfu
   :ensure t
+  :defer 0.1
   :preface
   (defun vd/corfu-disable-quit-with-orderless-advice (func)
     (let ((corfu-quit-at-boundary
@@ -39,15 +40,20 @@
   :functions cape-capf-super cape-file
   :preface
   (defun vd/setup-lsp-completion ()
-    (message "inside setup lsp completion")
-    (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
-                                                                     (cape-capf-buster #'eglot-completion-at-point #'string-prefix-p)
-                                                                     #'cape-file)))
+    (setq-local completion-at-point-functions (list (cape-capf-super
+                                                     #'tempel-complete
+                                                     (cape-capf-buster #'eglot-completion-at-point #'string-prefix-p)
+                                                     #'cape-file
+                                                     #'cape-keyword
+                                                     )))
     )
   (defun vd/setup-elisp-completion ()
-    (setq-local completion-at-point-functions (list (cape-capf-super #'tempel-complete
-                                                                     #'elisp-completion-at-point
-                                                                     #'cape-file)))
+    (setq-local completion-at-point-functions (list (cape-capf-super
+                                                     #'tempel-complete
+                                                     #'elisp-completion-at-point
+                                                     #'cape-file
+                                                     #'cape-keyword
+                                                     )))
     )
   :init
   (add-to-list 'completion-at-point-functions #'cape-keyword)
@@ -56,15 +62,15 @@
   (eglot-managed-mode  . vd/setup-lsp-completion)
 )
 
-(use-package kind-icon
-  :ensure t
-  :after corfu
-  :functions kind-icon-margin-formatter
-  :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
-  :custom
-  (kind-icon-default-face 'corfu-default)
-)
+;; (use-package kind-icon
+;;   :ensure t
+;;   :after corfu
+;;   :functions kind-icon-margin-formatter
+;;   :config
+;;   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
+;;   :custom
+;;   (kind-icon-default-face 'corfu-default)
+;; )
 
 (use-package corfu-terminal
   :ensure t

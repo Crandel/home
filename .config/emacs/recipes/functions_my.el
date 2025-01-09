@@ -19,18 +19,6 @@
   (forward-line -1))
 
 ;;;###autoload
-(defun vd/duplicate-line()
-  "Duplicate whole line."
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (open-line 1)
-  (forward-line 1)
-  (yank)
-  )
-
-;;;###autoload
 (defun vd/copy-line (arg)
   "Copy lines (as many as prefix ARG) in the kill ring."
   (interactive "p")
@@ -170,6 +158,29 @@ If FORCE-P, delete without confirmation."
     (font-lock-add-keywords nil
                             '(("\\<\\(FIXME\\|TODO\\|BUG\\):" 1 font-lock-warning-face t))))
 
+;;;###autoload
+(defun vd/highlight-directory (file)
+    "If FILE ends with a slash, highlight it as a directory."
+    (if (string-suffix-p "/" file)
+        (propertize file 'face 'marginalia-file-priv-dir) ; or face 'dired-directory
+      file))
+
+;;;###autoload
+(defun vd/highlight-enabled-mode (cmd)
+    "If MODE (CMD) is enabled, highlight it as `font-lock-constant-face`."
+    (let ((sym (intern cmd)))
+      (if (or (eq sym major-mode)
+              (and
+               (memq sym minor-mode-list)
+               (boundp sym)))
+          (propertize cmd 'face 'font-lock-constant-face)
+        cmd)))
+
+;;;###autoload
+(defun vd/minibuffer-history ()
+  "Make minibuffer-insert function result add to the minibuffer history."
+  (unless (eq minibuffer-history-variable t)
+    (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
 (provide 'functions_my)
 ;;; Commentary:

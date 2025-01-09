@@ -6,16 +6,6 @@
 (use-package consult
   :ensure t
   :commands (consult-ripgrep consult-multi-occur consult-buffer consult-imenu consult-yank-from-kill-ring)
-  :custom
-  (consult-find-command "fd --color=never --full-path ARG OPTS")
-  (consult-project-function (lambda (_)
-    (if (fboundp 'projectile-project-root)
-        (projectile-project-root)
-      (vc-root-dir))))
-  (consult-narrow-key ",")
-  (consult--regexp-compiler consult--orderless-regexp-compiler)
-  (completion-in-region-function 'consult-completion-in-region)
-  (xref-show-xrefs-function 'consult-xref)
   :preface
   (defun consult-narrow-left ()
     (interactive)
@@ -27,7 +17,6 @@
              (unless (eq idx 0)
                (car (nth (1- idx) consult--narrow-keys))))
          (caar (last consult--narrow-keys))))))
-
   (defun consult-narrow-right ()
     (interactive)
     (when consult--narrow-keys
@@ -47,6 +36,16 @@
     (cons
      (mapcar (lambda (r) (consult--convert-regexp r type)) input)
      (lambda (str) (orderless--highlight input str))))
+  :custom
+  (consult-find-command "fd --color=never --full-path ARG OPTS")
+  (consult-project-function (lambda (_)
+    (if (fboundp 'projectile-project-root)
+        (projectile-project-root)
+      (vc-root-dir))))
+  (consult-narrow-key ",")
+  (consult--regexp-compiler consult--orderless-regexp-compiler)
+  ;; (completion-in-region-function 'consult-completion-in-region)
+  (xref-show-xrefs-function 'consult-xref)
   :config
   (consult-customize
    consult-buffer

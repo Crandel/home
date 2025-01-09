@@ -66,6 +66,12 @@
   :map minibuffer-local-completion-map
        ("C-l" . vd/match-components-literally)
   )
+  :hook
+  (corfu-mode .
+          (lambda ()
+            (setq-local completion-styles '(orderless)
+                        completion-category-overrides nil
+                        completion-category-defaults nil)))
 )
 
 (provide 'orderless-rcp)

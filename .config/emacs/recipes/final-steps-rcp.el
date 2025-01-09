@@ -9,7 +9,10 @@
    ((derived-mode-p 'org-mode) (org-cycle))
    ((derived-mode-p 'minibuffer-mode)
     (when (fboundp 'vertico-next)
-      (vertico-next)))
+      (vertico-next))
+    (when (fboundp 'icomplete-forward-completions)
+      (icomplete-forward-completions))
+    )
    (t (progn
         (when (fboundp 'tempel-expand)
           (tempel-expand))

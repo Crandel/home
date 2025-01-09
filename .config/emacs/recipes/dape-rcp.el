@@ -4,43 +4,15 @@
 (eval-when-compile (require 'use-package))
 (use-package dape
   :ensure t
-  :preface
-  ;; By default dape shares the same keybinding prefix as `gud'
-  ;; If you do not want to use any prefix, set it to nil.
+  :init
   (setq dape-key-prefix (kbd "C-c r"))
-
-  :hook
-  ;; Save breakpoints on quit
-  ((kill-emacs . dape-breakpoint-save)
-  ;; Load breakpoints on startup
-   (after-init . dape-breakpoint-load))
-
+  :custom
+  (dape-buffer-window-arrangement 'gud)
+  (dape-debug                     t)
+  (dape-inlay-hints               t)
+  (dape-cwd-fn                    #'projectile-project-root)
   :config
-  ;; Turn on global bindings for setting breakpoints with mouse
-  ;; (dape-breakpoint-global-mode)
-
-  ;; Info buffers to the right
-  (setq dape-buffer-window-arrangement 'right)
-  (setq dape-debug t)
-
-  ;; Info buffers like gud (gdb-mi)
-  ;; (setq dape-buffer-window-arrangement 'gud)
-  ;; (setq dape-info-hide-mode-line nil)
-
-  ;; Pulse source line (performance hit)
-  ;; (add-hook 'dape-display-source-hook 'pulse-momentary-highlight-one-line)
-
-  ;; Showing inlay hints
-  (setq dape-inlay-hints t)
-
-  ;; Save buffers on startup, useful for interpreted languages
-  ;; (add-hook 'dape-start-hook (lambda () (save-some-buffers t t)))
-
-  ;; Kill compile buffer on build success
-  ;; (add-hook 'dape-compile-hook 'kill-buffer)
-
   ;; Projectile users
-  (setq dape-cwd-fn 'projectile-project-root)
   (add-to-list 'dape-configs
                `(dlv-debug
                  modes (go-mode go-ts-mode)
@@ -77,7 +49,12 @@
                                (if test-name `["-test.run" ,test-regexp]
                                  (error "No test selected")))
                            []))))
-  )
+  :hook
+  ;; Save breakpoints on quit
+  ((kill-emacs . dape-breakpoint-save)
+  ;; Load breakpoints on startup
+   (after-init . dape-breakpoint-load))
+)
 (provide 'dape-rcp)
 ;;; Commentary:
 ;;

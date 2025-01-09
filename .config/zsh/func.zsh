@@ -94,6 +94,19 @@ con_jpg_pdf (){
 con_png_pdf (){
   convert *.png $@.pdf
 }
+
+# send requests periodically
+send_requests() {
+    local url=$1
+    local interval=$2
+    local count=$3
+
+    for i in $(seq 1 $count); do
+        curl -s "$url"
+        echo
+        sleep $interval
+    done
+}
 # Add music to specified playlist
 add_music (){
   music_dir="$1"

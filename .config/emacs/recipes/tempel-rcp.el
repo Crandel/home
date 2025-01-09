@@ -4,12 +4,15 @@
 (eval-when-compile (require 'use-package))
 (use-package tempel
   :ensure t
-  :after cape
   :commands (tempel-expand)
-  :init
-  (add-to-list 'completion-at-point-functions #'tempel-complete)
+  ;; :init
+  ;; (add-to-list 'completion-at-point-functions #'tempel-complete)
   :bind (("C-t" . tempel-complete) ;; Alternative tempel-expand
          ("M-t" . tempel-insert))
+  ;; :hook
+  ;; (eglot-managed-mode . (lambda ()
+  ;;                         (add-hook 'completion-at-point-functions #'tempel-complete nil t)
+  ;;                         ))
 )
 
 (use-package tempel-collection

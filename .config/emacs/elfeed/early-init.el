@@ -4,13 +4,24 @@
 ;; Increase the GC threshold for faster startup
 ;; The default is 800 kilobytes.  Measured in bytes.
 ;; Set garbage collection threshold to 1GB.
-(setq gc-cons-threshold (if (display-graphic-p) 400000000 100000000))
+(setq gc-cons-threshold (if (display-graphic-p) 400000000 100000000)
+      gc-cons-percentage 0.5)
+
+;; startup speed optimization.
+(defvar vd/emacs--file-name-handler-alist file-name-handler-alist)
+
+(setq file-name-handler-alist nil)
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (setq gc-cons-threshold (* 1000 1000 8)
+                  gc-cons-percentage 0.1
+                  file-name-handler-alist vd/emacs--file-name-handler-alist)))
 
 (eval-and-compile
   (defun vd/garbage-collect-maybe ()
     (unless (frame-focus-state)
       (garbage-collect))))
-
 (add-function :after after-focus-change-function 'vd/garbage-collect-maybe)
 
 ;; Default locations is in system cache directory.
@@ -39,20 +50,22 @@
 ;; Themes
 (load-theme 'gruvbox t)
 
-(setq-default auto-window-vscroll          nil
-              byte-compile-warnings        '(not obsolete)
-              frame-inhibit-implied-resize t
-              frame-resize-pixelwise       t  ;; Default frame configuration: full screen
-              inhibit-default-init         t
-              inhibit-startup-message      t
-              load-prefer-newer            noninteractive  ;; Prefer loading newest compiled .el file
-              package-enable-at-startup    t
+(setq-default auto-window-vscroll             nil
+              byte-compile-warnings           '(not obsolete lexical)
+              frame-inhibit-implied-resize    t
+              frame-resize-pixelwise          t  ;; Default frame configuration: full screen
+              inhibit-default-init            t
+              inhibit-x-resources             t
+              inhibit-startup-message         t
+              load-prefer-newer               noninteractive  ;; Prefer loading newest compiled .el file
+              package-enable-at-startup       t
+              process-adaptive-read-buffering nil ;; speadup emacs
               site-run-file                nil
               warning-suppress-log-types   '((comp) (bytecomp))
 )
 
 (when (member "Hack Nerd Font" (font-family-list))
-  (set-frame-font "Hack Nerd Font-16" t t))
+  (set-frame-font "Hack Nerd Font-15" t t))
 (set-fontset-font
    t
    'emoji
@@ -72,8 +85,9 @@
 
 (modify-all-frames-parameters '((width                    . 100)
                                 (height                   . 100)
+                                (alpha-background         . 99)
                                 (cursor-color             . "#BE81F7")
-                                (font                     . "Hack Nerd Font-16")
+                                (font                     . "Hack Nerd Font-15")
                                 (fullscreen               . maximized)
                                 (inhibit-double-buffering . t)
                                 (internal-border-width    . 1)

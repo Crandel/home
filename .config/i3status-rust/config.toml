@@ -79,6 +79,9 @@ idle_bg="#2A6529BF"
 [block.format]
 full = "$icon $barchart $utilization $frequency"
 short = "$icon $utilization $frequency"
+[block.format_alt]
+full = "$icon $barchart $utilization $frequency"
+short = "$icon $barchart $utilization $frequency"
 
 [[block]]
 block = "memory"
@@ -112,6 +115,9 @@ chip = "k10temp-pci-*"
 [block.format]
 full = "$icon $average"
 short = "$icon"
+[block.format_alt]
+full = "$icon $average/$max"
+short = "$icon $average"
 
 [[block]]
 block = "sound"

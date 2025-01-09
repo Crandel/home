@@ -7,8 +7,8 @@
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
   (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-  (setq gnutls-algorithm-priority        "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
-        package-enable-at-startup        nil
+  (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
+        package-enable-at-startup  nil
         package-archive-priorities '(("melpa"        . 200)
                                      ("elpa"         . 100)
                                      ("org"          . 75)
@@ -37,13 +37,12 @@
   )
 )
 
-;; (debug-watch 'completion-at-point-functions)
 (require 'functions_my)
 
 (require 'base-rcp) ; emacs default settings
 
 ;; info packages
-(require 'all-the-icons-rcp)
+(require 'nerd-icons-rcp)
 (require 'mini-echo-rcp)
 
 ;; Rest packages
@@ -105,6 +104,7 @@
 ;; meow should be the last one to collect all keybindings.
 (require 'meow-rcp)
 (require 'final-steps-rcp)
+;(debug-on-variable-change 'completion-styles)
 
 ;;; Commentary:
 ;; Main init file

@@ -13,9 +13,6 @@
   (bidi-display-reordering           nil "Never reorder bidirectional text for display in the visual order.")
   (bidi-paragraph-direction          'left-to-right)
   (c-basic-offset                    2)
-  (completion-cycle-threshold        3)
-  (completion-auto-help              nil)
-  (completion-detailed               t)
   (cursor-in-non-selected-windows    nil)
   (display-time-24hr-format          t)
   (display-time-default-load-average nil)
@@ -43,6 +40,7 @@
   (minibuffer-prompt-properties    '(read-only t cursor-intangible t face minibuffer-prompt))
   (next-line-add-newlines          nil)
   (nxml-attribute-indent           2)
+  (read-extended-command-predicate #'command-completion-default-include-p) ;; Hide commands in M-x which do not apply to the current mode.
   (redisplay-dont-pause            t)
   (resize-mini-windows             t)
   (resize-mini-frames              t)
@@ -81,7 +79,7 @@
   ("C-c f d"  . delete-trailing-whitespace)
   ("C-c f f"  . find-file)
   ("C-c f l"  . vd/copy-line)
-  ("C-c f o"  . vd/duplicate-line)
+  ("C-c f o"  . duplicate-line)
   ("C-c f r"  . vd/revert-buffer)
   ("C-c f s"  . sort-lines)
   ("C-c f u"  . upcase-region)
@@ -98,7 +96,6 @@
   ([M-S-down] . vd/move-line-down)
   ([M-S-up]   . vd/move-line-up)
   :hook
-  (minibuffer-setup . cursor-intangible-mode)
   (after-save . executable-make-buffer-file-executable-if-script-p) ;; Make shebang (#!) file executable when saved
 )
 
@@ -121,6 +118,27 @@
   (compilation-window-height            10)
   :hook
   (compilation-filter . ansi-color-compilation-filter)
+)
+
+(use-package completion-preview
+  :disabled
+  ;; :init
+  ;; (global-completion-preview-mode t)
+  :custom
+  (completion-preview-commands
+   '(self-insert-command insert-char delete-backward-char
+                         backward-delete-char-untabify
+                         analyze-text-conversion))
+  (completion-preview-minimum-symbol-length 1)
+  (completion-preview-idle-delay 0.1)
+  :bind (
+  :map completion-preview-active-mode-map
+       ([right] . completion-preview-next-candidate)
+       ("C-j"   . completion-preview-next-candidate)
+       ([left]  . completion-preview-prev-candidate)
+       ("C-k"   . completion-preview-prev-candidate)
+       ("C-t"   . vd/tab-indent-or-complete)
+  )
 )
 
 (use-package delsel
@@ -205,6 +223,7 @@
   (confirm-kill-processes         nil)
   (create-lockfiles               nil "Disable lockfiles .#filename")
   (delete-old-versions            t   "Don't ask to delete excess backup versions.")
+  (enable-local-variables         :all)
   (make-backup-files              nil)
   (version-control                t   "Use version numbers for backups.")
   (vc-make-backup-files           t   "Emacs never backs up versioned files")
@@ -220,6 +239,29 @@
   :demand t
   :config
   (fringe-mode '(8 . 1))
+)
+
+(use-package icomplete
+  :disabled
+  :custom
+  (icomplete-compute-delay               0)
+  (icomplete-delay-completions-threshold 0)
+  (icomplete-in-buffer                   t)
+  (icomplete-max-delay-chars             0)
+  (icomplete-prospects-height            15)
+  (icomplete-separator                   " . ")
+  (icomplete-show-matches-on-no-input    t)
+  (icomplete-tidy-shadowed-file-names    t)
+  (icomplete-with-completion-tables      t)
+  ;; :init
+  ;; (fido-vertical-mode t)
+  ;; (advice-add 'icomplete-fido-ret :after #'vd/minibuffer-history)
+  :bind (
+  :map icomplete-fido-mode-map
+  ("C-j"   . icomplete-forward-completions)
+  ("C-k"   . icomplete-backward-completions)
+  ("TAB"   . icomplete-forward-completions)
+  )
 )
 
 (use-package imenu
@@ -296,13 +338,35 @@
   (Man-underline ((t (:inherit 'underline :foreground "forest green"))))
 )
 
-;; (use-package minibuffer
-;;   :demand t
-;;   :bind (
-;;   (:map minibuffer-mode-map
-;;   ("TAB" . minibuffer-complete))
-;;   )
-;; )
+(use-package minibuffer
+  :preface
+  (defun vd/complete-styles ()
+    (setq-local completion-styles '(basic initials substring partial-completion)))
+  :custom
+  (completion-auto-help                            nil)
+  (completion-category-defaults                    nil)
+  (completion-cdabbrev-prompt-flag                 t)
+  (completion-cycle-threshold                      3)
+  (completion-detailed                             t)
+  (completion-in-region-mode                       t)
+  (completion-on-separator-character               t)
+  (completion-pcm-complete-word-inserts-delimiters t)
+  (completion-styles                               '(basic initials substring))
+  (completion-category-overrides '(
+   (buffer   (styles . (initials substring partial-completion)))
+   (file     (styles . (initials substring partial-completion)))
+   (command  (styles . (initials substring partial-completion)))
+   (symbol   (styles . (initials partial-completion)))
+   (variable (styles . (initials partial-completion)))
+   ))
+  (dynamic-completion-mode                         t)
+  :init
+  (advice-add 'completion-at-point
+              :after #'minibuffer-hide-completions)
+  :hook
+  (minibuffer-setup           . cursor-intangible-mode)
+  (icomplete-minibuffer-setup . vd/complete-styles)
+)
 
 (use-package mule
   :demand t
@@ -434,9 +498,6 @@
   :config
   (global-subword-mode t)
 )
-
-(use-package transient
-  :pin elpa)
 
 (use-package tramp
   :disabled)

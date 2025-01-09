@@ -17,8 +17,6 @@
   (require 'use-package)
   (put 'use-package 'lisp-indent-function 1)
 
-  (unless (package-installed-p 'vc-use-package)
-    (package-vc-install "https://github.com/slotThe/vc-use-package"))
   (use-package use-package-core
     :custom
     ; (use-package-verbose t)
@@ -26,13 +24,12 @@
     (use-package-enable-imenu-support t))
 )
 (add-to-list 'load-path (expand-file-name "../recipes/" (file-name-directory load-file-name)))
-;; (debug-watch 'completion-at-point-functions)
 (require 'functions_my)
 
 (require 'base-rcp) ; emacs default settings
 
 ;; info packages
-(require 'all-the-icons-rcp)
+(require 'nerd-icons-rcp)
 (require 'mini-echo-rcp)
 
 ;; Rest packages
@@ -44,13 +41,13 @@
 (require 'highlight-indentation-rcp)
 (require 'hydra-rcp)
 (require 'marginalia-rcp)
-(require 'meow-rcp)
 (require 'orderless-rcp)
 (require 'org-mode-rcp)
 (require 'rainbow-rcp)
 (require 'vertico-rcp)
 (require 'which-key-rcp)
-
+(require 'meow-rcp)
+(require 'final-steps-rcp)
 
 ;;; Commentary:
 ;; Main init file
