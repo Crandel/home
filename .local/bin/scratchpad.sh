@@ -5,7 +5,7 @@ app_id=$2
 
 
 msg=$(swaymsg -p [app_id="$app_id"] scratchpad show)
-if [ ! -z "$msg" ]; then
+if [ -n "$msg" ]; then
   echo "msg: $msg"
   swaymsg exec "$exctble", move to scratchpad
   swaymsg [app_id="$app_id"] scratchpad show

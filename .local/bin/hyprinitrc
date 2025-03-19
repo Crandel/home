@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_DESKTOP=Hyprland
+
+. /usr/local/bin/wayland_envs.sh
+
+exec Hyprland

@@ -1,2 +1,2 @@
 #!/bin/bash
-meld $2 $5
+meld "$2" "$5"

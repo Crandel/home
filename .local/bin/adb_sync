@@ -11,17 +11,13 @@ declare -a arr=(
   "Documents"
   "Download"
   "Fonts"
-  "IDMP"
   "Music"
-  "MyAppList"
-  "Notes"
   "Pictures"
   "SamLib-Info"
   "TWRP"
   "Telegram"
   "VocalizerEx2"
   "dictdata"
-  "termux"
   "viber"
   "work"
 )
@@ -30,16 +26,16 @@ for FolderStr in "${arr[@]}"
 do
   echo "Download from /sdcard/$FolderStr"
   log_fol=/tmp/adb/$FolderStr
-  mkdir -p $log_fol
+  mkdir -p "$log_fol"
   # --delete \
   adb-sync --reverse \
            --no-clobber \
            --times \
            --copy-links \
            "/sdcard/$FolderStr/" \
-           /data/backup/android/realme_gt/$FolderStr \
-           1> $log_fol/out.log \
-           2> $log_fol/err.log
+           "/data/backup/android/realme_gt7pro/$FolderStr" \
+           1> "$log_fol/out.log" \
+           2> "$log_fol/err.log"
   sleep 2
 done
 
