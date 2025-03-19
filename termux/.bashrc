@@ -4,6 +4,11 @@
 # append to the history file, don't overwrite it
 shopt -s autocd checkhash checkwinsize cmdhist globstar histappend
 
+# EXPORTS
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 HISTFILE=$HOME/.hist_bash
@@ -81,8 +86,8 @@ if test -t 1; then
   alias dir='dir --color=auto'
   alias vdir='vdir --color=auto'
   alias grep='grep --color=auto'
-  alias fgrep='fgrep --color=auto'
-  alias egrep='egrep --color=auto'
+  alias fgrep='grep -F --color=auto'
+  alias egrep='grep -E --color=auto'
 fi
 
 # ALIASES
@@ -93,9 +98,21 @@ alias arch='uname -m'
 alias ll='ls -ahlF --group-directories-first'
 alias la='ls -A'
 alias ..='cd ..'
-alias compress_jpeg="find ./ -iname '*.jpg' -or -iname '*.jpeg' -type f -size +100k -exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
-alias compress_png="find ./ -iname '*.png' -type f -size +100k -exec optipng {} \;"
-
+alias compress_jpeg="fd -e jpg -e jpeg --size +100k --exec jpeg-recompress --quality high --method ssim --accurate --min 70 {} {} \;"
+alias compress_png="fd -e png --size +100k --exec optipng {} \;"
+alias cz='chezmoi'
+alias cza='chezmoi apply'
+alias czaf='chezmoi apply --force'
+alias czd='chezmoi diff'
+alias czm='chezmoi merge'
+alias czs='chezmoi status'
+alias scz='sudo chezmoi -D / -S $HOME/.local/share/chezmoi/root -c /root/.config/chezmoi/config.toml'
+alias scza='scz apply'
+alias sczaf='scz apply --force'
+alias sczd='scz diff'
+alias sczm='scz merge'
+alias sczs='scz status'
+alias crlt='curl -w "@$HOME/.config/curl-time-format"'
 
 # CUSTOM FUNCTIONS
 command_exists () {
@@ -240,6 +257,14 @@ if command_exists pacman ; then
     alias piiy='yay -Sii'
   fi
 
+  if command_exists paru ; then
+    alias paru='paru --aur --fm vifm --removemake --clonedir $PERS_DIR/bb'
+    alias psuy='paru -Syua'
+    alias pssy='paru -Ss'
+    alias psiy='paru -Sa'
+    alias piiy='paru -Sii'
+  fi
+
   paclist() {
     pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'
   }
@@ -314,6 +339,7 @@ if command_exists emacs ; then
   alias e='emacs -nw'
   alias sem="$SUDO emacs -nw"
   export EDITOR='editor-run'
+  export LSP_USE_PLISTS=true
 fi
 ## END EDITORS
 
@@ -335,28 +361,78 @@ if command_exists nnn ; then
   export NNN_USE_EDITOR=1
   export NNN_CONTEXT_COLORS='2745'
   export NNN_COPIER=$(which xsel)
-  export NNN_NOTE=/opt/work/backup/notes
+  export NNN_NOTE=/data/backup/notes
   export NNN_OPS_PROG=1
 fi
 ## END FILE MANAGERS
 
 if command_exists git ; then
+  function git_main_branch() {
+    command git rev-parse --git-dir &>/dev/null || return
+    local ref
+    for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk}; do
+      if command git show-ref -q --verify $ref; then
+        echo ${ref:t}
+        return
+      fi
+    done
+    echo master
+  }
+
+  function git_current_branch() {
+    local ref
+    ref=$(__git_prompt_git symbolic-ref --quiet HEAD 2> /dev/null)
+    local ret=$?
+    if [[ $ret != 0 ]]; then
+      [[ $ret == 128 ]] && return  # no git repo.
+      ref=$(__git_prompt_git rev-parse --short HEAD 2> /dev/null) || return
+    fi
+    echo ${ref#refs/heads/}
+  }
+
   alias g='git'
-  alias pla='g pull'
-  alias pll='pla origin'
-  alias psh='g push origin'
-  alias gst='g status'
-  alias gco='g checkout'
-  alias gadd='g add'
-  alias gcmt='g commit -m'
+  alias ga='g add'
+  alias gb='git branch'
+  alias gba='git branch -a'
+  alias gbd='git branch -d'
+  alias gbdf='git branch -D'
+  alias gco='git checkout'
+  alias gcb='git checkout -b'
+  alias gcm='git checkout "$(git_main_branch)"'
+  alias gcf='git config --list'
+  alias gcmt='git commit -v -a -m'
+  alias gcn='git clone'
+  alias gd='git diff'
+  alias gdca='git diff --cached'
+  alias gf='git fetch'
+  alias gfo='git fetch origin'
+  alias gfc='git fetch origin "$(git_current_branch)"'
+  alias gfm='git fetch origin "$(git_main_branch)"'
+  alias gl='git pull'
+  alias glo='git pull origin'
+  alias glc='git pull origin "$(git_current_branch)"'
+  alias glm='git pull origin "$(git_main_branch)"'
+  alias glr='git pull --rebase'
+  alias gm='git merge'
+  alias gp='git push'
+  alias gpo='git push origin'
+  alias gpc='git push origin "$(git_current_branch)"'
+  alias gpm='git push origin "$(git_main_branch)"'
+  alias gr='git remote'
+  alias gra='git remote add'
+  alias grv='git remote -v'
+  alias grb='git rebase'
+  alias grba='git rebase --abort'
+  alias grbc='git rebase --continue'
+  alias grbi='git rebase -i'
+  alias grhh='git reset --hard'
+  alias grpo='git remote prune origin'
+  alias gs='git status'
+  alias gsb='git status -sb'
 fi
 
 if command_exists tmux ; then
   alias tm='tmux attach || tmux new'
-fi
-
-if command_exists bemenu ; then
-  export BEMENU_OPTS='-I 0 -i --fn "Hack:26" --nb "#1e1e1e" --nf "#c0f440" --sf "#1e1e1e" --sb "#f4800d" --tb "#d7dd90" --tf "#111206" --hb "#49088c" --hf "#c2fbd3"'
 fi
 
 if command_exists shiori ; then
@@ -376,10 +452,6 @@ if command_exists cargo || [ -d $HOME/.rustup ]; then
   alias cup='cargo update'
   alias cbd='cargo build'
   alias cbr='cargo build --release'
-  setup_cargo () {
-    rustup completions zsh cargo  > $LOCAL_ZSH_COMP_DIR/_cargo
-    rustup completions zsh rustup > $LOCAL_ZSH_COMP_DIR/_rustup
-  }
   setup_cargo_tools() {
     if ! command_exists cargo-expand; then
       cargo install cargo-expand
@@ -437,9 +509,8 @@ fi
 
 ## GO
 if command_exists go ; then
-  export GOPATH=$HOME/go
-  export PATH=$PATH:$GOPATH/bin
-  export GO111MODULE=on
+  export GOPATH="$HOME/.local/share/go"
+  export GOBIN=$LOCAL_BIN
 fi
 
 if command_exists fzf ; then
@@ -453,6 +524,7 @@ if command_exists fzf ; then
 else
   echo "install fzf"
 fi
+
 if command_exists lf ; then
   lfcd () {
     tmp="$(mktemp)"
@@ -490,15 +562,6 @@ fi
 ## END SCALA
 
 ## PYTHON
-#if [ -d "$HOME/.pyenv" ]; then
-#   export PYENV_ROOT="$HOME/.pyenv"
-#   export PATH="$PYENV_ROOT/bin:$PATH"
-#   export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-#   eval "$(pyenv init --path)"
-#   eval "$(pyenv init -)"
-#   eval "$(pyenv virtualenv-init -)"
-#fi
-
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
 }
@@ -506,7 +569,7 @@ clean_pyc (){
 
 ## NPM
 if command_exists npm; then
-  NPM_PACKAGES="${HOME}/.local"
+  export NPM_PACKAGES="${HOME}/.local"
   export NODE_PATH="$NPM_PACKAGES/lib/node_modules"
 fi
 
@@ -589,9 +652,9 @@ function set_git_branch() {
 
 function set_prompt_symbol () {
   if test $1 -eq 0 ; then
-    P_SYMBOL="${BLUE}\n╰─➤${NORMAL} "
+    P_SYMBOL="${BLUE}\n─➤${NORMAL} "
   else
-    P_SYMBOL="${LIGHT_RED}[$1]$INSIDE_VIFM\n╰─➤${NORMAL} "
+    P_SYMBOL="${LIGHT_RED}[$1]$INSIDE_VIFM\n─➤${NORMAL} "
   fi
 }
 
@@ -616,7 +679,7 @@ function set_bash_prompt () {
 
   # Set the bash prompt variable.
   [[ $SSH_CONNECTION ]] && local uath="${YELLOW}@\h${NORMAL}"
-  PS1="${BLUE}╭─\A${NORMAL} ${USERCOLOR}\u${NORMAL}${uath} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
+  PS1="${BLUE}\A${NORMAL} ${USERCOLOR}\u${NORMAL}${uath} ${PURPLE}{\w}${NORMAL}${BRANCH}${P_SYMBOL}"
 }
 
 # Tell bash to execute this function just before displaying its prompt.
