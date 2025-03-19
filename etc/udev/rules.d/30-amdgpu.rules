@@ -1,0 +1,1 @@
+KERNEL=="dri/card1", SUBSYSTEM=="drm", DRIVERS=="amdgpu", ATTR{device/power_method}="profile", ATTR{device/power_profile}="high"

@@ -27,7 +27,7 @@ case "$1" in
             AC|ACAD|ADP0|ACPI0003:00)
                 case "$4" in
                     00000000)
-                        echo "50" > /sys/class/backlight/amdgpu_bl*/brightness
+                        echo "76" > /sys/class/backlight/amdgpu_bl*/brightness
                         logger 'AC unpluged'
                         ;;
                     00000001)
