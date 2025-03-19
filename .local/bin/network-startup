@@ -1,17 +1,15 @@
 #! /bin/bash
 
-count=0
-while ! ping -c 1 8.8.8.8 > /dev/null ; do
-  sleep 1
-  count=$count+1
-  if [ count eq 1000 ];then
-     systemctl --user stop drive.timer
-     exit 1
-  fi
-done
+network-check.sh
+retVal=$?
+if [ $retVal -ne 0 ]; then
+  notify-send --urgency=critical 'Network service' "Network failed with service code $retVal"
+  systemctl --user stop drive.timer
+  exit 1
+fi
 
 sleep 0.5
-echo "Start thunderbird" >> /tmp/network-startup.log
+echo "Start mail client" >> /tmp/network-startup.log
 thunderbird &
 
 sleep 0.5

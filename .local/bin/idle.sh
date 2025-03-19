@@ -18,5 +18,3 @@ swayidle \
   resume "$rsm" &
 
 echo "$!" > /tmp/swayidle.pid
-
-exec swayidle timeout 30 "makoctl set-mode away" resume "makoctl set-mode default" &

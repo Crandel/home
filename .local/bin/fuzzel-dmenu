@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 _bindirs=($(echo $PATH | tr ':' '\n' | sort | uniq))
 _lsdirs=()

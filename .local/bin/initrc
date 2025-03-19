@@ -6,13 +6,15 @@ export MAKEFLAGS="-j$(nproc)"
 
 export LIBSEAT_BACKEND=logind
 export GTK_THEME=Gruvbox-Dark
-
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
-export SSH_AUTH_SOCK
+systemctl --user import-environment PATH
 
 session=${1:-sway}
+# ln -s ~/.local/bin/wayland_envs.sh /usr/local/bin/wayland_envs.sh
+# ln -s ~/.local/bin/swayinitrc /usr/local/bin/swayinitrc
+# ln -s ~/.local/bin/hyprinitrc /usr/local/bin/hyprinitrc
 case $session in
   sway|swaywm       ) exec /usr/local/bin/swayinitrc;;
+  hypr|hyprland     ) exec /usr/local/bin/hyprinitrc;;
   i3|i3wm           ) exec startx ~/.xinitrc i3;;
   xfce|xfce4        ) exec startx ~/.xinitrc xfce;;
 esac

@@ -3,4 +3,4 @@
 prompt="$1"
 shift
 
-fuzzel.sh -p $prompt $@
+fuzzel.sh -p "$prompt" "$@"
