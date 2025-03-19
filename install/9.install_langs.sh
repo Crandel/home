@@ -2,27 +2,21 @@
 
 source export_vars.sh
 
-$pacman -S \
-        bpython \
-        flake8 \
-        helm \
-        jre11-openjdk \
-        kubectl \
-        kubectx \
-        openjdk11-doc \
-        openjdk11-src \
-        python-rope \
-        rust \
-        sbt \
-        scala \
-        scala-docs \
-        scala-sources \
-        yarf
+declare -a packages=(
+  "bpython"
+  "k9s"
+  "kubectl"
+  "kubectx"
+  "rust"
+  "staticcheck"
+)
 
-$yay -S \
-     coursier \
-     k9s \
-     litecli \
-     mycli \
-     pgcli \
-     tfswitch
+install_pacman $packages
+
+declare -a y_pkgs=(
+  "litecli"
+  "mycli"
+  "pgcli"
+)
+
+install_yay $y_pkgs

@@ -63,7 +63,6 @@ dex
 dhcpcd
 diffutils
 djvulibre
-dmenu
 dmidecode
 dnsmasq
 docker

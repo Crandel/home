@@ -2,10 +2,17 @@
 
 source export_vars.sh
 
-$yay -S adb-sync-git \
-        grive-git \
-        inxi \
-        j4-dmenu-desktop \
-        libinput-gestures \
-        simple-mtpfs \
-        shadowfox-updater
+declare -a packages=(
+  "adb-sync-git"
+  "anki-qt5"
+  "android-completion"
+  "brother-hll2310d"
+  "czkawka-gui-bin"
+  "inxi"
+  "firefox-tridactyl-native"
+  "j4-dmenu-desktop"
+  "simple-mtpfs"
+  "paru"
+)
+
+install_yay $packages

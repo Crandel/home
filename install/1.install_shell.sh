@@ -2,20 +2,24 @@
 
 source export_vars.sh
 
-$pacman -S \
-        fzf \
-        lsd \
-        mc \
-        ripgrep \
-        skim \
-        the_silver_searcher \
-        vifm \
-        xh \
-        zsh \
-        zsh-completions \
-        zsh-doc
+declare -a packages=(
+  "arch-wiki-docs"
+  "bat"
+  "chezmoi"
+  "fzf"
+  "jq"
+  "htop"
+  "lsd"
+  "mc"
+  "navi"
+  "ripgrep"
+  "tealdeer"
+  "vim"
+  "vifm"
+  "xh"
+  "zoxide"
+  "zsh"
+  "zsh-doc"
+)
 
-$yay -S \
-     navi \
-     tealdeer \
-     zoxide
+install_pacman $packages
