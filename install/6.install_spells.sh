@@ -2,12 +2,20 @@
 
 source export_vars.sh
 
-$pacman -S aspell-de \
-           aspell-en \
-           aspell-ru \
-           aspell-uk \
-           hunspell-de \
-           hunspell-en_US
+declare -a packages=(
+  "aspell-de"
+  "aspell-en"
+  "aspell-ru"
+  "aspell-uk"
+  "hunspell-de"
+  "hunspell-en_US"
+)
 
-$yay -S hunspell-ru \
-        hunspell-uk
+install_pacman $packages
+
+declare -a y_pkgs=(
+  "hunspell-ru"
+  "hunspell-uk"
+)
+
+install_yay $y_pkgs

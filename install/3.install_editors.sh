@@ -2,17 +2,24 @@
 
 source export_vars.sh
 
-$pacman -S bash-language-server \
-           emacs \
-           libreoffice-still \
-           meld \
-           nano \
-           rust-analyzer \
-           python-language-server \
-           vim
+declare -a packages=(
+  "libreoffice-still"
+  "meld"
+  "nano"
+  "rust-analyzer"
+  "bash-language-server"
+  "lua-language-server"
+  "typescript-language-server"
+  "yaml-language-server"
+)
 
-$yay -S metals \
-        intellij-idea-community-edition-no-jre \
-        vim-language-server \
-        vscode-html-languageserver-bin \
-        yaml-language-server-bin
+install_pacman $packages
+
+declare -a y_pkgs=(
+  "emacs-pgtk-git"
+  "kotlin-language-server"
+  "sql-language-server"
+  "vim-language-server"
+)
+
+install_yay $y_pkgs
