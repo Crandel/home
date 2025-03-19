@@ -455,7 +455,6 @@ if command_exists emacs ; then
   alias em='emacs -nw'
   alias e='emacs -nw'
   alias sem="$SUDO emacs -nw"
-  export EDITOR='editor-run'
   export LSP_USE_PLISTS=true
 fi
 ## END EDITORS
