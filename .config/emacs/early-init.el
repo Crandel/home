@@ -69,13 +69,10 @@
               warning-suppress-log-types   '((comp) (bytecomp))
 )
 
-(when (member "Hack Nerd Font" (font-family-list))
-  (set-frame-font "Hack Nerd Font-15" t t))
 (set-fontset-font
    t
    'emoji
    (cond
-    ((member "Apple Color Emoji" (font-family-list)) "Apple Color Emoji")
     ((member "Noto Color Emoji"  (font-family-list)) "Noto Color Emoji")
     ((member "Noto Emoji"        (font-family-list)) "Noto Emoji")
     ((member "Segoe UI Emoji"    (font-family-list)) "Segoe UI Emoji")
@@ -92,7 +89,7 @@
                                 (height                   . 100)
                                 (alpha-background         . 99)
                                 (cursor-color             . "#BE81F7")
-                                (font                     . "Hack Nerd Font-15")
+                                (font                     . "FiraCode Nerd Font Mono-16")
                                 (fullscreen               . maximized)
                                 (inhibit-double-buffering . t)
                                 (internal-border-width    . 1)

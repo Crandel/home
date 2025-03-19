@@ -1,6 +1,6 @@
 [Default Applications]
-application/pdf=org.gnome.Evince.desktop
-application/ppdf=org.gnome.Evince.desktop
+application/pdf=org.gnome.Papers.desktop
+application/ppdf=org.gnome.Papers.desktop
 application/x-bittorrent=qBittorrent.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop

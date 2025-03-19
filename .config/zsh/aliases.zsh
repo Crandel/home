@@ -217,10 +217,12 @@ alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --so
 alias olstt="$SUDO systemctl start ollama.service"
 alias olend="$SUDO systemctl stop ollama.service"
 alias olsts="$SUDO systemctl status ollama.service"
+alias olc='ollama cp'
 alias olf='journalctl -f -u ollama'
 alias oll='ollama list'
 alias olp='ollama pull'
 alias olps='ollama ps'
+alias olr='ollama rm'
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES

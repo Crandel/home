@@ -15,6 +15,7 @@
   (magit-diff-refine-hunk                'all)
   (magit-display-buffer-function         'magit-display-buffer-fullframe-status-v1)
   (magit-ediff-dwim-show-on-hunks        t)
+  (magit-format-file-function            'magit-format-file-nerd-icons)
   (magit-log-arguments                   '("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256"))
   (magit-log-margin-show-committer-date  t)
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
@@ -55,6 +56,15 @@
   :bind
   ("C-c [" . git-gutter:next-hunk)
   ("C-c ]" . git-gutter:previous-hunk)
+)
+
+(use-package diff-hl
+  :ensure t
+  :defer t
+  :hook
+  (prog-mode . diff-hl-mode)
+  (magit-pre-refresh . diff-hl-magit-pre-refresh)
+  (magit-post-refresh . diff-hl-magit-post-refresh)
 )
 
 (provide 'git-rcp)

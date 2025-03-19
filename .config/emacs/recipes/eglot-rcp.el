@@ -9,6 +9,7 @@
   :custom
   (eglot-autoreconnect        t)
   (eglot-autoshutdown         t)
+  (eglot-code-action-indications '(eldoc-hint nearby mode-line margin))
   (eglot-extend-to-xref       t)
   (eglot-events-buffer-config '(:size 0 :format lisp))
   (eglot-report-progress      t)
