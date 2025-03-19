@@ -25,7 +25,6 @@ if test -t 1; then
   export LS_COLORS=$LS_COLORS:"di=01;35"
 fi
 export PAGER='less -SRXF'
-export EDITOR='vim'
 
 export PERS_DIR='/data/work'
 
@@ -40,9 +39,9 @@ if [ ! -d $CARGO_BIN ]; then
   mkdir -p $CARGO_BIN
 fi
 export PATH=$PATH:$CARGO_BIN
-export EDITOR='vim'
-export EDITOR='emacs'
 export LSP_USE_PLISTS=true
+export EDITOR='vim'
+export OLLAMA_API_BASE=http://127.0.0.1:11434
 export QT_QPA_PLATFORMTHEME="qt6ct"
 export QT_PLATFORM_PLUGIN="qt6ct"
 export XCURSOR_THEME=capitaine-cursors
