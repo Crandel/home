@@ -35,19 +35,19 @@ TERM = "xterm-256color"
 size = 20
 
 [font.bold]
-family = "Hack Nerd Font Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "Hack Nerd Font Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "Hack Nerd Font Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Italic"
 
 [font.normal]
-family = "Hack Nerd Font Mono"
+family = "FiraCode Nerd Font Mono"
 style = "Regular"
 
 [scrolling]

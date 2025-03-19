@@ -46,6 +46,7 @@
 (require 'mini-echo-rcp)
 
 ;; Rest packages
+(require 'aidermacs-rcp)
 (require 'c-rcp)
 (require 'chezmoi-rcp)
 (require 'consult-rcp)
@@ -89,6 +90,7 @@
 (require 'http-rcp)
 (require 'vertico-rcp)
 (require 'vimrc-mode-rcp)
+(require 'undo-rcp)
 (require 'which-key-rcp)
 (require 'ytdl-rcp)
 (require 'ztree-rcp)

@@ -71,6 +71,8 @@ local em = {
 
 -- PRIVATE METHODS ------------------------------------------------------------
 
+local ime_active = mp.get_property_native("input-ime")
+
 -- declare constructor function
 function em:new(o)
   o = o or {}

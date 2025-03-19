@@ -18,7 +18,6 @@
   (display-time-default-load-average nil)
   (display-time-mode                 t)
   (enable-recursive-minibuffers      nil)
-  (fast-but-imprecise-scrolling      nil)
   (file-name-shadow-properties     '(invisible t intangible t face file-name-shadow field shadow)
                                    "Removing minibuffer 'default directory' prefix.")
   (file-name-shadow-tty-properties '(invisible t intangible t before-string "{" after-string "} " field shadow)
@@ -45,11 +44,6 @@
   (resize-mini-windows             t)
   (resize-mini-frames              t)
   (ring-bell-function              'ignore)
-  (fast-but-imprecise-scrolling    t "Scrolling settings")
-  (scroll-conservatively           most-positive-fixnum "Scrolling settings")
-  (scroll-margin                   100 "Scrolling settings")
-  (scroll-step                     1 "Scrolling settings")
-  (scroll-preserve-screen-position t "Scrolling settings")
   (size-indication-mode            t)
   (sentence-end-double-space       nil)
   ;; (split-height-threshold          nil "Minimum height for splitting windows vertically.")
@@ -66,6 +60,8 @@
   ("M-l"      . forward-char)
   ("C-k"      . backward-paragraph)
   ("C-j"      . forward-paragraph)
+  ("M-j"      . scroll-up)
+  ("M-k"      . scroll-down)
   ("C-v"      . yank)
   ("C-h F"    . describe-face)
   ("<Copy>"   . kill-ring-save)
@@ -85,7 +81,8 @@
   ("C-c f u"  . upcase-region)
   ("C-c f w"  . save-file)
   ("C-c f x"  . vd/delete-line)
-  ("C-c t t"  . execute-extended-command)
+  ("C-c f x"  . vd/delete-line)
+  ("C-c j"    . hippie-expand)
   ("C-b"      . list-buffers)
   ("C-c b"    . list-buffers)
   ("C-c q"    . vd/kill-emacs-with-save)
@@ -389,8 +386,22 @@
   :custom-face
   (show-paren-match ((t (:background "#1d2021" :foreground "#def" :weight extra-bold))))
   :custom
-  (show-paren-delay 0.2)
-  (show-paren-style 'parenthesis)
+  (show-paren-when-point-inside-paren t)
+  (show-paren-context-when-offscreen  t)
+  (show-paren-delay                   0.2)
+  (show-paren-style                   'parenthesis)
+)
+
+(use-package pixel-scroll
+  :defer 0.1
+  :custom
+  (fast-but-imprecise-scrolling    t "Scrolling settings")
+  (scroll-conservatively           most-positive-fixnum "Scrolling settings")
+  (scroll-margin                   100 "Scrolling settings")
+  (scroll-step                     1 "Scrolling settings")
+  (scroll-preserve-screen-position t "Scrolling settings")
+  :hook
+  (prog-mode . pixel-scroll-precision-mode)
 )
 
 (use-package prog-mode
@@ -491,7 +502,7 @@
 
 (use-package smerge-mode
   :custom
-  (smerge-command-prefix "C-c e")
+  (smerge-command-prefix "C-c t s")
 )
 
 (use-package subword
@@ -509,6 +520,7 @@
   ("C-c d d" . delete-other-windows)
   ("C-c d s" . vd/save-all-buffers)
   ("C-c d b" . kill-buffer)
+  ("C-c d p" . previous-buffer)
   ("C-c d t" . split-window-below)
   ("C-c d v" . split-window-right)
   ("C-c d H" . shrink-window-horizontally)

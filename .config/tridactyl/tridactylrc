@@ -13,6 +13,7 @@ blacklistadd notion.com
 blacklistadd monkeytype.com
 blacklistadd klava.org
 blacklistadd keybr.com
+blacklistadd nytimes.com
 
 unbind --mode=normal f
 bind --mode=normal gf hint

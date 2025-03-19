@@ -1,9 +1,11 @@
 --replace-in-metadata title " " "."
 --replace-in-metadata title "," "."
+--replace-in-metadata title "❗️" ""
 --replace-in-metadata title "\"" ""
 --replace-in-metadata title "\/" ""
 --sub-langs "uk,ru,de,en"
--4
+-N 10
+--video-multistreams
 -S res,vcodec:av1,vcodec:vp09,acodec:opus,acodec:mp4a,acodec:aac
 -P /data/media/youtube
 -o "%(title).50s.%(id)s.%(ext)s"

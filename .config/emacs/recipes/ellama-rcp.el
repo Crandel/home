@@ -5,17 +5,14 @@
 (use-package ellama
   :ensure t
   :preface
-  (setq-default vd/ellama-default-model     "llama3.2:local")
-  (setq-default vd/ellama-codding-model     "qwen2.5-coder:local")
-  (setq-default vd/ellama-embedding-model   "snowflake-arctic-embed2:latest")
-  (setq-default vd/ellama-translation-model "aya-expanse:latest")
+  (setq-default vd/ellama-default-model       "gemma3:local")
+  (setq-default vd/ellama-coding-model        "code-assistant:local")
+  (setq-default vd/ellama-summarization-model "code-assistant:local")
+  (setq-default vd/ellama-extraction-model    "code-assistant:local")
+  (setq-default vd/ellama-embedding-model     "snowflake-arctic-embed2:latest")
+  (setq-default vd/ellama-naming-model        "gemma3:local")
+  (setq-default vd/ellama-translation-model   "aya-expanse:latest")
   ;; Convenience functions for mode change events
-  (defun vd/ellama-select-code-completion ()
-    (setq ellama-provider (alist-get vd/ellama-codding-model
-                     ellama-providers nil nil 'string-equal)))
-  (defun vd/ellama-select-chat ()
-    (setq ellama-provider (alist-get vd/ellama-default-model
-                     ellama-providers nil nil 'string-equal)))
   (defun vd/ollama-list-installed-models ()
     "Return the installed models"
     (let* ((ret (shell-command-to-string "ollama list"))
@@ -25,16 +22,22 @@
         (message "Cannot detect installed models, please make sure Ollama server is started"))))
   (defun vd/ollama-set-providers ()
     (interactive)
+    (require 'llm-ollama)
     (setopt ellama-providers
             (cl-loop for model in (vd/ollama-list-installed-models)
                      collect (cons model (make-llm-ollama :chat-model model :embedding-model vd/ellama-embedding-model))))
-    (setopt ellama-naming-provider (alist-get vd/ellama-default-model ellama-providers
+    (setopt ellama-provider        (alist-get vd/ellama-default-model ellama-providers
                                                     nil nil 'string-equal))
-    (setopt ellama-translation-provider (alist-get vd/ellama-translation-model ellama-providers
+    (setopt ellama-coding-provider        (alist-get vd/ellama-coding-model ellama-providers
                                                     nil nil 'string-equal))
-    (vd/ellama-select-chat)
-    (add-hook 'prog-mode-hook  #'vd/ellama-select-code-completion)
-    (add-hook 'text-mode-hook  #'vd/ellama-select-chat)
+    (setopt ellama-naming-provider        (alist-get vd/ellama-naming-model ellama-providers
+                                                    nil nil 'string-equal))
+    (setopt ellama-summarization-provider (alist-get vd/ellama-summarization-model ellama-providers
+                                                    nil nil 'string-equal))
+    (setopt ellama-extraction-provider    (alist-get vd/ellama-extraction-model ellama-providers
+                                                    nil nil 'string-equal))
+    (setopt ellama-translation-provider   (alist-get vd/ellama-translation-model ellama-providers
+                                                    nil nil 'string-equal))
     )
   :custom
   (ellama-always-show-chain-steps  t)
@@ -43,7 +46,7 @@
   (ellama-language                 "Russian")
   (ellama-spinner-type             'moon)
   (ellama-user-nick                "Crandel")
-  (ellama-naming-scheme            'ellama-generate-name-by-llm)
+  (ellama-naming-scheme            'ellama-generate-name-by-words)
   :config
   (vd/ollama-set-providers)
   :bind

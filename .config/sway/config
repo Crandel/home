@@ -20,13 +20,13 @@ set {
   $notification_mode "Notification: (s) Stop | (d) Default | (n) dismiss | (a) Action"
 
   # Theming
-  $font     pango:Hack Nerd Font Mono, Source Code Pro 16
+  $font     pango:FiraCode Nerd Font Mono, Hack Nerd Font 16
 
   # Apps
   $launch       fuzzel-prompt.sh
   $launch-dmenu fuzzel-dmenu
   $term_id quake_term
-  $term    wezterm start --always-new-process --class $term_id
+  $term    wezterm start --class $term_id
   $pass    keepassxc
   $pass_id org.keepassxc.KeePassXC
   $oterm_id oterm
@@ -34,7 +34,7 @@ set {
   $editor_id emacs_float
   $editor    emacs --name $editor_id
   $browser   firefox
-  $o_browser vieb.sh
+  $o_browser vivaldi
   $lock sleep.sh
   $nag nag.sh
   $maximize border none, move position center, resize set width 100 ppt height 100 ppt
@@ -78,9 +78,9 @@ output {
   $laptop  scale 1.5
   $laptop  pos 0    0 res 2560x1600@90Hz
   $hdmi    pos 1706 0 res 2560x1440@144Hz
-  $dp_out  pos 1706 0 res 2560x1440@165Hz
-  $dp_out2 pos 1706 0 res 2560x1440@165Hz
-  $dp_out3 pos 1706 0 res 2560x1440@165Hz
+  $dp_out  pos 1706 0 res 2560x1440@120Hz
+  $dp_out2 pos 1706 0 res 2560x1440@120Hz
+  $dp_out3 pos 1706 0 res 2560x1440@120Hz
 }
 
 workspace_layout tabbed
@@ -157,6 +157,7 @@ assign {
   [app_id="io.github.martinrotter.rssguard"]  2
   [app_id="org.telegram.desktop"]             2
   [app_id="thunderbird"]                      2
+  [app_id="org.gnome.Evolution"]              2
   [app_id="elfeed"]                           2
   [app_id="slack"]                            3
   [app_id="zoom"]                             4
@@ -165,10 +166,12 @@ assign {
 for_window {
   [shell="xwayland"] border pixel 8, urgent enable, title_format "[X] %title"
   [app_id="firefox"]        inhibit_idle fullscreen
+  [app_id="zen"]            inhibit_idle fullscreen
   [app_id="mpv"]            inhibit_idle focus
   [app_id="vivaldi-stable"] inhibit_idle fullscreen
   [app_id="screenshot"]     move to scratchpad
-  [app_id="firefox"]     floating disable # Firefox save file dialog
+  [app_id="firefox"]        floating disable # Firefox save file dialog
+  [app_id="zen"]            floating disable # Firefox save file dialog
   # [window_role="pop-up"] floating enable
   # [window_role="bubble"] floating enable
   # [window_role="dialog"] floating enable
@@ -253,8 +256,8 @@ exec {
     dbus-update-activation-environment --systemd SWAYSOCK \
                                                  WAYLAND_DISPLAY 2>/dev/null
   swaykbdd
-  idle.sh
   $term, $maximize
   systemctl --user start user-graphical-session.target
+  idle.sh
   network-startup
 }

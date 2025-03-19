@@ -41,7 +41,7 @@ config.colors = {
     -- The active tab is the one that has focus in the window
     active_tab = {
       -- The color of the background area for the tab
-      bg_color = "#AF8700",
+      bg_color = "#D65D0E",
       -- The color of the text for the tab
       fg_color = "#EBDBB2",
       -- Specify whether you want "Half", "Normal" or "Bold" intensity for the
@@ -62,23 +62,15 @@ config.colors = {
       strikethrough = false,
     },
     -- The color of the strip that goes along the top of the window
-    background = "#1D2021",
+    background = "#282828",
     -- Inactive tabs are the tabs that do not have focus
     inactive_tab = {
-      bg_color = "#181907",
-      fg_color = "#E6D4A3",
+      bg_color = "#282828",
+      fg_color = "#FADB2F",
 
       -- The same options that were listed under the `active_tab` section above
       -- can also be used for `inactive_tab`.
     },
-
-    -- You can configure some alternate styling when the mouse pointer
-    -- moves over inactive tabs
-    inactive_tab_hover = {
-      bg_color = "#282828",
-      fg_color = "#E6D4A3",
-      italic = true,
-    }
   }
 }
 
@@ -92,7 +84,7 @@ config.enable_wayland = true
 
 config.front_end = "WebGpu"
 
-config.font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"})
+config.font = wezterm.font_with_fallback({"FiraCode Nerd Font Mono","Hack Nerd Font"})
 
 config.font_size = 20.0
 
@@ -219,14 +211,14 @@ config.window_background_opacity = 1.0
 
 config.window_frame = {
   -- The font used in the tab bar.
-  font = wezterm.font_with_fallback({"Hack Nerd Font Mono","Hack"}),
+  font = wezterm.font_with_fallback({"FiraCode Nerd Font Mono","Hack Nerd Font"}),
   font_size = 16.0,
   -- The overall background color of the tab bar when
   -- the window is focused
-  active_titlebar_bg = '#333333',
+  active_titlebar_bg = '#2F2519',
   -- The overall background color of the tab bar when
   -- the window is not focused
-  inactive_titlebar_bg = '#333333',
+  inactive_titlebar_bg = '#1f2419',
 }
 
 config.window_padding = {
