@@ -37,7 +37,7 @@ set syscalls
 set trash
 
 " This is how many directories to store in the directory history.
-set history=1000
+set history=10000
 
 " Automatically resolve symbolic links on l or Enter.
 set followlinks
@@ -80,7 +80,7 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 set ignorecase
 set smartcase
 
-" Don't highlight search results automatically
+" Highlight search results automatically
 set hlsearch
 
 " Use increment searching (search while typing)
@@ -98,18 +98,21 @@ if !has('win')
     set slowfs=curlftpfs
 endif
 
+highlight User1 ctermbg=yellow ctermfg=grey
+highlight User2 ctermbg=none ctermfg=blue cterm=bold
+highlight User3 ctermbg=none ctermfg=red cterm=bold
+highlight User4 ctermbg=none ctermfg=yellow cterm=bold
+highlight User5 ctermbg=non3 ctermfg=purple
+
 " Set custom status line look
-"             rights | size | date | file name
-set statusline="%10A | %10E | %15d | %-35f"
+"             rights | user:group | size | date | file name | space left
+set statusline="%1* %-10t  %N %4* %10d %2* owner:%u:%-7g %5* size:%s  %3* attr:%A"
+" set statusline="%10A | %10u:%-7g  | %10E | %15d | %-35f     | Space left: %-5a "
 
 " Always show tabs
 set showtabline=always
 set tabscope=pane
 " ------------------------------------------------------------------------------
-
-" :mark mark /full/directory/path [filename]
-mark b ~/.local/bin
-mark h ~/
 
 " ------------------------------------------------------------------------------
 " What should be saved automatically between vifm sessions.  Drop "savedirs"
@@ -120,11 +123,18 @@ set vifminfo=dhistory,chistory,state,shistory,
 
 " Examples of configuring both panels
 " Customize view columns a bit (enable ellipsis for truncated file names)
-set viewcolumns=-{name}..,-4{ext},12{mtime},-6{size}
+set viewcolumns=-{name}..,*5{ext},-10{mtime},-6{size}
+set sort=+dir,+iname,-mode
 
 " Filter-out build and temporary files
 "
 " filter! /^.*\.(lo|o|d|class|py[co])$|.*~$/
+
+" :mark mark /full/directory/path [filename]
+mark l ~/.local/bin
+mark h ~
+
+" Commands
 
 " ------------------------------------------------------------------------------
 " :com[mand][!] command_name action
@@ -148,8 +158,147 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
 command! ln ln -s %f:p %D
+
+" From mc: <Ctrl-s> fuzzy search in current directory
+command! FZFfind : set noquickview
+                \| let $FZF_PICK = system('find | fzf --height 10 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                \|     execute 'goto' fnameescape($FZF_PICK)
+                \| endif
+                \| redraw
+command! cmpinternal compare-cmd %a
+command! cmp : if expand('%%c') == expand('%%f')
+              \ |     echo expand('Comparing %%"c and %%"C:t ...')
+              \ |     cmpinternal %c %C
+              \ | else
+              \ |     echo expand('Comparing files: %%"f ...')
+              \ |     cmpinternal %f
+              \ | endif
 " ------------------------------------------------------------------------------
 
+" Keymaps
+
+" ------------------------------------------------------------------------------
+map <space> <nop>
+
+nnoremap <space>a :rename<cr>
+" Open file in the background using its default program
+nnoremap <space>b :file &<cr>
+nnoremap <space>c :cp<cr>
+nnoremap <space>d :delete<cr>
+" Make directory and cd into
+nnoremap <space>e :mkcd
+" Open console in current directory
+nnoremap <space>g :!alacritty &<cr>
+nnoremap <space>i :cd %D<cr>
+nnoremap <space>m :move<cr>
+nnoremap <space>s :FZFfind<cr>
+nnoremap <space>th :cd ~<cr>
+nnoremap <space>tl :cd ~/.local/bin<cr>
+" Toggle wrap setting on <space>w key
+nnoremap <space>w :set wrap!<cr>
+
+" Open editor to edit vifmrc and apply settings after returning to vifm
+nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>
+
+
+nnoremap t tj
+
+" Start shell in current directory
+nnoremap s :shell<cr>
+" Display sorting dialog
+nnoremap S :sort<cr>
+" Toggle visibility of preview window
+nnoremap w :view<cr>
+vnoremap w :view<cr>gv
+" Open file in existing instance of emacs
+nnoremap o :!vim %f<cr>
+
+" From mc:
+nnoremap <f3> :!vim %f<cr>
+nnoremap <f4> :edit<cr>
+nnoremap <f5> :copy<cr>
+nnoremap <f6> :move<cr>
+nnoremap <f7> :mkdir<space>
+nnoremap <f8> :delete<cr>
+nnoremap <c-l> :rename<cr>
+" <Atl-i> cd to the same path as inactive directory
+nnoremap <a-i> :cd %D<cr>
+
+nnoremap :Q :quit
+
+" Interaction with system clipboard
+if has('win')
+    " Yank current directory path to Windows clipboard with forward slashes
+    nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
+    " Yank path to current file to Windows clipboard with forward slashes
+    nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
+elseif executable('wl-copy')
+    " Yank current directory path into primary and selection clipboards
+    nnoremap yd :!echo -n %d | wl-copy %i<cr>
+    " Yank current file path into into primary and selection clipboards
+    nnoremap yf :!echo -n %c:p | wl-copy %i<cr>
+    " yank current filename without path into primary and selection clipboards
+    nnoremap yn :!echo -n %c | wl-copy %i<cr>
+    " yank root of current file's name into primary and selection clipboards
+    nnoremap yr :!echo -n %c:r | wl-copy %i<cr>
+elseif executable('xclip')
+    " Yank current directory path into the clipboard
+    nnoremap yd :!echo %d | xclip %i<cr>
+    " Yank current file path into the clipboard
+    nnoremap yf :!echo %c:p | xclip %i<cr>
+    " yank current filename without path into the clipboard
+    nnoremap yn :!echo -n %c | xclip %i<cr>
+    " yank root of current file's name into the clipboard
+    nnoremap yr :!echo -n %c:r | xclip %i<cr>
+elseif executable('xsel')
+    " Yank current directory path into primary and selection clipboards
+    nnoremap yd :!echo -n %d | xsel --input --primary %i &&
+                \ echo -n %d | xsel --clipboard --input %i<cr>
+    " Yank current file path into into primary and selection clipboards
+    nnoremap yf :!echo -n %c:p | xsel --input --primary %i &&
+                \ echo -n %c:p | xsel --clipboard --input %i<cr>
+    " yank current filename without path into primary and selection clipboards
+    nnoremap yn :!echo -n %c | xsel --input --primary %i &&
+            \ echo -n %c | xsel --clipboard --input %i<cr>
+    " yank root of current file's name into primary and selection clipboards
+    nnoremap yr :!echo -n %c:r | xsel --input --primary %i &&
+            \ echo -n %c:r | xsel --clipboard --input %i<cr>
+endif
+
+nnoremap : ;
+nnoremap ; :
+vnoremap : ;
+vnoremap ; :
+
+nnoremap dd DD
+nnoremap DD dd
+vnoremap dd DD
+vnoremap DD dd
+" ------------------------------------------------------------------------------
+
+" Various customization examples
+
+" Use ag (the silver searcher) instead of grep
+"
+set grepprg='rg --vimgrep %i %a %s'
+
+" Add additional place to look for executables
+"
+" let $PATH = $HOME.'/bin/fuse:'.$PATH
+
+" Block particular shortcut
+"
+" nnoremap <left> <nop>
+
+" Export IPC name of current instance as environment variable and use it to
+" communicate with the instance later.
+"
+" It can be used in some shell script that gets run from inside vifm, for
+" example, like this:
+"     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
+"
+" let $VIFM_SERVER_NAME = v:servername
 let $INSIDE_VIFM = 'true'
 " The file type is for the default programs to be used with
 " a file extension.
@@ -222,7 +371,7 @@ filetype *.zip,*.jar,*.war,*.ear,*.oxt,*.apkg
   \ tar -xf %c
 
 " ArchiveMount
-filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz
+filetype *.tar,*.tar.bz2,*.tbz2,*.tgz,*.tar.gz,*.tar.xz,*.txz,*.gz
   \ {Mount with archivemount}
   \ FUSE_MOUNT|archivemount %SOURCE_FILE %DESTINATION_DIR
 
@@ -251,6 +400,10 @@ filetype *.7z
   \ {Mount with fuse-7z}
   \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
 
+filetype *.xpi
+  \ {Mount with fuse-7z}
+  \ FUSE_MOUNT|fuse-7z %SOURCE_FILE %DESTINATION_DIR
+
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
   \ {Play using ffplay}
@@ -263,68 +416,66 @@ filetype */
   \ {View in vim}
   \ vim %c
 
-filetype * vim
-
 " Syntax highlighting in preview
 " Explicitly set highlight type for some extensions
 " 256-color terminal
 if executable('highlight')
-    fileviewer *.[ch],*.[ch]pp      highlight -O xterm256 -s dante --syntax c         %c
-    fileviewer *.cmake              highlight -O xterm256 -s dante --syntax cmake     %c
-    fileviewer *.css                highlight -O xterm256 -s dante --syntax css       %c
-    fileviewer *.el,*.cl            highlight -O xterm256 -s dante --syntax lisp      %c
-    fileviewer *.html               highlight -O xterm256 -s dante --syntax html      %c
-    fileviewer *.java               highlight -O xterm256 -s dante --syntax java      %c
-    fileviewer *.kt,*.kts           highlight -O xterm256 -s dante --syntax kotlin    %c
-    fileviewer *.md,*.markdown      highlight -O xterm256 -s dante --syntax markdown  %c
-    fileviewer *.rs,*.rust          highlight -O xterm256 -s dante --syntax rust      %c
-    fileviewer *.sc,*.scala,*.sbt   highlight -O xterm256 -s dante --syntax scala     %c
-    fileviewer *.sql,*.psql         highlight -O xterm256 -s dante --syntax sql       %c
-    fileviewer *.toml               highlight -O xterm256 -s dante --syntax toml      %c
-    fileviewer *.xml                highlight -O xterm256 -s dante --syntax xml       %c
-    fileviewer ?*.conf              highlight -O xterm256 -s dante --syntax conf      %c
-    fileviewer ?*.go                highlight -O xterm256 -s dante --syntax go        %c
-    fileviewer ?*.ini               highlight -O xterm256 -s dante --syntax ini       %c
-    fileviewer ?*.js                highlight -O xterm256 -s dante --syntax js        %c
-    fileviewer ?*.json              highlight -O xterm256 -s dante --syntax json      %c
-    fileviewer ?*.lua               highlight -O xterm256 -s dante --syntax lua       %c
-    fileviewer ?*.py                highlight -O xterm256 -s dante --syntax python    %c
-    fileviewer ?*.sh,?*.*sh,.*shrc  highlight -O xterm256 -s dante --syntax sh        %c
-    fileviewer ?*.vue               highlight -O xterm256 -s dante --syntax vue       %c
-    fileviewer ?*.y*ml,             highlight -O xterm256 -s dante --syntax yaml      %c
-    fileviewer ?vi*rc               highlight -O xterm256 -s dante --syntax vimscript %c
-    fileviewer Makefile*            highlight -O xterm256 -s dante --syntax make      %c
-    fileviewer [Dd]ocker*           highlight -O xterm256 -s dante --syntax docker    %c
+    fileviewer *.[ch],*.[ch]pp      highlight -O truecolor -s edit-vim-dark --syntax c         %c
+    fileviewer *.cmake              highlight -O truecolor -s edit-vim-dark --syntax cmake     %c
+    fileviewer *.css                highlight -O truecolor -s edit-vim-dark --syntax css       %c
+    fileviewer *.el,*.cl            highlight -O truecolor -s edit-vim-dark --syntax lisp      %c
+    fileviewer *.html               highlight -O truecolor -s edit-vim-dark --syntax html      %c
+    fileviewer *.java               highlight -O truecolor -s edit-vim-dark --syntax java      %c
+    fileviewer *.kt,*.kts           highlight -O truecolor -s edit-vim-dark --syntax kotlin    %c
+    fileviewer *.md,*.markdown      highlight -O truecolor -s edit-vim-dark --syntax markdown  %c
+    fileviewer *.rs,*.rust          highlight -O truecolor -s edit-vim-dark --syntax rust      %c
+    fileviewer *.sc,*.scala,*.sbt   highlight -O truecolor -s edit-vim-dark --syntax scala     %c
+    fileviewer *.sql,*.psql         highlight -O truecolor -s edit-vim-dark --syntax sql       %c
+    fileviewer *.toml               highlight -O truecolor -s edit-vim-dark --syntax toml      %c
+    fileviewer *.xml                highlight -O truecolor -s edit-vim-dark --syntax xml       %c
+    fileviewer ?*.conf              highlight -O truecolor -s edit-vim-dark --syntax conf      %c
+    fileviewer ?*.go                highlight -O truecolor -s edit-vim-dark --syntax go        %c
+    fileviewer ?*.ini               highlight -O truecolor -s edit-vim-dark --syntax ini       %c
+    fileviewer ?*.js                highlight -O truecolor -s edit-vim-dark --syntax js        %c
+    fileviewer ?*.json              highlight -O truecolor -s edit-vim-dark --syntax json      %c
+    fileviewer ?*.lua               highlight -O truecolor -s edit-vim-dark --syntax lua       %c
+    fileviewer ?*.py                highlight -O truecolor -s edit-vim-dark --syntax python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  highlight -O truecolor -s edit-vim-dark --syntax sh        %c
+    fileviewer ?*.vue               highlight -O truecolor -s edit-vim-dark --syntax vue       %c
+    fileviewer ?*.y*ml,             highlight -O truecolor -s edit-vim-dark --syntax yaml      %c
+    fileviewer ?vi*rc               highlight -O truecolor -s edit-vim-dark --syntax vimscript %c
+    fileviewer Makefile*            highlight -O truecolor -s edit-vim-dark --syntax make      %c
+    fileviewer [Dd]ocker*           highlight -O truecolor -s edit-vim-dark --syntax docker    %c
 elseif executable('pygmentize')
-    fileviewer *.[ch],*.[ch]pp      pygmentize -O -f=console257 -l c         %c
-    fileviewer *.cmake              pygmentize -O -f=console256 -l cmake     %c
-    fileviewer *.css                pygmentize -O -f=console256 -l css       %c
-    fileviewer *.el,*.cl            pygmentize -O -f=console256 -l lisp      %c
-    fileviewer *.hs,lhs             pygmentize -O -f=console256 -l haskell   %c
-    fileviewer *.html               pygmentize -O -f=console256 -l html      %c
-    fileviewer *.java               pygmentize -O -f=console256 -l java      %c
-    fileviewer *.kt,*.kts           pygmentize -O -f=console256 -l kotlin    %c
-    fileviewer *.lua,?*.lua         pygmentize -O -f=console256 -l lua       %c
-    fileviewer *.md,*.markdown      pygmentize -O -f=console256 -l markdown  %c
-    fileviewer *.rs,*.rust          pygmentize -O -f=console256 -l rust      %c
-    fileviewer *.sc,*.scala,*.sbt   pygmentize -O -f=console256 -l scala     %c
-    fileviewer *.sql,*.psql         pygmentize -O -f=console256 -l sql       %c
-    fileviewer *.toml               pygmentize -O -f=console256 -l toml      %c
-    fileviewer *.xml                pygmentize -O -f=console256 -l xml       %c
-    fileviewer ?vi*rc               pygmentize -O -f=console256 -l vimscript %c
-    fileviewer ?*.go                pygmentize -O -f=console256 -l go        %c
-    fileviewer ?*.ini               pygmentize -O -f=console256 -l ini       %c
-    fileviewer ?*.js                pygmentize -O -f=console256 -l js        %c
-    fileviewer ?*.json              pygmentize -O -f=console256 -l json      %c
-    fileviewer ?*.lua               pygmentize -O -f=console256 -l lua       %c
-    fileviewer ?*.py                pygmentize -O -f=console256 -l python    %c
-    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O -f=console256 -l sh        %c
-    fileviewer ?*.y*ml              pygmentize -O -f=console256 -l yaml      %c
-    fileviewer Makefile*            pygmentize -O -f=console256 -l make      %c
-    fileviewer [Dd]ocker*           pygmentize -O -f=console256 -l docker    %c
+    fileviewer *.[ch],*.[ch]pp      pygmentize -O style=monokai -f console16m -l c         %c
+    fileviewer *.cmake              pygmentize -O style=monokai -f console16m -l cmake     %c
+    fileviewer *.css                pygmentize -O style=monokai -f console16m -l css       %c
+    fileviewer *.el,*.cl            pygmentize -O style=monokai -f console16m -l lisp      %c
+    fileviewer *.hs,lhs             pygmentize -O style=monokai -f console16m -l haskell   %c
+    fileviewer *.html               pygmentize -O style=monokai -f console16m -l html      %c
+    fileviewer *.java               pygmentize -O style=monokai -f console16m -l java      %c
+    fileviewer *.kt,*.kts           pygmentize -O style=monokai -f console16m -l kotlin    %c
+    fileviewer *.lua,?*.lua         pygmentize -O style=monokai -f console16m -l lua       %c
+    fileviewer *.md,*.markdown      pygmentize -O style=monokai -f console16m -l markdown  %c
+    fileviewer *.rs,*.rust          pygmentize -O style=monokai -f console16m -l rust      %c
+    fileviewer *.sc,*.scala,*.sbt   pygmentize -O style=monokai -f console16m -l scala     %c
+    fileviewer *.sql,*.psql         pygmentize -O style=monokai -f console16m -l sql       %c
+    fileviewer *.toml               pygmentize -O style=monokai -f console16m -l toml      %c
+    fileviewer *.xml                pygmentize -O style=monokai -f console16m -l xml       %c
+    fileviewer ?vi*rc               pygmentize -O style=monokai -f console16m -l vimscript %c
+    fileviewer ?*.go                pygmentize -O style=monokai -f console16m -l go        %c
+    fileviewer ?*.ini               pygmentize -O style=monokai -f console16m -l ini       %c
+    fileviewer ?*.js                pygmentize -O style=monokai -f console16m -l js        %c
+    fileviewer ?*.json              pygmentize -O style=monokai -f console16m -l json      %c
+    fileviewer ?*.lua               pygmentize -O style=monokai -f console16m -l lua       %c
+    fileviewer ?*.py                pygmentize -O style=monokai -f console16m -l python    %c
+    fileviewer ?*.sh,?*.*sh,.*shrc  pygmentize -O style=monokai -f console16m -l sh        %c
+    fileviewer ?*.y*ml              pygmentize -O style=monokai -f console16m -l yaml      %c
+    fileviewer Makefile*            pygmentize -O style=monokai -f console16m -l make      %c
+    fileviewer [Dd]ocker*           pygmentize -O style=monokai -f console16m -l docker    %c
 endif
 " 16-color terminal
-" fileviewer *.c,*.h highlight -O ansi -s dante %c
+" fileviewer *.c,*.h highlight -O ansi -s edit-vim-dark %c
 "
 " Or leave it for automatic detection
 "
@@ -332,15 +483,24 @@ endif
 
 " Other fileviewers
 fileviewer *.7z 7z l %c
+
 fileviewer *.[1-8] man ./%c | col -b
+
 fileviewer *.html links %c
 
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]
   \ ffprobe -pretty %c 2>&1
-fileviewer *.png,*.jpeg,*.jpg
-  \ identify %c
+
+if executable('wezterm')
+    fileviewer *.png,*.jpeg,*.jpg,*.heic
+      \ wezterm imgcat --width %pw --height %ph %c
+elseif executable('viu')
+    fileviewer *.png,*.jpeg,*.jpg,*.heic
+      \ env -u COLORTERM viu -w %pw -h %ph -s %c
+endif
+
 
 fileviewer *.mp3 mp3info %c
 fileviewer *.rar unrar v %c
@@ -362,96 +522,11 @@ fileviewer *.epub epub2txt %c
 " uncommenting one of lines below will result in ignoring 'vi[x]cmd' option
 " for unknown file types.
 " For *nix:
-" filetype * xdg-open
+filetype * vim
 " For OS X:
 " filetype * open
 " For Windows:
 " filetype * start, explorer
-
-" ------------------------------------------------------------------------------
-
-" Sample mappings
-nnoremap t tj
-
-" Start shell in current directory
-nnoremap s :shell<cr>
-
-" Display sorting dialog
-nnoremap S :sort<cr>
-
-" Toggle visibility of preview window
-nnoremap w :view<cr>
-vnoremap w :view<cr>gv
-
-" Open file in existing instance of gvim
-nnoremap o :!vim --remote-tab-silent %f<cr>
-" Open file in new instance of gvim
-nnoremap O :!vim %f<cr>
-
-" Open file in the background using its default program
-nnoremap gb :file &<cr>l
-
-" Mappings for faster renaming
-nnoremap I cw<c-a>
-nnoremap cc cw<c-u>
-nnoremap A cw
-
-" Open console in current directory
-nnoremap ,t :!xterm &<cr>
-
-" Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap ,c :write | edit $MYVIFMRC | restart<cr>
-" Open emacs to edit vifmrc
-nnoremap ,C :!vim &<cr>
-
-" Toggle wrap setting on ,w key
-nnoremap ,w :set wrap!<cr>
-
-nnoremap : ;
-nnoremap ; :
-vnoremap : ;
-vnoremap ; :
-" Example of standard two-panel file managers mappings
-nnoremap <f3> :!less %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <c-l> :rename<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
-
-nnoremap :Q :quit
-" ------------------------------------------------------------------------------
-
-" Various customization examples
-
-" Use ag (the silver searcher) instead of grep
-"
-set grepprg='rg --vimgrep %i %a %s'
-
-" Add additional place to look for executables
-"
-" let $PATH = $HOME.'/bin/fuse:'.$PATH
-
-" Block particular shortcut
-"
-" nnoremap <left> <nop>
-
-" Export IPC name of current instance as environment variable and use it to
-" communicate with the instance later.
-"
-" It can be used in some shell script that gets run from inside vifm, for
-" example, like this:
-"     vifm --server-name "$VIFM_SERVER_NAME" --remote +"cd '$PWD'"
-"
-" let $VIFM_SERVER_NAME = v:servername
-
-" From mc: <Ctrl-s> fuzzy search in current directory
-command! FZFfind :set noquickview | :execute 'goto "'.system('find | fzf --height 10 2>/dev/tty ').'"%IU' | redraw
-nnoremap <c-s> :FZFfind<cr>
-
-" From mc: <Atl-i> cd to the same path as inactive directory
-:nnoremap <a-i> :cd %D<cr>
 
 " file types
 set classify=' :dir:/, :exe:, :reg:, :link:'

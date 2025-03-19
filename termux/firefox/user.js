@@ -22,7 +22,7 @@ var user_pref = function(pref, val){
   }
 }
 //user_pref("layout.css.devPixelsPerPx", 1.25);
-user_pref("accessibility.force_disabled", true);
+user_pref("accessibility.force_disabled", 1);
 user_pref("accessibility.typeaheadfind", false); // Search for text when start typing
 user_pref("app.normandy.api_url", "");
 user_pref("app.normandy.enabled", false);
@@ -159,6 +159,7 @@ user_pref("browser.urlbar.suggest.bookmark", true);
 user_pref("browser.urlbar.suggest.history", true);
 user_pref("browser.urlbar.suggest.searches", false);
 user_pref("browser.urlbar.trimURLs", false); // PREF: Don't trim HTTP off of URLs in the address bar.
+// user_pref("browser.urlbar.update2.oneOffsRefresh", false); // PREF: Disable tab to complete.
 user_pref("browser.zoom.siteSpecific", false);
 user_pref("camera.control.face_detection.enabled", false); // PREF: Disable face detection
 user_pref("captivedetect.canonicalURL", "");
@@ -185,7 +186,7 @@ user_pref("dom.maxHardwareConcurrency", 3); // PREF: Spoof dual-core CPU
 user_pref("dom.max_script_run_time", 30); // PREF: script execution time
 user_pref("dom.netinfo.enabled", false); // PREF: Disable leaking network/browser connection information via Javascript
 user_pref("dom.push.enabled", false);
-user_pref("dom.security.https_only_mode", false);  // Force to open https
+user_pref("dom.security.https_only_mode", true);  // Force to open https
 user_pref("dom.security.https_only_mode.upgrade_local", false);  // ignore localhost
 user_pref("dom.vibrator.enabled", true); // PREF: Disable vibrator API
 user_pref("dom.vr.enabled", false); // PREF: Disable virtual reality devices APIs
@@ -210,6 +211,7 @@ user_pref("extensions.webextensions.remote", true);
 user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com"); // blacklist for webextensions
 user_pref("extensions.webextensions.userScripts.enabled", true);
 user_pref("findbar.highlightAll", true);
+user_pref("fission.autostart", true);
 user_pref("font.internaluseonly.changed", true);
 //user_pref("font.minimum-size.x-cyrillic", 10);
 //user_pref("font.minimum-size.x-western", 10);
@@ -274,9 +276,9 @@ user_pref("layers.amd-switchable-gfx.enabled", false); // AMD|Windows specific s
 user_pref("layers.async-pan-zoom.enabled", true);
 user_pref("layers.geometry.d3d11.enabled", false); // Windows specific settings
 user_pref("layers.gpu-process.enabled", false);
-//user_pref("layout.css.devPixelsPerPx", 1.25);
+user_pref("layout.css.devPixelsPerPx", -1);
 user_pref("layout.css.osx-font-smoothing.enabled", true);
-user_pref("layout.frame_rate", 90);
+user_pref("layout.frame_rate", 120);
 user_pref("layout.spellcheckDefault", 2); // enable spell-check for all text boxes
 user_pref("layout.word_select.stop_at_punctuation", true);
 user_pref("media.autoplay.allow-muted", false);
@@ -296,6 +298,7 @@ user_pref("media.gpu-process-decoder", true);
 user_pref("media.navigator.enabled", true); // websites can track the microphone and camera status of your device.
 user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
 user_pref("media.peerconnection.ice.no_host", false); // PREF: reveal your internal IP when WebRTC is enabled
+user_pref("media.peerconnection.mtransport_process", true); // PREF: faster WebRTC calls
 user_pref("media.rdd-process.enabled", true);
 user_pref("media.rdd-vpx.enabled", false);
 //user_pref("media.videocontrols.picture-in-picture.enabled", true);
@@ -336,16 +339,17 @@ user_pref("network.http.speculative-parallel-limit", 0);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.predictor.enabled", false);
 user_pref("network.prefetch-next", false); // After the browser is finished loading the page, it begins silently prefetching specified documents and stores them in its cache
+user_pref("network.process.enabled", true);
 user_pref("network.proxy.socks_remote_dns", false);
 user_pref("network.stricttransportsecurity.preloadlist", true);
 user_pref("network.tcp.tcp_fastopen_enable", true);
-user_pref("network.trr.bootstrapAddress", "9.9.9.9");
-user_pref("network.trr.custom_uri", "https://dns9.quad9.net/dns-query");
+user_pref("network.trr.bootstrapAddress", "176.103.130.130");
+user_pref("network.trr.custom_uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.enable_when_nrpt_detected", true);
 user_pref("network.trr.enable_when_proxy_detected", true);
 user_pref("network.trr.enable_when_vpn_detected", true);
 user_pref("network.trr.mode", 3);
-user_pref("network.trr.uri", "https://dns9.quad9.net/dns-query");
+user_pref("network.trr.uri", "https://dns.adguard.com/dns-query");
 user_pref("network.trr.wait-for-A-and-AAAA", false);
 user_pref("network.warnOnAboutNetworking", false);
 user_pref("nglayout.initialpaint.delay", 0);
