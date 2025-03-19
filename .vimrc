@@ -164,7 +164,7 @@ let s:comment_map = {
     \   "bash": '# ',
     \   "c": '// ',
     \   "cpp": '// ',
-    \   "el": '; ',
+    \   "lisp": '; ',
     \   "go": '// ',
     \   "java": '// ',
     \   "javascript": '// ',
