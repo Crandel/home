@@ -191,16 +191,16 @@ user_pref("calendar.view.useSystemColors", true);
 //user_pref("extensions.webextensions.restrictedDomains", "accounts-static.cdn.mozilla.net,accounts.firefox.com,oauth.accounts.firefox.com,profile.accounts.firefox.com,sync.services.mozilla.com"); // blacklist for webextensions
 //user_pref("extensions.webextensions.userScripts.enabled", true);
 //user_pref("findbar.highlightAll", true);
-//user_pref("font.internaluseonly.changed", true);
-//user_pref("font.minimum-size.x-cyrillic", 10);
-//user_pref("font.minimum-size.x-western", 10);
-//user_pref("font.name-list.emoji", "Noto Color Emoji, Twemoji Mozilla");
-//user_pref("font.name.monospace.x-cyrillic", "Hack Nerd Font Mono");
-//user_pref("font.name.monospace.x-western", "Hack Nerd Font Mono");
-//user_pref("font.name.sans-serif.x-cyrillic", "Droid Sans");
-//user_pref("font.name.sans-serif.x-western", "Droid Sans");
-//user_pref("font.name.serif.x-cyrillic", "Droid Serif");
-//user_pref("font.name.serif.x-western", "Droid Serif");
+user_pref("font.internaluseonly.changed", true);
+user_pref("font.minimum-size.x-cyrillic", 10);
+user_pref("font.minimum-size.x-western", 10);
+user_pref("font.name-list.emoji", "Noto Color Emoji, Twemoji Mozilla");
+user_pref("font.name.monospace.x-cyrillic", "FiraCode Nerd Font Mono");
+user_pref("font.name.monospace.x-western", "FiraCode Nerd Font Mono");
+user_pref("font.name.sans-serif.x-cyrillic", "NotoSans Nerd Font");
+user_pref("font.name.sans-serif.x-western", "NotoSans Nerd Font");
+user_pref("font.name.serif.x-cyrillic", "NotoSerif Nerd Font");
+user_pref("font.name.serif.x-western", "NotoSerif Nerd Font");
 //user_pref("full-screen-api.ignore-widgets", true);
 //user_pref("full-screen-api.transition-duration.enter", "0 0");
 //user_pref("full-screen-api.transition-duration.leave", "0 0");
@@ -234,15 +234,20 @@ user_pref("general.warnOnAboutConfig", false); // XUL/XHTML version
 //user_pref("geo.wifi.logging.enabled", false); // PREF: When geolocation is enabled, don't log geolocation requests to the console
 //user_pref("geo.wifi.uri", "");
 //user_pref("gestures.enable_single_finger_input", false);
-//user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
-//user_pref("gfx.use_text_smoothing_setting", true);
+user_pref("gfx.canvas.accelerated", true);
+user_pref("gfx.color_management.enablev4", true);
+user_pref("gfx.color_management.native_srgb", true);
+user_pref("gfx.font_rendering.cleartype_params.rendering_mode", 5);
+user_pref("gfx.use_text_smoothing_setting", true);
 user_pref("gfx.webrender.all", true);
 user_pref("gfx.webrender.compositor", true);
 user_pref("gfx.webrender.enabled", true);
-//user_pref("gfx.webrender.highlight-painted-layers", false);
+user_pref("gfx.webrender.highlight-painted-layers", false);
 user_pref("gfx.webrender.software", false);
 //user_pref("gfx.work-around-driver-bugs", false);
 //user_pref("image.avif.enabled", true);
+user_pref("intl.date_time.pattern_override.date_short", "dd.MM.yyyy");
+user_pref("intl.date_time.pattern_override.time_short", "HH:mm");
 //user_pref("intl.accept_languages", "en-us,en,ru,uk,de"); // PREF: Set Accept-Language HTTP header to en-US regardless of Firefox localization
 //user_pref("intl.locale.matchOS", false); // PREF: Don't use OS values to determine locale, force using Firefox locale setting
 //user_pref("intl.locale.requested", "en-US");
@@ -278,6 +283,7 @@ user_pref("mail.citation_color", "#80d204");
 //user_pref("media.navigator.enabled", true); // websites can track the microphone and camera status of your device.
 //user_pref("media.navigator.mediadatadecoder_vpx_enabled", true);
 //user_pref("media.peerconnection.ice.no_host", false); // PREF: reveal your internal IP when WebRTC is enabled
+//user_pref("media.peerconnection.mtransport_process", true); // PREF: faster WebRTC calls
 //user_pref("media.rdd-process.enabled", true);
 //user_pref("media.rdd-vpx.enabled", false);
 //user_pref("media.videocontrols.picture-in-picture.enabled", true);
@@ -318,6 +324,7 @@ user_pref("mail.citation_color", "#80d204");
 //user_pref("network.predictor.enable-prefetch", false);
 //user_pref("network.predictor.enabled", false);
 //user_pref("network.prefetch-next", false); // After the browser is finished loading the page, it begins silently prefetching specified documents and stores them in its cache
+user_pref("network.process.enabled", true);
 //user_pref("network.proxy.socks_remote_dns", false);
 //user_pref("network.stricttransportsecurity.preloadlist", true);
 //user_pref("network.tcp.tcp_fastopen_enable", true);

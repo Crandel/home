@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1e3dd102-8067-4f3a-b978-f0d0a3486c93",
+    "name": "English",
+    "text": "Best regards",
+    "html": "",
+    "autoSwitch": ""
+  },
+  {
+    "id": "a3865951-6d2d-4ac3-9a15-b0f108c11342",
+    "name": "Deutsch",
+    "text": "Mit freundlichen Grüßen",
+    "html": "",
+    "autoSwitch": ""
+  }
+]
