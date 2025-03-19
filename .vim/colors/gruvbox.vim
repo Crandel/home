@@ -182,7 +182,7 @@ if s:is_dark
 
   let s:gray = s:gb.gray_245
 
-  let s:fg0 = s:gb.light0
+  let s:fg0 = s:gb.bright_green
   let s:fg1 = s:gb.light1
   let s:fg2 = s:gb.light2
   let s:fg3 = s:gb.light3
