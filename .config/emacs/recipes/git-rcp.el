@@ -37,6 +37,15 @@
   :after magit
 )
 
+;; (use-package magit-blame-color-by-age
+;;   :vc (:url "https://github.com/jdtsmith/magit-blame-color-by-age")
+;;   :hook magit-blame-mode
+;;   ;; if you'd like date first on heading lines:
+;;   ;; :config (setf (alist-get 'heading-format (alist-get 'headings magit-blame-styles)) "%C %-20a %s\n")
+;;   ;; For full heading coloring
+;;   :custom (magit-blame-color-by-age-full-heading t)
+;; )
+
 (use-package git-modes
   :mode "/.dockerignore\\'"
   :ensure t

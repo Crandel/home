@@ -11,7 +11,7 @@
   (setq-default vd/ellama-extraction-model    "code-assistant:local")
   (setq-default vd/ellama-embedding-model     "snowflake-arctic-embed2:latest")
   (setq-default vd/ellama-naming-model        "gemma3:local")
-  (setq-default vd/ellama-translation-model   "aya-expanse:latest")
+  (setq-default vd/ellama-translation-model   "english-helper:local")
   ;; Convenience functions for mode change events
   (defun vd/ollama-list-installed-models ()
     "Return the installed models"

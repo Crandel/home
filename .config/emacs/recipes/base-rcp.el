@@ -25,6 +25,7 @@
   (frame-title-format              '((buffer-file-name "%f [%*] %I %P %l" "%b [%*] %I %P %l"))
                                    "Display the name of the current buffer in the title bar")
   (highlight-nonselected-windows   nil)
+  (help-window-select              t)
   (indent-line-function            'insert-tab "Indent settings")
   (indent-tabs-mode                nil "Indent settings")
   (indicate-empty-lines            nil "Scrolling settings")
@@ -41,7 +42,7 @@
   (nxml-attribute-indent           2)
   (read-extended-command-predicate #'command-completion-default-include-p) ;; Hide commands in M-x which do not apply to the current mode.
   (redisplay-dont-pause            t)
-  (resize-mini-windows             t)
+  (resize-mini-windows             'grow-only)
   (resize-mini-frames              t)
   (ring-bell-function              'ignore)
   (size-indication-mode            t)
@@ -75,14 +76,13 @@
   ("C-c f d"  . delete-trailing-whitespace)
   ("C-c f f"  . find-file)
   ("C-c f l"  . vd/copy-line)
-  ("C-c f o"  . duplicate-line)
+  ("C-c f o"  . duplicate-dwim)
   ("C-c f r"  . vd/revert-buffer)
   ("C-c f s"  . sort-lines)
   ("C-c f u"  . upcase-region)
   ("C-c f w"  . save-file)
   ("C-c f x"  . vd/delete-line)
-  ("C-c f x"  . vd/delete-line)
-  ("C-c j"    . hippie-expand)
+  ("C-c f j"  . hippie-expand)
   ("C-b"      . list-buffers)
   ("C-c b"    . list-buffers)
   ("C-c q"    . vd/kill-emacs-with-save)
@@ -92,6 +92,8 @@
   ("C-S-o"    . vd/open-previous-line)
   ([M-S-down] . vd/move-line-down)
   ([M-S-up]   . vd/move-line-up)
+  ("C-z"      . nil) ; suspend-frame
+  ("C-x C-z"  . nil) ; suspend-frame
   :hook
   (after-save . executable-make-buffer-file-executable-if-script-p) ;; Make shebang (#!) file executable when saved
 )
@@ -147,7 +149,9 @@
 (use-package display-line-numbers
   :demand t
   :custom
-  (display-line-numbers-type t)
+  (display-line-numbers-type  t)
+  (display-line-numbers-widen t)
+  (display-line-numbers-width 3)
   :config
   (global-display-line-numbers-mode t)
 )
@@ -230,6 +234,9 @@
 
 (use-package flyspell-mode
   :defer 1
+  :hook
+  (text-mode . flyspell-mode)
+  (prog-mode . flyspell-prog-mode)
 )
 
 (use-package fringe
@@ -344,8 +351,8 @@
   (completion-category-defaults                    nil)
   (completion-cdabbrev-prompt-flag                 t)
   (completion-cycle-threshold                      3)
-  (completion-detailed                             t)
   (completion-in-region-mode                       t)
+  (completion-ignore-case                          t)
   (completion-on-separator-character               t)
   (completion-pcm-complete-word-inserts-delimiters t)
   (completion-styles                               '(basic initials substring))
@@ -356,10 +363,22 @@
    (symbol   (styles . (initials partial-completion)))
    (variable (styles . (initials partial-completion)))
    ))
+  (completions-detailed                            t)
   (dynamic-completion-mode                         t)
   :init
   (advice-add 'completion-at-point
               :after #'minibuffer-hide-completions)
+  (setq minibuffer-frame-alist '(
+            (name . "minibuf")
+            (menu-bar-lines . 0)
+            (vertical-scroll-bars . nil)
+            (auto-raise . t)
+            (sticky . t)
+            (left . 0)
+            (top . -1)
+            (height . 1)
+            (internal-border-width . 0)
+            (minibuffer . only)))
   :hook
   (minibuffer-setup           . cursor-intangible-mode)
   (icomplete-minibuffer-setup . vd/complete-styles)
@@ -379,6 +398,11 @@
   (coding-system-for-read      'utf-8)
 )
 
+(use-package outline
+  :hook
+  (prog-mode . outline-minor-mode)
+)
+
 (use-package paren
   :defer 0.1
   :init
@@ -389,7 +413,7 @@
   (show-paren-when-point-inside-paren t)
   (show-paren-context-when-offscreen  t)
   (show-paren-delay                   0.2)
-  (show-paren-style                   'parenthesis)
+  (show-paren-style                   'mixed)
 )
 
 (use-package pixel-scroll
@@ -404,9 +428,42 @@
   (prog-mode . pixel-scroll-precision-mode)
 )
 
+(use-package proced
+  :defer t
+  :custom
+  (proced-enable-color-flag t)
+  (proced-tree-flag t)
+  (proced-auto-update-flag 'visible)
+  (proced-auto-update-interval 1)
+  (proced-descent t)
+  (proced-filter 'user) ;; We can change interactively with `s'
+  :config
+  (add-hook 'proced-mode-hook
+            (lambda ()
+              (proced-toggle-auto-update 1))))
+
 (use-package prog-mode
   :hook
-  (prog-mode . vd/highlight-todos)
+  (prog-mode . (lambda()
+                 (vd/highlight-todos)
+                 (setq prettify-symbols-alist
+                       '(("lambda" . ?λ)
+                         ("->"     . ?→)
+                         ("->>"    . ?↠)
+                         ("=>"     . ?⇒)
+                         ("map"    . ?↦)
+                         ("/="     . ?≠)
+                         ("!="     . ?≠)
+                         ("=="     . ?≡)
+                         ("<="     . ?≤)
+                         (">="     . ?≥)
+                         ("<<"     . ?≪)
+                         (">>"     . ?≫)
+                         ("<=<"    . ?↢)
+                         (">=>"    . ?↣)
+                         ("sqrt"   . ?√)
+                         ("..."    . ?…)))
+                  (prettify-symbols-mode 1)))
   :bind
   (:map prog-mode-map
     ("C-c TAB" . prog-indent-sexp)
@@ -512,6 +569,32 @@
 
 (use-package tramp
   :disabled)
+
+(use-package webjump
+  :defer t
+  :ensure nil
+  :bind ("C-x /" . webjump)
+  :custom
+  (webjump-sites
+   '(("DuckDuckGo" . [simple-query "duckduckgo.com" "duckduckgo.com/?q=" ""])
+     ("Google"     . [simple-query "google.com" "google.com/search?q=" ""])
+     ("YouTube"    . [simple-query "youtube.com/feed/subscriptions" "youtube.com/rnesults?search_query=" ""])
+     ("Wikipedia"  . [simple-query "wikipedia.org" "wikipedia.org/wiki/" ""])
+     ("Archwiki"   . [simple-query "wiki.archlinux.org" "wiki.archlinux.org/index.php?search=" ""])
+     ("ChatGPT"    . [simple-query "chatgpt.com" "chatgpt.com/?q=" ""])))
+)
+
+(use-package which-key
+  :defer 1
+  :commands (which-key--show-keymap which-key--hide-popup-ignore-command)
+  :custom
+  (which-key-separator              "  ")
+  (which-key-prefix-prefix          "->")
+  (which-key-max-description-length 40)
+  (which-key-show-transient-maps    t)
+  :hook
+  (after-init . which-key-mode)
+)
 
 (use-package window
   :defer t

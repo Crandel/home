@@ -5,7 +5,7 @@
 (eval-when-compile (require 'use-package))
 (use-package orderless
   :ensure t
-  :defer 1
+  :defer 0.1
   :preface
   (defvar +orderless-dispatch-alist
     '((?% . char-fold-to-regexp)

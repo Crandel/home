@@ -36,8 +36,9 @@
     )
 )
 
-(use-package go-tag
-  :ensure t
+(use-package crandel-go-tag
+  :vc (:url "https://github.com/Crandel/emacs-go-tag"
+       :rev :newest)
   :after go-ts-mode
   :bind
   (:map go-ts-mode-map
@@ -46,19 +47,8 @@
     )
 )
 
-(use-package godoctor
-  :ensure t
-)
-
-;; (use-package gotest
+;; (use-package godoctor
 ;;   :ensure t
-;;   :after go-ts-mode
-;;   :commands (go-test-current-file go-test-current-test)
-;;   :bind
-;;   (:map go-ts-mode-map
-;;     ("C-c i t" . go-test-current-test)
-;;     ("C-c i f" . go-test-current-file)
-;;     )
 ;; )
 
 (provide 'go-rcp)
