@@ -37,6 +37,11 @@
  (eval `(define-key local-function-key-map
           (kbd ,(string from))
           (kbd ,(string to)))))
+(set-face-attribute 'italic                       nil :family "Hack Nerd Font" :slant 'italic)
+(set-face-attribute 'font-lock-comment-face       nil :family "Hack Nerd Font" :slant 'italic)
+(set-face-attribute 'font-lock-variable-name-face nil :family "Hack Nerd Font" :slant 'oblique)
+(set-face-attribute 'font-lock-property-use-face  nil :width  'condensed       :slant 'normal)
+(set-face-attribute 'font-lock-function-name-face nil :weight 'bold)
 
 (provide 'final-steps-rcp)
 ;;; Commentary:

@@ -7,8 +7,13 @@
   :mode ("\\.js\\'" . js2-mode)
 )
 
-(use-package json-ts-mode
-  :mode ("\\.json\\'" "\\.jsonc\\'" "\\.jsonc.tmpl\\'")
+(use-package jsonian
+  :ensure t
+  :mode
+  ("\\.json\\'"       . jsonian-mode)
+  ("\\.jsonc\\'"      . jsonian-mode)
+  ("\\.jsonc.tmpl\\'" . jsonian-mode)
+  ("\\.vil\\'"        . jsonian-mode)
 )
 
 (use-package yaml-ts-mode

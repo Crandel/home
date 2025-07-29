@@ -79,7 +79,7 @@ mode $layout_mode {
 
 mode $power_mode {
   bindsym --to-code {
-    F2 exec idle.sh kill 1; mode "default"
+    F2 exec idle.sh 1 kill; mode "default"
     F3 exec $lock; mode "default"
     F4 exec --no-startup-id systemctl -i reboot
     F5 exec --no-startup-id systemctl -i poweroff

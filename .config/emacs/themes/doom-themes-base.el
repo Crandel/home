@@ -60,8 +60,8 @@
     ;;;; tab-line/tab-bar (Emacs 27+)
     (tab-line :background bg-alt :foreground bg-alt)
     (tab-line-tab :background bg :foreground fg)
-    (tab-line-tab-inactive :inherit 'tab-line-tab :background bg-alt :foreground fg-alt)
-    (tab-line-tab-inactive-alternate :inherit 'tab-line-tab-inactive)
+    (tab-line-tab-inactive :background bg-alt :foreground fg-alt)
+    ((tab-line-tab-inactive-alternate &inherit tab-line-tab-inactive))
     (tab-line-tab-current :background bg :foreground fg)
     ;; (tab-line-special )
     (tab-line-highlight :inherit 'tab-line-tab)
@@ -76,12 +76,12 @@
     (line-number
      :inherit 'default
      :foreground base5 :distant-foreground 'unspecified
-     :weight 'normal :italic 'unspecified
+     :weight 'normal :slant 'unspecified
      :underline 'unspecified :strike-through 'unspecified)
     (line-number-current-line
      :inherit '(hl-line default)
      :foreground fg :distant-foreground 'unspecified
-     :weight 'normal :italic 'unspecified
+     :weight 'normal :slant 'unspecified
      :underline 'unspecified :strike-through 'unspecified)
 
     ;;;; --- Package faces ----------------------
@@ -120,7 +120,9 @@
     ;;;; auctex <modes:latex-mode>
     (font-latex-bold-face         :inherit 'bold)
     (font-latex-italic-face       :inherit 'italic)
+    (font-latex-underline-face    :inherit 'underline)
     (font-latex-math-face         :foreground blue)
+    (font-latex-sedate-face       :inherit 'font-lock-keyword-face)
     (font-latex-sectioning-0-face :foreground blue    :weight 'ultra-bold)
     (font-latex-sectioning-1-face :foreground magenta :weight 'semi-bold)
     (font-latex-sectioning-2-face :foreground violet  :weight 'semi-bold)
@@ -191,7 +193,12 @@
     (ansi-color-magenta        :foreground magenta :background magenta)
     (ansi-color-cyan           :foreground cyan    :background cyan)
     (ansi-color-white          :foreground fg      :background fg)
-    (ansi-color-bright-black   :foreground base0   :background base2)
+    ;; This color is used effectively as grayed out foreground text.
+    ;; base5 and up have too much contrast in light themes;
+    ;; base5 and lower have too little contrast in dark themes.
+    (ansi-color-bright-black
+     (&light :foreground base4 :background base4)
+     (&dark  :foreground base6 :background base6))
     (ansi-color-bright-red     :foreground (doom-lighten red 0.15)     :background (doom-lighten red 0.15))
     (ansi-color-bright-green   :foreground (doom-lighten green 0.15)   :background (doom-lighten green 0.15))
     (ansi-color-bright-yellow  :foreground (doom-lighten yellow 0.15)  :background (doom-lighten yellow 0.15))
@@ -325,18 +332,18 @@
     (compilation-mode-line-exit :inherit 'compilation-info)
     (compilation-mode-line-fail :inherit 'compilation-error)
     ;;;; custom <built-in>
-    (custom-button                  :foreground blue   :background bg     :box '(:line-width 1))
-    (custom-button-unraised         :foreground violet :background bg     :box '(:line-width 1))
-    (custom-button-pressed-unraised :foreground bg     :background violet :box '(:line-width 1))
-    (custom-button-pressed          :foreground bg     :background blue   :box '(:line-width 1))
-    (custom-button-mouse            :foreground bg     :background blue   :box '(:line-width 1))
+    (custom-button                  :foreground blue   :background bg     :box '(:line-width 1 :style nil))
+    (custom-button-unraised         :foreground violet :background bg     :box '(:line-width 1 :style nil))
+    (custom-button-pressed-unraised :foreground bg     :background violet :box '(:line-width 1 :style nil))
+    (custom-button-pressed          :foreground bg     :background blue   :box '(:line-width 1 :style nil))
+    (custom-button-mouse            :foreground bg     :background blue   :box '(:line-width 1 :style nil))
     (custom-variable-button         :foreground green  :underline t)
     (custom-saved                   :foreground green  :background (doom-blend green bg 0.2) :bold bold)
     (custom-comment                 :foreground fg     :background region)
     (custom-comment-tag             :foreground grey)
     (custom-modified                :foreground blue   :background (doom-blend blue bg 0.2))
     (custom-variable-tag            :foreground magenta)
-    (custom-visibility              :foreground blue   :underline 'unspecified)
+    (custom-visibility              :foreground blue)
     (custom-group-subtitle          :foreground red)
     (custom-group-tag               :foreground violet)
     (custom-group-tag-1             :foreground blue)
@@ -368,7 +375,7 @@
     ;; (cider-repl-stderr-face :inherit 'font-lock-warning-face)
     ;; (cider-repl-input-face :weight 'bold)
     ;; (cider-repl-result-face )
-    (cider-result-overlay-face :background base3 :box `(:line-width -1 :color base5))
+    (cider-result-overlay-face :background base3 :box `(:line-width -1 :color ,base5))
     (cider-fringe-good-face    :foreground green)
     (cider-deprecated-face     :background (doom-blend bg yellow 0.8))
     (cider-instrumented-face   :background (doom-blend bg red 0.8))
@@ -401,6 +408,9 @@
     (diff-header  :foreground cyan)
     (diff-file-header :foreground blue)
     (diff-hunk-header :foreground violet)
+    (diff-indicator-added :foreground vc-added)
+    (diff-indicator-changed :foreground vc-modified)
+    (diff-indicator-removed :foreground vc-added)
     (diff-refine-added   :inherit 'diff-added :inverse-video t)
     (diff-refine-changed :inherit 'diff-changed :inverse-video t)
     (diff-refine-removed :inherit 'diff-removed :inverse-video t)
@@ -593,17 +603,22 @@
     (flycheck-posframe-face            :inherit 'default)
     (flycheck-posframe-background-face :background bg-alt)
     (flycheck-posframe-error-face      :inherit 'flycheck-posframe-face :foreground error)
-    (flycheck-posframe-info-face       :inherit 'flycheck-posframe-face :foreground fg)
+    (flycheck-posframe-info-face       :inherit 'flycheck-posframe-face :foreground success)
     (flycheck-posframe-warning-face    :inherit 'flycheck-posframe-face :foreground warning)
     ;;;; flymake
     (flymake-error   :underline `(:style wave :color ,red))
     (flymake-note    :underline `(:style wave :color ,green))
     (flymake-warning :underline `(:style wave :color ,orange))
     ;;;; flyspell <built-in>
-    (flyspell-incorrect :underline `(:style wave :color ,error) :inherit 'unspecified)
-    (flyspell-duplicate :underline `(:style wave :color ,warning) :inherit 'unspecified)
+    (flyspell-incorrect :underline `(:style wave :color ,error))
+    (flyspell-duplicate :underline `(:style wave :color ,warning))
     ;;;; flx-ido
     (flx-highlight-face :weight 'bold :foreground yellow :underline nil)
+    ;;;; forge
+    (forge-dimmed :inherit 'magit-dimmed)
+    (forge-pullreq-open :inherit 'forge-issue-open)
+    (forge-pullreq-merged :inherit 'forge-issue-completed)
+    (forge-pullreq-rejected :inherit 'forge-issue-unplanned)
     ;;;; git-commit
     (git-commit-summary               :foreground strings)
     (git-commit-overlong-summary      :inherit 'error          :background base0 :slant 'italic :weight 'bold)
@@ -737,9 +752,10 @@
     ;; (hi-black-b  :weight 'bold)
     ;; (hi-black-hb :inherit 'variable-pitch :weight 'bold :height 1.67)
     ;;;; hideshow <built-in>
-    (+fold-hideshow-folded-face :inherit 'font-lock-comment-face
-                                :weight 'light
-                                :background (doom-darken bg 0.125))
+    (+fold-hideshow-folded-face  ; this is defined in Doom Emacs, only
+     :inherit 'font-lock-comment-face
+     :weight 'light
+     :background (doom-darken bg 0.15))
     ;;;; highlight-numbers-mode
     (highlight-numbers-number :inherit 'bold :foreground numbers)
     ;;;; highlight-indentation-mode
@@ -857,7 +873,7 @@
     (jdee-font-lock-doc-tag-face     :foreground violet)
     (jdee-font-lock-italic-face      :inherit 'italic)
     (jdee-font-lock-bold-face        :inherit 'bold)
-    (jdee-font-lock-link-face        :foreground blue :italic nil :underline t)
+    (jdee-font-lock-link-face        :foreground blue :slant nil :underline t)
     ;;;; js2-mode <modes:js2-mode,js2-jsx-mode>
     (js2-function-param    :foreground variables)
     (js2-function-call     :foreground functions)
@@ -909,7 +925,7 @@
     (magit-diff-removed-highlight      :foreground vc-deleted                   :background (doom-blend vc-deleted base3 0.2) :weight 'bold :extend t)
     (magit-diffstat-added              :foreground vc-added)
     (magit-diffstat-removed            :foreground vc-deleted)
-    (magit-dimmed :foreground comments)
+    (magit-dimmed :foreground fg-alt)
     (magit-hash :foreground comments)
     (magit-header-line :background dark-blue :foreground base8 :weight 'bold
                        :box `(:line-width 3 :color ,dark-blue))
@@ -1145,8 +1161,8 @@
     (orderless-match-face-3 :weight 'bold :foreground (doom-blend yellow  fg 0.6) :background (doom-blend yellow  bg 0.1))
     ;;;; org <built-in> <modes:org-mode>
     (org-archived                 :foreground doc-comments)
-    (org-block                    :extend t)
-    (org-block-background         :extend t)
+    (org-block                    :background base3    :extend t)
+    (org-block-background         :background base3    :extend t)
     (org-block-begin-line         :inherit 'org-block  :foreground comments)
     (org-block-end-line           :inherit 'org-block-begin-line)
     (org-checkbox                 :inherit 'org-todo)
@@ -1371,10 +1387,10 @@
     (symbol-overlay-face-8 :background (doom-blend cyan bg 0.2)    :distant-foreground fg-alt)
     ;;;; swiper
     (swiper-line-face    :background blue    :foreground base0)
-    (swiper-match-face-1 :inherit 'unspecified :background base0   :foreground base5)
-    (swiper-match-face-2 :inherit 'unspecified :background orange  :foreground base0 :weight 'bold)
-    (swiper-match-face-3 :inherit 'unspecified :background magenta :foreground base0 :weight 'bold)
-    (swiper-match-face-4 :inherit 'unspecified :background green   :foreground base0 :weight 'bold)
+    (swiper-match-face-1 :background base0   :foreground base5)
+    (swiper-match-face-2 :background orange  :foreground base0 :weight 'bold)
+    (swiper-match-face-3 :background magenta :foreground base0 :weight 'bold)
+    (swiper-match-face-4 :background green   :foreground base0 :weight 'bold)
     ;;;; tabbar
     (tabbar-default             :foreground bg :background bg :height 1.0)
     (tabbar-highlight           :foreground fg :background selection :distant-foreground bg)
@@ -1439,6 +1455,11 @@
     ;;;; treemacs-nerd-icons
     (treemacs-nerd-icons-file-face :foreground doc-comments)
     (treemacs-nerd-icons-root-face :inherit 'font-lock-string-face :weight 'bold :height 1.2)
+    ;;;; ts-fold
+    (ts-fold-fringe-face)
+    ((ts-fold-replacement-face &inherit +fold-hideshow-folded-face))
+    ((ts-fold-replacement-mouse-face &inherit +fold-hideshow-folded-face)
+     :box '(:line-width -1 :style released-button))
     ;;;; twittering-mode
     (twitter-divider  ; custom face in Doom Emacs
      (&light :underline `(:color ,(doom-lighten vertical-bar 0.2)))
@@ -1501,17 +1522,17 @@
     (which-key-command-description-face   :foreground blue)
     (which-key-local-map-description-face :foreground magenta)
     ;;;; whitespace <built-in>
-    (whitespace-empty    :background base3)
-    (whitespace-space    :foreground base4)
-    (whitespace-newline  :foreground base4)
-    (whitespace-tab
-     :foreground base4
-     :background (if (default-value 'indent-tabs-mode) 'unspecified base3))
-    (whitespace-indentation
-     :foreground base4
-     :background (if (default-value 'indent-tabs-mode) base3 'unspecified))
-    (whitespace-trailing :inherit 'trailing-whitespace)
-    (whitespace-line     :background base0 :foreground red :weight 'bold)
+    ;; (whitespace-empty    :background base3)
+    ;; (whitespace-space    :foreground base4)
+    ;; (whitespace-newline  :foreground base4)
+    ;; (whitespace-tab
+    ;;  :foreground base4
+    ;;  :background (if (default-value 'indent-tabs-mode) 'unspecified base3))
+    ;; (whitespace-indentation
+    ;;  :foreground base4
+    ;;  :background (if (default-value 'indent-tabs-mode) base3 'unspecified))
+    ;; (whitespace-trailing :inherit 'trailing-whitespace)
+    ;; (whitespace-line     :background base0 :foreground red :weight 'bold)
     ;;;; widget
     (widget-button-pressed :foreground red)
     (widget-documentation  :foreground green)
@@ -1522,6 +1543,10 @@
     (window-divider :inherit 'vertical-border)
     (window-divider-first-pixel :inherit 'window-divider)
     (window-divider-last-pixel  :inherit 'window-divider)
+    ;;;; window-tool-bar
+    (window-tool-bar-button :background bg :foreground fg)
+    (window-tool-bar-button-hover :inherit 'highlight :distant-foreground bg)
+    (window-tool-bar-button-disabled :background bg-alt :foreground fg-alt)
     ;;;; winum
     (winum-face :inherit 'bold :foreground highlight)
     ;;;; woman <built-in>

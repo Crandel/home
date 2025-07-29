@@ -1,0 +1,21 @@
+{
+  "modules-left": ["hyprland/workspaces", "hyprland/submap", "hyprland/window", "systemd-failed-units"],
+  "hyprland/submap": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "hyprland/language": {
+    "min-length": 2
+  },
+  "hyprland/window": {
+    "format": "{title:.15}",
+    "separate-outputs": true
+  },
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{name}",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  }
+}

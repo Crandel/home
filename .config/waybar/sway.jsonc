@@ -1,0 +1,20 @@
+{
+  "modules-left": ["sway/workspaces", "sway/mode", "sway/window", "systemd-failed-units"],
+  "sway/language": {
+    "min-length": 2,
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+  },
+  "sway/mode": {
+    "format": "<span style=\"italic\">{}</span>"
+  },
+  "sway/window": {
+    "format": "{title:.15}",
+    "separate-outputs": true
+  },
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": "{name}",
+    "on-click": "activate",
+  },
+}

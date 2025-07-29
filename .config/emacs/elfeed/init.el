@@ -3,15 +3,12 @@
 (eval-when-compile
   (require 'package)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
-  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
   (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
         package-enable-at-startup  nil
         package-archive-priorities '(("melpa"        . 200)
                                      ("elpa"         . 100)
-                                     ("org"          . 75)
                                      ("nongnu"       . 65)
                                      ("gnu"          . 50)))  ;; Higher values are searched first.
   (require 'use-package)
@@ -23,7 +20,7 @@
     (use-package-minimum-reported-time 0.005)
     (use-package-enable-imenu-support t))
 )
-(add-to-list 'load-path (expand-file-name "../recipes/" (file-name-directory load-file-name)))
+(load-theme 'gruvbox t)
 (require 'functions_my)
 
 (require 'base-rcp) ; emacs default settings
@@ -38,14 +35,14 @@
 (require 'elfeed-rcp)
 (require 'embark-rcp)
 (require 'helpful-rcp)
-(require 'highlight-indentation-rcp)
+(require 'highlight-rcp)
 (require 'hydra-rcp)
 (require 'marginalia-rcp)
 (require 'orderless-rcp)
 (require 'org-mode-rcp)
 (require 'rainbow-rcp)
 (require 'vertico-rcp)
-(require 'which-key-rcp)
+(require 'undo-rcp)
 (require 'meow-rcp)
 (require 'final-steps-rcp)
 

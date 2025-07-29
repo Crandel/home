@@ -2,7 +2,7 @@
 # out by default; if you wish to change them uncomment and modify as you see
 # fit.
 
-# This group of options represents a command-line flag/option.  Flags explicitly
+# This group of options represents a command-line option.  Flags explicitly
 # added when running (ie: btm -a) will override this config file if an option
 # is also set here.
 
@@ -10,26 +10,24 @@
 # Whether to hide the average cpu entry.
 #hide_avg_cpu = false
 # Whether to use dot markers rather than braille.
-dot_marker = true
+dot_marker = false
 # The update rate of the application.
-#rate = 1000
+#rate = "1s"
 # Whether to put the CPU legend to the left.
-#left_legend = true
+cpu_left_legend = true
 # Whether to set CPU% on a process to be based on the total CPU or just current usage.
 #current_usage = false
 # Whether to set CPU% on a process to be based on the total CPU or per-core CPU% (not divided by the number of cpus).
 #unnormalized_cpu = false
 # Whether to group processes with the same name together by default.
-# group_processes = true
+group_processes = true
 # Whether to make process searching case sensitive by default.
 case_sensitive = true
 # Whether to make process searching look for matching the entire word by default.
 #whole_word = false
 # Whether to make process searching use regex by default.
 #regex = false
-# Defaults to Celsius.  Temperature is one of:
-#temperature_type = "k"
-#temperature_type = "f"
+# The temperature unit. One of the following, defaults to "c" for Celsius:
 #temperature_type = "c"
 #temperature_type = "kelvin"
 #temperature_type = "fahrenheit"
@@ -158,16 +156,116 @@ columns = ["pid", "name",  "user", "time", "cpu%", "mem%", "state"]
 #case_sensitive = false
 #whole_word = false
 
-#[temp_filter]
+# Temperature widget configuration
+#[temperature]
+#[sensor_filter]
 #is_list_ignored = true
 #list = ["cpu", "wifi"]
 #regex = false
 #case_sensitive = false
 #whole_word = false
 
-#[net_filter]
+# Network widget configuration
+#[network]
+#[interface_filter]
 #is_list_ignored = true
 #list = ["virbr0.*"]
 #regex = true
 #case_sensitive = false
 #whole_word = false
+
+# These are all the components that support custom theming.  Note that colour support
+# will depend on terminal support.
+#[styles] # Uncomment if you want to use custom styling
+
+# Built-in themes. Valid values are:
+# - "default"
+# - "default-light"
+# - "gruvbox"
+# - "gruvbox-light"
+# - "nord"
+# - "nord-light".
+#
+# This will have the lowest precedence if a custom colour palette is set,
+# or overridden if the command-line flag for a built-in theme is set.
+theme = "gruvbox"
+
+[styles.cpu]
+all_entry_color = "green"
+avg_entry_color = "red"
+cpu_core_colors = ["light magenta", "light yellow", "light cyan", "light green", "light blue", "cyan", "green", "blue"]
+
+[styles.memory]
+ram_color = "light magenta"
+cache_color = "light red"
+swap_color = "light yellow"
+arc_color = "light cyan"
+gpu_colors = ["light blue", "light red", "cyan", "green", "blue", "red"]
+
+#[styles.network]
+#rx_color = "light magenta"
+#tx_color = "light yellow"
+#rx_total_color = "light cyan"
+#tx_total_color = "light green"
+
+#[styles.battery]
+#high_battery_color = "green"
+#medium_battery_color = "yellow"
+#low_battery_color = "red"
+
+#[styles.tables]
+#headers = {color = "light blue", bold = true}
+
+#[styles.graphs]
+graph_color = "yellow"
+legend_text = {color = "cyan"}
+
+#[styles.widgets]
+#border_color = "gray"
+#selected_border_color = "light blue"
+#widget_title = {color = "gray"}
+#text = {color = "gray"}
+#selected_text = {color = "black", bg_color = "light blue"}
+#disabled_text = {color = "dark gray"}
+
+# Layout - layouts follow a pattern like this:
+# [[row]] represents a row in the application.
+# [[row.child]] represents either a widget or a column.
+# [[row.child.child]] represents a widget.
+#
+# All widgets must have the type value set to one of ["cpu", "mem", "proc", "net", "temp", "disk", "empty"].
+# All layout components have a ratio value - if this is not set, then it defaults to 1.
+# The default widget layout:
+#[[row]]
+#  ratio=30
+#  [[row.child]]
+#  type="cpu"
+#[[row]]
+#    ratio=40
+#    [[row.child]]
+#      ratio=4
+#      type="mem"
+#    [[row.child]]
+#      ratio=3
+#      [[row.child.child]]
+#        type="temp"
+#      [[row.child.child]]
+#        type="disk"
+#[[row]]
+#  ratio=30
+#  [[row.child]]
+#    type="net"
+#  [[row.child]]
+#    type="proc"
+#    default=true
+[[row]]
+  ratio=1
+  [[row.child]]
+  type="cpu"
+  [[row.child]]
+  type="mem"
+[[row]]
+  ratio=3
+  [[row.child]]
+    type="proc"
+    default=true

@@ -1,14 +1,13 @@
 {
+  "include": [
+    "$HOME/.config/waybar/sway.jsonc"
+  ],
   "layer": "top", // Waybar at top layer
   "position": "top", // Waybar position (top|bottom|left|right)
-  "margin": 1,
+  "margin": 0,
+  "spacing": 1,
+  "fixed-center": false,
   // Choose the order of the modules
-  "modules-left": [
-    "hyprland/workspaces",
-    "hyprland/submap",
-    "hyprland/window",
-    "systemd-failed-units"
-  ],
   "modules-right": [
     "disk",
     "disk#data",
@@ -23,26 +22,11 @@
     "network#eth",
     "network#wifi",
     "network#vpn",
-    "hyprland/language",
+    "sway/language",
     "clock",
     "tray"
   ],
   // Modules configuration
-  "hyprland/workspaces": {
-    "disable-scroll": true,
-    "all-outputs": false,
-    "format": "{name}",
-    "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
-  },
-  "hyprland/submap": {
-    "format": "<span style=\"italic\">{}</span>"
-  },
-  "hyprland/window": {
-    "format": "{title:.15}",
-    "separate-outputs": true
-  },
   "systemd-failed-units": {
     "format": "{nr_failed_user}/{nr_failed_system}",
     "hide-on-ok": true
@@ -50,7 +34,8 @@
   "disk": {
     "path": "/",
     "interval": 300,
-    "format": "📂/ {free}",
+    "max-length": 10,
+    "format": "📂 {free}",
     "states": {
       "warning": 80,
       "critical": 95
@@ -59,26 +44,40 @@
   "disk#data": {
     "path": "/data",
     "interval": 300,
-    "format": "/d {free}",
+    "max-length": 10,
+    "format": "d {free}",
+    "states": {
+      "warning": 80,
+      "critical": 95
+    }
+  },
+  "disk#hdd": {
+    "path": "/hdd",
+    "interval": 300,
+    "format": "h {free}",
     "states": {
       "warning": 80,
       "critical": 95
     }
   },
   "cpu": {
-    "format": "💻 {avg_frequency}GHz",
-    "states": {
-      "good": 30,
-      "warning": 50,
-      "critical": 85
-    }
+    "interval": 1,
+    "format": "💻{icon0}{icon1}{icon2}{icon3}{icon4}:{avg_frequency}",
+    "format-icons": [
+      "<span color='#69ff94'>▁</span>", // green
+      "<span color='#2aa9ff'>▂</span>", // blue
+      "<span color='#f8f8f2'>▄</span>", // white
+      "<span color='#ffffa5'>▅</span>", // yellow
+      "<span color='#dd532e'>█</span>"  // red
+    ]
   },
   "memory": {
     "format": "💾 {used:0.1f}G",
     "states": {
-      "warning": 80,
+      "warning": 70,
       "critical": 95
-    }
+    },
+    "tooltip-format": "SWAP: {swapUsed:0.1f}G"
   },
   "battery": {
     "states": {
@@ -87,36 +86,27 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "🔋 {capacity}%",
-    "format-charging": "🔌{capacity}%",
+    "format-charging": "⚡{capacity}%",
     "format-plugged": "🔌",
-    "format-alt": "🔋 {time}",
+    "format-alt": "🔋{capacity}%:{time}",
     "format-good": "🔋", // An empty format will hide the module
-    "format-full": "🔋",
-    "tooltip-format": "🔋{capacity}% {time}"
+    "format-normal": "🔋{capacity}%", // An empty format will hide the module
+    "format-warning": "🪫{capacity}% {time}", // An empty format will hide the module
+    "format-critical": "🪫{capacity}% {time}", // An empty format will hide the module
+    "tooltip-format": "🔋{capacity}%: {time}"
   },
   "temperature": {
     "critical-threshold": 80,
-    "format": " {temperatureC}°",
-    "states": {
-      "good": 90,
-      "normal": 50,
-      "warning": 30,
-      "critical": 15
-    },
-
+    "format": "🌡{temperatureC}°",
+    "format-critical": "🌡{temperatureC}°C",
+    "tooltip-format": "🌡 {temperatureC}°C"
   },
   "bluetooth": {
     "format": "",
-    "format-connected": " {device_alias:.2}",
+    "format-connected": "{device_alias:.2}",
     "format-disabled": "",
-    "format-connected-battery": "🎧{device_alias:.2} {device_battery_percentage}%",
-    "states": {
-      "good": 90,
-      "normal": 50,
-      "warning": 30,
-      "critical": 15
-    },
+    "format-off": "!",
+    "format-connected-battery": "🎧{device_alias:.2}{device_battery_percentage}%"
   },
   "pulseaudio#output": {
     "format": "{icon} {volume}%",
@@ -131,7 +121,8 @@
       "critical": 15
     },
     "scroll-step": 5,
-    "on-click": "pavucontrol",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pavucontrol"
   },
   "pulseaudio#input": {
     "format": "{format_source}",
@@ -144,7 +135,10 @@
       "warning": 30,
       "critical": 15
     },
-    "on-click": "pavucontrol",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%"
   },
   "backlight": {
     "interval": 5,
@@ -154,17 +148,18 @@
   "network#eth": {
     "interface": "eth*", // (Optional) To force the use of this interface
     "interval": 5,
-    "format": "🌍 ⇊{bandwidthDownBytes}",
+    "max-length": 8,
+    "format": "🌍⇊{bandwidthDownBytes}",
     "format-disconnected": "",
-    "tooltip-format": "{ipaddr} ⇈{bandwidthUpBytes}|⇊{bandwidthDownBytes}",
+    "tooltip-format": "{ipaddr} \n ⇈{bandwidthUpBytes}|⇊{bandwidthDownBytes}",
     "tooltip-format-disconnected": ""
   },
   "network#wifi": {
     "interface": "wlan*", // (Optional) To force the use of this interface
     "interval": 5,
-    "format-wifi": "📡{signalStrength}% ⇊{bandwidthDownBytes}",
+    "format-wifi": "📡{signalStrength}%⇊{bandwidthDownBytes}",
     "format-disconnected": "",
-    "tooltip-format-wifi": "{essid} {ipaddr} ⇈{bandwidthUpBytes}|⇊{bandwidthDownBytes}",
+    "tooltip-format-wifi": "<big>{essid:.15}\n{ipaddr}</big>\n<small>⇈{bandwidthUpBytes}|⇊{bandwidthDownBytes}</small>",
     "tooltip-format-disconnected": ""
   },
   "network#vpn": {
@@ -179,9 +174,28 @@
     "min-length": 2
   },
   "clock": {
-    "tooltip-format": "<big>{:%d.%m %R}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "⌚ {:%d.%m %R}",
-    "format-alt": "{:%d.%m %R}"
+    "format": "⌚ {:%d %R}",
+    "tooltip-format": "<big>{:%d %m %R}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode"          : "month",
+      "weeks-pos"     : "right",
+      "on-scroll"     : 1,
+      "format": {
+        "months":     "<span color='#ffead3'><b>{}</b></span>",
+        "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+        "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click": "gsimplecal",
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
   },
   "tray": {
     "icon-size": 28,

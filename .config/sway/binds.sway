@@ -138,8 +138,9 @@ bindsym --to-code {
   # get clipboard history
   $mod+a exec cliphist list | fuzzel.sh --dmenu -p "Clipboard: " | cliphist decode | wl-copy
 
-  # networkmanager-dmenu
-  $mod+w exec networkmanager_dmenu
+  # wifi
+  $mod+w exec iwmenu -l fuzzel
+  $mod+Shift+w exec bzmenu -l fuzzel
 
   # networkmanager-dmenu
   $mod+Shift+a exec bemoji -c

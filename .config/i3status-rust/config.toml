@@ -2,27 +2,32 @@
 icons = "awesome6"
 [icons.overrides]
 bat = [
+ "🪫",
  "🔋",
 ]
 bat_not_available = "📵"
 bat_charging = "⚡"
-bluetooth ="🧿"
-cpu = "💻"
+bluetooth =""
+cpu = [
+"☕",
+"💻",
+"🔥",
+]
 disk_drive = "📂"
 headphones = "🎧"
 joystick = "🎮"
 keyboard = "📝"
 memory_mem = "💾"
 microphone = "🎤"
-microphone_muted = "🎙"
-mouse = "🖱"
+microphone_muted = "🔕"
+mouse = "🐁"
 music = "🎶"
 music_next = "⏩"
 music_pause = "⏸"
 music_play = "▶"
 music_prev = "⏪"
-net_down = "⇊"
-net_up = "⇈"
+net_up = "⏫"
+net_down = "⏬"
 net_wired = "🌍"
 net_wireless = "📡"
 thermometer = "🌡"
@@ -38,6 +43,16 @@ volume_muted =  "🔇"
 theme = "gruvbox-dark"
 [theme.overrides]
 separator = ""
+idle_bg = "#282828BF"
+idle_fg = "#ebdbb2BF"
+info_bg = "#458588BF"
+info_fg = "#ebdbb2BF"
+good_bg = "#98971aBF"
+good_fg = "#ebdbb2BF"
+warning_bg = "#d79921BF"
+warning_fg = "#ebdbb2BF"
+critical_bg = "#cc241dBF"
+critical_fg = "#ebdbb2BF"
 
 [[block]]
 block = "focused_window"
@@ -48,7 +63,7 @@ short = "$title.str(max_w:5)|"
 [[block]]
 block = "disk_space"
 alert = 10.0
-format = "$icon $path.str(max_w:1)$free"
+format = "$icon$path.str(max_w:1)$free"
 alert_unit = "GB"
 info_type = "free"
 interval = 300
@@ -77,18 +92,18 @@ interval = 10
 [block.theme_overrides]
 idle_bg="#2A6529BF"
 [block.format]
-full = "$icon $barchart $utilization $frequency"
-short = "$icon $utilization $frequency"
+full = "$icon$barchart $utilization $frequency"
+short = "$icon$utilization $frequency"
 [block.format_alt]
-full = "$icon $barchart $utilization $frequency"
-short = "$icon $barchart $utilization $frequency"
+full = "$icon$barchart $utilization $frequency"
+short = "$icon$barchart $utilization $frequency"
 
 [[block]]
 block = "memory"
 critical_mem = 95
 critical_swap = 95
-format = "$icon $mem_used.eng(u:B)"
-format_alt = "$icon $swap_used_percents"
+format = "$icon$mem_used.eng(u:B)"
+format_alt = "$icon$swap_used_percents"
 interval = 10
 warning_mem = 80
 warning_swap = 80
@@ -100,24 +115,35 @@ block = "battery"
 device = "BAT0"
 driver = "upower"
 [block.theme_overrides]
-idle_bg="#2F2519BF"
+idle_bg="#B16286BF"
 [block.format]
-full = "$icon $percentage $power $time"
-short = "$icon $percentage"
+full = "$icon$percentage $power $time"
+short = "$icon$percentage"
 [block.full_format]
-full = "$icon $percentage"
-short = "$percentage"
+full = "🔌$percentage"
+short = "🔌"
 
 [[block]]
 block = "temperature"
 interval = 10
 chip = "k10temp-pci-*"
 [block.format]
-full = "$icon $average"
+full = "$icon$average"
 short = "$icon"
 [block.format_alt]
-full = "$icon $average/$max"
-short = "$icon $average"
+full = "$icon$average/$max"
+short = "$icon$average"
+
+[[block]]
+block = "bluetooth"
+mac = ""
+disconnected_format = ""
+[block.theme_overrides]
+idle_bg="#0B0B3BBF"
+[block.format]
+full = "$icon$percentage"
+short = "$percentage"
+
 
 [[block]]
 block = "sound"
@@ -138,37 +164,6 @@ headphones_indicator = true
 idle_bg="#29331EBF"
 
 [[block]]
-block = "bluetooth"
-mac = ""
-disconnected_format = ""
-[block.theme_overrides]
-idle_bg="#0B0B3BAA"
-
-[[block]]
-block = "music"
-player = "mpd"
-interface_name_exclude = ["playerctld"]
-seek_step_secs = 10
-[[block.click]]
-button = "up"
-action = "volume_up"
-[[block.click]]
-button = "down"
-action = "volume_down"
-[[block.click]]
-button = "forward"
-action = "seek_forward"
-[[block.click]]
-button = "back"
-action = "seek_backward"
-[[block.click]]
-button = "left"
-action = "play_pause"
-[block.format]
-full = "$icon {$combo.str(max_w:15,rot_interval:0.5) $play $next |}"
-short = "$icon"
-
-[[block]]
 block = "backlight"
 step_width = 5
 minimum = 15
@@ -186,8 +181,8 @@ interval = 5
 [block.theme_overrides]
 idle_bg="#1f2419BF"
 [block.format]
-short = "$icon $speed_down.eng(prefix:M)"
-full = "$icon $speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
+short = "$icon$speed_down.eng(prefix:M)"
+full = "$icon$speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
 [block.format_alt]
 short = "$icon eth0 $speed_down.eng(prefix:M)"
 full = "$icon eth0 $speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
@@ -202,8 +197,8 @@ interval = 5
 [block.theme_overrides]
 idle_bg="#1f2419BF"
 [block.format]
-short = "$icon $speed_down.eng(prefix:M)"
-full = "$icon $speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
+short = "$icon$speed_down.eng(prefix:M)"
+full = "$icon$speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
 [block.format_alt]
 short = "$icon eth1 $speed_down.eng(prefix:M)"
 full = "$icon eth1 $speed_up.eng(prefix:M) $speed_down.eng(prefix:M)"
@@ -218,11 +213,11 @@ interval = 5
 [block.theme_overrides]
 idle_bg="#33382EBF"
 [block.format]
-short = "$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
-full = "$icon $ssid $signal_strength $speed_down.eng(prefix:M)|$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
+short = "$icon$signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
+full = "$icon$ssid $signal_strength $speed_down.eng(prefix:M)|$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
 [block.format_alt]
-short = "$icon $signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
-full = "$icon $ssid $signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)|$icon$signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
+short = "$icon$signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
+full = "$icon$ssid $signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)|$icon$signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
 
 [[block]]
 block = "net"
@@ -233,11 +228,11 @@ interval = 5
 [block.theme_overrides]
 idle_bg="#33382EBF"
 [block.format]
-short = "$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
-full = "$icon $ssid $signal_strength $speed_down.eng(prefix:M)|$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
+short = "$icon$signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
+full = "$icon$ssid $signal_strength $speed_down.eng(prefix:M)|$icon $signal_strength ^icon_net_down $speed_down.eng(prefix:M)"
 [block.format_alt]
-short = "$icon $signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
-full = "$icon $ssid $signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)|$icon$signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
+short = "$icon$signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
+full = "$icon$ssid $signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)|$icon$signal_strength ^icon_net_up $speed_up.eng(prefix:M) ^icon_net_down $speed_down.eng(prefix:M)"
 
 [[block]]
 block = "net"
@@ -258,15 +253,14 @@ driver = "sway"
 format = "$layout"
 sway_kb_identifier = "1:1:AT_Translated_Set_2_keyboard"
 [block.mappings]
-"English (US)" = "ENQ"
-"English (Colemak)" = "ENC"
-"Ukrainian (N/A)" = "UKR"
+"English (US)" = "EN"
+"Ukrainian (N/A)" = "UK"
 [block.theme_overrides]
 idle_bg="#464a41BF"
 
 [[block]]
 block = "time"
-format = "$icon $timestamp.datetime(f:'%d.%m %R')"
+format = "$icon$timestamp.datetime(f:'%d %R')"
 interval = 10
 [block.theme_overrides]
 idle_bg="#355325BF"

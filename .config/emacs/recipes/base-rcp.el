@@ -83,6 +83,7 @@
   ("C-c f w"  . save-file)
   ("C-c f x"  . vd/delete-line)
   ("C-c f j"  . hippie-expand)
+  ("C-r"      . hippie-expand)
   ("C-b"      . list-buffers)
   ("C-c b"    . list-buffers)
   ("C-c q"    . vd/kill-emacs-with-save)
@@ -104,6 +105,14 @@
   (global-auto-revert-non-file-buffers t)
   :config
   (global-auto-revert-mode t)
+)
+
+(use-package auth-source
+  :defer 2
+  :custom
+  (auth-source-cache-expiry nil)
+  (auth-sources '("~/.authinfo"))
+  :config
 )
 
 (use-package compile
@@ -138,6 +147,10 @@
        ("C-k"   . completion-preview-prev-candidate)
        ("C-t"   . vd/tab-indent-or-complete)
   )
+)
+
+(use-package css-ts-mode
+  :mode ("\\.css\\'" "\\.css.tmpl\\'")
 )
 
 (use-package delsel
@@ -232,8 +245,15 @@
   (kept-old-versions              0   "Number of oldest versions to keep.")
 )
 
-(use-package flyspell-mode
+(use-package flyspell
   :defer 1
+  :custom-face
+  (flyspell-incorrect ((t (:underline (:color "dark violet" :style wave :position nil)))))
+  :bind (
+  :map flyspell-mode-map
+  ("C-." . nil)
+  ("C-," . nil)
+  )
   :hook
   (text-mode . flyspell-mode)
   (prog-mode . flyspell-prog-mode)
@@ -243,6 +263,16 @@
   :demand t
   :config
   (fringe-mode '(8 . 1))
+)
+
+(use-package ibuffer
+  :defer t
+  :custom
+  (ibuffer-deletion-char 128298)
+  (ibuffer-locked-char 128477)
+  (ibuffer-marked-char 127919)
+  (ibuffer-modified-char 9935)
+  (ibuffer-read-only-char 128683)
 )
 
 (use-package icomplete
@@ -446,24 +476,24 @@
   :hook
   (prog-mode . (lambda()
                  (vd/highlight-todos)
-                 (setq prettify-symbols-alist
-                       '(("lambda" . ?λ)
-                         ("->"     . ?→)
-                         ("->>"    . ?↠)
-                         ("=>"     . ?⇒)
-                         ("map"    . ?↦)
-                         ("/="     . ?≠)
-                         ("!="     . ?≠)
-                         ("=="     . ?≡)
-                         ("<="     . ?≤)
-                         (">="     . ?≥)
-                         ("<<"     . ?≪)
-                         (">>"     . ?≫)
-                         ("<=<"    . ?↢)
-                         (">=>"    . ?↣)
-                         ("sqrt"   . ?√)
-                         ("..."    . ?…)))
-                  (prettify-symbols-mode 1)))
+                 ;; (setq prettify-symbols-alist
+                 ;;       '(("lambda" . ?λ)
+                 ;;         ("->"     . ?→)
+                 ;;         ("->>"    . ?↠)
+                 ;;         ("=>"     . ?⇒)
+                 ;;         ("map"    . ?↦)
+                 ;;         ("/="     . ?≠)
+                 ;;         ("!="     . ?≠)
+                 ;;         ("=="     . ?≡)
+                 ;;         ("<="     . ?≤)
+                 ;;         (">="     . ?≥)
+                 ;;         ("<<"     . ?≪)
+                 ;;         (">>"     . ?≫)
+                 ;;         ("<=<"    . ?↢)
+                 ;;         (">=>"    . ?↣)
+                 ;;         ("sqrt"   . ?√)
+                 ;;         ("..."    . ?…)))
+                  (prettify-symbols-mode nil)))
   :bind
   (:map prog-mode-map
     ("C-c TAB" . prog-indent-sexp)
@@ -532,11 +562,6 @@
           interprogram-paste-function 'wl-paste-handler))
 )
 
-(use-package sendmail
-  :defer t
-  :mode ("^/tmp/evo.*" . mail-mode)
-)
-
 (use-package sh-script
   :defer t
   :custom
@@ -592,6 +617,7 @@
   (which-key-prefix-prefix          "->")
   (which-key-max-description-length 40)
   (which-key-show-transient-maps    t)
+  (which-key-popup-type 'minibuffer)
   :hook
   (after-init . which-key-mode)
 )
@@ -656,12 +682,13 @@
  (whitespace-space ((t (:foreground "DarkOrchid4"))))
  (whitespace-space-after-tab ((t (:foreground "firebrick"))))
  (whitespace-space-before-tab ((t (:foreground "firebrick"))))
+ (whitespace-line ((t (:underline (:color "violet" :style dots :position nil)))))
  (whitespace-tab ((t (:foreground "magenta"))))
  (whitespace-trailing ((t (:foreground "yellow" :weight bold))))
  (hl-line ((t (:background unspecified))))
  :custom
- (whitespace-style '(face trailing spaces lines-char empty indentation::tab
-                     indentation::space tabs newline space-mark tab-mark newline-mark))
+ (whitespace-style '(face trailing tabs spaces lines-tail newline missing-newline-at-eof empty
+                     indentation::tab space-mark tab-mark newline-mark))
  (whitespace-global-modes '(not magit-diff-mode))
  (whitespace-line-column 130)
  ;; all numbers are Unicode codepoint in decimal. ⁖ (insert-char 182 1)

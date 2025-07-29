@@ -5,6 +5,8 @@
 (use-package marginalia
   :ensure t
   :demand t
+  :custom-face
+  (marginalia-modified ((t (:inherit font-lock-function-name-face))))
   :custom
   (marginalia-align       'left)
   (marginalia-field-width 20)

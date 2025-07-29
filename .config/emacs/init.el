@@ -8,9 +8,9 @@
   (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
         package-enable-at-startup  nil
         package-archive-priorities '(("melpa"        . 200)
-                                     ("elpa"         . 100)
-                                     ("nongnu"       . 65)
-                                     ("gnu"          . 50)))  ;; Higher values are searched first.
+                                    ("elpa"         . 100)
+                                    ("nongnu"       . 65)
+                                    ("gnu"          . 50)))  ;; Higher values are searched first.
   (require 'use-package)
   (put 'use-package 'lisp-indent-function 1)
 
@@ -26,6 +26,8 @@
   :custom
   (doom-themes-enable-bold   t)    ; if nil, bold is universally disabled
   (doom-themes-enable-italic t)
+  ;; (doom-everforest-background  "hard")
+  ;; (doom-everforest-palette     "material")
   :config
   (load-theme 'doom-gruvbox t)
   (use-package doom-themes-ext-org
@@ -47,6 +49,7 @@
 (require 'c-rcp)
 (require 'chezmoi-rcp)
 (require 'consult-rcp)
+;; (require 'combobulate-rcp)
 (require 'compilation-rcp)
 (require 'corfu-rcp)
 (require 'csv-mode-rcp)
@@ -57,21 +60,25 @@
 (require 'ellama-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
-(require 'flycheck-rcp)
+(require 'flymake-rcp)
+; (require 'flycheck-rcp)
 (require 'git-rcp)
 (require 'grep-rcp)
+(require 'gptel-rcp)
 (require 'helpful-rcp)
-(require 'highlight-indentation-rcp)
+(require 'highlight-rcp)
 (require 'hydra-rcp)
 (require 'journalctl-rcp)
 (require 'js-rcp)
 (require 'json-rcp)
 (require 'kotlin-rcp)
-;; (require 'lsp-mode-rcp)
 (require 'lua-rcp)
 (require 'marginalia-rcp)
 (require 'markdown-mode-rcp)
 ;; (require 'monkeytype-rcp)
+;; (require 'minuet-rcp)
+(require 'mail-rcp)
+(require 'mpc-rcp)
 (require 'multi-compile-rcp)
 (require 'nov-rcp)
 (require 'orderless-rcp)

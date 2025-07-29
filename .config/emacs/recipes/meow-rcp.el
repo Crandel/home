@@ -8,11 +8,12 @@
   (meow-use-clipboard t)
   (meow-keypad-leader-dispatch "C-c")
   :custom-face
-  (meow-beacon-indicator ((t (:background "purple"))))
-  (meow-insert-indicator ((t (:foreground "white"))))
-  (meow-normal-indicator ((t (:inherit success))))
-  (meow-search-highlight ((t (:inherit highlight))))
-  (meow-search-indicator ((t (:inherit lazy-highlight))))
+  (meow-beacon-indicator      ((t (:inherit font-lock-constant-face))))
+  (meow-insert-indicator      ((t (:inherit font-lock-string-face))))
+  (meow-normal-indicator      ((t (:inherit success))))
+  (meow-search-highlight      ((t (:inherit highlight))))
+  (meow-search-indicator      ((t (:inherit lazy-highlight))))
+  (meow-beacon-fake-selection ((t (:inherit font-lock-doc-face))))
   :init
   (defun meow-setup ()
     (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
@@ -117,6 +118,13 @@
      '("<delete>"    . meow-kill)
      '("<escape>"    . ignore)))
   :config
+  (setq meow-replace-state-name-list
+   '((org-motion . "O-M")
+     (normal . "N")
+     (motion . "M")
+     (keypad . "K")
+     (insert . "I")
+     (beacon . "B")))
   (meow-setup)
   (meow-global-mode 1)
   )

@@ -55,12 +55,14 @@ alias psu='p -Syu'
 alias pii='pacman -Sii'
 alias psi='p -S --needed'
 alias prs='p -Rs'
+alias pcl='p -Qdtq | p -Rns -'
 if command_exists yay ; then
 alias yay='yay --aur --editmenu --builddir $PERS_DIR/bb'
 alias psuy='yay -Syua'
 alias pssy='yay -Ss'
 alias psiy='yay -Sa'
 alias piiy='yay -Sii'
+alias pli='yay -Bi'
 fi
 if command_exists paru ; then
 alias paru='paru --aur --fm vifm --removemake --clonedir $PERS_DIR/bb'
@@ -158,7 +160,7 @@ alias v='vim'
 alias sv="$SUDO vim"
 alias e='emacs -nw'
 alias em='emacs -nw'
-alias sem="$SUDO emacs -nw"
+alias sem="sudo -i emacs -nw"
 ## END EDITORS
 
 ## FILE MANAGERS

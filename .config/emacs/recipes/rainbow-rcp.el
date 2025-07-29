@@ -8,8 +8,6 @@
   :hook
   (prog-mode    . rainbow-delimiters-mode)
   (conf-mode    . rainbow-delimiters-mode)
-  (json-ts-mode . rainbow-delimiters-mode)
-  (toml-ts-mode . rainbow-delimiters-mode)
 )
 
 (use-package colorful-mode
@@ -18,9 +16,6 @@
   :hook
   (prog-mode    . colorful-mode)
   (conf-mode    . colorful-mode)
-  (json-ts-mode . colorful-mode)
-  (toml-ts-mode . colorful-mode)
-  (yaml-ts-mode . colorful-mode)
 )
 
 (provide 'rainbow-rcp)

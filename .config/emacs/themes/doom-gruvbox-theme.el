@@ -44,6 +44,8 @@ background contrast. All other values default to \"medium\"."
 
 (def-doom-theme doom-gruvbox
   "Dark theme with pastel 'retro groove' colors."
+  :family 'doom-gruvbox
+  :background-mode 'dark
 
   ;; name        gui       256       16
   ((bg
@@ -71,7 +73,7 @@ background contrast. All other values default to \"medium\"."
    ;; Standardized official colours from gruvbox
    (grey        '("#928374" "#909090" "brightblack"))   ; gray
    (red         '("#fb4934" "#e74c3c" "red"))           ; bright-red
-   (magenta     '("#cc241d" "#cc241d" "magenta"))       ; red
+   (magenta     '("#b16286" "#b16286" "magenta"))       ; red
    (violet      '("#d3869b" "#d3869b" "brightmagenta")) ; bright-purple
    (orange      '("#fe8019" "#fd971f" "orange"))        ; bright-orange
    (yellow      '("#fabd2f" "#fabd2f" "yellow"))        ; bright-yellow
@@ -94,7 +96,7 @@ background contrast. All other values default to \"medium\"."
    (doc-comments   (if doom-gruvbox-brighter-comments (doom-lighten magenta 0.2) (doom-lighten fg-alt 0.25)))
    (constants      violet)
    (functions      green)
-   (keywords       red)
+   (keywords       dark-cyan)
    (methods        green)
    (operators      fg)
    (type           yellow)
@@ -126,7 +128,7 @@ background contrast. All other values default to \"medium\"."
 
   ;;;; Base theme face overrides
   ((button :foreground cyan :underline t :weight 'bold)
-   (cursor :background "white")
+   (cursor :background base8)
    (hl-line :background base3)
    ((line-number &override) :foreground base5)
    ((line-number-current-line &override) :background base3 :foreground yellow)

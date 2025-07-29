@@ -221,7 +221,6 @@
     `(whitespace-trailing               ((t (:background ,gruvbox-dark1 :foreground ,gruvbox-neutral_red))))
     `(whitespace-line                   ((t (:background ,gruvbox-dark1))))
     `(whitespace-space-before-tab       ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
-    `(whitespace-indentation            ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
     `(whitespace-empty                  ((t (:background unspecified :foreground unspecified))))
     `(whitespace-space-after-tab        ((t (:background ,gruvbox-bg :foreground ,gruvbox-dark4))))
 

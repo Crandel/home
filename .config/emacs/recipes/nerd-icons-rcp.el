@@ -8,21 +8,18 @@
 
 (use-package nerd-icons-completion
   :ensure t
-  :if (display-graphic-p)
   :after marginalia
   :hook (marginalia-mode . nerd-icons-completion-marginalia-setup)
 )
 
 (use-package nerd-icons-corfu
   :ensure t
-  :if (display-graphic-p)
   :after corfu
   :config
   (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (use-package nerd-icons-dired
   :ensure t
-  :if (display-graphic-p)
   :hook
   (dired-mode . nerd-icons-dired-mode))
 

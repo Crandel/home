@@ -95,6 +95,7 @@
   (add-to-list 'org-structure-template-alist '("sh" . "src shell"))
   (add-to-list 'org-structure-template-alist '("el" . "src elisp"))
   (add-to-list 'org-structure-template-alist '("p" . "src sql"))
+  (add-to-list 'org-structure-template-alist '("m" . "src markdown"))
   (add-to-list 'org-src-lang-modes           '("conf-unix" . conf-unix))
   (remove-hook 'org-cycle-hook
               #'org-optimize-window-after-visibility-change)
@@ -137,7 +138,7 @@
   (add-to-list 'vd/org-babel-load-languages '(go . t))
   :hook
   (org-mode . (lambda()
-                (add-to-list 'org-structure-template-alist '("go" . "src go"))
+                (add-to-list 'org-structure-template-alist '("g" . "src go"))
                 ))
 )
 

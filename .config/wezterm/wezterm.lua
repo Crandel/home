@@ -11,14 +11,10 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-wezterm.on('update-right-status', function(window, pane)
+wezterm.on('update-status', function(window, pane)
              local date = wezterm.strftime '%d-%m-%Y %H:%M:%S'
-             local cwd_uri = pane:get_current_working_dir()
-             cwd_uri = cwd_uri:sub(8)
-             local slash = cwd_uri:find '/'
-             cwd = cwd_uri:sub(slash)
              window:set_right_status(wezterm.format {
-                                       { Text = cwd .. ' | ' .. date},
+                                       { Text = date},
              })
 end)
 
@@ -82,11 +78,11 @@ config.enable_scroll_bar = true
 
 config.enable_wayland = true
 
-config.front_end = "WebGpu"
+-- config.front_end = "WebGpu"
 
 config.font = wezterm.font_with_fallback({"FiraCode Nerd Font Mono","Hack Nerd Font"})
 
-config.font_size = 20.0
+config.font_size = 22
 
 config.hide_tab_bar_if_only_one_tab = true
 
@@ -203,7 +199,7 @@ config.tiling_desktop_environments = {
   'Wayland swaywm',
 }
 
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 
 config.warn_about_missing_glyphs = false
 
@@ -212,10 +208,10 @@ config.window_background_opacity = 1.0
 config.window_frame = {
   -- The font used in the tab bar.
   font = wezterm.font_with_fallback({"FiraCode Nerd Font Mono","Hack Nerd Font"}),
-  font_size = 16.0,
+  font_size = 22,
   -- The overall background color of the tab bar when
   -- the window is focused
-  active_titlebar_bg = '#2F2519',
+  active_titlebar_bg = '#B16286',
   -- The overall background color of the tab bar when
   -- the window is not focused
   inactive_titlebar_bg = '#1f2419',

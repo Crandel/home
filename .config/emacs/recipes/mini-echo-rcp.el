@@ -6,40 +6,49 @@
   :ensure t
   :after hide-mode-line
   :preface
-  (defun mini-echo-persistent-detect ()
+  (defun vd/mini-echo-minibuffer-width-lessp ()
+    "Return non-nil if current minibuffer window width less than 120."
+    (< (mini-echo-minibuffer-width) 100))
+  (defun vd/mini-echo-persistent-detect ()
     "Return a plist of persistent rule if matched.
     Otherwise, return nil."
     (with-current-buffer (current-buffer)
       ;; NOTE return the first match, so the former has higher priority
       (pcase major-mode
-        ('elfeed-search-mode '(:both ("elfeed")))
-        ('helpful-mode       '(:both ("major-mode" "helpful")))
+        ('elfeed-search-mode '(:both ("time" "elfeed")))
+        ('helpful-mode       '(:both ("time" "major-mode" "helpful")))
         (_ nil))))
   :custom-face
   (mini-echo-major-mode        ((t (:foreground "green"))))
   (mini-echo-meow              ((t (:foreground "yellow"))))
   (mini-echo-minibuffer-window ((t nil)))
   :custom
-  (mini-echo-persistent-function 'mini-echo-persistent-detect)
-  (mini-echo-persistent-rule '(:long (
-                                        "time"
-                                        "buffer-position"
-                                        "major-mode"
-                                        "flycheck"
-                                        "eglot"
-                                        "vcs"
-                                        "shrink-path"
-                                        "macro"
-                                        "meow"
-                                        )
-                                :short (
-                                         "time"
-                                         "major-mode"
-                                         "eglot"
-                                         "buffer-name-short"
-                                         "meow"
-                                         ))
-                               )
+  (mini-echo-short-style-predicate 'vd/mini-echo-minibuffer-width-lessp)
+  (mini-echo-persistent-function   'vd/mini-echo-persistent-detect)
+  (mini-echo-persistent-rule       '(
+    :short
+    (
+     "time"
+     "major-mode"
+     "flymake"
+     "eglot"
+     "buffer-name"
+     "meow"
+     )
+    :long
+    (
+     "time"
+     "buffer-position"
+     "major-mode"
+     "flymake"
+     "eglot"
+     "vcs"
+     "shrink-path"
+     "macro"
+     "meow"
+     )
+    )
+  )
   (mini-echo-buffer-status-style 'both)
   (mini-echo-window-divider-args '(t 1 1))
   (mini-echo-update-interval     0.3)

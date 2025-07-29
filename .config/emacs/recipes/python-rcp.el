@@ -37,6 +37,11 @@
   :ensure t
   :defer t
 )
+(use-package py-isort
+  :ensure t
+  :after python-mode
+  :defer t
+)
 ;; (use-package lsp-pyright
 ;;   :ensure t
 ;;   :ensure-system-package pyright

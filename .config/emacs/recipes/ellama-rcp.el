@@ -6,20 +6,13 @@
   :ensure t
   :preface
   (setq-default vd/ellama-default-model       "gemma3:local")
-  (setq-default vd/ellama-coding-model        "code-assistant:local")
-  (setq-default vd/ellama-summarization-model "code-assistant:local")
-  (setq-default vd/ellama-extraction-model    "code-assistant:local")
+  (setq-default vd/ellama-coding-model        "code.assistant:qwen")
+  (setq-default vd/ellama-summarization-model "gemma3:local")
+  (setq-default vd/ellama-extraction-model    "gemma3:local")
   (setq-default vd/ellama-embedding-model     "snowflake-arctic-embed2:latest")
   (setq-default vd/ellama-naming-model        "gemma3:local")
-  (setq-default vd/ellama-translation-model   "english-helper:local")
+  (setq-default vd/ellama-translation-model   "russian:qwen")
   ;; Convenience functions for mode change events
-  (defun vd/ollama-list-installed-models ()
-    "Return the installed models"
-    (let* ((ret (shell-command-to-string "ollama list"))
-           (models (cdr (string-lines ret))))
-      (if (and (string-match-p "NAME[[:space:]]*ID[[:space:]]*SIZE[[:space:]]*MODIFIED" ret) (length> models 0))
-          (mapcar (lambda (m) (car (string-split m))) models)
-        (message "Cannot detect installed models, please make sure Ollama server is started"))))
   (defun vd/ollama-set-providers ()
     (interactive)
     (require 'llm-ollama)

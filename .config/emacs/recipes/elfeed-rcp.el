@@ -12,6 +12,7 @@
   (url-queue-timeout         30)
   (elfeed-use-curl           nil)
   (elfeed-tube-invidious-url nil)
+  (shr-use-fonts             nil) ; use default font instead of proportional
   (elfeed-search-filter      "@4-week-ago +unread ")
   :bind
   (:map elfeed-search-mode-map
@@ -22,7 +23,7 @@
   :config
   (load (expand-file-name "feeds.el" user-emacs-directory))
   (elfeed-update)
-  (run-with-timer 0 (* 60 15) 'elfeed-update)
+  (run-with-timer 0 (* 60 30) 'elfeed-update)
 )
 
 (use-package elfeed-summary
@@ -41,12 +42,15 @@
   :config
   (elfeed-goodies/setup)
   :custom
-  (elfeed-goodies/entry-pane-size 0.5)
+  (elfeed-goodies/entry-pane-size 0.75)
+  (elfeed-goodies/entry-pane-position 'top)
 )
 
 (use-package elfeed-tube
   :ensure t
   :after elfeed
+  :custom
+  (elfeed-tube-backend 'yt-dlp)
   :config
   (elfeed-tube-setup)
 )

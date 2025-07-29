@@ -190,107 +190,103 @@ command! cmp : if expand('%%c') == expand('%%f')
 " ------------------------------------------------------------------------------
 map <space> <nop>
 
-nnoremap <space>a :rename<cr>
-nnoremap <space>b '
-nnoremap <space>c :cp<cr>
-nnoremap <space>d :delete<cr>
+noremap <space>q :qall<cr>
+noremap <space>a :rename<cr>
+noremap <space>b '
+noremap <space>c :cp<cr>
+noremap <space>d :delete<cr>
 " Make directory and cd into
-nnoremap <space>e :mkcd
+noremap <space>e :mkcd
 " Open file in the background using its default program
-nnoremap <space>f :file &<cr>
+noremap <space>f :file &<cr>
 " Open console in current directory
-nnoremap <space>g :cmp<cr>
-nnoremap <space>i :cd %D<cr>
-nnoremap <space>m :move<cr>
-nnoremap <space>l :!alacritty &<cr>
-nnoremap <space>s :FZFfind<cr>
-nnoremap <space>th :cd ~<cr>
-nnoremap <space>tl :cd ~/.local/bin<cr>
-nnoremap <space>tb :cd /data/backup<cr>
-nnoremap <space>tm :cd /data/media<cr>
-nnoremap <space>tp :cd /data/work/projects<cr>
-nnoremap <space>tb :cd /data/media/youtube<cr>
+noremap <space>g :cmp<cr>
+noremap <space>i :cd %D<cr>
+noremap <space>m :move<cr>
+noremap <space>l :!alacritty &<cr>
+noremap <space>s :FZFfind<cr>
+noremap <space>th :cd ~<cr>
+noremap <space>tl :cd ~/.local/bin<cr>
+noremap <space>tb :cd /data/backup<cr>
+noremap <space>tm :cd /data/media<cr>
+noremap <space>tp :cd /data/work/projects<cr>
+noremap <space>tb :cd /data/media/youtube<cr>
+
 " Toggle wrap setting on <space>w key
-nnoremap <space>w :set wrap!<cr>
+noremap <space>w :set wrap!<cr>
 
 " Open editor to edit vifmrc and apply settings after returning to vifm
-nnoremap <space>C :write | edit $MYVIFMRC | restart<cr>
+noremap <space>C :write | edit $MYVIFMRC | restart<cr>
 
 
-nnoremap t tj
+noremap t tj
 
 " Start shell in current directory
-nnoremap s :shell<cr>
+noremap s :shell<cr>
 " Display sorting dialog
-nnoremap S :sort<cr>
+noremap S :sort<cr>
 " Toggle visibility of preview window
-nnoremap w :view<cr>
+noremap w :view<cr>
 " Open file in existing instance of emacs
-nnoremap o :!emacs -nw %f<cr>
-
-
+noremap o :!emacs -nw %f<cr>
 
 " From mc:
-nnoremap <f3> :!vim %f<cr>
-nnoremap <f4> :edit<cr>
-nnoremap <f5> :copy<cr>
-nnoremap <f6> :move<cr>
-nnoremap <f7> :mkdir<space>
-nnoremap <f8> :delete<cr>
-nnoremap <c-l> :rename<cr>
+noremap <f3> :!vim %f<cr>
+noremap <f4> :edit<cr>
+noremap <f5> :copy<cr>
+noremap <f6> :move<cr>
+noremap <f7> :mkdir<space>
+noremap <f8> :delete<cr>
+noremap <c-l> :rename<cr>
 " <Atl-i> cd to the same path as inactive directory
-nnoremap <a-i> :cd %D<cr>
+noremap <a-i> :cd %D<cr>
 
-nnoremap :Q :quit
+noremap :Q :quit
 
 " Interaction with system clipboard
 if has('win')
     " Yank current directory path to Windows clipboard with forward slashes
-    nnoremap yp :!echo %"d:gs!\!/! %i | clip<cr>
+    noremap yp :!echo %"d:gs!\!/! %i | clip<cr>
     " Yank path to current file to Windows clipboard with forward slashes
-    nnoremap yf :!echo %"c:gs!\!/! %i | clip<cr>
+    noremap yf :!echo %"c:gs!\!/! %i | clip<cr>
 elseif executable('wl-copy')
     " Yank current directory path into primary and selection clipboards
-    nnoremap yd :!echo -n %d | wl-copy %i<cr>
+    noremap yd :!echo -n %d | wl-copy %i<cr>
     " Yank current file path into into primary and selection clipboards
-    nnoremap yf :!echo -n %c:p | wl-copy %i<cr>
+    noremap yf :!echo -n %c:p | wl-copy %i<cr>
     " yank current filename without path into primary and selection clipboards
-    nnoremap yn :!echo -n %c | wl-copy %i<cr>
+    noremap yn :!echo -n %c | wl-copy %i<cr>
     " yank root of current file's name into primary and selection clipboards
-    nnoremap yr :!echo -n %c:r | wl-copy %i<cr>
+    noremap yr :!echo -n %c:r | wl-copy %i<cr>
 elseif executable('xclip')
     " Yank current directory path into the clipboard
-    nnoremap yd :!echo %d | xclip %i<cr>
+    noremap yd :!echo %d | xclip %i<cr>
     " Yank current file path into the clipboard
-    nnoremap yf :!echo %c:p | xclip %i<cr>
+    noremap yf :!echo %c:p | xclip %i<cr>
     " yank current filename without path into the clipboard
-    nnoremap yn :!echo -n %c | xclip %i<cr>
+    noremap yn :!echo -n %c | xclip %i<cr>
     " yank root of current file's name into the clipboard
-    nnoremap yr :!echo -n %c:r | xclip %i<cr>
+    noremap yr :!echo -n %c:r | xclip %i<cr>
 elseif executable('xsel')
     " Yank current directory path into primary and selection clipboards
-    nnoremap yd :!echo -n %d | xsel --input --primary %i &&
+    noremap yd :!echo -n %d | xsel --input --primary %i &&
                 \ echo -n %d | xsel --clipboard --input %i<cr>
     " Yank current file path into into primary and selection clipboards
-    nnoremap yf :!echo -n %c:p | xsel --input --primary %i &&
+    noremap yf :!echo -n %c:p | xsel --input --primary %i &&
                 \ echo -n %c:p | xsel --clipboard --input %i<cr>
     " yank current filename without path into primary and selection clipboards
-    nnoremap yn :!echo -n %c | xsel --input --primary %i &&
+    noremap yn :!echo -n %c | xsel --input --primary %i &&
             \ echo -n %c | xsel --clipboard --input %i<cr>
     " yank root of current file's name into primary and selection clipboards
-    nnoremap yr :!echo -n %c:r | xsel --input --primary %i &&
+    noremap yr :!echo -n %c:r | xsel --input --primary %i &&
             \ echo -n %c:r | xsel --clipboard --input %i<cr>
 endif
 
-nnoremap : ;
-nnoremap ; :
-vnoremap : ;
-vnoremap ; :
+noremap : ;
+noremap ; :
 
-nnoremap dd DD
-nnoremap DD dd
-vnoremap dd DD
-vnoremap DD dd
+noremap dd DD
+noremap DD dd
 " ------------------------------------------------------------------------------
 
 " Various customization examples
@@ -305,7 +301,7 @@ set grepprg='rg --vimgrep %i %a %s'
 
 " Block particular shortcut
 "
-" nnoremap <left> <nop>
+" noremap <left> <nop>
 
 " Export IPC name of current instance as environment variable and use it to
 " communicate with the instance later.

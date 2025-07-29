@@ -1,6 +1,14 @@
 ;;; early-init.el --- Pre init config
 ;;; Code:
 
+;; Default locations is in system cache directory.
+(setq-default vd/emacs-config-directory (file-name-directory load-file-name)
+              user-emacs-directory   (expand-file-name "emacs-elfeed/" (getenv "XDG_CACHE_HOME"))
+              package-user-dir       (expand-file-name "packages/" user-emacs-directory)
+              url-history-file       (expand-file-name "url/history" user-emacs-directory)
+              custom-file            (expand-file-name "custom.el" user-emacs-directory))
+(load custom-file :noerror)
+
 ;; Increase the GC threshold for faster startup
 ;; The default is 800 kilobytes.  Measured in bytes.
 ;; Set garbage collection threshold to 1GB.
@@ -24,13 +32,6 @@
       (garbage-collect))))
 (add-function :after after-focus-change-function 'vd/garbage-collect-maybe)
 
-;; Default locations is in system cache directory.
-(setq-default vd/emacs-config-directory (file-name-directory load-file-name)
-              user-emacs-directory   (expand-file-name "emacs-elfeed/" (getenv "XDG_CACHE_HOME"))
-              package-user-dir       (expand-file-name "packages/" user-emacs-directory)
-              url-history-file       (expand-file-name "url/history" user-emacs-directory)
-              custom-file            (expand-file-name "custom.el" user-emacs-directory))
-(load custom-file :noerror)
 
 ;; Native compilation settings
 (when (featurep 'native-compile)
@@ -47,8 +48,13 @@
     )
 )
 
+;; load-path
+(add-to-list 'load-path (expand-file-name "../recipes/" (file-name-directory load-file-name)))
+
 ;; Themes
-(load-theme 'gruvbox t)
+(setq mode-line-format nil)
+(set-face-attribute 'default nil :background "#000000" :foreground "#ffffff")
+(set-face-attribute 'mode-line nil :background "#000000" :foreground "#ffffff" :box 'unspecified)
 
 (setq-default auto-window-vscroll             nil
               byte-compile-warnings           '(not obsolete lexical)
@@ -59,9 +65,11 @@
               inhibit-startup-message         t
               load-prefer-newer               noninteractive  ;; Prefer loading newest compiled .el file
               package-enable-at-startup       t
-              process-adaptive-read-buffering nil ;; speadup emacs
-              site-run-file                nil
-              warning-suppress-log-types   '((comp) (bytecomp))
+              process-adaptive-read-buffering nil ;; speedup Emacs
+              site-run-file                   nil
+              warning-minimum-level           :error
+              warning-suppress-log-types      '((comp) (bytecomp) (lexical) (files))
+              warning-suppress-types          '((comp) (bytecomp) (lexical) (files))
 )
 
 (set-fontset-font
@@ -72,9 +80,6 @@
     ((member "Noto Emoji"        (font-family-list)) "Noto Emoji")
     ((member "Segoe UI Emoji"    (font-family-list)) "Segoe UI Emoji")
     ((member "Symbola"           (font-family-list)) "Symbola")))
-(set-face-attribute 'font-lock-comment-face       nil :slant  'italic)
-(set-face-attribute 'font-lock-function-name-face nil :weight 'bold)
-(set-face-attribute 'font-lock-variable-name-face nil :slant  'italic)
 
 (set-window-scroll-bars (minibuffer-window) nil nil)
 
@@ -84,7 +89,7 @@
                                 (height                   . 100)
                                 (alpha-background         . 99)
                                 (cursor-color             . "#BE81F7")
-                                (font                     . "FiraCode Nerd Font Mono-16")
+                                (font                     . "FiraCode Nerd Font Mono-22.0")
                                 (fullscreen               . maximized)
                                 (inhibit-double-buffering . t)
                                 (internal-border-width    . 1)

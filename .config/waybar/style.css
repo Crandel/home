@@ -1,41 +1,48 @@
 * {
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: Hack Nerd Font Mono;
-  font-size: 22px;
-  min-height: 0;
+  font-family: FiraCode Nerd Font Mono, Hack Nerd Font;
+  font-size: 24px;
+  min-height: 0px;
 }
 
 #workspaces button {
-  padding: 0 5px;
-  background-color: transparent;
-  color: #FFFFFF;
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
+  padding: 0 0px;
+  background-color: #282828;
+  color: #FADB2F;
+  box-shadow: inset 0 -1px #689D6A;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-  background: rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 -3px #FFFFFF;
+  background-color: #504945;
+  color: #BDAE93;
+  box-shadow: inset 0 -1px #689D6A;
 }
 
-#workspaces button.active {
-  background-color: #355325;
-  box-shadow: inset 0 -3px #FFFFFF;
+#workspaces button.focused {
+  background-color: #D65D0E;
+  color: #EBDBB2;
+  box-shadow: inset 0 -1px #689D6A;
 }
 
 #workspaces button.urgent {
-  background-color: #EB4D4B;
+  background-color: #FB4934;
+  color: #FBF1C7;
+  box-shadow: inset 0 -1px #CC241D;
+}
+
+#mode {
+  background-color: #458588;
 }
 
 #submap {
-  background-color: #FF0000;
+  background-color: #458588;
 }
 
-#workspaces,
 #submap,
+#mode,
 #systemd-failed-units,
 #disk,
 #cpu,
@@ -47,8 +54,8 @@
 #language,
 #tray,
 #clock {
-  margin: 0 1px;
-  color: #FFFFFF
+  margin: 1px;
+  color: #EBDBB2
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -63,47 +70,58 @@
 
 @keyframes blink {
   to {
-    background-color: #FFFFFF;
-    color: #000000;
+    background-color: #5B8234;
+    color: #EBDBB2;
   }
 }
 
 label:focus {
-  background-color: #000000;
+  background-color: #D65D0E;
 }
 
 
 #window {
-  background-color: #464b43;
+  background-color: transparent;
+  color: #FADB2F;
+  border: #689D6A;
 }
 
-#custom-gmail {
-  background-color: #1c7d2f;
-  min-height: 40px;
+window#waybar {
+    background: transparent;
+    border-bottom: 1px solid @unfocused_borders;
+    color: @theme_text_color;
 }
 
 #disk {
-  background-color: #23712c;
+  background-color: #23712C;
+}
+
+#disk.data {
+  background-color: #4B610B;
+}
+
+#disk.hdd {
+  background-color: #5F4C0B;
 }
 
 #disk.warning {
-  background-color: orange;
+  background-color: #D79921;
 }
 
 #disk.critical {
-  background-color: red;
+  background-color: #CC241D;
 }
 
 #cpu {
-  background-color: #2a6529;
+  background-color: #2A6529;
 }
 
 #cpu.warning {
-  background-color: orange;
+  background-color: #D79921;
 }
 
 #cpu.critical {
-  background-color: red;
+  background-color: #CC241D;
 }
 
 #memory {
@@ -111,35 +129,39 @@ label:focus {
 }
 
 #memory.warning {
-  background-color: orange;
+  background-color: #D79921;
 }
 
 #memory.critical {
-  background-color: red;
+  background-color: #CC241D;
 }
 
 #battery {
+  background-color: #B16286;
+}
+
+#battery.charging {
   background-color: #2F2519;
 }
 
-#battery.charging, #battery.plugged {
-  background-color: #2F2519;
+#battery.plugged {
+  background-color: #B16286;
 }
 
 #battery.good:not(.charging) {
-  background-color: #4A3F35;
+  background-color: #B16286;
 }
 
 #battery.normal:not(.charging) {
-  background-color: #725F0A;
+  background-color: #458588;
 }
 
 #battery.warning:not(.charging) {
-  background-color: #FA7D09;
+  background-color: #D79921;
 }
 
 #battery.critical:not(.charging) {
-  background-color: #FF4301;
+  background-color: #CC241D;
   color: #FFFFFF;
   animation-name: blink;
   animation-duration: 0.5s;
@@ -148,16 +170,24 @@ label:focus {
   animation-direction: alternate;
 }
 
+#temperature {
+  background-color: #355529;
+}
+
+#temperature {
+  background-color: #355529;
+}
+
 #bluetooth {
-  background-color: #0B0B3B
+  background-color: #0B0B3B;
 }
 
-#bluetooth.warning {
-  background-color: orange;
+#bluetooth.connected {
+  background-color: #458588;
 }
 
-#bluetooth.critical {
-  background-color: red;
+#bluetooth.off {
+  background-color: #CC241D;
 }
 
 #pulseaudio.output {
@@ -165,15 +195,19 @@ label:focus {
 }
 
 #pulseaudio.input {
-  background-color: #29333E;
+  background-color: #244511;
 }
 
 #pulseaudio.output.muted {
-  background-color : #d79921;
+  background-color : #D79921;
 }
 
-#pulseaudio.input.source-muted{
-  background-color : #d79925;
+#pulseaudio.input.source-muted {
+  background-color : #D79921;
+}
+
+#mpris {
+  background-color : #488177;
 }
 
 #backlight {
@@ -181,7 +215,7 @@ label:focus {
 }
 
 #network.eth {
-  background-color: #1f2419;
+  background-color: #33382E;
 }
 
 #network.wifi {
@@ -193,7 +227,7 @@ label:focus {
 }
 
 #network.disconnected {
-  background-color: #F53C3C;
+  background-color: transparent;
 }
 
 #language {
@@ -204,7 +238,16 @@ label:focus {
   background-color: #355325;
 }
 
-
 #tray {
   background-color: transparent;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    color: red;
+    border-bottom-color: red;
 }

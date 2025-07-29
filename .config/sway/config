@@ -20,7 +20,7 @@ set {
   $notification_mode "Notification: (s) Stop | (d) Default | (n) dismiss | (a) Action"
 
   # Theming
-  $font     pango:FiraCode Nerd Font Mono, Hack Nerd Font 16
+  $font     pango:FiraCode Nerd Font Mono, Hack Nerd Font
 
   # Apps
   $launch       fuzzel-prompt.sh
@@ -48,7 +48,7 @@ set {
   $col_focs_indt #00DA8E
   $col_focs_cbdr #4B610B
   $col_fcin_brdr #689D6A
-  $col_fcin_back #D79921$opacity
+  $col_fcin_back #504945$opacity
   $col_fcin_text #BDAE93
   $col_fcin_indt #00DA8E
   $col_fcin_cbdr #4B610B
@@ -63,87 +63,10 @@ set {
   $col_urgt_indt #00DA8E
   $col_urgt_cbdr #4B610B
 }
-
-output {
-  $laptop    background ~/images/wallpaper.avif         fill
-  $hdmi      background ~/images/wallpaper_monitor.avif fill
-  $hdmi      scale 1.5
-  $dp_out    background ~/images/wallpaper_monitor.avif fill
-  $dp_out2   background ~/images/wallpaper_monitor.avif fill
-  $dp_out3   background ~/images/wallpaper_monitor.avif fill
-  $dp_out    scale 1.5
-  $dp_out2   scale 1.5
-  $dp_out3   scale 1.5
-  $laptop  adaptive_sync on
-  $laptop  scale 1.5
-  $laptop  pos 0    0 res 2560x1600@90Hz
-  $hdmi    pos 1706 0 res 2560x1440@144Hz
-  $dp_out  pos 1706 0 res 2560x1440@120Hz
-  $dp_out2 pos 1706 0 res 2560x1440@120Hz
-  $dp_out3 pos 1706 0 res 2560x1440@120Hz
-}
-
-workspace_layout tabbed
-workspace_auto_back_and_forth no
-workspace {
-  1 output $laptop
-  2 output $laptop
-  3 output $hdmi
-  4 output $hdmi
-  3 output $dp_out
-  3 output $dp_out2
-  3 output $dp_out3
-  4 output $dp_out
-  4 output $dp_out2
-  4 output $dp_out3
-}
-
-input type:keyboard {
-  xkb_capslock disabled
-  xkb_numlock  enabled
-  xkb_layout   "us,ua"
-  # xkb_variant  "colemak,"
-  xkb_options  "grp:shift_caps_switch,compose:prsc"
-}
-
-input type:touchpad {
-  accel_profile    adaptive
-  click_method     button_areas
-  click_method     clickfinger
-  drag             enabled
-  dwt              enabled
-  middle_emulation enabled
-  pointer_accel    0.8
-  scroll_method    two_finger
-  scroll_factor    1.5
-  tap              enabled
-}
-
-input type:pointer {
-  accel_profile    adaptive
-  natural_scroll   disabled
-  middle_emulation enabled
-  pointer_accel    0.8
-  scroll_factor    0.5
-  scroll_button    BTN_SIDE
-  scroll_method    on_button_down
-}
-
-input "39321:9:skree_Dactyl-Skree-Track_Mouse" {
-  accel_profile    adaptive
-  natural_scroll   disabled
-  middle_emulation enabled
-  pointer_accel    0.5
-  scroll_factor    0.5
-  scroll_button    BTN_SIDE
-  scroll_method    on_button_down
-}
-
-seat seat0 xcursor_theme capitaine-cursors 30
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:DejaVu Sans Mono 8
-font $font
+font $font 20
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod normal
@@ -151,51 +74,14 @@ hide_edge_borders --i3 smart
 focus_on_window_activation smart
 force_display_urgency_hint 100
 
-# assings
-assign {
-  [app_id=$term_id]                           1
-  [app_id="io.github.martinrotter.rssguard"]  2
-  [app_id="org.telegram.desktop"]             2
-  [app_id="thunderbird"]                      2
-  [app_id="org.gnome.Evolution"]              2
-  [app_id="elfeed"]                           2
-  [app_id="slack"]                            3
-  [app_id="zoom"]                             4
-}
-
-for_window {
-  [shell="xwayland"] border pixel 8, urgent enable, title_format "[X] %title"
-  [app_id="firefox"]        inhibit_idle fullscreen
-  [app_id="zen"]            inhibit_idle fullscreen
-  [app_id="mpv"]            inhibit_idle focus
-  [app_id="vivaldi-stable"] inhibit_idle fullscreen
-  [app_id="screenshot"]     move to scratchpad
-  [app_id="firefox"]        floating disable # Firefox save file dialog
-  [app_id="zen"]            floating disable # Firefox save file dialog
-  # [window_role="pop-up"] floating enable
-  # [window_role="bubble"] floating enable
-  # [window_role="dialog"] floating enable
-  # [window_type="dialog"] floating enable
-  # main terminal
-  [app_id=$term_id] move to scratchpad, scratchpad show
-  [app_id=$term_id] $maximize
-  # backup terminal
-  [app_id=$oterm_id] move to scratchpad, scratchpad show
-  [app_id=$oterm_id] $maximize
-  # keepassxc
-  [app_id=$pass_id] move to scratchpad, scratchpad show
-  [app_id=$pass_id] $maximize
-  # emacs
-  [app_id=$editor_id] move to scratchpad, scratchpad show
-  [app_id=$editor_id] $maximize
-}
-
+include setup.sway
 include modes.sway
 include binds.sway
 
 
 # Start swaybar to display a workspace bar (plus the system information swaystatus
 # finds out, if available)
+# bar swaybar_command waybar
 bar {
   colors {
     background         $col_unfc_back
@@ -208,7 +94,7 @@ bar {
     binding_mode       $col_urgt_brdr $col_urgt_back $col_focs_text
   }
 
-  font $font
+  font $font 18
   pango_markup enabled
   position top
   status_command i3status-rs --never-pause # 2> ~/.local/log/i3status.log # env RUST_BACKTRACE=full
@@ -247,16 +133,20 @@ exec --no-startup-id {
 }
 
 exec {
-    systemctl --user \
-        import-environment \
-        SWAYSOCK \
-        WAYLAND_DISPLAY
+  systemctl --user \
+            import-environment \
+            SWAYSOCK \
+            XDG_SESSION_DESKTOP \
+            XDG_CURRENT_DESKTOP \
+            WAYLAND_DISPLAY
 
-    hash dbus-update-activation-environment 2>/dev/null
-    dbus-update-activation-environment --systemd SWAYSOCK \
-                                                 WAYLAND_DISPLAY 2>/dev/null
+  hash dbus-update-activation-environment 2>/dev/null
+  dbus-update-activation-environment --systemd SWAYSOCK \
+                                               XDG_SESSION_DESKTOP \
+                                               XDG_CURRENT_DESKTOP \
+                                               WAYLAND_DISPLAY 2>/dev/null
   swaykbdd
-  $term, $maximize
+  $term
   systemctl --user start user-graphical-session.target
   idle.sh
   network-startup
