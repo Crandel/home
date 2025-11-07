@@ -118,6 +118,7 @@ if [ -d $ZSH_CUSTOM_PLUGINS/ohmyzsh ]; then
 fi
 
 if [ -d $ZSH_CUSTOM_COMPLETIONS/zsh-completions ]; then
+  fpath=( "$ZSH_CUSTOM_COMPLETIONS" $fpath )
   fpath=( "$ZSH_CUSTOM_COMPLETIONS/zsh-completions/src" $fpath )
 fi
 

@@ -140,16 +140,17 @@ fi
 ## END VM's
 
 ## MEDIA TOOLS
-alias ytdl='yt-dlp --embed-chapters --embed-subs'
+alias ytdl='yt-dlp --embed-chapters --embed-subs --embed-metadata'
 alias ytlf='yt-dlp --list-formats'
 alias ytls='yt-dlp --list-subs'
 alias ytm='yt-dlp  -f bestaudio -x -P /data/media/youtube/music'
 alias ytmp='yt-dlp -f bestaudio -x -P /data/media/youtube/music -o "%(playlist_index,autonumber)d.%(title).50s.%(ext)s"'
 # --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-alias yt='ytdl  -f "b[height=720]/bv[height=720]+ba"'
-alias yto='ytdl -f "b[height>=720]/bv[height>=720]+ba"'
-alias ytl='ytdl -f "b[height>=1080]/bv[height>=1080]+ba" -o "%(upload_date>%d.%m)s.%(title)s.%(id)s.%(ext)s"'
-alias ytp='ytdl -f "b[height=720]/bv[height=720]+ba" -P /data/media/youtube/playlists -o "%(playlist_index,autonumber)d.%(title).50s.%(id)s.%(ext)s"'
+alias yt='ytdl  -f "bv[height=1080]+ba"'
+alias yts='ytdl -f "bv[height=720]+ba"'
+alias yto='ytdl -f "bv[height>=720]+ba"'
+alias twh='ytdl --ignore-config --config-locations $HOME/.config/yt-dlp/twitch'
+alias ytp='ytdl -f "bv[height>=720]+ba" -P /data/media/youtube/playlists -o "%(playlist_index,autonumber)d.%(title).50s.%(id)s.%(ext)s"'
 alias a2c='aria2c -x 10 -s 10'
 alias i3s_rst='pkill -SIGUSR2 i3status-rs'
 alias play='ffplay -nodisp -autoexit'
@@ -216,15 +217,13 @@ alias gsb='git status -sb'
 alias tm='tmux attach || tmux new'
 alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
 alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
-alias olstt="$SUDO systemctl start ollama.service"
-alias olend="$SUDO systemctl stop ollama.service"
-alias olsts="$SUDO systemctl status ollama.service"
-alias olc='ollama cp'
-alias olf='journalctl -f -u ollama'
-alias oll='ollama list'
-alias olp='ollama pull'
-alias olps='ollama ps'
-alias olr='ollama rm'
+alias swstt="systemctl --user start llama-swap.service"
+alias swend="systemctl --user stop llama-swap.service"
+alias swsts="systemctl --user status llama-swap.service"
+alias swf='journalctl -f --user -u llama-swap'
+alias swr='curl -s 127.0.0.1:14444/running | jq .running'
+alias swl='curl -s 127.0.0.1:14444/log'
+alias swm='curl -s 127.0.0.1:14444/v1/models | jq .data'
 # END SYSTEM TOOLS
 
 # PROGRAMM LANGUAGES

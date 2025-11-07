@@ -156,6 +156,11 @@ mdev() {
   $SUDO mount /dev/$dev $HOME/mnt
 }
 
+mfdev() {
+  dev=$1
+  $SUDO mount -o gid=users,fmask=113,dmask=002 /dev/$dev $HOME/mnt
+}
+
 # Unmount usb device
 umdev() {
   $SUDO umount -R $HOME/mnt
@@ -218,9 +223,11 @@ drmin() {
     docker rmi $img
   done
 }
+
 d_exec() {
   docker exec -it $1 sh -c "stty cols $COLUMNS rows $LINES && sh -l";
 }
+
 d_ip() {
   doc_ip=$(ip a show docker0 | grep "inet " | awk '{split($2, a, "/"); print a[1]}')
   export DOCKER_HOST_IP=$doc_ip

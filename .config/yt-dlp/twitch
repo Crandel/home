@@ -1,0 +1,18 @@
+--replace-in-metadata title " " "_"
+--replace-in-metadata title "," "_"
+--replace-in-metadata title "|" ""
+--replace-in-metadata title "\?" ""
+--replace-in-metadata title ":" ""
+--replace-in-metadata title "❗️" ""
+--replace-in-metadata title "\"" ""
+--replace-in-metadata title "\/" ""
+--replace-in-metadata title "🇺🇦" ""
+--replace-in-metadata title "🐴" ""
+--sub-langs "uk,ru,de,en"
+-N 10
+--video-multistreams
+--prefer-free-formats
+--embed-metadata
+-P /data/media/youtube/h
+-f "b[height>=1080]/bv[height>=1080]+ba"
+-o "%(upload_date>%d.%m)s.%(title)s.%(id)s.%(ext)s"
