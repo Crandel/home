@@ -8,6 +8,9 @@
   :mode "\\.\\(md\\|mdown\\|markdown\\)\\'"
   :custom
   (markdown-header-scaling t)
+  (markdown-enable-highlighting-syntax t)
+  (markdown-enable-wiki-links t)
+  (markdown-fontify-whole-heading-line t)
   :bind(:map markdown-mode-map
              ("M-n" . mc/mark-next-like-this)
              ("M-m" . mc/mark-previous-like-this))

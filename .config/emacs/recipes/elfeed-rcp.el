@@ -10,7 +10,7 @@
   (add-to-list 'command-switch-alist '("elfeed" . vd/elfeed-startup))
   :custom
   (url-queue-timeout         30)
-  (elfeed-use-curl           nil)
+  (elfeed-use-curl           t)
   (elfeed-tube-invidious-url nil)
   (shr-use-fonts             nil) ; use default font instead of proportional
   (elfeed-search-filter      "@4-week-ago +unread ")
@@ -21,10 +21,26 @@
         ("m"   . elfeed-search-browse-url)
         ("C-q" . save-buffers-kill-terminal))
   :config
-  (load (expand-file-name "feeds.el" user-emacs-directory))
   (elfeed-update)
   (run-with-timer 0 (* 60 30) 'elfeed-update)
 )
+
+(use-package elfeed-protocol
+  :ensure t
+  :after elfeed
+  :custom
+  (elfeed-protocol-enabled-protocols '(fever))
+  (elfeed-protocol-fever-update-unread-only nil)
+  (elfeed-protocol-fever-fetch-category-as-tag t)
+  (elfeed-protocol-feeds '(("fever+http://miniflux@miniflux.local"
+                               :api-url "http://miniflux.local/fever/"
+                               :password "password"))
+  )
+  :config
+  (elfeed-set-timeout 36000)
+  (elfeed-protocol-enable)
+)
+
 
 (use-package elfeed-summary
   :ensure t

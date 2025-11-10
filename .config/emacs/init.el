@@ -45,7 +45,6 @@
 (require 'mini-echo-rcp)
 
 ;; Rest packages
-(require 'aidermacs-rcp)
 (require 'c-rcp)
 (require 'chezmoi-rcp)
 (require 'consult-rcp)
@@ -57,7 +56,7 @@
 (require 'dired-rcp)
 (require 'editorconfig-rcp)
 (require 'eglot-rcp)
-(require 'ellama-rcp)
+;; (require 'ellama-rcp)
 (require 'embark-rcp)
 (require 'emmet-mode-rcp)
 (require 'flymake-rcp)

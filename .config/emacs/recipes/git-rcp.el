@@ -20,6 +20,15 @@
   (magit-log-margin-show-committer-date  t)
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
   (magit-todos-insert-after              '(bottom))
+  :config
+  (transient-suffix-put 'magit-push (kbd "-f") :key ".f")
+  (transient-suffix-put 'magit-push (kbd "-F") :key ".F")
+  (transient-suffix-put 'magit-push (kbd "-T") :key ".T")
+  (transient-suffix-put 'magit-pull (kbd "-f") :key ".f")
+  (transient-suffix-put 'magit-pull (kbd "-F") :key ".F")
+  (transient-suffix-put 'magit-fetch (kbd "-p") :key ".p")
+  (transient-suffix-put 'magit-fetch (kbd "-t") :key ".t")
+  (transient-suffix-put 'magit-fetch (kbd "-F") :key ".F")
   :bind(
   ("C-c t g" . magit-status)
   (:map magit-diff-mode-map
@@ -74,6 +83,17 @@
   (prog-mode . diff-hl-mode)
   (magit-pre-refresh . diff-hl-magit-pre-refresh)
   (magit-post-refresh . diff-hl-magit-post-refresh)
+)
+
+(use-package consult-gh
+  :ensure t
+  :defer t
+  :config
+  (require 'consult-gh-transient)
+  :custom
+  (consult-gh-commit-preview-major-mode 'org-mode)
+  :bind
+  ("C-c t s" . consult-gh-transient)
 )
 
 (provide 'git-rcp)

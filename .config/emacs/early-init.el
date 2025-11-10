@@ -118,7 +118,7 @@
                (side . left)
                (window-width . 70)))
 
-(blink-cursor-mode              1)
+(blink-cursor-mode              -1)
 (column-number-mode             t)
 (global-font-lock-mode          1)
 (menu-bar-mode                  -1)

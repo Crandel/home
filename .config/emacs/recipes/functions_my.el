@@ -184,25 +184,20 @@ If FORCE-P, delete without confirmation."
     (add-to-history minibuffer-history-variable (minibuffer-contents))))
 
 ;;;###autoload
-(defun vd/ollama-list-remote-models (ollama-api-endpoint)
-  "List Ollama model names from a local or remote Ollama REST API.
-This version is corrected to handle string-wrapped JSON responses
-and uses modern JSON parsing conventions, with added robustness
-for different JSON parser configurations (hash-table vs. alist)."
-  ;; The 's' in interactive makes it prompt for a string directly.
-  (interactive "sOllama API Endpoint (e.g., http://localhost:11434): ")
-  ;; Ensure required libraries are loaded.
+(defun vd/llama-list-remote-models (llama-api-endpoint)
+  "List llama model names from a local or remote llama-swap REST API."
+  (interactive "sllama API Endpoint (e.g., http://localhost:12434): ")
   (require 'json)
   (require 'url)
   (require 'cl-lib)
-  (let* ((url (or ollama-api-endpoint "http://localhost:11434"))
-         ;; Construct the full URL for the /api/tags endpoint.
-         (full-url (format "%s/api/tags" url))
+  (let* ((url (or llama-api-endpoint "http://localhost:12434"))
+         ;; Construct the full URL for the /v1/models endpoint.
+         (full-url (format "%s/v1/models" url))
          ;; Use with-temp-buffer for automatic cleanup, which is cleaner
          ;; than unwind-protect and manual kill-buffer.
          (model-names
           (with-temp-buffer
-            (message "Fetching Ollama models from %s..." full-url)
+            (message "Fetching llama models from %s..." full-url)
             ;; Use `url-insert-file-contents`. A non-nil return value indicates success.
             (if (condition-case-unless-debug err
                     (url-insert-file-contents full-url)
@@ -233,38 +228,38 @@ for different JSON parser configurations (hash-table vs. alist)."
                   (cond
                    ;; CASE 1: Parsed as a hash-table (e.g., modern json.el default).
                    ((hash-table-p json-data)
-                    (let ((models (gethash "models" json-data)))
+                    (let ((models (gethash "data" json-data)))
                       (if (vectorp models)
                           (let ((names (mapcar (lambda (model)
                                                  (when (hash-table-p model)
-                                                   (gethash "name" model)))
+                                                   (gethash "id" model)))
                                                (cl-coerce models 'list))))
                             (message "Successfully fetched %d models." (length (cl-remove-if-not #'stringp names)))
                             (cl-remove-if-not #'stringp names)) ; Return names
-                        (message "Ollama API response format unexpected ('models' key not a vector). Response: %S" json-data))))
+                        (message "llama API response format unexpected ('models' key not a vector). Response: %S" json-data))))
 
                    ;; CASE 2: Parsed as an association list (alist).
-                   ((and (listp json-data) (assoc 'models json-data))
-                    (let* ((models (cdr (assoc 'models json-data)))
+                   ((and (listp json-data) (assoc 'data json-data))
+                    (let* ((models (cdr (assoc 'data json-data)))
                            ;; The array part could be a vector or a list.
                            (model-list (if (vectorp models) (cl-coerce models 'list) models)))
                       (if (listp model-list)
                           (let ((names (mapcar (lambda (model)
                                                  (when (listp model) ; Should be an alist
-                                                   (cdr (assoc 'name model))))
+                                                   (cdr (assoc 'id model))))
                                                model-list)))
                             (message "Successfully fetched %d models." (length (cl-remove-if-not #'stringp names)))
                             (cl-remove-if-not #'stringp names)) ; Return names
-                        (message "Ollama API response format unexpected ('models' value not a list/vector). Response: %S" json-data))))
+                        (message "llama API response format unexpected ('models' value not a list/vector). Response: %S" json-data))))
 
                    ;; DEFAULT: Unrecognized format.
                    (t
-                    (message "Ollama API response was not a valid or recognized JSON object. Final parsed data: %S" json-data)
+                    (message "llama API response was not a valid or recognized JSON object. Final parsed data: %S" json-data)
                     nil))) ; Return nil
               ;; --- END SUCCESSFUL FETCH ---
 
               ;; --- BEGIN FAILED FETCH ---
-              (message "Failed to retrieve data from Ollama API at %s. Check URL and server." full-url)))))
+              (message "Failed to retrieve data from llama API at %s. Check URL and server." full-url)))))
     ;; The value of the `with-temp-buffer` block is the list of names (or nil on failure).
     ;; Return this value.
     model-names))

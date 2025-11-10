@@ -117,6 +117,9 @@
 
 (use-package org-modern
   :ensure t
+  :custom
+  (org-modern-fold-stars
+   '(("◉" . "○") ("◈" . "◇") ("●" . "○") ("▸" . "▹") ("▾" . "▿")))
   :hook (org-mode . org-modern-mode)
 )
 
@@ -139,6 +142,7 @@
   :hook
   (org-mode . (lambda()
                 (add-to-list 'org-structure-template-alist '("g" . "src go"))
+                (add-to-list 'org-src-lang-modes '("go" . go-ts))
                 ))
 )
 

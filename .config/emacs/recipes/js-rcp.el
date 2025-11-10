@@ -3,7 +3,7 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package js-ts-mode
-  :mode ("\\.js\\'" "\\firefoxjs\\'")
+  :mode ("\\.js\\'" "\\js.tmpl\\'")
   :bind
   (:map js-ts-mode-map
     ("RET"     . reindent-then-newline-and-indent)

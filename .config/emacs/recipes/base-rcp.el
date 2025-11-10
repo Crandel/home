@@ -36,7 +36,6 @@
   (kill-do-not-save-duplicates     t)
   (lisp-body-indent                2)
   (max-mini-window-height          0.5)
-  (maximum-scroll-margin           0.5 "Scrolling settings")
   (minibuffer-prompt-properties    '(read-only t cursor-intangible t face minibuffer-prompt))
   (next-line-add-newlines          nil)
   (nxml-attribute-indent           2)
@@ -75,6 +74,7 @@
   ("C-c f c"  . vd/copy-word)
   ("C-c f d"  . delete-trailing-whitespace)
   ("C-c f f"  . find-file)
+  ("C-c f g"  . fill-paragraph-semlf)
   ("C-c f l"  . vd/copy-line)
   ("C-c f o"  . duplicate-dwim)
   ("C-c f r"  . vd/revert-buffer)
@@ -126,6 +126,10 @@
   (compilation-window-height            10)
   :hook
   (compilation-filter . ansi-color-compilation-filter)
+)
+
+(use-package bash-ts-mode
+  :mode ("\\.sh\\'" "\\.sh.tmpl\\'")
 )
 
 (use-package completion-preview
@@ -199,6 +203,8 @@
   (ediff-window-setup-function       'ediff-setup-windows-plain)
   :hook
   (ediff-startup      . ediff-next-difference)
+  :bind
+  ("C-c d a" . diff-buffer-with-file)
 )
 
 (use-package electric
@@ -450,8 +456,9 @@
   :defer 0.1
   :custom
   (fast-but-imprecise-scrolling    t "Scrolling settings")
+  (maximum-scroll-margin           0.5 "Scrolling settings")
   (scroll-conservatively           most-positive-fixnum "Scrolling settings")
-  (scroll-margin                   100 "Scrolling settings")
+  (scroll-margin                   40 "Scrolling settings")
   (scroll-step                     1 "Scrolling settings")
   (scroll-preserve-screen-position t "Scrolling settings")
   :hook

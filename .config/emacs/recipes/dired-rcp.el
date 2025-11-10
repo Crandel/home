@@ -12,6 +12,7 @@
   :bind (:map dired-mode-map
               ("H" . dired-up-directory)
               ("-" . dired-do-hardlink)
+              ("g" . dired-goto-file)
               )
   )
 
