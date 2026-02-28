@@ -51,6 +51,8 @@
   (standart-indent                 2)
   (tab-always-indent               'complete)
   (tab-width                       2)
+  (vc-make-backup-files            nil "Emacs never backs up versioned files")
+  (vc-handled-backends             '(Git) "When visiting a file, Emacs will check all these in order")
   (use-dialog-box                  nil "Non-nil means mouse commands use dialog boxes to ask questions.")
   (word-wrap                       t)
   ;; (uniquify-buffer-name-style 'reverse)
@@ -63,6 +65,7 @@
   ("M-j"      . scroll-up)
   ("M-k"      . scroll-down)
   ("C-v"      . yank)
+  ("M-v"      . yank-pop)
   ("C-h F"    . describe-face)
   ("<Copy>"   . kill-ring-save)
   ("<Paste>"  . yank)
@@ -71,6 +74,7 @@
   ("M-RET"    . reindent-then-newline-and-indent)
   ([remap delete-char] . delete-forward-char)
   ("C-c d c"  . comment-dwim)
+  ("C-c d e"  . vd/rename-in-dired)
   ("C-c f c"  . vd/copy-word)
   ("C-c f d"  . delete-trailing-whitespace)
   ("C-c f f"  . find-file)
@@ -129,7 +133,7 @@
 )
 
 (use-package bash-ts-mode
-  :mode ("\\.sh\\'" "\\.sh.tmpl\\'")
+  :mode ("\\.sh\\'" "\\.sh.tmpl\\'" "\\.zsh\\'" "\\.zsh.tmpl\\'")
 )
 
 (use-package completion-preview
@@ -246,7 +250,6 @@
   (enable-local-variables         :all)
   (make-backup-files              nil)
   (version-control                t   "Use version numbers for backups.")
-  (vc-make-backup-files           t   "Emacs never backs up versioned files")
   (kept-new-versions              5   "Number of newest versions to keep.")
   (kept-old-versions              0   "Number of oldest versions to keep.")
 )
@@ -460,7 +463,7 @@
   (scroll-conservatively           most-positive-fixnum "Scrolling settings")
   (scroll-margin                   40 "Scrolling settings")
   (scroll-step                     1 "Scrolling settings")
-  (scroll-preserve-screen-position t "Scrolling settings")
+  (scroll-preserve-screen-position 1 "Scrolling settings")
   :hook
   (prog-mode . pixel-scroll-precision-mode)
 )

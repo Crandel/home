@@ -10,7 +10,6 @@
   ("\\.html\\'"   . web-mode)
   ("\\.css\\'"    . web-mode)
   ("\\.djhtml\\'" . web-mode)
-  ("\\.gotmpl\\'" . web-mode)
   ("\\.gtpl\\'"   . web-mode)
   ("\\.vue\\'"    . web-mode)
   ("\\german_lang/index.html\\'" . mhtml-mode)

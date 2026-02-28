@@ -7,10 +7,11 @@
   :init
   (setq dape-key-prefix (kbd "C-c r"))
   :custom
-  (dape-buffer-window-arrangement 'gud)
-  (dape-debug                     t)
-  (dape-inlay-hints               t)
-  (dape-cwd-fn                    #'projectile-project-root)
+  (dape-buffer-window-arrangement     'gud)
+  (dape-debug                        t)
+  (dape-inlay-hints-variable-name-max 50)
+  (dape-inlay-hints                  t)
+  (dape-cwd-fn                       #'projectile-project-root)
   :config
   ;; Projectile users
   (add-to-list 'dape-configs

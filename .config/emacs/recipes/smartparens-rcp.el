@@ -50,6 +50,7 @@
   ("C-c a u"  . vd/wrap-underscores)
   ("C-c a r"  . sp-rewrap-sexp)
   ("C-c a w"  . sp-unwrap-sexp)
+  ("C-c a g"  . sp-split-sexp)
   )
 )
 

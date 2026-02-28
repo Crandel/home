@@ -5,6 +5,21 @@
 (use-package magit
   :ensure t
   :defer t
+  :preface
+  (defun vd/speedup-magit ()
+    "Speedup magit for huge diffs."
+    (interactive)
+    (setq magit-refresh-status-buffer           nil
+          magit-diff-paint-whitespace           nil
+          magit-diff-highlight-hunk-body        nil
+          magit-revision-insert-related-refs    nil)
+    (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-pushremote)
+    (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-pushremote)
+    (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-upstream)
+    (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-upstream-or-recent)
+    (remove-hook 'magit-refs-sections-hook   'magit-insert-tags)
+    (remove-hook 'server-switch-hook         'magit-commit-diff)
+    )
   :commands magit-status
   :custom-face
   (magit-diff-added ((t (:background "dark slate gray" :foreground "chocolate"))))
@@ -12,11 +27,10 @@
   (magit-diff-removed ((t (:background "red" :foreground "#ffdddd"))))
   (magit-diff-removed-highlight ((t (:background "dark red" :foreground "navajo white"))))
   :custom
-  (magit-diff-refine-hunk                'all)
   (magit-display-buffer-function         'magit-display-buffer-fullframe-status-v1)
   (magit-ediff-dwim-show-on-hunks        t)
   (magit-format-file-function            'magit-format-file-nerd-icons)
-  (magit-log-arguments                   '("--graph" "--color" "--decorate" "--show-signature" "--follow" "-n256"))
+  (magit-log-arguments                   '("--decorate" "--show-signature" "--follow" "-n50"))
   (magit-log-margin-show-committer-date  t)
   (magit-log-remove-graph-args           '("--follow" "--grep" "-G" "-S" "-L"))
   (magit-todos-insert-after              '(bottom))
@@ -30,7 +44,8 @@
   (transient-suffix-put 'magit-fetch (kbd "-t") :key ".t")
   (transient-suffix-put 'magit-fetch (kbd "-F") :key ".F")
   :bind(
-  ("C-c t g" . magit-status)
+  ("C-c t t" . magit-status)
+  ("C-c t r" . vd/speedup-magit)
   (:map magit-diff-mode-map
         ("k" . nil)
         ("x" . magit-delete-thing))
@@ -93,7 +108,7 @@
   :custom
   (consult-gh-commit-preview-major-mode 'org-mode)
   :bind
-  ("C-c t s" . consult-gh-transient)
+  ("C-c t h" . consult-gh-transient)
 )
 
 (provide 'git-rcp)

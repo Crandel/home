@@ -42,6 +42,7 @@
          (rust-ts-mode   . eglot-ensure)
          (java-mode      . eglot-ensure)
          (js-ts-mode     . eglot-ensure)
+         (json-ts-mode   . eglot-ensure)
          (kotlin-mode    . eglot-ensure)
          (sql-mode       . eglot-ensure)
          ;; (scala-mode     . eglot-ensure)
@@ -56,6 +57,11 @@
                              (eglot-ensure)
                              ))
          )
+)
+
+(use-package breadcrumb
+  :ensure t
+  :hook (prog-mode . breadcrumb-local-mode)
 )
 
 (provide 'eglot-rcp)

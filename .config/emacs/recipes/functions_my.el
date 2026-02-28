@@ -121,6 +121,41 @@ See also `newline-and-indent'.  Behave like vi's O command.  With optional ARG."
         (call-interactively 'find-file)
     )
 )
+;;;###autoload
+(defun vd/rename-in-dired ()
+  "Rename current buffer in Dired."
+  (interactive)
+  (dired-jump)
+  (dired-toggle-read-only))
+
+;;;###autoload
+(defun vd/insert-quotes-or-break-string (&optional arg)
+  "This enhances the behavior of `insert-pair' for double-quotes.
+It acts differently from `insert-pair', because when splitting an
+existing string, the strings will be outside of the new pair, not
+inside.  So in that case, we want to add spaces inside of the new pair,
+not outside.  If the mark is active, escaped double-quotes are added
+around the region.  This command makes it easier to edit tempo templates
+and skeletons.  To add escaped double-quotes within a template string,
+just activate the mark before calling this command.  This works even if
+the region is empty."
+  (interactive "P")
+  (cond
+   ((not (nth 3 (syntax-ppss)))       ; not in a string
+    (insert-pair arg ?\" ?\"))
+   ((region-active-p)                 ; in a string with active mark
+    (when (eq (point) (region-end)) (exchange-point-and-mark))
+    (when (memq (char-syntax (preceding-char)) (list ?w ?_))
+      (insert " "))
+    (insert "\\\"")
+    (save-excursion
+      (goto-char (region-end))
+      (insert "\\\"")
+      (when (memq (char-syntax (following-char)) (list ?w ?_))
+        (insert " "))))
+   (t                                 ; in a string with inactive mark
+    (insert "\" ")                    ; so just split the string
+    (save-excursion (insert " \"")))))
 
 ;;;###autoload
 (defun vd/find-in-config ()
@@ -263,16 +298,6 @@ If FORCE-P, delete without confirmation."
     ;; The value of the `with-temp-buffer` block is the list of names (or nil on failure).
     ;; Return this value.
     model-names))
-
-
-;;;###autoload
-(defun vd/ollama-list-installed-models ()
-  "Return the installed models"
-  (let* ((ret (shell-command-to-string "ollama list"))
-         (models (cdr (string-lines ret))))
-    (if (and (string-match-p "NAME[[:space:]]*ID[[:space:]]*SIZE[[:space:]]*MODIFIED" ret) (length> models 0))
-        (mapcar (lambda (m) (car (string-split m))) models)
-      (message "Cannot detect installed models, please make sure Ollama server is started"))))
 
 (provide 'functions_my)
 ;;; Commentary:

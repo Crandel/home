@@ -42,6 +42,7 @@
                   '((:gopls .
                             ((staticcheck     . t)
                              (usePlaceholders . t)
+                             (semanticTokens  . t)
                              (local           . "github.com/talon-one/")
                              (symbolScope     . "workspace")
                              (analyses        . (
@@ -115,10 +116,34 @@
     )
 )
 
-;; (use-package godoctor
-;;   :ensure t
-;; )
-
+(use-package gorepl-mode
+  :ensure t
+  :defer t
+)
+(use-package go-template-helper-mode
+  :ensure t
+  :defer t
+  :preface
+  (defun vd/go-template-helper-enable ()
+    "Enable go-template-helper-mode when appropriate.
+     Activates `go-template-helper-mode' if the buffer's file is located in a
+     templates/ directory and has a .yaml, .yml, or .tpl extension."
+    (when (and buffer-file-name
+               (or (string-match-p
+                    "/templates/.*\\(?:\\.ya?ml\\|\\.tpl\\)\\'"
+                    buffer-file-name)
+                   (string-match-p
+                    "\\.tmpl\\'"
+                    buffer-file-name)
+                   )
+               )
+      (message "inside vd/go-template-helper-enable")
+      (require 'go-template-helper-mode)
+      (go-template-helper-mode 1))
+  )
+  :hook
+  (prog-mode . vd/go-template-helper-enable)
+)
 (provide 'go-rcp)
 ;;; Commentary:
 ;; Local Variables:

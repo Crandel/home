@@ -20,6 +20,7 @@
     (use-package-minimum-reported-time 0.005)
     (use-package-enable-imenu-support t))
 )
+;; (debug-on-variable-change 'delete-active-region)
 
 ;; Doom-theme load
 (use-package doom-themes
@@ -67,7 +68,6 @@
 (require 'helpful-rcp)
 (require 'highlight-rcp)
 (require 'hydra-rcp)
-(require 'journalctl-rcp)
 (require 'js-rcp)
 (require 'json-rcp)
 (require 'kotlin-rcp)
@@ -88,6 +88,7 @@
 (require 'selected-rcp)
 (require 'smartparens-rcp)
 (require 'sql-rcp)
+(require 'system-rcp)
 (require 'tempel-rcp)
 (require 'turbo-log-rcp)
 (require 'http-rcp)
@@ -108,7 +109,6 @@
 ;; meow should be the last one to collect all keybindings.
 (require 'meow-rcp)
 (require 'final-steps-rcp)
-;(debug-on-variable-change 'completion-styles)
 
 ;;; Commentary:
 ;; Main init file

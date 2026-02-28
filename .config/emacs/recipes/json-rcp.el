@@ -2,18 +2,28 @@
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
-(use-package js2-mode
-  :ensure t
-  :mode ("\\.js\\'" . js2-mode)
+
+(use-package json-ts-mode
+  :mode
+  ("\\.json\\'"       . json-ts-mode)
+  ("\\.jsonc\\'"      . json-ts-mode)
+  ("\\.jsonc.tmpl\\'" . json-ts-mode)
+  ("\\.vil\\'"        . json-ts-mode)
 )
 
 (use-package jsonian
   :ensure t
-  :mode
-  ("\\.json\\'"       . jsonian-mode)
-  ("\\.jsonc\\'"      . jsonian-mode)
-  ("\\.jsonc.tmpl\\'" . jsonian-mode)
-  ("\\.vil\\'"        . jsonian-mode)
+  :config
+  (setq-default eglot-workspace-configuration
+                '(:yaml (:format (:enable t)
+                         :validate t
+                         :hover t
+                         :completion t
+                         :schemaStore (:enable t))
+                  :json (:format (:enable t)
+                         :validate (:enable t))
+                  )
+                )
 )
 
 (use-package yaml-ts-mode

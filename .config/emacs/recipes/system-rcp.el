@@ -1,4 +1,4 @@
-;;; journalctl-rcp.el --- Major mode to view journalctl's output in Emacs
+;;; system-rcp.el --- Major mode to view journalctl's output in Emacs
 
 ;;; Code:
 (eval-when-compile (require 'use-package))
@@ -13,8 +13,12 @@
   )
 )
 
-(provide 'journalctl-rcp)
+(use-package iwd-manager
+  :ensure t
+)
+
+(provide 'system-rcp)
 
 ;;; Commentary:
 ;;
-;;; journalctl-rcp.el ends here
+;;; system-rcp.el ends here

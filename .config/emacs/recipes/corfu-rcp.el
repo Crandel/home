@@ -57,27 +57,10 @@
     )
   :init
   (add-to-list 'completion-at-point-functions #'cape-keyword)
+  (add-to-list 'completion-at-point-functions #'cape-file)
   :hook
   (emacs-lisp-mode     . vd/setup-elisp-completion)
   (eglot-managed-mode  . vd/setup-lsp-completion)
-)
-
-;; (use-package kind-icon
-;;   :ensure t
-;;   :after corfu
-;;   :functions kind-icon-margin-formatter
-;;   :config
-;;   (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter)
-;;   :custom
-;;   (kind-icon-default-face 'corfu-default)
-;; )
-
-(use-package corfu-terminal
-  :ensure t
-  :after corfu
-  :config
-  (unless (display-graphic-p)
-    (corfu-terminal-mode +1))
 )
 
 (provide 'corfu-rcp)

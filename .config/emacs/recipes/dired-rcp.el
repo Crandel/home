@@ -10,6 +10,7 @@
   (dired-kill-when-opening-new-dired-buffer t "kill the current buffer when selecting a new directory")
   (dired-listing-switches                   "-AhlF --time-style=long-iso --group-directories-first")
   :bind (:map dired-mode-map
+              ("e" . dired-toggle-read-only)
               ("H" . dired-up-directory)
               ("-" . dired-do-hardlink)
               ("g" . dired-goto-file)

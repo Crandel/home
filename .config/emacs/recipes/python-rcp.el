@@ -42,6 +42,11 @@
   :after python-mode
   :defer t
 )
+(use-package python-black
+  :ensure t
+  :ensure-system-package black
+  :hook (python-mode . python-black-on-save-mode-enable-dwim)
+)
 ;; (use-package lsp-pyright
 ;;   :ensure t
 ;;   :ensure-system-package pyright

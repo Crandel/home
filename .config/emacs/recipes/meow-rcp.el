@@ -127,6 +127,9 @@
      (beacon . "B")))
   (meow-setup)
   (meow-global-mode 1)
+  :hook
+  (meow-insert-enter . (lambda() (setq-local delete-active-region t)))
+  (meow-insert-exit  . (lambda() (setq-local delete-active-region nil)))
   )
 
 (provide 'meow-rcp)

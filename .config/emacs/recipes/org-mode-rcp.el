@@ -103,6 +103,7 @@
   :bind
   (:map org-mode-map
   ("TAB" . org-cycle)
+  ("M-j" . tempel-expand)
   ("C-c o o" . vd/org-toggle-emphasis)
   ("C-c o t" . org-insert-structure-template)
   ("C-c o a" . org-babel-remove-result)
