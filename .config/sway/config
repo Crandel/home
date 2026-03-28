@@ -14,29 +14,30 @@ set {
   $hdmi    HDMI-A-1
 
   # Modes
-  $mouse_mode "Mouse: (t) M1 |(s) M2 |(g) M3 |(p) kbptr |(d) kbptr-local"
-  $layout_mode "Layout: (d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
-  $power_mode  "Power: (F2)SCRNOFF | (F3)LCK | (F4)RBT | (F5)POFF"
+  $mouse_mode        "Mouse: (t) M1 |(s) M2 |(g) M3 |(p) kbptr |(d) kbptr-local"
+  $layout_mode       "Layout: (d) stacking|(t) tabbed|(s) split|(v) splitv|(h) splith"
+  $power_mode        "Power: (F2)SCRNOFF | (F3)LCK | (F4)RBT | (F5)POFF"
   $notification_mode "Notification: (s) Stop | (d) Default | (n) dismiss | (a) Action"
 
   # Theming
-  $font     pango:FiraCode Nerd Font Mono, Hack Nerd Font
+  $font pango:FiraCode Nerd Font Mono, Hack Nerd Font
 
   # Apps
   $launch       fuzzel-prompt.sh
   $launch-dmenu fuzzel-dmenu
-  $term_id quake_term
-  $term    wezterm start --class $term_id
-  $pass    keepassxc
-  $pass_id org.keepassxc.KeePassXC
-  $oterm_id oterm
-  $oterm    alacritty --class $oterm_id --working-directory /data/media/youtube
-  $editor_id emacs_float
-  $editor    emacs --name $editor_id
-  $browser   firefox
-  $o_browser vivaldi
-  $lock sleep.sh
-  $nag nag.sh
+  $term_id      quake_term
+  $term         wezterm start --class $term_id
+  $pass         keepassxc
+  $pass_id      org.keepassxc.KeePassXC
+  $oterm_id     oterm
+  $oterm        alacritty --class $oterm_id --working-directory /data/media/youtube
+  $editor_id    emacs_float
+  $editor       emacs --name $editor_id
+  $oeditor      zeditor
+  $browser      firefox
+  $obrowser     zen-browser
+  $lock         sleep.sh
+  $nag          nag.sh
   $maximize border none, move position center, resize set width 100 ppt height 100 ppt
 
   # Color binds

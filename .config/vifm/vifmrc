@@ -167,6 +167,7 @@ command! ln ln -s %f:p %D
 command! rsync rsync -av --progress %d %D %i 1>&2 &
 command! cp :yank | winrun , put
 command! mv :yank | winrun , put
+command! adp adb push "%f" /sdcard/Movies/Youtube
 
 " From mc: <Ctrl-s> fuzzy search in current directory
 command! FZFfind : set noquickview
@@ -202,9 +203,11 @@ noremap <space>f :file &<cr>
 " Open console in current directory
 noremap <space>g :cmp<cr>
 noremap <space>i :cd %D<cr>
-noremap <space>m :move<cr>
+noremap <space>j :adp<cr>
 noremap <space>l :!alacritty &<cr>
+noremap <space>m :move<cr>
 noremap <space>s :FZFfind<cr>
+noremap <space>o :edit<cr>
 noremap <space>th :cd ~<cr>
 noremap <space>tl :cd ~/.local/bin<cr>
 noremap <space>tb :cd /data/backup<cr>
@@ -342,38 +345,49 @@ let $INSIDE_VIFM = 'true'
 """ Xwindow commands
 
 " Pdf
-filextype *.pdf zathura %c &
+filextype *.pdf
+  \ {View in zathura}
+  \ zathura %f &,
+  \ {View in papers}
+  \ papers %f &
+
 " epub
-filextype *.epub zathura %f &
+filextype *.epub
+  \ {View in zathura}
+  \ zathura %f &,
+  \ {View in papers}
+  \ papers %f &
+
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
   \ {View in zathura}
-  \ zathura %f &
+  \ zathura %f &,
+  \ {View in papers}
+  \ papers %f &
 " Djvu
 filextype *.djvu
   \ {View in zathura}
-  \ zathura %f &
+  \ zathura %f &,
+  \ {View in papers}
+  \ papers %f &
+
 " Video
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
   \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
   \*.as[fx]
   \ {View using mpv}
-  \ mpv --speed=2 %f &
+  \ mpv %f &
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.heic,*.heif,*.avif
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.heic,*.heif,*.avif,*.svg
   \ {View in gthumb}
   \ gthumb %c &,
   \ {View in nomacs}
-  \ nomacs %c &,
-  \ {View in feh}
-  \ feh --scale-down %c &
+  \ imv %c &
 
 " Audio
 filextype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
   \ {Play using amberol}
-  \ amberol %c &,
-  \ {Play using deadbeef}
-  \ deadbeef %c &
+  \ amberol %c &
 
 " Web
 filextype *.html,*.htm firefox %f -new-tab &
@@ -632,8 +646,8 @@ set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.flac,,*.m2a,,*.m4a,,*.m
 set classify+=' ::*.mp3,,*.mpc,,*.oga,,*.ogg,,*.ogx,,*.ra,,*.ram,,*.rm,,*.spx,,*.wav,,*.wma,,*.ac3::'
 
 " media
-set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv::'
-set classify+=' ::*.mov,,*.mp4,,*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.xvid::'
+set classify+=' ::*.avi,,*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mkv,,*.mov,,*.mp4::'
+set classify+=' ::*.flv,,*.mp4v,,*.mpeg,,*.mpg,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.wmv,,*.webm,,*.xvid::'
 
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'

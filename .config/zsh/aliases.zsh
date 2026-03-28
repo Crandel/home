@@ -140,17 +140,9 @@ fi
 ## END VM's
 
 ## MEDIA TOOLS
-alias ytdl='yt-dlp --embed-chapters --embed-subs --embed-metadata'
 alias ytlf='yt-dlp --list-formats'
 alias ytls='yt-dlp --list-subs'
-alias ytm='yt-dlp  -f bestaudio -x -P /data/media/youtube/music'
-alias ytmp='yt-dlp -f bestaudio -x -P /data/media/youtube/music -o "%(playlist_index,autonumber)d.%(title).50s.%(ext)s"'
-# --external-downloader aria2c --external-downloader-args "-x 10 -s 10"'
-alias yt='ytdl  -f "bv[height=1080]+ba"'
-alias yts='ytdl -f "bv[height=720]+ba"'
-alias yto='ytdl -f "bv[height>=720]+ba"'
-alias twh='ytdl --ignore-config --config-locations $HOME/.config/yt-dlp/twitch'
-alias ytp='ytdl -f "bv[height>=720]+ba" -P /data/media/youtube/playlists -o "%(playlist_index,autonumber)d.%(title).50s.%(id)s.%(ext)s"'
+alias twh='yt-dlp --ignore-config --config-locations $HOME/.config/yt-dlp/twitch'
 alias a2c='aria2c -x 10 -s 10'
 alias i3s_rst='pkill -SIGUSR2 i3status-rs'
 alias play='ffplay -nodisp -autoexit'
@@ -215,8 +207,8 @@ alias grpo='git remote prune origin'
 alias gs='git status'
 alias gsb='git status -sb'
 alias tm='tmux attach || tmux new'
-alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort score --save /tmp/mirrorlist'
-alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort score --save /tmp/powerpill'
+alias gen_mirror='reflector --ipv4 --country Germany --age 12 -p https -l 10 --sort age --save /tmp/mirrorlist'
+alias gen_rsync='reflector --ipv4 --country Germany --age 12 -p rsync -l 10 --sort age --save /tmp/powerpill'
 alias swstt="systemctl --user start llama-swap.service"
 alias swend="systemctl --user stop llama-swap.service"
 alias swsts="systemctl --user status llama-swap.service"
@@ -243,11 +235,12 @@ alias jr='zoxide remove' # remove path from the database
 alias l='lsd'
 compdef l=lsd
 alias ll='l -ahlF --group-dirs=first'
+alias amt='amdgpu_top --dark'
 ## END RUST
 
 ## GO
 alias task='go-task'
-compdef task=go-task
+compdef _task task
 ## END GO
 ## PYTHON
 if [ -d "$HOME/.pyenv" ]; then

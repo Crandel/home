@@ -1,15 +1,22 @@
 --replace-in-metadata title " " "_"
 --replace-in-metadata title "," "_"
---replace-in-metadata title "|" ""
---replace-in-metadata title "\?" ""
 --replace-in-metadata title ":" ""
---replace-in-metadata title "❗️" ""
+--replace-in-metadata title "\!" ""
 --replace-in-metadata title "\"" ""
 --replace-in-metadata title "\/" ""
+--replace-in-metadata title "\?" ""
+--replace-in-metadata title "\@" ""
+--replace-in-metadata title "\$" ""
+--replace-in-metadata title "|" ""
+--replace-in-metadata "video:title" " ?[\U00002B07-\U00002E7F\U0000E000-\U0000F8FF\U0000FE00-\U0000FE2F\U00010B40-\U0010FFFF]+" ""
+--embed-chapters
+--embed-metadata
+--embed-subs
+--sponsorblock-remove all
 --sub-langs "uk,ru,de,en"
+--sub-langs "uk-orig,ru-orig,de-orig,en-orig,en,uk,ru,de"
 -N 10
--S ext,vcodec:av01:vp9.2:vp9,acodec:opus:ogg,+size
---extractor-args "youtube:player-client=default,-tv_simply"
---video-multistreams
+-S vcodec:av01:vp9.2:vp9,acodec:opus:ogg:mp4a:mp3
+--js-runtimes deno
 -P /data/media/youtube
 -o "%(title).50s.%(id)s.%(ext)s"

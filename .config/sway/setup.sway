@@ -79,9 +79,10 @@ assign {
   [app_id=$term_id]                           1
   [app_id="io.github.martinrotter.rssguard"]  2
   [app_id="org.telegram.desktop"]             2
-  [app_id="thunderbird"]                      2
+  [app_id="org.mozilla.Thunderbird"]          2
   [app_id="org.gnome.Evolution"]              2
-  [app_id="elfeed"]                           2
+  [app_id="eilmeldung"]                       2
+  [app_id="io.gitlab.news_flash.NewsFlash"]   2
   [app_id="slack"]                            3
   [app_id="zoom"]                             4
 }

@@ -56,6 +56,7 @@ extract() {
       *.tar)            tar xf $1         ;;
       *.tbz2)           tar xjf $1        ;;
       *.tgz)            tar xzf $1        ;;
+      *.xz)             tar xvf $1        ;;
       *.zip)            unzip $1          ;;
       *.Z)              uncompress $1     ;;
       *.7z)             7zr e $1          ;;
@@ -87,12 +88,14 @@ file_replace() {
 
 # convert jpg files to single pdf
 con_jpg_pdf (){
-  convert *.jpg $@.pdf
+  filename="$*"
+  magick "*.jpg" "$filename.pdf"
 }
 
 # convert png files to single pdf
 con_png_pdf (){
-  convert *.png $@.pdf
+  filename="$*"
+  magick "*.png" "$filename.pdf"
 }
 
 # send requests periodically
@@ -118,19 +121,6 @@ add_music (){
 
   echo "Songs added to playlist!"
 }
-## X11 VS WAYLAND
-disable_x11 (){
-  systemctl --user disable clipmenud.service
-  systemctl --user disable kbdd.service
-  systemctl --user disable dunst.service
-}
-
-enable_x11 (){
-  systemctl --user enable clipmenud.service
-  systemctl --user enable kbdd.service
-  systemctl --user enable dunst.service
-}
-## END X11 VS WAYLAND
 
 ## TOGGLE HDMI SOUND
 hdmi_sound_on (){
@@ -153,17 +143,17 @@ mkcd() {
 # Mount usb device
 mdev() {
   dev=$1
-  $SUDO mount /dev/$dev $HOME/mnt
+  $SUDO mount /dev/$dev /mnt
 }
 
 mfdev() {
   dev=$1
-  $SUDO mount -o gid=users,fmask=113,dmask=002 /dev/$dev $HOME/mnt
+  $SUDO mount -o gid=users,fmask=113,dmask=002 /dev/$dev /mnt
 }
 
 # Unmount usb device
 umdev() {
-  $SUDO umount -R $HOME/mnt
+  $SUDO umount -R /mnt
 }
 
 if [ -n "${WAYLAND_DISPLAY:-}" ] && (( ${+commands[wl-copy]} )) && (( ${+commands[wl-paste]} )); then
@@ -215,8 +205,52 @@ function git_current_branch() {
   echo ${ref#refs/heads/}
 }
 
+function def_ff () {
+  xdg-settings set default-web-browser firefox.desktop
+}
+function def_zen () {
+  xdg-settings set default-web-browser zen.desktop
+}
+
 clean_pyc (){
   find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+}
+
+ytdl (){
+  yt-dlp --embed-chapters --embed-subs --embed-metadata "$@"
+}
+
+yt () {
+  ytdl -f "bv[height=1080]+ba[format_note*=origin]/bv[height=1080]+ba/b" "$@"
+}
+
+yte () {
+  ytdl -o "%(upload_date>%m.%d)s.%(title)s.%(id)s.%(ext)s" \
+       -P /data/media/youtube/h \
+       -f "bv[height>=1080]+ba[format_note*=origin]/bv[height>=1080]+ba/b" "$@"
+}
+
+yto () {
+  ytdl -f "bv[height>=720]+ba[format_note*=origin]/bv[height>=720]+ba/b" "$@"
+}
+yts () {
+  ytdl -f "bv[height=720]+ba[format_note*=origin]/bv[height=720]+ba/b" "$@"
+}
+ytm (){
+  yt-dlp -f "ba[format_note*=origin]" \
+         -x \
+         -P "/data/media/youtube/music" "$@"
+}
+ytmp (){
+  yt-dlp -f "ba[format_note*=origin]" \
+         -x \
+         -o "%(playlist_index,autonumber)d.%(title).50s.%(ext)s" \
+         -P "/data/media/youtube/music" "$@"
+}
+ytp (){
+  ytdl -f "bv[height>=720]+ba[format_note*=origin]/bv[height>=720]+ba/b" \
+  -o "%(playlist_index,autonumber)d.%(title).50s.%(id)s.%(ext)s" \
+  -P "/data/media/youtube/playlists" "$@"
 }
 drmin() {
   for img in $(d images | rg -i 'none' | awk '{print $3}'); do

@@ -33,6 +33,7 @@ config.check_for_updates = false
 config.color_scheme = "GruvboxDarkHard"
 
 config.colors = {
+  scrollbar_thumb = "#FFAA22",
   tab_bar = {
     -- The active tab is the one that has focus in the window
     active_tab = {

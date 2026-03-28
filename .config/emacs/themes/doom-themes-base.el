@@ -383,11 +383,11 @@
     ;; (cider-reader-conditional-face :inherit 'font-lock-comment-face)
     (cider-error-highlight-face
      `((((supports :underline (:style wave)))
-        (:inherit unspecified :underline (:style wave :color ,(car error))))
+        (:inherit 'unspecified :underline (:style wave :color ,(car error))))
        (t (:inherit font-lock-warning-face :underline t))))
     (cider-warning-highlight-face
      `((((supports :underline (:style wave)))
-        (:underline (:style wave :color ,(car warning)) :inherit unspecified))
+        (:underline (:style wave :color ,(car warning)) :inherit 'unspecified))
        (t (:inherit font-lock-warning-face :underline (:color ,(car warning))))))
     (cider-test-failure-face :background (doom-blend bg error 0.7))
     (cider-test-error-face   :background orange)

@@ -126,10 +126,14 @@ compinit -u
 
 # IMPORT ADDITIONAL FILES
 ## CUSTOM FUNCS
+if [ ! -d "$ZDOTDIR/aliases.zsh" ]; then
 source $ZDOTDIR/func.zsh
+fi
 
 ## CUSTOM ALIASES
+if [ ! -d "$ZDOTDIR/aliases.zsh" ]; then
 source $ZDOTDIR/aliases.zsh
+fi
 # END IMPORT
 
 bindkey -e
@@ -165,33 +169,6 @@ bindkey "^[^?"    backward-kill-word
 
 # insert last command
 bindkey "^V" insert-last-word
-
-# bindkey "^["      vi-cmd-mode
-# function zle-keymap-select() {
-#   if [[ ${KEYMAP} == vicmd ]] ||
-#      [[ $1 = 'underline' ]]; then
-#     echo -ne '\e[3 q'
-#   elif [[ ${KEYMAP} == main ]] ||
-#        [[ ${KEYMAP} == viins ]] ||
-#        [[ ${KEYMAP} = '' ]] ||
-#        [[ $1 = 'beam' ]]; then
-#     echo -ne '\e[5 q'
-#   fi
-#   zle reset-prompt
-# }
-
-# function zle-line-init(){
-#     echo -ne '\e[5 q'
-#     zle reset-prompt
-# }
-
-# zle -N zle-line-init
-# zle -N zle-keymap-select
-
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
 
 # PROMPT
 if [ -d $ZSH_CUSTOM_PROMPT/powerlevel10k ]; then

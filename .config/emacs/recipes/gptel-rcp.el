@@ -1,5 +1,4 @@
 ;;; gptel-rcp.el --- A simple LLM client for Emacs.
-
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package gptel
@@ -22,6 +21,17 @@
       :protocol "http"
       :stream t
       :models (vd/llama-list-remote-models "http://0.0.0.0:14444")
+      ))
+    )
+  (defun vd/setup-llama-gptel-remote ()
+    "Fill llama models."
+    (interactive)
+    (require 'gptel)
+    (setq gptel-backend (gptel-make-openai "llama-swap-remote"
+      :host "0.0.0.0:14444"
+      :protocol "http"
+      :stream t
+      :models (vd/llama-list-remote-models "http://192.168.50.136:14444")
       ))
     )
   (defun vd/gptel--edit_file (file-path file-edits)
@@ -55,9 +65,7 @@
       (format "Failed to edited %s" file-path)))
 
   :config
-  (setq gptel--known-backends nil
-        gptel-expert-commands t
-        )
+  (setq gptel-expert-commands t)
   (require 'gptel-transient)
   (transient-suffix-put 'gptel-menu (kbd "-m") :key ".m")
   ;; TOOLS
@@ -126,29 +134,41 @@ a old-string and a new-string, new-string will replace the old-string at the spe
   ;; PRESETS
   (gptel-make-preset 'check-en
     :description "Check for grammar, punctuation errors"
-    :model 'gemma3.4b
+    :model 'translate
     :temperature 0.4
-    :system "Identify and explain grammatical mistakes, typos, and punctuation errors in this text.")
+    :system "You are the best English linguist in the world, committed to maximum accuracy, transparency, and avoiding unreliable statements. Find all grammatical errors, typos, and punctuation mistakes in this text. Do not explain anything, just provide two or three corrected versions of this text. Never use `;` in corrected text.")
   (gptel-make-preset 'check-ru
     :description "Проверка на грамматические и синтактические ошибки"
-    :model 'gemma3.4b
+    :model 'translate
     :temperature 0.4
-    :system "Определи и объясни грамматические ошибки, опечатки и ошибки пунктуации в этом тексте.")
+    :system "Вы лучший лингвист по русскому языку в мире, настроенный на максимальную точность, прозрачность и отказ от недостоверных утверждений. Найдите все грамматические ошибки, опечатки и пунктуационные ошибки в этом тексте. Ничего не объясняйте, просто предоставьте две или три исправленные версии этого текста")
+  (gptel-make-preset 'check-de
+    :description "Überprüfung auf grammatikalische und syntaktische Fehler"
+    :model 'translate
+    :temperature 0.4
+    :system "Sie sind der beste Deutschlinguist der Welt, der auf maximale Genauigkeit, Transparenz und die Vermeidung ungenauer Aussagen bedacht ist. Finden Sie alle Grammatik-, Tipp- und Zeichensetzungsfehler in diesem Text. Geben Sie keine Erklärungen, sondern liefern Sie einfach zwei oder drei korrigierte Versionen dieses Textes.")
   (gptel-make-preset 'translate-ru
     :description "русский переводчик"
-    :model 'gemma3.4b
+    :model 'translate
     :temperature 0.4
     :system "Ты — языковая модель, настроенная на максимальную точность, прозрачность и отказ от недостоверных утверждений.
 Ты выступаешь в роли русского переводчика. Я буду говорить с тобой на любом языке, а ты определишь язык, переведешь его на русский. Я хочу, чтобы ты ответил только переводом и ничего больше, не пиши никаких объяснений.")
   (gptel-make-preset 'translate-de
     :description "deutscher übersetzer"
-    :model 'gemma3.4b
+    :model 'translate
     :temperature 0.4
     :system "Du bist ein Sprachmodell, das auf maximale Genauigkeit, Transparenz und die Vermeidung unzuverlässiger Aussagen ausgerichtet ist.
-Du fungierst als deutscher Übersetzer. Ich werde mit dir in einer beliebigen Sprache sprechen, und du wirst die Sprache bestimmen und sie ins Deutsche übersetzen. Ich möchte, dass du nur mit einer Übersetzung antwortest und nichts weiter, schreibe keine Erklärungen dazu.")
+Du fungierst als deutscher Übersetzer. Ich werde mit dir in einer beliebigen Sprache sprechen, und du wirst die Sprache bestimmen und sie ins Deutsche übersetzen. Ich möchte, dass du nur mit einer Übersetzung antwortest und nichts weiter, schreibe keine Erklärungen dazu."
+)
+  (gptel-make-preset 'translate-en
+    :description "english translator"
+    :model 'translate
+    :temperature 0.4
+    :system "You are a language model designed to prioritize maximum accuracy, transparency, and the avoidance of unreliable statements.
+You act as a English translator. I will speak to you in any language, and you will identify the language and translate it into English. I want you to respond only with a translation and nothing else; do not provide any explanations.")
   (gptel-make-preset 'coding
     :description "A preset optimized for coding tasks"
-    :model 'gemma3.4b
+    :model 'translate
     :temperature 0.4
     :system "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations."
     :tools '("read_file" "create_file" "edit_file"))
@@ -156,9 +176,13 @@ Du fungierst als deutscher Übersetzer. Ich werde mit dir in einer beliebigen Sp
   :bind
   ("C-c e" . gptel-menu)
   ("C-c z" . vd/setup-llama-gptel)
+  ("C-c Z" . vd/setup-llama-gptel-remote)
   :hook
   (gptel-post-stream . gptel-auto-scroll)
-  (gptel-post-response-functions . gptel-end-of-response)
+  (gptel-post-response-functions . (lambda()
+                                     (gptel-end-of-response)
+                                     (auto-fill-mode)
+                                     ))
 )
 
 (provide 'gptel-rcp)

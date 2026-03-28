@@ -1,18 +1,22 @@
 --replace-in-metadata title " " "_"
 --replace-in-metadata title "," "_"
---replace-in-metadata title "|" ""
---replace-in-metadata title "\?" ""
 --replace-in-metadata title ":" ""
---replace-in-metadata title "❗️" ""
+--replace-in-metadata title "\!" ""
 --replace-in-metadata title "\"" ""
 --replace-in-metadata title "\/" ""
---replace-in-metadata title "🇺🇦" ""
---replace-in-metadata title "🐴" ""
+--replace-in-metadata title "\?" ""
+--replace-in-metadata title "\@" ""
+--replace-in-metadata title "\$" ""
+--replace-in-metadata title "|" ""
+--replace-in-metadata "video:title" " ?[\U00002B07-\U00002E7F\U0000E000-\U0000F8FF\U0000FE00-\U0000FE2F\U00010B40-\U0010FFFF]+" ""
+--embed-chapters
+--embed-metadata
+--embed-subs
+--sponsorblock-remove all
 --sub-langs "uk,ru,de,en"
 -N 10
+-S acodec:aiff:opus:ogg:aac:mp4a:mp3
 --video-multistreams
---prefer-free-formats
---embed-metadata
 -P /data/media/youtube/h
 -f "b[height>=1080]/bv[height>=1080]+ba"
--o "%(upload_date>%d.%m)s.%(title)s.%(id)s.%(ext)s"
+-o "%(upload_date>%m.%d)s.%(title)s.%(id)s.%(ext)s"

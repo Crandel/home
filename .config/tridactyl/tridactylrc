@@ -23,7 +23,10 @@ unbind --mode=normal A
 unbind --mode=normal d
 unbind --mode=normal x
 unbind --mode=normal <C-b>
+unbind --mode=normal <C-i>
 unbind --mode=normal <C-f>
+unbind --mode=normal <C-a>
+unbind --mode=normal <C-x>
 unbind --mode=normal >>
 unbind --mode=normal <<
 bind --mode=normal A current_url bmark
@@ -35,6 +38,8 @@ bind --mode=normal { tabmove +1
 bind --mode=normal yv hint -W mpvsafe
 bind --mode=normal yh hint -y
 
+unbind --mode=insert <C-i>
+bind --mode=insert <C-u> editor
 bind --mode=insert <A-i> composite unfocus | mode normal
 " keymaps
 keymap ; :

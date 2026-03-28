@@ -3,11 +3,13 @@
 ;;; Code:
 (eval-when-compile (require 'use-package))
 (use-package emacs
-  :demand t
+  :ensure nil
   :config
   (defalias 'yes-or-no-p     'y-or-n-p)
   (with-current-buffer "*scratch*"
     (emacs-lock-mode 'kill))
+  :custom-face
+  (gnus-group-news-low ((t (:foreground "#7c6f64"))))
   :custom
   (ad-redefinition-action            'accept)
   (bidi-display-reordering           nil "Never reorder bidirectional text for display in the visual order.")
@@ -83,7 +85,8 @@
   ("C-c f o"  . duplicate-dwim)
   ("C-c f r"  . vd/revert-buffer)
   ("C-c f s"  . sort-lines)
-  ("C-c f u"  . upcase-region)
+  ("C-c f u"  . upcase-dwim)
+  ("C-c f U"  . downcase-dwim)
   ("C-c f w"  . save-file)
   ("C-c f x"  . vd/delete-line)
   ("C-c f j"  . hippie-expand)
@@ -91,7 +94,12 @@
   ("C-b"      . list-buffers)
   ("C-c b"    . list-buffers)
   ("C-c q"    . vd/kill-emacs-with-save)
-  ([remap list-buffers] . ibuffer-list-buffers) ;; C-x C-b by default
+  ([remap list-buffers]            . ibuffer-list-buffers) ;; C-x C-b by default
+  ([remap capitalize-word]         . capitalize-dwim) ; Make M-c work on regions
+  ([remap downcase-word]           . downcase-dwim) ; Make M-l work on regions
+  ([remap upcase-word]             . upcase-dwim) ; Make M-u work on regions
+  ([remap kill-buffer]             . kill-current-buffer) ; C-x k stops prompting for buffer to kill
+  ([remap delete-horizontal-space] . cycle-spacing)
   ("C-x b"    . ibuffer)
   ("C-o"      . vd/open-next-line)
   ("C-S-o"    . vd/open-previous-line)

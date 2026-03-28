@@ -5,8 +5,8 @@
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (add-to-list 'package-archives '("elpa" . "https://elpa.gnu.org/packages/") t)
   (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
-  (setq gnutls-algorithm-priority  "NORMAL:-VERS-TLS1.3" ;; bug fix for gnu
-        package-enable-at-startup  nil
+  (setq package-enable-at-startup  nil
+        package-review-policy      t
         package-archive-priorities '(("melpa"        . 200)
                                     ("elpa"         . 100)
                                     ("nongnu"       . 65)
@@ -57,11 +57,10 @@
 (require 'dired-rcp)
 (require 'editorconfig-rcp)
 (require 'eglot-rcp)
-;; (require 'ellama-rcp)
 (require 'embark-rcp)
-(require 'emmet-mode-rcp)
+;; (require 'emmet-mode-rcp)
 (require 'flymake-rcp)
-; (require 'flycheck-rcp)
+;; (require 'flycheck-rcp)
 (require 'git-rcp)
 (require 'grep-rcp)
 (require 'gptel-rcp)
@@ -75,7 +74,6 @@
 (require 'marginalia-rcp)
 (require 'markdown-mode-rcp)
 ;; (require 'monkeytype-rcp)
-;; (require 'minuet-rcp)
 (require 'mail-rcp)
 (require 'mpc-rcp)
 (require 'multi-compile-rcp)
@@ -96,8 +94,6 @@
 (require 'vimrc-mode-rcp)
 (require 'undo-rcp)
 (require 'ytdl-rcp)
-(require 'ztree-rcp)
-
 (require 'web-mode-rcp)
 (require 'i3wm-config-rcp)
 (require 'tree-sitter-rcp)
